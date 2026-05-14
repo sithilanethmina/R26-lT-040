@@ -40,7 +40,6 @@ COMMON_BRANDS = [
 
 def main():
     """Preprocess data for training."""
-    # Get paths relative to script location
     project_root = Path(__file__).resolve().parents[1]
     
     if str(project_root / "src") not in sys.path:
