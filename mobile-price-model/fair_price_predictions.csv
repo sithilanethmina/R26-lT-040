@@ -1,0 +1,999 @@
+phone_type,brand,model,storage_gb,category_key,fair_price_lkr,fair_price_range_low_lkr,fair_price_range_high_lkr,sample_count,confidence,observed_median_lkr,observed_q1_lkr,observed_q3_lkr,observed_min_lkr,observed_max_lkr,representative_ram_gb,representative_warranty_days,representative_dual_sim,representative_has_5g,representative_has_esim,model_used,model_artifact,model_mae_lkr
+android,Ag-Tel,B1,128.0,Ag-Tel B1 | 128GB,17339.68,9539.06,25140.29,1,very_low,1500.0,1500.0,1500.0,1500.0,1500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Alcatel,Other model,64.0,Alcatel Other model | 64GB,29247.86,21447.24,37048.47,1,very_low,16000.0,16000.0,16000.0,16000.0,16000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Asus,ROG,128.0,Asus ROG | 128GB,35108.51,27307.89,42909.12,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Asus,ROG,512.0,Asus ROG | 512GB,70759.08,62958.46,78559.69,1,very_low,68000.0,68000.0,68000.0,68000.0,68000.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Black View,BL9000 Pro,64.0,Black View BL9000 Pro | 64GB,25555.7,17755.08,33356.32,1,very_low,14500.0,14500.0,14500.0,14500.0,14500.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Black View,Color 8,128.0,Black View Color 8 | 128GB,23232.88,15432.26,31033.49,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Black View,Other model,64.0,Black View Other model | 64GB,24768.73,16968.12,32569.35,1,very_low,19990.0,19990.0,19990.0,19990.0,19990.0,12.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Black View,Other model,256.0,Black View Other model | 256GB,36672.79,28872.18,44473.41,1,very_low,26990.0,26990.0,26990.0,26990.0,26990.0,24.0,1825.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Black View,Wave 8,128.0,Black View Wave 8 | 128GB,26536.98,18736.37,34337.6,2,very_low,22245.0,21117.5,23372.5,19990.0,24500.0,6.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Black View,Wave 8C,64.0,Black View Wave 8C | 64GB,13998.57,6197.96,21799.19,2,very_low,14500.0,13750.0,15250.0,13000.0,16000.0,6.0,1.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Blackberry,Q5,128.0,Blackberry Q5 | 128GB,18248.43,10447.82,26049.05,1,very_low,6500.0,6500.0,6500.0,6500.0,6500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Blackberry,Touch,128.0,Blackberry Touch | 128GB,17760.71,9960.09,25561.33,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,4.0,4.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,China Mobile,Other model,64.0,China Mobile Other model | 64GB,12231.57,4430.96,20032.19,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,China Mobile,Other model,128.0,China Mobile Other model | 128GB,16752.12,8951.51,24552.74,2,very_low,10000.0,5500.0,14500.0,1000.0,19000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Dialog,Other model,128.0,Dialog Other model | 128GB,25053.1,17252.49,32853.72,1,very_low,18000.0,18000.0,18000.0,18000.0,18000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Digno,Other model,32.0,Digno Other model | 32GB,18165.64,10365.02,25966.26,1,very_low,4500.0,4500.0,4500.0,4500.0,4500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,E-Tel,N2,64.0,E-Tel N2 | 64GB,17071.92,9271.31,24872.54,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,E-Tel,Other model,128.0,E-Tel Other model | 128GB,35168.05,27367.44,42968.67,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Fujitsu,Arrows NX F-01J,128.0,Fujitsu Arrows NX F-01J | 128GB,22092.55,14291.93,29893.17,1,very_low,6000.0,6000.0,6000.0,6000.0,6000.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel,128.0,Google Pixel | 128GB,98912.06,91111.45,106712.68,1,very_low,115000.0,115000.0,115000.0,115000.0,115000.0,0.0,360.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3,64.0,Google Pixel 3 | 64GB,17770.95,9970.34,25571.57,6,low,13000.0,12125.0,16500.0,7500.0,38000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3,128.0,Google Pixel 3 | 128GB,28222.66,20422.04,36023.27,1,very_low,27000.0,27000.0,27000.0,27000.0,27000.0,6.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3 XL,64.0,Google Pixel 3 XL | 64GB,28185.03,20384.41,35985.64,3,low,28990.0,27990.0,28994.5,26990.0,28999.0,4.0,90.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3 XL,128.0,Google Pixel 3 XL | 128GB,34201.69,26401.08,42002.31,1,very_low,29000.0,29000.0,29000.0,29000.0,29000.0,4.0,365.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3a,64.0,Google Pixel 3a | 64GB,25513.16,17712.54,33313.78,5,low,19000.0,19000.0,23000.0,15500.0,35000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3a,128.0,Google Pixel 3a | 128GB,28367.46,20566.84,36168.07,1,very_low,32500.0,32500.0,32500.0,32500.0,32500.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3a XL,0.0,Google Pixel 3a XL | 0GB,27787.14,19986.52,35587.75,3,low,29900.0,29900.0,29925.0,29900.0,29950.0,4.0,7.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3a XL,64.0,Google Pixel 3a XL | 64GB,26383.13,18582.51,34183.74,4,low,29950.0,29937.5,29960.0,29900.0,29990.0,4.0,3.5,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 3a XL,128.0,Google Pixel 3a XL | 128GB,29509.8,21709.18,37310.42,1,very_low,42000.0,42000.0,42000.0,42000.0,42000.0,6.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 4,64.0,Google Pixel 4 | 64GB,33229.5,25428.88,41030.11,6,low,33500.0,26375.0,39875.0,18000.0,45000.0,6.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 4,128.0,Google Pixel 4 | 128GB,32621.08,24820.47,40421.7,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,6.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 4 XL,64.0,Google Pixel 4 XL | 64GB,29056.71,21256.09,36857.33,3,low,28990.0,28490.0,29490.0,27990.0,29990.0,6.0,90.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 4a,128.0,Google Pixel 4a | 128GB,32487.21,24686.59,40287.82,10,medium,34495.0,29742.5,38750.0,19990.0,45000.0,6.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 5,128.0,Google Pixel 5 | 128GB,41705.46,33904.85,49506.08,16,medium,38945.0,33122.5,40500.0,10000.0,50000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 5a,128.0,Google Pixel 5a | 128GB,40577.22,32776.61,48377.84,8,medium,38495.0,36350.0,38998.25,20000.0,39000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6,0.0,Google Pixel 6 | 0GB,54803.24,47002.63,62603.86,2,very_low,53900.0,53900.0,53900.0,53900.0,53900.0,8.0,3.5,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6,128.0,Google Pixel 6 | 128GB,54797.28,46996.67,62597.9,38,high,56945.0,52000.0,59995.25,38000.0,70000.0,8.0,60.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6,256.0,Google Pixel 6 | 256GB,59211.91,51411.29,67012.52,8,medium,56250.0,53742.5,60717.5,39500.0,65990.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6 Pro,0.0,Google Pixel 6 Pro | 0GB,70353.52,62552.91,78154.14,1,very_low,73900.0,73900.0,73900.0,73900.0,73900.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6 Pro,128.0,Google Pixel 6 Pro | 128GB,64941.07,57140.46,72741.69,31,high,72500.0,69990.0,74990.0,40000.0,89900.0,8.0,7.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6 Pro,256.0,Google Pixel 6 Pro | 256GB,76021.48,68220.87,83822.1,9,medium,79990.0,78991.0,83000.0,60000.0,84990.0,12.0,360.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 6a,128.0,Google Pixel 6a | 128GB,47771.95,39971.33,55572.56,50,high,48990.5,44247.5,51993.75,16000.0,58000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7,128.0,Google Pixel 7 | 128GB,64118.97,56318.36,71919.59,46,high,65995.0,61625.0,68000.0,42000.0,79990.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7,138.0,Google Pixel 7 | 138GB,64118.97,56318.36,71919.59,1,very_low,59990.0,59990.0,59990.0,59990.0,59990.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7,256.0,Google Pixel 7 | 256GB,71660.34,63859.72,79460.95,15,medium,74999.0,71495.0,75090.0,66990.0,78990.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7 Pro,128.0,Google Pixel 7 Pro | 128GB,85562.8,77762.19,93363.42,62,high,87245.0,82242.5,91998.75,45000.0,121490.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7 Pro,256.0,Google Pixel 7 Pro | 256GB,82127.34,74326.72,89927.95,16,medium,84475.0,80242.25,93247.5,48000.0,109500.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7 Pro,512.0,Google Pixel 7 Pro | 512GB,84886.97,77086.35,92687.58,6,low,93500.0,91250.0,97925.0,65000.0,98990.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7a,0.0,Google Pixel 7a | 0GB,62007.76,54207.14,69808.37,3,low,61900.0,59195.0,62945.0,56490.0,63990.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 7a,128.0,Google Pixel 7a | 128GB,61292.54,53491.92,69093.15,60,high,62000.0,59675.0,63000.25,35000.0,73000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8,0.0,Google Pixel 8 | 0GB,87424.21,79623.59,95224.83,4,low,87925.0,87900.0,90587.5,87900.0,98500.0,8.0,3288.5,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8,128.0,Google Pixel 8 | 128GB,89249.22,81448.6,97049.83,76,high,88000.5,86800.25,92000.0,50000.0,110000.0,8.0,7.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8,256.0,Google Pixel 8 | 256GB,95784.41,87983.8,103585.03,9,medium,95500.0,93900.0,100000.0,55000.0,108990.0,8.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8 Pro,0.0,Google Pixel 8 Pro | 0GB,115113.25,107312.63,122913.87,1,very_low,114900.0,114900.0,114900.0,114900.0,114900.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8 Pro,128.0,Google Pixel 8 Pro | 128GB,113987.05,106186.44,121787.67,27,high,114999.0,114900.0,116000.0,100000.0,130000.0,12.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8 Pro,256.0,Google Pixel 8 Pro | 256GB,122865.17,115064.56,130665.79,13,medium,124988.0,122990.0,125000.0,100000.0,130000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8 Pro,512.0,Google Pixel 8 Pro | 512GB,74613.27,66812.65,82413.88,2,very_low,91995.0,80997.5,102992.5,70000.0,113990.0,12.0,1457.5,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8 Pro,1024.0,Google Pixel 8 Pro | 1024GB,128941.97,121141.35,136742.58,3,low,134900.0,129945.0,134945.0,124990.0,134990.0,12.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8a,0.0,Google Pixel 8a | 0GB,76663.18,68862.56,84463.8,3,low,76950.0,76925.0,76970.0,76900.0,76990.0,8.0,6570.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 8a,128.0,Google Pixel 8a | 128GB,83122.86,75322.24,90923.48,33,high,86000.0,84997.0,87998.0,76900.0,97900.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9,128.0,Google Pixel 9 | 128GB,143541.5,135740.88,151342.12,26,high,141990.0,121400.0,146499.25,99900.0,160000.0,12.0,135.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9 Pro,128.0,Google Pixel 9 Pro | 128GB,163823.91,156023.29,171624.52,10,medium,167490.0,164999.25,168998.75,151990.0,169990.0,0.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9 Pro,256.0,Google Pixel 9 Pro | 256GB,168483.12,160682.51,176283.74,2,very_low,169745.0,169622.5,169867.5,169500.0,169990.0,16.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9 Pro,1024.0,Google Pixel 9 Pro | 1024GB,172026.08,164225.46,179826.69,1,very_low,164990.0,164990.0,164990.0,164990.0,164990.0,16.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9 Pro XL,128.0,Google Pixel 9 Pro XL | 128GB,174635.53,166834.92,182436.15,13,medium,177000.0,176000.0,179000.0,175000.0,180000.0,0.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9a,0.0,Google Pixel 9a | 0GB,102034.75,94234.13,109835.37,1,very_low,104900.0,104900.0,104900.0,104900.0,104900.0,8.0,6570.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Google,Pixel 9a,128.0,Google Pixel 9a | 128GB,100407.37,92606.75,108207.98,5,low,106990.0,104990.0,115000.0,104900.0,125000.0,8.0,7.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Greentel,Other model,128.0,Greentel Other model | 128GB,19016.29,11215.67,26816.91,1,very_low,3000.0,3000.0,3000.0,3000.0,3000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Hmd,Aura,128.0,Hmd Aura | 128GB,20576.59,12775.97,28377.2,1,very_low,19500.0,19500.0,19500.0,19500.0,19500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Hmd,Other model,64.0,Hmd Other model | 64GB,21866.11,14065.49,29666.73,1,very_low,24000.0,24000.0,24000.0,24000.0,24000.0,3.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Hmd,Other model,128.0,Hmd Other model | 128GB,25053.1,17252.49,32853.72,2,very_low,35500.0,30750.0,40250.0,26000.0,45000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,400,256.0,Honor 400 | 256GB,102027.03,94226.42,109827.65,3,low,110000.0,107500.0,112500.0,105000.0,115000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,400 Pro,256.0,Honor 400 Pro | 256GB,55446.74,47646.13,63247.36,1,very_low,76000.0,76000.0,76000.0,76000.0,76000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,400 Pro,512.0,Honor 400 Pro | 512GB,167990.5,160189.88,175791.12,2,very_low,155000.0,145000.0,165000.0,135000.0,175000.0,14.0,212.5,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,Magic 7 Pro,512.0,Honor Magic 7 Pro | 512GB,231101.69,223301.07,238902.3,1,very_low,239990.0,239990.0,239990.0,239990.0,239990.0,0.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,Other model,64.0,Honor Other model | 64GB,22367.28,14566.67,30167.9,3,low,19990.0,17990.0,25745.0,15990.0,31500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,Other model,128.0,Honor Other model | 128GB,26629.52,18828.9,34430.14,20,high,29500.0,25750.0,49992.5,5000.0,110000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,Other model,256.0,Honor Other model | 256GB,73354.1,65553.49,81154.72,28,high,59745.0,46500.0,68622.5,25499.0,106000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,Other model,512.0,Honor Other model | 512GB,231909.39,224108.77,239710.01,21,high,73000.0,63500.0,155000.0,42000.0,349900.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X5,32.0,Honor X5 | 32GB,16627.78,8827.17,24428.4,2,very_low,12995.0,11497.5,14492.5,10000.0,15990.0,2.0,45.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X5 Plus,64.0,Honor X5 Plus | 64GB,20616.49,12815.88,28417.11,10,medium,22250.0,19500.0,24500.0,18000.0,28500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X5b,64.0,Honor X5b | 64GB,20616.49,12815.88,28417.11,13,medium,21900.0,19500.0,24500.0,13500.0,27000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X5b,128.0,Honor X5b | 128GB,23420.94,15620.32,31221.55,5,low,23500.0,23000.0,24000.0,22500.0,24999.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X6,0.0,Honor X6 | 0GB,20992.81,13192.2,28793.43,1,very_low,23490.0,23490.0,23490.0,23490.0,23490.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X6,128.0,Honor X6 | 128GB,23420.94,15620.32,31221.55,2,very_low,20250.0,19875.0,20625.0,19500.0,21000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X6b,128.0,Honor X6b | 128GB,28068.84,20268.22,35869.46,16,medium,27250.0,25372.5,30375.0,20000.0,38000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X6c,128.0,Honor X6c | 128GB,29043.61,21243.0,36844.23,22,high,32490.0,29000.0,37375.0,20000.0,45000.0,6.0,15.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X6c,256.0,Honor X6c | 256GB,39514.45,31713.84,47315.07,3,low,36990.0,33245.0,41495.0,29500.0,46000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X7a,128.0,Honor X7a | 128GB,26904.99,19104.37,34705.61,3,low,29990.0,24995.0,29995.0,20000.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X7b,256.0,Honor X7b | 256GB,39519.95,31719.34,47320.57,14,medium,39249.5,37250.0,44250.0,31000.0,64990.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X7c,0.0,Honor X7c | 0GB,37630.54,29829.93,45431.16,1,very_low,38490.0,38490.0,38490.0,38490.0,38490.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X7c,256.0,Honor X7c | 256GB,39408.26,31607.64,47208.87,12,medium,41495.0,38750.0,43122.5,25000.0,46000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X9,256.0,Honor X9 | 256GB,61323.24,53522.62,69123.85,3,low,65990.0,65490.0,66490.0,64990.0,66990.0,12.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X9a,0.0,Honor X9a | 0GB,54566.84,46766.22,62367.46,1,very_low,55000.0,55000.0,55000.0,55000.0,55000.0,13.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X9a,256.0,Honor X9a | 256GB,52944.16,45143.55,60744.78,10,medium,53750.0,44750.0,56500.0,39000.0,63000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Honor,X9c,256.0,Honor X9c | 256GB,73453.63,65653.02,81254.25,12,medium,77500.0,69996.75,86250.0,48000.0,100000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Hotwav,Other Model,128.0,Hotwav Other Model | 128GB,31945.83,24145.22,39746.45,2,very_low,24490.0,24240.0,24740.0,23990.0,24990.0,8.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Hotwav,Other Model,256.0,Hotwav Other Model | 256GB,33888.39,26087.78,41689.01,1,very_low,21000.0,21000.0,21000.0,21000.0,21000.0,6.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,GR5,32.0,Huawei GR5 | 32GB,11661.19,3860.57,19461.81,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Honor,256.0,Huawei Honor | 256GB,56570.33,48769.72,64370.95,1,very_low,72500.0,72500.0,72500.0,72500.0,72500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Honor 6,128.0,Huawei Honor 6 | 128GB,19586.89,11786.27,27387.5,1,very_low,28000.0,28000.0,28000.0,28000.0,28000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Honor 6C,128.0,Huawei Honor 6C | 128GB,21283.77,13483.16,29084.39,2,very_low,33000.0,32500.0,33500.0,32000.0,34000.0,6.0,75.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Honor 7C,256.0,Huawei Honor 7C | 256GB,34766.65,26966.04,42567.27,1,very_low,42000.0,42000.0,42000.0,42000.0,42000.0,0.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Mate 10,64.0,Huawei Mate 10 | 64GB,15734.85,7934.24,23535.47,1,very_low,23000.0,23000.0,23000.0,23000.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova,256.0,Huawei Nova | 256GB,41267.45,33466.83,49068.06,1,very_low,52000.0,52000.0,52000.0,52000.0,52000.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 11i,256.0,Huawei Nova 11i | 256GB,35084.22,27283.61,42884.84,2,very_low,18000.0,16750.0,19250.0,15500.0,20500.0,9.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 2 Lite,32.0,Huawei Nova 2 Lite | 32GB,11661.19,3860.57,19461.81,1,very_low,4500.0,4500.0,4500.0,4500.0,4500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 3i,128.0,Huawei Nova 3i | 128GB,19239.52,11438.91,27040.14,2,very_low,12750.0,12375.0,13125.0,12000.0,13500.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 7 SE,128.0,Huawei Nova 7 SE | 128GB,28871.31,21070.69,36671.93,5,low,33990.0,18000.0,34990.0,15000.0,34990.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 7i,128.0,Huawei Nova 7i | 128GB,25524.78,17724.16,33325.4,2,very_low,15750.0,14875.0,16625.0,14000.0,17500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 8i,128.0,Huawei Nova 8i | 128GB,25875.19,18074.57,33675.8,1,very_low,26000.0,26000.0,26000.0,26000.0,26000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 9,128.0,Huawei Nova 9 | 128GB,25875.19,18074.57,33675.8,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova 9 SE,128.0,Huawei Nova 9 SE | 128GB,26640.87,18840.25,34441.48,4,low,33999.5,32750.0,35249.25,32000.0,36000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova Y61,64.0,Huawei Nova Y61 | 64GB,17141.08,9340.47,24941.7,8,medium,17490.0,15742.5,22992.5,12990.0,25000.0,6.0,46.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova Y70,128.0,Huawei Nova Y70 | 128GB,19984.57,12183.96,27785.19,7,low,24999.0,23250.0,28000.0,19500.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Nova Y70 4GB,128.0,Huawei Nova Y70 4GB | 128GB,19239.52,11438.91,27040.14,1,very_low,24999.0,24999.0,24999.0,24999.0,24999.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Other model,64.0,Huawei Other model | 64GB,17753.61,9952.99,25554.22,2,very_low,25499.5,24749.75,26249.25,24000.0,26999.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Other model,128.0,Huawei Other model | 128GB,25945.74,18145.13,33746.36,4,low,32499.5,28624.25,37500.0,24500.0,45000.0,7.0,45.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P Smart,64.0,Huawei P Smart | 64GB,13320.64,5520.03,21121.26,1,very_low,17000.0,17000.0,17000.0,17000.0,17000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P Smart,128.0,Huawei P Smart | 128GB,18777.32,10976.7,26577.93,3,low,12999.0,12997.0,13999.5,12995.0,15000.0,4.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P10,128.0,Huawei P10 | 128GB,19239.52,11438.91,27040.14,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P20,64.0,Huawei P20 | 64GB,15734.85,7934.24,23535.47,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P20,128.0,Huawei P20 | 128GB,19586.89,11786.27,27387.5,1,very_low,6500.0,6500.0,6500.0,6500.0,6500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P20 Pro,256.0,Huawei P20 Pro | 256GB,33391.96,25591.35,41192.58,1,very_low,39000.0,39000.0,39000.0,39000.0,39000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P30 Lite,128.0,Huawei P30 Lite | 128GB,19586.89,11786.27,27387.5,4,low,19250.0,17000.0,21999.75,15500.0,24999.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P30 Pro,128.0,Huawei P30 Pro | 128GB,32449.97,24649.35,40250.58,3,low,35000.0,34500.0,47500.0,34000.0,60000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P40,256.0,Huawei P40 | 256GB,49454.58,41653.97,57255.2,2,very_low,49250.0,47875.0,50625.0,46500.0,52000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P40 Lite,64.0,Huawei P40 Lite | 64GB,27687.49,19886.88,35488.11,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P40 Lite E,64.0,Huawei P40 Lite E | 64GB,27687.49,19886.88,35488.11,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,P8 Lite,128.0,Huawei P8 Lite | 128GB,24524.96,16724.35,32325.58,1,very_low,8500.0,8500.0,8500.0,8500.0,8500.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y3,128.0,Huawei Y3 | 128GB,19586.89,11786.27,27387.5,1,very_low,4500.0,4500.0,4500.0,4500.0,4500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y5,32.0,Huawei Y5 | 32GB,11516.36,3715.74,19316.98,5,low,12990.0,10500.0,13990.0,8000.0,13990.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y5 2019,32.0,Huawei Y5 2019 | 32GB,11516.36,3715.74,19316.98,1,very_low,13990.0,13990.0,13990.0,13990.0,13990.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y5 Lite,32.0,Huawei Y5 Lite | 32GB,11516.36,3715.74,19316.98,2,very_low,7250.0,6125.0,8375.0,5000.0,9500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y5p,128.0,Huawei Y5p | 128GB,19586.89,11786.27,27387.5,1,very_low,17000.0,17000.0,17000.0,17000.0,17000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y6,64.0,Huawei Y6 | 64GB,15734.85,7934.24,23535.47,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y6p,64.0,Huawei Y6p | 64GB,15734.85,7934.24,23535.47,8,medium,17500.0,15750.0,19625.0,12500.0,26000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7,64.0,Huawei Y7 | 64GB,13320.64,5520.03,21121.26,2,very_low,15000.0,14000.0,16000.0,13000.0,17000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7,128.0,Huawei Y7 | 128GB,19586.89,11786.27,27387.5,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7 Pro,32.0,Huawei Y7 Pro | 32GB,11661.19,3860.57,19461.81,3,low,12500.0,9250.0,13250.0,6000.0,14000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7 Pro,64.0,Huawei Y7 Pro | 64GB,13320.64,5520.03,21121.26,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7 Pro,128.0,Huawei Y7 Pro | 128GB,19239.52,11438.91,27040.14,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7a,64.0,Huawei Y7a | 64GB,15477.17,7676.55,23277.78,2,very_low,13750.0,13125.0,14375.0,12500.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7a,128.0,Huawei Y7a | 128GB,18981.84,11181.22,26782.45,9,medium,15000.0,14000.0,16500.0,9000.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y7p,64.0,Huawei Y7p | 64GB,15734.85,7934.24,23535.47,2,very_low,11750.0,10625.0,12875.0,9500.0,14000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y9,32.0,Huawei Y9 | 32GB,11661.19,3860.57,19461.81,1,very_low,11500.0,11500.0,11500.0,11500.0,11500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y9,64.0,Huawei Y9 | 64GB,15734.85,7934.24,23535.47,5,low,10500.0,10000.0,13500.0,6500.0,16500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y9 Prime,64.0,Huawei Y9 Prime | 64GB,15734.85,7934.24,23535.47,1,very_low,16500.0,16500.0,16500.0,16500.0,16500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y9 Prime,128.0,Huawei Y9 Prime | 128GB,19239.52,11438.91,27040.14,2,very_low,16500.0,14750.0,18250.0,13000.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,Y9s,128.0,Huawei Y9s | 128GB,19586.89,11786.27,27387.5,1,very_low,12500.0,12500.0,12500.0,12500.0,12500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,nova 10,256.0,Huawei nova 10 | 256GB,71090.95,63290.34,78891.57,3,low,79999.0,77499.0,79999.0,74999.0,79999.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Huawei,nova 10 Pro,256.0,Huawei nova 10 Pro | 256GB,36592.36,28791.74,44392.98,1,very_low,44999.0,44999.0,44999.0,44999.0,44999.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,HOT 50 PRO +,256.0,Infinix HOT 50 PRO + | 256GB,43751.12,35950.5,51551.73,1,very_low,44990.0,44990.0,44990.0,44990.0,44990.0,0.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 10,64.0,Infinix Hot 10 | 64GB,19625.03,11824.41,27425.64,1,very_low,16000.0,16000.0,16000.0,16000.0,16000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 10 Play,64.0,Infinix Hot 10 Play | 64GB,19625.03,11824.41,27425.64,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 11 Play,64.0,Infinix Hot 11 Play | 64GB,19625.03,11824.41,27425.64,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 20,256.0,Infinix Hot 20 | 256GB,42437.12,34636.51,50237.74,1,very_low,32500.0,32500.0,32500.0,32500.0,32500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 40i,128.0,Infinix Hot 40i | 128GB,26372.76,18572.15,34173.38,5,low,30000.0,26000.0,33000.0,14000.0,34500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 40i,256.0,Infinix Hot 40i | 256GB,39920.64,32120.03,47721.26,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 50i,128.0,Infinix Hot 50i | 128GB,23904.83,16104.21,31705.44,14,medium,29250.0,24250.0,32175.0,18000.0,49000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 60 Pro,256.0,Infinix Hot 60 Pro | 256GB,43588.12,35787.5,51388.73,4,low,52500.0,49375.0,56247.5,47500.0,59990.0,8.0,45.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 60 Pro+,256.0,Infinix Hot 60 Pro+ | 256GB,54842.82,47042.2,62643.44,13,medium,58000.0,49990.0,62000.0,47500.0,70000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 60i,128.0,Infinix Hot 60i | 128GB,29430.46,21629.84,37231.07,20,high,32000.0,27747.5,35992.5,25000.0,42500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 60i,256.0,Infinix Hot 60i | 256GB,49855.21,42054.59,57655.82,6,low,39990.0,34372.5,40747.5,29990.0,49000.0,16.0,135.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Hot 9 Play,64.0,Infinix Hot 9 Play | 64GB,17701.99,9901.37,25502.6,2,very_low,19500.0,18250.0,20750.0,17000.0,22000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 40,256.0,Infinix Note 40 | 256GB,46036.61,38236.0,53837.23,7,low,45000.0,42499.5,46249.5,30000.0,59990.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50,0.0,Infinix Note 50 | 0GB,54221.39,46420.77,62022.0,1,very_low,57500.0,57500.0,57500.0,57500.0,57500.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50,128.0,Infinix Note 50 | 128GB,40932.75,33132.13,48733.36,1,very_low,46999.0,46999.0,46999.0,46999.0,46999.0,8.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50,256.0,Infinix Note 50 | 256GB,57917.54,50116.93,65718.16,21,high,60000.0,54000.0,64990.0,45000.0,80000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50 Blue,0.0,Infinix Note 50 Blue | 0GB,41506.1,33705.48,49306.71,1,very_low,94990.0,94990.0,94990.0,94990.0,94990.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50 Pro+,256.0,Infinix Note 50 Pro+ | 256GB,45047.68,37247.07,52848.3,2,very_low,46500.0,44750.0,48250.0,43000.0,50000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50 S,128.0,Infinix Note 50 S | 128GB,23904.83,16104.21,31705.44,1,very_low,41500.0,41500.0,41500.0,41500.0,41500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Note 50 s,128.0,Infinix Note 50 s | 128GB,25437.39,17636.77,33238.01,1,very_low,41500.0,41500.0,41500.0,41500.0,41500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Other model,128.0,Infinix Other model | 128GB,26288.58,18487.96,34089.2,7,low,22000.0,21000.0,33500.0,19000.0,47500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Other model,256.0,Infinix Other model | 256GB,56255.51,48454.89,64056.12,16,medium,60000.0,47622.5,70717.5,35500.0,80000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart 10,64.0,Infinix Smart 10 | 64GB,19125.68,11325.07,26926.3,6,low,21400.0,20242.5,23450.0,12500.0,25000.0,4.0,1.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart 10 Plus,64.0,Infinix Smart 10 Plus | 64GB,26131.45,18330.84,33932.07,1,very_low,23000.0,23000.0,23000.0,23000.0,23000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart 10 Plus,128.0,Infinix Smart 10 Plus | 128GB,23976.88,16176.26,31777.49,7,low,24000.0,23750.0,24950.0,21900.0,28500.0,4.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart 8,64.0,Infinix Smart 8 | 64GB,17393.74,9593.12,25194.35,6,low,18750.0,17250.0,19875.0,15000.0,27000.0,2.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart 9,128.0,Infinix Smart 9 | 128GB,29313.69,21513.07,37114.3,3,low,22000.0,21750.0,23000.0,21500.0,24000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart 9 HD,64.0,Infinix Smart 9 HD | 64GB,19625.03,11824.41,27425.64,3,low,20000.0,19495.0,21000.0,18990.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart HD,32.0,Infinix Smart HD | 32GB,15734.27,7933.66,23534.89,1,very_low,9500.0,9500.0,9500.0,9500.0,9500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Infinix,Smart HD,64.0,Infinix Smart HD | 64GB,19625.03,11824.41,27425.64,2,very_low,23000.0,21500.0,24500.0,20000.0,26000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Ipro,old model,128.0,Ipro old model | 128GB,19636.99,11836.38,27437.61,1,very_low,3500.0,3500.0,3500.0,3500.0,3500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Iqoo,Neo 10R,256.0,Iqoo Neo 10R | 256GB,62608.64,54808.02,70409.25,1,very_low,76000.0,76000.0,76000.0,76000.0,76000.0,0.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Iqoo,Other model,128.0,Iqoo Other model | 128GB,43536.67,35736.06,51337.29,20,high,41200.0,29997.5,46250.0,28000.0,67500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Iqoo,Other model,256.0,Iqoo Other model | 256GB,71943.82,64143.2,79744.44,32,high,57750.0,54125.0,70124.25,28000.0,135000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Iqoo,Z3,32.0,Iqoo Z3 | 32GB,30264.29,22463.67,38064.9,1,very_low,4800.0,4800.0,4800.0,4800.0,4800.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Iqoo,Z6 lite,128.0,Iqoo Z6 lite | 128GB,28735.98,20935.37,36536.6,1,very_low,26000.0,26000.0,26000.0,26000.0,26000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Iqoo,Z6 lite,256.0,Iqoo Z6 lite | 256GB,39579.98,31779.36,47380.6,1,very_low,26500.0,26500.0,26500.0,26500.0,26500.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Itel,A60,32.0,Itel A60 | 32GB,12853.43,5052.81,20654.04,3,low,15000.0,14750.0,15500.0,14500.0,16000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Itel,A60,64.0,Itel A60 | 64GB,14657.71,6857.09,22458.33,2,very_low,17250.0,15875.0,18625.0,14500.0,20000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Itel,Other model,32.0,Itel Other model | 32GB,15606.6,7805.98,23407.21,3,low,20000.0,17500.0,21495.0,15000.0,22990.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Itel,Other model,64.0,Itel Other model | 64GB,19825.1,12024.48,27625.71,6,low,15000.0,14250.0,16500.0,12500.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Kyocera,Basio 4,32.0,Kyocera Basio 4 | 32GB,12998.26,5197.64,20798.87,2,very_low,14499.0,14249.0,14749.0,13999.0,14999.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Kyocera,Other Model,32.0,Kyocera Other Model | 32GB,14351.42,6550.8,22152.03,9,medium,11994.0,11990.0,11997.0,9490.0,11999.0,3.0,360.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,G3,32.0,LG G3 | 32GB,12439.39,4638.78,20240.01,1,very_low,8250.0,8250.0,8250.0,8250.0,8250.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,G4 Pro,32.0,LG G4 Pro | 32GB,14833.97,7033.36,22634.59,1,very_low,6900.0,6900.0,6900.0,6900.0,6900.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,G6,64.0,LG G6 | 64GB,18907.64,11107.02,26708.25,1,very_low,7500.0,7500.0,7500.0,7500.0,7500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,K50s,32.0,LG K50s | 32GB,14833.97,7033.36,22634.59,1,very_low,8000.0,8000.0,8000.0,8000.0,8000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Other model,64.0,LG Other model | 64GB,21267.3,13466.68,29067.92,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Q51,32.0,LG Q51 | 32GB,16749.55,8948.94,24550.17,1,very_low,28000.0,28000.0,28000.0,28000.0,28000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Q51,64.0,LG Q51 | 64GB,18907.64,11107.02,26708.25,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Q52,64.0,LG Q52 | 64GB,18907.64,11107.02,26708.25,4,low,20750.0,20375.0,23250.0,20000.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Q61 ThinQ,64.0,LG Q61 ThinQ | 64GB,17872.49,10071.87,25673.11,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,0.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Q9,64.0,LG Q9 | 64GB,17619.44,9818.83,25420.06,1,very_low,19000.0,19000.0,19000.0,19000.0,19000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,V10,64.0,LG V10 | 64GB,18907.64,11107.02,26708.25,1,very_low,10500.0,10500.0,10500.0,10500.0,10500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,V40,128.0,LG V40 | 128GB,22759.67,14959.05,30560.28,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,V50s,256.0,LG V50s | 256GB,50697.47,42896.85,58498.08,3,low,40000.0,40000.0,47500.0,40000.0,55000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,V60,128.0,LG V60 | 128GB,41424.06,33623.44,49224.67,2,very_low,41500.0,38250.0,44750.0,35000.0,48000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,LG,Velvet,128.0,LG Velvet | 128GB,42495.8,34695.18,50296.41,2,very_low,46500.0,45750.0,47250.0,45000.0,48000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Meizu,Lucky 08,256.0,Meizu Lucky 08 | 256GB,57356.5,49555.88,65157.11,1,very_low,68000.0,68000.0,68000.0,68000.0,68000.0,24.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Micromax,Q-,128.0,Micromax Q- | 128GB,18476.11,10675.49,26276.73,1,very_low,2600.0,2600.0,2600.0,2600.0,2600.0,8.0,1.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,G04s,64.0,Motorola G04s | 64GB,17211.35,9410.74,25011.97,3,low,15000.0,14500.0,16500.0,14000.0,18000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,G30,128.0,Motorola G30 | 128GB,27458.22,19657.6,35258.83,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,G5,64.0,Motorola G5 | 64GB,17528.81,9728.19,25329.42,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,Other model,32.0,Motorola Other model | 32GB,15627.33,7826.71,23427.94,1,very_low,12500.0,12500.0,12500.0,12500.0,12500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,Other model,64.0,Motorola Other model | 64GB,19964.53,12163.91,27765.14,8,medium,22250.0,20125.0,28375.0,13000.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,Other model,128.0,Motorola Other model | 128GB,36573.62,28773.01,44374.24,9,medium,27000.0,26500.0,31500.0,4500.0,49500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Motorola,Other model,256.0,Motorola Other model | 256GB,55745.01,47944.39,63545.62,12,medium,59000.0,48375.0,66250.0,43000.0,78000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,1.4,32.0,Nokia 1.4 | 32GB,11494.12,3693.51,19294.74,6,low,11000.0,9375.0,12625.0,7500.0,15000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,1.4,64.0,Nokia 1.4 | 64GB,12957.34,5156.73,20757.96,2,very_low,16000.0,14000.0,18000.0,12000.0,20000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,105,128.0,Nokia 105 | 128GB,7017.12,0.0,14817.74,8,medium,2995.0,2050.0,3750.0,1600.0,5500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,110,128.0,Nokia 110 | 128GB,7459.75,0.0,15260.37,1,very_low,3500.0,3500.0,3500.0,3500.0,3500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,1280,128.0,Nokia 1280 | 128GB,7459.75,0.0,15260.37,1,very_low,2100.0,2100.0,2100.0,2100.0,2100.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,150,32.0,Nokia 150 | 32GB,5253.58,0.0,13054.2,2,very_low,4000.0,4000.0,4000.0,4000.0,4000.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,150,128.0,Nokia 150 | 128GB,7459.75,0.0,15260.37,1,very_low,5500.0,5500.0,5500.0,5500.0,5500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,2.4,32.0,Nokia 2.4 | 32GB,6886.35,0.0,14686.97,1,very_low,8000.0,8000.0,8000.0,8000.0,8000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,3.4,64.0,Nokia 3.4 | 64GB,13179.1,5378.49,20979.72,4,low,13000.0,11500.0,14997.5,10000.0,17990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,5.4,64.0,Nokia 5.4 | 64GB,13149.39,5348.77,20950.01,1,very_low,15500.0,15500.0,15500.0,15500.0,15500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,C1,16.0,Nokia C1 | 16GB,38958.0,31157.39,46758.62,1,very_low,4500.0,4500.0,4500.0,4500.0,4500.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,C1,64.0,Nokia C1 | 64GB,14662.19,6861.58,22462.81,1,very_low,5700.0,5700.0,5700.0,5700.0,5700.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,C1,128.0,Nokia C1 | 128GB,7459.75,0.0,15260.37,3,low,4800.0,4650.0,5400.0,4500.0,6000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,C20,32.0,Nokia C20 | 32GB,10225.63,2425.01,18026.24,2,very_low,12495.0,11242.5,13747.5,9990.0,15000.0,2.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,C20,128.0,Nokia C20 | 128GB,11859.98,4059.36,19660.59,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,G10,64.0,Nokia G10 | 64GB,13149.39,5348.77,20950.01,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nokia,Other model,128.0,Nokia Other model | 128GB,12257.05,4456.44,20057.67,5,low,2900.0,1500.0,18000.0,1300.0,21000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,CMF Phone 1,0.0,Nothing CMF Phone 1 | 0GB,52014.98,44214.36,59815.59,1,very_low,54999.0,54999.0,54999.0,54999.0,54999.0,8.0,180.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,CMF Phone 1,128.0,Nothing CMF Phone 1 | 128GB,42553.29,34752.67,50353.91,3,low,44500.0,44250.0,44749.5,44000.0,44999.0,8.0,2.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,CMF Phone 2 Pro,128.0,Nothing CMF Phone 2 Pro | 128GB,52877.14,45076.52,60677.75,4,low,56000.0,55975.0,59500.0,55900.0,70000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,CMF Phone 2 Pro,256.0,Nothing CMF Phone 2 Pro | 256GB,60735.91,52935.29,68536.52,3,low,59999.0,57499.5,63999.5,55000.0,68000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,Phone 1,256.0,Nothing Phone 1 | 256GB,48739.64,40939.03,56540.26,1,very_low,45000.0,45000.0,45000.0,45000.0,45000.0,6.0,730.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,Phone 2,512.0,Nothing Phone 2 | 512GB,73689.75,65889.13,81490.37,2,very_low,77000.0,76500.0,77500.0,76000.0,78000.0,12.0,90.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,Phone 2a,256.0,Nothing Phone 2a | 256GB,66562.11,58761.49,74362.73,3,low,65000.0,64000.0,67499.5,63000.0,69999.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Nothing,Phone 3a,256.0,Nothing Phone 3a | 256GB,60735.91,52935.29,68536.52,2,very_low,67750.0,65125.0,70375.0,62500.0,73000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,10 Pro,256.0,OnePlus 10 Pro | 256GB,61046.39,53245.77,68847.0,2,very_low,73000.0,71250.0,74750.0,69500.0,76500.0,14.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,10R,256.0,OnePlus 10R | 256GB,40960.07,33159.46,48760.69,1,very_low,24999.0,24999.0,24999.0,24999.0,24999.0,12.0,365.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,10T,128.0,OnePlus 10T | 128GB,41845.46,34044.84,49646.08,1,very_low,56000.0,56000.0,56000.0,56000.0,56000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,11,128.0,OnePlus 11 | 128GB,47066.73,39266.11,54867.35,1,very_low,34000.0,34000.0,34000.0,34000.0,34000.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,11,256.0,OnePlus 11 | 256GB,57434.25,49633.63,65234.87,3,low,72500.0,65250.0,73750.0,58000.0,75000.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,11R,128.0,OnePlus 11R | 128GB,58068.75,50268.13,65869.36,10,medium,65495.0,59990.0,68375.0,57899.0,69990.0,8.0,45.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,11R,256.0,OnePlus 11R | 256GB,68421.61,60620.99,76222.23,3,low,71500.0,70750.0,75750.0,70000.0,80000.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,12R,128.0,OnePlus 12R | 128GB,67040.95,59240.33,74841.56,2,very_low,71000.0,69000.0,73000.0,67000.0,75000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,12R,256.0,OnePlus 12R | 256GB,90532.45,82731.83,98333.06,9,medium,84999.0,80000.0,86500.0,69500.0,110900.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,12R,512.0,OnePlus 12R | 512GB,93708.3,85907.69,101508.92,1,very_low,88000.0,88000.0,88000.0,88000.0,88000.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,6T,128.0,OnePlus 6T | 128GB,26123.19,18322.57,33923.81,2,very_low,26250.0,26125.0,26375.0,26000.0,26500.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,7 Pro,256.0,OnePlus 7 Pro | 256GB,48201.63,40401.01,56002.24,2,very_low,50250.0,38875.0,61625.0,27500.0,73000.0,10.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,8,128.0,OnePlus 8 | 128GB,35161.08,27360.46,42961.69,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,8,256.0,OnePlus 8 | 256GB,50232.38,42431.76,58032.99,1,very_low,29500.0,29500.0,29500.0,29500.0,29500.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,8T,128.0,OnePlus 8T | 128GB,33067.78,25267.17,40868.4,1,very_low,31000.0,31000.0,31000.0,31000.0,31000.0,8.0,7.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,8T,256.0,OnePlus 8T | 256GB,45708.64,37908.03,53509.26,1,very_low,29500.0,29500.0,29500.0,29500.0,29500.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,9,128.0,OnePlus 9 | 128GB,41845.46,34044.84,49646.08,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,9 Pro,256.0,OnePlus 9 Pro | 256GB,42930.86,35130.25,50731.48,4,low,39500.0,29250.0,50500.0,28500.0,53500.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,9R,256.0,OnePlus 9R | 256GB,57663.27,49862.65,65463.89,1,very_low,59990.0,59990.0,59990.0,59990.0,59990.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord,128.0,OnePlus Nord | 128GB,42616.08,34815.46,50416.69,4,low,41740.0,40367.5,48867.5,40000.0,66500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord,256.0,OnePlus Nord | 256GB,50277.03,42476.42,58077.65,2,very_low,58000.0,57500.0,58500.0,57000.0,59000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord 2,256.0,OnePlus Nord 2 | 256GB,43105.54,35304.93,50906.16,1,very_low,26999.0,26999.0,26999.0,26999.0,26999.0,12.0,365.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord 2T,128.0,OnePlus Nord 2T | 128GB,42203.9,34403.29,50004.52,6,low,39000.0,36750.0,39375.0,29500.0,42990.0,10.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord CE,128.0,OnePlus Nord CE | 128GB,42212.53,34411.92,50013.15,7,low,42500.0,39250.0,44000.0,36500.0,67500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord CE,256.0,OnePlus Nord CE | 256GB,53415.29,45614.67,61215.91,6,low,53250.0,48875.0,53875.0,42900.0,70000.0,10.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord CE 3 Lite,0.0,OnePlus Nord CE 3 Lite | 0GB,55187.36,47386.75,62987.98,2,very_low,34500.0,31750.0,37250.0,29000.0,40000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord CE 3 Lite,128.0,OnePlus Nord CE 3 Lite | 128GB,41081.36,33280.74,48881.98,3,low,48000.0,44000.0,64000.0,40000.0,80000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord CE 3 Lite,256.0,OnePlus Nord CE 3 Lite | 256GB,41585.65,33785.03,49386.26,8,medium,38250.0,37492.5,40125.0,31000.0,45500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord N10,128.0,OnePlus Nord N10 | 128GB,35372.72,27572.11,43173.34,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord N20 SE,64.0,OnePlus Nord N20 SE | 64GB,30008.37,22207.75,37808.98,2,very_low,27499.5,26249.75,28749.25,25000.0,29999.0,4.0,45.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Nord N20 SE ONE PLUS,64.0,OnePlus Nord N20 SE ONE PLUS | 64GB,32700.52,24899.91,40501.14,1,very_low,21000.0,21000.0,21000.0,21000.0,21000.0,0.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Other model,0.0,OnePlus Other model | 0GB,176468.84,168668.23,184269.46,2,very_low,185249.5,185124.25,185374.75,184999.0,185500.0,16.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Other model,128.0,OnePlus Other model | 128GB,47053.95,39253.34,54854.57,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Other model,256.0,OnePlus Other model | 256GB,118040.29,110239.67,125840.91,11,medium,94999.0,81450.0,134000.0,59999.0,155000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,OnePlus,Other model,512.0,OnePlus Other model | 512GB,136708.77,128908.15,144509.38,9,medium,142000.0,132000.0,169990.0,95000.0,185500.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A12,32.0,Oppo A12 | 32GB,12089.61,4289.0,19890.23,6,low,13250.0,12625.0,13875.0,10500.0,16000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A15,64.0,Oppo A15 | 64GB,13749.07,5948.45,21549.68,1,very_low,10500.0,10500.0,10500.0,10500.0,10500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A15s,32.0,Oppo A15s | 32GB,12089.61,4289.0,19890.23,1,very_low,15999.0,15999.0,15999.0,15999.0,15999.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A15s,64.0,Oppo A15s | 64GB,16163.28,8362.66,23963.9,2,very_low,20500.0,19250.0,21750.0,18000.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A16,32.0,Oppo A16 | 32GB,13843.06,6042.44,21643.67,7,low,16500.0,11500.0,22250.0,8000.0,25000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A16,64.0,Oppo A16 | 64GB,17916.73,10116.11,25717.34,1,very_low,16000.0,16000.0,16000.0,16000.0,16000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A16k,32.0,Oppo A16k | 32GB,12924.75,5124.14,20725.37,2,very_low,15999.5,15499.25,16499.75,14999.0,17000.0,3.0,45.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A17,64.0,Oppo A17 | 64GB,16163.28,8362.66,23963.9,6,low,22500.0,19000.0,24500.0,13500.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A17,128.0,Oppo A17 | 128GB,19445.67,11645.05,27246.28,1,very_low,20000.0,20000.0,20000.0,20000.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A17K,64.0,Oppo A17K | 64GB,13749.07,5948.45,21549.68,4,low,20250.0,19500.0,21250.0,18000.0,23500.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A17K,128.0,Oppo A17K | 128GB,19793.03,11992.42,27593.65,1,very_low,19000.0,19000.0,19000.0,19000.0,19000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A1k,32.0,Oppo A1k | 32GB,11944.78,4144.17,19745.4,3,low,10500.0,10000.0,10750.0,9500.0,11000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A3,128.0,Oppo A3 | 128GB,19793.03,11992.42,27593.65,4,low,26494.5,25625.0,29616.75,24500.0,37500.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A31,64.0,Oppo A31 | 64GB,16163.28,8362.66,23963.9,1,very_low,13000.0,13000.0,13000.0,13000.0,13000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A31,128.0,Oppo A31 | 128GB,19445.67,11645.05,27246.28,1,very_low,9250.0,9250.0,9250.0,9250.0,9250.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A31,256.0,Oppo A31 | 256GB,15399.81,7599.19,23200.42,53,high,16490.0,15000.0,16950.0,9500.0,30000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A37,128.0,Oppo A37 | 128GB,20960.48,13159.86,28761.09,2,very_low,9000.0,8500.0,9500.0,8000.0,10000.0,10.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A3s,64.0,Oppo A3s | 64GB,14823.75,7023.14,22624.37,3,low,11000.0,10250.0,12250.0,9500.0,13500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A3s,128.0,Oppo A3s | 128GB,13199.98,5399.37,21000.6,69,high,13010.0,12555.0,13544.0,7500.0,15500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A3s,256.0,Oppo A3s | 256GB,22130.37,14329.76,29930.99,3,low,10993.0,10246.5,12246.0,9500.0,13499.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5,64.0,Oppo A5 | 64GB,19635.74,11835.12,27436.35,2,very_low,16750.0,16125.0,17375.0,15500.0,18000.0,4.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5,128.0,Oppo A5 | 128GB,29796.71,21996.09,37597.33,11,medium,36500.0,35750.0,37500.0,30000.0,39000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5,256.0,Oppo A5 | 256GB,41801.81,34001.19,49602.42,11,medium,44990.0,40750.0,46250.0,37500.0,68900.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A53,64.0,Oppo A53 | 64GB,16218.37,8417.75,24018.98,4,low,23500.0,21875.0,24125.0,18500.0,24500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A53,128.0,Oppo A53 | 128GB,19500.75,11700.14,27301.37,5,low,17500.0,17500.0,20500.0,6000.0,21500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A53,256.0,Oppo A53 | 256GB,27871.87,20071.25,35672.48,4,low,24150.0,22225.0,30375.0,17500.0,48000.0,7.0,1.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A54,128.0,Oppo A54 | 128GB,19445.67,11645.05,27246.28,2,very_low,14250.0,13875.0,14625.0,13500.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A57,64.0,Oppo A57 | 64GB,13718.94,5918.32,21519.55,9,medium,9000.0,8000.0,19999.0,6000.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A57,128.0,Oppo A57 | 128GB,16389.75,8589.13,24190.36,2,very_low,9500.0,8500.0,10500.0,7500.0,11500.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A58,128.0,Oppo A58 | 128GB,28207.75,20407.14,36008.37,3,low,38000.0,31750.0,38250.0,25500.0,38500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5s,32.0,Oppo A5s | 32GB,11051.12,3250.51,18851.74,3,low,11500.0,9250.0,12000.0,7000.0,12500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5s,64.0,Oppo A5s | 64GB,15448.66,7648.05,23249.28,2,very_low,13995.0,13992.5,13997.5,13990.0,14000.0,4.0,7.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5s,128.0,Oppo A5s | 128GB,18629.31,10828.69,26429.92,8,medium,14250.0,13874.25,15367.5,10000.0,42000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5x,64.0,Oppo A5x | 64GB,24247.71,16447.09,32048.32,4,low,29000.0,25250.0,31500.0,20000.0,33000.0,4.0,120.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A5x,128.0,Oppo A5x | 128GB,24459.56,16658.95,32260.18,9,medium,30000.0,26500.0,33000.0,24999.0,37000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A7,128.0,Oppo A7 | 128GB,19793.03,11992.42,27593.65,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A71,256.0,Oppo A71 | 256GB,28538.97,20738.35,36339.58,1,very_low,12300.0,12300.0,12300.0,12300.0,12300.0,8.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A73,256.0,Oppo A73 | 256GB,42016.16,34215.54,49816.78,1,very_low,29900.0,29900.0,29900.0,29900.0,29900.0,12.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A77,128.0,Oppo A77 | 128GB,24437.02,16636.4,32237.64,1,very_low,27999.0,27999.0,27999.0,27999.0,27999.0,6.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A77s,128.0,Oppo A77s | 128GB,24906.49,17105.87,32707.1,1,very_low,28000.0,28000.0,28000.0,28000.0,28000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A78,128.0,Oppo A78 | 128GB,32185.07,24384.45,39985.68,1,very_low,27500.0,27500.0,27500.0,27500.0,27500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A78,256.0,Oppo A78 | 256GB,32817.88,25017.26,40618.49,4,low,30000.0,24500.0,35125.0,23000.0,35500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A83,128.0,Oppo A83 | 128GB,19330.83,11530.21,27131.45,2,very_low,9501.5,9500.75,9502.25,9500.0,9503.0,6.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A9,128.0,Oppo A9 | 128GB,30234.68,22434.06,38035.29,1,very_low,34990.0,34990.0,34990.0,34990.0,34990.0,8.0,2920.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A9,256.0,Oppo A9 | 256GB,37166.86,29366.25,44967.48,2,very_low,22995.0,19497.5,26492.5,16000.0,29990.0,8.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,A96,256.0,Oppo A96 | 256GB,30318.28,22517.66,38118.89,1,very_low,26000.0,26000.0,26000.0,26000.0,26000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F11,128.0,Oppo F11 | 128GB,17051.01,9250.4,24851.63,2,very_low,20500.0,19000.0,22000.0,17500.0,23500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F11,256.0,Oppo F11 | 256GB,27576.26,19775.64,35376.87,1,very_low,12500.0,12500.0,12500.0,12500.0,12500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F15,128.0,Oppo F15 | 128GB,19793.03,11992.42,27593.65,2,very_low,17500.0,16250.0,18750.0,15000.0,20000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F17,128.0,Oppo F17 | 128GB,21639.34,13838.72,29439.96,7,low,21000.0,17450.0,21750.0,5500.0,23500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F17 Pro,256.0,Oppo F17 Pro | 256GB,38651.17,30850.55,46451.78,1,very_low,29000.0,29000.0,29000.0,29000.0,29000.0,8.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F19,128.0,Oppo F19 | 128GB,19793.03,11992.42,27593.65,3,low,24500.0,24250.0,24750.0,24000.0,25000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F19 Pro,128.0,Oppo F19 Pro | 128GB,24906.49,17105.87,32707.1,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F1s,32.0,Oppo F1s | 32GB,12089.61,4289.0,19890.23,2,very_low,8000.0,7675.0,8325.0,7350.0,8650.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F1s,64.0,Oppo F1s | 64GB,16163.28,8362.66,23963.9,1,very_low,6500.0,6500.0,6500.0,6500.0,6500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F21 Pro,128.0,Oppo F21 Pro | 128GB,26838.63,19038.02,34639.25,2,very_low,37000.0,35500.0,38500.0,34000.0,40000.0,14.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F23,256.0,Oppo F23 | 256GB,50101.29,42300.68,57901.91,1,very_low,39999.0,39999.0,39999.0,39999.0,39999.0,16.0,14.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F9,64.0,Oppo F9 | 64GB,16163.28,8362.66,23963.9,1,very_low,12500.0,12500.0,12500.0,12500.0,12500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,F9,128.0,Oppo F9 | 128GB,19445.67,11645.05,27246.28,1,very_low,17990.0,17990.0,17990.0,17990.0,17990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Other model,64.0,Oppo Other model | 64GB,20885.62,13085.01,28686.24,11,medium,22999.0,21999.5,26495.0,14999.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Other model,128.0,Oppo Other model | 128GB,36916.32,29115.7,44716.94,31,high,31990.0,24000.0,44250.0,17000.0,69500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Other model,256.0,Oppo Other model | 256GB,48291.4,40490.79,56092.02,33,high,49499.0,44500.0,59500.0,26999.0,89000.0,8.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,R9 Plus,64.0,Oppo R9 Plus | 64GB,16510.64,8710.03,24311.26,1,very_low,9850.0,9850.0,9850.0,9850.0,9850.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno,128.0,Oppo Reno | 128GB,52234.61,44433.99,60035.23,8,medium,52249.5,49124.25,54749.25,17000.0,67000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno,256.0,Oppo Reno | 256GB,66274.38,58473.77,74075.0,14,medium,53249.5,35492.5,76500.0,28990.0,89999.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno,512.0,Oppo Reno | 512GB,83147.19,75346.57,90947.8,2,very_low,105000.0,102500.0,107500.0,100000.0,110000.0,12.0,67.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno 12,256.0,Oppo Reno 12 | 256GB,50653.55,42852.93,58454.16,5,low,59500.0,53000.0,59999.0,49999.0,65000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno 12 Pro,256.0,Oppo Reno 12 Pro | 256GB,56091.37,48290.75,63891.98,2,very_low,63499.5,61749.25,65249.75,59999.0,67000.0,12.0,182.5,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno 4,256.0,Oppo Reno 4 | 256GB,37088.11,29287.49,44888.73,2,very_low,29994.5,29992.25,29996.75,29990.0,29999.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno 7,256.0,Oppo Reno 7 | 256GB,36864.8,29064.18,44665.41,3,low,46999.0,32499.5,47499.0,18000.0,47999.0,8.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno 8,0.0,Oppo Reno 8 | 0GB,47640.17,39839.55,55440.78,2,very_low,53999.0,53499.0,54499.0,52999.0,54999.0,10.0,90.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno 8,256.0,Oppo Reno 8 | 256GB,49420.95,41620.33,57221.56,4,low,55999.0,54499.0,57249.0,52999.0,57999.0,10.0,90.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno3 A,128.0,Oppo Reno3 A | 128GB,19652.68,11852.06,27453.29,2,very_low,16000.0,15500.0,16500.0,15000.0,17000.0,6.0,3.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno4 Z,256.0,Oppo Reno4 Z | 256GB,49129.42,41328.8,56930.03,1,very_low,32990.0,32990.0,32990.0,32990.0,32990.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno5 Z,128.0,Oppo Reno5 Z | 128GB,40077.98,32277.36,47878.59,1,very_low,45000.0,45000.0,45000.0,45000.0,45000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno6,128.0,Oppo Reno6 | 128GB,44481.27,36680.65,52281.88,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oppo,Reno7 A,128.0,Oppo Reno7 A | 128GB,25509.69,17709.07,33310.3,3,low,24500.0,18250.0,28245.0,12000.0,31990.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oscal,Marine 1,128.0,Oscal Marine 1 | 128GB,21859.75,14059.13,29660.37,1,very_low,32990.0,32990.0,32990.0,32990.0,32990.0,4.0,540.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oscal,Other model,256.0,Oscal Other model | 256GB,43944.15,36143.54,51744.77,1,very_low,27990.0,27990.0,27990.0,27990.0,27990.0,8.0,540.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Oscal,Pilot 1,256.0,Oscal Pilot 1 | 256GB,38608.12,30807.51,46408.74,1,very_low,41500.0,41500.0,41500.0,41500.0,41500.0,18.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Other Brand,Other model,32.0,Other Brand Other model | 32GB,16556.31,8755.69,24356.92,2,very_low,20500.0,20250.0,20750.0,20000.0,21000.0,3.0,15.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Other Brand,Other model,64.0,Other Brand Other model | 64GB,18685.1,10884.48,26485.71,5,low,18500.0,18000.0,19000.0,10500.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Other Brand,Other model,128.0,Other Brand Other model | 128GB,16112.86,8312.25,23913.48,11,medium,25000.0,16000.0,31750.0,1700.0,50000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Other Brand,Other model,256.0,Other Brand Other model | 256GB,38777.07,30976.45,46577.68,5,low,39990.0,27000.0,49000.0,25000.0,50000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Other Brand,Other model,512.0,Other Brand Other model | 512GB,114386.36,106585.74,122186.98,1,very_low,116500.0,116500.0,116500.0,116500.0,116500.0,16.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Other Brand,Other model,1024.0,Other Brand Other model | 1024GB,57522.17,49721.56,65322.79,1,very_low,52000.0,52000.0,52000.0,52000.0,52000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,11,256.0,Realme 11 | 256GB,48902.03,41101.41,56702.64,3,low,43500.0,42750.0,46745.0,42000.0,49990.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,8,128.0,Realme 8 | 128GB,20847.62,13047.01,28648.24,5,low,24990.0,24000.0,27990.0,23000.0,40000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C11,32.0,Realme C11 | 32GB,12853.43,5052.81,20654.04,7,low,10500.0,8700.0,14750.0,8000.0,18000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C11,64.0,Realme C11 | 64GB,17071.92,9271.31,24872.54,1,very_low,26000.0,26000.0,26000.0,26000.0,26000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C11,128.0,Realme C11 | 128GB,20923.95,13123.34,28724.57,1,very_low,12500.0,12500.0,12500.0,12500.0,12500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C15,64.0,Realme C15 | 64GB,17071.92,9271.31,24872.54,4,low,14500.0,11625.0,16875.0,9000.0,18000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C20,32.0,Realme C20 | 32GB,12853.43,5052.81,20654.04,2,very_low,14750.0,14625.0,14875.0,14500.0,15000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C21Y,64.0,Realme C21Y | 64GB,16931.57,9130.95,24732.18,2,very_low,16000.0,15500.0,16500.0,15000.0,17000.0,4.0,1.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C21Y,128.0,Realme C21Y | 128GB,20576.59,12775.97,28377.2,1,very_low,17000.0,17000.0,17000.0,17000.0,17000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C30s,64.0,Realme C30s | 64GB,23458.98,15658.36,31259.59,1,very_low,14500.0,14500.0,14500.0,14500.0,14500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C33,64.0,Realme C33 | 64GB,21936.54,14135.92,29737.15,2,very_low,19250.0,18375.0,20125.0,17500.0,21000.0,4.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C33,128.0,Realme C33 | 128GB,20576.59,12775.97,28377.2,2,very_low,22750.0,22625.0,22875.0,22500.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C53,128.0,Realme C53 | 128GB,18629.61,10828.99,26430.22,2,very_low,23250.0,23125.0,23375.0,23000.0,23500.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C53,256.0,Realme C53 | 256GB,32546.88,24746.27,40347.5,3,low,19500.0,17750.0,24750.0,16000.0,30000.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C55,128.0,Realme C55 | 128GB,20923.95,13123.34,28724.57,2,very_low,27000.0,27000.0,27000.0,27000.0,27000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C61,128.0,Realme C61 | 128GB,25567.94,17767.32,33368.56,1,very_low,22990.0,22990.0,22990.0,22990.0,22990.0,6.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,C61,256.0,Realme C61 | 256GB,40962.32,33161.71,48762.94,1,very_low,32000.0,32000.0,32000.0,32000.0,32000.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,GT,128.0,Realme GT | 128GB,63627.18,55826.57,71427.8,1,very_low,52500.0,52500.0,52500.0,52500.0,52500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,GT,256.0,Realme GT | 256GB,71602.72,63802.1,79403.33,9,medium,78000.0,65000.0,81000.0,63000.0,85000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,GT,512.0,Realme GT | 512GB,67221.95,59421.34,75022.57,1,very_low,65500.0,65500.0,65500.0,65500.0,65500.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Narzo 50A,128.0,Realme Narzo 50A | 128GB,26761.02,18960.4,34561.63,2,very_low,36375.0,36312.5,36437.5,36250.0,36500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Note 50,64.0,Realme Note 50 | 64GB,20083.65,12283.03,27884.27,4,low,22250.0,21750.0,22625.0,21000.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Note 50,128.0,Realme Note 50 | 128GB,23588.32,15787.7,31388.93,1,very_low,14500.0,14500.0,14500.0,14500.0,14500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Note 60,0.0,Realme Note 60 | 0GB,21077.89,13277.27,28878.5,1,very_low,23490.0,23490.0,23490.0,23490.0,23490.0,4.0,360.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Note 60,64.0,Realme Note 60 | 64GB,23318.62,15518.01,31119.24,3,low,23500.0,22250.0,24249.5,21000.0,24999.0,8.0,2.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Other model,64.0,Realme Other model | 64GB,19697.88,11897.26,27498.49,10,medium,22000.0,19247.5,23997.5,14500.0,35000.0,4.0,7.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Other model,128.0,Realme Other model | 128GB,25053.1,17252.49,32853.72,27,high,28500.0,24490.0,38000.0,19000.0,60000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Other model,256.0,Realme Other model | 256GB,56954.57,49153.96,64755.19,18,medium,59249.5,40699.25,66750.0,25000.0,82000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,Other model,512.0,Realme Other model | 512GB,90449.7,82649.09,98250.32,2,very_low,83750.0,77625.0,89875.0,71500.0,96000.0,13.0,2.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Realme,X50 Pro,128.0,Realme X50 Pro | 128GB,39402.77,31602.15,47203.38,1,very_low,23500.0,23500.0,23500.0,23500.0,23500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,A Quantum,128.0,Samsung A Quantum | 128GB,31151.88,23351.26,38952.49,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,B110,128.0,Samsung B110 | 128GB,18247.33,10446.71,26047.94,1,very_low,6500.0,6500.0,6500.0,6500.0,6500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,B110E,128.0,Samsung B110E | 128GB,24540.53,16739.91,32341.15,1,very_low,2400.0,2400.0,2400.0,2400.0,2400.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,B310E,128.0,Samsung B310E | 128GB,19391.12,11590.5,27191.74,2,very_low,3650.0,3575.0,3725.0,3500.0,3800.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Buddy,128.0,Samsung Buddy | 128GB,23348.75,15548.14,31149.37,1,very_low,29000.0,29000.0,29000.0,29000.0,29000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,F54,256.0,Samsung F54 | 256GB,44241.62,36441.0,52042.23,2,very_low,49500.0,47750.0,51250.0,46000.0,53000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A01,128.0,Samsung Galaxy A01 | 128GB,21461.99,13661.37,29262.6,1,very_low,8500.0,8500.0,8500.0,8500.0,8500.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A02s,32.0,Samsung Galaxy A02s | 32GB,12920.88,5120.26,20721.5,2,very_low,10250.0,10125.0,10375.0,10000.0,10500.0,2.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A02s,64.0,Samsung Galaxy A02s | 64GB,15262.67,7462.06,23063.29,1,very_low,8500.0,8500.0,8500.0,8500.0,8500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A03,32.0,Samsung Galaxy A03 | 32GB,16743.19,8942.57,24543.81,4,low,22500.0,16875.0,28125.0,15000.0,30000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A03,64.0,Samsung Galaxy A03 | 64GB,15262.67,7462.06,23063.29,2,very_low,14500.0,14250.0,14750.0,14000.0,15000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A03 Core,32.0,Samsung Galaxy A03 Core | 32GB,13603.22,5802.6,21403.83,9,medium,12500.0,11000.0,15000.0,8000.0,16000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A03s,32.0,Samsung Galaxy A03s | 32GB,14564.06,6763.44,22364.67,8,medium,16750.0,13250.0,20250.0,12000.0,25000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A03s,64.0,Samsung Galaxy A03s | 64GB,18604.97,10804.36,26405.59,6,low,13500.0,10875.0,15375.0,9500.0,16000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A03s,128.0,Samsung Galaxy A03s | 128GB,23919.64,16119.02,31720.25,1,very_low,20000.0,20000.0,20000.0,20000.0,20000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A04,32.0,Samsung Galaxy A04 | 32GB,14105.45,6304.83,21906.06,8,medium,15750.0,12500.0,18250.0,10000.0,19500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A04,64.0,Samsung Galaxy A04 | 64GB,19225.86,11425.25,27026.48,3,low,17500.0,15750.0,18250.0,14000.0,19000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A04e,0.0,Samsung Galaxy A04e | 0GB,15386.42,7585.8,23187.04,1,very_low,15990.0,15990.0,15990.0,15990.0,15990.0,3.0,7.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A04e,32.0,Samsung Galaxy A04e | 32GB,13603.22,5802.6,21403.83,10,medium,17500.0,15250.0,19750.0,10500.0,26000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A04e,64.0,Samsung Galaxy A04e | 64GB,15262.67,7462.06,23063.29,2,very_low,17000.0,14500.0,19500.0,12000.0,22000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A04s,64.0,Samsung Galaxy A04s | 64GB,19225.86,11425.25,27026.48,5,low,19500.0,16500.0,21000.0,15500.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A05,0.0,Samsung Galaxy A05 | 0GB,19356.2,11555.58,27156.81,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A05,32.0,Samsung Galaxy A05 | 32GB,13603.22,5802.6,21403.83,1,very_low,11000.0,11000.0,11000.0,11000.0,11000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A05,64.0,Samsung Galaxy A05 | 64GB,19225.86,11425.25,27026.48,19,medium,19500.0,18250.0,21500.0,13000.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A05,128.0,Samsung Galaxy A05 | 128GB,24540.53,16739.91,32341.15,10,medium,23699.5,17000.0,24996.75,11000.0,38000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A05s,64.0,Samsung Galaxy A05s | 64GB,19225.86,11425.25,27026.48,4,low,24750.0,22250.0,27000.0,20000.0,28500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A05s,128.0,Samsung Galaxy A05s | 128GB,24540.53,16739.91,32341.15,18,medium,23899.5,21125.0,29875.0,16500.0,41500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A06,0.0,Samsung Galaxy A06 | 0GB,21331.32,13530.7,29131.94,1,very_low,25490.0,25490.0,25490.0,25490.0,25490.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A06,64.0,Samsung Galaxy A06 | 64GB,21517.54,13716.92,29318.15,27,high,23000.0,19700.0,26500.0,12500.0,34000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A06,128.0,Samsung Galaxy A06 | 128GB,26598.96,18798.34,34399.57,29,high,27990.0,25000.0,31500.0,4500.0,38000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A07,64.0,Samsung Galaxy A07 | 64GB,27546.13,19745.52,35346.75,15,medium,28000.0,25495.0,31750.0,17500.0,38990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A07,128.0,Samsung Galaxy A07 | 128GB,28860.0,21059.38,36660.61,19,medium,35000.0,32500.0,42000.0,24500.0,59500.0,4.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A07,256.0,Samsung Galaxy A07 | 256GB,39679.83,31879.21,47480.44,3,low,33500.0,33250.0,36000.0,33000.0,38500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A10,32.0,Samsung Galaxy A10 | 32GB,12920.88,5120.26,20721.5,5,low,11499.0,11000.0,12500.0,6000.0,13000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A10,128.0,Samsung Galaxy A10 | 128GB,24540.53,16739.91,32341.15,1,very_low,8500.0,8500.0,8500.0,8500.0,8500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A10s,32.0,Samsung Galaxy A10s | 32GB,12920.88,5120.26,20721.5,4,low,10250.0,9000.0,10625.0,6000.0,11000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A11,32.0,Samsung Galaxy A11 | 32GB,13603.22,5802.6,21403.83,4,low,13750.0,13375.0,14250.0,13000.0,15000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A12,32.0,Samsung Galaxy A12 | 32GB,19060.02,11259.4,26860.64,1,very_low,23000.0,23000.0,23000.0,23000.0,23000.0,3.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A12,64.0,Samsung Galaxy A12 | 64GB,19225.86,11425.25,27026.48,8,medium,19000.0,15000.0,22375.0,11500.0,28000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A12,128.0,Samsung Galaxy A12 | 128GB,23348.75,15548.14,31149.37,4,low,23250.0,19000.0,24625.0,10000.0,25000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A13,64.0,Samsung Galaxy A13 | 64GB,19225.86,11425.25,27026.48,4,low,23500.0,20875.0,26875.0,16000.0,34000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A13,128.0,Samsung Galaxy A13 | 128GB,23348.75,15548.14,31149.37,5,low,23500.0,21000.0,24500.0,19000.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A14,64.0,Samsung Galaxy A14 | 64GB,19225.86,11425.25,27026.48,1,very_low,21900.0,21900.0,21900.0,21900.0,21900.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A14,128.0,Samsung Galaxy A14 | 128GB,24540.53,16739.91,32341.15,6,low,22250.0,20375.0,23750.0,9000.0,26000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A14,256.0,Samsung Galaxy A14 | 256GB,38836.72,31036.1,46637.33,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A15,128.0,Samsung Galaxy A15 | 128GB,29199.29,21398.68,36999.91,18,medium,31000.0,27250.0,34750.0,19500.0,46000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A15,256.0,Samsung Galaxy A15 | 256GB,53550.67,45750.05,61351.28,2,very_low,49000.0,49000.0,49000.0,49000.0,49000.0,8.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A16,128.0,Samsung Galaxy A16 | 128GB,32071.38,24270.77,39872.0,8,medium,37999.5,32242.5,42750.0,29900.0,68000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A16,256.0,Samsung Galaxy A16 | 256GB,46176.38,38375.76,53976.99,9,medium,47000.0,42000.0,50000.0,32000.0,58000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A17,128.0,Samsung Galaxy A17 | 128GB,42116.66,34316.04,49917.27,6,low,52500.0,47000.0,56500.0,46000.0,80000.0,8.0,60.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A17,256.0,Samsung Galaxy A17 | 256GB,75919.03,68118.42,83719.65,8,medium,65000.0,56999.75,68122.5,47000.0,89000.0,8.0,270.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A2 Core,128.0,Samsung Galaxy A2 Core | 128GB,24540.53,16739.91,32341.15,1,very_low,11000.0,11000.0,11000.0,11000.0,11000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A20,32.0,Samsung Galaxy A20 | 32GB,13603.22,5802.6,21403.83,6,low,13250.0,11375.0,14900.0,10000.0,18500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A20e,32.0,Samsung Galaxy A20e | 32GB,13603.22,5802.6,21403.83,1,very_low,13000.0,13000.0,13000.0,13000.0,13000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A20s,32.0,Samsung Galaxy A20s | 32GB,13603.22,5802.6,21403.83,2,very_low,12000.0,11000.0,13000.0,10000.0,14000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A20s,64.0,Samsung Galaxy A20s | 64GB,19225.86,11425.25,27026.48,2,very_low,16750.0,16125.0,17375.0,15500.0,18000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A21s,32.0,Samsung Galaxy A21s | 32GB,13603.22,5802.6,21403.83,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A21s,64.0,Samsung Galaxy A21s | 64GB,19225.86,11425.25,27026.48,2,very_low,21000.0,19500.0,22500.0,18000.0,24000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A21s,128.0,Samsung Galaxy A21s | 128GB,24540.53,16739.91,32341.15,3,low,15500.0,14500.0,20250.0,13500.0,25000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A22,64.0,Samsung Galaxy A22 | 64GB,19225.86,11425.25,27026.48,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A22,128.0,Samsung Galaxy A22 | 128GB,24540.53,16739.91,32341.15,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A23,128.0,Samsung Galaxy A23 | 128GB,25940.75,18140.14,33741.37,7,low,32000.0,28000.0,36000.0,23500.0,39999.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A24,128.0,Samsung Galaxy A24 | 128GB,24400.17,16599.56,32200.79,8,medium,32000.0,29250.0,33875.0,26500.0,35990.0,6.0,2.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A25,64.0,Samsung Galaxy A25 | 64GB,32705.45,24904.83,40506.06,1,very_low,33000.0,33000.0,33000.0,33000.0,33000.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A25,128.0,Samsung Galaxy A25 | 128GB,42361.44,34560.83,50162.06,5,low,47000.0,42000.0,48900.0,38000.0,48990.0,6.0,90.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A25,256.0,Samsung Galaxy A25 | 256GB,56663.08,48862.47,64463.7,2,very_low,45000.0,42500.0,47500.0,40000.0,50000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A26,128.0,Samsung Galaxy A26 | 128GB,37966.3,30165.68,45766.91,1,very_low,54999.0,54999.0,54999.0,54999.0,54999.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A26,256.0,Samsung Galaxy A26 | 256GB,56115.62,48315.01,63916.24,2,very_low,47000.0,45500.0,48500.0,44000.0,50000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A30,32.0,Samsung Galaxy A30 | 32GB,13974.05,6173.44,21774.67,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A30,64.0,Samsung Galaxy A30 | 64GB,19225.86,11425.25,27026.48,3,low,8500.0,8000.0,13500.0,7500.0,18500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A30 S,64.0,Samsung Galaxy A30 S | 64GB,19225.86,11425.25,27026.48,1,very_low,12000.0,12000.0,12000.0,12000.0,12000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A31,64.0,Samsung Galaxy A31 | 64GB,19225.86,11425.25,27026.48,2,very_low,18000.0,14000.0,22000.0,10000.0,26000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A31,128.0,Samsung Galaxy A31 | 128GB,23913.24,16112.63,31713.86,2,very_low,25000.0,21500.0,28500.0,18000.0,32000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A32,64.0,Samsung Galaxy A32 | 64GB,19225.86,11425.25,27026.48,6,low,27500.0,20992.5,34750.0,13500.0,37990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A32,128.0,Samsung Galaxy A32 | 128GB,24540.53,16739.91,32341.15,4,low,24750.0,17875.0,31750.0,13000.0,37000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A33,128.0,Samsung Galaxy A33 | 128GB,39511.57,31710.96,47312.19,7,low,43500.0,38750.0,46495.0,25000.0,50000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A34,128.0,Samsung Galaxy A34 | 128GB,45864.38,38063.76,53664.99,9,medium,49999.0,45000.0,54999.0,34000.0,70000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A34,256.0,Samsung Galaxy A34 | 256GB,64429.58,56628.96,72230.19,1,very_low,48000.0,48000.0,48000.0,48000.0,48000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A35,128.0,Samsung Galaxy A35 | 128GB,47106.07,39305.46,54906.69,3,low,48000.0,47250.0,48999.5,46500.0,49999.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A35,256.0,Samsung Galaxy A35 | 256GB,57849.98,50049.36,65650.59,3,low,57000.0,56000.0,57750.0,55000.0,58500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A36,128.0,Samsung Galaxy A36 | 128GB,62198.26,54397.64,69998.87,3,low,69000.0,60750.0,75500.0,52500.0,82000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A36,256.0,Samsung Galaxy A36 | 256GB,69551.29,61750.67,77351.91,5,low,69900.0,62999.0,69990.0,45000.0,110000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A40,64.0,Samsung Galaxy A40 | 64GB,19225.86,11425.25,27026.48,2,very_low,19750.0,18625.0,20875.0,17500.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A42,128.0,Samsung Galaxy A42 | 128GB,38646.54,30845.92,46447.15,3,low,37990.0,31945.0,39995.0,25900.0,42000.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A50,64.0,Samsung Galaxy A50 | 64GB,19225.86,11425.25,27026.48,2,very_low,28750.0,28125.0,29375.0,27500.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A50,128.0,Samsung Galaxy A50 | 128GB,23348.75,15548.14,31149.37,1,very_low,29999.0,29999.0,29999.0,29999.0,29999.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A50 S,128.0,Samsung Galaxy A50 S | 128GB,23348.75,15548.14,31149.37,3,low,18500.0,17000.0,19250.0,15500.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A51,128.0,Samsung Galaxy A51 | 128GB,31151.88,23351.26,38952.49,4,low,29250.0,26375.0,33000.0,20000.0,42000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A52,128.0,Samsung Galaxy A52 | 128GB,31151.88,23351.26,38952.49,5,low,27500.0,25500.0,35000.0,20000.0,45000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A52s,128.0,Samsung Galaxy A52s | 128GB,39511.57,31710.96,47312.19,4,low,42000.0,35000.0,48247.5,32000.0,48990.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A53,128.0,Samsung Galaxy A53 | 128GB,44198.98,36398.36,51999.6,5,low,49000.0,47500.0,50000.0,43990.0,52000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A53,256.0,Samsung Galaxy A53 | 256GB,71052.52,63251.91,78853.14,3,low,49999.0,47249.5,74999.5,44500.0,100000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A54,64.0,Samsung Galaxy A54 | 64GB,48855.85,41055.23,56656.46,1,very_low,55000.0,55000.0,55000.0,55000.0,55000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A54,128.0,Samsung Galaxy A54 | 128GB,45633.08,37832.47,53433.7,8,medium,52499.5,49500.0,55000.0,37000.0,63000.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A55,128.0,Samsung Galaxy A55 | 128GB,68557.91,60757.3,76358.53,4,low,75500.0,72500.0,77000.0,65000.0,80000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A55,256.0,Samsung Galaxy A55 | 256GB,69524.09,61723.47,77324.7,7,low,68000.0,66750.0,77500.0,63000.0,90000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A56,128.0,Samsung Galaxy A56 | 128GB,78172.09,70371.47,85972.7,3,low,80000.0,72500.0,81000.0,65000.0,82000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A56,256.0,Samsung Galaxy A56 | 256GB,100284.09,92483.47,108084.7,6,low,97499.5,87499.0,103750.0,76000.0,108000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A6,32.0,Samsung Galaxy A6 | 32GB,13603.22,5802.6,21403.83,1,very_low,9500.0,9500.0,9500.0,9500.0,9500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A7,64.0,Samsung Galaxy A7 | 64GB,19225.86,11425.25,27026.48,1,very_low,24000.0,24000.0,24000.0,24000.0,24000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A7,128.0,Samsung Galaxy A7 | 128GB,23348.75,15548.14,31149.37,1,very_low,6000.0,6000.0,6000.0,6000.0,6000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A70,128.0,Samsung Galaxy A70 | 128GB,24540.53,16739.91,32341.15,2,very_low,23500.0,21750.0,25250.0,20000.0,27000.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A71,128.0,Samsung Galaxy A71 | 128GB,32792.28,24991.66,40592.89,9,medium,30000.0,26899.0,35000.0,19500.0,48000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A73,32.0,Samsung Galaxy A73 | 32GB,12920.88,5120.26,20721.5,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A73,256.0,Samsung Galaxy A73 | 256GB,44241.62,36441.0,52042.23,1,very_low,48000.0,48000.0,48000.0,48000.0,48000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A80,128.0,Samsung Galaxy A80 | 128GB,31151.88,23351.26,38952.49,1,very_low,43000.0,43000.0,43000.0,43000.0,43000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A82,128.0,Samsung Galaxy A82 | 128GB,42035.8,34235.18,49836.41,1,very_low,58000.0,58000.0,58000.0,58000.0,58000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A9,128.0,Samsung Galaxy A9 | 128GB,24540.53,16739.91,32341.15,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A9,512.0,Samsung Galaxy A9 | 512GB,42327.98,34527.37,50128.6,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy A90,128.0,Samsung Galaxy A90 | 128GB,33937.38,26136.76,41737.99,3,low,43000.0,39000.0,43500.0,35000.0,44000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy F05,64.0,Samsung Galaxy F05 | 64GB,19225.86,11425.25,27026.48,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy F06,128.0,Samsung Galaxy F06 | 128GB,31949.55,24148.94,39750.17,1,very_low,36000.0,36000.0,36000.0,36000.0,36000.0,4.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy F16,128.0,Samsung Galaxy F16 | 128GB,48915.41,41114.8,56716.03,1,very_low,65000.0,65000.0,65000.0,65000.0,65000.0,6.0,730.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy F23,128.0,Samsung Galaxy F23 | 128GB,24540.53,16739.91,32341.15,2,very_low,30000.0,29750.0,30250.0,29500.0,30500.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy F42,128.0,Samsung Galaxy F42 | 128GB,24540.53,16739.91,32341.15,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy F55,256.0,Samsung Galaxy F55 | 256GB,53230.39,45429.77,61031.01,1,very_low,59500.0,59500.0,59500.0,59500.0,59500.0,12.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J1,128.0,Samsung Galaxy J1 | 128GB,14159.84,6359.22,21960.45,3,low,4850.0,4325.0,4920.0,3800.0,4990.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J2,32.0,Samsung Galaxy J2 | 32GB,12920.88,5120.26,20721.5,1,very_low,4000.0,4000.0,4000.0,4000.0,4000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J5,32.0,Samsung Galaxy J5 | 32GB,3101.8,0.0,10902.41,1,very_low,6000.0,6000.0,6000.0,6000.0,6000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J5,128.0,Samsung Galaxy J5 | 128GB,10858.14,3057.53,18658.76,2,very_low,4000.0,3250.0,4750.0,2500.0,5500.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J6,32.0,Samsung Galaxy J6 | 32GB,13252.78,5452.17,21053.4,2,very_low,9250.0,7625.0,10875.0,6000.0,12500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J6,128.0,Samsung Galaxy J6 | 128GB,22998.32,15197.7,30798.93,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J6+,64.0,Samsung Galaxy J6+ | 64GB,19225.86,11425.25,27026.48,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J7,32.0,Samsung Galaxy J7 | 32GB,7543.7,0.0,15344.32,3,low,9000.0,8000.0,9250.0,7000.0,9500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J7,64.0,Samsung Galaxy J7 | 64GB,13730.84,5930.23,21531.46,2,very_low,9250.0,7375.0,11125.0,5500.0,13000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J7,128.0,Samsung Galaxy J7 | 128GB,18481.03,10680.41,26281.64,3,low,7500.0,7500.0,8675.0,7500.0,9850.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy J7,256.0,Samsung Galaxy J7 | 256GB,36547.75,28747.13,44348.37,1,very_low,9000.0,9000.0,9000.0,9000.0,9000.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Jump,128.0,Samsung Galaxy Jump | 128GB,24540.53,16739.91,32341.15,2,very_low,34000.0,32000.0,36000.0,30000.0,38000.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M01,32.0,Samsung Galaxy M01 | 32GB,13603.22,5802.6,21403.83,3,low,10000.0,9250.0,10750.0,8500.0,11500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M01 Core,128.0,Samsung Galaxy M01 Core | 128GB,28775.54,20974.93,36576.16,2,very_low,6000.0,5250.0,6750.0,4500.0,7500.0,11.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M01s,32.0,Samsung Galaxy M01s | 32GB,13603.22,5802.6,21403.83,2,very_low,10500.0,10250.0,10750.0,10000.0,11000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02,32.0,Samsung Galaxy M02 | 32GB,13439.15,5638.53,21239.76,15,medium,12000.0,11250.0,14000.0,5000.0,20000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02,64.0,Samsung Galaxy M02 | 64GB,15098.6,7297.99,22899.22,2,very_low,10250.0,9875.0,10625.0,9500.0,11000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02,128.0,Samsung Galaxy M02 | 128GB,17942.9,10142.28,25743.52,1,very_low,11500.0,11500.0,11500.0,11500.0,11500.0,2.0,2.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02,1024.0,Samsung Galaxy M02 | 1024GB,15223.35,7422.74,23023.97,2,very_low,11750.0,11375.0,12125.0,11000.0,12500.0,2.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02s,32.0,Samsung Galaxy M02s | 32GB,11457.8,3657.19,19258.42,2,very_low,11750.0,9125.0,14375.0,6500.0,17000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02s,64.0,Samsung Galaxy M02s | 64GB,17504.58,9703.97,25305.2,2,very_low,17750.0,16625.0,18875.0,15500.0,20000.0,5.0,1.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M02s,128.0,Samsung Galaxy M02s | 128GB,21767.83,13967.21,29568.44,2,very_low,13000.0,12500.0,13500.0,12000.0,14000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M04,64.0,Samsung Galaxy M04 | 64GB,19225.86,11425.25,27026.48,2,very_low,17500.0,16750.0,18250.0,16000.0,19000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M04,128.0,Samsung Galaxy M04 | 128GB,23348.75,15548.14,31149.37,3,low,16000.0,15500.0,16250.0,15000.0,16500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M05,64.0,Samsung Galaxy M05 | 64GB,19225.86,11425.25,27026.48,1,very_low,23000.0,23000.0,23000.0,23000.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M10,32.0,Samsung Galaxy M10 | 32GB,13603.22,5802.6,21403.83,4,low,12500.0,11625.0,13250.0,10500.0,14000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M11,32.0,Samsung Galaxy M11 | 32GB,13603.22,5802.6,21403.83,6,low,12500.0,10500.0,13375.0,6500.0,18000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M11,64.0,Samsung Galaxy M11 | 64GB,15262.67,7462.06,23063.29,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M12,64.0,Samsung Galaxy M12 | 64GB,19225.86,11425.25,27026.48,1,very_low,16990.0,16990.0,16990.0,16990.0,16990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M13,64.0,Samsung Galaxy M13 | 64GB,19085.51,11284.89,26886.12,2,very_low,17750.0,16625.0,18875.0,15500.0,20000.0,4.0,1.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M14,64.0,Samsung Galaxy M14 | 64GB,27669.19,19868.57,35469.81,5,low,28000.0,24990.0,30000.0,20000.0,32500.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M14,128.0,Samsung Galaxy M14 | 128GB,34475.3,26674.68,42275.92,5,low,27999.0,25490.0,31000.0,25000.0,32500.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M15,128.0,Samsung Galaxy M15 | 128GB,38646.54,30845.92,46447.15,5,low,38000.0,33000.0,42000.0,30000.0,50000.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M16,128.0,Samsung Galaxy M16 | 128GB,33913.53,26112.92,41714.15,2,very_low,48750.0,48125.0,49375.0,47500.0,50000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M20,32.0,Samsung Galaxy M20 | 32GB,12920.88,5120.26,20721.5,2,very_low,14000.0,13500.0,14500.0,13000.0,15000.0,2.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M21,64.0,Samsung Galaxy M21 | 64GB,16683.22,8882.61,24483.84,5,low,14950.0,11500.0,16500.0,8000.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M21,128.0,Samsung Galaxy M21 | 128GB,21537.39,13736.77,29338.01,3,low,13500.0,11250.0,19000.0,9000.0,24500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M23,128.0,Samsung Galaxy M23 | 128GB,37868.88,30068.26,45669.49,4,low,33495.0,30750.0,36992.5,30000.0,40000.0,4.0,45.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M31,128.0,Samsung Galaxy M31 | 128GB,23839.46,16038.85,31640.08,4,low,20250.0,17875.0,25250.0,16000.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M32,128.0,Samsung Galaxy M32 | 128GB,31151.88,23351.26,38952.49,3,low,23990.0,22995.0,25995.0,22000.0,28000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M33,128.0,Samsung Galaxy M33 | 128GB,32132.18,24331.57,39932.8,6,low,30250.0,26625.0,32000.0,23500.0,38990.0,6.0,90.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M34,128.0,Samsung Galaxy M34 | 128GB,24540.53,16739.91,32341.15,1,very_low,32500.0,32500.0,32500.0,32500.0,32500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M51,128.0,Samsung Galaxy M51 | 128GB,24540.53,16739.91,32341.15,2,very_low,46000.0,43000.0,49000.0,40000.0,52000.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M52,128.0,Samsung Galaxy M52 | 128GB,31151.88,23351.26,38952.49,1,very_low,32000.0,32000.0,32000.0,32000.0,32000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy M53,128.0,Samsung Galaxy M53 | 128GB,51355.33,43554.71,59155.94,4,low,46949.5,42874.25,48922.5,36500.0,48990.0,8.0,365.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 10,128.0,Samsung Galaxy Note 10 | 128GB,31151.88,23351.26,38952.49,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 10,256.0,Samsung Galaxy Note 10 | 256GB,47985.22,40184.6,55785.83,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 10 Plus,256.0,Samsung Galaxy Note 10 Plus | 256GB,41854.71,34054.1,49655.33,4,low,47499.5,36250.0,62499.25,25000.0,85000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 20,256.0,Samsung Galaxy Note 20 | 256GB,74454.73,66654.12,82255.35,4,low,69950.0,67300.0,70250.0,59500.0,71000.0,10.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 20 Ultra,128.0,Samsung Galaxy Note 20 Ultra | 128GB,76930.41,69129.8,84731.03,1,very_low,89000.0,89000.0,89000.0,89000.0,89000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 20 Ultra,256.0,Samsung Galaxy Note 20 Ultra | 256GB,83966.17,76165.56,91766.79,6,low,75000.0,74992.5,86250.0,47500.0,98000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 4,32.0,Samsung Galaxy Note 4 | 32GB,13603.22,5802.6,21403.83,3,low,6000.0,6000.0,7925.0,6000.0,9850.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 8,64.0,Samsung Galaxy Note 8 | 64GB,20417.64,12617.02,28218.25,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Note 9,128.0,Samsung Galaxy Note 9 | 128GB,30740.76,22940.15,38541.38,1,very_low,39990.0,39990.0,39990.0,39990.0,39990.0,6.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Quantum 2,128.0,Samsung Galaxy Quantum 2 | 128GB,36113.47,28312.85,43914.08,1,very_low,57000.0,57000.0,57000.0,57000.0,57000.0,8.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S10,128.0,Samsung Galaxy S10 | 128GB,38109.94,30309.32,45910.55,9,medium,38500.0,35000.0,47000.0,25000.0,52000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S10,256.0,Samsung Galaxy S10 | 256GB,39783.03,31982.41,47583.64,1,very_low,36000.0,36000.0,36000.0,36000.0,36000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S10 Plus,128.0,Samsung Galaxy S10 Plus | 128GB,42580.37,34779.76,50380.99,4,low,48000.0,38625.0,49750.0,10500.0,55000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S10 Plus,256.0,Samsung Galaxy S10 Plus | 256GB,54581.86,46781.24,62382.48,2,very_low,59000.0,58500.0,59500.0,58000.0,60000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S10 Plus,512.0,Samsung Galaxy S10 Plus | 512GB,68058.67,60258.06,75859.29,3,low,69900.0,67445.0,69945.0,64990.0,69990.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S10e,128.0,Samsung Galaxy S10e | 128GB,24540.53,16739.91,32341.15,1,very_low,28500.0,28500.0,28500.0,28500.0,28500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20,128.0,Samsung Galaxy S20 | 128GB,42959.82,35159.2,50760.43,2,very_low,42500.0,34750.0,50250.0,27000.0,58000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20,256.0,Samsung Galaxy S20 | 256GB,54189.58,46388.97,61990.2,1,very_low,49999.0,49999.0,49999.0,49999.0,49999.0,12.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20 Ultra,128.0,Samsung Galaxy S20 Ultra | 128GB,57888.75,50088.13,65689.37,1,very_low,44999.0,44999.0,44999.0,44999.0,44999.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20 Ultra,256.0,Samsung Galaxy S20 Ultra | 256GB,64924.52,57123.9,72725.14,4,low,65000.0,59500.0,73000.0,58000.0,82000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20+,128.0,Samsung Galaxy S20+ | 128GB,24249.45,16448.84,32050.07,6,low,21250.0,18375.0,24506.0,12500.0,30000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20+,256.0,Samsung Galaxy S20+ | 256GB,30209.17,22408.55,38009.78,2,very_low,34995.0,29997.5,39992.5,25000.0,44990.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S20FE,128.0,Samsung Galaxy S20FE | 128GB,47522.24,39721.62,55322.85,10,medium,47750.0,41500.0,49975.0,30000.0,55000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21,128.0,Samsung Galaxy S21 | 128GB,62252.23,54451.61,70052.84,1,very_low,65000.0,65000.0,65000.0,65000.0,65000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21,256.0,Samsung Galaxy S21 | 256GB,56768.54,48967.92,64569.16,8,medium,57250.0,49500.0,61992.25,22000.0,64000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21 FE,128.0,Samsung Galaxy S21 FE | 128GB,58286.34,50485.72,66086.95,5,low,54999.0,54990.0,55000.0,28000.0,57999.0,6.0,90.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21 FE,256.0,Samsung Galaxy S21 FE | 256GB,47409.45,39608.83,55210.06,9,medium,52000.0,40000.0,59990.0,25000.0,64990.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21 Plus,128.0,Samsung Galaxy S21 Plus | 128GB,72833.7,65033.08,80634.31,5,low,63990.0,63500.0,63990.0,62500.0,64000.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21 Plus,256.0,Samsung Galaxy S21 Plus | 256GB,70651.02,62850.41,78451.64,2,very_low,78000.0,76000.0,80000.0,74000.0,82000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21 Ultra,128.0,Samsung Galaxy S21 Ultra | 128GB,71646.88,63846.26,79447.49,4,low,62500.0,57000.0,65875.0,48000.0,68500.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S21 Ultra,256.0,Samsung Galaxy S21 Ultra | 256GB,79169.98,71369.37,86970.6,3,low,80000.0,75000.0,92500.0,70000.0,105000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S22,128.0,Samsung Galaxy S22 | 128GB,66003.59,58202.98,73804.21,1,very_low,75000.0,75000.0,75000.0,75000.0,75000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S22,256.0,Samsung Galaxy S22 | 256GB,66810.66,59010.04,74611.27,11,medium,68900.0,55000.0,81995.0,38000.0,88000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S22 Ultra,128.0,Samsung Galaxy S22 Ultra | 128GB,100129.73,92329.11,107930.34,6,low,109999.0,101749.75,109999.75,95000.0,110500.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S22 Ultra,256.0,Samsung Galaxy S22 Ultra | 256GB,99925.45,92124.83,107726.06,5,low,100000.0,72000.0,108000.0,68000.0,115000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S22 Ultra,512.0,Samsung Galaxy S22 Ultra | 512GB,110757.73,102957.12,118558.35,1,very_low,113000.0,113000.0,113000.0,113000.0,113000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S22+,256.0,Samsung Galaxy S22+ | 256GB,94893.45,87092.84,102694.07,5,low,99900.0,75000.0,99990.0,42000.0,100000.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23,128.0,Samsung Galaxy S23 | 128GB,86934.2,79133.58,94734.81,6,low,89499.5,87999.75,89500.0,87000.0,90000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23,256.0,Samsung Galaxy S23 | 256GB,96925.67,89125.06,104726.29,12,medium,94997.5,91499.75,104992.25,59000.0,115000.0,8.0,135.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23,512.0,Samsung Galaxy S23 | 512GB,109962.21,102161.59,117762.83,3,low,114900.0,109900.0,114945.0,104900.0,114990.0,8.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23 FE,128.0,Samsung Galaxy S23 FE | 128GB,83062.01,75261.39,90862.62,9,medium,88500.0,84990.0,89490.0,77000.0,98000.0,8.0,30.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23 FE,256.0,Samsung Galaxy S23 FE | 256GB,90134.09,82333.47,97934.7,14,medium,91500.0,89247.5,94492.5,80000.0,98000.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23 Ultra,256.0,Samsung Galaxy S23 Ultra | 256GB,86630.92,78830.31,94431.54,6,low,85450.0,76000.0,96475.0,50000.0,110000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S23 Ultra,512.0,Samsung Galaxy S23 Ultra | 512GB,101024.07,93223.45,108824.69,4,low,101750.0,91000.0,111250.0,83500.0,115000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S24,128.0,Samsung Galaxy S24 | 128GB,108420.19,100619.57,116220.8,3,low,114990.0,109994.5,114994.5,104999.0,114999.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S24 FE,128.0,Samsung Galaxy S24 FE | 128GB,97662.85,89862.24,105463.47,6,low,104999.0,99997.25,110000.0,99990.0,115000.0,6.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S24 FE,256.0,Samsung Galaxy S24 FE | 256GB,101607.14,93806.52,109407.76,5,low,103990.0,100000.0,104990.0,94990.0,105900.0,8.0,90.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S4,128.0,Samsung Galaxy S4 | 128GB,14350.9,6550.29,22151.52,3,low,5250.0,4875.0,5875.0,4500.0,6500.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S7,32.0,Samsung Galaxy S7 | 32GB,17566.41,9765.79,25367.02,1,very_low,24500.0,24500.0,24500.0,24500.0,24500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S7 Edge,32.0,Samsung Galaxy S7 Edge | 32GB,17566.41,9765.79,25367.02,2,very_low,25000.0,20000.0,30000.0,15000.0,35000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S7 Edge,64.0,Samsung Galaxy S7 Edge | 64GB,15262.67,7462.06,23063.29,2,very_low,18500.0,14250.0,22750.0,10000.0,27000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S7 Edge,128.0,Samsung Galaxy S7 Edge | 128GB,23348.75,15548.14,31149.37,2,very_low,15100.0,13150.0,17050.0,11200.0,19000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S8,64.0,Samsung Galaxy S8 | 64GB,19225.86,11425.25,27026.48,2,very_low,30250.0,28875.0,31625.0,27500.0,33000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S8+,64.0,Samsung Galaxy S8+ | 64GB,19225.86,11425.25,27026.48,3,low,16000.0,15500.0,16000.0,15000.0,16000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S9,64.0,Samsung Galaxy S9 | 64GB,19752.28,11951.66,27552.89,4,low,18000.0,15750.0,25000.0,15000.0,40000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy S9+,64.0,Samsung Galaxy S9+ | 64GB,20417.64,12617.02,28218.25,1,very_low,27000.0,27000.0,27000.0,27000.0,27000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Z Flip,256.0,Samsung Galaxy Z Flip | 256GB,44241.62,36441.0,52042.23,1,very_low,45000.0,45000.0,45000.0,45000.0,45000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Z Flip 5,256.0,Samsung Galaxy Z Flip 5 | 256GB,69234.98,61434.36,77035.59,1,very_low,85000.0,85000.0,85000.0,85000.0,85000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Z Flip 6,256.0,Samsung Galaxy Z Flip 6 | 256GB,47985.22,40184.6,55785.83,1,very_low,95000.0,95000.0,95000.0,95000.0,95000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Z Flip3,256.0,Samsung Galaxy Z Flip3 | 256GB,52538.98,44738.36,60339.6,1,very_low,55000.0,55000.0,55000.0,55000.0,55000.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Galaxy Z Fold3,256.0,Samsung Galaxy Z Fold3 | 256GB,76147.86,68347.24,83948.48,1,very_low,91900.0,91900.0,91900.0,91900.0,91900.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,M14,128.0,Samsung M14 | 128GB,24540.53,16739.91,32341.15,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Other model,64.0,Samsung Other model | 64GB,21546.82,13746.2,29347.44,2,very_low,24000.0,23000.0,25000.0,22000.0,26000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Other model,128.0,Samsung Other model | 128GB,29753.2,21952.59,37553.82,10,medium,39250.0,12625.0,41500.0,3200.0,73000.0,6.0,60.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Other model,256.0,Samsung Other model | 256GB,58512.23,50711.61,66312.84,2,very_low,59200.0,58850.0,59550.0,58500.0,59900.0,8.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Unknown,128.0,Samsung Unknown | 128GB,23348.75,15548.14,31149.37,1,very_low,31000.0,31000.0,31000.0,31000.0,31000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Z Flip 4,256.0,Samsung Z Flip 4 | 256GB,55666.43,47865.82,63467.05,4,low,60200.0,35500.0,86172.5,35500.0,89990.0,8.0,182.5,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Samsung,Z1,128.0,Samsung Z1 | 128GB,13780.41,5979.79,21581.02,2,very_low,4250.0,4125.0,4375.0,4000.0,4500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sharp,Other model,32.0,Sharp Other model | 32GB,14703.83,6903.22,22504.45,9,medium,13498.0,13489.0,13500.0,12998.0,14999.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sharp,Other model,64.0,Sharp Other model | 64GB,18602.79,10802.18,26403.41,7,low,15500.0,13498.0,17245.5,5500.0,18994.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sharp,Other model,256.0,Sharp Other model | 256GB,49774.44,41973.83,57575.06,1,very_low,54500.0,54500.0,54500.0,54500.0,54500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Other model,32.0,Sony Other model | 32GB,18051.02,10250.4,25851.64,1,very_low,14500.0,14500.0,14500.0,14500.0,14500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Other model,64.0,Sony Other model | 64GB,25351.07,17550.45,33151.68,7,low,24997.0,22995.0,24998.5,14000.0,26000.0,4.0,360.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Other model,128.0,Sony Other model | 128GB,37299.68,29499.06,45100.29,16,medium,46499.0,44990.75,54994.75,13999.0,65000.0,7.0,360.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Other model,256.0,Sony Other model | 256GB,77014.35,69213.74,84814.97,1,very_low,94950.0,94950.0,94950.0,94950.0,94950.0,12.0,7.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 1,64.0,Sony Xperia 1 | 64GB,36186.55,28385.94,43987.17,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 1,256.0,Sony Xperia 1 | 256GB,98214.7,90414.09,106015.32,2,very_low,104995.0,104992.5,104997.5,104990.0,105000.0,14.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 1 II,128.0,Sony Xperia 1 II | 128GB,45815.44,38014.82,53616.05,6,low,39000.0,38117.5,39800.0,35000.0,44000.0,8.0,180.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 1 III,256.0,Sony Xperia 1 III | 256GB,60915.61,53114.99,68716.23,3,low,54990.0,42495.0,60495.0,30000.0,66000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 1 IV,256.0,Sony Xperia 1 IV | 256GB,76459.49,68658.88,84260.11,3,low,69990.0,69945.0,76495.0,69900.0,83000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 10 II,64.0,Sony Xperia 10 II | 64GB,29130.57,21329.96,36931.19,2,very_low,27499.5,26249.25,28749.75,24999.0,30000.0,4.0,45.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 10 IV,128.0,Sony Xperia 10 IV | 128GB,41432.53,33631.91,49233.14,5,low,34999.0,34001.0,35000.0,34000.0,38000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 5,64.0,Sony Xperia 5 | 64GB,32353.86,24553.25,40154.48,2,very_low,28500.0,25250.0,31750.0,22000.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 5,128.0,Sony Xperia 5 | 128GB,40251.58,32450.97,48052.2,10,medium,51490.0,46000.0,51999.75,5000.0,98000.0,7.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 5 III,128.0,Sony Xperia 5 III | 128GB,42207.71,34407.09,50008.33,4,low,44999.5,44996.75,45000.0,44990.0,45000.0,6.0,180.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia 8,64.0,Sony Xperia 8 | 64GB,16904.35,9103.74,24704.97,1,very_low,26500.0,26500.0,26500.0,26500.0,26500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia XZ,32.0,Sony Xperia XZ | 32GB,12830.69,5030.07,20631.31,1,very_low,11000.0,11000.0,11000.0,11000.0,11000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia XZ Premium,64.0,Sony Xperia XZ Premium | 64GB,17233.16,9432.54,25033.77,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia XZ2,64.0,Sony Xperia XZ2 | 64GB,16904.35,9103.74,24704.97,9,medium,22000.0,11000.0,24991.0,8500.0,24995.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia XZ2 Compact,64.0,Sony Xperia XZ2 Compact | 64GB,16904.35,9103.74,24704.97,1,very_low,14990.0,14990.0,14990.0,14990.0,14990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia XZ2 Premium,64.0,Sony Xperia XZ2 Premium | 64GB,18822.45,11021.83,26623.06,1,very_low,27000.0,27000.0,27000.0,27000.0,27000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Sony,Xperia XZ3,64.0,Sony Xperia XZ3 | 64GB,17308.16,9507.54,25108.77,5,low,25000.0,20000.0,25000.0,19000.0,26000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tcl,20E,32.0,Tcl 20E | 32GB,12998.26,5197.64,20798.87,2,very_low,18500.0,15250.0,21750.0,12000.0,25000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tcl,20E,64.0,Tcl 20E | 64GB,14657.71,6857.09,22458.33,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tcl,20Y,64.0,Tcl 20Y | 64GB,17071.92,9271.31,24872.54,1,very_low,13000.0,13000.0,13000.0,13000.0,13000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tcl,Other model,32.0,Tcl Other model | 32GB,15489.51,7688.9,23290.13,2,very_low,14450.0,12725.0,16175.0,11000.0,17900.0,2.0,15.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tcl,Other model,64.0,Tcl Other model | 64GB,19825.1,12024.48,27625.71,4,low,17750.0,15750.0,19250.0,13500.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tcl,Other model,128.0,Tcl Other model | 128GB,35481.52,27680.9,43282.13,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Other model,64.0,Tecno Other model | 64GB,24430.48,16629.86,32231.09,2,very_low,17495.0,16247.5,18742.5,15000.0,19990.0,4.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Other model,128.0,Tecno Other model | 128GB,25053.1,17252.49,32853.72,3,low,22500.0,21750.0,43750.0,21000.0,65000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Other model,256.0,Tecno Other model | 256GB,50996.75,43196.13,58797.37,12,medium,57500.0,47250.0,65000.0,28490.0,71500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Pop 5,64.0,Tecno Pop 5 | 64GB,14512.88,6712.26,22313.49,1,very_low,17000.0,17000.0,17000.0,17000.0,17000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Pop 7,64.0,Tecno Pop 7 | 64GB,17075.47,9274.85,24876.08,4,low,18500.0,16500.0,19125.0,12000.0,19500.0,4.0,15.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark,32.0,Tecno Spark | 32GB,15412.46,7611.84,23213.07,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark,64.0,Tecno Spark | 64GB,17071.92,9271.31,24872.54,4,low,19250.0,17875.0,21750.0,16000.0,27000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark,128.0,Tecno Spark | 128GB,20576.59,12775.97,28377.2,6,low,24000.0,17000.0,28742.5,16000.0,35000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark,256.0,Tecno Spark | 256GB,35844.35,28043.74,43644.97,2,very_low,22999.5,21999.25,23999.75,20999.0,25000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark 10c,128.0,Tecno Spark 10c | 128GB,20576.59,12775.97,28377.2,2,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark 6 Go,64.0,Tecno Spark 6 Go | 64GB,23994.92,16194.3,31795.53,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark 7,64.0,Tecno Spark 7 | 64GB,17071.92,9271.31,24872.54,1,very_low,13000.0,13000.0,13000.0,13000.0,13000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark 8c,64.0,Tecno Spark 8c | 64GB,14657.71,6857.09,22458.33,2,very_low,15750.0,13625.0,17875.0,11500.0,20000.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Tecno,Spark 8c,128.0,Tecno Spark 8c | 128GB,20923.95,13123.34,28724.57,1,very_low,12000.0,12000.0,12000.0,12000.0,12000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Umidigi,G1,32.0,Umidigi G1 | 32GB,12420.1,4619.49,20220.72,1,very_low,9500.0,9500.0,9500.0,9500.0,9500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Umidigi,G1,128.0,Umidigi G1 | 128GB,20061.06,12260.44,27861.67,1,very_low,20000.0,20000.0,20000.0,20000.0,20000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Umidigi,Other model,32.0,Umidigi Other model | 32GB,14839.15,7038.54,22639.77,2,very_low,16000.0,15000.0,17000.0,14000.0,18000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Umidigi,Other model,64.0,Umidigi Other model | 64GB,18641.63,10841.01,26442.24,3,low,20000.0,19000.0,21500.0,18000.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Umidigi,Other model,128.0,Umidigi Other model | 128GB,21861.26,14060.64,29661.87,2,very_low,16000.0,14500.0,17500.0,13000.0,19000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Umidigi,Other model,256.0,Umidigi Other model | 256GB,44743.5,36942.88,52544.12,1,very_low,27990.0,27990.0,27990.0,27990.0,27990.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Other model,32.0,Vivo Other model | 32GB,18409.84,10609.22,26210.45,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Other model,64.0,Vivo Other model | 64GB,22483.5,14682.88,30284.11,9,medium,24000.0,20500.0,24990.0,17500.0,30000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Other model,128.0,Vivo Other model | 128GB,40011.0,32210.38,47811.61,38,high,35000.0,26875.0,47875.0,18000.0,85000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Other model,256.0,Vivo Other model | 256GB,61157.05,53356.43,68957.66,20,high,66500.0,53750.0,77625.0,37500.0,95000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Other model,265.0,Vivo Other model | 265GB,61157.05,53356.43,68957.66,1,very_low,59999.0,59999.0,59999.0,59999.0,59999.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Other model,512.0,Vivo Other model | 512GB,84962.9,77162.28,92763.51,3,low,87500.0,83000.0,87750.0,78500.0,88000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,S1,128.0,Vivo S1 | 128GB,18758.38,10957.76,26558.99,1,very_low,18999.0,18999.0,18999.0,18999.0,18999.0,6.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,V21,128.0,Vivo V21 | 128GB,37184.71,29384.09,44985.33,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,V21e,128.0,Vivo V21e | 128GB,37184.71,29384.09,44985.33,2,very_low,24750.0,23875.0,25625.0,23000.0,26500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,V25,128.0,Vivo V25 | 128GB,32333.19,24532.57,40133.81,2,very_low,34749.5,29624.75,39874.25,24500.0,44999.0,7.0,45.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,V29E,64.0,Vivo V29E | 64GB,28929.86,21129.25,36730.48,1,very_low,33000.0,33000.0,33000.0,33000.0,33000.0,4.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,V29E,256.0,Vivo V29E | 256GB,44845.66,37045.05,52646.28,2,very_low,43500.0,41750.0,45250.0,40000.0,47000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,X70 Pro,256.0,Vivo X70 Pro | 256GB,53315.03,45514.41,61115.64,1,very_low,58500.0,58500.0,58500.0,58500.0,58500.0,16.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y100A,128.0,Vivo Y100A | 128GB,31579.1,23778.48,39379.71,2,very_low,33000.0,31500.0,34500.0,30000.0,36000.0,7.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y11,32.0,Vivo Y11 | 32GB,9118.65,1318.03,16919.26,1,very_low,10500.0,10500.0,10500.0,10500.0,10500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y11,128.0,Vivo Y11 | 128GB,14565.02,6764.4,22365.64,2,very_low,14250.0,12375.0,16125.0,10500.0,18000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y11,256.0,Vivo Y11 | 256GB,20461.0,12660.38,28261.62,3,low,13995.0,13993.5,13997.5,13992.0,14000.0,8.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y12s,32.0,Vivo Y12s | 32GB,9118.65,1318.03,16919.26,1,very_low,12900.0,12900.0,12900.0,12900.0,12900.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y12s,64.0,Vivo Y12s | 64GB,10778.09,2977.48,18578.71,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y17,256.0,Vivo Y17 | 256GB,16184.21,8383.6,23984.83,19,medium,14999.0,13749.0,15774.5,11499.0,16999.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y19,32.0,Vivo Y19 | 32GB,12021.5,4220.89,19822.12,1,very_low,7500.0,7500.0,7500.0,7500.0,7500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y19,128.0,Vivo Y19 | 128GB,19726.18,11925.56,27526.79,5,low,25000.0,24500.0,28000.0,17500.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y19,256.0,Vivo Y19 | 256GB,20678.18,12877.57,28478.8,8,medium,17749.0,16969.0,19121.25,15999.0,19580.0,8.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y1s,32.0,Vivo Y1s | 32GB,8973.82,1173.2,16774.43,4,low,10500.0,9500.0,11875.0,8000.0,14500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y20,32.0,Vivo Y20 | 32GB,9262.97,1462.36,17063.59,1,very_low,12000.0,12000.0,12000.0,12000.0,12000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y20,64.0,Vivo Y20 | 64GB,13221.11,5420.49,21021.72,4,low,12100.0,10375.0,14775.0,10000.0,18000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y21,64.0,Vivo Y21 | 64GB,23277.62,15477.0,31078.24,1,very_low,18000.0,18000.0,18000.0,18000.0,18000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y21,128.0,Vivo Y21 | 128GB,36516.37,28715.75,44316.98,2,very_low,45500.0,44250.0,46750.0,43000.0,48000.0,9.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y51A,128.0,Vivo Y51A | 128GB,26591.4,18790.78,34392.01,1,very_low,17999.0,17999.0,17999.0,17999.0,17999.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y53s,128.0,Vivo Y53s | 128GB,12871.73,5071.12,20672.35,1,very_low,9500.0,9500.0,9500.0,9500.0,9500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y69,32.0,Vivo Y69 | 32GB,9118.65,1318.03,16919.26,1,very_low,7000.0,7000.0,7000.0,7000.0,7000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y73,128.0,Vivo Y73 | 128GB,20153.32,12352.7,27953.94,1,very_low,26500.0,26500.0,26500.0,26500.0,26500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y83,64.0,Vivo Y83 | 64GB,12857.85,5057.24,20658.47,1,very_low,7000.0,7000.0,7000.0,7000.0,7000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y83,128.0,Vivo Y83 | 128GB,14346.09,6545.47,22146.71,6,low,10506.5,10501.0,10873.5,10496.0,11550.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y83,256.0,Vivo Y83 | 256GB,19157.01,11356.39,26957.62,1,very_low,10993.0,10993.0,10993.0,10993.0,10993.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y85,64.0,Vivo Y85 | 64GB,13076.78,5276.17,20877.4,5,low,12990.0,10000.0,14000.0,8000.0,14999.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y85,128.0,Vivo Y85 | 128GB,14565.02,6764.4,22365.64,11,medium,10990.0,8900.0,12495.0,7500.0,13999.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y91c,32.0,Vivo Y91c | 32GB,8973.82,1173.2,16774.43,1,very_low,10000.0,10000.0,10000.0,10000.0,10000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y91i,32.0,Vivo Y91i | 32GB,8973.82,1173.2,16774.43,2,very_low,11000.0,10500.0,11500.0,10000.0,12000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y93,64.0,Vivo Y93 | 64GB,11693.94,3893.32,19494.55,3,low,9000.0,6750.0,10995.0,4500.0,12990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y93,128.0,Vivo Y93 | 128GB,11182.59,3381.98,18983.21,32,high,10998.5,8999.0,12622.5,5000.0,15000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y93,256.0,Vivo Y93 | 256GB,18652.57,10851.96,26453.19,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y95,64.0,Vivo Y95 | 64GB,15198.57,7397.96,22999.19,1,very_low,24000.0,24000.0,24000.0,24000.0,24000.0,4.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Vivo,Y95,128.0,Vivo Y95 | 128GB,14565.02,6764.4,22365.64,4,low,12500.0,10625.0,14125.0,8000.0,16000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,11 Lite NE,256.0,Xiaomi 11 Lite NE | 256GB,30823.34,23022.72,38623.96,4,low,21499.5,21374.25,21520.0,21000.0,21580.0,8.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12,32.0,Xiaomi 12 | 32GB,12853.43,5052.81,20654.04,1,very_low,12000.0,12000.0,12000.0,12000.0,12000.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12,128.0,Xiaomi 12 | 128GB,25888.98,18088.36,33689.59,1,very_low,26000.0,26000.0,26000.0,26000.0,26000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12 Lite,128.0,Xiaomi 12 Lite | 128GB,26731.81,18931.19,34532.43,1,very_low,36900.0,36900.0,36900.0,36900.0,36900.0,8.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12 Pro,128.0,Xiaomi 12 Pro | 128GB,25888.98,18088.36,33689.59,1,very_low,23000.0,23000.0,23000.0,23000.0,23000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12C,64.0,Xiaomi 12C | 64GB,14657.71,6857.09,22458.33,1,very_low,18000.0,18000.0,18000.0,18000.0,18000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12C,128.0,Xiaomi 12C | 128GB,20576.59,12775.97,28377.2,6,low,19250.0,16750.0,23625.0,14500.0,27500.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,12S,256.0,Xiaomi 12S | 256GB,33253.94,25453.32,41054.55,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,13,128.0,Xiaomi 13 | 128GB,24051.38,16250.77,31852.0,1,very_low,40000.0,40000.0,40000.0,40000.0,40000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,13 Pro,512.0,Xiaomi 13 Pro | 512GB,66429.47,58628.85,74230.08,1,very_low,69000.0,69000.0,69000.0,69000.0,69000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Mi 11 Lite,128.0,Xiaomi Mi 11 Lite | 128GB,20923.95,13123.34,28724.57,2,very_low,29000.0,28500.0,29500.0,28000.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Mi 11X Pro,128.0,Xiaomi Mi 11X Pro | 128GB,34158.43,26357.82,41959.05,1,very_low,43500.0,43500.0,43500.0,43500.0,43500.0,8.0,30.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Mi 9T Pro,128.0,Xiaomi Mi 9T Pro | 128GB,34354.49,26553.88,42155.11,1,very_low,24500.0,24500.0,24500.0,24500.0,24500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Mi A3,128.0,Xiaomi Mi A3 | 128GB,20923.95,13123.34,28724.57,2,very_low,19500.0,19250.0,19750.0,19000.0,20000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Mi Note 3,128.0,Xiaomi Mi Note 3 | 128GB,25371.83,17571.21,33172.45,1,very_low,9350.0,9350.0,9350.0,9350.0,9350.0,16.0,2.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Other model,64.0,Xiaomi Other model | 64GB,19568.78,11768.16,27369.4,5,low,24990.0,22000.0,24999.0,14500.0,27500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Other model,128.0,Xiaomi Other model | 128GB,24796.78,16996.17,32597.4,16,medium,22999.5,21500.0,26375.0,16500.0,53500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Other model,256.0,Xiaomi Other model | 256GB,47707.13,39906.51,55507.74,3,low,33490.0,22745.0,52745.0,12000.0,72000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Other model,512.0,Xiaomi Other model | 512GB,74318.53,66517.92,82119.15,4,low,62200.0,49050.0,82125.0,46500.0,105000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco C50,128.0,Xiaomi Poco C50 | 128GB,20923.95,13123.34,28724.57,1,very_low,16000.0,16000.0,16000.0,16000.0,16000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco C55,128.0,Xiaomi Poco C55 | 128GB,20923.95,13123.34,28724.57,1,very_low,23500.0,23500.0,23500.0,23500.0,23500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco F5,256.0,Xiaomi Poco F5 | 256GB,40789.67,32989.06,48590.29,1,very_low,47500.0,47500.0,47500.0,47500.0,47500.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco M3,64.0,Xiaomi Poco M3 | 64GB,17065.34,9264.72,24865.96,2,very_low,14500.0,14000.0,15000.0,13500.0,15500.0,5.0,7.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco M3,128.0,Xiaomi Poco M3 | 128GB,20436.23,12635.62,28236.85,2,very_low,18250.0,17625.0,18875.0,17000.0,19500.0,4.0,1.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco M3 Pro,64.0,Xiaomi Poco M3 Pro | 64GB,28094.19,20293.57,35894.8,1,very_low,24999.0,24999.0,24999.0,24999.0,24999.0,4.0,90.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco M3 Pro,128.0,Xiaomi Poco M3 Pro | 128GB,31579.34,23778.73,39379.96,1,very_low,24990.0,24990.0,24990.0,24990.0,24990.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco M4 Pro 5G,128.0,Xiaomi Poco M4 Pro 5G | 128GB,30746.78,22946.16,38547.39,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,6.0,14.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco M5,128.0,Xiaomi Poco M5 | 128GB,25106.26,17305.64,32906.87,1,very_low,27999.0,27999.0,27999.0,27999.0,27999.0,6.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco X3,128.0,Xiaomi Poco X3 | 128GB,20923.95,13123.34,28724.57,1,very_low,18000.0,18000.0,18000.0,18000.0,18000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco X3 NFC,128.0,Xiaomi Poco X3 NFC | 128GB,20923.95,13123.34,28724.57,3,low,20000.0,16750.0,20000.0,13500.0,20000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco X3 Pro,128.0,Xiaomi Poco X3 Pro | 128GB,20923.95,13123.34,28724.57,6,low,21000.0,20250.0,23625.0,13000.0,28500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco X3 Pro,256.0,Xiaomi Poco X3 Pro | 256GB,33253.94,25453.32,41054.55,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Poco X5 Pro,256.0,Xiaomi Poco X5 Pro | 256GB,36673.16,28872.55,44473.78,1,very_low,42500.0,42500.0,42500.0,42500.0,42500.0,4.0,30.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 10,64.0,Xiaomi Redmi 10 | 64GB,17071.92,9271.31,24872.54,2,very_low,18750.0,16625.0,20875.0,14500.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 10,128.0,Xiaomi Redmi 10 | 128GB,20576.59,12775.97,28377.2,3,low,21500.0,19750.0,21750.0,18000.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 10A,64.0,Xiaomi Redmi 10A | 64GB,17071.92,9271.31,24872.54,3,low,19000.0,17750.0,29000.0,16500.0,39000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 10A,128.0,Xiaomi Redmi 10A | 128GB,20923.95,13123.34,28724.57,6,low,18999.0,17499.0,18999.75,13500.0,20000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 10C,64.0,Xiaomi Redmi 10C | 64GB,17071.92,9271.31,24872.54,1,very_low,21000.0,21000.0,21000.0,21000.0,21000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 10C,128.0,Xiaomi Redmi 10C | 128GB,20923.95,13123.34,28724.57,1,very_low,15999.0,15999.0,15999.0,15999.0,15999.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 11,128.0,Xiaomi Redmi 11 | 128GB,20923.95,13123.34,28724.57,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 12,128.0,Xiaomi Redmi 12 | 128GB,25888.98,18088.36,33689.59,18,medium,27000.0,23250.0,29375.0,16500.0,33990.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 12,256.0,Xiaomi Redmi 12 | 256GB,33253.94,25453.32,41054.55,6,low,30000.0,28492.5,31125.0,17000.0,32000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 13,128.0,Xiaomi Redmi 13 | 128GB,20923.95,13123.34,28724.57,3,low,29000.0,28250.0,29500.0,27500.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 13,256.0,Xiaomi Redmi 13 | 256GB,33253.94,25453.32,41054.55,2,very_low,33000.0,30500.0,35500.0,28000.0,38000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 13C,128.0,Xiaomi Redmi 13C | 128GB,20418.14,12617.52,28218.76,10,medium,20500.0,19250.0,22875.0,15500.0,26500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 13C,256.0,Xiaomi Redmi 13C | 256GB,28473.09,20672.47,36273.7,13,medium,23500.0,21999.0,25000.0,19000.0,35000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 14,256.0,Xiaomi Redmi 14 | 256GB,36726.11,28925.5,44526.73,2,very_low,47000.0,46500.0,47500.0,46000.0,48000.0,6.0,120.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 14C,64.0,Xiaomi Redmi 14C | 64GB,17480.66,9680.05,25281.28,1,very_low,26500.0,26500.0,26500.0,26500.0,26500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 14C,128.0,Xiaomi Redmi 14C | 128GB,21332.69,13532.08,29133.31,16,medium,26000.0,22875.0,28250.0,18000.0,34500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 14C,256.0,Xiaomi Redmi 14C | 256GB,33253.94,25453.32,41054.55,10,medium,32000.0,28625.0,34742.5,26000.0,36000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 15,64.0,Xiaomi Redmi 15 | 64GB,29506.21,21705.59,37306.82,1,very_low,18000.0,18000.0,18000.0,18000.0,18000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 15,128.0,Xiaomi Redmi 15 | 128GB,46065.92,38265.31,53866.54,3,low,53500.0,52250.0,54250.0,51000.0,55000.0,6.0,240.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 15,256.0,Xiaomi Redmi 15 | 256GB,49082.89,41282.27,56883.51,5,low,53000.0,49000.0,58000.0,44000.0,59000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 15C,128.0,Xiaomi Redmi 15C | 128GB,28632.45,20831.83,36433.06,11,medium,36000.0,29450.0,41000.0,24990.0,45000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 15C,256.0,Xiaomi Redmi 15C | 256GB,34126.73,26326.12,41927.35,12,medium,37500.0,32125.0,39225.0,27500.0,50000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 3,128.0,Xiaomi Redmi 3 | 128GB,24260.87,16460.25,32061.48,1,very_low,8500.0,8500.0,8500.0,8500.0,8500.0,16.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 5,64.0,Xiaomi Redmi 5 | 64GB,17071.92,9271.31,24872.54,1,very_low,6499.0,6499.0,6499.0,6499.0,6499.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 6A,32.0,Xiaomi Redmi 6A | 32GB,25382.54,17581.93,33183.16,1,very_low,17000.0,17000.0,17000.0,17000.0,17000.0,12.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 8,32.0,Xiaomi Redmi 8 | 32GB,12998.26,5197.64,20798.87,1,very_low,10500.0,10500.0,10500.0,10500.0,10500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 8,64.0,Xiaomi Redmi 8 | 64GB,17071.92,9271.31,24872.54,1,very_low,19500.0,19500.0,19500.0,19500.0,19500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 8A,32.0,Xiaomi Redmi 8A | 32GB,12853.43,5052.81,20654.04,1,very_low,9500.0,9500.0,9500.0,9500.0,9500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 8A,64.0,Xiaomi Redmi 8A | 64GB,14657.71,6857.09,22458.33,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9,64.0,Xiaomi Redmi 9 | 64GB,17071.92,9271.31,24872.54,1,very_low,20000.0,20000.0,20000.0,20000.0,20000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9 Power,64.0,Xiaomi Redmi 9 Power | 64GB,17071.92,9271.31,24872.54,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9A,32.0,Xiaomi Redmi 9A | 32GB,12642.7,4842.09,20443.32,7,low,12000.0,10250.0,13750.0,9000.0,16500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9A,64.0,Xiaomi Redmi 9A | 64GB,16626.52,8825.9,24427.14,2,very_low,14750.0,14625.0,14875.0,14500.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9A,128.0,Xiaomi Redmi 9A | 128GB,19918.31,12117.7,27718.93,16,medium,16679.5,16499.75,16992.25,16450.0,20000.0,6.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9C,128.0,Xiaomi Redmi 9C | 128GB,20576.59,12775.97,28377.2,2,very_low,12500.0,12250.0,12750.0,12000.0,13000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi 9t,64.0,Xiaomi Redmi 9t | 64GB,17071.92,9271.31,24872.54,1,very_low,11000.0,11000.0,11000.0,11000.0,11000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A2,32.0,Xiaomi Redmi A2 | 32GB,12853.43,5052.81,20654.04,1,very_low,7500.0,7500.0,7500.0,7500.0,7500.0,2.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A2,128.0,Xiaomi Redmi A2 | 128GB,20923.95,13123.34,28724.57,1,very_low,15500.0,15500.0,15500.0,15500.0,15500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A2 plus,64.0,Xiaomi Redmi A2 plus | 64GB,14657.71,6857.09,22458.33,4,low,18500.0,16500.0,21000.0,15000.0,24000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A3,64.0,Xiaomi Redmi A3 | 64GB,14657.71,6857.09,22458.33,5,low,17000.0,15500.0,19000.0,15000.0,21500.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A3,128.0,Xiaomi Redmi A3 | 128GB,20576.59,12775.97,28377.2,8,medium,21250.0,19875.0,23250.0,4000.0,25000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A3,1024.0,Xiaomi Redmi A3 | 1024GB,50210.38,42409.77,58011.0,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A5,64.0,Xiaomi Redmi A5 | 64GB,19934.57,12133.95,27735.18,8,medium,24000.0,21500.0,26125.0,18500.0,39900.0,3.5,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi A5,128.0,Xiaomi Redmi A5 | 128GB,22779.35,14978.74,30579.97,15,medium,25000.0,22750.0,30000.0,14000.0,32500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi K20 Pro,128.0,Xiaomi Redmi K20 Pro | 128GB,20923.95,13123.34,28724.57,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note,128.0,Xiaomi Redmi Note | 128GB,29368.38,21567.76,37169.0,2,very_low,43625.0,31562.5,55687.5,19500.0,67750.0,7.0,182.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 10,128.0,Xiaomi Redmi Note 10 | 128GB,21501.67,13701.06,29302.29,2,very_low,22499.5,21249.75,23749.25,20000.0,24999.0,5.0,45.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 10,256.0,Xiaomi Redmi Note 10 | 256GB,38096.82,30296.21,45897.44,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 10 Pro,128.0,Xiaomi Redmi Note 10 Pro | 128GB,23960.42,16159.8,31761.04,8,medium,29000.0,20375.0,32125.0,16000.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 10 Pro Max,128.0,Xiaomi Redmi Note 10 Pro Max | 128GB,25888.98,18088.36,33689.59,1,very_low,20000.0,20000.0,20000.0,20000.0,20000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 10T,64.0,Xiaomi Redmi Note 10T | 64GB,28040.75,20240.13,35841.37,1,very_low,19900.0,19900.0,19900.0,19900.0,19900.0,4.0,2190.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 10s,128.0,Xiaomi Redmi Note 10s | 128GB,20576.59,12775.97,28377.2,2,very_low,20500.0,18250.0,22750.0,16000.0,25000.0,5.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11,64.0,Xiaomi Redmi Note 11 | 64GB,17071.92,9271.31,24872.54,2,very_low,16250.0,14125.0,18375.0,12000.0,20500.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11,128.0,Xiaomi Redmi Note 11 | 128GB,20461.75,12661.13,28262.37,11,medium,21993.0,21495.0,23500.0,20999.0,26500.0,6.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11,256.0,Xiaomi Redmi Note 11 | 256GB,37339.23,29538.61,45139.84,2,very_low,21738.5,21619.25,21857.75,21500.0,21977.0,7.0,189.5,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11 Pro,128.0,Xiaomi Redmi Note 11 Pro | 128GB,25298.5,17497.88,33099.11,2,very_low,37500.0,36250.0,38750.0,35000.0,40000.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11 Pro+,128.0,Xiaomi Redmi Note 11 Pro+ | 128GB,27872.72,20072.1,35673.33,2,very_low,37500.0,36250.0,38750.0,35000.0,40000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11E,256.0,Xiaomi Redmi Note 11E | 256GB,28736.49,20935.88,36537.11,5,low,21550.0,21500.0,21993.0,21444.0,26500.0,8.0,14.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11R,128.0,Xiaomi Redmi Note 11R | 128GB,26429.88,18629.27,34230.5,1,very_low,18990.0,18990.0,18990.0,18990.0,18990.0,6.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11R,256.0,Xiaomi Redmi Note 11R | 256GB,22989.85,15189.23,30790.46,10,medium,21994.5,20374.0,21999.75,19499.0,22500.0,8.0,14.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11S,128.0,Xiaomi Redmi Note 11S | 128GB,20461.75,12661.13,28262.37,7,low,22000.0,21998.5,25500.0,21993.0,32000.0,6.0,14.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 11S,256.0,Xiaomi Redmi Note 11S | 256GB,32611.11,24810.49,40411.72,2,very_low,21999.0,21999.0,21999.0,21999.0,21999.0,8.0,7.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 12,128.0,Xiaomi Redmi Note 12 | 128GB,20923.95,13123.34,28724.57,5,low,29500.0,26000.0,32500.0,26000.0,38000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 12,256.0,Xiaomi Redmi Note 12 | 256GB,33253.94,25453.32,41054.55,3,low,27500.0,24750.0,29750.0,22000.0,32000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 12 Pro,256.0,Xiaomi Redmi Note 12 Pro | 256GB,38913.43,31112.82,46714.05,1,very_low,38999.0,38999.0,38999.0,38999.0,38999.0,8.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 12 Pro Plus,256.0,Xiaomi Redmi Note 12 Pro Plus | 256GB,33253.94,25453.32,41054.55,1,very_low,43000.0,43000.0,43000.0,43000.0,43000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13,128.0,Xiaomi Redmi Note 13 | 128GB,20923.95,13123.34,28724.57,1,very_low,38000.0,38000.0,38000.0,38000.0,38000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13,256.0,Xiaomi Redmi Note 13 | 256GB,33253.94,25453.32,41054.55,11,medium,37990.0,35500.0,40500.0,27000.0,49500.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13 Pro,128.0,Xiaomi Redmi Note 13 Pro | 128GB,38016.45,30215.83,45817.07,1,very_low,41000.0,41000.0,41000.0,41000.0,41000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13 Pro,256.0,Xiaomi Redmi Note 13 Pro | 256GB,47836.12,40035.51,55636.74,5,low,50500.0,49000.0,51000.0,40000.0,65000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13 Pro,512.0,Xiaomi Redmi Note 13 Pro | 512GB,61185.93,53385.31,68986.54,1,very_low,60000.0,60000.0,60000.0,60000.0,60000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13 Pro Plus,256.0,Xiaomi Redmi Note 13 Pro Plus | 256GB,53891.29,46090.68,61691.91,3,low,53000.0,50750.0,54750.0,48500.0,56500.0,12.0,30.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 13 Pro Plus,512.0,Xiaomi Redmi Note 13 Pro Plus | 512GB,74009.17,66208.56,81809.79,2,very_low,71500.0,69750.0,73250.0,68000.0,75000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 14,128.0,Xiaomi Redmi Note 14 | 128GB,37457.7,29657.08,45258.31,8,medium,40995.0,38375.0,45250.0,31500.0,49500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 14,256.0,Xiaomi Redmi Note 14 | 256GB,42348.75,34548.13,50149.36,20,high,45250.0,42375.0,49249.75,36000.0,57000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 14 Pro,256.0,Xiaomi Redmi Note 14 Pro | 256GB,61018.82,53218.2,68819.44,5,low,49999.0,47000.0,53500.0,43500.0,80000.0,8.0,120.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 14 Pro Plus,128.0,Xiaomi Redmi Note 14 Pro Plus | 128GB,73675.93,65875.31,81476.55,1,very_low,89500.0,89500.0,89500.0,89500.0,89500.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 14 Pro Plus,256.0,Xiaomi Redmi Note 14 Pro Plus | 256GB,65920.78,58120.17,73721.4,1,very_low,70000.0,70000.0,70000.0,70000.0,70000.0,8.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 14 Pro Plus,512.0,Xiaomi Redmi Note 14 Pro Plus | 512GB,90710.02,82909.4,98510.63,1,very_low,93000.0,93000.0,93000.0,93000.0,93000.0,12.0,0.0,1,1,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 15,256.0,Xiaomi Redmi Note 15 | 256GB,49998.27,42197.65,57798.88,3,low,66000.0,60450.0,70000.0,54900.0,74000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 6 Pro,64.0,Xiaomi Redmi Note 6 Pro | 64GB,17071.92,9271.31,24872.54,1,very_low,19990.0,19990.0,19990.0,19990.0,19990.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 7,64.0,Xiaomi Redmi Note 7 | 64GB,17071.92,9271.31,24872.54,1,very_low,14000.0,14000.0,14000.0,14000.0,14000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 7 Pro,128.0,Xiaomi Redmi Note 7 Pro | 128GB,20923.95,13123.34,28724.57,2,very_low,17997.0,17996.0,17998.0,17995.0,17999.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 8,128.0,Xiaomi Redmi Note 8 | 128GB,20576.59,12775.97,28377.2,2,very_low,14000.0,13500.0,14500.0,13000.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 8 Pro,128.0,Xiaomi Redmi Note 8 Pro | 128GB,20923.95,13123.34,28724.57,3,low,22000.0,18500.0,22750.0,15000.0,23500.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 9,64.0,Xiaomi Redmi Note 9 | 64GB,16931.57,9130.95,24732.18,1,very_low,15500.0,15500.0,15500.0,15500.0,15500.0,4.0,2.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 9,256.0,Xiaomi Redmi Note 9 | 256GB,37339.23,29538.61,45139.84,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,6.0,180.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 9 Pro,64.0,Xiaomi Redmi Note 9 Pro | 64GB,17419.29,9618.67,25219.9,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 9 Pro,128.0,Xiaomi Redmi Note 9 Pro | 128GB,20923.95,13123.34,28724.57,2,very_low,14500.0,13250.0,15750.0,12000.0,17000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,Xiaomi,Redmi Note 9S,128.0,Xiaomi Redmi Note 9S | 128GB,20923.95,13123.34,28724.57,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,A-,32.0,ZTE A- | 32GB,15525.64,7725.02,23326.25,1,very_low,19000.0,19000.0,19000.0,19000.0,19000.0,2.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade,32.0,ZTE Blade | 32GB,18172.37,10371.76,25972.99,4,low,19495.0,16875.0,21242.5,13500.0,22000.0,4.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade,64.0,ZTE Blade | 64GB,17074.72,9274.11,24875.34,6,low,19750.0,14992.5,21875.0,13000.0,23000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade,128.0,ZTE Blade | 128GB,20786.04,12985.43,28586.66,5,low,21500.0,19000.0,24000.0,11000.0,35000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade,256.0,ZTE Blade | 256GB,33889.23,26088.61,41689.85,3,low,28000.0,25000.0,29000.0,22000.0,30000.0,10.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A35,64.0,ZTE Blade A35 | 64GB,17074.72,9274.11,24875.34,1,very_low,19000.0,19000.0,19000.0,19000.0,19000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A51,32.0,ZTE Blade A51 | 32GB,17113.97,9313.35,24914.58,1,very_low,16000.0,16000.0,16000.0,16000.0,16000.0,3.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A51,128.0,ZTE Blade A51 | 128GB,20560.8,12760.19,28361.42,1,very_low,15000.0,15000.0,15000.0,15000.0,15000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A55,64.0,ZTE Blade A55 | 64GB,16792.98,8992.36,24593.59,1,very_low,22000.0,22000.0,22000.0,22000.0,22000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A55,128.0,ZTE Blade A55 | 128GB,23702.74,15902.12,31503.35,1,very_low,14500.0,14500.0,14500.0,14500.0,14500.0,4.0,90.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A71,64.0,ZTE Blade A71 | 64GB,14660.51,6859.9,22461.13,1,very_low,9000.0,9000.0,9000.0,9000.0,9000.0,3.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade A71,128.0,ZTE Blade A71 | 128GB,20560.8,12760.19,28361.42,1,very_low,21000.0,21000.0,21000.0,21000.0,21000.0,6.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Blade V30,128.0,ZTE Blade V30 | 128GB,24994.93,17194.31,32795.55,1,very_low,25000.0,25000.0,25000.0,25000.0,25000.0,4.0,365.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Nubia V60,128.0,ZTE Nubia V60 | 128GB,22638.22,14837.6,30438.83,1,very_low,23000.0,23000.0,23000.0,23000.0,23000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Nubia V60,256.0,ZTE Nubia V60 | 256GB,29349.16,21548.54,37149.77,6,low,25749.5,24825.0,26749.75,24500.0,27990.0,7.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Other model,32.0,ZTE Other model | 32GB,18807.84,11007.22,26608.45,4,low,18950.0,18675.0,28750.0,18000.0,58000.0,2.0,30.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Other model,64.0,ZTE Other model | 64GB,19005.1,11204.48,26805.72,2,very_low,14750.0,14625.0,14875.0,14500.0,15000.0,4.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Other model,128.0,ZTE Other model | 128GB,34240.7,26440.08,42041.31,3,low,33999.0,28749.5,34499.5,23500.0,35000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,Other model,256.0,ZTE Other model | 256GB,44779.91,36979.3,52580.53,2,very_low,17495.0,17247.5,17742.5,17000.0,17990.0,11.0,45.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,nubia,128.0,ZTE nubia | 128GB,30131.49,22330.87,37932.11,7,low,33000.0,25500.0,37250.0,23000.0,45000.0,8.0,0.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+android,ZTE,nubia,256.0,ZTE nubia | 256GB,48786.66,40986.04,56587.27,15,medium,47000.0,37495.0,54900.0,16000.0,64980.0,12.0,120.0,1,0,0,XGBoost Regressor,models\xgboost_android.pkl,7800.62
+iphone,Apple,Other model,256.0,Apple Other model | 256GB,264677.06,254720.87,274633.25,1,very_low,269500.0,269500.0,269500.0,269500.0,269500.0,6.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,Unknown,128.0,Apple Unknown | 128GB,50508.76,40552.57,60464.95,2,very_low,46500.0,42250.0,50750.0,38000.0,55000.0,6.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,Unknown,256.0,Apple Unknown | 256GB,66490.61,56534.42,76446.8,2,very_low,69999.5,64999.75,74999.25,60000.0,79999.0,6.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11,64.0,Apple iPhone 11 | 64GB,50045.38,40089.18,60001.57,30,high,52994.5,45250.0,55750.0,36000.0,74999.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11,128.0,Apple iPhone 11 | 128GB,60731.54,50775.35,70687.73,95,high,65000.0,58250.0,69990.0,5200.0,83000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11,256.0,Apple iPhone 11 | 256GB,70566.39,60610.2,80522.58,29,high,68900.0,64500.0,75500.0,45000.0,85000.0,4.0,90.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11,512.0,Apple iPhone 11 | 512GB,73161.91,63205.72,83118.11,2,very_low,70000.0,67500.0,72500.0,65000.0,75000.0,4.0,182.5,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro,64.0,Apple iPhone 11 Pro | 64GB,56337.21,46381.02,66293.4,16,medium,60500.0,54500.0,64625.0,42000.0,74999.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro,128.0,Apple iPhone 11 Pro | 128GB,66118.72,56162.53,76074.91,3,low,74990.0,67495.0,77495.0,60000.0,80000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro,256.0,Apple iPhone 11 Pro | 256GB,71757.57,61801.38,81713.76,86,high,79945.0,69625.0,83750.0,42000.0,92999.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro,512.0,Apple iPhone 11 Pro | 512GB,100853.83,90897.64,110810.02,13,medium,84990.0,79990.0,87500.0,74990.0,99999.0,4.0,100.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro Max,64.0,Apple iPhone 11 Pro Max | 64GB,78112.41,68156.22,88068.61,4,low,76500.0,69750.0,79725.0,54000.0,84900.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro Max,128.0,Apple iPhone 11 Pro Max | 128GB,73145.45,63189.26,83101.65,1,very_low,70000.0,70000.0,70000.0,70000.0,70000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro Max,256.0,Apple iPhone 11 Pro Max | 256GB,80495.46,70539.27,90451.65,44,high,86000.0,74625.0,93375.0,52000.0,105000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 11 Pro Max,512.0,Apple iPhone 11 Pro Max | 512GB,79048.22,69092.03,89004.41,2,very_low,79250.0,78875.0,79625.0,78500.0,80000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12,64.0,Apple iPhone 12 | 64GB,62563.56,52607.37,72519.75,27,high,67500.0,60500.0,69999.0,50000.0,80000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12,128.0,Apple iPhone 12 | 128GB,73871.84,63915.64,83828.03,83,high,79000.0,74006.5,82999.0,39000.0,98000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12,256.0,Apple iPhone 12 | 256GB,81533.91,71577.71,91490.1,14,medium,80995.0,71922.5,86497.5,50000.0,100000.0,4.0,90.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12,512.0,Apple iPhone 12 | 512GB,84222.59,74266.4,94178.79,1,very_low,85000.0,85000.0,85000.0,85000.0,85000.0,4.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 Pro,128.0,Apple iPhone 12 Pro | 128GB,87453.72,77497.53,97409.91,57,high,92000.0,86000.0,96000.0,50000.0,130000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 Pro,256.0,Apple iPhone 12 Pro | 256GB,97809.72,87853.53,107765.91,77,high,98000.0,92000.0,103999.0,65000.0,134000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 Pro,512.0,Apple iPhone 12 Pro | 512GB,103721.8,93765.61,113678.0,22,high,100000.0,98000.0,111875.0,52000.0,122500.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 Pro Max,128.0,Apple iPhone 12 Pro Max | 128GB,102824.5,92868.31,112780.69,36,high,112495.0,98375.0,118250.0,60000.0,137999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 Pro Max,256.0,Apple iPhone 12 Pro Max | 256GB,115770.05,105813.85,125726.24,64,high,122750.0,114750.0,128997.25,47500.0,140000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 Pro Max,512.0,Apple iPhone 12 Pro Max | 512GB,137202.84,127246.65,147159.04,14,medium,132500.0,127375.0,139999.0,87000.0,152999.0,6.0,60.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 mini,64.0,Apple iPhone 12 mini | 64GB,44653.45,34697.25,54609.64,4,low,49250.0,40250.0,54375.0,26000.0,57000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 mini,128.0,Apple iPhone 12 mini | 128GB,64349.93,54393.73,74306.12,20,high,63750.0,61500.0,65000.0,53000.0,80000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 12 mini,256.0,Apple iPhone 12 mini | 256GB,65439.59,55483.4,75395.79,12,medium,64000.0,59990.0,68497.5,52000.0,85000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13,128.0,Apple iPhone 13 | 128GB,93689.99,83733.8,103646.18,101,high,98000.0,89900.0,103500.0,56000.0,155000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13,256.0,Apple iPhone 13 | 256GB,104533.92,94577.73,114490.11,39,high,105500.0,101450.0,107250.0,77000.0,120000.0,4.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13,512.0,Apple iPhone 13 | 512GB,102058.38,92102.19,112014.57,4,low,102495.0,92617.5,113249.75,70500.0,137999.0,4.0,232.5,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro,128.0,Apple iPhone 13 Pro | 128GB,112872.99,102916.8,122829.18,38,high,123490.0,106250.0,125000.0,80000.0,137999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro,138.0,Apple iPhone 13 Pro | 138GB,112872.99,102916.8,122829.18,1,very_low,123999.0,123999.0,123999.0,123999.0,123999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro,256.0,Apple iPhone 13 Pro | 256GB,123027.86,113071.67,132984.05,61,high,131990.0,124000.0,138000.0,85000.0,149000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro,512.0,Apple iPhone 13 Pro | 512GB,145183.7,135227.51,155139.9,11,medium,144000.0,134999.5,149999.0,113999.0,157999.0,6.0,90.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro,1024.0,Apple iPhone 13 Pro | 1024GB,166286.81,156330.62,176243.0,1,very_low,167999.0,167999.0,167999.0,167999.0,167999.0,6.0,730.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro Max,128.0,Apple iPhone 13 Pro Max | 128GB,125328.43,115372.24,135284.62,27,high,135000.0,119994.5,150999.5,76000.0,172999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro Max,256.0,Apple iPhone 13 Pro Max | 256GB,144371.86,134415.67,154328.05,38,high,147999.5,132750.0,164375.0,95000.0,182999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro Max,512.0,Apple iPhone 13 Pro Max | 512GB,148846.92,138890.73,158803.11,10,medium,150000.0,136250.0,183624.25,110000.0,192999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 Pro Max,1024.0,Apple iPhone 13 Pro Max | 1024GB,175507.78,165551.59,185463.97,2,very_low,184249.5,174874.75,193624.25,165500.0,202999.0,6.0,232.5,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 mini,128.0,Apple iPhone 13 mini | 128GB,76207.79,66251.6,86163.98,16,medium,81750.0,78875.0,84924.75,55000.0,90000.0,4.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 mini,256.0,Apple iPhone 13 mini | 256GB,88355.1,78398.91,98311.29,10,medium,85000.0,84992.25,85875.0,78000.0,94999.0,4.0,60.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 13 mini,512.0,Apple iPhone 13 mini | 512GB,87525.85,77569.66,97482.04,3,low,84990.0,84945.0,89990.0,84900.0,94990.0,4.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14,128.0,Apple iPhone 14 | 128GB,120643.48,110687.29,130599.68,66,high,120250.0,115247.5,124999.75,70000.0,211000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14,256.0,Apple iPhone 14 | 256GB,118787.45,108831.26,128743.65,31,high,126500.0,119994.5,131999.5,54000.0,140999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14,512.0,Apple iPhone 14 | 512GB,124954.12,114997.93,134910.31,5,low,125000.0,119990.0,129900.0,119900.0,129990.0,6.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Plus,128.0,Apple iPhone 14 Plus | 128GB,124011.77,114055.58,133967.97,12,medium,128999.5,125675.0,135922.5,124900.0,150000.0,6.0,272.5,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Plus,256.0,Apple iPhone 14 Plus | 256GB,101302.7,91346.5,111258.89,3,low,125000.0,85000.0,130000.0,45000.0,135000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro,128.0,Apple iPhone 14 Pro | 128GB,148515.34,138559.15,158471.54,38,high,154504.0,145250.0,168875.0,110000.0,185000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro,256.0,Apple iPhone 14 Pro | 256GB,163382.39,153426.2,173338.58,66,high,174749.5,162999.25,180000.0,95000.0,193000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro,512.0,Apple iPhone 14 Pro | 512GB,176879.88,166923.68,186836.07,9,medium,180000.0,172500.0,183000.0,155000.0,195000.0,6.0,30.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro,1024.0,Apple iPhone 14 Pro | 1024GB,210085.23,200129.04,220041.43,7,low,179999.0,169990.0,189750.0,164900.0,212000.0,6.0,360.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro Max,128.0,Apple iPhone 14 Pro Max | 128GB,161654.56,151698.37,171610.75,25,high,178000.0,155000.0,187000.0,15000.0,217999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro Max,256.0,Apple iPhone 14 Pro Max | 256GB,175102.95,165146.76,185059.15,74,high,190750.0,174999.25,199675.0,103000.0,227999.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro Max,512.0,Apple iPhone 14 Pro Max | 512GB,209234.81,199278.62,219191.0,6,low,202500.0,196250.0,212499.25,190000.0,220000.0,6.0,90.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 14 Pro Max,1024.0,Apple iPhone 14 Pro Max | 1024GB,226266.33,216310.14,236222.52,2,very_low,227000.0,223000.0,231000.0,219000.0,235000.0,6.0,182.5,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15,128.0,Apple iPhone 15 | 128GB,152364.25,142408.06,162320.44,51,high,155000.0,146500.0,161000.0,90000.0,208000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15,256.0,Apple iPhone 15 | 256GB,146844.56,136888.37,156800.75,19,medium,158500.0,154745.0,171750.0,132000.0,189500.0,6.0,30.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15,512.0,Apple iPhone 15 | 512GB,162008.19,152052.0,171964.38,5,low,164990.0,154990.0,190000.0,154900.0,190000.0,6.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Plus,128.0,Apple iPhone 15 Plus | 128GB,162896.66,152940.46,172852.85,17,medium,165000.0,160000.0,169500.0,144000.0,179900.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Plus,256.0,Apple iPhone 15 Plus | 256GB,187300.38,177344.18,197256.57,2,very_low,190250.0,187875.0,192625.0,185500.0,195000.0,6.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro,128.0,Apple iPhone 15 Pro | 128GB,201910.02,191953.82,211866.21,29,high,200000.0,195000.0,207000.0,175000.0,245000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro,256.0,Apple iPhone 15 Pro | 256GB,204264.77,194308.57,214220.96,47,high,218001.0,204999.5,224995.0,140000.0,253500.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro,512.0,Apple iPhone 15 Pro | 512GB,238261.0,228304.81,248217.19,3,low,235000.0,234995.0,236998.0,234990.0,238996.0,8.0,720.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro,1024.0,Apple iPhone 15 Pro | 1024GB,194810.5,184854.31,204766.69,3,low,194990.0,194945.0,199945.0,194900.0,204900.0,8.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro Max,128.0,Apple iPhone 15 Pro Max | 128GB,241489.41,231533.21,251445.6,5,low,239000.0,236000.0,252000.0,225000.0,255000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro Max,256.0,Apple iPhone 15 Pro Max | 256GB,237538.95,227582.76,247495.15,58,high,235000.0,228500.0,247992.5,195000.0,280000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro Max,512.0,Apple iPhone 15 Pro Max | 512GB,236767.52,226811.32,246723.71,7,low,247000.0,227000.0,251750.0,205000.0,255000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 15 Pro Max,1024.0,Apple iPhone 15 Pro Max | 1024GB,235031.23,225075.04,244987.43,3,low,234990.0,234945.0,236995.0,234900.0,239000.0,8.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16,128.0,Apple iPhone 16 | 128GB,185951.73,175995.54,195907.93,32,high,190000.0,183001.5,196750.0,125000.0,219500.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16,256.0,Apple iPhone 16 | 256GB,206934.61,196978.42,216890.8,8,medium,212499.5,198003.75,216250.0,180000.0,248000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16,1024.0,Apple iPhone 16 | 1024GB,139498.27,129542.07,149454.46,1,very_low,140000.0,140000.0,140000.0,140000.0,140000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Plus,128.0,Apple iPhone 16 Plus | 128GB,198544.22,188588.03,208500.41,5,low,212000.0,199000.0,216500.0,198000.0,223000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Plus,256.0,Apple iPhone 16 Plus | 256GB,213744.69,203788.5,223700.88,4,low,215125.0,212500.0,215312.5,205000.0,215500.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro,128.0,Apple iPhone 16 Pro | 128GB,244782.7,234826.51,254738.9,8,medium,242000.0,236375.0,249000.0,225000.0,257000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro,256.0,Apple iPhone 16 Pro | 256GB,264101.06,254144.87,274057.25,12,medium,265999.5,257499.25,271175.0,247999.0,300000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro,1024.0,Apple iPhone 16 Pro | 1024GB,126488.06,116531.87,136444.25,1,very_low,125000.0,125000.0,125000.0,125000.0,125000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro Max,128.0,Apple iPhone 16 Pro Max | 128GB,275470.16,265513.96,285426.35,2,very_low,269500.0,259750.0,279250.0,250000.0,289000.0,8.0,75.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro Max,256.0,Apple iPhone 16 Pro Max | 256GB,288633.06,278676.87,298589.25,38,high,289500.0,284999.25,295750.0,244000.0,310000.0,8.0,60.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro Max,512.0,Apple iPhone 16 Pro Max | 512GB,209624.67,199668.48,219580.86,7,low,295000.0,227000.0,301499.5,160000.0,305500.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16 Pro Max,1024.0,Apple iPhone 16 Pro Max | 1024GB,288226.44,278270.25,298182.63,5,low,284990.0,130000.0,289900.0,45000.0,289990.0,8.0,365.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16e,128.0,Apple iPhone 16e | 128GB,142919.5,132963.31,152875.69,2,very_low,139700.0,134600.0,144800.0,129500.0,149900.0,8.0,450.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 16e,256.0,Apple iPhone 16e | 256GB,154163.95,144207.76,164120.15,1,very_low,148500.0,148500.0,148500.0,148500.0,148500.0,8.0,180.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 17,256.0,Apple iPhone 17 | 256GB,261513.77,251557.57,271469.96,21,high,262000.0,254500.0,273000.0,225000.0,280000.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 17,512.0,Apple iPhone 17 | 512GB,279466.22,269510.03,289422.41,2,very_low,279945.0,279922.5,279967.5,279900.0,279990.0,8.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 17 Pro,256.0,Apple iPhone 17 Pro | 256GB,304341.5,294385.31,314297.69,1,very_low,308990.0,308990.0,308990.0,308990.0,308990.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 17 Pro Max,1024.0,Apple iPhone 17 Pro Max | 1024GB,37128.8,27172.6,47084.99,1,very_low,35000.0,35000.0,35000.0,35000.0,35000.0,12.0,0.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 3GS,128.0,Apple iPhone 3GS | 128GB,20505.64,10549.45,30461.83,1,very_low,24500.0,24500.0,24500.0,24500.0,24500.0,0.25,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 5S,32.0,Apple iPhone 5S | 32GB,10109.11,152.92,20065.3,2,very_low,8000.0,7000.0,9000.0,6000.0,10000.0,1.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6,32.0,Apple iPhone 6 | 32GB,10303.54,347.35,20259.73,1,very_low,12500.0,12500.0,12500.0,12500.0,12500.0,1.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6,64.0,Apple iPhone 6 | 64GB,10606.67,650.48,20562.86,2,very_low,7250.0,5875.0,8625.0,4500.0,10000.0,1.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6,128.0,Apple iPhone 6 | 128GB,13388.61,3432.42,23344.81,2,very_low,8749.5,7124.75,10374.25,5500.0,11999.0,1.0,15.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6 Plus,128.0,Apple iPhone 6 Plus | 128GB,14361.34,4405.15,24317.53,1,very_low,13500.0,13500.0,13500.0,13500.0,13500.0,1.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6S,32.0,Apple iPhone 6S | 32GB,12086.25,2130.06,22042.44,2,very_low,12750.0,12625.0,12875.0,12500.0,13000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6S,64.0,Apple iPhone 6S | 64GB,12465.24,2509.04,22421.43,5,low,13000.0,12000.0,13500.0,10500.0,14999.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6S,128.0,Apple iPhone 6S | 128GB,13988.17,4031.98,23944.36,7,low,14000.0,11250.0,15499.5,7900.0,20000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6S Plus,32.0,Apple iPhone 6S Plus | 32GB,16322.15,6365.96,26278.34,1,very_low,17500.0,17500.0,17500.0,17500.0,17500.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 6S Plus,128.0,Apple iPhone 6S Plus | 128GB,19603.69,9647.5,29559.89,4,low,17000.0,13375.0,21750.0,8500.0,30000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 7,32.0,Apple iPhone 7 | 32GB,14424.65,4468.46,24380.84,15,medium,15500.0,13250.0,17000.0,6000.0,30000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 7,128.0,Apple iPhone 7 | 128GB,17354.35,7398.16,27310.54,21,high,16500.0,13500.0,20000.0,10000.0,31000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 7,256.0,Apple iPhone 7 | 256GB,21244.88,11288.68,31201.07,5,low,21500.0,16000.0,22000.0,15000.0,25000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 7 Plus,32.0,Apple iPhone 7 Plus | 32GB,19809.3,9853.11,29765.49,8,medium,17500.0,15375.0,22750.0,12000.0,29999.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 7 Plus,128.0,Apple iPhone 7 Plus | 128GB,22561.31,12605.12,32517.51,36,high,23250.0,19375.0,26125.0,14500.0,35000.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 7 Plus,256.0,Apple iPhone 7 Plus | 256GB,24677.65,14721.46,34633.84,12,medium,23000.0,19750.0,25249.75,14999.0,32000.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 8,64.0,Apple iPhone 8 | 64GB,23323.06,13366.87,33279.25,19,medium,24990.0,22250.0,26500.0,10000.0,30000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 8,128.0,Apple iPhone 8 | 128GB,25285.82,15329.63,35242.01,1,very_low,30000.0,30000.0,30000.0,30000.0,30000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 8,256.0,Apple iPhone 8 | 256GB,27690.28,17734.09,37646.47,12,medium,28000.0,25750.0,30750.0,21000.0,34500.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 8 Plus,64.0,Apple iPhone 8 Plus | 64GB,30857.33,20901.13,40813.52,16,medium,29950.0,26375.0,33500.0,14500.0,39500.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 8 Plus,128.0,Apple iPhone 8 Plus | 128GB,39285.97,29329.78,49242.16,7,low,39999.0,39749.5,40049.5,38500.0,43000.0,3.0,365.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone 8 Plus,256.0,Apple iPhone 8 Plus | 256GB,38964.74,29008.55,48920.93,22,high,37500.0,33125.0,42492.5,15000.0,43500.0,3.0,15.5,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone Air,256.0,Apple iPhone Air | 256GB,275165.41,265209.21,285121.6,10,medium,269999.0,258625.0,276875.0,254500.0,289500.0,12.0,135.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE,32.0,Apple iPhone SE | 32GB,40347.98,30391.78,50304.17,2,very_low,16500.0,15500.0,17500.0,14500.0,18500.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE,64.0,Apple iPhone SE | 64GB,41824.77,31868.57,51780.96,1,very_low,33900.0,33900.0,33900.0,33900.0,33900.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE,128.0,Apple iPhone SE | 128GB,49993.31,40037.12,59949.5,2,very_low,53500.0,52750.0,54250.0,52000.0,55000.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE,256.0,Apple iPhone SE | 256GB,40207.09,30250.9,50163.29,1,very_low,39990.0,39990.0,39990.0,39990.0,39990.0,2.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE 2,64.0,Apple iPhone SE 2 | 64GB,32822.67,22866.48,42778.86,14,medium,35250.0,32992.5,36874.25,20000.0,43000.0,3.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE 2,128.0,Apple iPhone SE 2 | 128GB,34933.59,24977.39,44889.78,44,high,38000.0,31375.0,42499.25,23000.0,68500.0,3.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE 2,256.0,Apple iPhone SE 2 | 256GB,44806.34,34850.15,54762.53,12,medium,46245.0,44749.25,47125.0,31000.0,51999.0,3.0,180.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE 2,512.0,Apple iPhone SE 2 | 512GB,47135.48,37179.29,57091.67,1,very_low,45000.0,45000.0,45000.0,45000.0,45000.0,3.0,365.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE 3,64.0,Apple iPhone SE 3 | 64GB,43344.72,33388.53,53300.91,4,low,40000.0,39225.0,41749.75,36900.0,46999.0,4.0,45.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone SE 3,128.0,Apple iPhone SE 3 | 128GB,56027.0,46070.8,65983.19,4,low,51745.0,49492.5,54625.0,48000.0,58000.0,4.0,135.0,1,1,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone X,64.0,Apple iPhone X | 64GB,30280.12,20323.92,40236.31,22,high,31000.0,25875.0,34999.75,20000.0,42500.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone X,128.0,Apple iPhone X | 128GB,34266.18,24309.99,44222.37,2,very_low,36000.0,34000.0,38000.0,32000.0,40000.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone X,256.0,Apple iPhone X | 256GB,39438.69,29482.5,49394.88,41,high,42000.0,36000.0,46000.0,24000.0,54990.0,3.0,0.0,0,0,0,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XR,64.0,Apple iPhone XR | 64GB,35370.25,25414.05,45326.44,20,high,37750.0,32875.0,43500.0,23500.0,55990.0,3.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XR,128.0,Apple iPhone XR | 128GB,38169.53,28213.34,48125.72,28,high,45000.0,36500.0,52990.0,20000.0,63500.0,3.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XR,256.0,Apple iPhone XR | 256GB,57873.4,47917.21,67829.59,6,low,54000.0,47000.0,56875.0,42000.0,64999.0,3.0,45.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS,64.0,Apple iPhone XS | 64GB,35743.39,25787.2,45699.58,14,medium,38250.0,32625.0,45000.0,25000.0,50000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS,128.0,Apple iPhone XS | 128GB,48179.72,38223.53,58135.91,1,very_low,50000.0,50000.0,50000.0,50000.0,50000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS,256.0,Apple iPhone XS | 256GB,50312.65,40356.46,60268.84,42,high,55000.0,46125.0,58800.0,18000.0,64999.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS,512.0,Apple iPhone XS | 512GB,52555.04,42598.85,62511.23,5,low,60000.0,55000.0,65999.0,50000.0,69990.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS Max,64.0,Apple iPhone XS Max | 64GB,50525.01,40568.82,60481.2,17,medium,48000.0,45000.0,59990.0,25000.0,64999.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS Max,128.0,Apple iPhone XS Max | 128GB,61625.66,51669.46,71581.85,1,very_low,70000.0,70000.0,70000.0,70000.0,70000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS Max,256.0,Apple iPhone XS Max | 256GB,53146.17,43189.98,63102.36,24,high,56500.0,47875.0,63249.25,29000.0,75000.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
+iphone,Apple,iPhone XS Max,512.0,Apple iPhone XS Max | 512GB,53981.72,44025.53,63937.91,9,medium,54000.0,48000.0,59000.0,40500.0,68990.0,4.0,0.0,1,0,1,XGBoost Regressor,models\xgboost_iphone.pkl,9956.19
