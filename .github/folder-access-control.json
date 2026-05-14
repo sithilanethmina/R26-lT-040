@@ -1,5 +1,5 @@
 {
-  "default_policy": "deny",
+  "default_policy": "allow",
   "owners": {
     ".github": ["sithilanethmina"],
     "electronics-price-model": ["NimsaraThenuka"],
