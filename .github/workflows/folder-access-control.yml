@@ -1,0 +1,119 @@
+name: Folder Access Control
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - edited
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate-folder-access:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate changed folders against PR author
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const path = require("path");
+
+            const configPath = path.join(process.env.GITHUB_WORKSPACE, ".github", "folder-access-control.json");
+            const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+            const owners = config.owners || {};
+            const defaultPolicy = (config.default_policy || "deny").toLowerCase();
+
+            const pr = context.payload.pull_request;
+            const prAuthor = (pr.user && pr.user.login ? pr.user.login : "").toLowerCase();
+
+            if (!prAuthor) {
+              core.setFailed("Could not determine the pull request author.");
+              return;
+            }
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              per_page: 100
+            });
+
+            if (files.length === 0) {
+              core.info("No changed files found in this pull request.");
+              return;
+            }
+
+            const uniqueScopes = [...new Set(files.map((file) => {
+              const normalized = file.filename.replace(/^\/+/, "");
+              const [topLevel] = normalized.split("/");
+              return topLevel || normalized;
+            }))].sort();
+
+            const unauthorizedScopes = [];
+            const accessSummary = [];
+
+            for (const scope of uniqueScopes) {
+              const allowedOwners = (owners[scope] || []).map((owner) =>
+                owner.replace(/^@/, "").toLowerCase()
+              );
+
+              if (allowedOwners.length === 0) {
+                if (defaultPolicy === "allow") {
+                  accessSummary.push(`- \`${scope}\`: unrestricted`);
+                  continue;
+                }
+
+                unauthorizedScopes.push({
+                  scope,
+                  reason: "No owners are configured for this path."
+                });
+                continue;
+              }
+
+              accessSummary.push(`- \`${scope}\`: ${allowedOwners.map((owner) => `@${owner}`).join(", ")}`);
+
+              if (!allowedOwners.includes(prAuthor)) {
+                unauthorizedScopes.push({
+                  scope,
+                  reason: `PR author @${prAuthor} is not in the allowed owner list (${allowedOwners.map((owner) => `@${owner}`).join(", ")}).`
+                });
+              }
+            }
+
+            const summaryLines = [
+              `PR author: @${prAuthor}`,
+              "",
+              "Changed scopes:",
+              ...accessSummary
+            ];
+
+            await core.summary
+              .addHeading("Folder Access Control")
+              .addRaw(summaryLines.join("\n"), true)
+              .write();
+
+            if (unauthorizedScopes.length > 0) {
+              const message = unauthorizedScopes
+                .map(({ scope, reason }) => `- \`${scope}\`: ${reason}`)
+                .join("\n");
+
+              core.setFailed(
+                [
+                  `Pull request author @${prAuthor} is not allowed to change one or more folders.`,
+                  "",
+                  message,
+                  "",
+                  "Update .github/folder-access-control.json and .github/CODEOWNERS if ownership needs to change."
+                ].join("\n")
+              );
+            }

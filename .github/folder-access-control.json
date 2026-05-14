@@ -1,0 +1,10 @@
+{
+  "default_policy": "deny",
+  "owners": {
+    ".github": ["repo-admin"],
+    "electronics-price-model": ["person-d"],
+    "gpu-price-model": ["person-a"],
+    "mobile-price-model": ["person-c"],
+    "vehicle-price-model": ["person-b"]
+  }
+}

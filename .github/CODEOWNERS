@@ -1,0 +1,7 @@
+# Replace the placeholder usernames with real GitHub usernames or org teams.
+
+/.github/ @sithilanethmina
+/electronics-price-model/ @person-d
+/gpu-price-model/ @sithilanethmina
+/mobile-price-model/ @person-c
+/vehicle-price-model/ @person-b
