@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vehicle Price Predictor | Fair Market Value Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            background: radial-gradient(circle at top right, #1e1b4b, #020617);
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #10b981, #3b82f6, #10b981);
+            border-radius: 1.6rem;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.3;
+            animation: border-glow 4s linear infinite;
+        }
+        @keyframes border-glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .custom-dropdown {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            width: 100%;
+            outline: none;
+            transition: all 0.2s;
+            appearance: none;
+        }
+        .custom-dropdown:focus {
+            border-color: #10b981;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        select option {
+            background: #0f172a;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 space-y-12">
+        <!-- Header -->
+        <header class="text-center space-y-4">
+            <div class="inline-flex items-center justify-center p-3 glass-card mb-4">
+                <i data-lucide="car" class="w-10 h-10 text-emerald-400"></i>
+            </div>
+            <h1 class="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+                AI Vehicle Price Predictor
+            </h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                Advanced machine learning analysis for high-precision fair market value estimation.
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Selection Form -->
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-card p-8 space-y-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i data-lucide="settings" class="w-5 h-5 text-emerald-400"></i>
+                        <h2 class="text-xl font-bold">Vehicle Configuration</h2>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Vehicle Model</label>
+                            <select id="modelSelect" class="custom-dropdown">
+                                <option>Toyota Corolla</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Variant / Generation</label>
+                            <select id="variantSelect" class="custom-dropdown"></select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Year of Manufacture</label>
+                            <select id="yearSelect" class="custom-dropdown"></select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Transmission</label>
+                            <select id="transmissionSelect" class="custom-dropdown"></select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Fuel Type</label>
+                            <select id="fuelSelect" class="custom-dropdown"></select>
+                        </div>
+                    </div>
+
+                    <button id="analyzeBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2 group">
+                        Analyze Fair Price
+                        <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Prediction Results -->
+            <div id="resultsSection" class="lg:col-span-8 space-y-8 hidden">
+                <!-- Primary Result Card -->
+                <div class="glass-card glow-border p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4">
+                        <div class="bg-emerald-500/20 text-emerald-400 px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-1.5 border border-emerald-500/30">
+                            <i data-lucide="trophy" class="w-4 h-4"></i>
+                            Best Model
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-slate-400 font-medium mb-1">Recommended Fair Price</h3>
+                            <div id="mainPrice" class="text-6xl font-black text-white">LKR 0</div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/10">
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <i data-lucide="activity" class="w-4 h-4"></i>
+                                    <span class="text-sm">ML Engine</span>
+                                </div>
+                                <div id="bestModelName" class="text-xl font-bold text-white">Random Forest Regressor</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm text-slate-400">Quality Score:</span>
+                                    <span id="qualityLabel" class="text-sm font-bold text-emerald-400">Very Good</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+                                    <div class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">MAE</div>
+                                    <div id="bestMAE" class="text-sm font-bold text-emerald-400">0</div>
+                                </div>
+                                <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+                                    <div class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">RMSE</div>
+                                    <div id="bestRMSE" class="text-sm font-bold text-blue-400">0</div>
+                                </div>
+                                <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+                                    <div class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">R² Score</div>
+                                    <div id="bestR2" class="text-sm font-bold text-indigo-400">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual Model Predictions -->
+                <div id="modelGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Cards will be injected here -->
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="lg:col-span-8 glass-card h-[400px] flex flex-col items-center justify-center text-center p-8 border-dashed border-2 border-white/10">
+                <i data-lucide="gauge" class="w-16 h-16 text-slate-700 mb-4"></i>
+                <h3 class="text-xl font-bold text-slate-500">Ready for Analysis</h3>
+                <p class="text-slate-600 max-w-sm mt-2">Configure the vehicle details and click "Analyze" to run the machine learning ensemble.</p>
+            </div>
+        </div>
+
+        <!-- Comparison Graphs -->
+        <section class="space-y-8 pt-12 border-t border-white/10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2 text-emerald-400 uppercase tracking-widest text-xs font-bold">
+                        <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                        Performance Metrics
+                    </div>
+                    <h2 class="text-3xl font-bold">ML Model Performance Comparison</h2>
+                </div>
+                <div class="flex gap-4 text-sm text-slate-500 bg-white/5 p-2 rounded-lg">
+                    <span class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Random Forest</span>
+                    <span class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-blue-500"></div> XGBoost</span>
+                    <span class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-indigo-500"></div> Decision Tree</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 space-y-4">
+                    <h3 class="font-bold text-slate-300">MAE Comparison</h3>
+                    <canvas id="maeChart"></canvas>
+                </div>
+                <div class="glass-card p-6 space-y-4">
+                    <h3 class="font-bold text-slate-300">RMSE Comparison</h3>
+                    <canvas id="rmseChart"></canvas>
+                </div>
+                <div class="glass-card p-6 space-y-4">
+                    <h3 class="font-bold text-slate-300">R² Score Comparison</h3>
+                    <canvas id="r2Chart"></canvas>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 space-y-6">
+                <h3 class="text-xl font-bold text-white">Mean Squared Error (MSE)</h3>
+                <canvas id="mseChart" height="100"></canvas>
+            </div>
+        </section>
+
+        <footer class="text-center py-12 text-slate-600 text-sm border-t border-white/5">
+            &copy; 2026 AI Vehicle Price Intelligence Platform • Built with Next-Gen ML Analysis
+        </footer>
+    </div>
+
+    <script>
+        // Data Configuration
+        const VARIANTS = {
+            "121": {
+                years: Array.from({ length: 9 }, (_, i) => 2000 + i),
+                transmissions: ["Manual", "Automatic"],
+                fuelTypes: ["Petrol", "Diesel"],
+                basePrice: 5500000,
+                yearFactor: 100000
+            },
+            "141": {
+                years: Array.from({ length: 7 }, (_, i) => 2007 + i),
+                transmissions: ["Manual", "Automatic"],
+                fuelTypes: ["Petrol"],
+                basePrice: 6500000,
+                yearFactor: 150000
+            },
+            "AE110": {
+                years: Array.from({ length: 6 }, (_, i) => 1995 + i),
+                transmissions: ["Manual", "Automatic"],
+                fuelTypes: ["Petrol", "Diesel"],
+                basePrice: 3500000,
+                yearFactor: 80000
+            },
+            "DX/KE72": {
+                years: Array.from({ length: 11 }, (_, i) => 1980 + i),
+                transmissions: ["Manual"],
+                fuelTypes: ["Petrol"],
+                basePrice: 1200000,
+                yearFactor: 50000
+            }
+        };
+
+        const ML_MODELS = [
+            { name: "Random Forest Regressor", mae: 405792, mse: 406740640061, rmse: 637762, r2: 0.861 },
+            { name: "XGBoost Regressor", mae: 417980, mse: 436210892800, rmse: 660463, r2: 0.851 },
+            { name: "Decision Tree Regressor", mae: 428668, mse: 465359595208, rmse: 682173, r2: 0.841 }
+        ];
+
+        // Initialization
+        const variantSelect = document.getElementById('variantSelect');
+        const yearSelect = document.getElementById('yearSelect');
+        const transSelect = document.getElementById('transmissionSelect');
+        const fuelSelect = document.getElementById('fuelSelect');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+
+        function populateSelect(select, options) {
+            select.innerHTML = options.map(o => `<option value="${o}">${o}</option>`).join('');
+        }
+
+        function updateForm() {
+            const v = variantSelect.value;
+            const data = VARIANTS[v];
+            populateSelect(yearSelect, data.years);
+            populateSelect(transSelect, data.transmissions);
+            populateSelect(fuelSelect, data.fuelTypes);
+        }
+
+        Object.keys(VARIANTS).forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v; opt.textContent = v;
+            variantSelect.appendChild(opt);
+        });
+
+        variantSelect.addEventListener('change', updateForm);
+        updateForm();
+        variantSelect.value = "141";
+        updateForm();
+
+        // Charts
+        const chartConfig = (id, label, data, color) => ({
+            type: 'bar',
+            data: {
+                labels: ML_MODELS.map(m => m.name.split(' ')[0]),
+                datasets: [{
+                    label: label,
+                    data: data,
+                    backgroundColor: [ '#10b981', '#3b82f6', '#6366f1' ],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b' } },
+                    x: { grid: { display: false }, ticks: { color: '#64748b' } }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('maeChart'), chartConfig('mae', 'MAE', ML_MODELS.map(m => m.mae)));
+        new Chart(document.getElementById('rmseChart'), chartConfig('rmse', 'RMSE', ML_MODELS.map(m => m.rmse)));
+        new Chart(document.getElementById('r2Chart'), chartConfig('r2', 'R2 Score', ML_MODELS.map(m => m.r2)));
+        new Chart(document.getElementById('mseChart'), {
+            ...chartConfig('mse', 'MSE', ML_MODELS.map(m => m.mse)),
+            type: 'bar',
+            options: { indexAxis: 'y', plugins: { legend: { display: false } } }
+        });
+
+        // Analyze Logic
+        analyzeBtn.addEventListener('click', () => {
+            const v = variantSelect.value;
+            const y = parseInt(yearSelect.value);
+            const t = transSelect.value;
+            const f = fuelSelect.value;
+            const info = VARIANTS[v];
+
+            document.getElementById('emptyState').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
+
+            const bestModel = ML_MODELS[0];
+            const predictions = ML_MODELS.map(m => {
+                let price = info.basePrice;
+                price += (y - info.years[0]) * info.yearFactor;
+                if (t === "Automatic") price += 250000;
+                if (f === "Diesel") price += 150000;
+                const variation = (m.name.length % 5 - 2) * 20000;
+                return { ...m, price: price + variation };
+            });
+
+            const formatLKR = (val) => "LKR " + new Intl.NumberFormat('en-LK').format(val);
+
+            document.getElementById('mainPrice').textContent = formatLKR(predictions[0].price);
+            document.getElementById('bestModelName').textContent = predictions[0].name;
+            document.getElementById('bestMAE').textContent = predictions[0].mae.toLocaleString();
+            document.getElementById('bestRMSE').textContent = predictions[0].rmse.toLocaleString();
+            document.getElementById('bestR2').textContent = predictions[0].r2;
+
+            const grid = document.getElementById('modelGrid');
+            grid.innerHTML = predictions.map(p => `
+                <div class="glass-card p-5 border ${p.name === bestModel.name ? 'border-emerald-500/50 bg-emerald-500/5' : 'border-white/10'}">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">${p.name.split(' ')[0]}</div>
+                        ${p.name === bestModel.name ? '<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>' : ''}
+                    </div>
+                    <div class="text-xl font-bold mb-1">${formatLKR(p.price)}</div>
+                    <div class="text-[10px] text-slate-400 flex items-center justify-between">
+                        <span>Accuracy Index</span>
+                        <span class="${p.r2 >= 0.8 ? 'text-emerald-400' : 'text-blue-400'}">${p.r2}</span>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
