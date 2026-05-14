@@ -133,12 +133,6 @@ For a given listing, the full system is designed to provide:
 
 Because this repository is organized by category, each model folder can be worked on independently.
 
-Start by opening the relevant module:
-
-- [GPU model README](./gpu-price-model/README.md)
-- [Vehicle model README](./vehicle-price-model/Readme.md)
-- [Mobile model README](./mobile-price-model/Readme.md)
-
 Then install the dependencies for that module and run its training or app scripts as described in the local documentation.
 
 ## Project Vision
