@@ -1,0 +1,3116 @@
+[
+  {
+    "Price_LKR": 15000.0,
+    "Extracted_Model": "GT 1030",
+    "VRAM_GB": 2.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 12500.0,
+    "Extracted_Model": "GT 1030",
+    "VRAM_GB": 2.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 17000.0,
+    "Extracted_Model": "GT 1030",
+    "VRAM_GB": 4.0,
+    "Brand": "COLORFUL"
+  },
+  {
+    "Price_LKR": 6000.0,
+    "Extracted_Model": "GT 610",
+    "VRAM_GB": 2.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 2990.0,
+    "Extracted_Model": "GT 610",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 4500.0,
+    "Extracted_Model": "GT 610",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 6200.0,
+    "Extracted_Model": "GT 610",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 4200.0,
+    "Extracted_Model": "GT 610",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 7500.0,
+    "Extracted_Model": "GT 630",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 8500.0,
+    "Extracted_Model": "GT 710",
+    "VRAM_GB": 2.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 4500.0,
+    "Extracted_Model": "GT 730",
+    "VRAM_GB": 1.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 15000.0,
+    "Extracted_Model": "GT 730",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 7500.0,
+    "Extracted_Model": "GT 730",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 8000.0,
+    "Extracted_Model": "GT 730",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 4500.0,
+    "Extracted_Model": "GTS 450",
+    "VRAM_GB": 1.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 5000.0,
+    "Extracted_Model": "GTS 450",
+    "VRAM_GB": 1.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 22000.0,
+    "Extracted_Model": "GTX 1050",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 23000.0,
+    "Extracted_Model": "GTX 1050",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 21900.0,
+    "Extracted_Model": "GTX 1050",
+    "VRAM_GB": 2.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 33000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 21000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "EMTEK"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 31900.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 25500.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 33000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 25000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 33000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 30000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 30000.0,
+    "Extracted_Model": "GTX 1050 TI",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 34500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 25000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 27500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 39000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 27000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "EMTEK"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "EMTEK"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "EMTEK"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 33000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 29000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 5.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 50000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 44500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 34000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 43500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 43500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 43500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 33000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 39500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 43500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 26000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 29800.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 41000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 26000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 34500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 26000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 29800.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 34500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 36000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 34500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 38000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 3.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 39500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 38000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 40500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 42000.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 43500.0,
+    "Extracted_Model": "GTX 1060",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 48000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 48000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 42000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 46500.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 46000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 47500.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 39000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 42000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49999.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 46000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 46000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 47500.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 44000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 48000.0,
+    "Extracted_Model": "GTX 1070",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 48000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "EMTEK"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 52000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 48000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49500.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 49500.0,
+    "Extracted_Model": "GTX 1070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 58000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 51000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 58000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 52000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 58000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 46500.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49500.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 52000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "GTX 1080",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 68000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 69000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 68000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 58000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 68000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 68000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 69000.0,
+    "Extracted_Model": "GTX 1080 TI",
+    "VRAM_GB": 11.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 34000.0,
+    "Extracted_Model": "GTX 1630",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 42000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 39500.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 37500.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 37000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 37000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 39500.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 37000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1650",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 35500.0,
+    "Extracted_Model": "GTX 1650 SUPER",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 46000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 42000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 52000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 50000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 44000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "INNO3D"
+  },
+  {
+    "Price_LKR": 48000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 44000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 51000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 50000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 50000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 43000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 49000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 50000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "GTX 1660",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 SUPER",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "GTX 1660 SUPER",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 SUPER",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 49900.0,
+    "Extracted_Model": "GTX 1660 SUPER",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 49500.0,
+    "Extracted_Model": "GTX 1660 SUPER",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 47500.0,
+    "Extracted_Model": "GTX 1660 SUPER",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 46000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 58000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 49500.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "EVGA"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 54500.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 47000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "GTX 1660 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 8000.0,
+    "Extracted_Model": "GTX 550 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 6500.0,
+    "Extracted_Model": "GTX 550 TI",
+    "VRAM_GB": 5.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 6500.0,
+    "Extracted_Model": "GTX 550 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 5000.0,
+    "Extracted_Model": "GTX 560",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 5400.0,
+    "Extracted_Model": "GTX 560",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 7600.0,
+    "Extracted_Model": "GTX 560 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 6900.0,
+    "Extracted_Model": "GTX 650",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 6900.0,
+    "Extracted_Model": "GTX 650",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 8500.0,
+    "Extracted_Model": "GTX 650",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 7900.0,
+    "Extracted_Model": "GTX 650 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 7900.0,
+    "Extracted_Model": "GTX 650 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 9000.0,
+    "Extracted_Model": "GTX 650 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 12900.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 11000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 12000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 10000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11990.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 10500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11990.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 13500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 8500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 14000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 13450.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 10000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 13450.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11990.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 12000.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11990.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11590.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 10500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 13500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 9500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 5.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 13500.0,
+    "Extracted_Model": "GTX 660",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15500.0,
+    "Extracted_Model": "GTX 670",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 14000.0,
+    "Extracted_Model": "GTX 670",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 7000.0,
+    "Extracted_Model": "GTX 750",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 10500.0,
+    "Extracted_Model": "GTX 750",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15000.0,
+    "Extracted_Model": "GTX 750",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 10500.0,
+    "Extracted_Model": "GTX 750",
+    "VRAM_GB": 1.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 7500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 14500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 9500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 1.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15000.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 11000.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 14500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15500.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 9900.0,
+    "Extracted_Model": "GTX 750 TI",
+    "VRAM_GB": 2.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 14500.0,
+    "Extracted_Model": "GTX 760",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 14500.0,
+    "Extracted_Model": "GTX 760",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15500.0,
+    "Extracted_Model": "GTX 760",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 15500.0,
+    "Extracted_Model": "GTX 760",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 14000.0,
+    "Extracted_Model": "GTX 770",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 20000.0,
+    "Extracted_Model": "GTX 950",
+    "VRAM_GB": 2.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 17000.0,
+    "Extracted_Model": "GTX 950",
+    "VRAM_GB": 2.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 15000.0,
+    "Extracted_Model": "GTX 950",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 25000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 21000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 20500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 24500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 18500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "EMTEK"
+  },
+  {
+    "Price_LKR": 20500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 23000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 24000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 19500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 16000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 24000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 21000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 18000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 20500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 19000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 26000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 20000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 20500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 22500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 20500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 25000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 18500.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 18000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 23000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 21000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 2.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 25000.0,
+    "Extracted_Model": "GTX 960",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 28500.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 30000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 29900.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 31000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 27000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 31000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 29000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 24000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 29500.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 22000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 21000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 22000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 31000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 18500.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 33000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 31000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 31000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 28500.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 26500.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 26500.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 30000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 28000.0,
+    "Extracted_Model": "GTX 970",
+    "VRAM_GB": 4.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 980",
+    "VRAM_GB": 4.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 33500.0,
+    "Extracted_Model": "GTX 980",
+    "VRAM_GB": 4.0,
+    "Brand": "EVGA"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 980",
+    "VRAM_GB": 4.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 33500.0,
+    "Extracted_Model": "GTX 980",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "GTX 980",
+    "VRAM_GB": 4.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 980 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "GTX 980 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 34000.0,
+    "Extracted_Model": "GTX 980 TI",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 9900.0,
+    "Extracted_Model": "R 7 260",
+    "VRAM_GB": 2.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 80000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 12.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 73500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 66000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 61000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 72500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 72500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 62000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 59500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 72000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 66000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 69000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 73500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 72500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 66000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 12.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 59500.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 60000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 65450.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 65450.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 61000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 59000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 69000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 12.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 66000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "RTX 2060",
+    "VRAM_GB": 6.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 74000.0,
+    "Extracted_Model": "RTX 2060 SUPER",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2060 SUPER",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 80000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 77000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 65000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 73000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 76500.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 79000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 72000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RTX 2070",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 85000.0,
+    "Extracted_Model": "RTX 2070 SUPER",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 2070 SUPER",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 90000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 85000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 82000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 87000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 80000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 84000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 89000.0,
+    "Extracted_Model": "RTX 2080",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 70000.0,
+    "Extracted_Model": "RTX 3050",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RTX 3050",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 115000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 98000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 93000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 105000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 88000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 90000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 98000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RTX 3060",
+    "VRAM_GB": 12.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 135000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 125000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 90000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 102000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 105000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 100000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 97000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 97000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 99000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 72500.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 110000.0,
+    "Extracted_Model": "RTX 3060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 105000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 115000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 110000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "GALAX"
+  },
+  {
+    "Price_LKR": 115000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 115000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 110000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 115000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 98000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 120000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "NVIDIA"
+  },
+  {
+    "Price_LKR": 100000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "PALIT"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 105000.0,
+    "Extracted_Model": "RTX 3070",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 120000.0,
+    "Extracted_Model": "RTX 3070 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 145000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 150000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 145000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 155000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 138000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 143000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 145000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 130000.0,
+    "Extracted_Model": "RTX 3080",
+    "VRAM_GB": 10.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 113000.0,
+    "Extracted_Model": "RTX 4060",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 113000.0,
+    "Extracted_Model": "RTX 4060",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 118000.0,
+    "Extracted_Model": "RTX 4060",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 110000.0,
+    "Extracted_Model": "RTX 4060",
+    "VRAM_GB": 8.0,
+    "Brand": "PNY"
+  },
+  {
+    "Price_LKR": 125000.0,
+    "Extracted_Model": "RTX 4060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 120000.0,
+    "Extracted_Model": "RTX 4060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 145000.0,
+    "Extracted_Model": "RTX 4060 TI",
+    "VRAM_GB": 16.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 205000.0,
+    "Extracted_Model": "RTX 4070",
+    "VRAM_GB": 12.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 205000.0,
+    "Extracted_Model": "RTX 4070 SUPER",
+    "VRAM_GB": 12.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 295000.0,
+    "Extracted_Model": "RTX 4070 TI",
+    "VRAM_GB": 16.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 155000.0,
+    "Extracted_Model": "RTX 5060 TI",
+    "VRAM_GB": 8.0,
+    "Brand": "ZOTAC"
+  },
+  {
+    "Price_LKR": 460000.0,
+    "Extracted_Model": "RTX 5080",
+    "VRAM_GB": 16.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 460000.0,
+    "Extracted_Model": "RTX 5080",
+    "VRAM_GB": 16.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 32500.0,
+    "Extracted_Model": "RX 480",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 17000.0,
+    "Extracted_Model": "RX 550",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 23000.0,
+    "Extracted_Model": "RX 550",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 12000.0,
+    "Extracted_Model": "RX 550",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 23000.0,
+    "Extracted_Model": "RX 550",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 50000.0,
+    "Extracted_Model": "RX 5600 XT",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 60000.0,
+    "Extracted_Model": "RX 5600 XT",
+    "VRAM_GB": 6.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 23000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 25000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 37000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 31500.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 31500.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 24000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 4.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 40000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 32000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 26000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 4.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 37000.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 31500.0,
+    "Extracted_Model": "RX 570",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 53000.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 58000.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 63000.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 60000.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 60000.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 53500.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 68500.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "RX 5700",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 66000.0,
+    "Extracted_Model": "RX 5700 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 58500.0,
+    "Extracted_Model": "RX 5700 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 58500.0,
+    "Extracted_Model": "RX 5700 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 45000.0,
+    "Extracted_Model": "RX 5700 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 22000.0,
+    "Extracted_Model": "RX 580",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 42000.0,
+    "Extracted_Model": "RX 580",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 45500.0,
+    "Extracted_Model": "RX 580",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "RX 580",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 38500.0,
+    "Extracted_Model": "RX 580",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 39000.0,
+    "Extracted_Model": "RX 580",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 38000.0,
+    "Extracted_Model": "RX 590",
+    "VRAM_GB": 8.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 39000.0,
+    "Extracted_Model": "RX 590",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 38000.0,
+    "Extracted_Model": "RX 590",
+    "VRAM_GB": 8.0,
+    "Brand": "SAPPHIRE"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "RX 6500 XT",
+    "VRAM_GB": 4.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 35000.0,
+    "Extracted_Model": "RX 6500 XT",
+    "VRAM_GB": 4.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 68500.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 55000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 73000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 78000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 68000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  },
+  {
+    "Price_LKR": 74000.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 63500.0,
+    "Extracted_Model": "RX 6600",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 75500.0,
+    "Extracted_Model": "RX 6600 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "AMD"
+  },
+  {
+    "Price_LKR": 80000.0,
+    "Extracted_Model": "RX 6600 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 75000.0,
+    "Extracted_Model": "RX 6600 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 79000.0,
+    "Extracted_Model": "RX 6600 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "POWERCOLOR"
+  },
+  {
+    "Price_LKR": 82500.0,
+    "Extracted_Model": "RX 6650 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 85000.0,
+    "Extracted_Model": "RX 6650 XT",
+    "VRAM_GB": 8.0,
+    "Brand": "MSI"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RX 7600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RX 7600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASROCK"
+  },
+  {
+    "Price_LKR": 90000.0,
+    "Extracted_Model": "RX 7600",
+    "VRAM_GB": 8.0,
+    "Brand": "ASUS"
+  },
+  {
+    "Price_LKR": 95000.0,
+    "Extracted_Model": "RX 7600",
+    "VRAM_GB": 8.0,
+    "Brand": "GIGABYTE"
+  }
+]

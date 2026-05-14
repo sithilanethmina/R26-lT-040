@@ -1,0 +1,93 @@
+[
+    {
+        "Price_LKR": 6500.0,
+        "Extracted_Model": "GTX 1650",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 650 TI",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 47500.0,
+        "Extracted_Model": "GTX 1660 TI",
+        "VRAM_GB": 6.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 33000.0,
+        "Extracted_Model": "RX 550",
+        "VRAM_GB": 4.0,
+        "Brand": "AMD",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 1000.0,
+        "Extracted_Model": "GTX 1050 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 37000.0,
+        "Extracted_Model": "GTX 1660",
+        "VRAM_GB": 6.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 7000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 52000.0,
+        "Extracted_Model": "GTX 1070",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 85000.0,
+        "Extracted_Model": "RTX 2080",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 58000.0,
+        "Extracted_Model": "GTX 1080",
+        "VRAM_GB": 8.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 32500.0,
+        "Extracted_Model": "GTX 1060",
+        "VRAM_GB": 3.0,
+        "Brand": "ZOTAC",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 90000.0,
+        "Extracted_Model": "RTX 2080",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 52000.0,
+        "Extracted_Model": "GTX 1070",
+        "VRAM_GB": 8.0,
+        "Brand": "ASUS",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    }
+]

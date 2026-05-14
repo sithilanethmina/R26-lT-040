@@ -1,0 +1,20 @@
+[
+    {
+        "Listing_ID": null,
+        "Listing_URL": "https://ikman.lk/en/ad/asus-ko-geforce-rtx-3060-ti-v2-oc-edition-8gb-gddr6-brand-new-vga-for-sale-colombo-94",
+        "Raw_Title": "Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price": "Rs 125,000",
+        "Details": "Colombo, Computer Accessories",
+        "Scraped_At_UTC": "2026-05-09T18:18:16+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": null,
+        "Listing_URL": "https://ikman.lk/en/ad/hdmi-to-vga-converter-for-sale-kandy",
+        "Raw_Title": "HDMI to VGA Converter",
+        "Raw_Price": "Rs 949",
+        "Details": "Kandy, Computer Accessories",
+        "Scraped_At_UTC": "2026-05-09T18:18:16+00:00",
+        "Source": "ikman"
+    }
+]

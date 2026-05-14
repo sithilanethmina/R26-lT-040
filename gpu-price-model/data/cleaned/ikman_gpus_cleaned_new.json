@@ -1,0 +1,2082 @@
+[
+    {
+        "Raw_Title":"Asus Strix GTX 970 Gaming VGA Card",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 750 Ti 1GB VGA",
+        "Raw_Price":"Rs 9,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":9000,
+        "Extracted_Model":"GTX 750 TI",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB VGA Card",
+        "Raw_Price":"Rs 31,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":31000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"RTX 3060TI Gaming VGA Card",
+        "Raw_Price":"Rs 72,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":72500,
+        "Extracted_Model":"RTX 3060TI",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"ASUS Tuf RTX 3060 Ti 8GB OC Edition Gaming VGA",
+        "Raw_Price":"Rs 110,000",
+        "Details":"Anuradhapura, Computer Accessories",
+        "Clean_Price_LKR":110000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Gtx 970 4GB VGA",
+        "Raw_Price":"Rs 35,500",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":35500,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Rx6600 Asrock VGA",
+        "Raw_Price":"Rs 55,000",
+        "Details":"Galle, Computer Accessories",
+        "Clean_Price_LKR":55000,
+        "Extracted_Model":"RX 6600",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"RX 550 4GB VGA",
+        "Raw_Price":"Rs 25,000",
+        "Details":"Ratnapura, Computer Accessories",
+        "Clean_Price_LKR":25000,
+        "Extracted_Model":"RX 550",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"MSI GTX 960 2GB VGA",
+        "Raw_Price":"Rs 19,000",
+        "Details":"Ratnapura, Computer Accessories",
+        "Clean_Price_LKR":19000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"MSI GT710 2GB VGA CARD",
+        "Raw_Price":"Rs 6,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":6500,
+        "Extracted_Model":"GT 710",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB vga card",
+        "Raw_Price":"Rs 19,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":19500,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 560 TI 1GB VGA Card",
+        "Raw_Price":"Rs 7,600",
+        "Details":"Batticaloa, Computer Accessories",
+        "Clean_Price_LKR":7600,
+        "Extracted_Model":"GTX 560 TI",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"Gtx 660 2GB VGA",
+        "Raw_Price":"Rs 8,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":8500,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus GTX 960 4GB VGA",
+        "Raw_Price":"Rs 21,000",
+        "Details":"Ratnapura, Computer Accessories",
+        "Clean_Price_LKR":21000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB VGA",
+        "Raw_Price":"Rs 33,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":33000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Rog strix RTX 2060 6gb VGA Card",
+        "Raw_Price":"Rs 66,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":66000,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"Asus GTX 1060 3GB VGA",
+        "Raw_Price":"Rs 25,000",
+        "Details":"Monaragala, Computer Accessories",
+        "Clean_Price_LKR":25000,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"Windforce GTX 1070 8GB VGA Card",
+        "Raw_Price":"Rs 49,999",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":49999,
+        "Extracted_Model":"GTX 1070",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"AMD RADEON R7 200 SERIES 1GB VGA card",
+        "Raw_Price":"Rs 7,250",
+        "Details":"Kegalle, Computer Accessories",
+        "Clean_Price_LKR":7250,
+        "Extracted_Model":"R 7 200",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"Asus Dual GTX 1060 3GB VGA",
+        "Raw_Price":"Rs 28,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28500,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"ZOTAC GTX 960 4GB VGA",
+        "Raw_Price":"Rs 20,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":20500,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"MSI RTX 5080 Shadow 3X VGA",
+        "Raw_Price":"Rs 460,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":460000,
+        "Extracted_Model":"RTX 5080",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 560Ti 1GB VGA",
+        "Raw_Price":"Rs 5,600",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":5600,
+        "Extracted_Model":"GTX 560TI",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"MSI GTX 1050Ti VGA CARD",
+        "Raw_Price":"Rs 39,500",
+        "Details":"Jaffna, Computer Accessories",
+        "Clean_Price_LKR":39500,
+        "Extracted_Model":"GTX 1050TI",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"MSI GTX 1650 4GB VGA CARD",
+        "Raw_Price":"Rs 52,500",
+        "Details":"Jaffna, Computer Accessories",
+        "Clean_Price_LKR":52500,
+        "Extracted_Model":"GTX 1650",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"RTX 2070 8GB VGA Card",
+        "Raw_Price":"Rs 60,999",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":60999,
+        "Extracted_Model":"RTX 2070",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"MSI GT 610 2GB + Nvidia 1GB VGA Cards",
+        "Raw_Price":"Rs 6,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":6000,
+        "Extracted_Model":"GT 610",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 1650 4GB VGA",
+        "Raw_Price":"Rs 35,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":35000,
+        "Extracted_Model":"GTX 1650",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 550 660 750 970 1070 1660|RTX 2060 (2GB, 4GB, 6GB, 8GB) VGA CARD",
+        "Raw_Price":"Rs 6,950",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":6950,
+        "Extracted_Model":"GTX 550",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ZOTAC GTX960 4GB VGA Card",
+        "Raw_Price":"Rs 23,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":23000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 135,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":135000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 980ti 6GB VGA Card",
+        "Raw_Price":"Rs 37,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":37000,
+        "Extracted_Model":"GTX 980TI",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"RTX 3070 Twin Edge OC White Edition VGA",
+        "Raw_Price":"Rs 98,000",
+        "Details":"Anuradhapura, Computer Accessories",
+        "Clean_Price_LKR":98000,
+        "Extracted_Model":"RTX 3070",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 1060 3GB VGA",
+        "Raw_Price":"Rs 26,000",
+        "Details":"Galle, Computer Accessories",
+        "Clean_Price_LKR":26000,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"Sapphire Nitro Rx 9070 XT VGA",
+        "Raw_Price":"Rs 260,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":260000,
+        "Extracted_Model":"RX 9070 XT",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB VGA Cards",
+        "Raw_Price":"Rs 60,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":60000,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus tuf gtx1660 ti 6GB VGA Card",
+        "Raw_Price":"Rs 46,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":46000,
+        "Extracted_Model":"GTX 1660 TI",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 1070 Ti 8GB VGA Card",
+        "Raw_Price":"Rs 48,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":48000,
+        "Extracted_Model":"GTX 1070 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Used GTX1660 6GB VGA Card",
+        "Raw_Price":"Rs 49,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":49000,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX960 2GB Used VGA",
+        "Raw_Price":"Rs 20,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20500,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX660 2GB Used VGA Card",
+        "Raw_Price":"Rs 13,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":13500,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GT610 GT710 GRAPHICS CARDS VGA",
+        "Raw_Price":"Rs 4,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":4500,
+        "Extracted_Model":"GT 610",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"Geforce GTX 1060 3GB Used Graphic Card VGA",
+        "Raw_Price":"Rs 34,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":34500,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"GTX 950 2GB VGA Card",
+        "Raw_Price":"Rs 15,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":15000,
+        "Extracted_Model":"GTX 950",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 135,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":135000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 770 VGA",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 770",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"Gigabytes gtx 960G1 4GB VGA Card",
+        "Raw_Price":"Rs 24,000",
+        "Details":"Anuradhapura, Computer Accessories",
+        "Clean_Price_LKR":24000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GT730 4GB VGA Card",
+        "Raw_Price":"Rs 15,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":15000,
+        "Extracted_Model":"GT 730",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Zotac Gtx 970 4GB VGA",
+        "Raw_Price":"Rs 30,000",
+        "Details":"Galle, Computer Accessories",
+        "Clean_Price_LKR":30000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB GDDR5 VGA Card",
+        "Raw_Price":"Rs 10,000",
+        "Details":"Anuradhapura, Computer Accessories",
+        "Clean_Price_LKR":10000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 660 750 970 1660|RTX 2060 (2GB, 4GB, 6GB) VGA CARD",
+        "Raw_Price":"Rs 13,450",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":13450,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA",
+        "Raw_Price":"Rs 10,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":10000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 1080 Ti 11G VGA",
+        "Raw_Price":"Rs 58,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":58000,
+        "Extracted_Model":"GTX 1080 TI",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 560 SE 1GB VGA",
+        "Raw_Price":"Rs 5,400",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":5400,
+        "Extracted_Model":"GTX 560",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random Brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus Dual Rtx 2060 OC 6GB VGA CARD",
+        "Raw_Price":"Rs 65,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":65000,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 960 4 GB VGA CARD",
+        "Raw_Price":"Rs 19,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":19000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 750TI 1GB VGA Card",
+        "Raw_Price":"Rs 9,500",
+        "Details":"Ratnapura, Computer Accessories",
+        "Clean_Price_LKR":9500,
+        "Extracted_Model":"GTX 750TI",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 135,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":135000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"NVIDIA GTX 960 4 GB Graphic VGA Card",
+        "Raw_Price":"Rs 26,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":26000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 1660 6GB VGA Card",
+        "Raw_Price":"Rs 45,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":45000,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"Asus ROG GTX 1070ti VGA",
+        "Raw_Price":"Rs 45,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":45000,
+        "Extracted_Model":"GTX 1070TI",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"Asus TUF RTX 3070 8GB VGA",
+        "Raw_Price":"Rs 110,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":110000,
+        "Extracted_Model":"RTX 3070",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Galax GTX 1660 VGA",
+        "Raw_Price":"Rs 42,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":42000,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"MSI RTX 3050 6GB VGA Card",
+        "Raw_Price":"Rs 66,500",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":66500,
+        "Extracted_Model":"RTX 3050",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 1060 3GB VGA Card",
+        "Raw_Price":"Rs 26,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":26000,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"EVGA GTX 560 TI 2GB VGA Card",
+        "Raw_Price":"Rs 6,500",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":6500,
+        "Extracted_Model":"GTX 560 TI",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX960 2GB Used VGA",
+        "Raw_Price":"Rs 20,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20500,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GT500 1GB VGA Card",
+        "Raw_Price":"Rs 4,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":4500,
+        "Extracted_Model":"GT 500",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 660 750 760 960 970|RTX 2060 (2GB - 4GB 6GB) VGA CARD",
+        "Raw_Price":"Rs 13,450",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":13450,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 1080 8GB VGA",
+        "Raw_Price":"Rs 46,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":46500,
+        "Extracted_Model":"GTX 1080",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"MSI Gaming. GTX 760 2GB VGA Card",
+        "Raw_Price":"Rs 13,500",
+        "Details":"Monaragala, Computer Accessories",
+        "Clean_Price_LKR":13500,
+        "Extracted_Model":"GTX 760",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Zotec RTX 5050 8GB VGA Card",
+        "Raw_Price":"Rs 96,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":96000,
+        "Extracted_Model":"RTX 5050",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"MSI GTX670 2GB VGA Card",
+        "Raw_Price":"Rs 8,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":8500,
+        "Extracted_Model":"GTX 670",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"AMD rx 570 4gb Vga",
+        "Raw_Price":"Rs 23,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":23000,
+        "Extracted_Model":"RX 570",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Rx 6500XT 4GB VGA Card",
+        "Raw_Price":"Rs 55,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":55000,
+        "Extracted_Model":"RX 6500XT",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Radeon RX 580 4GB VGA",
+        "Raw_Price":"Rs 22,000",
+        "Details":"Ratnapura, Computer Accessories",
+        "Clean_Price_LKR":22000,
+        "Extracted_Model":"RX 580",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random Brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA Card",
+        "Raw_Price":"Rs 11,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":11000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Nvidia Gforce GTX 750TI VGA",
+        "Raw_Price":"Rs 15,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":15000,
+        "Extracted_Model":"GTX 750TI",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"RTX 3070 8GB VGA",
+        "Raw_Price":"Rs 120,000",
+        "Details":"Puttalam, Computer Accessories",
+        "Clean_Price_LKR":120000,
+        "Extracted_Model":"RTX 3070",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS (Random Brands)",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX650 VGA Card",
+        "Raw_Price":"Rs 7,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":7000,
+        "Extracted_Model":"GTX 650",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX960 2GB Used VGA",
+        "Raw_Price":"Rs 20,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20500,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX1660 6GB VGA Card ( Random Brand)",
+        "Raw_Price":"Rs 50,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":50000,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX660 2GB Used VGA Card",
+        "Raw_Price":"Rs 13,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":13500,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Gigabyte GTX 1060 6GB VGA",
+        "Raw_Price":"Rs 50,000",
+        "Details":"Matara, Computer Accessories",
+        "Clean_Price_LKR":50000,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GT730 2GB VGA CARD",
+        "Raw_Price":"Rs 7,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":7500,
+        "Extracted_Model":"GT 730",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus Ko Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Asus ROG Strix RTX 2070 Super 8GB VGA",
+        "Raw_Price":"Rs 85,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":85000,
+        "Extracted_Model":"RTX 2070 SUPER",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA ( Used )",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"MSI 1GB R7750 VGA",
+        "Raw_Price":"Rs 6,500",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":6500,
+        "Extracted_Model":"R 7750",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 970 4GB USED VGA CARDS",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"NVIDIA GT 610 2GB VGA Card",
+        "Raw_Price":"Rs 6,200",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":6200,
+        "Extracted_Model":"GT 610",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"NVIDIA GeForce GTX 660 2GB USED VGA CARDS",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA",
+        "Raw_Price":"Rs 12,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":12000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB Graphic Card VGA",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GT730 4GB VGA",
+        "Raw_Price":"Rs 8,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":8000,
+        "Extracted_Model":"GT 730",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 6501GB VGA",
+        "Raw_Price":"Rs 5,500",
+        "Details":"Galle, Computer Accessories",
+        "Clean_Price_LKR":5500,
+        "Extracted_Model":"GTX 6501",
+        "VRAM_GB":"6501"
+    },
+    {
+        "Raw_Title":"Strix-GTX960-DC2OC-2GD5 Vga",
+        "Raw_Price":"Rs 20,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"AMD RX570 4GB VGA",
+        "Raw_Price":"Rs 25,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":25000,
+        "Extracted_Model":"RX 570",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random Brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"RTX 2060 VGA Card 6GB",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB Graphic Card VGA",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus Ko Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 1050 2GB VGA",
+        "Raw_Price":"Rs 22,000",
+        "Details":"Hambantota, Computer Accessories",
+        "Clean_Price_LKR":22000,
+        "Extracted_Model":"GTX 1050",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random Brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTx 550TI 1.5GB USED GRAPHIC CARD VGA",
+        "Raw_Price":"Rs 6,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":6500,
+        "Extracted_Model":"GTX 550TI",
+        "VRAM_GB":"5"
+    },
+    {
+        "Raw_Title":"MSI GTX 1650 4GB VGA",
+        "Raw_Price":"Rs 32,000",
+        "Details":"Matara, Computer Accessories",
+        "Clean_Price_LKR":32000,
+        "Extracted_Model":"GTX 1650",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB Fan VGA Card",
+        "Raw_Price":"Rs 11,590",
+        "Details":"Puttalam, Computer Accessories",
+        "Clean_Price_LKR":11590,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB VGA Card",
+        "Raw_Price":"Rs 7,000",
+        "Details":"Matara, Computer Accessories",
+        "Clean_Price_LKR":7000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Asus VGA Card GT710 2GB",
+        "Raw_Price":"Rs 8,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":8500,
+        "Extracted_Model":"GT 710",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random Brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random Brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 1070 8GB MSI GAMING X VGA CARD",
+        "Raw_Price":"Rs 52,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":52000,
+        "Extracted_Model":"GTX 1070",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 550TI 1GB VGA Card",
+        "Raw_Price":"Rs 6,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":6500,
+        "Extracted_Model":"GTX 550TI",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"Used GTX1660 6GB VGA Card (",
+        "Raw_Price":"Rs 50,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":50000,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX660 2GB Used VGA Card",
+        "Raw_Price":"Rs 13,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":13500,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX1070 TI 8GB VGA -GIGABYTE",
+        "Raw_Price":"Rs 55,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":55000,
+        "Extracted_Model":"GTX 1070 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX1070TI 8GB VGA - GIGABYTA",
+        "Raw_Price":"Rs 55,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":55000,
+        "Extracted_Model":"GTX 1070TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX970 4GB Used VGA Card",
+        "Raw_Price":"Rs 31,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":31000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"VGA Sapphire RX570 4GB",
+        "Raw_Price":"Rs 26,000",
+        "Details":"Batticaloa, Computer Accessories",
+        "Clean_Price_LKR":26000,
+        "Extracted_Model":"RX 570",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Used GTX 970 4GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 28,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":28000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Used GTX 660 2GB Graphic Card \/ VGA Random brands",
+        "Raw_Price":"Rs 11,990",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":11990,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 660 2GB VGA",
+        "Raw_Price":"Rs 10,500",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":10500,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"MSI GTX 1050 TI OC 4GB VGA",
+        "Raw_Price":"Rs 25,500",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":25500,
+        "Extracted_Model":"GTX 1050 TI",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Asus GT 1030 VGA Card",
+        "Raw_Price":"Rs 15,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":15000,
+        "Extracted_Model":"GT 1030",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX750TI 2gb Gaming VGA",
+        "Raw_Price":"Rs 11,000",
+        "Details":"Kegalle, Computer Accessories",
+        "Clean_Price_LKR":11000,
+        "Extracted_Model":"GTX 750TI",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB VGA Card",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Video card MSI and Radeon Rx 6500 xt 4GB GDDR 6 VGA",
+        "Raw_Price":"Rs 35,000",
+        "Details":"Puttalam, Computer Accessories",
+        "Clean_Price_LKR":35000,
+        "Extracted_Model":"RX 6500 XT",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Emtek Gtx1050 Ti 4GB VGA",
+        "Raw_Price":"Rs 21,000",
+        "Details":"Kegalle, Computer Accessories",
+        "Clean_Price_LKR":21000,
+        "Extracted_Model":"GTX 1050 TI",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GT730 2GB Vga",
+        "Raw_Price":"Rs 6,500",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":6500,
+        "Extracted_Model":"GT 730",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 970 4GB VGA Card",
+        "Raw_Price":"Rs 22,000",
+        "Details":"Puttalam, Computer Accessories",
+        "Clean_Price_LKR":22000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Gtx 1060 3 Gb Msi Asus Galax Zotac Gaming Graphic Card VGA",
+        "Raw_Price":"Rs 31,500",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":31500,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"GTX 1650 4GB VGA Card",
+        "Raw_Price":"Rs 39,995",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":39995,
+        "Extracted_Model":"GTX 1650",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"MSI Geforce RTX 3080 VGA",
+        "Raw_Price":"Rs 150,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":150000,
+        "Extracted_Model":"RTX 3080",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX960 2GB Used VGA",
+        "Raw_Price":"Rs 20,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20500,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 123,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":123000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 1050 2GB VGA",
+        "Raw_Price":"Rs 15,000",
+        "Details":"Kegalle, Computer Accessories",
+        "Clean_Price_LKR":15000,
+        "Extracted_Model":"GTX 1050",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 670 2GB VGA",
+        "Raw_Price":"Rs 13,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":13000,
+        "Extracted_Model":"GTX 670",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 680 2GB VGA",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"GTX 680",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 750 2GB VGA",
+        "Raw_Price":"Rs 14,900",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":14900,
+        "Extracted_Model":"GTX 750",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 750TI 2GB VGA",
+        "Raw_Price":"Rs 15,900",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":15900,
+        "Extracted_Model":"GTX 750TI",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 760 2GB VGA Card",
+        "Raw_Price":"Rs 15,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":15500,
+        "Extracted_Model":"GTX 760",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 950 2GB VGA",
+        "Raw_Price":"Rs 17,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":17000,
+        "Extracted_Model":"GTX 950",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 123,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":123000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 760 2GB VGA Card",
+        "Raw_Price":"Rs 16,500",
+        "Details":"Kegalle, Computer Accessories",
+        "Clean_Price_LKR":16500,
+        "Extracted_Model":"GTX 760",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 1060 3GB VGA",
+        "Raw_Price":"Rs 30,000",
+        "Details":"Puttalam, Computer Accessories",
+        "Clean_Price_LKR":30000,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 1050 2GB VGA Card",
+        "Raw_Price":"Rs 19,900",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":19900,
+        "Extracted_Model":"GTX 1050",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"MSI GTX 960 VGA",
+        "Raw_Price":"Rs 18,000",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":18000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX1050TI 4GB VGA Card",
+        "Raw_Price":"Rs 39,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":39000,
+        "Extracted_Model":"GTX 1050TI",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Rx 440 4GB VGA",
+        "Raw_Price":"Rs 14,000",
+        "Details":"Galle, Computer Accessories",
+        "Clean_Price_LKR":14000,
+        "Extracted_Model":"RX 440",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Gigabyte GT 730 1GB VGA Card",
+        "Raw_Price":"Rs 5,000",
+        "Details":"Kegalle, Computer Accessories",
+        "Clean_Price_LKR":5000,
+        "Extracted_Model":"GT 730",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"AMD RX6600-XT Red Devil edition 8GB VGA Card",
+        "Raw_Price":"Rs 65,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":65000,
+        "Extracted_Model":"RX 6600",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB VGA CARD",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 745 VGA Card (4gb)",
+        "Raw_Price":"Rs 20,000",
+        "Details":"Kalutara, Computer Accessories",
+        "Clean_Price_LKR":20000,
+        "Extracted_Model":"GTX 745",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GT 610 2GB VGA",
+        "Raw_Price":"Rs 7,000",
+        "Details":"Puttalam, Computer Accessories",
+        "Clean_Price_LKR":7000,
+        "Extracted_Model":"GT 610",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"RTX 2060 VGA 6GB GRAPHIC CARD",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 960 2GB VGA Card",
+        "Raw_Price":"Rs 19,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":19500,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX 1060 3GB VGA Card",
+        "Raw_Price":"Rs 29,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":29500,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"3"
+    },
+    {
+        "Raw_Title":"GTX 1050 4GB VGA",
+        "Raw_Price":"Rs 31,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":31500,
+        "Extracted_Model":"GTX 1050",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GT600 2GB USED VGA CARD",
+        "Raw_Price":"Rs 7,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":7500,
+        "Extracted_Model":"GT 600",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX650 1GB USED VGA CARD",
+        "Raw_Price":"Rs 8,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":8500,
+        "Extracted_Model":"GTX 650",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"GTX 1050TI 4GB VGA",
+        "Raw_Price":"Rs 32,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":32500,
+        "Extracted_Model":"GTX 1050TI",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX 1060 6GB VGA Card",
+        "Raw_Price":"Rs 42,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":42500,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 1660 6GB VGA",
+        "Raw_Price":"Rs 46,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":46500,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 1660 6GB VGA",
+        "Raw_Price":"Rs 49,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":49500,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 1070 8GB VGA",
+        "Raw_Price":"Rs 49,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":49500,
+        "Extracted_Model":"GTX 1070",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 1080 8GB VGA",
+        "Raw_Price":"Rs 52,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":52500,
+        "Extracted_Model":"GTX 1080",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Samsung GT520 1GB VGA",
+        "Raw_Price":"Rs 3,500",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":3500,
+        "Extracted_Model":"GT 520",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"GTX 1080 Ti 11GB VGA",
+        "Raw_Price":"Rs 59,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":59500,
+        "Extracted_Model":"GTX 1080 TI",
+        "VRAM_GB":"11"
+    },
+    {
+        "Raw_Title":"Gtx 660 2GB VGA",
+        "Raw_Price":"Rs 10,500",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":10500,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX970 4GB USED VGA CARD ( RANDOM BRAND )",
+        "Raw_Price":"Rs 31,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":31000,
+        "Extracted_Model":"GTX 970",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"GTX960 2GB USED VGA ( random brand )",
+        "Raw_Price":"Rs 20,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"GTX650 1GB VGA CARD (RANDOM BRAND )",
+        "Raw_Price":"Rs 8,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":8500,
+        "Extracted_Model":"GTX 650",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB VGA CARD",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"Msi Gtx 1650 4gb VGA Card",
+        "Raw_Price":"Rs 30,000",
+        "Details":"Anuradhapura, Computer Accessories",
+        "Clean_Price_LKR":30000,
+        "Extracted_Model":"GTX 1650",
+        "VRAM_GB":"4"
+    },
+    {
+        "Raw_Title":"Gigabyte GTX 660 2GB VGA Card",
+        "Raw_Price":"Rs 13,000",
+        "Details":"Ratnapura, Computer Accessories",
+        "Clean_Price_LKR":13000,
+        "Extracted_Model":"GTX 660",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Asus KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX 750 TI VGA Card",
+        "Raw_Price":"Rs 9,500",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":9500,
+        "Extracted_Model":"GTX 750 TI",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 960 2GB VGA Card",
+        "Raw_Price":"Rs 15,000",
+        "Details":"Kurunegala, Computer Accessories",
+        "Clean_Price_LKR":15000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"Galaxy Nvidia Geforce GTX 1060 6GB VGA",
+        "Raw_Price":"Rs 33,000",
+        "Details":"Matara, Computer Accessories",
+        "Clean_Price_LKR":33000,
+        "Extracted_Model":"GTX 1060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"AMD HD 6450 1GB VGA Card",
+        "Raw_Price":"Rs 4,000",
+        "Details":"Kandy, Computer Accessories",
+        "Clean_Price_LKR":4000,
+        "Extracted_Model":"HD 6450",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"GTX 460 1GB Gaming Vga",
+        "Raw_Price":"Rs 4,900",
+        "Details":"Matara, Computer Accessories",
+        "Clean_Price_LKR":4900,
+        "Extracted_Model":"GTX 460",
+        "VRAM_GB":"1"
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB VGA GAMING CARD",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Gampaha, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"RTX 4060 VGA Card",
+        "Raw_Price":"Rs 120,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":120000,
+        "Extracted_Model":"RTX 4060",
+        "VRAM_GB":null
+    },
+    {
+        "Raw_Title":"GTX 1080 Super 8GB VGA Card",
+        "Raw_Price":"Rs 46,000",
+        "Details":"Galle, Computer Accessories",
+        "Clean_Price_LKR":46000,
+        "Extracted_Model":"GTX 1080 SUPER",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"GTX750 2GB Used VGA ( Random Brand )",
+        "Raw_Price":"Rs 15,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":15500,
+        "Extracted_Model":"GTX 750",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"USED GTX1660 6GB VGA CARD ( RANDOM BRAND)",
+        "Raw_Price":"Rs 50,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":50000,
+        "Extracted_Model":"GTX 1660",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX960 2GB Used VGA",
+        "Raw_Price":"Rs 20,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":20000,
+        "Extracted_Model":"GTX 960",
+        "VRAM_GB":"2"
+    },
+    {
+        "Raw_Title":"ASUS KO Geforce RTX 3060 TI V2 OC Edition 8GB GDDR6 Brand New VGA",
+        "Raw_Price":"Rs 125,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":125000,
+        "Extracted_Model":"RTX 3060 TI",
+        "VRAM_GB":"8"
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB GAMING VGA CARD",
+        "Raw_Price":"Rs 65,450",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":65450,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"GTX 1660 Super 6GB VGA Card",
+        "Raw_Price":"Rs 49,900",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":49900,
+        "Extracted_Model":"GTX 1660 SUPER",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"RTX 2060 6GB VGA Card",
+        "Raw_Price":"Rs 59,500",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":59500,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"6"
+    },
+    {
+        "Raw_Title":"RTX 2060 12GB VGA Card",
+        "Raw_Price":"Rs 75,000",
+        "Details":"Colombo, Computer Accessories",
+        "Clean_Price_LKR":75000,
+        "Extracted_Model":"RTX 2060",
+        "VRAM_GB":"12"
+    },
+    {
+        "Raw_Title":"RTX 3050 8GB vga",
+        "Raw_Price":"Rs 61,000",
+        "Details":"Matale, Computer Accessories",
+        "Clean_Price_LKR":61000,
+        "Extracted_Model":"RTX 3050",
+        "VRAM_GB":"8"
+    }
+]
