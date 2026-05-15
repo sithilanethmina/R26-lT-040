@@ -94,13 +94,16 @@ Contains the mobile phone price prediction workflow, datasets, trained models, a
 
 ### `vehicle-price-model/`
 
-Contains vehicle fair-price models for selected Sri Lankan used vehicle categories such as:
+Contains the vehicle fair-price estimation system for Sri Lankan used vehicle marketplaces.
 
-- Toyota Aqua
-- Toyota Corolla
-- Suzuki Alto
+This module includes:
 
-It also includes prediction scripts, saved models, outputs, and a frontend for demonstrating vehicle price estimation.
+- automated vehicle listing data collection and preprocessing
+- vehicle price prediction pipelines
+- fairness score calculation
+- NLP-assisted listing analysis
+- trained machine learning models and evaluation outputs
+- frontend components for vehicle price estimation and fairness analysis
 
 ### `electronics-price-model/`
 
