@@ -142,12 +142,6 @@ For a given listing, the full system is designed to provide:
 - interpretation of the score
 - warning signal when a price appears unusually high or suspiciously low
 
-## Getting Started
-
-Because this repository is organized by category, each model folder can be worked on independently.
-
-Then install the dependencies for that module and run its training or app scripts as described in the local documentation.
-
 ## Project Vision
 
 The broader goal of this project is to build a practical fairness-checking assistant for Sri Lankan second-hand marketplaces. By combining marketplace scraping, data cleaning, machine learning, and browser-extension integration, FairPriceLK aims to help users make safer and smarter buying decisions.
