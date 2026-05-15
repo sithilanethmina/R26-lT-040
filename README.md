@@ -102,8 +102,7 @@ This module includes:
 - vehicle price prediction pipelines
 - fairness score calculation
 - NLP-assisted listing analysis
-- trained machine learning models and evaluation outputs
-- frontend components for vehicle price estimation and fairness analysis
+- trained machine learning models and evaluation output
 
 ### `electronics-price-model/`
 
