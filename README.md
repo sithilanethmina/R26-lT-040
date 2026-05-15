@@ -81,6 +81,17 @@ Contains the GPU price prediction pipeline, including:
 
 Contains the mobile phone price prediction workflow, datasets, trained models, and Streamlit-based experimentation files.
 
+-Sri Lankan marketplace data scraping modules
+-data preprocessing and feature engineering pipelines
+-fair price prediction model training scripts
+-anomaly detection model implementation
+-threshold optimisation experiments
+-browser extension source code
+-ONNX model export and browser inference components
+-real-time listing analysis and verdict overlay system
+-evaluation and usability testing modules
+-trained model artifacts and datasets
+
 ### `vehicle-price-model/`
 
 Contains vehicle fair-price models for selected Sri Lankan used vehicle categories such as:
