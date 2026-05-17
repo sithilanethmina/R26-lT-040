@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikman ML Price Predictor</title>
+    <!-- Modern Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Animated Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-wrapper">
+                <div>
+                    <h1> Fair Price</h1>
+                    <p class="subtitle">Used Price Predictor (Laptops, Monitors, Tablets)</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-panel">
+            <!-- Left Side: Form -->
+            <div class="input-section">
+                <form id="prediction-form">
+
+                    <div class="category-toggle">
+                        <input type="radio" id="cat-laptop" name="category-radio" value="laptop" checked>
+                        <label for="cat-laptop" class="toggle-btn">Laptop</label>
+
+                        <input type="radio" id="cat-monitor" name="category-radio" value="monitor">
+                        <label for="cat-monitor" class="toggle-btn">Monitor</label>
+
+                        <input type="radio" id="cat-tablet" name="category-radio" value="tablet">
+                        <label for="cat-tablet" class="toggle-btn">Tablet</label>
+                    </div>
+
+                    <input type="hidden" id="category" value="laptop">
+
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="algorithm">Prediction Algorithm</label>
+                            <select id="algorithm" required>
+                                <option value="xgboost" selected>XGBoost </option>
+                                <option value="random_forest">Random Forest</option>
+                                <option value="gradient_boosting" id="gb-option">Gradient Boosting</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="brand">Brand</label>
+                            <select id="brand" required>
+                                <option value="" disabled selected>Select Brand</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group" id="model-group">
+                            <label for="model">Model</label>
+                            <select id="model" required>
+                                <option value="Other" selected>Other / Generic</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- LAPTOP SPECIFIC FIELDS -->
+                    <div id="laptop-fields">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="cpu">Processor (CPU)</label>
+                                <select id="cpu">
+                                    <option value="Other" selected>Other / Unknown</option>
+                                    <option value="I3">Core i3</option>
+                                    <option value="I5">Core i5</option>
+                                    <option value="I7">Core i7</option>
+                                    <option value="I9">Core i9</option>
+                                    <option value="RYZEN 3">Ryzen 3</option>
+                                    <option value="RYZEN 5">Ryzen 5</option>
+                                    <option value="RYZEN 7">Ryzen 7</option>
+                                    <option value="RYZEN 9">Ryzen 9</option>
+                                    <option value="M1">Apple M1</option>
+                                    <option value="M2">Apple M2</option>
+                                    <option value="M3">Apple M3</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="generation">Generation</label>
+                                <select id="generation">
+                                    <option value="0" selected>Older / Unknown</option>
+                                    <option value="4">4th Gen</option>
+                                    <option value="5">5th Gen</option>
+                                    <option value="6">6th Gen</option>
+                                    <option value="7">7th Gen</option>
+                                    <option value="8">8th Gen</option>
+                                    <option value="9">9th Gen</option>
+                                    <option value="10">10th Gen</option>
+                                    <option value="11">11th Gen</option>
+                                    <option value="12">12th Gen</option>
+                                    <option value="13">13th Gen</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="ram">RAM Capacity</label>
+                                <select id="ram">
+                                    <option value="" disabled selected>Select RAM</option>
+                                    <option value="4">4 GB</option>
+                                    <option value="8">8 GB</option>
+                                    <option value="16">16 GB</option>
+                                    <option value="32">32 GB</option>
+                                    <option value="64">64 GB</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="storage">Storage Capacity</label>
+                                <select id="storage">
+                                    <option value="" disabled selected>Select Storage</option>
+                                    <option value="128">128 GB</option>
+                                    <option value="256">256 GB</option>
+                                    <option value="512">512 GB</option>
+                                    <option value="1024">1 TB</option>
+                                    <option value="2048">2 TB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="storageType">Storage Type</label>
+                                <select id="storageType">
+                                    <option value="" disabled selected>Select Type</option>
+                                    <option value="SSD">SSD / NVMe</option>
+                                    <option value="HDD">HDD</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MONITOR SPECIFIC FIELDS -->
+                    <div id="monitor-fields" style="display: none;">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="size">Screen Size</label>
+                                <select id="size">
+                                    <option value="" disabled selected>Select Size</option>
+                                    <option value="19">19 Inch</option>
+                                    <option value="22">22 Inch</option>
+                                    <option value="24">24 Inch</option>
+                                    <option value="27">27 Inch</option>
+                                    <option value="32">32 Inch</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="hz">Refresh Rate</label>
+                                <select id="hz">
+                                    <option value="" disabled selected>Select Refresh Rate</option>
+                                    <option value="60">60 Hz</option>
+                                    <option value="75">75 Hz</option>
+                                    <option value="144">144 Hz</option>
+                                    <option value="165">165 Hz</option>
+                                    <option value="240">240 Hz</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="resolution">Resolution</label>
+                                <select id="resolution">
+                                    <option value="" disabled selected>Select Resolution</option>
+                                    <option value="FHD">Full HD (1080p)</option>
+                                    <option value="2K">2K (1440p)</option>
+                                    <option value="4K">4K (2160p)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TABLET SPECIFIC FIELDS -->
+                    <div id="tablet-fields" style="display: none;">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="tab-ram">RAM Capacity</label>
+                                <select id="tab-ram">
+                                    <option value="" disabled selected>Select RAM</option>
+                                    <option value="2">2 GB</option>
+                                    <option value="4">4 GB</option>
+                                    <option value="8">8 GB</option>
+                                    <option value="16">16 GB</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="tab-storage">Storage Capacity</label>
+                                <select id="tab-storage">
+                                    <option value="" disabled selected>Select Storage</option>
+                                    <option value="32">32 GB</option>
+                                    <option value="64">64 GB</option>
+                                    <option value="128">128 GB</option>
+                                    <option value="256">256 GB</option>
+                                    <option value="512">512 GB</option>
+                                    <option value="1024">1 TB</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="predict-btn">
+                        <span>Predict Fair Price</span>
+                        <div class="loader" id="loader"></div>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Side: Result -->
+            <div class="result-section">
+                <div id="welcome-box" class="welcome-box">
+                    <h3> To Predict</h3>
+                    <p>Enter the device specifications on the left to generate an accurate market price based on
+                        data.</p>
+                </div>
+
+                <div id="result-box" class="result-box hidden">
+                    <div class="success-badge">Analysis Complete</div>
+                    <p class="result-label">Estimated Fair Market Value</p>
+                    <h2 id="price-result">Rs 0.00</h2>
+
+                    <div class="model-meta" style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                        Active Model: <span id="active-model-name"
+                            style="color: var(--primary); font-weight: 600;">XGBoost</span>
+                    </div>
+
+                    <div id="model-comparison"
+                        style="margin-top: 1.5rem; text-align: left; background: rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 12px; border: 1px solid var(--surface-border);">
+                        <p
+                            style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: var(--text-muted);">
+                            Model Accuracy Comparison</p>
+                        <div id="model-list">
+                            <!-- Models will be listed here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="error-box" class="error-box hidden"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
