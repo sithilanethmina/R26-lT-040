@@ -9,7 +9,17 @@ from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
-import streamlit as st
+
+try:
+    import streamlit as st
+    cache_resource = st.cache_resource
+    cache_data = st.cache_data
+except Exception:
+    st = None
+    def cache_resource(func=None, **kwargs):
+        return (lambda f: f) if func is None else func
+    def cache_data(func=None, **kwargs):
+        return (lambda f: f) if func is None else func
 
 warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
 
@@ -572,7 +582,7 @@ div[data-testid="stAlertContainer"] {
 
 
 # ── Loaders ───────────────────────────────────────────────────────────────────
-@st.cache_resource
+@cache_resource
 def load_artifact():
     if MODEL_V2_PATH.exists():
         return joblib.load(MODEL_V2_PATH), "v2"
@@ -581,14 +591,17 @@ def load_artifact():
     return None, None
 
 
-@st.cache_data
+@cache_data
 def load_enriched() -> pd.DataFrame | None:
     if ENRICHED_CSV.exists():
         return pd.read_csv(ENRICHED_CSV)
+    alt_csv = ARTIFACTS_DIR / "gpu_training_dataset_enriched.csv"
+    if alt_csv.exists():
+        return pd.read_csv(alt_csv)
     return None
 
 
-@st.cache_data
+@cache_data
 def load_bench_df() -> pd.DataFrame | None:
     if BENCH_CSV.exists():
         df = pd.read_csv(BENCH_CSV)
@@ -597,7 +610,7 @@ def load_bench_df() -> pd.DataFrame | None:
     return None
 
 
-@st.cache_data
+@cache_data
 def load_specs_df() -> pd.DataFrame | None:
     if not SPECS_CSV.exists():
         return None
