@@ -1,0 +1,5 @@
+alias,canonical_model,reason
+GTX 1080 SUPER,GTX 1080,No official GTX 1080 SUPER model exists in the reference table
+GTX 2060,RTX 2060,Used-market listings sometimes drop the RTX prefix for NVIDIA 20-series cards
+GTX 3060 TI,RTX 3060 TI,Used-market listings sometimes mislabel RTX 30-series cards as GTX
+RX 2070,RTX 2070,Used-market listings sometimes replace the RTX prefix with RX by mistake

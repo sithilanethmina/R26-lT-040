@@ -18,8 +18,13 @@ env/
 .DS_Store
 Thumbs.db
 
-# Generated ML artifacts
-artifacts/
+# Generated ML artifacts (keep production models tracked for deployment)
+artifacts/*
+!artifacts/gpu_price_model_v2.joblib
+!artifacts/training_summary_v2.json
+!artifacts/gpu_training_dataset_enriched.csv
+!artifacts/gpu_specs.csv
+!artifacts/gpu_model_aliases.csv
 
 # Temporary scraper outputs
 data/raw/*_test.json

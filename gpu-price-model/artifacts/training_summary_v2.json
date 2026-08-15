@@ -1,0 +1,44 @@
+{
+  "version": "v2.0",
+  "best_model": "xgboost",
+  "n_models": 6,
+  "feature_count": 18,
+  "results": {
+    "lightgbm": {
+      "mape_pct": 9.45,
+      "r2": 0.978,
+      "rmse_lkr": 9218.0,
+      "within_10pct": 61.14
+    },
+    "xgboost": {
+      "mape_pct": 9.06,
+      "r2": 0.9801,
+      "rmse_lkr": 6428.0,
+      "within_10pct": 63.12
+    },
+    "random_forest": {
+      "mape_pct": 9.21,
+      "r2": 0.9779,
+      "rmse_lkr": 7249.0,
+      "within_10pct": 62.87
+    },
+    "knn": {
+      "mape_pct": 10.13,
+      "r2": 0.9738,
+      "rmse_lkr": 9722.0,
+      "within_10pct": 59.65
+    },
+    "svr": {
+      "mape_pct": 11.92,
+      "r2": 0.9509,
+      "rmse_lkr": 13376.0,
+      "within_10pct": 60.89
+    },
+    "stacking_ensemble": {
+      "mape_pct": 9.37,
+      "r2": 0.9783,
+      "rmse_lkr": 8490.0,
+      "within_10pct": 61.14
+    }
+  }
+}
