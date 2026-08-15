@@ -30,7 +30,7 @@ SERVICES = [
     {
         "name": "API Gateway",
         "cwd": PROJECT_ROOT / "api-gateway",
-        "cmd": [sys.executable, "-m", "uvicorn", "gateway:app", "--port", "8000"]
+        "cmd": [sys.executable, "-m", "uvicorn", "gateway:app", "--host", "0.0.0.0", "--port", os.environ.get("PORT", "8000")]
     }
 ]
 
@@ -49,7 +49,10 @@ def start_services():
                 
         print(f"Starting {svc['name']}...")
         env = os.environ.copy()
-        env["PYTHONPATH"] = str(PROJECT_ROOT / "gpu-price-model" / "src")
+        python_paths = [str(PROJECT_ROOT), str(PROJECT_ROOT / "api-gateway"), str(PROJECT_ROOT / "gpu-price-model" / "src")]
+        if "PYTHONPATH" in env:
+            python_paths.append(env["PYTHONPATH"])
+        env["PYTHONPATH"] = os.pathsep.join(python_paths)
         
         p = subprocess.Popen(
             svc["cmd"], 

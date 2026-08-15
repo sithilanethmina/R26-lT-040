@@ -8,8 +8,21 @@ import os
 import json
 import time
 import pandas as pd
+import sys
 from pathlib import Path
-from config import SERVICES
+
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
+
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+try:
+    from config import SERVICES
+except ImportError:
+    from api_gateway.config import SERVICES
 
 app = FastAPI(title="FairPriceLK API Gateway", version="1.0")
 

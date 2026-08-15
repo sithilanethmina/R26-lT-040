@@ -691,3 +691,104 @@ class PredictionArtifacts:
     merged_dataset_path: Path
     metrics_path: Path
     model_path: Path
+
+
+# --- CENTRALIZED INFERENCE PREPROCESSING ---
+
+def build_inference_feature_frame(
+    model_name: str,
+    vram_gb: float,
+    brand: str = "Any",
+    enriched_df: pd.DataFrame | None = None,
+    custom_specs: dict | None = None,
+    feature_columns: list[str] | None = None,
+) -> pd.DataFrame:
+    """
+    Centralized, robust inference feature engineering.
+    Converts raw user input + optional dataset/spec lookups into a complete,
+    feature-aligned DataFrame compatible with all trained ML models.
+    """
+    feature_cols = feature_columns or FEATURE_COLUMNS_V2
+    inf: dict = {col: np.nan for col in feature_cols}
+
+    norm_name = normalize_model(model_name)
+
+    inf.update({
+        "vram_gb": float(vram_gb) if vram_gb else 4.0,
+        "series_family": derive_series_family(norm_name),
+        "model_number": derive_model_number(norm_name),
+        "ti_variant": 1 if "TI" in norm_name.upper() else 0,
+        "gpu_generation": derive_gpu_generation(norm_name),
+    })
+
+    # Enrich from dataset if model matches historical listings
+    if enriched_df is not None and not enriched_df.empty:
+        model_col = None
+        for col_candidate in ["extracted_model", "model", "norm_model"]:
+            if col_candidate in enriched_df.columns:
+                model_col = col_candidate
+                break
+
+        matches = pd.DataFrame()
+        if model_col:
+            norm_target = normalize_model(model_name)
+            matches = enriched_df[
+                enriched_df[model_col].astype(str).apply(normalize_model) == norm_target
+            ]
+
+        if not matches.empty:
+            num_cols = [
+                "G3Dmark", "G2Dmark", "log_G3Dmark", "fp32_gflops", "tdp_watts",
+                "memory_bandwidth_gb_s", "shader_units", "gpu_base_clock_mhz",
+                "boost_clock_mhz", "perf_per_watt", "gpu_age_years",
+            ]
+            for col in num_cols:
+                if col in matches.columns and col in feature_cols:
+                    v = matches[col].dropna().median()
+                    if pd.notna(v):
+                        inf[col] = float(v)
+
+            if "architecture" in matches.columns and "architecture" in feature_cols:
+                mode = matches["architecture"].mode()
+                if not mode.empty:
+                    inf["architecture"] = mode.iloc[0]
+
+            # Brand handling: if brand is "Any" or "Unknown", use modal brand from matches
+            if brand in ("Any", "Unknown", None, ""):
+                if "brand" in matches.columns:
+                    valid_brands = matches[~matches["brand"].isin(["Unknown", "Any"])]["brand"]
+                    if not valid_brands.empty:
+                        b_mode = valid_brands.mode()
+                        if not b_mode.empty:
+                            inf["brand"] = b_mode.iloc[0]
+
+    # Overlay custom specs if provided (e.g. from lookup_gpu_specs in Tab 2)
+    if custom_specs and isinstance(custom_specs, dict):
+        for k in ["G3Dmark", "G2Dmark", "fp32_gflops", "tdp_watts", "memory_bandwidth_gb_s",
+                  "shader_units", "gpu_base_clock_mhz", "boost_clock_mhz"]:
+            if custom_specs.get(k) and pd.notna(custom_specs.get(k)):
+                inf[k] = float(custom_specs[k])
+
+        if custom_specs.get("architecture"):
+            inf["architecture"] = str(custom_specs["architecture"])
+
+        if custom_specs.get("release_year"):
+            inf["gpu_age_years"] = float(2026 - int(custom_specs["release_year"]))
+
+    # Final safeguards & default fallbacks
+    if brand not in ("Any", "Unknown", None, ""):
+        inf["brand"] = str(brand)
+    elif pd.isna(inf.get("brand")) or inf.get("brand") in ("Any", "Unknown"):
+        inf["brand"] = "ASUS"  # Default to major brand to avoid -1 ordinal encoding penalty
+
+    if pd.isna(inf.get("architecture")):
+        inf["architecture"] = "Unknown"
+
+    if pd.notna(inf.get("G3Dmark")) and (pd.isna(inf.get("log_G3Dmark")) or inf.get("log_G3Dmark") == 0.0):
+        inf["log_G3Dmark"] = float(np.log1p(inf["G3Dmark"]))
+
+    if pd.notna(inf.get("G3Dmark")) and pd.notna(inf.get("tdp_watts")) and inf.get("tdp_watts") > 0:
+        if pd.isna(inf.get("perf_per_watt")):
+            inf["perf_per_watt"] = float(inf["G3Dmark"]) / float(inf["tdp_watts"])
+
+    return pd.DataFrame([inf])[feature_cols]
