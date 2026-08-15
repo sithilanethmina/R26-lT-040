@@ -1,0 +1,15 @@
+fastapi>=0.100.0
+uvicorn>=0.20.0
+httpx>=0.24.0
+pandas
+numpy
+scikit-learn
+joblib
+xgboost
+lightgbm
+flask
+flask-cors
+pydantic
+rapidfuzz
+requests
+beautifulsoup4
