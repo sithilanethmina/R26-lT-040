@@ -7,7 +7,7 @@ venv/
 *.egg-info/
 dist/
 build/
-models/*.pkl
+# models/*.pkl
 outputs/
 data/processed/
 *.log
