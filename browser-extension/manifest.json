@@ -8,6 +8,7 @@
     "scripting"
   ],
   "host_permissions": [
+    "https://fairpricelk-api-8cc091b2d27f.herokuapp.com/*",
     "http://localhost:8000/*"
   ],
   "action": {
@@ -22,7 +23,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["gpu_metadata.json", "icon.png"],
+      "resources": ["config.js", "gpu_metadata.json", "icon.png"],
       "matches": ["<all_urls>"]
     }
   ]

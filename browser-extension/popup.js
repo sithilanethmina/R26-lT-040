@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const serverStatusDot = document.getElementById('serverStatusDot');
     const serverStatusText = document.getElementById('serverStatusText');
 
-    // Gateway URL
-    const GATEWAY_URL = 'http://localhost:8000';
+    // Gateway URL (Centralized via config.js)
+    const GATEWAY_URL = (typeof CONFIG !== 'undefined' && CONFIG.API_BASE_URL) ? CONFIG.API_BASE_URL : 'https://fairpricelk-api-8cc091b2d27f.herokuapp.com';
 
     // Default GPU Metadata
     let GPU_METADATA = {
