@@ -23,11 +23,10 @@ RUN pip install --no-cache-dir -r electronics-price-model/requirements.txt
 RUN pip install --no-cache-dir -r api-gateway/requirements.txt
 
 # Set Python path environment variable
-ENV PYTHONPATH="/app/gpu-price-model/src"
-ENV PORT=7860
+ENV PYTHONPATH="/app:/app/api-gateway:/app/gpu-price-model/src"
+ENV PORT=10000
 
-# Hugging Face Spaces default port
-EXPOSE 7860
+EXPOSE 10000
 
-# Start command: launches all services on ports 8001-8004 and API gateway on Hugging Face port 7860
-CMD ["python", "-m", "uvicorn", "api-gateway.gateway:app", "--host", "0.0.0.0", "--port", "7860"]
+# Start command: launches all model microservices and API gateway together
+CMD ["python", "api-gateway/start_all.py"]

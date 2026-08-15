@@ -162,16 +162,29 @@ def is_ti_variant(model_name: str) -> int:
     return 1 if re.search(r'\bTi\b', model_name, re.IGNORECASE) else 0
 
 
-def apply_iqr_filter(df: pd.DataFrame, col: str = "price_lkr",
-                     lower_q: float = 0.02, upper_q: float = 0.98) -> pd.DataFrame:
-    """Drop rows outside [lower_q, upper_q] quantile range for the price column."""
-    q_low = df[col].quantile(lower_q)
-    q_high = df[col].quantile(upper_q)
-    mask = (df[col] >= q_low) & (df[col] <= q_high)
-    n_removed = (~mask).sum()
-    print(f"  IQR filter [{lower_q:.0%}–{upper_q:.0%}]: removed {n_removed} outlier rows "
-          f"(price outside [{q_low:,.0f} – {q_high:,.0f}] LKR)")
-    return df[mask].copy()
+def apply_iqr_filter(df: pd.DataFrame, col: str = "price_lkr") -> pd.DataFrame:
+    """
+    Applies per-model IQR outlier removal instead of global quantile truncation.
+    This preserves high-end GPUs (>135k LKR) while filtering broken/faulty cards
+    that are priced far below market for their specific model.
+    """
+    before_count = len(df)
+    df = df[df[col] >= 3000].copy()
+
+    def _filter_group(group: pd.DataFrame) -> pd.DataFrame:
+        if len(group) < 4:
+            return group
+        q1 = group[col].quantile(0.25)
+        q3 = group[col].quantile(0.75)
+        iqr = q3 - q1
+        lower = q1 - 1.5 * iqr
+        upper = q3 + 1.5 * iqr
+        return group[(group[col] >= lower) & (group[col] <= upper)]
+
+    df = df.groupby("extracted_model", group_keys=False).apply(_filter_group).reset_index(drop=True)
+    n_removed = before_count - len(df)
+    print(f"  Per-model IQR filter: removed {n_removed} price outlier rows")
+    return df
 
 
 def fuzzy_join(
@@ -213,6 +226,12 @@ def load_listings() -> pd.DataFrame:
     df.dropna(subset=["price_lkr", "extracted_model"], inplace=True)
     df = df[df["price_lkr"] > 0].copy()
     print(f"  Loaded {before} total rows → {len(df)} after dropping nulls/zero-price")
+
+    # Deduplicate listings
+    before_dedup = len(df)
+    df.drop_duplicates(subset=["extracted_model", "price_lkr", "vram_gb", "brand"], inplace=True)
+    df.reset_index(drop=True, inplace=True)
+    print(f"  Deduplication: removed {before_dedup - len(df)} duplicate listings → {len(df)} unique records")
 
     # Create normalised model column for fuzzy matching
     df["norm_model"] = df["extracted_model"].apply(normalize_model_name)
@@ -463,9 +482,10 @@ def save_and_report(df: pd.DataFrame) -> None:
     print(df[preview].head().to_string(index=False))
 
     print("\n── Unmatched Models (benchmark) ──────────────────────────────────")
-    if "bench_match" in df.columns:
+    model_col = "extracted_model" if "extracted_model" in df.columns else "norm_model"
+    if "bench_match" in df.columns and model_col in df.columns:
         unmatched = (
-            df[df["bench_match"].isna()]["extracted_model"]
+            df[df["bench_match"].isna()][model_col]
             .value_counts()
             .head(20)
         )
@@ -475,9 +495,9 @@ def save_and_report(df: pd.DataFrame) -> None:
             print("  All models matched! 🎉")
 
     print("\n── Unmatched Models (specs) ──────────────────────────────────────")
-    if "spec_match" in df.columns:
+    if "spec_match" in df.columns and model_col in df.columns:
         unmatched_spec = (
-            df[df["spec_match"].isna()]["extracted_model"]
+            df[df["spec_match"].isna()][model_col]
             .value_counts()
             .head(20)
         )

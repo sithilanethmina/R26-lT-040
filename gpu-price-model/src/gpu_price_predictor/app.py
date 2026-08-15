@@ -748,44 +748,21 @@ def predict_all(
     vram: float,
     brand: str,
     enriched: pd.DataFrame | None,
+    custom_specs: dict | None = None,
 ) -> dict[str, float]:
     """Run all trained models and return {model_name: predicted_lkr}."""
     feature_cols: list[str] = artifact["feature_columns"]
     all_models: dict = artifact.get("all_models", {})
 
-    inf: dict = {col: np.nan for col in feature_cols}
-    inf.update({
-        "vram_gb":        vram,
-        "brand":          brand if brand != "Any" else "Unknown",
-        "series_family":  _series_family(model_name),
-        "model_number":   _model_number(model_name),
-        "ti_variant":     _ti_variant(model_name),
-        "gpu_generation": _gpu_generation(model_name),
-        "architecture":   "Unknown",
-        "log_G3Dmark":    0.0,
-    })
-
-    # Enrich from the training dataset when the model has prior listings
-    if enriched is not None:
-        model_col = "extracted_model" if "extracted_model" in enriched.columns else "model"
-        matches = enriched[enriched[model_col].str.upper() == model_name.upper()]
-        if not matches.empty:
-            num_cols = [
-                "G3Dmark", "G2Dmark", "log_G3Dmark", "fp32_gflops", "tdp_watts",
-                "memory_bandwidth_gb_s", "shader_units", "gpu_base_clock_mhz",
-                "boost_clock_mhz", "perf_per_watt", "gpu_age_years",
-            ]
-            for col in num_cols:
-                if col in matches.columns:
-                    v = matches[col].dropna().median()
-                    if pd.notna(v):
-                        inf[col] = v
-            if "architecture" in matches.columns:
-                mode = matches["architecture"].mode()
-                if not mode.empty:
-                    inf["architecture"] = mode.iloc[0]
-
-    df_inf = pd.DataFrame([inf])[feature_cols]
+    from gpu_price_predictor.pipeline import build_inference_feature_frame
+    df_inf = build_inference_feature_frame(
+        model_name=model_name,
+        vram_gb=vram,
+        brand=brand,
+        enriched_df=enriched,
+        custom_specs=custom_specs,
+        feature_columns=feature_cols,
+    )
 
     results: dict[str, float] = {}
     for name, pipeline in all_models.items():
@@ -880,6 +857,15 @@ def _render_prediction_results(
             st.bar_chart(mape_df.set_index("Algorithm"))
 
 
+def _get_model_col(df: pd.DataFrame | None) -> str:
+    if df is None:
+        return "model"
+    for col in ["extracted_model", "norm_model", "model"]:
+        if col in df.columns:
+            return col
+    return df.columns[0] if len(df.columns) > 0 else "model"
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -940,7 +926,7 @@ def main():
 
     if enriched is not None:
         n_samples = f"{len(enriched):,}"
-        model_col = "extracted_model" if "extracted_model" in enriched.columns else "model"
+        model_col = _get_model_col(enriched)
         n_models  = str(enriched[model_col].dropna().nunique())
         avg_price = f"LKR {enriched['price_lkr'].mean():,.0f}" if "price_lkr" in enriched.columns else "—"
     else:
@@ -1015,7 +1001,7 @@ def main():
         st.warning("No enriched dataset found. Run `build_benchmark_features.py` first.")
         return
 
-    model_col     = "extracted_model" if "extracted_model" in enriched.columns else "model"
+    model_col     = _get_model_col(enriched)
     unique_models = sorted(enriched[model_col].dropna().unique().tolist())
     unique_brands = sorted(enriched["brand"].dropna().unique().tolist()) if "brand" in enriched.columns else []
 
@@ -1156,45 +1142,11 @@ def main():
 
                 st.divider()
                 if st.button("Check Price from Specs", key="btn_custom"):
-                    g3d  = specs.get("G3Dmark")
-                    g2d  = specs.get("G2Dmark")
-                    tdp  = specs.get("tdp_watts")
-                    fp32 = specs.get("fp32_gflops")
-                    age  = 2026 - int(specs.get("release_year", 2020))
-                    arch = specs.get("architecture") or "Unknown"
-
-                    feature_cols_list: list[str] = artifact["feature_columns"]
-                    custom_inf: dict = {col: np.nan for col in feature_cols_list}
-                    custom_inf.update({
-                        "vram_gb":                float(custom_vram),
-                        "brand":                  custom_brand,
-                        "G3Dmark":                float(g3d)  if g3d  else np.nan,
-                        "G2Dmark":                float(g2d)  if g2d  else np.nan,
-                        "log_G3Dmark":            float(np.log1p(g3d)) if g3d else np.nan,
-                        "fp32_gflops":            float(fp32) if fp32 else np.nan,
-                        "tdp_watts":              float(tdp)  if tdp  else np.nan,
-                        "memory_bandwidth_gb_s":  float(specs.get("memory_bandwidth_gb_s") or np.nan),
-                        "shader_units":           float(specs.get("shader_units") or np.nan),
-                        "gpu_base_clock_mhz":     float(specs.get("gpu_base_clock_mhz") or np.nan),
-                        "boost_clock_mhz":        float(specs.get("boost_clock_mhz") or np.nan),
-                        "perf_per_watt":          (float(g3d) / float(tdp)) if (g3d and tdp) else np.nan,
-                        "gpu_age_years":          float(age),
-                        "architecture":           arch,
-                        "series_family":          _series_family(custom_name),
-                        "model_number":           _model_number(custom_name),
-                        "gpu_generation":         _gpu_generation(custom_name),
-                        "ti_variant":             _ti_variant(custom_name),
-                    })
-
-                    df_custom_inf = pd.DataFrame([custom_inf])[feature_cols_list]
-                    custom_predictions: dict[str, float] = {}
                     with st.spinner("Evaluating models…"):
-                        for mname, pipeline in artifact.get("all_models", {}).items():
-                            try:
-                                pred = float(pipeline.predict(df_custom_inf)[0])
-                                custom_predictions[mname] = max(0.0, float(np.expm1(pred)))
-                            except Exception:
-                                pass
+                        custom_predictions = predict_all(
+                            artifact, custom_name, custom_vram, custom_brand,
+                            enriched, custom_specs=specs
+                        )
 
                     if custom_predictions:
                         _render_prediction_results(
@@ -1202,8 +1154,6 @@ def main():
                             custom_name, custom_vram, custom_brand,
                             listed_price=custom_listed_price,
                         )
-                        with st.expander("Internal features used"):
-                            st.write(custom_inf)
                     else:
                         st.error("All models failed. Check that the artifact matches the feature schema.")
 
