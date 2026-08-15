@@ -8,8 +8,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://fairpricelk-api-8cc091b2d27f.herokuapp.com/*",
-    "http://localhost:8000/*"
+    "<all_urls>"
   ],
   "action": {
     "default_popup": "popup.html",
