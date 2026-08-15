@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FairPriceLK - Developer Console Dashboard</title>
+    <meta name="description" content="Technical developer dashboard for FairPriceLK microservices and ML models telemetry.">
+    <!-- Google Fonts DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+
+    <!-- Sticky App Shell Header -->
+    <header class="app-header">
+        <div class="header-inner">
+            <div class="brand-section">
+                <div class="brand-logo">FP</div>
+                <div class="brand-info">
+                    <div class="brand-title-row">
+                        <span class="brand-name">FairPriceLK</span>
+                        <span class="env-tag">LOCAL DEV</span>
+                    </div>
+                    <span class="brand-subtitle">Developer & Maintenance Telemetry Console</span>
+                </div>
+            </div>
+
+            <div class="header-controls">
+                <span id="overallStatusBadge" class="status-badge healthy">
+                    <span class="status-dot healthy"></span>
+                    <span id="overallStatusText">● All Systems Operational</span>
+                </span>
+                <span style="font-size: 12px; color: var(--text-secondary);">Last updated: <strong id="lastUpdatedTime">--:--:--</strong></span>
+                <button id="refreshBtn" class="btn" title="Refresh Dashboard Telemetry">
+                    <span id="refreshIcon">↻</span> Refresh
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Filter Bar -->
+    <div class="category-filter-bar">
+        <div class="filter-inner">
+            <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-right: 8px;">Filter Category:</span>
+            <button class="filter-tab active" data-category="ALL">All Categories</button>
+            <button class="filter-tab" data-category="GPU">GPU Resale</button>
+            <button class="filter-tab" data-category="Mobile">Mobile Phones</button>
+            <button class="filter-tab" data-category="Vehicle">Vehicles</button>
+            <button class="filter-tab" data-category="Electronics">Electronics</button>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+        
+        <!-- KPI Strip -->
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <span class="kpi-label">Service Availability</span>
+                <div id="healthyServicesVal" class="kpi-value">-- / --</div>
+                <span class="kpi-sub">Gateway & Downstream Probes</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Models Loaded</span>
+                <div id="modelsLoadedVal" class="kpi-value">--</div>
+                <span class="kpi-sub">Active Production Models</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Dataset Records</span>
+                <div id="datasetRecordsVal" class="kpi-value">--</div>
+                <span class="kpi-sub">Processed Training Instances</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">API Routing Gateway</span>
+                <div class="kpi-value" style="font-size: 18px;">Port 8000</div>
+                <span class="kpi-sub">CORS & Extension Proxy Active</span>
+            </div>
+        </section>
+
+        <!-- System & Microservice Health Section -->
+        <section>
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2>System & Microservice Health</h2>
+                    <span style="font-size: 11px; color: var(--text-secondary);">(Live HTTP Health Probes)</span>
+                </div>
+            </div>
+            <div id="servicesHealthGrid" class="health-grid">
+                <!-- Filled dynamically by JS -->
+            </div>
+        </section>
+
+        <!-- 1. ML Models & Artifact Status -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2>ML Models & Artifact Status</h2>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="modelsTable">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Model Name</th>
+                            <th>Algorithm</th>
+                            <th>Status</th>
+                            <th>Version</th>
+                            <th>Size</th>
+                            <th>Features</th>
+                            <th>Last Trained</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modelsTableBody">
+                        <!-- Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. Dataset Status & Metadata -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2>Dataset Status & Metadata</h2>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="datasetsTable">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Dataset Name</th>
+                            <th class="text-right">Records</th>
+                            <th>Size</th>
+                            <th>Quality</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody id="datasetsTableBody">
+                        <!-- Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. Technical Model Performance (Moved below Dataset Status & Metadata!) -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2>Technical Model Performance</h2>
+                </div>
+                <span style="font-size: 11px; color: var(--text-secondary);">Real Test-Set Metrics</span>
+            </div>
+            <div class="table-container">
+                <table id="metricsTable">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Model Target</th>
+                            <th class="text-right">MAE</th>
+                            <th class="text-right">RMSE</th>
+                            <th class="text-right">R² Score</th>
+                            <th class="text-right">MAPE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="metricsTableBody">
+                        <!-- Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. Browser Extension Integration & Routing (Moved below Technical Model Performance!) -->
+        <section class="card" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2>Browser Extension Integration & Routing</h2>
+                </div>
+            </div>
+
+            <div class="topology-box">
+                <div class="topology-row">
+                    <div class="topology-node" style="border-color: var(--accent); color: var(--accent-hover);">
+                        Browser Extension
+                    </div>
+                    <div class="topology-arrow">➔</div>
+                    <div class="topology-node" style="border-color: var(--text-primary);">
+                        API Gateway <span class="mono">:8000</span>
+                    </div>
+                </div>
+                <div class="topology-row">
+                    <div class="topology-arrow">↓</div>
+                </div>
+                <div class="topology-row">
+                    <div class="topology-node"><span class="badge badge-gpu">GPU</span> :8001</div>
+                    <div class="topology-node"><span class="badge badge-mobile">Mobile</span> :8002</div>
+                    <div class="topology-node"><span class="badge badge-vehicle">Vehicle</span> :8003</div>
+                    <div class="topology-node"><span class="badge badge-electronics">Electronics</span> :8004</div>
+                </div>
+            </div>
+
+            <div style="background-color: var(--bg-result); padding: var(--space-3); border-radius: var(--radius); border: 1px solid var(--border); display: flex; flex-direction: column; gap: var(--space-2);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 600;">Extension Proxy Compatibility:</span>
+                    <span id="extStatusBadge" class="status-badge healthy">
+                        <span class="status-dot healthy"></span> Verified Active
+                    </span>
+                </div>
+                <div style="font-size: 11px; color: var(--text-secondary);">
+                    Gateway URL: <span id="extGatewayUrl" class="mono">http://localhost:8000</span> | Supported Categories: <span id="extSupportedCats" class="mono">GPU, MOBILE, VEHICLE, ELECTRONICS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Recent System Events & Activity Console -->
+        <section class="card">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2>Recent Activity & System Audit Console</h2>
+                </div>
+                <span style="font-size: 11px; color: var(--text-secondary);">Real-time Telemetry Log</span>
+            </div>
+            <div id="activityList" class="activity-list">
+                <!-- Dynamic -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-3) 0; font-size: 11px; color: var(--text-secondary); border-top: 1px solid var(--border); margin-top: var(--space-4);">
+            <div>FairPriceLK Developer & Infrastructure Console &bull; Exact Extension Design System</div>
+            <div>API Gateway v1.0 &bull; Port 8000</div>
+        </footer>
+
+    </div>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

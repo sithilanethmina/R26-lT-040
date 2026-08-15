@@ -112,6 +112,58 @@ Reserved for electronics price prediction work focused on:
 - laptops
 - monitors
 
+## How to Run
+
+To run the full system locally (Gateway + Microservices + Browser Extension), follow these steps:
+
+### 1. Start the Backend Services
+
+The backend consists of an API Gateway and multiple microservices (GPU, Mobile, Vehicle, Electronics). A single script starts them all.
+
+1. Open your terminal in the project root folder.
+2. Create a virtual environment and activate it:
+   - **Windows (Command Prompt):**
+     ```cmd
+     python -m venv venv
+     .\venv\Scripts\activate
+     ```
+   - **Windows (PowerShell):**
+     ```powershell
+     python -m venv venv
+     .\venv\Scripts\Activate.ps1
+     ```
+   - **Mac/Linux:**
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+3. Ensure you have the required dependencies installed within the virtual environment:
+   ```bash
+   pip install fastapi uvicorn httpx flask flask-cors pandas numpy joblib streamlit "scikit-learn==1.8.0" xgboost
+   ```
+4. Run the startup script:
+   ```bash
+   cd api-gateway
+   python start_all.py
+   ```
+   _This will start the API Gateway on port 8000, and the microservices on ports 8001-8004._
+
+### 2. Install the Browser Extension
+
+1. Open Google Chrome and go to `chrome://extensions/`.
+2. Turn on **Developer mode** (toggle switch in the top right corner).
+3. Click the **Load unpacked** button in the top left.
+4. Select the `browser-extension` folder from this repository.
+5. The **FairPriceLK Checker** extension should now appear in your browser.
+
+### 3. Use the Extension
+
+1. Navigate to a second-hand marketplace listing (e.g., an ikman.lk listing for a phone, GPU, car, or laptop).
+2. Click the FairPriceLK extension icon in your browser toolbar.
+   - _If the server is running, you will see a green "Server Connected" dot at the bottom._
+3. The extension will automatically detect the category (Mobile, GPU, etc.) and pre-fill details from the page.
+4. Click **Check Price** to get the predicted market value and the fairness verdict.
+
 ## Why This Is Useful
 
 This system is useful for:

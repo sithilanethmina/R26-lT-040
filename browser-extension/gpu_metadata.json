@@ -1,0 +1,1282 @@
+{
+  "models": [
+    {
+      "model": "GT 1030",
+      "normalized": "GT 1030",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0,
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "COLORFUL",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GT 440",
+      "normalized": "GT 440",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0
+      ],
+      "brands": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GT 610",
+      "normalized": "GT 610",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "MSI",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GT 630",
+      "normalized": "GT 630",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "GIGABYTE",
+        "NVIDIA",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GT 710",
+      "normalized": "GT 710",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GT 730",
+      "normalized": "GT 730",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        1.0,
+        2.0,
+        4.0
+      ],
+      "brands": [
+        "EMTEK",
+        "GIGABYTE",
+        "NVIDIA",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GT 740",
+      "normalized": "GT 740",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GTS 450",
+      "normalized": "GTS 450",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0
+      ],
+      "brands": [
+        "ASUS",
+        "GIGABYTE"
+      ]
+    },
+    {
+      "model": "GTX 1050",
+      "normalized": "GTX 1050",
+      "manufacturer": "NVIDIA",
+      "default_vram": 3.0,
+      "valid_vrams": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "COLORFUL",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1050 TI",
+      "normalized": "GTX 1050 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1060",
+      "normalized": "GTX 1060",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        3.0,
+        5.0,
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1070",
+      "normalized": "GTX 1070",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1070 TI",
+      "normalized": "GTX 1070 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1080",
+      "normalized": "GTX 1080",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1080 TI",
+      "normalized": "GTX 1080 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 11.0,
+      "valid_vrams": [
+        8.0,
+        11.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1630",
+      "normalized": "GTX 1630",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1650",
+      "normalized": "GTX 1650",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1650 SUPER",
+      "normalized": "GTX 1650 SUPER",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1660",
+      "normalized": "GTX 1660",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1660 SUPER",
+      "normalized": "GTX 1660 SUPER",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1660 TI",
+      "normalized": "GTX 1660 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "EVGA",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 550 TI",
+      "normalized": "GTX 550 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0,
+        2.0,
+        5.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 560",
+      "normalized": "GTX 560",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0
+      ],
+      "brands": [
+        "EMTEK",
+        "GIGABYTE",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GTX 560 TI",
+      "normalized": "GTX 560 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0
+      ],
+      "brands": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GTX 650",
+      "normalized": "GTX 650",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 650 TI",
+      "normalized": "GTX 650 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 660",
+      "normalized": "GTX 660",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        3.0,
+        5.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 660 TI",
+      "normalized": "GTX 660 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 670",
+      "normalized": "GTX 670",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GTX 680",
+      "normalized": "GTX 680",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "INNO3D"
+      ]
+    },
+    {
+      "model": "GTX 750",
+      "normalized": "GTX 750",
+      "manufacturer": "NVIDIA",
+      "default_vram": 1.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 750 TI",
+      "normalized": "GTX 750 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        1.0,
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 760",
+      "normalized": "GTX 760",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        1.0,
+        1.5,
+        2.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 770",
+      "normalized": "GTX 770",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "GTX 950",
+      "normalized": "GTX 950",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0,
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 960",
+      "normalized": "GTX 960",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0,
+        3.0,
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "EMTEK",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 970",
+      "normalized": "GTX 970",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0,
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 980",
+      "normalized": "GTX 980",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        4.0,
+        6.0,
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "EVGA",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 980 TI",
+      "normalized": "GTX 980 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "MSI",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "R 7 250",
+      "normalized": "R 7 250",
+      "manufacturer": "NVIDIA",
+      "default_vram": 3.0,
+      "valid_vrams": [
+        3.0
+      ],
+      "brands": [
+        "AMD"
+      ]
+    },
+    {
+      "model": "R 7 260",
+      "normalized": "R 7 260",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "GIGABYTE"
+      ]
+    },
+    {
+      "model": "R 7260",
+      "normalized": "R 7260",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "GIGABYTE"
+      ]
+    },
+    {
+      "model": "R 9 280",
+      "normalized": "R 9 280",
+      "manufacturer": "NVIDIA",
+      "default_vram": 3.0,
+      "valid_vrams": [
+        3.0
+      ],
+      "brands": [
+        "SAPPHIRE"
+      ]
+    },
+    {
+      "model": "R 9 290",
+      "normalized": "R 9 290",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "SAPPHIRE"
+      ]
+    },
+    {
+      "model": "RTX 2060",
+      "normalized": "RTX 2060",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0,
+        8.0,
+        12.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 2060 SUPER",
+      "normalized": "RTX 2060 SUPER",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 2070",
+      "normalized": "RTX 2070",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 2070 SUPER",
+      "normalized": "RTX 2070 SUPER",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "MSI",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "RTX 2080",
+      "normalized": "RTX 2080",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3050",
+      "normalized": "RTX 3050",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        4.0,
+        6.0,
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3060",
+      "normalized": "RTX 3060",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        6.0,
+        8.0,
+        12.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3060 TI",
+      "normalized": "RTX 3060 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3070",
+      "normalized": "RTX 3070",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3070 TI",
+      "normalized": "RTX 3070 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3080",
+      "normalized": "RTX 3080",
+      "manufacturer": "NVIDIA",
+      "default_vram": 10.0,
+      "valid_vrams": [
+        10.0
+      ],
+      "brands": [
+        "GIGABYTE",
+        "NVIDIA"
+      ]
+    },
+    {
+      "model": "RTX 4060",
+      "normalized": "RTX 4060",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GIGABYTE",
+        "PNY"
+      ]
+    },
+    {
+      "model": "RTX 4060 TI",
+      "normalized": "RTX 4060 TI",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 5050",
+      "normalized": "RTX 5050",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASUS",
+        "GIGABYTE",
+        "MSI"
+      ]
+    },
+    {
+      "model": "RTX 5060",
+      "normalized": "RTX 5060",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "MSI",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 460",
+      "normalized": "RX 460",
+      "manufacturer": "AMD",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        2.0,
+        4.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 470",
+      "normalized": "RX 470",
+      "manufacturer": "AMD",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0,
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 480",
+      "normalized": "RX 480",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "GIGABYTE"
+      ]
+    },
+    {
+      "model": "RX 550",
+      "normalized": "RX 550",
+      "manufacturer": "AMD",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        2.0,
+        4.0
+      ],
+      "brands": [
+        "AMD"
+      ]
+    },
+    {
+      "model": "RX 560",
+      "normalized": "RX 560",
+      "manufacturer": "AMD",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        4.0,
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 5600 XT",
+      "normalized": "RX 5600 XT",
+      "manufacturer": "AMD",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 570",
+      "normalized": "RX 570",
+      "manufacturer": "AMD",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0,
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "SAPPHIRE",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 5700",
+      "normalized": "RX 5700",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "GIGABYTE",
+        "MSI",
+        "SAPPHIRE"
+      ]
+    },
+    {
+      "model": "RX 5700 XT",
+      "normalized": "RX 5700 XT",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "SAPPHIRE",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 580",
+      "normalized": "RX 580",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        4.0,
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "SAPPHIRE",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 590",
+      "normalized": "RX 590",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "SAPPHIRE",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 6500 XT",
+      "normalized": "RX 6500 XT",
+      "manufacturer": "AMD",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "MSI"
+      ]
+    },
+    {
+      "model": "RX 6600",
+      "normalized": "RX 6600",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        4.0,
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 6600 XT",
+      "normalized": "RX 6600 XT",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "GALAX",
+        "GIGABYTE",
+        "MSI",
+        "PALIT",
+        "POWERCOLOR",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RX 6650 XT",
+      "normalized": "RX 6650 XT",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASROCK",
+        "MSI"
+      ]
+    },
+    {
+      "model": "RX 6800",
+      "normalized": "RX 6800",
+      "manufacturer": "AMD",
+      "default_vram": 16.0,
+      "valid_vrams": [
+        16.0
+      ],
+      "brands": [
+        "AMD"
+      ]
+    },
+    {
+      "model": "RX 7600",
+      "normalized": "RX 7600",
+      "manufacturer": "AMD",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "ASROCK",
+        "ASUS",
+        "GIGABYTE"
+      ]
+    }
+  ],
+  "brands": [
+    "AMD",
+    "ASROCK",
+    "ASUS",
+    "Any",
+    "COLORFUL",
+    "EMTEK",
+    "EVGA",
+    "GALAX",
+    "GIGABYTE",
+    "INNO3D",
+    "MSI",
+    "NVIDIA",
+    "PALIT",
+    "PNY",
+    "POWERCOLOR",
+    "SAPPHIRE",
+    "ZOTAC"
+  ],
+  "manufacturers": [
+    "Any",
+    "NVIDIA",
+    "AMD",
+    "Intel"
+  ]
+}

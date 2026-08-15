@@ -35,313 +35,538 @@ except Exception:
     _GPU_GEN_AVAILABLE = False
 
 
-# ── CSS — minimalist, no gradients ────────────────────────────────────────────
+# ── CSS — FairPriceLK Design System ───────────────────────────────────────────
 CSS = """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+    --bg: #FAFAF8;
+    --bg-surface: #FFFFFF;
+    --bg-result: #F5F4F0;
+    --text-primary: #1A1A18;
+    --text-secondary: #6B6B66;
+    --text-muted: #A3A39F;
+    --border: #E5E5E3;
+    --border-hover: #D1D1CD;
+    --accent: #D97706;
+    --accent-hover: #B45309;
+    --success: #16A34A;
+    --warning: #D97706;
+    --danger: #DC2626;
+    --radius: 6px;
+}
 
 *, html, body, [class*="css"] {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     box-sizing: border-box;
 }
 
 .stApp {
-    background-color: #F7F6F3;
-    color: #1A1A18;
+    background-color: #FAFAF8 !important;
+    color: #1A1A18 !important;
 }
 
 /* ── Global Text Visibility Overrides ── */
-.stApp p, .stApp span, .stApp label, .stApp strong, .stApp li {
-    color: #1A1A18 !important;
-}
-
-/* Ensure button text remains orange and doesn't get hit by global dark text rule */
-.stButton > button p, 
-.stButton > button span, 
-.stButton > button div {
-    color: inherit !important; 
-}
-.stButton > button {
-    color: #FF4B00 !important;
-}
-.stButton > button:hover { 
-    color: #FFFFFF !important;
-}
-
-[data-testid="stWidgetLabel"] p {
-    color: #1A1A18 !important;
-    font-weight: 500 !important;
-}
-
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] span,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] strong {
-    color: #1A1A18 !important;
-}
-
-/* ── Typography ── */
-.page-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 1.75rem;
-    font-weight: 500;
+.stApp p, .stApp span, .stApp strong, .stApp li {
     color: #1A1A18;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.1rem;
 }
-.page-sub {
-    font-size: 0.82rem;
-    color: #555550;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 2.5rem;
-}
-h2, h3 {
+
+h1, h2, h3, h4, h5, h6 {
     font-family: 'DM Sans', sans-serif !important;
-    font-weight: 500 !important;
+    font-weight: 700 !important;
     color: #1A1A18 !important;
     letter-spacing: -0.02em !important;
 }
 
-/* ── Section label ── */
 .section-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #555550;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #E4E3DF;
-}
-
-/* ── KPI strip ── */
-.kpi-row {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1px;
-    background: #E4E3DF;
-    border: 1px solid #E4E3DF;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 2.5rem;
-}
-.kpi-cell {
-    background: #F7F6F3;
-    padding: 1rem 1.25rem;
-}
-.kpi-label {
-    font-size: 0.72rem;
-    color: #555550;
+    font-size: 11px;
+    font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin-bottom: 0.3rem;
+    color: #6B6B66;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #E5E5E3;
+}
+
+/* ── Header Bar ── */
+.fp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E3;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+.fp-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.fp-logo-icon {
+    color: #D97706;
+    display: flex;
+    align-items: center;
+}
+.fp-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1A1A18;
+    letter-spacing: -0.01em;
+}
+.fp-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    background-color: #F5F4F0;
+    color: #6B6B66;
+    border: 1px solid #E5E5E3;
+    border-radius: 6px;
+    margin-left: 6px;
+}
+.fp-subtitle {
+    font-size: 12px;
+    color: #6B6B66;
+}
+
+/* ── Form Labels & Controls (Contrast & Readability Audit) ── */
+[data-testid="stWidgetLabel"] label,
+[data-testid="stWidgetLabel"] p {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #6B6B66 !important;
+    margin-bottom: 4px !important;
+}
+
+/* Text Inputs, Number Inputs, Text Areas */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea,
+.stDateInput input {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E3 !important;
+    border-radius: 6px !important;
+    color: #1A1A18 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.stTextInput input:hover,
+.stNumberInput input:hover,
+.stTextArea textarea:hover {
+    border-color: #D1D1CD !important;
+}
+
+.stTextInput input:focus,
+.stNumberInput input:focus,
+.stTextArea textarea:focus {
+    outline: none !important;
+    border-color: #D97706 !important;
+    box-shadow: 0 0 0 1px #D97706 !important;
+}
+
+.stTextInput input::placeholder,
+.stNumberInput input::placeholder,
+.stTextArea textarea::placeholder {
+    color: #A3A39F !important;
+    opacity: 1 !important;
+}
+
+/* Number Input Stepper Controls */
+.stNumberInput button {
+    background-color: #FFFFFF !important;
+    border-color: #E5E5E3 !important;
+    color: #1A1A18 !important;
+}
+.stNumberInput button:hover {
+    background-color: #F5F4F0 !important;
+    border-color: #D1D1CD !important;
+    color: #D97706 !important;
+}
+.stNumberInput button svg {
+    fill: #1A1A18 !important;
+}
+
+/* Selectboxes & Multiselects */
+div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E3 !important;
+    border-radius: 6px !important;
+    color: #1A1A18 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
+    min-height: 38px !important;
+    transition: border-color 0.15s ease !important;
+}
+
+div[data-baseweb="select"]:hover > div {
+    border-color: #D1D1CD !important;
+}
+
+div[data-baseweb="select"]:focus-within > div {
+    border-color: #D97706 !important;
+    box-shadow: 0 0 0 1px #D97706 !important;
+}
+
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div {
+    color: #1A1A18 !important;
+}
+
+div[data-baseweb="select"] [data-placeholder="true"],
+div[data-baseweb="select"] [data-placeholder] {
+    color: #A3A39F !important;
+    opacity: 1 !important;
+}
+
+/* Dropdown Menu Popover Options */
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E3 !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+li[role="option"] {
+    background-color: #FFFFFF !important;
+    color: #1A1A18 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+}
+
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"] {
+    background-color: #F5F4F0 !important;
+    color: #D97706 !important;
+    font-weight: 500 !important;
+}
+
+/* Help text & Captions */
+[data-testid="stCaptionContainer"], .stCaptionContainer, small, .help-text {
+    font-size: 11px !important;
+    color: #6B6B66 !important;
+}
+
+/* ── Buttons (FairPriceLK Accent) ── */
+.stButton > button,
+.stButton > button:focus,
+.stButton > button:active {
+    background-color: #D97706 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 10px 18px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em !important;
+    cursor: pointer !important;
+    transition: background-color 0.15s ease !important;
+    box-shadow: none !important;
+    width: 100% !important;
+}
+
+.stButton > button:hover {
+    background-color: #B45309 !important;
+    color: #FFFFFF !important;
+}
+
+.stButton > button p,
+.stButton > button span,
+.stButton > button div {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+/* ── KPI Row ── */
+.kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+.kpi-cell {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E3;
+    border-radius: 6px;
+    padding: 14px 16px;
+}
+.kpi-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6B6B66;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }
 .kpi-value {
-    font-family: 'DM Mono', monospace;
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
     color: #1A1A18;
     line-height: 1.2;
 }
 .kpi-delta {
-    font-size: 0.72rem;
-    color: #555550;
-    margin-top: 0.2rem;
+    font-size: 11px;
+    color: #6B6B66;
+    margin-top: 4px;
 }
 
-/* ── Leaderboard ── */
+/* ── FairPriceLK Result Box ── */
+.result-box {
+    background-color: #F5F4F0;
+    border: 1px solid #E5E5E3;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.result-header {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6B6B66;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.result-price {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A1A18;
+    letter-spacing: -0.02em;
+}
+.result-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background-color: #E5E5E3;
+    color: #1A1A18;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.badge.fair {
+    background-color: #DCFCE7;
+    color: #16A34A;
+    border-color: #BBF7D0;
+}
+.badge.overpriced {
+    background-color: #FEF3C7;
+    color: #D97706;
+    border-color: #FDE68A;
+}
+.badge.scam {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border-color: #FECACA;
+}
+.diff-text {
+    font-size: 12px;
+    color: #6B6B66;
+    font-weight: 500;
+}
+.result-footer {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #E5E5E3;
+    font-size: 11px;
+    color: #6B6B66;
+}
+
+/* ── Leaderboard Table ── */
 .lb-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.88rem;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E3;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 13px;
+    margin-bottom: 1.5rem;
 }
 .lb-table th {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    font-size: 11px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #555550;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid #E4E3DF;
+    color: #6B6B66;
+    font-weight: 700;
+    padding: 10px 14px;
+    background: #FAFAF8;
+    border-bottom: 1px solid #E5E5E3;
     text-align: left;
 }
 .lb-table td {
-    padding: 0.7rem 0.75rem;
-    border-bottom: 1px solid #F0EFeb;
-    color: #3A3A36;
+    padding: 10px 14px;
+    border-bottom: 1px solid #E5E5E3;
+    color: #1A1A18;
 }
 .lb-table tr:last-child td { border-bottom: none; }
-.lb-table tr.best-row td { background: #FFFFF8; }
-.lb-table tr:hover td { background: #F0EFeb; }
-.mono { font-family: 'DM Mono', monospace; font-size: 0.85rem; }
+.lb-table tr.best-row { background: #FFFDF5; }
+.lb-table tr:hover td { background: #F5F4F0; }
+.mono { font-family: 'DM Mono', monospace; font-size: 12px; }
 .best-pill {
     display: inline-block;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    border: 1px solid #1A1A18;
-    padding: 0.1rem 0.45rem;
-    border-radius: 2px;
-    margin-left: 0.5rem;
+    background: #FEF3C7;
+    color: #D97706;
+    border: 1px solid #FDE68A;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
     vertical-align: middle;
 }
 .rank-num {
     font-family: 'DM Mono', monospace;
-    color: #8A8A80;
-    font-size: 0.8rem;
+    color: #A3A39F;
+    font-size: 12px;
 }
-.rank-1 { color: #1A1A18; font-weight: 600; }
+.rank-1 { color: #D97706; font-weight: 700; }
 
-/* ── Prediction result ── */
-.pred-block {
-    border: 1px solid #E4E3DF;
-    border-left: 4px solid #FF4B00;
-    border-radius: 4px;
-    padding: 1.75rem 2rem;
-    margin: 1.5rem 0;
-    background: #FAFAF8;
-}
-.pred-model-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #555550;
-    margin-bottom: 0.4rem;
-    font-family: 'DM Mono', monospace;
-}
-.pred-price {
-    font-family: 'DM Mono', monospace;
-    font-size: 2.6rem;
-    font-weight: 500;
-    color: #1A1A18;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-}
-.pred-context {
-    font-size: 0.82rem;
-    color: #555550;
-    margin-top: 0.5rem;
-}
-
-/* ── Info box ── */
-.info-box {
-    background: #FFFFF8;
-    border: 1px solid #E8E6D0;
-    border-radius: 4px;
-    padding: 1rem 1.25rem;
-    font-size: 0.85rem;
-    color: #4A4A40;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-.info-box a { color: #4A4A40; }
-
-/* ── Buttons ── */
-.stButton > button {
-    background: #1A1A18 !important;
-    border: none !important;
-    padding: 0.65rem 1.5rem !important;
-    border-radius: 4px !important;
-    font-weight: 500 !important;
-    font-size: 0.88rem !important;
-    letter-spacing: 0.02em !important;
-    transition: opacity 0.15s ease !important;
-    font-family: 'DM Sans', sans-serif !important;
-}
-.stButton > button:hover { 
-    background: #FF4B00 !important; 
-}
-
-/* ── Inputs ── */
-.stSelectbox > div > div,
-.stTextInput > div > div > input,
-.stNumberInput > div > div > input {
-    background: #FFFFFF !important;
-    border: 1px solid #E4E3DF !important;
-    border-radius: 4px !important;
-    color: #1A1A18 !important;
-    font-family: 'DM Sans', sans-serif !important;
-}
-
-/* ── Placeholder & Selectbox Text ── */
-[data-baseweb="select"] * {
-    color: #1A1A18 !important;
-}
-[data-baseweb="select"] [data-placeholder] {
-    color: #1A1A18 !important;
-    opacity: 1 !important;
-}
-
-/* ── Metrics override ── */
+/* ── Metrics Cards ── */
 [data-testid="stMetric"] {
-    background: #FFFFFF;
-    border: 1px solid #E4E3DF;
-    border-radius: 4px;
-    padding: 0.9rem 1rem !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E3 !important;
+    border-radius: 6px !important;
+    padding: 12px 14px !important;
 }
-[data-testid="stMetricLabel"] {
-    font-size: 0.72rem !important;
+[data-testid="stMetricLabel"] p {
+    font-size: 11px !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
-    color: #555550 !important;
+    letter-spacing: 0.05em !important;
+    color: #6B6B66 !important;
+    font-weight: 500 !important;
 }
-[data-testid="stMetricValue"] {
-    font-family: 'DM Mono', monospace !important;
-    font-size: 1.2rem !important;
+[data-testid="stMetricValue"] div {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
     color: #1A1A18 !important;
 }
 
 /* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"] {
-    background: transparent;
-    border-bottom: 1px solid #E4E3DF;
-    gap: 0;
+    background: transparent !important;
+    border-bottom: 1px solid #E5E5E3 !important;
+    gap: 4px !important;
 }
 .stTabs [data-baseweb="tab"] {
-    font-size: 0.82rem !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
-    color: #555550 !important;
-    padding: 0.5rem 1rem !important;
-    border-radius: 0 !important;
+    color: #6B6B66 !important;
+    padding: 8px 16px !important;
+    border-radius: 6px 6px 0 0 !important;
     border-bottom: 2px solid transparent !important;
+    background: transparent !important;
+}
+.stTabs [data-baseweb="tab"]:hover {
+    color: #1A1A18 !important;
+    background-color: #F5F4F0 !important;
 }
 .stTabs [aria-selected="true"] {
-    color: #1A1A18 !important;
-    border-bottom: 2px solid #1A1A18 !important;
+    color: #D97706 !important;
+    border-bottom: 2px solid #D97706 !important;
+    font-weight: 700 !important;
     background: transparent !important;
 }
 
-/* ── Divider ── */
-hr { border-color: #E4E3DF !important; margin: 2rem 0 !important; }
+/* ── Expanders ── */
+[data-testid="stExpander"] {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E3 !important;
+    border-radius: 6px !important;
+    margin-bottom: 1rem !important;
+}
+[data-testid="stExpander"] summary {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #1A1A18 !important;
+}
+[data-testid="stExpander"] summary:hover {
+    color: #D97706 !important;
+}
 
-/* ── Dataframe ── */
-.stDataFrame { border: 1px solid #E4E3DF !important; border-radius: 4px !important; }
+/* ── Dataframes ── */
+.stDataFrame {
+    border: 1px solid #E5E5E3 !important;
+    border-radius: 6px !important;
+    background: #FFFFFF !important;
+}
+
+/* ── Dividers ── */
+hr {
+    border: none !important;
+    border-top: 1px solid #E5E5E3 !important;
+    margin: 1.5rem 0 !important;
+}
 
 /* ── Sidebar ── */
 [data-testid="stSidebar"] {
-    background: #F0EFeb !important;
-    border-right: 1px solid #E4E3DF !important;
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E5E5E3 !important;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] strong {
+    color: #1A1A18 !important;
+}
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span {
+    color: #6B6B66 !important;
+    font-size: 13px !important;
+}
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background-color: #E5E5E3;
+}
+.dot.online {
+    background-color: #16A34A;
+}
+
+/* ── Alerts & Status Messages ── */
+.stAlert {
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    border-width: 1px !important;
+}
+div[data-testid="stAlertContainer"] {
+    border-radius: 6px !important;
+}
+.stAlert [data-testid="stMarkdownContainer"] p {
     color: #1A1A18 !important;
 }
 
-/* ── Scrollbar ── */
+/* ── Scrollbars ── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #F7F6F3; }
-::-webkit-scrollbar-thumb { background: #C8C7C0; border-radius: 3px; }
-
-/* ── Success / Error / Warning ── */
-.stSuccess { background: #F2FAF2 !important; border-color: #B8D8B8 !important; color: #1A1A18 !important; }
-.stError   { background: #FFF2F2 !important; border-color: #D8B8B8 !important; color: #1A1A18 !important; }
-.stWarning { background: #FFFBF0 !important; border-color: #D8D0A0 !important; color: #1A1A18 !important; }
-
-/* ── Caption & Generic ── */
-[data-testid="stCaptionContainer"], .stCaptionContainer {
-    color: #555550 !important;
-}
-[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
-    color: #555550 !important;
-}
+::-webkit-scrollbar-track { background: #FAFAF8; }
+::-webkit-scrollbar-thumb { background: #D1D1CD; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #A3A39F; }
 </style>
 """
 
@@ -581,8 +806,9 @@ def _render_prediction_results(
     label: str,
     vram: float,
     brand: str,
+    listed_price: float = 0.0,
 ) -> None:
-    """Render prediction card + per-model breakdown. Safe against empty dicts."""
+    """Render FairPriceLK prediction card + per-model breakdown."""
     if not predictions:
         st.error("All models failed to produce a prediction. Check that the artifact is valid.")
         return
@@ -590,11 +816,39 @@ def _render_prediction_results(
     sorted_preds = sorted(predictions.items(), key=lambda kv: kv[1])
     best_price = predictions.get(best_name, sorted_preds[0][1])
 
+    # ── Fairness calculation (matching browser-extension popup.js) ──────────────
+    if listed_price and listed_price > 0:
+        diff = listed_price - best_price
+        diff_pct = (diff / best_price) * 100
+        diff_formatted = f"Rs. {abs(diff):,.0f}"
+
+        if diff_pct > 15:
+            fairness_badge_html = '<span class="badge overpriced">OVERPRICED</span>'
+            price_diff_html = f'<span class="diff-text">+{diff_formatted} (+{diff_pct:.1f}%)</span>'
+        elif diff_pct < -25:
+            fairness_badge_html = '<span class="badge scam">SCAM RISK</span>'
+            price_diff_html = f'<span class="diff-text">-{diff_formatted} ({diff_pct:.1f}%)</span>'
+        else:
+            fairness_badge_html = '<span class="badge fair">FAIR PRICE</span>'
+            sign = "+" if diff >= 0 else "-"
+            price_diff_html = f'<span class="diff-text">{sign}{diff_formatted} ({abs(diff_pct):.1f}%)</span>'
+    else:
+        fairness_badge_html = '<span class="badge">ESTIMATED MARKET VALUE</span>'
+        price_diff_html = '<span class="diff-text">Enter listed price to evaluate fairness</span>'
+
+    best_mape = eval_results.get(best_name, {}).get("mape_pct", "?")
+
     st.markdown(f"""
-    <div class="pred-block">
-        <div class="pred-model-label">Best model &nbsp;/&nbsp; {best_name.replace('_', ' ').upper()}</div>
-        <div class="pred-price">LKR {best_price:,.0f}</div>
-        <div class="pred-context">{label} &nbsp;·&nbsp; {vram:.0f} GB VRAM &nbsp;·&nbsp; {brand}</div>
+    <div class="result-box">
+        <div class="result-header">PREDICTED MARKET VALUE</div>
+        <div class="result-price">Rs. {best_price:,.0f}</div>
+        <div class="result-meta">
+            {fairness_badge_html}
+            {price_diff_html}
+        </div>
+        <div class="result-footer">
+            Model used: <strong>{best_name.replace('_', ' ').title()}</strong> (MAPE {best_mape}%) &nbsp;·&nbsp; {label} &nbsp;·&nbsp; {vram:.0f} GB VRAM &nbsp;·&nbsp; {brand}
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -630,8 +884,8 @@ def _render_prediction_results(
 
 def main():
     st.set_page_config(
-        page_title="GPU Price Predictor",
-        page_icon="▣",
+        page_title="FairPriceLK — GPU Price Predictor",
+        page_icon="⚖️",
         layout="wide",
         initial_sidebar_state="collapsed",
     )
@@ -640,13 +894,19 @@ def main():
     artifact, artifact_ver = load_artifact()
     enriched = load_enriched()
 
-    # ── Header ────────────────────────────────────────────────────────────────
-    st.markdown('<div class="page-title">GPU Price Predictor</div>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="page-sub">v2.0 &nbsp;·&nbsp; 6-model ensemble &nbsp;·&nbsp; '
-        'benchmark-enriched &nbsp;·&nbsp; Sri Lanka market</div>',
-        unsafe_allow_html=True,
-    )
+    # ── FairPriceLK Header ────────────────────────────────────────────────────
+    st.markdown("""
+    <div class="fp-header">
+        <div class="fp-logo-wrap">
+            <div class="fp-logo-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <span class="fp-title">FairPriceLK</span>
+            <span class="fp-badge">GPU Valuation</span>
+        </div>
+        <div class="fp-subtitle">v2.0 · 6-Model Ensemble · Sri Lanka Market</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     if artifact is None:
         st.error("No model artifact found. Run `python scripts/train_model_v2.py` to train.")
@@ -657,18 +917,23 @@ def main():
 
     # ── Sidebar ───────────────────────────────────────────────────────────────
     with st.sidebar:
-        st.markdown("**Pipeline info**")
+        st.markdown("""
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <span class="dot online"></span>
+            <strong style="color: #1A1A18; font-size: 14px;">Pipeline Status</strong>
+        </div>
+        """, unsafe_allow_html=True)
         if enriched is not None:
-            st.write(f"Training rows: `{len(enriched):,}`")
+            st.write(f"Training records: `{len(enriched):,}`")
         if best_name and best_name in eval_results:
             m = eval_results[best_name]
-            st.write(f"Best model: `{best_name}`")
+            st.write(f"Active model: `{best_name.replace('_', ' ').title()}`")
             st.write(f"MAPE: `{m.get('mape_pct')}%`")
             st.write(f"R²: `{m.get('r2')}`")
             st.write(f"Within 10%: `{m.get('within_10pct')}%`")
             st.write(f"RMSE: `LKR {m.get('rmse_lkr'):,.0f}`")
         st.divider()
-        st.caption("v2.0 · 2026")
+        st.caption("FairPriceLK · GPU Valuation Model · 2026")
 
     # ── KPI strip ─────────────────────────────────────────────────────────────
     bm = eval_results.get(best_name, {})
@@ -681,17 +946,17 @@ def main():
     else:
         n_samples = n_models = avg_price = "—"
 
-    best_mape    = f"{bm.get('mape_pct', '—')}%"
-    within10     = f"{bm.get('within_10pct', '—')}%"
+    best_mape = f"{bm.get('mape_pct', '—')}%"
+    within10  = f"{bm.get('within_10pct', '—')}%"
 
     st.markdown(f"""
     <div class="kpi-row">
         <div class="kpi-cell">
-            <div class="kpi-label">Training samples</div>
+            <div class="kpi-label">Training listings</div>
             <div class="kpi-value">{n_samples}</div>
         </div>
         <div class="kpi-cell">
-            <div class="kpi-label">GPU models</div>
+            <div class="kpi-label">Unique GPU models</div>
             <div class="kpi-value">{n_models}</div>
         </div>
         <div class="kpi-cell">
@@ -699,7 +964,7 @@ def main():
             <div class="kpi-value">{avg_price}</div>
         </div>
         <div class="kpi-cell">
-            <div class="kpi-label">Best MAPE</div>
+            <div class="kpi-label">Best model MAPE</div>
             <div class="kpi-value">{best_mape}</div>
             <div class="kpi-delta">lower is better</div>
         </div>
@@ -723,7 +988,7 @@ def main():
         rows_html += f"""
         <tr class="{row_cls}">
             <td><span class="{rank_cls}">{i + 1}</span></td>
-            <td class="mono">{mname.replace('_', ' ')}{best_pill}</td>
+            <td class="mono">{mname.replace('_', ' ').title()}{best_pill}</td>
             <td class="mono">{metrics.get('mape_pct')}%</td>
             <td class="mono">{metrics.get('r2')}</td>
             <td class="mono">{metrics.get('within_10pct')}%</td>
@@ -744,7 +1009,7 @@ def main():
 
     # ── Prediction ────────────────────────────────────────────────────────────
     st.divider()
-    st.markdown('<div class="section-label">Price prediction</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-label">Price prediction & fairness checker</div>', unsafe_allow_html=True)
 
     if enriched is None:
         st.warning("No enriched dataset found. Run `build_benchmark_features.py` first.")
@@ -754,29 +1019,35 @@ def main():
     unique_models = sorted(enriched[model_col].dropna().unique().tolist())
     unique_brands = sorted(enriched["brand"].dropna().unique().tolist()) if "brand" in enriched.columns else []
 
-    tab_listed, tab_custom = st.tabs(["Listed GPU", "Unlisted / custom GPU"])
+    tab_listed, tab_custom = st.tabs(["Listed GPU", "Unlisted / Custom GPU"])
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # TAB 1 — Listed GPU
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     with tab_listed:
-        pc1, pc2, pc3 = st.columns([2, 1, 1])
-        with pc1:
-            selected_model = st.selectbox("GPU model", unique_models, key="sel_model")
+        fcol1, fcol2 = st.columns([2, 1])
+        with fcol1:
+            selected_model = st.selectbox("GPU Model", unique_models, key="sel_model")
         mask = enriched[model_col] == selected_model
         typical_vram = float(enriched.loc[mask, "vram_gb"].dropna().median() or 4.0)
-        with pc2:
-            selected_vram = st.number_input("VRAM (GB)", min_value=1.0, value=typical_vram,
-                                            step=1.0, key="listed_vram")
-        with pc3:
-            selected_brand = st.selectbox("Brand", ["Any"] + unique_brands, key="sel_brand")
+        with fcol2:
+            selected_brand = st.selectbox("Brand / Manufacturer", ["Any"] + unique_brands, key="sel_brand")
 
-        if st.button("Calculate predicted price", key="btn_listed"):
-            with st.spinner("Running 6 models…"):
+        fcol3, fcol4 = st.columns(2)
+        with fcol3:
+            selected_vram = st.number_input("VRAM (GB)", min_value=1.0, value=typical_vram, step=1.0, key="listed_vram")
+        with fcol4:
+            listed_price = st.number_input("Listed / Asking Price (LKR — Optional)", min_value=0.0, value=0.0, step=1000.0, key="listed_price_input", help="Enter seller asking price to evaluate fairness")
+
+        if st.button("Check Price", key="btn_listed"):
+            with st.spinner("Evaluating models…"):
                 predictions = predict_all(artifact, selected_model, selected_vram,
                                           selected_brand, enriched)
-            _render_prediction_results(predictions, best_name, eval_results,
-                                       selected_model, selected_vram, selected_brand)
+            _render_prediction_results(
+                predictions, best_name, eval_results,
+                selected_model, selected_vram, selected_brand,
+                listed_price=listed_price,
+            )
 
             # Market context
             st.divider()
@@ -796,11 +1067,10 @@ def main():
                     spread = matches["price_lkr"].max() - matches["price_lkr"].min()
                     st.metric("Price spread", f"LKR {spread:,.0f}")
 
-                # FIX: guard color param — only pass when column exists
                 color_col = "brand" if "brand" in matches.columns else None
                 st.scatter_chart(matches, x="vram_gb", y="price_lkr", color=color_col)
 
-                with st.expander("View comparable listings"):
+                with st.expander("View comparable market listings"):
                     show_cols = [c for c in [model_col, "brand", "vram_gb", "price_lkr",
                                              "G3Dmark", "gpu_age_years", "architecture"]
                                  if c in matches.columns]
@@ -816,17 +1086,6 @@ def main():
         bench_df = load_bench_df()
         specs_df = load_specs_df()
 
-        # st.markdown("""
-        # <div class="info-box">
-        #     Type any GPU name — hardware specs are auto-filled from the reference databases.
-        #     The model predicts price from hardware numbers alone, so it works even for
-        #     GPUs with no Sri Lankan market history.
-        #     Look up PassMark scores at
-        #     <a href="https://www.videocardbenchmark.net" target="_blank">
-        #     videocardbenchmark.net</a>.
-        # </div>
-        # """, unsafe_allow_html=True)
-
         all_ref_names = []
         if bench_df is not None:
             all_ref_names.extend(bench_df["gpuName"].dropna().unique().tolist())
@@ -834,11 +1093,11 @@ def main():
             all_ref_names.extend(specs_df["Name"].dropna().unique().tolist())
         all_ref_names = sorted(list(set(all_ref_names)))
 
-        r1c1, r1c2, r1c3 = st.columns([2, 1, 1])
+        r1c1, r1c2 = st.columns([2, 1])
         with r1c1:
             if all_ref_names:
                 custom_name = st.selectbox(
-                    "Search GPU model", 
+                    "Search GPU Model", 
                     options=all_ref_names,
                     index=None,
                     placeholder="Type to search (e.g. RTX 3070)",
@@ -848,15 +1107,17 @@ def main():
                 if custom_name is None: custom_name = ""
             else:
                 custom_name = st.text_input(
-                    "GPU name", placeholder="e.g. RTX 3070",
+                    "GPU Name", placeholder="e.g. RTX 3070",
                     key="cust_name_input",
                 )
         with r1c2:
-            custom_vram = st.number_input("VRAM (GB)", min_value=1.0, value=8.0, step=1.0,
-                                          key="cust_vram")
-        with r1c3:
-            custom_brand = st.selectbox("Brand / seller", ["Unknown"] + unique_brands,
-                                        key="cust_brand")
+            custom_brand = st.selectbox("Brand / Manufacturer", ["Unknown"] + unique_brands, key="cust_brand")
+
+        r2c1, r2c2 = st.columns(2)
+        with r2c1:
+            custom_vram = st.number_input("VRAM (GB)", min_value=1.0, value=8.0, step=1.0, key="cust_vram")
+        with r2c2:
+            custom_listed_price = st.number_input("Listed / Asking Price (LKR — Optional)", min_value=0.0, value=0.0, step=1000.0, key="cust_listed_price", help="Enter seller asking price to evaluate fairness")
 
         # Auto-lookup
         if custom_name.strip():
@@ -872,21 +1133,21 @@ def main():
 
                 summary: dict[str, str] = {}
                 if specs.get("G3Dmark"):
-                    summary["G3Dmark"]       = f"{specs['G3Dmark']:,.0f}"
+                    summary["G3Dmark"]        = f"{specs['G3Dmark']:,.0f}"
                 if specs.get("G2Dmark"):
-                    summary["G2Dmark"]       = f"{specs['G2Dmark']:,.0f}"
+                    summary["G2Dmark"]        = f"{specs['G2Dmark']:,.0f}"
                 if specs.get("tdp_watts"):
-                    summary["TDP (W)"]       = f"{specs['tdp_watts']:.0f}"
+                    summary["TDP (W)"]        = f"{specs['tdp_watts']:.0f}"
                 if specs.get("fp32_gflops"):
-                    summary["FP32 GFLOPS"]   = f"{specs['fp32_gflops']:,.0f}"
+                    summary["FP32 GFLOPS"]    = f"{specs['fp32_gflops']:,.0f}"
                 if specs.get("memory_bandwidth_gb_s"):
                     summary["Bandwidth GB/s"] = f"{specs['memory_bandwidth_gb_s']:.1f}"
                 if specs.get("shader_units"):
-                    summary["Shader units"]  = f"{specs['shader_units']:.0f}"
+                    summary["Shader units"]   = f"{specs['shader_units']:.0f}"
                 if specs.get("architecture"):
-                    summary["Architecture"]  = specs["architecture"]
-                summary["Release year"]      = str(specs.get("release_year", "?"))
-                summary["GPU age (yrs)"]     = str(2026 - int(specs.get("release_year", 2020)))
+                    summary["Architecture"]   = specs["architecture"]
+                summary["Release year"]       = str(specs.get("release_year", "?"))
+                summary["GPU age (yrs)"]      = str(2026 - int(specs.get("release_year", 2020)))
 
                 s_cols = st.columns(min(len(summary), 6))
                 for i, (k, v) in enumerate(summary.items()):
@@ -894,7 +1155,7 @@ def main():
                         st.metric(k, v)
 
                 st.divider()
-                if st.button("Predict price from found specs", key="btn_custom"):
+                if st.button("Check Price from Specs", key="btn_custom"):
                     g3d  = specs.get("G3Dmark")
                     g2d  = specs.get("G2Dmark")
                     tdp  = specs.get("tdp_watts")
@@ -927,7 +1188,7 @@ def main():
 
                     df_custom_inf = pd.DataFrame([custom_inf])[feature_cols_list]
                     custom_predictions: dict[str, float] = {}
-                    with st.spinner("Running 6 models…"):
+                    with st.spinner("Evaluating models…"):
                         for mname, pipeline in artifact.get("all_models", {}).items():
                             try:
                                 pred = float(pipeline.predict(df_custom_inf)[0])
@@ -936,10 +1197,10 @@ def main():
                                 pass
 
                     if custom_predictions:
-                        st.success(f"Prediction complete for **{custom_name}** (extrapolated from specs)")
                         _render_prediction_results(
                             custom_predictions, best_name, eval_results,
                             custom_name, custom_vram, custom_brand,
+                            listed_price=custom_listed_price,
                         )
                         with st.expander("Internal features used"):
                             st.write(custom_inf)
@@ -965,8 +1226,8 @@ def main():
     st.markdown("---")
     st.markdown(
         "<div style='text-align:center;opacity:0.65;font-size:0.75rem;"
-        "font-family:DM Mono,monospace;'>"
-        "GPU Price Predictor &nbsp;·&nbsp; v2.0 &nbsp;·&nbsp; 2026"
+        "font-family:DM Sans,sans-serif;color:#6B6B66;'>"
+        "FairPriceLK · GPU Price Predictor · v2.0 · 2026"
         "</div>",
         unsafe_allow_html=True,
     )

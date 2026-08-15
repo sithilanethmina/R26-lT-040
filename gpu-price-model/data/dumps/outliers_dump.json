@@ -7,9 +7,23 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
+        "Price_LKR": 24000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
         "Price_LKR": 14000.0,
         "Extracted_Model": "GTX 650 TI",
         "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 7000.0,
+        "Extracted_Model": "GTX 750",
+        "VRAM_GB": 1.0,
         "Brand": "NVIDIA",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
@@ -21,15 +35,78 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Price_LKR": 33000.0,
-        "Extracted_Model": "RX 550",
+        "Price_LKR": 22000.0,
+        "Extracted_Model": "GTX 970",
         "VRAM_GB": 4.0,
-        "Brand": "AMD",
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 21000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 22000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
         "Price_LKR": 1000.0,
         "Extracted_Model": "GTX 1050 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 31000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 18500.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 33000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 90000.0,
+        "Extracted_Model": "RTX 3060 TI",
+        "VRAM_GB": 8.0,
+        "Brand": "ASUS",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 46000.0,
+        "Extracted_Model": "GTX 1660 TI",
+        "VRAM_GB": 6.0,
+        "Brand": "ASUS",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 15000.0,
+        "Extracted_Model": "GT 730",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 26000.0,
+        "Extracted_Model": "GTX 960",
         "VRAM_GB": 4.0,
         "Brand": "NVIDIA",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
@@ -56,6 +133,41 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
+        "Price_LKR": 31000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 8500.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 9000.0,
+        "Extracted_Model": "GTX 650 TI",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 15000.0,
+        "Extracted_Model": "GTX 750",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 31000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
         "Price_LKR": 85000.0,
         "Extracted_Model": "RTX 2080",
         "VRAM_GB": 8.0,
@@ -63,16 +175,37 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Price_LKR": 58000.0,
-        "Extracted_Model": "GTX 1080",
+        "Price_LKR": 102000.0,
+        "Extracted_Model": "RTX 3060 TI",
         "VRAM_GB": 8.0,
-        "Brand": "NVIDIA",
+        "Brand": "ASUS",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Price_LKR": 32500.0,
-        "Extracted_Model": "GTX 1060",
-        "VRAM_GB": 3.0,
+        "Price_LKR": 105000.0,
+        "Extracted_Model": "RTX 3060 TI",
+        "VRAM_GB": 8.0,
+        "Brand": "ASUS",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 100000.0,
+        "Extracted_Model": "RTX 3060 TI",
+        "VRAM_GB": 8.0,
+        "Brand": "ASUS",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 52000.0,
+        "Extracted_Model": "GTX 1080",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 130000.0,
+        "Extracted_Model": "RTX 3080",
+        "VRAM_GB": 10.0,
         "Brand": "ZOTAC",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
@@ -84,10 +217,269 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Price_LKR": 52000.0,
+        "Price_LKR": 27000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "GIGABYTE",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 25000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 590000.0,
+        "Extracted_Model": "RTX 5080",
+        "VRAM_GB": 16.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 40000.0,
+        "Extracted_Model": "GTX 1660 TI",
+        "VRAM_GB": 6.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 39000.0,
+        "Extracted_Model": "GTX 1660",
+        "VRAM_GB": 6.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 3000.0,
         "Extracted_Model": "GTX 1070",
         "VRAM_GB": 8.0,
-        "Brand": "ASUS",
+        "Brand": "GIGABYTE",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 45000.0,
+        "Extracted_Model": "RX 5700 XT",
+        "VRAM_GB": 8.0,
+        "Brand": "AMD",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 73900.0,
+        "Extracted_Model": "GTX 760",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 8000.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 21000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 85000.0,
+        "Extracted_Model": "RTX 3050",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 8500.0,
+        "Extracted_Model": "GTX 760",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 45000.0,
+        "Extracted_Model": "RTX 2060",
+        "VRAM_GB": 6.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 62000.0,
+        "Extracted_Model": "RTX 2070",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 22500.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 98000.0,
+        "Extracted_Model": "RTX 3050",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 28500.0,
+        "Extracted_Model": "GTX 750 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 86000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 5500.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 20000.0,
+        "Extracted_Model": "GTX 660",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 5000.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 31000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 12900.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "GALAX",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 22000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 25000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 24500.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 15000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 27500.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 5000.0,
+        "Extracted_Model": "GTX 1060",
+        "VRAM_GB": 6.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 8000.0,
+        "Extracted_Model": "GTX 560",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 31000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 3500.0,
+        "Extracted_Model": "GTX 760",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 31000.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 49500.0,
+        "Extracted_Model": "GTX 970",
+        "VRAM_GB": 6.0,
+        "Brand": "GIGABYTE",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 21500.0,
+        "Extracted_Model": "GTX 1050",
+        "VRAM_GB": 2.0,
+        "Brand": "ZOTAC",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Price_LKR": 7500.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     }
 ]

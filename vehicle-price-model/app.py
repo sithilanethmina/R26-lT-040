@@ -7,6 +7,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "ok", "service": "vehicle_price_predictor"})
+
 # --- Configuration ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     
@@ -106,7 +110,10 @@ def init_app():
         # Load best model
         best_path = os.path.join(group_dir, "best_model.pkl")
         if os.path.exists(best_path):
-            alto_best[group] = joblib.load(best_path)
+            try:
+                alto_best[group] = joblib.load(best_path)
+            except Exception as e:
+                print(f"Error loading Alto [{group}] best_model: {e}")
 
     # Load Alto metrics & predictions
     if os.path.exists(ALTO_METRICS):
@@ -277,4 +284,4 @@ def get_metadata():
 
 if __name__ == '__main__':
     init_app()
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=True, port=8003, use_reloader=False)
