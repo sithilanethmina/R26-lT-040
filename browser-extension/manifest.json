@@ -8,7 +8,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "http://localhost:8000/*"
+    "<all_urls>"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -22,7 +22,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["gpu_metadata.json", "icon.png"],
+      "resources": ["config.js", "gpu_metadata.json", "icon.png"],
       "matches": ["<all_urls>"]
     }
   ]
