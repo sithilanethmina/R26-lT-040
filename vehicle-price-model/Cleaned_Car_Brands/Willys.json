@@ -1,0 +1,21 @@
+[
+    {
+        "brand": "Willys",
+        "vehicle_type": "Car",
+        "model": "Unknown",
+        "variant": "",
+        "title_raw": "Willys Jeep 1989 Car",
+        "model_year": 1989,
+        "manufacture_year": 1988,
+        "registration_year": 1989,
+        "vehicle_age": 37,
+        "mileage_km": 10000,
+        "mileage_per_year": 270.27,
+        "engine_cc": null,
+        "fuel_type_raw": "Diesel",
+        "fuel_type": "Diesel",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Kurunegala"
+    }
+]

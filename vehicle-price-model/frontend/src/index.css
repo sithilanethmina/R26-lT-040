@@ -1,61 +1,10 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-@theme {
-  --color-primary: #10b981;
-  --color-secondary: #3b82f6;
-  --color-surface: #0f172a;
-  --color-card: #1e293b;
-}
-
-:root {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  font-weight: 400;
-  color-scheme: dark;
-  color: #e2e8f0;
-  background-color: #020617;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #020617;
-}
-
-#root {
-  width: 100%;
-}
-
-/* ─── Card ─────────────────────────────────────────────────── */
-.card {
-  background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-}
-
-/* ─── Dropdown ─────────────────────────────────────────────── */
-.custom-dropdown {
-  background: #0f172a;
-  border: 1px solid #334155;
-  color: #f1f5f9;
-  padding: 0.625rem 0.875rem;
-  border-radius: 8px;
-  width: 100%;
-  outline: none;
-  font-size: 0.875rem;
-  transition: border-color 0.15s ease;
-}
-
-.custom-dropdown:focus {
-  border-color: #10b981;
-}
-
-.custom-dropdown option {
-  background: #0f172a;
-  color: #f1f5f9;
+  padding: 0;
 }

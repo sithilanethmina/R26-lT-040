@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "DFSK",
+        "vehicle_type": "Car",
+        "model": "BOX",
+        "variant": "",
+        "title_raw": "DFSK BOX 2025 Car",
+        "model_year": 2025,
+        "manufacture_year": 2024,
+        "registration_year": 2025,
+        "vehicle_age": 1,
+        "mileage_km": 7300,
+        "mileage_per_year": 7300.0,
+        "engine_cc": null,
+        "fuel_type_raw": "Electric",
+        "fuel_type": "Electric",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Wattala",
+        "price": 9500000
+    }
+]

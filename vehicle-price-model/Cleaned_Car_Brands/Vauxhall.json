@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Vauxhall",
+        "vehicle_type": "Car",
+        "model": "Wyvan",
+        "variant": "",
+        "title_raw": "Vauxhall Wyvan 1951 Car",
+        "model_year": 1951,
+        "manufacture_year": 1950,
+        "registration_year": 1951,
+        "vehicle_age": 75,
+        "mileage_km": 100,
+        "mileage_per_year": 1.33,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Gampaha",
+        "price": 2500000
+    }
+]

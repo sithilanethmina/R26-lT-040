@@ -1,0 +1,42 @@
+[
+    {
+        "brand": "Jeep",
+        "vehicle_type": "Car",
+        "model": "Renegade",
+        "variant": "",
+        "title_raw": "Jeep Renegade 2017 Car",
+        "model_year": 2017,
+        "manufacture_year": 2016,
+        "registration_year": 2017,
+        "vehicle_age": 9,
+        "mileage_km": 84000,
+        "mileage_per_year": 9333.33,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Colombo",
+        "price": 11900000
+    },
+    {
+        "brand": "Jeep",
+        "vehicle_type": "Car",
+        "model": "Keep",
+        "variant": "",
+        "title_raw": "Jeep Keep 2013 Car",
+        "model_year": 2013,
+        "manufacture_year": 2012,
+        "registration_year": 2013,
+        "vehicle_age": 13,
+        "mileage_km": 132000,
+        "mileage_per_year": 10153.85,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Kandy",
+        "price": 11390000
+    }
+]

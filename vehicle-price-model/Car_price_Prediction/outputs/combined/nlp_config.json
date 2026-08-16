@@ -1,0 +1,183 @@
+{
+  "positive_signals": {
+    "one_owner": {
+      "keywords": [
+        "one owner",
+        "1 owner",
+        "1st owner",
+        "single owner",
+        "first owner",
+        "lady owner",
+        "lady driven",
+        "doctor used"
+      ],
+      "points": 5,
+      "label": "Single Owner"
+    },
+    "accident_free": {
+      "keywords": [
+        "accident free",
+        "no accident",
+        "no accidents",
+        "no crash",
+        "never been in",
+        "mint condition"
+      ],
+      "points": 5,
+      "label": "Accident Free"
+    },
+    "low_mileage": {
+      "keywords": [
+        "low mileage",
+        "low km",
+        "low kilo",
+        "less mileage",
+        "very low mileage",
+        "low milage"
+      ],
+      "points": 4,
+      "label": "Low Mileage Stated"
+    },
+    "service_records": {
+      "keywords": [
+        "service records",
+        "service history",
+        "full service",
+        "maintained",
+        "company maintained",
+        "dealer maintained",
+        "regular service",
+        "agent maintained"
+      ],
+      "points": 4,
+      "label": "Service Records"
+    },
+    "full_option": {
+      "keywords": [
+        "full option",
+        "fully loaded",
+        "full options",
+        "all options",
+        "full spec"
+      ],
+      "points": 3,
+      "label": "Full Option"
+    },
+    "original_condition": {
+      "keywords": [
+        "original paint",
+        "original condition",
+        "factory paint",
+        "unmodified",
+        "genuine"
+      ],
+      "points": 3,
+      "label": "Original Condition"
+    },
+    "safety_features": {
+      "keywords": [
+        "safety pack",
+        "safety package",
+        "bsm",
+        "sa3",
+        "lane assist",
+        "pre collision",
+        "360 cam",
+        "blind spot"
+      ],
+      "points": 2,
+      "label": "Safety Features"
+    },
+    "new_unregistered": {
+      "keywords": [
+        "brand new",
+        "unregistered",
+        "zero km",
+        "0 km",
+        "showroom condition"
+      ],
+      "points": 3,
+      "label": "New/Unregistered"
+    }
+  },
+  "negative_signals": {
+    "urgent_sale": {
+      "keywords": [
+        "urgent",
+        "urgent sale",
+        "quick sale",
+        "must sell",
+        "need to sell",
+        "asap"
+      ],
+      "points": -4,
+      "label": "Urgent Sale (Suspicious)"
+    },
+    "accident_damage": {
+      "keywords": [
+        "accident",
+        "collision damage",
+        "front damage",
+        "rear damage",
+        "accident repaired",
+        "had an accident"
+      ],
+      "points": -8,
+      "label": "Accident History"
+    },
+    "engine_issues": {
+      "keywords": [
+        "engine issue",
+        "engine problem",
+        "engine repair",
+        "gearbox issue",
+        "gearbox problem",
+        "needs repair",
+        "not working",
+        "transmission problem"
+      ],
+      "points": -10,
+      "label": "Engine/Mechanical Issues"
+    },
+    "reconstructed": {
+      "keywords": [
+        "reconstructed",
+        "re-con",
+        "recon",
+        "salvage",
+        "written off"
+      ],
+      "points": -8,
+      "label": "Reconstructed/Salvage"
+    },
+    "part_exchange": {
+      "keywords": [
+        "part exchange",
+        "swap",
+        "exchange only",
+        "trade only"
+      ],
+      "points": -3,
+      "label": "Part Exchange Only"
+    },
+    "body_damage": {
+      "keywords": [
+        "body damage",
+        "panel damage",
+        "dents",
+        "bit rusty",
+        "rust",
+        "scratches"
+      ],
+      "points": -5,
+      "label": "Body/Cosmetic Damage"
+    }
+  },
+  "scoring": {
+    "base_max": 70,
+    "nlp_max": 30,
+    "final_max": 100,
+    "fairly_priced_min": 65,
+    "review_min": 45
+  }
+}

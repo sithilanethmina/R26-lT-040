@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Alfa-Romeo",
+        "vehicle_type": "Car",
+        "model": "146",
+        "variant": "",
+        "title_raw": "Alfa-Romeo 146 1995 Car",
+        "model_year": 1995,
+        "manufacture_year": 1994,
+        "registration_year": 1995,
+        "vehicle_age": 31,
+        "mileage_km": 88000,
+        "mileage_per_year": 2838.71,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Nugegoda",
+        "price": 1850000
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Gallant",
+        "vehicle_type": "Car",
+        "model": "Unknown",
+        "variant": "",
+        "title_raw": "Gallant Gallant 1998 Car",
+        "model_year": 1998,
+        "manufacture_year": 1997,
+        "registration_year": 1998,
+        "vehicle_age": 28,
+        "mileage_km": 1000,
+        "mileage_per_year": 35.71,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Mirigama",
+        "price": 625000
+    }
+]
