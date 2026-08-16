@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "ATHER",
+        "vehicle_type": "Car",
+        "model": "Buick",
+        "variant": "",
+        "title_raw": "ATHER Buick 1997 Car",
+        "model_year": 1997,
+        "manufacture_year": 1996,
+        "registration_year": 1997,
+        "vehicle_age": 29,
+        "mileage_km": 92000,
+        "mileage_per_year": 3172.41,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Kandy",
+        "price": 1650000
+    }
+]

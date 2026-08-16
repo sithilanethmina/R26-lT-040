@@ -1,0 +1,42 @@
+[
+    {
+        "brand": "Aston",
+        "vehicle_type": "Car",
+        "model": "A40",
+        "variant": "Devon",
+        "title_raw": "Aston A40 Devon 1950 Car",
+        "model_year": 1950,
+        "manufacture_year": 1949,
+        "registration_year": 1950,
+        "vehicle_age": 76,
+        "mileage_km": null,
+        "mileage_per_year": null,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Negombo",
+        "price": 3000000
+    },
+    {
+        "brand": "Aston",
+        "vehicle_type": "Car",
+        "model": "A50",
+        "variant": "",
+        "title_raw": "Aston A50 1956 Car",
+        "model_year": 1956,
+        "manufacture_year": 1955,
+        "registration_year": 1956,
+        "vehicle_age": 70,
+        "mileage_km": null,
+        "mileage_per_year": null,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Negombo",
+        "price": 1000000
+    }
+]

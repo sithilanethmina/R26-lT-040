@@ -1,0 +1,199 @@
+brand,model,record_count,mean_price,min_year,max_year,confidence
+Audi,A3,58,15274483,2016,2024,High
+Audi,A4,35,12592714,1999,2018,High
+Audi,A1,32,8557656,2016,2017,High
+Audi,A6,16,13240625,2006,2016,Medium
+Audi,A5,11,22272727,2018,2019,Medium
+Audi,A8,3,28500000,2016,2016,Low — insufficient market data
+BMW,520D,55,21205273,2012,2016,High
+BMW,318i,31,18856129,2016,2018,High
+BMW,320D,10,8920000,2000,2011,Medium
+BMW,523i,10,15270000,2007,2010,Medium
+BMW,530e,8,27087500,2017,2018,Low — insufficient market data
+BMW,740e,5,32280000,2018,2018,Low — insufficient market data
+BMW,316i,3,15983333,2015,2015,Low — insufficient market data
+BMW,320i,3,8233333,2011,2011,Low — insufficient market data
+BMW,520I,3,15133333,2012,2012,Low — insufficient market data
+BMW,528i,3,17500000,2011,2011,Low — insufficient market data
+BMW,530E,3,27766667,2017,2017,Low — insufficient market data
+BMW,I8,3,39666667,2019,2019,Low — insufficient market data
+Daihatsu,Mira,277,6990502,2016,2026,High
+Daihatsu,TAFT,53,8235094,2023,2025,High
+Daihatsu,MIRA,27,7392963,2023,2026,Medium
+Daihatsu,Taft,12,8437500,2023,2025,Medium
+Daihatsu,Move,10,8774500,2025,2025,Medium
+Daihatsu,Tanto,9,8330000,2024,2024,Low — insufficient market data
+Daihatsu,Cast,4,6420000,2017,2017,Low — insufficient market data
+Daihatsu,Boon,3,7281667,2017,2017,Low — insufficient market data
+Daihatsu,Charade,3,2541667,1998,1998,Low — insufficient market data
+Ford,Laser,16,2862812,1992,2000,Medium
+Ford,Fiesta,6,7700000,2011,2015,Low — insufficient market data
+Ford,Festiva,5,2292000,1995,1995,Low — insufficient market data
+Honda,Fit,375,7457773,2003,2017,High
+Honda,Civic,205,8255686,1991,2020,High
+Honda,Grace,99,9853990,2014,2017,High
+Honda,FIT,74,7638176,2010,2015,High
+Honda,Insight,63,7279841,2009,2013,High
+Honda,N,58,7408707,2015,2026,High
+Honda,City,43,7067767,2000,2025,High
+Honda,Freed,12,8705417,2012,2013,Medium
+Honda,Airwave,6,4658333,2008,2009,Low — insufficient market data
+Honda,CRZ,6,7483333,2011,2013,Low — insufficient market data
+Hyundai,Accent,66,2869924,2000,2011,High
+Hyundai,Eon,43,4377674,2014,2018,High
+Hyundai,Sonata,23,3243696,2000,2012,Medium
+Hyundai,Elantra,17,4820000,2000,2012,Medium
+Hyundai,Grand,11,6018182,2016,2023,Medium
+Hyundai,Matrix,6,2285833,2001,2004,Low — insufficient market data
+Hyundai,Trajet,6,7508333,2000,2000,Low — insufficient market data
+Hyundai,Atos,4,2112500,2001,2001,Low — insufficient market data
+Hyundai,Getz,3,3263333,2002,2002,Low — insufficient market data
+Kia,Picanto,35,5759000,2011,2017,High
+Kia,Rio,33,3102879,2000,2015,High
+Kia,Cerato,10,4506000,2004,2011,Medium
+Kia,Spectra,10,2312000,2001,2004,Medium
+Kia,Carens,5,3260000,2001,2001,Low — insufficient market data
+Kia,Optima,3,7516667,2012,2012,Low — insufficient market data
+Mazda,Familia,100,2999100,1991,2004,High
+Mazda,Demio,31,5298226,2007,2011,High
+Mazda,3,25,7061000,2006,2016,Medium
+Mazda,Axela,22,6782273,2003,2014,Medium
+Mazda,6,11,11152273,2013,2014,Medium
+Mazda,BJ5P,6,3945833,2001,2003,Low — insufficient market data
+Mazda,2,5,8975000,2016,2016,Low — insufficient market data
+Mazda,Astina,3,2333333,1992,1992,Low — insufficient market data
+Mazda,Flair,3,6100000,2016,2016,Low — insufficient market data
+Mercedes-Benz,C180,33,14132424,2010,2017,High
+Mercedes-Benz,C200,32,25804375,2018,2024,High
+Mercedes-Benz,E200,29,15934483,2010,2016,Medium
+Mercedes-Benz,CLA,28,19506250,2016,2019,Medium
+Mercedes-Benz,E300,14,16808929,2014,2015,Medium
+Mercedes-Benz,C350e,6,18812500,2016,2016,Low — insufficient market data
+Mercedes-Benz,W210,6,5383333,1997,1999,Low — insufficient market data
+Mercedes-Benz,C220,5,12640000,2013,2013,Low — insufficient market data
+Mercedes-Benz,S300,5,19050000,2010,2010,Low — insufficient market data
+Mercedes-Benz,E350e,4,28500000,2017,2017,Low — insufficient market data
+Mercedes-Benz,E220,3,17866667,2013,2013,Low — insufficient market data
+Mercedes-Benz,E240,3,8698333,2004,2004,Low — insufficient market data
+Mercedes-Benz,E250,3,21566667,2013,2013,Low — insufficient market data
+Mercedes-Benz,W220,3,6500000,2003,2003,Low — insufficient market data
+Micro,Panda,292,3192380,2011,2018,High
+Micro,MX7,64,3266250,2008,2015,High
+Micro,Trend,36,1931157,2008,2012,High
+Micro,Emgrand,14,4787500,2014,2016,Medium
+Micro,Baic,9,5701111,2017,2018,Low — insufficient market data
+Micro,X25,8,5924375,2017,2018,Low — insufficient market data
+Micro,Lifan,4,1762500,2009,2009,Low — insufficient market data
+Micro,Voleex,3,3683333,2013,2013,Low — insufficient market data
+Mitsubishi,Lancer,131,5507557,1991,2011,High
+Mitsubishi,EK,45,7503444,2018,2025,High
+Mitsubishi,Attrage,4,8493750,2020,2020,Low — insufficient market data
+Mitsubishi,Mirage,3,5158333,2013,2013,Low — insufficient market data
+Nissan,March,212,3580542,1990,2010,High
+Nissan,Dayz,175,7914571,2017,2026,High
+Nissan,FB15,164,4362610,1998,2005,High
+Nissan,FB14,125,3121352,1994,2003,High
+Nissan,N16,105,4254905,2000,2011,High
+Nissan,Sunny,73,3759932,1991,2011,High
+Nissan,FB13,65,2364692,1990,1996,High
+Nissan,Bluebird,62,3773952,1990,2011,High
+Nissan,Leaf,59,6953051,2012,2018,High
+Nissan,Wingroad,57,3840351,1997,2007,High
+Nissan,Roox,47,8757553,2023,2025,High
+Nissan,Tiida,40,5375125,2007,2010,High
+Nissan,Pulsar,34,3188529,1993,2000,High
+Nissan,Cefiro,28,4484464,1999,2007,Medium
+Nissan,AD,27,2762778,1993,2003,Medium
+Nissan,N17,20,4763250,2003,2012,Medium
+Nissan,Presea,20,2920250,1991,2004,Medium
+Nissan,Y11,17,3160882,2000,2004,Medium
+Nissan,DAYZ,16,8132188,2024,2025,Medium
+Nissan,ROOX,11,8813636,2023,2024,Medium
+Nissan,Almera,7,12893571,2025,2025,Low — insufficient market data
+Nissan,B15,7,3871429,2000,2001,Low — insufficient market data
+Nissan,Primera,7,3625114,1998,2001,Low — insufficient market data
+Nissan,Sylphy,7,4392143,2000,2001,Low — insufficient market data
+Nissan,Sakura,6,8651667,2023,2025,Low — insufficient market data
+Nissan,Super,5,4333000,2000,2000,Low — insufficient market data
+Nissan,Cedric,4,4885000,1996,1996,Low — insufficient market data
+Nissan,Doctor,4,2100000,1993,1993,Low — insufficient market data
+Nissan,B14,3,3233333,1998,1998,Low — insufficient market data
+Nissan,Ex,3,4226667,2001,2001,Low — insufficient market data
+Nissan,MARCH,3,4518333,2007,2007,Low — insufficient market data
+Perodua,Viva,148,4469797,2008,2014,High
+Perodua,Bezza,36,7069306,2017,2025,High
+Perodua,Axia,27,6154778,2015,2020,Medium
+Perodua,Kelisa,24,3433750,2003,2007,Medium
+Perodua,Kenari,12,3473333,2007,2008,Medium
+Peugeot,406,23,2955217,1997,2002,Medium
+Peugeot,407,11,5651818,2006,2007,Medium
+Peugeot,405,6,1287500,1991,1995,Low — insufficient market data
+Peugeot,206,3,2360000,2005,2005,Low — insufficient market data
+Peugeot,508,3,9030000,2012,2012,Low — insufficient market data
+Renault,Kwid,81,3748889,2016,2018,High
+Renault,KWID,8,3741875,2016,2016,Low — insufficient market data
+Suzuki,Wagon R,1342,7027102,2002,2026,High
+Suzuki,Alto,1142,4098451,1997,2026,High
+Suzuki,Maruti,398,2281709,1994,2012,High
+Suzuki,Swift,373,5691459,2002,2024,High
+Suzuki,Spacia,172,7579640,2015,2026,High
+Suzuki,Celerio,131,5328779,2014,2018,High
+Suzuki,A-Star,50,4855400,2010,2012,High
+Suzuki,Estilo,45,3880889,2008,2012,High
+Suzuki,Hustler,31,6696452,2015,2024,High
+Suzuki,Baleno,25,7744200,2016,2019,Medium
+Suzuki,Liana,20,3714000,2002,2006,Medium
+Suzuki,Zen,14,2434286,2004,2006,Medium
+Suzuki,ALTO,13,5037692,2015,2024,Medium
+Suzuki,WAGON R,8,8842500,2025,2026,Low — insufficient market data
+Suzuki,SWIFT,6,6410000,2003,2017,Low — insufficient market data
+Suzuki,Sx4,5,5328000,2007,2007,Low — insufficient market data
+Suzuki,Kei,4,3733750,2003,2003,Low — insufficient market data
+Suzuki,SPACIA,4,8362500,2024,2024,Low — insufficient market data
+Tata,Nano,73,1692329,2011,2017,High
+Tata,Indica,39,2584616,2004,2016,High
+Tata,Indigo,24,2342292,2006,2015,Medium
+Toyota,Vitz,705,7046098,1999,2020,High
+Toyota,Corolla,504,4562877,1990,2023,High
+Toyota,Axio,447,9744550,2007,2024,High
+Toyota,Aqua,427,7933501,2012,2023,High
+Toyota,Premio,359,12767799,2002,2020,High
+Toyota,Prius,290,9867931,2007,2017,High
+Toyota,Allion,275,8757309,2002,2018,High
+Toyota,Yaris,209,9074545,2006,2026,High
+Toyota,Roomy,187,9744893,2016,2026,High
+Toyota,Passo,120,6146083,2004,2024,High
+Toyota,Vios,118,5469110,2003,2010,High
+Toyota,Starlet,101,3868564,1992,2000,High
+Toyota,Carina,93,4439774,1990,2002,High
+Toyota,Belta,82,6474268,2007,2011,High
+Toyota,110,43,3737093,1996,2000,High
+Toyota,Corona,32,3057188,1990,1999,High
+Toyota,IST,25,5566200,2002,2007,Medium
+Toyota,Avanza,24,6329167,2007,2012,Medium
+Toyota,Tercel,24,2850208,1996,1998,Medium
+Toyota,Corsa,23,4063261,1992,1998,Medium
+Toyota,Soluna,21,3324286,1999,2005,Medium
+Toyota,Wigo,20,6514250,2017,2019,Medium
+Toyota,Tank,16,8314688,2017,2019,Medium
+Toyota,Sprinter,15,3342333,1991,2000,Medium
+Toyota,ROOMY,14,10079643,2023,2025,Medium
+Toyota,Camry,12,5241250,1992,2008,Medium
+Toyota,Pixis,12,6937917,2016,2025,Medium
+Toyota,Elephant,10,3005000,1996,1997,Medium
+Toyota,YARIS,9,9694444,2023,2024,Low — insufficient market data
+Toyota,CE110,7,3497143,1996,1997,Low — insufficient market data
+Toyota,CE100,6,2371667,1992,1994,Low — insufficient market data
+Toyota,Caldina,6,3457500,1997,1997,Low — insufficient market data
+Toyota,Dx,5,1650000,1990,1990,Low — insufficient market data
+Toyota,Ist,5,5252000,2003,2003,Low — insufficient market data
+Toyota,Duet,4,3425000,1999,1999,Low — insufficient market data
+Toyota,PREMIO,4,14937500,2017,2017,Low — insufficient market data
+Toyota,AE110,3,4033333,1997,1997,Low — insufficient market data
+Toyota,AXIO,3,9866667,2015,2015,Low — insufficient market data
+Toyota,Ce110,3,3088333,1996,1996,Low — insufficient market data
+Toyota,Mark,3,9866667,2007,2007,Low — insufficient market data
+Toyota,Platz,3,4016667,2001,2001,Low — insufficient market data
+Toyota,Sienta,3,12466667,2016,2016,Low — insufficient market data
+Toyota,VIOS,3,5391667,2003,2003,Low — insufficient market data
+Toyota,Verossa,3,5666667,2003,2003,Low — insufficient market data

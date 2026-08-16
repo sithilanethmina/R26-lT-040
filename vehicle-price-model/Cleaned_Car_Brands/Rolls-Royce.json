@@ -1,0 +1,21 @@
+[
+    {
+        "brand": "Rolls-Royce",
+        "vehicle_type": "Car",
+        "model": "Ambassedor",
+        "variant": "",
+        "title_raw": "Rolls-Royce Ambassedor 2004 Car",
+        "model_year": 2004,
+        "manufacture_year": 2003,
+        "registration_year": 2004,
+        "vehicle_age": 22,
+        "mileage_km": 37000,
+        "mileage_per_year": 1681.82,
+        "engine_cc": null,
+        "fuel_type_raw": "Diesel",
+        "fuel_type": "Diesel",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Gampaha"
+    }
+]

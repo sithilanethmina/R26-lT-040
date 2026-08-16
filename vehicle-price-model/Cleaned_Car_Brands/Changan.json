@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Changan",
+        "vehicle_type": "Car",
+        "model": "LUMIN",
+        "variant": "301KM RANGE EV",
+        "title_raw": "Changan LUMIN 301KM RANGE EV 2026 Car",
+        "model_year": 2026,
+        "manufacture_year": 2025,
+        "registration_year": 2026,
+        "vehicle_age": 1,
+        "mileage_km": null,
+        "mileage_per_year": null,
+        "engine_cc": null,
+        "fuel_type_raw": "Electric",
+        "fuel_type": "Electric",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Matara",
+        "price": 6995000
+    }
+]

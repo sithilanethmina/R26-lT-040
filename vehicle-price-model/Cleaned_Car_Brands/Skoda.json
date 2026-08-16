@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Skoda",
+        "vehicle_type": "Car",
+        "model": "Gl120",
+        "variant": "",
+        "title_raw": "Skoda Gl120 1987 Car",
+        "model_year": 1987,
+        "manufacture_year": 1986,
+        "registration_year": 1987,
+        "vehicle_age": 39,
+        "mileage_km": null,
+        "mileage_per_year": null,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Kegalle",
+        "price": 875000
+    }
+]

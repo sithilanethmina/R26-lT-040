@@ -1,0 +1,42 @@
+[
+    {
+        "brand": "Foton",
+        "vehicle_type": "Car",
+        "model": "Wira",
+        "variant": "",
+        "title_raw": "Foton Wira 2006 Car",
+        "model_year": 2006,
+        "manufacture_year": 2005,
+        "registration_year": 2006,
+        "vehicle_age": 20,
+        "mileage_km": 154000,
+        "mileage_per_year": 7700.0,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Colombo",
+        "price": 700000
+    },
+    {
+        "brand": "Foton",
+        "vehicle_type": "Car",
+        "model": "Exfora",
+        "variant": "",
+        "title_raw": "Foton Exfora 2010 Car",
+        "model_year": 2010,
+        "manufacture_year": 2009,
+        "registration_year": 2010,
+        "vehicle_age": 16,
+        "mileage_km": 160000,
+        "mileage_per_year": 10000.0,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Minuwangoda",
+        "price": 4850000
+    }
+]

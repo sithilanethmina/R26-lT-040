@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Wuling",
+        "vehicle_type": "Car",
+        "model": "Binguo",
+        "variant": "",
+        "title_raw": "Wuling Binguo 2025 Car",
+        "model_year": 2025,
+        "manufacture_year": 2024,
+        "registration_year": 2025,
+        "vehicle_age": 1,
+        "mileage_km": 1300,
+        "mileage_per_year": 1300.0,
+        "engine_cc": null,
+        "fuel_type_raw": "Electric",
+        "fuel_type": "Electric",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Kottawa",
+        "price": 8600000
+    }
+]
