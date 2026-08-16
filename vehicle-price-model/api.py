@@ -29,10 +29,11 @@ warnings.filterwarnings("ignore")
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).resolve().parent
-CAR_MODEL_DIR   = BASE_DIR / "models"  / "combined"
-CAR_OUT_DIR     = BASE_DIR / "outputs" / "combined"
 
-SUV_BASE_DIR    = BASE_DIR.parent / "SUV_Price_Prediction"
+CAR_MODEL_DIR   = BASE_DIR / "Car_price_Prediction" / "models"  / "combined"
+CAR_OUT_DIR     = BASE_DIR / "Car_price_Prediction" / "outputs" / "combined"
+
+SUV_BASE_DIR    = BASE_DIR / "SUV_Price_Prediction"
 SUV_MODEL_DIR   = SUV_BASE_DIR / "models"  / "suv"
 SUV_OUT_DIR     = SUV_BASE_DIR / "outputs" / "suv"
 
