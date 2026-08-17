@@ -43,6 +43,7 @@ from gpu_price_predictor.model_training import (
 DATA_DIR = PROJECT_ROOT / "data" / "final"
 TRAINING_DATA_V1_PATH = DATA_DIR / "training_data_v1.json"
 TRAINING_DATA_V2_PATH = DATA_DIR / "training_data_v2.json"
+TRAINING_DATA_V3_PATH = DATA_DIR / "training_data_v3.json"
 TRUSTED_SPECS_PATH = DATA_DIR / "trusted_gpu_specs.json"
 ARTIFACTS_DIR = PROJECT_ROOT / "artifacts"
 ARTIFACTS_DIR.mkdir(exist_ok=True)
@@ -96,6 +97,13 @@ def load_consolidated_dataset() -> tuple[TrainingDatasetBundle, dict]:
         with open(TRAINING_DATA_V2_PATH, "r", encoding="utf-8") as f:
             v2_data = json.load(f)
             raw_training.extend(v2_data)
+
+    # Load v3 training data
+    if TRAINING_DATA_V3_PATH.exists():
+        print(f"[*] Loading training data: {TRAINING_DATA_V3_PATH.name}")
+        with open(TRAINING_DATA_V3_PATH, "r", encoding="utf-8") as f:
+            v3_data = json.load(f)
+            raw_training.extend(v3_data)
             
     if not raw_training:
         print("[!] No training data found. Using empty list.")

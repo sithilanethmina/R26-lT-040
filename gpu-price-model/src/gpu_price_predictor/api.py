@@ -11,7 +11,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from gpu_price_predictor.app import load_artifact, load_enriched, predict_all
-from gpu_price_predictor.pipeline import normalize_model
+from gpu_price_predictor.pipeline import (
+    calculate_fair_market_range,
+    get_fairness_verdict,
+    get_model_sample_count,
+    normalize_model,
+)
 
 app = FastAPI(title="GPU Price Predictor API")
 
@@ -77,6 +82,7 @@ class PredictRequest(BaseModel):
     brand: Optional[str] = "Any"
     manufacturer: Optional[str] = "Any"
     stock: Optional[str] = "In Stock"
+    listed_price: Optional[float] = None
 
 @app.post("/predict")
 def predict(request: PredictRequest):
@@ -103,14 +109,56 @@ def predict(request: PredictRequest):
         # Sort to get a fallback if best_name is not in predictions
         sorted_preds = sorted(predictions.items(), key=lambda kv: kv[1])
         best_price = predictions.get(best_name, sorted_preds[0][1])
+
+        # Sample count lookup from enriched dataset for data penalty adjustment
+        sample_count = get_model_sample_count(request.model, enriched)
+
+        # Conformal prediction log-space calculation
+        predicted_log_price = float(import_np().log1p(best_price))
+        calibration_data = artifact.get("conformal_calibration", None)
+        
+        range_info = calculate_fair_market_range(
+            predicted_log_price=predicted_log_price,
+            sample_count=sample_count,
+            calibration_data=calibration_data,
+            confidence_level="90%"
+        )
+
+        verdict_info = get_fairness_verdict(
+            listed_price=request.listed_price or 0.0,
+            lower_bound=range_info["lower_price_lkr"],
+            upper_bound=range_info["upper_price_lkr"]
+        )
         
         return {
             "predicted_price": best_price,
             "best_model_used": best_name,
+            "lower_price": range_info["lower_price_lkr"],
+            "upper_price": range_info["upper_price_lkr"],
+            "fair_market_range": {
+                "lower_price_lkr": range_info["lower_price_lkr"],
+                "upper_price_lkr": range_info["upper_price_lkr"],
+                "currency": "LKR",
+                "coverage_confidence": range_info["confidence_level"]
+            },
+            "evaluation": verdict_info,
+            "metadata": {
+                "model_name": request.model,
+                "vram_gb": vram,
+                "brand": brand,
+                "tier": range_info["tier"],
+                "limited_data_warning": range_info["limited_data_warning"],
+                "sample_count": sample_count
+            },
             "all_predictions": predictions
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+def import_np():
+    import numpy as np
+    return np
+
 
 if __name__ == "__main__":
     uvicorn.run("gpu_price_predictor.api:app", host="0.0.0.0", port=8001, reload=True)

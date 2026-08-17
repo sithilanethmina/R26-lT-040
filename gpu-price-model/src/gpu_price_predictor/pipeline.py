@@ -396,7 +396,6 @@ FEATURE_COLUMNS_V2_NUMERIC = [
     "vram_gb",
     "G3Dmark",
     "G2Dmark",
-    "log_G3Dmark",
     "fp32_gflops",
     "tdp_watts",
     "memory_bandwidth_gb_s",
@@ -406,7 +405,6 @@ FEATURE_COLUMNS_V2_NUMERIC = [
     "perf_per_watt",
     "gpu_age_years",
     "gpu_generation",
-    "model_number",
     "ti_variant",
 ]
 
@@ -414,11 +412,32 @@ FEATURE_COLUMNS_V2_CATEGORICAL = [
     "series_family",
     "brand",
     "architecture",
+    "tier_class",
 ]
 
 FEATURE_COLUMNS_V2 = FEATURE_COLUMNS_V2_NUMERIC + FEATURE_COLUMNS_V2_CATEGORICAL
 
 TARGET_COLUMN_V2 = "log_price_lkr"
+
+
+def derive_tier_class(model_name: str) -> str:
+    """Extract performance tier class (10, 30, 50, 60, 70, 80, 90, Other) from GPU model name."""
+    s = str(model_name).upper()
+    if re.search(r'\b(90|3090|4090)\b', s):
+        return "90"
+    if re.search(r'\b(80|1080|2080|3080|4080|580|680|780|5800|6800|7800)\b', s):
+        return "80"
+    if re.search(r'\b(70|1070|2070|3070|4070|570|670|770|5700|6700|7700)\b', s):
+        return "70"
+    if re.search(r'\b(60|1060|2060|3060|4060|560|660|760|5600|6600|7600)\b', s):
+        return "60"
+    if re.search(r'\b(50|1050|1650|3050|4050|550|650|750|5500|6500|7500)\b', s):
+        return "50"
+    if re.search(r'\b(30|730|630|430|1630)\b', s):
+        return "30"
+    if re.search(r'\b(10|710|610)\b', s):
+        return "10"
+    return "Other"
 
 
 def derive_gpu_generation(model_name: str) -> int:
@@ -693,6 +712,166 @@ class PredictionArtifacts:
     model_path: Path
 
 
+# --- SPEC & BENCHMARK LOOKUP UTILITIES ---
+
+BENCH_CSV = PROJECT_ROOT / "data" / "final" / "GPU_benchmarks_v7.csv"
+SPECS_CSV = PROJECT_ROOT / "data" / "final" / "gpu_1986-2026.csv"
+
+_BENCH_DF_CACHE = None
+_SPECS_DF_CACHE = None
+
+
+def _load_ref_dfs():
+    global _BENCH_DF_CACHE, _SPECS_DF_CACHE
+    if _BENCH_DF_CACHE is None and BENCH_CSV.exists():
+        try:
+            df = pd.read_csv(BENCH_CSV)
+            df.columns = df.columns.str.strip()
+            _BENCH_DF_CACHE = df
+        except Exception:
+            _BENCH_DF_CACHE = None
+    if _SPECS_DF_CACHE is None and SPECS_CSV.exists():
+        try:
+            wanted = {
+                "Name",
+                "Graphics Processor__Architecture",
+                "Graphics Card__Release Date",
+                "Memory__Bandwidth",
+                "Render Config__Shading Units",
+                "Clock Speeds__Base Clock",
+                "Clock Speeds__Boost Clock",
+                "Board Design__TDP",
+                "Theoretical Performance__FP32 (float)",
+            }
+            df = pd.read_csv(SPECS_CSV, low_memory=False)
+            df.columns = df.columns.str.strip()
+            _SPECS_DF_CACHE = df[[c for c in df.columns if c in wanted]]
+        except Exception:
+            _SPECS_DF_CACHE = None
+    return _BENCH_DF_CACHE, _SPECS_DF_CACHE
+
+
+def _parse_num(val) -> float | None:
+    """Extract first float from strings like '9.7 TFLOPS', '256.3 GB/s', '150 W'."""
+    if pd.isna(val) or str(val).strip() in ("", "unknown", "N/A"):
+        return None
+    s = str(val).replace(",", "")
+    m = re.search(r"[\d]+(?:\.\d+)?", s)
+    if not m:
+        return None
+    v = float(m.group())
+    if "TFLOP" in s.upper():
+        v *= 1000.0
+    return v
+
+
+def lookup_gpu_specs(name: str, bench_df=None, specs_df=None) -> dict:
+    """Fuzzy-match GPU name against benchmark and spec CSVs."""
+    try:
+        from rapidfuzz import process as fzp, fuzz
+    except ImportError:
+        return {"found": False}
+
+    if bench_df is None or specs_df is None:
+        b_df, s_df = _load_ref_dfs()
+        bench_df = bench_df if bench_df is not None else b_df
+        specs_df = specs_df if specs_df is not None else s_df
+
+    result: dict = {"found": False}
+    if not name or not name.strip():
+        return result
+
+    # Benchmark CSV
+    if bench_df is not None:
+        bench_names = bench_df["gpuName"].dropna().tolist()
+        hits = fzp.extract(
+            name, bench_names,
+            scorer=fuzz.token_sort_ratio,
+            score_cutoff=85,
+            limit=5,
+        )
+        input_num = derive_model_number(name)
+        best_hit = None
+        for hit in hits:
+            match_num = derive_model_number(hit[0])
+            if not np.isnan(input_num) and not np.isnan(match_num):
+                if input_num != match_num:
+                    continue
+            best_hit = hit
+            break
+
+        if best_hit:
+            row = bench_df[bench_df["gpuName"] == best_hit[0]].iloc[0]
+            result["bench_name"]  = best_hit[0]
+            result["bench_score"] = best_hit[1]
+            result["G3Dmark"]     = pd.to_numeric(row.get("G3Dmark"), errors="coerce")
+            result["G2Dmark"]     = pd.to_numeric(row.get("G2Dmark"), errors="coerce")
+            td = _parse_num(row.get("TDP"))
+            if td:
+                result["bench_tdp"] = td
+            yr_raw = str(row.get("testDate", ""))
+            m = re.search(r"\b(20\d{2})\b", yr_raw)
+            if m:
+                result["release_year_bench"] = int(m.group(1))
+            result["found"] = True
+
+    # Spec CSV
+    if specs_df is not None:
+        spec_names = specs_df["Name"].dropna().tolist()
+        hits2 = fzp.extract(
+            name, spec_names,
+            scorer=fuzz.token_sort_ratio,
+            score_cutoff=85,
+            limit=5,
+        )
+        input_num = derive_model_number(name)
+        best_hit2 = None
+        for hit in hits2:
+            match_num = derive_model_number(hit[0])
+            if not np.isnan(input_num) and not np.isnan(match_num):
+                if input_num != match_num:
+                    continue
+            best_hit2 = hit
+            break
+
+        if best_hit2:
+            row2 = specs_df[specs_df["Name"] == best_hit2[0]].iloc[0]
+            result["spec_name"]               = best_hit2[0]
+            result["spec_score"]              = best_hit2[1]
+            result["architecture"]            = str(row2.get("Graphics Processor__Architecture", "") or "Unknown")
+            result["memory_bandwidth_gb_s"]   = _parse_num(row2.get("Memory__Bandwidth"))
+            result["shader_units"]            = _parse_num(row2.get("Render Config__Shading Units"))
+            result["gpu_base_clock_mhz"]      = _parse_num(row2.get("Clock Speeds__Base Clock"))
+            result["boost_clock_mhz"]         = _parse_num(row2.get("Clock Speeds__Boost Clock"))
+            result["spec_tdp"]                = _parse_num(row2.get("Board Design__TDP"))
+            result["fp32_gflops"]             = _parse_num(row2.get("Theoretical Performance__FP32 (float)"))
+            date_raw = str(row2.get("Graphics Card__Release Date", "") or "")
+            m2 = re.search(r"\b(20\d{2})\b", date_raw)
+            if m2:
+                result["release_year_spec"] = int(m2.group())
+            result["found"] = True
+
+    result["tdp_watts"]    = result.get("spec_tdp") or result.get("bench_tdp")
+    result["release_year"] = result.get("release_year_spec") or result.get("release_year_bench") or 2020
+    return result
+
+
+def get_model_sample_count(model_name: str, enriched_df: pd.DataFrame | None) -> int:
+    """Returns total historical listing count for a GPU model in enriched_df using normalized matching."""
+    if enriched_df is None or enriched_df.empty:
+        return 0
+    norm_target = normalize_model(model_name)
+    model_col = None
+    for col_candidate in ["extracted_model", "model", "norm_model"]:
+        if col_candidate in enriched_df.columns:
+            model_col = col_candidate
+            break
+    if not model_col:
+        return 0
+    matches = enriched_df[enriched_df[model_col].astype(str).apply(normalize_model) == norm_target]
+    return len(matches)
+
+
 # --- CENTRALIZED INFERENCE PREPROCESSING ---
 
 def build_inference_feature_frame(
@@ -716,7 +895,7 @@ def build_inference_feature_frame(
     inf.update({
         "vram_gb": float(vram_gb) if vram_gb else 4.0,
         "series_family": derive_series_family(norm_name),
-        "model_number": derive_model_number(norm_name),
+        "tier_class": derive_tier_class(norm_name),
         "ti_variant": 1 if "TI" in norm_name.upper() else 0,
         "gpu_generation": derive_gpu_generation(norm_name),
     })
@@ -762,7 +941,13 @@ def build_inference_feature_frame(
                         if not b_mode.empty:
                             inf["brand"] = b_mode.iloc[0]
 
-    # Overlay custom specs if provided (e.g. from lookup_gpu_specs in Tab 2)
+    # Auto-lookup specs if not present in enriched_df matches and not passed explicitly
+    if (custom_specs is None or not custom_specs) and pd.isna(inf.get("G3Dmark")):
+        auto_specs = lookup_gpu_specs(model_name)
+        if auto_specs.get("found"):
+            custom_specs = auto_specs
+
+    # Overlay custom specs if provided (or auto-found above)
     if custom_specs and isinstance(custom_specs, dict):
         for k in ["G3Dmark", "G2Dmark", "fp32_gflops", "tdp_watts", "memory_bandwidth_gb_s",
                   "shader_units", "gpu_base_clock_mhz", "boost_clock_mhz"]:
@@ -792,3 +977,161 @@ def build_inference_feature_frame(
             inf["perf_per_watt"] = float(inf["G3Dmark"]) / float(inf["tdp_watts"])
 
     return pd.DataFrame([inf])[feature_cols]
+
+
+
+# --- CONFORMAL RANGE & FAIRNESS EVALUATION ENGINE ---
+
+def determine_price_tier(price_lkr: float) -> str:
+    """Classifies GPU into Entry, Mid, or High market tier based on price point."""
+    if price_lkr < 35000:
+        return "entry"
+    elif price_lkr <= 110000:
+        return "mid"
+    else:
+        return "high"
+
+
+def calculate_fair_market_range(
+    predicted_log_price: float,
+    sample_count: int = 20,
+    calibration_data: dict | None = None,
+    confidence_level: str = "90%",
+) -> dict[str, float | str | bool]:
+    """
+    Computes statistically defensible lower and upper bounds using Split Conformal Prediction.
+    
+    Returns:
+        dict containing:
+            - point_price_lkr: rounded point prediction (LKR)
+            - lower_price_lkr: rounded lower bound (LKR)
+            - upper_price_lkr: rounded upper bound (LKR)
+            - tier: price tier ("entry", "mid", "high")
+            - limited_data_warning: bool flag if sample count < 10
+            - confidence_level: "90%"
+    """
+    point_price = max(0.0, float(np.expm1(predicted_log_price)))
+    tier = determine_price_tier(point_price)
+    
+    # Extract conformal quantile
+    q90 = 0.1623  # Fallback default global 90% log-quantile
+    if calibration_data and isinstance(calibration_data, dict):
+        tiers_cal = calibration_data.get("tiers", {})
+        if tier in tiers_cal and "q90" in tiers_cal[tier]:
+            q90 = float(tiers_cal[tier]["q90"])
+        elif "global" in calibration_data and "q90" in calibration_data["global"]:
+            q90 = float(calibration_data["global"]["q90"])
+            
+    # Sample-size penalty multiplier for small dataset representations (k(n))
+    limited_data = False
+    if sample_count < 10:
+        limited_data = True
+        k_n = 1.0 + (1.5 / math.sqrt(max(1, sample_count) + 1))
+    elif sample_count < 20:
+        k_n = 1.0 + (0.5 / math.sqrt(sample_count))
+    else:
+        k_n = 1.0
+        
+    effective_q = q90 * k_n
+    
+    lower_log = predicted_log_price - effective_q
+    upper_log = predicted_log_price + effective_q
+    
+    raw_lower = max(0.0, float(np.expm1(lower_log)))
+    raw_upper = float(np.expm1(upper_log))
+    
+    # Rounding helper: round to nearest 100 LKR for clean presentation
+    lower_lkr = float(round(raw_lower, -2))
+    upper_lkr = float(round(raw_upper, -2))
+    point_lkr = float(round(point_price, -2))
+    
+    return {
+        "point_price_lkr": point_lkr,
+        "lower_price_lkr": lower_lkr,
+        "upper_price_lkr": upper_lkr,
+        "tier": tier,
+        "limited_data_warning": limited_data,
+        "confidence_level": confidence_level,
+    }
+
+
+def calculate_fairness_score(listed_price: float, lower_bound: float, upper_bound: float) -> float:
+    """
+    Continuous Fairness Score S ∈ [0, 100].
+    
+    midpoint = (lower + upper) / 2
+    half_width = (upper - lower) / 2
+    z = (listed_price - midpoint) / half_width
+    
+    Inside range (-1 <= z <= 1): S = 100 - 25 * |z|   (75 at boundary, 100 at midpoint)
+    Outside range (|z| > 1): S = max(0, 75 * exp(-0.8 * (|z| - 1)))
+    """
+    if not listed_price or listed_price <= 0 or upper_bound <= lower_bound:
+        return 0.0
+        
+    midpoint = (lower_bound + upper_bound) / 2.0
+    half_width = (upper_bound - lower_bound) / 2.0
+    
+    if half_width <= 0:
+        return 50.0
+        
+    z = (listed_price - midpoint) / half_width
+    abs_z = abs(z)
+    
+    if abs_z <= 1.0:
+        score = 100.0 - 25.0 * abs_z
+    else:
+        score = 75.0 * math.exp(-0.8 * (abs_z - 1.0))
+        
+    return round(max(0.0, min(100.0, score)), 1)
+
+
+def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: float) -> dict[str, Any]:
+    """
+    Determines verdict category, badge label, score, and user recommendation.
+    """
+    if not listed_price or listed_price <= 0:
+        return {
+            "verdict_code": "NO_PRICE",
+            "verdict": "Estimated Fair Market Range",
+            "badge_class": "neutral",
+            "fairness_score": 0.0,
+            "description": "Enter listed seller asking price to evaluate listing fairness."
+        }
+        
+    score = calculate_fairness_score(listed_price, lower_bound, upper_bound)
+    midpoint = (lower_bound + upper_bound) / 2.0
+    diff = listed_price - midpoint
+    diff_pct = (diff / midpoint) * 100.0
+    
+    if listed_price < lower_bound:
+        return {
+            "verdict_code": "BELOW_RANGE",
+            "verdict": "Unusually Low / Below Typical Market Range",
+            "badge_class": "warning",
+            "fairness_score": score,
+            "price_difference_lkr": round(diff, 0),
+            "price_difference_pct": round(diff_pct, 1),
+            "description": "Asking price is below expected market range. Verify card condition and test under load (FurMark/3DMark) before purchasing."
+        }
+    elif listed_price > upper_bound:
+        return {
+            "verdict_code": "ABOVE_RANGE",
+            "verdict": "Above Typical Market Range",
+            "badge_class": "overpriced",
+            "fairness_score": score,
+            "price_difference_lkr": round(diff, 0),
+            "price_difference_pct": round(diff_pct, 1),
+            "description": "Asking price is higher than typical market listings. Negotiate down toward the fair range unless listing includes warranty or extra accessories."
+        }
+    else:
+        return {
+            "verdict_code": "WITHIN_RANGE",
+            "verdict": "Within Expected Market Range",
+            "badge_class": "fair",
+            "fairness_score": score,
+            "price_difference_lkr": round(diff, 0),
+            "price_difference_pct": round(diff_pct, 1),
+            "description": "Asking price matches expected Sri Lankan market distribution for this GPU model and specification."
+        }
+

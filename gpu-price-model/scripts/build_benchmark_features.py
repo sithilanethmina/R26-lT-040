@@ -39,6 +39,7 @@ DATA_DIR = ROOT / "data" / "final"
 
 LISTING_V1 = DATA_DIR / "training_data_v1.json"
 LISTING_V2 = DATA_DIR / "training_data_v2.json"
+LISTING_V3 = DATA_DIR / "training_data_v3.json"
 BENCHMARKS_CSV = DATA_DIR / "GPU_benchmarks_v7.csv"
 SPECS_CSV = DATA_DIR / "gpu_1986-2026.csv"
 OUTPUT_CSV = DATA_DIR / "gpu_enriched_dataset.csv"
@@ -209,9 +210,10 @@ def fuzzy_join(
 def load_listings() -> pd.DataFrame:
     print("=" * 60)
     print("Step 1: Loading market listings …")
-    v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8")))
-    v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8")))
-    df = pd.concat([v1, v2], ignore_index=True)
+    v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8"))) if LISTING_V1.exists() else pd.DataFrame()
+    v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8"))) if LISTING_V2.exists() else pd.DataFrame()
+    v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
+    df = pd.concat([v1, v2, v3], ignore_index=True)
 
     # Normalise column names
     df.rename(columns={
@@ -365,6 +367,26 @@ def join_specs(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def derive_tier_class(model_name: str) -> str:
+    """Extract performance tier class (10, 30, 50, 60, 70, 80, 90, Other) from GPU model name."""
+    s = str(model_name).upper()
+    if re.search(r'\b(90|3090|4090)\b', s):
+        return "90"
+    if re.search(r'\b(80|1080|2080|3080|4080|580|680|780|5800|6800|7800)\b', s):
+        return "80"
+    if re.search(r'\b(70|1070|2070|3070|4070|570|670|770|5700|6700|7700)\b', s):
+        return "70"
+    if re.search(r'\b(60|1060|2060|3060|4060|560|660|760|5600|6600|7600)\b', s):
+        return "60"
+    if re.search(r'\b(50|1050|1650|3050|4050|550|650|750|5500|6500|7500)\b', s):
+        return "50"
+    if re.search(r'\b(30|730|630|430|1630)\b', s):
+        return "30"
+    if re.search(r'\b(10|710|610)\b', s):
+        return "10"
+    return "Other"
+
+
 # ── 4. Engineer Derived Features ─────────────────────────────────────────────
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -388,7 +410,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     # --- Perf per watt ---
     df["perf_per_watt"] = df["perf_score"] / df["tdp_watts"].replace(0, np.nan)
 
-    # --- Model number ---
+    # --- Tier class & Model number ---
+    df["tier_class"] = df["extracted_model"].apply(derive_tier_class)
     df["model_number"] = df["extracted_model"].apply(derive_model_number)
 
     # --- Series family ---
@@ -405,7 +428,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
 
     print("  Features engineered.")
     for feat in ["gpu_age_years", "tdp_watts", "perf_score", "log_G3Dmark",
-                 "perf_per_watt", "model_number", "gpu_generation"]:
+                 "perf_per_watt", "tier_class", "model_number", "gpu_generation"]:
         cov = df[feat].notna().mean() * 100
         print(f"    {feat:<28}: {cov:.1f}% filled")
 
@@ -428,19 +451,20 @@ FINAL_COLUMNS = [
     "tdp_watts", "perf_score", "perf_per_watt",
     "release_year", "gpu_age_years",
     "architecture",
-    "model_number", "series_family", "gpu_generation", "ti_variant",
+    "tier_class", "model_number", "series_family", "gpu_generation", "ti_variant",
     # Diagnostic
     "bench_match", "spec_match",
 ]
 
 
 def finalise(df: pd.DataFrame) -> pd.DataFrame:
-    print("\nStep 5: Applying IQR outlier filter …")
-    df = apply_iqr_filter(df, col="price_lkr")
+    print("\nStep 5: Finalising dataset (retaining all valid price listings without pre-split leakage) …")
+    df = df[df["price_lkr"] >= 3000].copy()
 
     # Keep only final columns that exist
     cols = [c for c in FINAL_COLUMNS if c in df.columns]
     df = df[cols].copy()
+    return df
     return df
 
 
