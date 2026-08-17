@@ -20,7 +20,7 @@ SERVICES = [
     {
         "name": "Vehicle Microservice",
         "cwd": PROJECT_ROOT / "vehicle-price-model",
-        "cmd": [sys.executable, "app.py"]
+        "cmd": [sys.executable, "api.py"]
     },
     {
         "name": "Electronics Microservice",

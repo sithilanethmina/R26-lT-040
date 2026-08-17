@@ -111,19 +111,45 @@
 
                 <!-- Vehicle Form -->
                 <div id="vehicleForm" class="category-form hidden">
+                    <!-- Vehicle Type Selector -->
                     <div class="form-group">
-                        <label for="vehicleModelSelect">Model</label>
-                        <select id="vehicleModelSelect">
-                            <option value="Toyota Corolla">Toyota Corolla</option>
-                            <option value="Toyota Aqua">Toyota Aqua</option>
-                            <option value="Suzuki Alto">Suzuki Alto</option>
+                        <label for="vehicleTypeSelect">Vehicle Type</label>
+                        <select id="vehicleTypeSelect">
+                            <option value="cars">Cars</option>
+                            <option value="suvs">SUVs</option>
                         </select>
+                    </div>
+                    <!-- Dynamic Brand & Model Dropdowns -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleBrandSelect">Brand</label>
+                            <select id="vehicleBrandSelect">
+                                <option value="">Loading...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleModelSelect">Model</label>
+                            <select id="vehicleModelSelect">
+                                <option value="">Select Brand first</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Engine CC (SUVs only) -->
+                    <div class="form-group" id="vehicleEngineCCGroup">
+                        <label for="vehicleEngineCCInput">Engine Capacity (CC)</label>
+                        <input type="number" id="vehicleEngineCCInput" placeholder="e.g. 2000" step="1" min="500">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="vehicleYearInput">Year</label>
                             <input type="number" id="vehicleYearInput" placeholder="2015" step="1">
                         </div>
+                        <div class="form-group">
+                            <label for="vehicleMileageInput">Mileage (KM)</label>
+                            <input type="number" id="vehicleMileageInput" placeholder="e.g. 75000" step="1" min="0">
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="vehicleVariantInput">Variant</label>
                             <input type="text" id="vehicleVariantInput" placeholder="e.g. 121, G1_Manual_2000-2012">

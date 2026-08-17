@@ -21,12 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gateway URL (Single source of truth from config.js)
     const GATEWAY_URL = CONFIG.API_BASE_URL;
 
+    // Vehicle API URL — point directly to local vehicle microservice to bypass gateway timeout/IPv6 issues
+    const VEHICLE_DEV_URL = 'http://127.0.0.1:8003';
+
     // Default GPU Metadata
     let GPU_METADATA = {
         models: [],
         brands: ["Any", "ASUS", "MSI", "GIGABYTE", "ZOTAC", "GALAX", "PALIT", "SAPPHIRE", "ASROCK", "POWERCOLOR", "COLORFUL", "INNO3D", "PNY", "EVGA", "EMTEK", "NVIDIA", "AMD"],
         manufacturers: ["Any", "NVIDIA", "AMD", "Intel"]
     };
+
+    // Vehicle metadata state
+    let VEHICLE_METADATA = { brands: [], models_by_brand: {} };
+    let CURRENT_VEHICLE_TYPE = 'cars'; // 'cars' | 'suvs'
 
     // --- Normalization (Matches Streamlit gpu_price_predictor.pipeline.normalize_model) ---
     function normalizeGpuModel(raw) {
@@ -66,21 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         } catch (e) {
-            // keep local metadata
+            console.warn("Live GPU metadata fetch failed, keeping local fallback:", e);
+            // Keep local metadata — do NOT rethrow
         }
 
-        // Ensure every model entry has valid properties
-        if (GPU_METADATA && Array.isArray(GPU_METADATA.models)) {
-            GPU_METADATA.models.forEach(m => {
-                if (m) {
-                    m.model = m.model || "";
-                    m.normalized = m.normalized || normalizeGpuModel(m.model);
-                    m.manufacturer = m.manufacturer || "NVIDIA";
-                    m.default_vram = m.default_vram || 8.0;
-                    m.valid_vrams = m.valid_vrams || [m.default_vram];
-                    m.brands = m.brands || [];
-                }
-            });
+        // Ensure every model entry has valid properties — isolated so one bad entry
+        // cannot crash the rest of the extension startup.
+        try {
+            if (GPU_METADATA && Array.isArray(GPU_METADATA.models)) {
+                GPU_METADATA.models.forEach(m => {
+                    if (m) {
+                        m.model = m.model || "";
+                        m.normalized = m.normalized || normalizeGpuModel(m.model);
+                        m.manufacturer = m.manufacturer || "NVIDIA";
+                        m.default_vram = m.default_vram || 8.0;
+                        m.valid_vrams = m.valid_vrams || [m.default_vram];
+                        m.brands = m.brands || [];
+                    }
+                });
+            }
+        } catch (e) {
+            console.warn("GPU model normalisation failed, autocomplete may be limited:", e);
         }
 
         populateGpuBrands();
@@ -300,7 +313,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Check Gateway Health ---
     async function checkHealth() {
         try {
-            const res = await fetch(`${GATEWAY_URL}/api/health`, { signal: AbortSignal.timeout(2000) });
+            // Wait up to 6000ms. The gateway waits 2000ms *per downstream service* in some cases.
+            // If downstream services are slow, gateway can take ~2-3 seconds to reply.
+            const res = await fetch(`${GATEWAY_URL}/api/health`, { signal: AbortSignal.timeout(6000) });
             if (res.ok) {
                 serverStatusDot.className = 'dot online';
                 serverStatusText.innerText = 'Server Connected';
@@ -314,6 +329,140 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     checkHealth();
     initGpuMetadata();
+    initVehicleMetadata('cars');
+
+    // --- Vehicle Metadata & Dynamic Dropdowns ---
+    async function initVehicleMetadata(vehicleType, isRetry = false, retryCount = 0) {
+        CURRENT_VEHICLE_TYPE = vehicleType;
+        const endpoint = vehicleType === 'suvs'
+            ? `${VEHICLE_DEV_URL}/metadata/suv`
+            : `${VEHICLE_DEV_URL}/metadata/cars`;
+
+        const brandSelect = document.getElementById('vehicleBrandSelect');
+        const modelSelect = document.getElementById('vehicleModelSelect');
+        if (!isRetry) {
+            if (brandSelect) brandSelect.innerHTML = '<option value="">Loading...</option>';
+            if (modelSelect) modelSelect.innerHTML = '<option value="">Loading...</option>';
+        }
+
+        try {
+            const res = await fetch(endpoint, { signal: AbortSignal.timeout(5000) });
+
+            // 503 = service still starting up — schedule automatic retries (max 3)
+            if (res.status === 503) {
+                if (retryCount < 3) {
+                    console.warn(`Vehicle metadata returned 503 — service starting up. Retrying in 8s (attempt ${retryCount + 1}/3)…`);
+                    if (brandSelect) brandSelect.innerHTML = `<option value="">Service loading, retrying (${retryCount + 1}/3)…</option>`;
+                    if (modelSelect) modelSelect.innerHTML = '<option value=""></option>';
+                    setTimeout(() => initVehicleMetadata(vehicleType, true, retryCount + 1), 8000);
+                    return; 
+                } else {
+                    console.warn(`Vehicle metadata returned 503 — gave up after 3 retries.`);
+                    throw new Error("Service Unavailable");
+                }
+            }
+
+            if (!res.ok) throw new Error(`Vehicle metadata request failed with status ${res.status}`);
+            const data = await res.json();
+
+            // Normalise both JSON shapes into a single internal structure:
+            //   Backend may return { "brands": [...], "models": { "Brand": [...] } }
+            //                   OR { "brands": [...], "models_by_brand": { "Brand": [...] } }
+            if (data && Array.isArray(data.brands)) {
+                VEHICLE_METADATA = {
+                    brands: data.brands,
+                    // prefer 'models', fall back to 'models_by_brand'
+                    models_by_brand: data.models || data.models_by_brand || {}
+                };
+            } else {
+                VEHICLE_METADATA = { brands: [], models_by_brand: {} };
+            }
+        } catch (e) {
+            console.warn('Vehicle metadata fetch failed — dropdowns will be empty:', e);
+            VEHICLE_METADATA = { brands: [], models_by_brand: {} };
+            // Do NOT rethrow — let other category initialisations continue
+        }
+
+        populateVehicleBrands();
+    }
+
+    function populateVehicleBrands() {
+        const brandSelect = document.getElementById('vehicleBrandSelect');
+        if (!brandSelect) return;
+
+        const brands = VEHICLE_METADATA.brands || [];
+        brandSelect.innerHTML = '';
+
+        if (brands.length === 0) {
+            brandSelect.innerHTML = '<option value="">No data available</option>';
+            return;
+        }
+
+        // brands may be plain strings or objects with a 'name' key
+        brands.forEach(b => {
+            const val = typeof b === 'string' ? b : (b.name || String(b));
+            const opt = document.createElement('option');
+            opt.value = val;
+            opt.textContent = val;
+            brandSelect.appendChild(opt);
+        });
+
+        // Trigger model population for the first brand
+        populateVehicleModels(brandSelect.value);
+    }
+
+    function populateVehicleModels(brand) {
+        const modelSelect = document.getElementById('vehicleModelSelect');
+        if (!modelSelect) return;
+
+        modelSelect.innerHTML = '';
+
+        const byBrand = VEHICLE_METADATA.models_by_brand || {};
+        const models = byBrand[brand] || [];
+
+        if (models.length === 0) {
+            modelSelect.innerHTML = '<option value="">No models available</option>';
+            return;
+        }
+
+        models.forEach(m => {
+            const val = typeof m === 'string' ? m : (m.name || String(m));
+            const opt = document.createElement('option');
+            opt.value = val;
+            opt.textContent = val;
+            modelSelect.appendChild(opt);
+        });
+    }
+
+    function updateVehicleTypeUI(vehicleType) {
+        const engineCCGroup = document.getElementById('vehicleEngineCCGroup');
+        if (engineCCGroup) engineCCGroup.classList.remove('hidden'); // Keep visible for BOTH Cars and SUVs
+        if (vehicleType === 'suvs') {
+            predictBtn.textContent = 'Predict SUV Price';
+        } else {
+            predictBtn.textContent = 'Predict Car Price';
+        }
+    }
+
+    // Listen to vehicle type changes
+    const vehicleTypeSelect = document.getElementById('vehicleTypeSelect');
+    if (vehicleTypeSelect) {
+        vehicleTypeSelect.addEventListener('change', (e) => {
+            const vt = e.target.value;
+            updateVehicleTypeUI(vt);
+            initVehicleMetadata(vt);
+        });
+        // Set initial state: Cars selected, engine CC hidden
+        updateVehicleTypeUI('cars');
+    }
+
+    // Listen to vehicle brand changes to refresh models
+    const vehicleBrandSelect = document.getElementById('vehicleBrandSelect');
+    if (vehicleBrandSelect) {
+        vehicleBrandSelect.addEventListener('change', (e) => {
+            populateVehicleModels(e.target.value);
+        });
+    }
 
     // --- Category Switching ---
     const forms = {
@@ -329,7 +478,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (forms[selected]) {
             forms[selected].classList.remove('hidden');
         }
+        // Set a meaningful button label for every category
+        const btnLabels = {
+            gpu:         'Predict GPU Price',
+            mobile:      'Predict Mobile Price',
+            electronics: 'Check Electronics Price'
+        };
+        if (selected === 'vehicle') {
+            const vt = document.getElementById('vehicleTypeSelect');
+            updateVehicleTypeUI(vt ? vt.value : 'cars');
+        } else {
+            predictBtn.textContent = btnLabels[selected] || 'Check Price';
+        }
     });
+
+    // Fire once on load to set the initial button label for the default category (gpu)
+    categorySelect.dispatchEvent(new Event('change'));
 
     // --- Extraction ---
     extractBtn.addEventListener('click', async () => {
@@ -379,7 +543,17 @@ document.addEventListener('DOMContentLoaded', () => {
         setLoading(predictBtn, true, 'Checking...');
 
         try {
-            const response = await fetch(`${GATEWAY_URL}/api/${category}/predict`, {
+            // For vehicle, route to the correct sub-type endpoint
+            let predictEndpoint = `${GATEWAY_URL}/api/${category}/predict`;
+            if (category === 'vehicle') {
+                const vt = document.getElementById('vehicleTypeSelect');
+                const vtVal = vt ? vt.value : 'cars';
+                predictEndpoint = vtVal === 'suvs'
+                    ? `${VEHICLE_DEV_URL}/api/predict/suv`
+                    : `${VEHICLE_DEV_URL}/api/predict`;
+            }
+
+            const response = await fetch(predictEndpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -402,10 +576,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 predictedPrice = data.predicted_price;
                 modelUsed = "Mobile Model (" + data.phone_type + ")";
             } else if (category === 'vehicle') {
-                if (data.predictions && data.predictions.length > 0) {
-                    predictedPrice = data.predictions[0].predictedPrice;
-                    modelUsed = data.predictions[0].name || "Vehicle Model";
-                }
+                // Both /api/vehicle/predict and /api/suv/predict return a flat
+                // PredictResponse: { predicted_price, model_used, confidence, ... }
+                predictedPrice = data.predicted_price;
+                const confidence = data.confidence ? ` · ${data.confidence} confidence` : '';
+                modelUsed = (data.model_used || 'Vehicle Model') + confidence;
             } else if (category === 'electronics') {
                 if (typeof data.price === 'string') {
                     predictedPrice = parseFloat(data.price.replace(/[^0-9.]/g, ''));
@@ -420,7 +595,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
             showError(err.message);
         } finally {
-            setLoading(predictBtn, false, 'Check Price');
+            // Restore correct button text based on active category
+            const activeCat = categorySelect.value;
+            if (activeCat === 'vehicle') {
+                const vt = document.getElementById('vehicleTypeSelect');
+                updateVehicleTypeUI(vt ? vt.value : 'cars');
+            } else {
+                setLoading(predictBtn, false, 'Check Price');
+            }
         }
     });
 
@@ -481,15 +663,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 warranty_days: parseFloat(document.getElementById('mobileWarrantyInput').value) || 0
             };
         } else if (category === 'vehicle') {
+            const vt = document.getElementById('vehicleTypeSelect');
+            const vehicleType = vt ? vt.value : 'cars';
+            const brandVal = document.getElementById('vehicleBrandSelect')?.value || '';
+            const modelVal = document.getElementById('vehicleModelSelect')?.value || '';
             const variant = document.getElementById('vehicleVariantInput').value.trim();
-            if (!variant) { showError("Variant is required."); return null; }
-            return {
-                model: document.getElementById('vehicleModelSelect').value,
+            const mileageVal = parseInt(document.getElementById('vehicleMileageInput')?.value) || 0;
+
+            if (!brandVal) { showError("Please select a Brand."); return null; }
+            if (!modelVal) { showError("Please select a Model."); return null; }
+
+            const basePayload = {
+                brand: brandVal,
+                model: modelVal,
                 model_year: parseInt(document.getElementById('vehicleYearInput').value) || 2015,
+                mileage_km: mileageVal,
                 variant: variant,
                 transmission: document.getElementById('vehicleTransmissionSelect').value,
                 fuel_type: document.getElementById('vehicleFuelSelect').value
             };
+
+            const engineCC = parseInt(document.getElementById('vehicleEngineCCInput')?.value);
+            if (engineCC && engineCC > 0) {
+                basePayload.engine_cc = engineCC;
+            } else if (vehicleType === 'suvs') {
+                showError("Engine Capacity (CC) is required for SUVs."); 
+                return null;
+            }
+
+            return basePayload;
         } else if (category === 'electronics') {
             const cat = document.getElementById('elecCategorySelect').value;
             const brand = document.getElementById('elecBrandInput').value.trim();
@@ -506,7 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
-    function populateForm(data) {
+    async function populateForm(data) {
         if (!data) return;
         if (data.price) priceInput.value = data.price;
         
@@ -578,9 +780,88 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('mobileTypeSelect').value = "android";
             }
         } else if (cat === 'vehicle') {
-            const text = ((data.title || "")).toLowerCase();
-            if (text.includes("aqua")) document.getElementById('vehicleModelSelect').value = "Toyota Aqua";
-            if (text.includes("alto")) document.getElementById('vehicleModelSelect').value = "Suzuki Alto";
+            // -- Step 0: ensure the category dropdown shows 'vehicle' and the form is visible --
+            if (categorySelect.value !== 'vehicle') {
+                categorySelect.value = 'vehicle';
+                categorySelect.dispatchEvent(new Event('change'));
+            }
+
+            // -- Step 0.5: set vehicle type and wait for metadata if it changed --
+            const vtSelect = document.getElementById('vehicleTypeSelect');
+            if (data.vehicle_type && vtSelect && vtSelect.value !== data.vehicle_type) {
+                vtSelect.value = data.vehicle_type;
+                updateVehicleTypeUI(data.vehicle_type);
+                await initVehicleMetadata(data.vehicle_type);
+            }
+
+            // -- Step 1: set Brand and dispatch 'change' to trigger model list population --
+            const bs = document.getElementById('vehicleBrandSelect');
+            if (data.brand && bs) {
+                // Try exact match first, then case-insensitive
+                const options = Array.from(bs.options);
+                const match = options.find(o => o.value === data.brand)
+                           || options.find(o => o.value.toLowerCase() === data.brand.toLowerCase());
+                if (match) {
+                    bs.value = match.value;
+                } else {
+                    bs.value = data.brand; // set anyway; populateVehicleModels will handle gracefully
+                }
+                bs.dispatchEvent(new Event('change')); // triggers populateVehicleModels
+            }
+
+            // -- Step 2: after a short delay (model list repopulates async), set all other fields --
+            setTimeout(() => {
+                // Model
+                if (data.model) {
+                    const ms = document.getElementById('vehicleModelSelect');
+                    if (ms) {
+                        const opts = Array.from(ms.options);
+                        let mMatch = opts.find(o => o.value === data.model)
+                                  || opts.find(o => o.value.toLowerCase() === data.model.toLowerCase());
+                        if (!mMatch) {
+                            // Fallback: check if extracted model contains option value, or vice versa
+                            mMatch = opts.find(o => data.model.toLowerCase().includes(o.value.toLowerCase())) ||
+                                     opts.find(o => o.value.toLowerCase().includes(data.model.toLowerCase()));
+                        }
+                        ms.value = mMatch ? mMatch.value : data.model;
+                    }
+                }
+                // Year
+                if (data.year) {
+                    const yi = document.getElementById('vehicleYearInput');
+                    if (yi) yi.value = parseInt(data.year) || '';
+                }
+                // Mileage
+                if (data.mileage) {
+                    const mi = document.getElementById('vehicleMileageInput');
+                    if (mi) mi.value = parseInt(data.mileage) || '';
+                }
+                // Transmission
+                if (data.transmission) {
+                    const ts = document.getElementById('vehicleTransmissionSelect');
+                    if (ts) ts.value = data.transmission;
+                }
+                // Fuel type
+                if (data.fuel_type) {
+                    const fs = document.getElementById('vehicleFuelSelect');
+                    if (fs) fs.value = data.fuel_type;
+                }
+                // Engine CC
+                if (data.engine_cc) {
+                    const eci = document.getElementById('vehicleEngineCCInput');
+                    if (eci) eci.value = parseInt(data.engine_cc) || '';
+                }
+                // Price
+                if (data.price) {
+                    priceInput.value = data.price;
+                }
+
+                // -- Step 3: auto-trigger prediction --
+                const predictBtn = document.getElementById('predictBtn');
+                if (predictBtn && !predictBtn.disabled) {
+                    predictBtn.click();
+                }
+            }, 350); // 350 ms gives populateVehicleModels time to render
         } else if (cat === 'electronics') {
             if (data.brand) document.getElementById('elecBrandInput').value = data.brand;
             if (data.model) document.getElementById('elecModelInput').value = data.model;

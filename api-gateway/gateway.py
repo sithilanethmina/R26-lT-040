@@ -177,22 +177,40 @@ def developer_models():
         "artifact": "xgboost_android.pkl & xgboost_iphone.pkl"
     })
 
-    # 3. Vehicle Price Model
-    vehicle_dir = PROJECT_ROOT / "vehicle-price-model"
-    vehicle_corolla_model = vehicle_dir / "models" / "corolla_combined" / "random_forest_regressor.pkl"
-    vehicle_mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(vehicle_corolla_model.stat().st_mtime)) if vehicle_corolla_model.exists() else "N/A"
-    vehicle_status = "loaded" if vehicle_dir.exists() else "not_loaded"
-    
+    # 3a. Vehicle Car Price Model
+    car_model_file = PROJECT_ROOT / "vehicle-price-model" / "Car_price_Prediction" / "models" / "combined" / "best_model.pkl"
+    car_status = "loaded" if car_model_file.exists() else "not_loaded"
+    car_mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(car_model_file.stat().st_mtime)) if car_model_file.exists() else "N/A"
+    car_size_mb = round(car_model_file.stat().st_size / (1024 * 1024), 2) if car_model_file.exists() else 0
+
     models_info.append({
         "category": "Vehicle",
-        "name": "Vehicle Fair-Price Model (Corolla, Aqua, Alto)",
-        "algorithm": "Random Forest / XGBoost / Gradient Boosting",
-        "status": vehicle_status,
+        "name": "Vehicle Car Fair-Price Model",
+        "algorithm": "CatBoost / Random Forest",
+        "status": car_status,
         "version": "v1.0",
-        "file_size_mb": round(vehicle_corolla_model.stat().st_size / (1024 * 1024), 2) if vehicle_corolla_model.exists() else 0.4,
-        "last_trained": vehicle_mtime,
+        "file_size_mb": car_size_mb,
+        "last_trained": car_mtime,
         "features_count": 12,
-        "artifact": "random_forest_regressor.pkl"
+        "artifact": "best_model.pkl"
+    })
+
+    # 3b. Vehicle SUV Price Model
+    suv_model_file = PROJECT_ROOT / "vehicle-price-model" / "SUV_Price_Prediction" / "models" / "suv" / "best_suv_model.pkl"
+    suv_status = "loaded" if suv_model_file.exists() else "not_loaded"
+    suv_mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(suv_model_file.stat().st_mtime)) if suv_model_file.exists() else "N/A"
+    suv_size_mb = round(suv_model_file.stat().st_size / (1024 * 1024), 2) if suv_model_file.exists() else 0
+
+    models_info.append({
+        "category": "Vehicle",
+        "name": "Vehicle SUV Fair-Price Model",
+        "algorithm": "CatBoost / Random Forest",
+        "status": suv_status,
+        "version": "v1.0",
+        "file_size_mb": suv_size_mb,
+        "last_trained": suv_mtime,
+        "features_count": 12,
+        "artifact": "best_suv_model.pkl"
     })
 
     # 4. Electronics Price Model
@@ -260,15 +278,32 @@ def developer_metrics():
         except Exception:
             pass
 
-    # 3. Vehicle Model Metrics from outputs/model_comparison.csv
-    vehicle_comp_file = PROJECT_ROOT / "vehicle-price-model" / "outputs" / "model_comparison.csv"
-    if vehicle_comp_file.exists():
+    # 3. Vehicle Car Model Metrics from Car_price_Prediction/outputs/combined/model_comparison.csv
+    car_comp_file = PROJECT_ROOT / "vehicle-price-model" / "Car_price_Prediction" / "outputs" / "combined" / "model_comparison.csv"
+    if car_comp_file.exists():
         try:
-            df = pd.read_csv(vehicle_comp_file)
+            df = pd.read_csv(car_comp_file)
             for _, row in df.iterrows():
                 metrics_data.append({
                     "category": "Vehicle",
-                    "model": f"Aqua ({row['Model']})",
+                    "model": f"Car ({row['Model']})",
+                    "mae": f"{row['MAE']:,.0f} LKR",
+                    "rmse": f"{row['RMSE']:,.0f} LKR",
+                    "r2": f"{row['R2_Score']:.4f}",
+                    "mape": "N/A"
+                })
+        except Exception:
+            pass
+
+    # 3b. Vehicle SUV Model Metrics from SUV_Price_Prediction/outputs/suv/suv_model_comparison.csv
+    suv_comp_file = PROJECT_ROOT / "vehicle-price-model" / "SUV_Price_Prediction" / "outputs" / "suv" / "suv_model_comparison.csv"
+    if suv_comp_file.exists():
+        try:
+            df = pd.read_csv(suv_comp_file)
+            for _, row in df.iterrows():
+                metrics_data.append({
+                    "category": "Vehicle",
+                    "model": f"SUV ({row['Model']})",
                     "mae": f"{row['MAE']:,.0f} LKR",
                     "rmse": f"{row['RMSE']:,.0f} LKR",
                     "r2": f"{row['R2_Score']:.4f}",
@@ -347,28 +382,34 @@ def developer_datasets():
             "quality": "Healthy"
         })
 
-    # 3. Vehicle Datasets
-    v_corolla = PROJECT_ROOT / "vehicle-price-model" / "data" / "clean_corolla_dataset_final.json"
-    v_aqua = PROJECT_ROOT / "vehicle-price-model" / "data" / "clean_aqua_dataset.json"
-    v_alto = PROJECT_ROOT / "vehicle-price-model" / "data" / "clean_alto_dataset.json"
-    
-    tot_vehicle_records = 0
-    for p in [v_corolla, v_aqua, v_alto]:
-        if p.exists():
-            try:
-                with open(p, "r", encoding="utf-8") as f:
-                    tot_vehicle_records += len(json.load(f))
-            except Exception:
-                pass
-
-    if v_corolla.exists():
-        mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(v_corolla.stat().st_mtime))
+    # 3a. Vehicle Car Lookup Dataset
+    car_lookup_csv = PROJECT_ROOT / "vehicle-price-model" / "Car_price_Prediction" / "outputs" / "combined" / "brand_model_lookup.csv"
+    if car_lookup_csv.exists():
+        row_count = sum(1 for _ in open(car_lookup_csv, 'r', encoding='utf-8')) - 1
+        size_kb = round(car_lookup_csv.stat().st_size / 1024, 1)
+        mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(car_lookup_csv.stat().st_mtime))
         datasets.append({
             "category": "Vehicle",
-            "name": "Vehicle Datasets (Corolla, Aqua, Alto)",
-            "records": tot_vehicle_records,
-            "size": "1.76 MB",
-            "features": "Year, Mileage, Transmission, Fuel, Description NLP",
+            "name": "Car Brand/Model Lookup Dataset",
+            "records": row_count,
+            "size": f"{size_kb} KB",
+            "features": "Brand, Model, Year, Mileage, Transmission, Fuel",
+            "last_updated": mtime,
+            "quality": "Healthy"
+        })
+
+    # 3b. Vehicle SUV Lookup Dataset
+    suv_lookup_csv = PROJECT_ROOT / "vehicle-price-model" / "SUV_Price_Prediction" / "outputs" / "suv" / "suv_brand_model_lookup.csv"
+    if suv_lookup_csv.exists():
+        row_count = sum(1 for _ in open(suv_lookup_csv, 'r', encoding='utf-8')) - 1
+        size_kb = round(suv_lookup_csv.stat().st_size / 1024, 1)
+        mtime = time.strftime("%Y-%m-%d %H:%M", time.localtime(suv_lookup_csv.stat().st_mtime))
+        datasets.append({
+            "category": "Vehicle",
+            "name": "SUV Brand/Model Lookup Dataset",
+            "records": row_count,
+            "size": f"{size_kb} KB",
+            "features": "Brand, Model, Year, Mileage, Transmission, Fuel",
             "last_updated": mtime,
             "quality": "Healthy"
         })
@@ -446,14 +487,22 @@ async def developer_summary():
 @app.get("/api/{category}/metadata")
 async def metadata_proxy(category: str):
     """Proxy metadata requests to the appropriate downstream service."""
-    if category not in SERVICES:
+    # Resolve vehicle sub-categories to the vehicle service
+    if category in ("vehicle", "cars"):
+        service_url = SERVICES["vehicle"]["url"]
+        downstream_path = "/metadata/cars"
+    elif category == "suv":
+        service_url = SERVICES["vehicle"]["url"]
+        downstream_path = "/metadata/suv"
+    elif category in SERVICES:
+        service_url = SERVICES[category]["url"]
+        downstream_path = "/metadata"
+    else:
         raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
-    
-    service_url = SERVICES[category]["url"]
-    
+
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
-            response = await client.get(f"{service_url}/metadata")
+            response = await client.get(f"{service_url}{downstream_path}")
             return JSONResponse(status_code=response.status_code, content=response.json())
         except httpx.RequestError as e:
             raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
@@ -463,21 +512,29 @@ async def metadata_proxy(category: str):
 @app.post("/api/{category}/predict")
 async def predict_proxy(category: str, request: Request):
     """Proxy prediction requests to the appropriate downstream service."""
-    if category not in SERVICES:
+    # Resolve vehicle sub-categories to the vehicle service
+    if category in ("vehicle", "cars"):
+        service_url = SERVICES["vehicle"]["url"]
+        downstream_path = "/api/predict"
+    elif category == "suv":
+        service_url = SERVICES["vehicle"]["url"]
+        downstream_path = "/api/predict/suv"
+    elif category in SERVICES:
+        service_url = SERVICES[category]["url"]
+        downstream_path = "/predict"
+    else:
         raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
-    
-    service_url = SERVICES[category]["url"]
-    
+
     try:
         body = await request.json()
     except Exception:
         body = {}
-        
+
     # Proxy the request
     async with httpx.AsyncClient(timeout=30.0) as client:
         try:
             response = await client.post(
-                f"{service_url}/predict",
+                f"{service_url}{downstream_path}",
                 json=body,
                 headers={"Content-Type": "application/json"}
             )
