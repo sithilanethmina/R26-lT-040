@@ -94,7 +94,6 @@ NUMERIC_FEATURES = [
     "vram_gb",
     "G3Dmark",               # High correlation with performance
     "G2Dmark",
-    "log_G3Dmark",           # Log-transformed benchmark to handle non-linearity
     "fp32_gflops",
     "tdp_watts",
     "memory_bandwidth_gb_s",
@@ -104,7 +103,6 @@ NUMERIC_FEATURES = [
     "perf_per_watt",
     "gpu_age_years",
     "gpu_generation",
-    "model_number",
     "ti_variant",            # Binary: 1 if 'Ti', else 0
 ]
 
@@ -112,6 +110,7 @@ CATEGORICAL_FEATURES = [
     "series_family",         # e.g., GeForce, Radeon
     "brand",                 # e.g., ASUS, MSI
     "architecture",          # e.g., Ampere, Turing
+    "tier_class",            # Performance tier: 10, 30, 50, 60, 70, 80, 90, Other
 ]
 
 ALL_FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
@@ -202,8 +201,6 @@ def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.
     y = df[TARGET].to_numpy(dtype=float)
 
     # Stratify by log-price quintile so each fold has balanced price distribution.
-    # This prevents 'data leak' where the model only sees cheap cards in training 
-    # and fails on expensive ones in testing.
     price_quintile = pd.qcut(y, q=5, labels=False, duplicates="drop")
 
     x_train, x_test, y_train, y_test = train_test_split(
@@ -521,7 +518,68 @@ def save_artifacts(
     results: dict[str, dict],
     best_name: str,
     feature_cols: list[str],
+    n_train: int = 0,
+    n_test: int = 0,
 ) -> None:
+    total_records = n_train + n_test
+    record_meta = {
+        "total_records": total_records,
+        "train_records": n_train,
+        "test_records": n_test,
+        "train_ratio_pct": round((n_train / total_records * 100), 1) if total_records else 80.0,
+        "features_count": len(feature_cols),
+        "models": {
+            "lightgbm": {
+                "name": "LightGBM",
+                "train_records": n_train,
+                "test_records": n_test,
+                "tune_records": n_train,
+                "preprocessing": "Tree-based (No scaling)",
+                "notes": f"Tuned with Optuna on {n_train:,} training records; evaluated on {n_test:,} test records.",
+            },
+            "xgboost": {
+                "name": "XGBoost",
+                "train_records": n_train,
+                "test_records": n_test,
+                "tune_records": n_train,
+                "preprocessing": "Tree-based (No scaling)",
+                "notes": f"Tuned with Optuna on {n_train:,} training records; evaluated on {n_test:,} test records.",
+            },
+            "random_forest": {
+                "name": "Random Forest",
+                "train_records": n_train,
+                "test_records": n_test,
+                "tune_records": n_train,
+                "preprocessing": "Tree-based (SimpleImputer + OrdinalEncoder)",
+                "notes": f"Tuned with Optuna on {n_train:,} training records; evaluated on {n_test:,} test records.",
+            },
+            "knn": {
+                "name": "KNN (K-Nearest Neighbors)",
+                "train_records": n_train,
+                "test_records": n_test,
+                "tune_records": n_train,
+                "preprocessing": "StandardScaler Normalized",
+                "notes": f"Features normalized using StandardScaler across {n_train:,} training records.",
+            },
+            "svr": {
+                "name": "SVR (Support Vector Regressor)",
+                "train_records": n_train,
+                "test_records": n_test,
+                "tune_records": min(n_train, SVR_MAX_ROWS),
+                "preprocessing": "StandardScaler Normalized",
+                "notes": f"Hyperparameters tuned on {min(n_train, SVR_MAX_ROWS):,} records for speed; final model fitted on all {n_train:,} training records.",
+            },
+            "stacking_ensemble": {
+                "name": "Stacking Ensemble",
+                "train_records": n_train,
+                "test_records": n_test,
+                "tune_records": n_train,
+                "preprocessing": "Base Estimators (LGBM + RF + KNN) → Ridge Meta-Learner",
+                "notes": f"Trained using 5-fold cross-validated meta-features across all {n_train:,} training records.",
+            },
+        },
+    }
+
     artifact = {
         "version": "v2.0",
         "best_model_name": best_name,
@@ -532,6 +590,7 @@ def save_artifacts(
         "categorical_features": CATEGORICAL_FEATURES,
         "target": TARGET,
         "evaluation_results": results,
+        "training_records": record_meta,
     }
     joblib.dump(artifact, MODEL_OUT)
     log.info("Saved model artifact → %s", MODEL_OUT)
@@ -541,6 +600,7 @@ def save_artifacts(
         "best_model": best_name,
         "n_models": len(models),
         "feature_count": len(feature_cols),
+        "training_records": record_meta,
         "results": results,
     }
     SUMMARY_OUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")
@@ -572,7 +632,7 @@ def main() -> None:
     print(f"\n✅ Best model: {best_name}  (MAPE={results[best_name]['mape_pct']:.1f}%)")
 
     print("\n── Step 4: Save Artifacts ────────────────────────────────────")
-    save_artifacts(models, results, best_name, ALL_FEATURES)
+    save_artifacts(models, results, best_name, ALL_FEATURES, n_train=len(x_train), n_test=len(x_test))
 
     if results[best_name]["mape_pct"] > 15:
         print("\n⚠  MAPE > 15% — consider lowering fuzzy match threshold in Phase 1.")

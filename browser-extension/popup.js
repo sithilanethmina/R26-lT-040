@@ -391,31 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-            
-            let predictedPrice = 0;
-            let modelUsed = "";
-            
-            if (category === 'gpu') {
-                predictedPrice = data.predicted_price;
-                modelUsed = (data.best_model_used || "GPU Model").replace('_', ' ').toUpperCase();
-            } else if (category === 'mobile') {
-                predictedPrice = data.predicted_price;
-                modelUsed = "Mobile Model (" + data.phone_type + ")";
-            } else if (category === 'vehicle') {
-                if (data.predictions && data.predictions.length > 0) {
-                    predictedPrice = data.predictions[0].predictedPrice;
-                    modelUsed = data.predictions[0].name || "Vehicle Model";
-                }
-            } else if (category === 'electronics') {
-                if (typeof data.price === 'string') {
-                    predictedPrice = parseFloat(data.price.replace(/[^0-9.]/g, ''));
-                } else {
-                    predictedPrice = data.price;
-                }
-                modelUsed = data.model_name || "Electronics Model";
-            }
-
-            displayResults(predictedPrice, listedPrice, modelUsed);
+            displayResults(data, listedPrice, category);
             
         } catch (err) {
             showError(err.message);
@@ -461,12 +437,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const manufSelect = document.getElementById('gpuManufacturerSelect');
             const manufVal = manufSelect ? manufSelect.value : 'Any';
 
+            const listedPrice = parseFloat(priceInput.value);
+
             return {
                 model: matched.model,
                 vram_gb: vramVal,
                 brand: brandVal || 'Any',
                 manufacturer: manufVal || 'Any',
-                stock: 'In Stock'
+                stock: 'In Stock',
+                listed_price: (!isNaN(listedPrice) && listedPrice > 0) ? listedPrice : null
             };
         } else if (category === 'mobile') {
             const brand = document.getElementById('mobileBrandInput').value.trim();
@@ -525,16 +504,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const rawModelCandidate = data.model || data.title || "";
             const normCandidate = normalizeGpuModel(rawModelCandidate);
 
+            // 1. Try exact normalized match first
             let matched = (GPU_METADATA.models || []).find(m => {
                 if (!m || !m.model) return false;
                 const mNorm = m.normalized || normalizeGpuModel(m.model);
-                return (normCandidate && mNorm && normCandidate.includes(mNorm)) || 
-                       (mNorm && mNorm === normCandidate) ||
-                       (data.model && m.model.toUpperCase() === data.model.toUpperCase());
+                return mNorm === normCandidate || (data.model && m.model.toUpperCase() === data.model.toUpperCase());
             });
 
-            if (!matched && data.title) {
-                const titleNorm = normalizeGpuModel(data.title);
+            // 2. Try longest substring match (so "RX 6600 XT" matches before "RX 6600")
+            if (!matched && (normCandidate || data.title)) {
+                const titleNorm = normCandidate || normalizeGpuModel(data.title);
                 const sortedByLen = [...(GPU_METADATA.models || [])].sort((a, b) => (b.model || '').length - (a.model || '').length);
                 matched = sortedByLen.find(m => {
                     if (!m || !m.model) return false;
@@ -587,42 +566,121 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function displayResults(predictedPrice, listedPrice, modelUsed) {
-        if (!predictedPrice) {
+    function displayResults(data, listedPrice, category) {
+        if (!data) {
             showError("Prediction failed. Try adjusting inputs.");
             return;
         }
 
-        predictedPriceEl.innerText = predictedPrice.toLocaleString('en-LK', {maximumFractionDigits: 0});
-        modelUsedName.innerText = "Model used: " + modelUsed;
-        
-        resultSection.classList.remove('hidden');
+        const resultHeader = document.getElementById('resultHeader');
+        const verdictDescEl = document.getElementById('verdictDescription');
 
-        if (listedPrice && !isNaN(listedPrice) && listedPrice > 0) {
-            const diff = listedPrice - predictedPrice;
-            const diffPercent = (diff / predictedPrice) * 100;
+        if (verdictDescEl) {
+            verdictDescEl.innerText = "";
+            verdictDescEl.classList.add('hidden');
+        }
+
+        if (category === 'gpu' || (data.fair_market_range && data.fair_market_range.lower_price_lkr)) {
+            const lowerPrice = data.lower_price || (data.fair_market_range ? data.fair_market_range.lower_price_lkr : 0);
+            const upperPrice = data.upper_price || (data.fair_market_range ? data.fair_market_range.upper_price_lkr : 0);
+            const pointPrice = data.predicted_price || 0;
+            const modelUsed = (data.best_model_used || "XGBoost").replace('_', ' ').toUpperCase();
+
+            if (resultHeader) resultHeader.innerText = "ESTIMATED FAIR MARKET RANGE";
             
-            const diffFormatted = Math.abs(diff).toLocaleString('en-LK', {maximumFractionDigits: 0});
-            if (diff > 0) {
-                priceDiffEl.innerText = `+Rs.${diffFormatted} (${diffPercent.toFixed(1)}%)`;
+            predictedPriceEl.innerText = `${lowerPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})} – ${upperPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})}`;
+            
+            let modelFooterText = `Model: ${modelUsed} · Pt Est: LKR ${pointPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})}`;
+            if (data.metadata && data.metadata.limited_data_warning) {
+                modelFooterText += " (⚠ Limited Data)";
+            }
+            modelUsedName.innerText = modelFooterText;
+
+            resultSection.classList.remove('hidden');
+
+            const evalData = data.evaluation;
+            if (evalData && evalData.verdict_code && evalData.verdict_code !== 'NO_PRICE') {
+                fairnessBadge.className = 'badge ' + (evalData.badge_class || 'fair');
+                fairnessBadge.innerText = evalData.verdict.toUpperCase();
+                
+                let diffText = `Listing: Rs. ${listedPrice.toLocaleString('en-LK')}`;
+                if (evalData.fairness_score !== undefined) {
+                    diffText += ` (Score: ${evalData.fairness_score}/100)`;
+                }
+                priceDiffEl.innerText = diffText;
+                fairnessBadge.classList.remove('hidden');
+
+                if (evalData.description && verdictDescEl) {
+                    verdictDescEl.innerText = evalData.description;
+                    verdictDescEl.classList.remove('hidden');
+                }
+            } else if (listedPrice && !isNaN(listedPrice) && listedPrice > 0) {
+                const midpoint = (lowerPrice + upperPrice) / 2;
+                fairnessBadge.className = 'badge';
+                if (listedPrice < lowerPrice) {
+                    fairnessBadge.innerText = "BELOW TYPICAL MARKET RANGE";
+                    fairnessBadge.classList.add('warning');
+                } else if (listedPrice > upperPrice) {
+                    fairnessBadge.innerText = "ABOVE TYPICAL MARKET RANGE";
+                    fairnessBadge.classList.add('overpriced');
+                } else {
+                    fairnessBadge.innerText = "WITHIN EXPECTED MARKET RANGE";
+                    fairnessBadge.classList.add('fair');
+                }
+                fairnessBadge.classList.remove('hidden');
+                priceDiffEl.innerText = `Listing: Rs. ${listedPrice.toLocaleString('en-LK')}`;
             } else {
-                priceDiffEl.innerText = `-Rs.${diffFormatted} (${Math.abs(diffPercent).toFixed(1)}%)`;
+                priceDiffEl.innerText = "Enter listing price above to evaluate fairness";
+                fairnessBadge.className = 'badge hidden';
             }
 
-            fairnessBadge.className = 'badge'; // reset
-            if (diffPercent > 15) {
-                fairnessBadge.innerText = "OVERPRICED";
-                fairnessBadge.classList.add('overpriced');
-            } else if (diffPercent < -25) {
-                fairnessBadge.innerText = "SCAM RISK";
-                fairnessBadge.classList.add('scam');
-            } else {
-                fairnessBadge.innerText = "FAIR PRICE";
-                fairnessBadge.classList.add('fair');
-            }
         } else {
-            priceDiffEl.innerText = "No listing price provided";
-            fairnessBadge.className = 'badge hidden';
+            // Non-GPU fallback (single price)
+            let predictedPrice = 0;
+            let modelUsed = "";
+
+            if (category === 'mobile') {
+                predictedPrice = data.predicted_price;
+                modelUsed = "Mobile Model (" + (data.phone_type || "") + ")";
+            } else if (category === 'vehicle') {
+                if (data.predictions && data.predictions.length > 0) {
+                    predictedPrice = data.predictions[0].predictedPrice;
+                    modelUsed = data.predictions[0].name || "Vehicle Model";
+                }
+            } else if (category === 'electronics') {
+                predictedPrice = typeof data.price === 'string' ? parseFloat(data.price.replace(/[^0-9.]/g, '')) : data.price;
+                modelUsed = data.model_name || "Electronics Model";
+            }
+
+            if (resultHeader) resultHeader.innerText = "PREDICTED MARKET VALUE";
+            predictedPriceEl.innerText = predictedPrice ? predictedPrice.toLocaleString('en-LK', {maximumFractionDigits: 0}) : "--";
+            modelUsedName.innerText = "Model used: " + modelUsed;
+            
+            resultSection.classList.remove('hidden');
+
+            if (listedPrice && !isNaN(listedPrice) && listedPrice > 0 && predictedPrice) {
+                const diff = listedPrice - predictedPrice;
+                const diffPercent = (diff / predictedPrice) * 100;
+                const diffFormatted = Math.abs(diff).toLocaleString('en-LK', {maximumFractionDigits: 0});
+                
+                priceDiffEl.innerText = diff > 0 ? `+Rs.${diffFormatted} (+${diffPercent.toFixed(1)}%)` : `-Rs.${diffFormatted} (${Math.abs(diffPercent).toFixed(1)}%)`;
+
+                fairnessBadge.className = 'badge';
+                if (diffPercent > 15) {
+                    fairnessBadge.innerText = "OVERPRICED";
+                    fairnessBadge.classList.add('overpriced');
+                } else if (diffPercent < -25) {
+                    fairnessBadge.innerText = "SCAM RISK";
+                    fairnessBadge.classList.add('scam');
+                } else {
+                    fairnessBadge.innerText = "FAIR PRICE";
+                    fairnessBadge.classList.add('fair');
+                }
+                fairnessBadge.classList.remove('hidden');
+            } else {
+                priceDiffEl.innerText = "No listing price provided";
+                fairnessBadge.className = 'badge hidden';
+            }
         }
     }
 

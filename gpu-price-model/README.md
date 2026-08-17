@@ -530,7 +530,7 @@ The sidebar includes a dropdown to select which trained model to use for predict
 
 ## Running the Complete Pipeline
 
-To run the full data collection, processing, and training pipeline from scratch, follow these steps in order:
+To run the full data collection, processing, feature engineering, model training, conformal calibration, validation, and app execution from scratch, follow these steps in order:
 
 **1. Data Collection (Scraping & Initial Cleaning)**
 ```powershell
@@ -550,25 +550,37 @@ python scripts/preprocess_for_training.py
 ```
 *Outputs: `data/final/training_data_v2.json`*
 
-**4. Feature Enrichment**
+**4. Feature Enrichment & Spec Joining**
 ```powershell
 python scripts/build_benchmark_features.py
 ```
-*Outputs: `data/final/gpu_enriched_dataset.csv`*
+*Outputs: `data/final/gpu_enriched_dataset.csv` (Enriches dataset with PassMark benchmarks and `tier_class` performance tiers, with pre-split leakage removed)*
 
-**5. Model Training (v2 Ensemble)**
+**5. Model Training (v2 Multi-Model Ensemble)**
 ```powershell
 python scripts/train_model_v2.py
 ```
-*Outputs: `artifacts/gpu_price_model_v2.joblib` and metrics JSON*
+*Outputs: `artifacts/gpu_price_model_v2.joblib` and `artifacts/training_summary_v2.json` (Trains 6 models using post-split IQR filtering, Optuna tuning, and distance-model imputation)*
 
-**6. Model Explainability (Optional)**
+**6. Conformal Prediction Calibration**
+```powershell
+python scripts/calibrate_conformal_ranges.py
+```
+*Outputs: Updated `artifacts/gpu_price_model_v2.joblib` containing tier-stratified 90% confidence conformal quantiles ($q_{0.90}$)*
+
+**7. Conformal Range Backtesting & Validation**
+```powershell
+python scripts/validate_conformal_ranges.py
+```
+*Outputs: Holdout test set validation report evaluating Empirical Coverage Ratio (ECR, target 90%), Mean Relative Interval Width (MRIW), and price verdict distributions*
+
+**8. Model Explainability (Optional)**
 ```powershell
 python scripts/run_shap_analysis.py
 ```
 *Outputs: `artifacts/shap_summary_plot.png`*
 
-**7. Run the App**
+**9. Run the Streamlit Application**
 ```powershell
 streamlit run scripts/run_app.py
 ```

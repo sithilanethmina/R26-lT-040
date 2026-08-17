@@ -797,86 +797,180 @@ def _render_prediction_results(
     vram: float,
     brand: str,
     listed_price: float = 0.0,
+    calibration_data: dict | None = None,
+    sample_count: int = 20,
 ) -> None:
     """Render FairPriceLK prediction card + per-model breakdown."""
     if not predictions:
         st.error("All models failed to produce a prediction. Check that the artifact is valid.")
         return
 
+    from gpu_price_predictor.pipeline import calculate_fair_market_range, get_fairness_verdict
+
     sorted_preds = sorted(predictions.items(), key=lambda kv: kv[1])
     best_price = predictions.get(best_name, sorted_preds[0][1])
 
-    # ── Fairness calculation (matching browser-extension popup.js) ──────────────
-    if listed_price and listed_price > 0:
-        diff = listed_price - best_price
-        diff_pct = (diff / best_price) * 100
-        diff_formatted = f"Rs. {abs(diff):,.0f}"
+    # ── Conformal Range Calculation ─────────────────────────────────────────────
+    predicted_log_price = float(np.log1p(best_price))
+    range_info = calculate_fair_market_range(
+        predicted_log_price=predicted_log_price,
+        sample_count=sample_count,
+        calibration_data=calibration_data,
+        confidence_level="90%"
+    )
 
-        if diff_pct > 15:
-            fairness_badge_html = '<span class="badge overpriced">OVERPRICED</span>'
-            price_diff_html = f'<span class="diff-text">+{diff_formatted} (+{diff_pct:.1f}%)</span>'
-        elif diff_pct < -25:
-            fairness_badge_html = '<span class="badge scam">SCAM RISK</span>'
-            price_diff_html = f'<span class="diff-text">-{diff_formatted} ({diff_pct:.1f}%)</span>'
+    lower_price = range_info["lower_price_lkr"]
+    upper_price = range_info["upper_price_lkr"]
+
+    # ── Fairness Verdict & Score ────────────────────────────────────────────────
+    verdict_info = get_fairness_verdict(listed_price, lower_price, upper_price)
+    badge_cls = verdict_info["badge_class"]
+    verdict_text = verdict_info["verdict"]
+    score = verdict_info.get("fairness_score", 0.0)
+    desc = verdict_info.get("description", "")
+
+    if listed_price and listed_price > 0:
+        if badge_cls == "fair":
+            fairness_badge_html = f'<span class="badge fair">{verdict_text.upper()}</span>'
+        elif badge_cls == "overpriced":
+            fairness_badge_html = f'<span class="badge overpriced">{verdict_text.upper()}</span>'
         else:
-            fairness_badge_html = '<span class="badge fair">FAIR PRICE</span>'
-            sign = "+" if diff >= 0 else "-"
-            price_diff_html = f'<span class="diff-text">{sign}{diff_formatted} ({abs(diff_pct):.1f}%)</span>'
+            fairness_badge_html = f'<span class="badge scam">{verdict_text.upper()}</span>'
+
+        diff_lkr = verdict_info.get("price_difference_lkr", 0)
+        diff_pct = verdict_info.get("price_difference_pct", 0.0)
+        sign = "+" if diff_lkr >= 0 else "-"
+        price_diff_html = f'<span class="diff-text">Listing: <strong>Rs. {listed_price:,.0f}</strong> &nbsp;·&nbsp; {sign}Rs. {abs(diff_lkr):,.0f} ({sign}{abs(diff_pct):.1f}%) &nbsp;·&nbsp; Fairness Score: <strong>{score:.0f}/100</strong></span>'
     else:
-        fairness_badge_html = '<span class="badge">ESTIMATED MARKET VALUE</span>'
-        price_diff_html = '<span class="diff-text">Enter listed price to evaluate fairness</span>'
+        fairness_badge_html = '<span class="badge">ESTIMATED FAIR MARKET RANGE</span>'
+        price_diff_html = '<span class="diff-text">Enter seller asking price above to evaluate listing fairness</span>'
 
     best_mape = eval_results.get(best_name, {}).get("mape_pct", "?")
+    warn_html = ""
+    if range_info.get("limited_data_warning"):
+        warn_html = ' &nbsp;·&nbsp; <span style="color:#D97706;font-weight:600;">⚠ Limited market data for this GPU</span>'
 
     st.markdown(f"""
     <div class="result-box">
-        <div class="result-header">PREDICTED MARKET VALUE</div>
-        <div class="result-price">Rs. {best_price:,.0f}</div>
+        <div class="result-header">ESTIMATED FAIR MARKET RANGE (90% CONFIDENCE)</div>
+        <div class="result-price">Rs. {lower_price:,.0f} – Rs. {upper_price:,.0f}</div>
         <div class="result-meta">
             {fairness_badge_html}
             {price_diff_html}
         </div>
+        {f'<div style="font-size:12px;color:#6B6B66;margin-top:6px;">💡 {desc}</div>' if desc else ''}
         <div class="result-footer">
-            Model used: <strong>{best_name.replace('_', ' ').title()}</strong> (MAPE {best_mape}%) &nbsp;·&nbsp; {label} &nbsp;·&nbsp; {vram:.0f} GB VRAM &nbsp;·&nbsp; {brand}
+            Primary model: <strong>{best_name.replace('_', ' ').title()}</strong> (MAPE {best_mape}%) &nbsp;·&nbsp; {label} &nbsp;·&nbsp; {vram:.0f} GB VRAM &nbsp;·&nbsp; {brand}{warn_html}
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-label">All model predictions</div>', unsafe_allow_html=True)
-    pred_cols = st.columns(len(sorted_preds))
-    for i, (mname, price) in enumerate(sorted_preds):
-        m = eval_results.get(mname, {})
-        is_best = mname == best_name
-        label_str = ("★ " if is_best else "") + mname.replace("_", " ").title()
-        with pred_cols[i]:
-            st.metric(label_str, f"LKR {price:,.0f}")
-            st.caption(f"MAPE {m.get('mape_pct', '?')}% · R²={m.get('r2', '?')}")
+    with st.expander("Technical Model Details & Point Prediction", expanded=False):
+        st.write(f"**Internal Model Point Estimate:** `Rs. {best_price:,.0f}` (Range midpoint: `Rs. {(lower_price + upper_price)/2:,.0f}`)")
+        st.caption("The fair market range is derived using Split Conformal Prediction on empirical out-of-fold log-residuals.")
+        
+        st.markdown('<div class="section-label">All model predictions</div>', unsafe_allow_html=True)
+        pred_cols = st.columns(len(sorted_preds))
+        for i, (mname, price) in enumerate(sorted_preds):
+            m = eval_results.get(mname, {})
+            is_best = mname == best_name
+            label_str = ("★ " if is_best else "") + mname.replace("_", " ").title()
+            with pred_cols[i]:
+                st.metric(label_str, f"LKR {price:,.0f}")
+                st.caption(f"MAPE {m.get('mape_pct', '?')}% · R²={m.get('r2', '?')}")
 
-    st.divider()
-    vc1, vc2 = st.columns(2)
-    with vc1:
-        st.markdown('<div class="section-label">Price by algorithm</div>', unsafe_allow_html=True)
-        pred_df = pd.DataFrame({
-            "Algorithm": [n.replace("_", " ").title() for n, _ in sorted_preds],
-            "Price (LKR)": [p for _, p in sorted_preds],
-        })
-        st.bar_chart(pred_df.set_index("Algorithm"))
-    with vc2:
-        st.markdown('<div class="section-label">MAPE % by algorithm</div>', unsafe_allow_html=True)
-        mape_rows = [(n, eval_results[n]["mape_pct"]) for n, _ in sorted_preds if n in eval_results]
-        if mape_rows:
-            mape_df = pd.DataFrame(mape_rows, columns=["Algorithm", "MAPE %"])
-            mape_df["Algorithm"] = mape_df["Algorithm"].str.replace("_", " ").str.title()
-            st.bar_chart(mape_df.set_index("Algorithm"))
+        st.divider()
+        vc1, vc2 = st.columns(2)
+        with vc1:
+            st.markdown('<div class="section-label">Price by algorithm</div>', unsafe_allow_html=True)
+            pred_df = pd.DataFrame({
+                "Algorithm": [n.replace("_", " ").title() for n, _ in sorted_preds],
+                "Price (LKR)": [p for _, p in sorted_preds],
+            })
+            st.bar_chart(pred_df.set_index("Algorithm"))
+        with vc2:
+            st.markdown('<div class="section-label">MAPE % by algorithm</div>', unsafe_allow_html=True)
+            mape_rows = [(n, eval_results[n]["mape_pct"]) for n, _ in sorted_preds if n in eval_results]
+            if mape_rows:
+                mape_df = pd.DataFrame(mape_rows, columns=["Algorithm", "MAPE %"])
+                mape_df["Algorithm"] = mape_df["Algorithm"].str.replace("_", " ").str.title()
+                st.bar_chart(mape_df.set_index("Algorithm"))
 
 
 def _get_model_col(df: pd.DataFrame | None) -> str:
+
     if df is None:
         return "model"
     for col in ["extracted_model", "norm_model", "model"]:
         if col in df.columns:
             return col
     return df.columns[0] if len(df.columns) > 0 else "model"
+
+
+def _get_model_training_records_info(artifact: dict | None, enriched: pd.DataFrame | None) -> dict:
+    total_len = len(enriched) if enriched is not None else 11280
+    train_default = int(round(total_len * 0.8))
+    test_default = total_len - train_default
+
+    meta = artifact.get("training_records", {}) if artifact else {}
+    models_meta = meta.get("models", {})
+
+    default_models_info = {
+        "lightgbm": {
+            "name": "LightGBM",
+            "train_records": models_meta.get("lightgbm", {}).get("train_records", train_default),
+            "test_records": models_meta.get("lightgbm", {}).get("test_records", test_default),
+            "tune_records": models_meta.get("lightgbm", {}).get("tune_records", train_default),
+            "preprocessing": "Tree-based (No scaling)",
+            "notes": f"Tuned with Optuna on {models_meta.get('lightgbm', {}).get('train_records', train_default):,} training records; evaluated on {models_meta.get('lightgbm', {}).get('test_records', test_default):,} test records.",
+        },
+        "xgboost": {
+            "name": "XGBoost",
+            "train_records": models_meta.get("xgboost", {}).get("train_records", train_default),
+            "test_records": models_meta.get("xgboost", {}).get("test_records", test_default),
+            "tune_records": models_meta.get("xgboost", {}).get("tune_records", train_default),
+            "preprocessing": "Tree-based (No scaling)",
+            "notes": f"Tuned with Optuna on {models_meta.get('xgboost', {}).get('train_records', train_default):,} training records; evaluated on {models_meta.get('xgboost', {}).get('test_records', test_default):,} test records.",
+        },
+        "random_forest": {
+            "name": "Random Forest",
+            "train_records": models_meta.get("random_forest", {}).get("train_records", train_default),
+            "test_records": models_meta.get("random_forest", {}).get("test_records", test_default),
+            "tune_records": models_meta.get("random_forest", {}).get("tune_records", train_default),
+            "preprocessing": "Tree-based (SimpleImputer + OrdinalEncoder)",
+            "notes": f"Tuned with Optuna on {models_meta.get('random_forest', {}).get('train_records', train_default):,} training records; evaluated on {models_meta.get('random_forest', {}).get('test_records', test_default):,} test records.",
+        },
+        "knn": {
+            "name": "KNN (K-Nearest Neighbors)",
+            "train_records": models_meta.get("knn", {}).get("train_records", train_default),
+            "test_records": models_meta.get("knn", {}).get("test_records", test_default),
+            "tune_records": models_meta.get("knn", {}).get("tune_records", train_default),
+            "preprocessing": "StandardScaler Normalized",
+            "notes": f"Features normalized using StandardScaler across {models_meta.get('knn', {}).get('train_records', train_default):,} training records.",
+        },
+        "svr": {
+            "name": "SVR (Support Vector Regressor)",
+            "train_records": models_meta.get("svr", {}).get("train_records", train_default),
+            "test_records": models_meta.get("svr", {}).get("test_records", test_default),
+            "tune_records": models_meta.get("svr", {}).get("tune_records", min(train_default, 5000)),
+            "preprocessing": "StandardScaler Normalized",
+            "notes": f"Hyperparameters tuned on {models_meta.get('svr', {}).get('tune_records', min(train_default, 5000)):,} records for speed; final fit trained on all {models_meta.get('svr', {}).get('train_records', train_default):,} records.",
+        },
+        "stacking_ensemble": {
+            "name": "Stacking Ensemble",
+            "train_records": models_meta.get("stacking_ensemble", {}).get("train_records", train_default),
+            "test_records": models_meta.get("stacking_ensemble", {}).get("test_records", test_default),
+            "tune_records": models_meta.get("stacking_ensemble", {}).get("tune_records", train_default),
+            "preprocessing": "Base Estimators (LGBM + RF + KNN) → Ridge Meta-Learner",
+            "notes": f"Trained using 5-fold cross-validated meta-features across all {models_meta.get('stacking_ensemble', {}).get('train_records', train_default):,} training records.",
+        },
+    }
+    return {
+        "total_records": meta.get("total_records", total_len),
+        "train_records": meta.get("train_records", train_default),
+        "test_records": meta.get("test_records", test_default),
+        "models": default_models_info,
+    }
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -913,6 +1007,7 @@ def main():
 
     eval_results: dict = artifact.get("evaluation_results", {})
     best_name: str     = artifact.get("best_model_name", "")
+    records_info: dict = _get_model_training_records_info(artifact, enriched)
 
     # ── Sidebar ───────────────────────────────────────────────────────────────
     with st.sidebar:
@@ -923,7 +1018,9 @@ def main():
         </div>
         """, unsafe_allow_html=True)
         if enriched is not None:
-            st.write(f"Training records: `{len(enriched):,}`")
+            st.write(f"Total dataset records: `{len(enriched):,}`")
+            st.write(f"Train split records: `{records_info['train_records']:,}` (80%)")
+            st.write(f"Test split records: `{records_info['test_records']:,}` (20%)")
         if best_name and best_name in eval_results:
             m = eval_results[best_name]
             st.write(f"Active model: `{best_name.replace('_', ' ').title()}`")
@@ -938,7 +1035,7 @@ def main():
     bm = eval_results.get(best_name, {})
 
     if enriched is not None:
-        n_samples = f"{len(enriched):,}"
+        n_samples = f"{records_info['train_records']:,}"
         model_col = _get_model_col(enriched)
         n_models  = str(enriched[model_col].dropna().nunique())
         avg_price = f"LKR {enriched['price_lkr'].mean():,.0f}" if "price_lkr" in enriched.columns else "—"
@@ -953,6 +1050,7 @@ def main():
         <div class="kpi-cell">
             <div class="kpi-label">Training listings</div>
             <div class="kpi-value">{n_samples}</div>
+            <div class="kpi-delta">80% train split</div>
         </div>
         <div class="kpi-cell">
             <div class="kpi-label">Unique GPU models</div>
@@ -975,8 +1073,9 @@ def main():
     """, unsafe_allow_html=True)
 
     # ── Leaderboard ───────────────────────────────────────────────────────────
-    st.markdown('<div class="section-label">Model leaderboard</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-label">Model leaderboard & dataset records</div>', unsafe_allow_html=True)
 
+    models_meta = records_info.get("models", {})
     sorted_models = sorted(eval_results.items(), key=lambda kv: kv[1].get("mape_pct", 99))
     rows_html = ""
     for i, (mname, metrics) in enumerate(sorted_models):
@@ -984,10 +1083,23 @@ def main():
         rank_cls  = "rank-num rank-1" if i == 0 else "rank-num"
         best_pill = '<span class="best-pill">best</span>' if is_best else ""
         row_cls   = "best-row" if is_best else ""
+
+        m_meta = models_meta.get(mname, {})
+        tr_recs = m_meta.get("train_records", records_info["train_records"])
+        te_recs = m_meta.get("test_records", records_info["test_records"])
+        tune_recs = m_meta.get("tune_records", tr_recs)
+
+        if mname == "svr" and tune_recs < tr_recs:
+            train_display = f"{tr_recs:,} <span style='font-size:10px;color:#D97706;'>(Tuned on {tune_recs:,})</span>"
+        else:
+            train_display = f"{tr_recs:,}"
+
         rows_html += f"""
         <tr class="{row_cls}">
             <td><span class="{rank_cls}">{i + 1}</span></td>
             <td class="mono">{mname.replace('_', ' ').title()}{best_pill}</td>
+            <td class="mono">{train_display}</td>
+            <td class="mono">{te_recs:,}</td>
             <td class="mono">{metrics.get('mape_pct')}%</td>
             <td class="mono">{metrics.get('r2')}</td>
             <td class="mono">{metrics.get('within_10pct')}%</td>
@@ -998,7 +1110,7 @@ def main():
     <table class="lb-table">
         <thead>
             <tr>
-                <th>#</th><th>Model</th><th>MAPE</th>
+                <th>#</th><th>Model</th><th>Train Records</th><th>Test Records</th><th>MAPE</th>
                 <th>R²</th><th>Within 10%</th><th>RMSE</th>
             </tr>
         </thead>
@@ -1042,19 +1154,21 @@ def main():
             with st.spinner("Evaluating models…"):
                 predictions = predict_all(artifact, selected_model, selected_vram,
                                           selected_brand, enriched)
+            from gpu_price_predictor.pipeline import get_model_sample_count, normalize_model
+            norm_target = normalize_model(selected_model)
+            ctx_mask = enriched[model_col].astype(str).apply(normalize_model) == norm_target
+            if selected_brand != "Any" and "brand" in enriched.columns:
+                ctx_mask &= enriched["brand"] == selected_brand
+            matches = enriched[ctx_mask]
+            s_count = get_model_sample_count(selected_model, enriched)
+
             _render_prediction_results(
                 predictions, best_name, eval_results,
                 selected_model, selected_vram, selected_brand,
                 listed_price=listed_price,
+                calibration_data=artifact.get("conformal_calibration"),
+                sample_count=s_count,
             )
-
-            # Market context
-            st.divider()
-            st.markdown('<div class="section-label">Market context</div>', unsafe_allow_html=True)
-            ctx_mask = enriched[model_col] == selected_model
-            if selected_brand != "Any" and "brand" in enriched.columns:
-                ctx_mask &= enriched["brand"] == selected_brand
-            matches = enriched[ctx_mask]
 
             if not matches.empty:
                 mc1, mc2, mc3 = st.columns(3)
@@ -1162,10 +1276,14 @@ def main():
                         )
 
                     if custom_predictions:
+                        from gpu_price_predictor.pipeline import get_model_sample_count
+                        cust_s_count = get_model_sample_count(custom_name, enriched)
                         _render_prediction_results(
                             custom_predictions, best_name, eval_results,
                             custom_name, custom_vram, custom_brand,
                             listed_price=custom_listed_price,
+                            calibration_data=artifact.get("conformal_calibration"),
+                            sample_count=cust_s_count,
                         )
                     else:
                         st.error("All models failed. Check that the artifact matches the feature schema.")
@@ -1176,9 +1294,110 @@ def main():
                     "Prediction requires hardware specs — check the GPU name spelling."
                 )
 
+    # ── Used Dataset Records by Model Inspector ───────────────────────────────
+    st.divider()
+    st.markdown('<div class="section-label">Used dataset records per model</div>', unsafe_allow_html=True)
+
+    if enriched is not None:
+        model_options = ["All Models (Full Training Set)"] + [m.replace("_", " ").title() for m in eval_results.keys()]
+        selected_model_option = st.selectbox(
+            "Select Model to Inspect Used Dataset Records",
+            options=model_options,
+            key="sel_inspect_model",
+            help="Choose a trained model algorithm to view its training records, holdout test records, and feature pipeline configuration.",
+        )
+
+        selected_key = None
+        for k in eval_results.keys():
+            if k.replace("_", " ").title() in selected_model_option:
+                selected_key = k
+                break
+
+        m_info = models_meta.get(selected_key, {}) if selected_key else {}
+
+        tr_cnt = m_info.get("train_records", records_info["train_records"]) if selected_key else records_info["train_records"]
+        te_cnt = m_info.get("test_records", records_info["test_records"]) if selected_key else records_info["test_records"]
+        prep_method = m_info.get("preprocessing", "18-Feature Enriched Pipeline") if selected_key else "6-Model Ensemble Pipeline"
+        model_notes = m_info.get("notes", "Full Sri Lankan GPU marketplace dataset enriched with PassMark benchmarks and techpowerup specs.") if selected_key else f"All 6 models were trained on {records_info['train_records']:,} records (80% split) and evaluated on {records_info['test_records']:,} holdout test records (20% split)."
+
+        r1, r2, r3, r4 = st.columns(4)
+        with r1:
+            st.metric("Training dataset records", f"{tr_cnt:,}")
+        with r2:
+            st.metric("Holdout test records", f"{te_cnt:,}")
+        with r3:
+            st.metric("Total dataset rows", f"{len(enriched):,}")
+        with r4:
+            st.metric("Feature preprocessing", prep_method)
+
+        st.info(f"💡 **Model Training Configuration ({selected_model_option}):** {model_notes}")
+
+        st.markdown("##### Search & Filter Training Dataset Records")
+        fcol_a, fcol_b, fcol_c = st.columns([2, 1, 1])
+
+        with fcol_a:
+            search_query = st.text_input(
+                "Search GPU Model Name",
+                placeholder="e.g. RTX 3060, GTX 1060, RX 580",
+                key="inspect_search",
+            )
+
+        with fcol_b:
+            avail_brands = ["All Brands"] + sorted(enriched["brand"].dropna().unique().tolist()) if "brand" in enriched.columns else ["All Brands"]
+            selected_inspect_brand = st.selectbox("Brand / Manufacturer", avail_brands, key="inspect_brand")
+
+        with fcol_c:
+            avail_archs = ["All Architectures"] + sorted(enriched["architecture"].dropna().unique().tolist()) if "architecture" in enriched.columns else ["All Architectures"]
+            selected_inspect_arch = st.selectbox("Architecture", avail_archs, key="inspect_arch")
+
+        inspect_df = enriched.copy()
+        if search_query.strip():
+            model_col_name = _get_model_col(inspect_df)
+            inspect_df = inspect_df[inspect_df[model_col_name].astype(str).str.contains(search_query.strip(), case=False, na=False)]
+
+        if selected_inspect_brand != "All Brands" and "brand" in inspect_df.columns:
+            inspect_df = inspect_df[inspect_df["brand"] == selected_inspect_brand]
+
+        if selected_inspect_arch != "All Architectures" and "architecture" in inspect_df.columns:
+            inspect_df = inspect_df[inspect_df["architecture"] == selected_inspect_arch]
+
+        f_cnt = len(inspect_df)
+        st.caption(f"Displaying **{f_cnt:,}** records out of **{len(enriched):,}** dataset records used for training and evaluating models.")
+
+        if not inspect_df.empty:
+            chart_col1, chart_col2 = st.columns(2)
+            with chart_col1:
+                st.markdown("<div class='section-label'>Training price vs vram distribution</div>", unsafe_allow_html=True)
+                color_col = "brand" if "brand" in inspect_df.columns else None
+                st.scatter_chart(inspect_df, x="vram_gb", y="price_lkr", color=color_col)
+
+            with chart_col2:
+                st.markdown("<div class='section-label'>Brand distribution in dataset records</div>", unsafe_allow_html=True)
+                if "brand" in inspect_df.columns:
+                    b_counts = inspect_df["brand"].value_counts().head(8)
+                    st.bar_chart(b_counts)
+
+            st.markdown("<div class='section-label'>Used dataset records table</div>", unsafe_allow_html=True)
+            display_cols = [c for c in [
+                _get_model_col(inspect_df), "brand", "vram_gb", "price_lkr", "G3Dmark",
+                "tdp_watts", "gpu_age_years", "architecture", "series_family", "gpu_generation", "ti_variant"
+            ] if c in inspect_df.columns]
+
+            st.dataframe(
+                inspect_df[display_cols].reset_index(drop=True),
+                width="stretch",
+                column_config={
+                    "price_lkr": st.column_config.NumberColumn("Price (LKR)", format="LKR %,d"),
+                    "vram_gb": st.column_config.NumberColumn("VRAM (GB)", format="%.1f GB"),
+                    "G3Dmark": st.column_config.NumberColumn("G3Dmark Score", format="%,d"),
+                }
+            )
+        else:
+            st.warning("No dataset records found matching the filter criteria.")
+
     # ── Dataset explorer ──────────────────────────────────────────────────────
     st.divider()
-    with st.expander("Explore enriched dataset"):
+    with st.expander("Explore full enriched dataset raw view"):
         show_cols = [c for c in [
             model_col, "brand", "vram_gb", "price_lkr", "G3Dmark",
             "tdp_watts", "gpu_age_years", "series_family", "architecture",
