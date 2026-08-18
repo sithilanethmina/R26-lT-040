@@ -39,6 +39,7 @@ DATA_DIR = ROOT / "data" / "final"
 
 LISTING_V1 = DATA_DIR / "training_data_v1.json"
 LISTING_V2 = DATA_DIR / "training_data_v2.json"
+LISTING_V3 = DATA_DIR / "training_data_v3.json"
 BENCHMARKS_CSV = DATA_DIR / "GPU_benchmarks_v7.csv"
 SPECS_CSV = DATA_DIR / "gpu_1986-2026.csv"
 OUTPUT_CSV = DATA_DIR / "gpu_enriched_dataset.csv"
@@ -162,16 +163,29 @@ def is_ti_variant(model_name: str) -> int:
     return 1 if re.search(r'\bTi\b', model_name, re.IGNORECASE) else 0
 
 
-def apply_iqr_filter(df: pd.DataFrame, col: str = "price_lkr",
-                     lower_q: float = 0.02, upper_q: float = 0.98) -> pd.DataFrame:
-    """Drop rows outside [lower_q, upper_q] quantile range for the price column."""
-    q_low = df[col].quantile(lower_q)
-    q_high = df[col].quantile(upper_q)
-    mask = (df[col] >= q_low) & (df[col] <= q_high)
-    n_removed = (~mask).sum()
-    print(f"  IQR filter [{lower_q:.0%}–{upper_q:.0%}]: removed {n_removed} outlier rows "
-          f"(price outside [{q_low:,.0f} – {q_high:,.0f}] LKR)")
-    return df[mask].copy()
+def apply_iqr_filter(df: pd.DataFrame, col: str = "price_lkr") -> pd.DataFrame:
+    """
+    Applies per-model IQR outlier removal instead of global quantile truncation.
+    This preserves high-end GPUs (>135k LKR) while filtering broken/faulty cards
+    that are priced far below market for their specific model.
+    """
+    before_count = len(df)
+    df = df[df[col] >= 3000].copy()
+
+    def _filter_group(group: pd.DataFrame) -> pd.DataFrame:
+        if len(group) < 4:
+            return group
+        q1 = group[col].quantile(0.25)
+        q3 = group[col].quantile(0.75)
+        iqr = q3 - q1
+        lower = q1 - 1.5 * iqr
+        upper = q3 + 1.5 * iqr
+        return group[(group[col] >= lower) & (group[col] <= upper)]
+
+    df = df.groupby("extracted_model", group_keys=False).apply(_filter_group).reset_index(drop=True)
+    n_removed = before_count - len(df)
+    print(f"  Per-model IQR filter: removed {n_removed} price outlier rows")
+    return df
 
 
 def fuzzy_join(
@@ -196,9 +210,10 @@ def fuzzy_join(
 def load_listings() -> pd.DataFrame:
     print("=" * 60)
     print("Step 1: Loading market listings …")
-    v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8")))
-    v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8")))
-    df = pd.concat([v1, v2], ignore_index=True)
+    v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8"))) if LISTING_V1.exists() else pd.DataFrame()
+    v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8"))) if LISTING_V2.exists() else pd.DataFrame()
+    v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
+    df = pd.concat([v1, v2, v3], ignore_index=True)
 
     # Normalise column names
     df.rename(columns={
@@ -213,6 +228,12 @@ def load_listings() -> pd.DataFrame:
     df.dropna(subset=["price_lkr", "extracted_model"], inplace=True)
     df = df[df["price_lkr"] > 0].copy()
     print(f"  Loaded {before} total rows → {len(df)} after dropping nulls/zero-price")
+
+    # Deduplicate listings
+    before_dedup = len(df)
+    df.drop_duplicates(subset=["extracted_model", "price_lkr", "vram_gb", "brand"], inplace=True)
+    df.reset_index(drop=True, inplace=True)
+    print(f"  Deduplication: removed {before_dedup - len(df)} duplicate listings → {len(df)} unique records")
 
     # Create normalised model column for fuzzy matching
     df["norm_model"] = df["extracted_model"].apply(normalize_model_name)
@@ -346,6 +367,26 @@ def join_specs(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def derive_tier_class(model_name: str) -> str:
+    """Extract performance tier class (10, 30, 50, 60, 70, 80, 90, Other) from GPU model name."""
+    s = str(model_name).upper()
+    if re.search(r'\b(90|3090|4090)\b', s):
+        return "90"
+    if re.search(r'\b(80|1080|2080|3080|4080|580|680|780|5800|6800|7800)\b', s):
+        return "80"
+    if re.search(r'\b(70|1070|2070|3070|4070|570|670|770|5700|6700|7700)\b', s):
+        return "70"
+    if re.search(r'\b(60|1060|2060|3060|4060|560|660|760|5600|6600|7600)\b', s):
+        return "60"
+    if re.search(r'\b(50|1050|1650|3050|4050|550|650|750|5500|6500|7500)\b', s):
+        return "50"
+    if re.search(r'\b(30|730|630|430|1630)\b', s):
+        return "30"
+    if re.search(r'\b(10|710|610)\b', s):
+        return "10"
+    return "Other"
+
+
 # ── 4. Engineer Derived Features ─────────────────────────────────────────────
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -369,7 +410,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     # --- Perf per watt ---
     df["perf_per_watt"] = df["perf_score"] / df["tdp_watts"].replace(0, np.nan)
 
-    # --- Model number ---
+    # --- Tier class & Model number ---
+    df["tier_class"] = df["extracted_model"].apply(derive_tier_class)
     df["model_number"] = df["extracted_model"].apply(derive_model_number)
 
     # --- Series family ---
@@ -386,7 +428,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
 
     print("  Features engineered.")
     for feat in ["gpu_age_years", "tdp_watts", "perf_score", "log_G3Dmark",
-                 "perf_per_watt", "model_number", "gpu_generation"]:
+                 "perf_per_watt", "tier_class", "model_number", "gpu_generation"]:
         cov = df[feat].notna().mean() * 100
         print(f"    {feat:<28}: {cov:.1f}% filled")
 
@@ -409,19 +451,20 @@ FINAL_COLUMNS = [
     "tdp_watts", "perf_score", "perf_per_watt",
     "release_year", "gpu_age_years",
     "architecture",
-    "model_number", "series_family", "gpu_generation", "ti_variant",
+    "tier_class", "model_number", "series_family", "gpu_generation", "ti_variant",
     # Diagnostic
     "bench_match", "spec_match",
 ]
 
 
 def finalise(df: pd.DataFrame) -> pd.DataFrame:
-    print("\nStep 5: Applying IQR outlier filter …")
-    df = apply_iqr_filter(df, col="price_lkr")
+    print("\nStep 5: Finalising dataset (retaining all valid price listings without pre-split leakage) …")
+    df = df[df["price_lkr"] >= 3000].copy()
 
     # Keep only final columns that exist
     cols = [c for c in FINAL_COLUMNS if c in df.columns]
     df = df[cols].copy()
+    return df
     return df
 
 
@@ -463,9 +506,10 @@ def save_and_report(df: pd.DataFrame) -> None:
     print(df[preview].head().to_string(index=False))
 
     print("\n── Unmatched Models (benchmark) ──────────────────────────────────")
-    if "bench_match" in df.columns:
+    model_col = "extracted_model" if "extracted_model" in df.columns else "norm_model"
+    if "bench_match" in df.columns and model_col in df.columns:
         unmatched = (
-            df[df["bench_match"].isna()]["extracted_model"]
+            df[df["bench_match"].isna()][model_col]
             .value_counts()
             .head(20)
         )
@@ -475,9 +519,9 @@ def save_and_report(df: pd.DataFrame) -> None:
             print("  All models matched! 🎉")
 
     print("\n── Unmatched Models (specs) ──────────────────────────────────────")
-    if "spec_match" in df.columns:
+    if "spec_match" in df.columns and model_col in df.columns:
         unmatched_spec = (
-            df[df["spec_match"].isna()]["extracted_model"]
+            df[df["spec_match"].isna()][model_col]
             .value_counts()
             .head(20)
         )

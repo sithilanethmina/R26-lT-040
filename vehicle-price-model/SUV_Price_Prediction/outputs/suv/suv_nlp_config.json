@@ -1,0 +1,199 @@
+{
+  "vehicle_type": "SUV",
+  "positive_signals": {
+    "one_owner": {
+      "keywords": [
+        "one owner",
+        "1 owner",
+        "1st owner",
+        "single owner",
+        "first owner",
+        "lady owner",
+        "lady driven"
+      ],
+      "points": 5,
+      "label": "Single Owner"
+    },
+    "accident_free": {
+      "keywords": [
+        "accident free",
+        "no accident",
+        "no accidents",
+        "no crash",
+        "mint condition",
+        "never been in"
+      ],
+      "points": 5,
+      "label": "Accident Free"
+    },
+    "low_mileage": {
+      "keywords": [
+        "low mileage",
+        "low km",
+        "low kilo",
+        "less mileage",
+        "very low mileage"
+      ],
+      "points": 4,
+      "label": "Low Mileage Stated"
+    },
+    "service_records": {
+      "keywords": [
+        "service records",
+        "service history",
+        "full service",
+        "maintained",
+        "company maintained",
+        "agent maintained",
+        "dealer maintained"
+      ],
+      "points": 4,
+      "label": "Service Records"
+    },
+    "full_option": {
+      "keywords": [
+        "full option",
+        "fully loaded",
+        "full options",
+        "all options",
+        "top spec",
+        "fully optioned"
+      ],
+      "points": 3,
+      "label": "Full Option"
+    },
+    "original_condition": {
+      "keywords": [
+        "original paint",
+        "original condition",
+        "factory paint",
+        "unmodified",
+        "genuine"
+      ],
+      "points": 3,
+      "label": "Original Condition"
+    },
+    "safety_features": {
+      "keywords": [
+        "360 cam",
+        "360 camera",
+        "blind spot",
+        "bsm",
+        "lane assist",
+        "pre collision",
+        "safety pack",
+        "safety package",
+        "parking sensors"
+      ],
+      "points": 3,
+      "label": "Safety Features"
+    },
+    "new_unregistered": {
+      "keywords": [
+        "brand new",
+        "unregistered",
+        "zero km",
+        "0 km",
+        "showroom",
+        "recondition",
+        "reconditioned"
+      ],
+      "points": 2,
+      "label": "New/Unregistered"
+    },
+    "4wd_awd": {
+      "keywords": [
+        "4wd",
+        "awd",
+        "4x4",
+        "all wheel",
+        "four wheel",
+        "4 wheel drive"
+      ],
+      "points": 2,
+      "label": "4WD/AWD"
+    }
+  },
+  "negative_signals": {
+    "urgent_sale": {
+      "keywords": [
+        "urgent",
+        "urgent sale",
+        "quick sale",
+        "must sell",
+        "need to sell",
+        "asap"
+      ],
+      "points": -4,
+      "label": "Urgent Sale (Suspicious)"
+    },
+    "accident_damage": {
+      "keywords": [
+        "accident",
+        "collision damage",
+        "front damage",
+        "rear damage",
+        "accident repaired",
+        "had an accident"
+      ],
+      "points": -8,
+      "label": "Accident History"
+    },
+    "engine_issues": {
+      "keywords": [
+        "engine issue",
+        "engine problem",
+        "engine repair",
+        "gearbox issue",
+        "gearbox problem",
+        "needs repair",
+        "not working",
+        "transmission problem",
+        "turbo problem",
+        "4wd fault"
+      ],
+      "points": -10,
+      "label": "Engine/Mechanical Issues"
+    },
+    "reconstructed": {
+      "keywords": [
+        "reconstructed",
+        "re-con",
+        "salvage",
+        "written off"
+      ],
+      "points": -8,
+      "label": "Reconstructed/Salvage"
+    },
+    "body_damage": {
+      "keywords": [
+        "body damage",
+        "panel damage",
+        "dents",
+        "rust",
+        "scratches",
+        "bumper damage"
+      ],
+      "points": -5,
+      "label": "Body/Cosmetic Damage"
+    },
+    "high_mileage_flag": {
+      "keywords": [
+        "high mileage",
+        "used heavily",
+        "fleet vehicle",
+        "taxi",
+        "rental"
+      ],
+      "points": -5,
+      "label": "High Usage/Fleet"
+    }
+  },
+  "scoring": {
+    "base_max": 70,
+    "nlp_max": 30,
+    "final_max": 100,
+    "fairly_priced_min": 65,
+    "review_min": 45
+  }
+}

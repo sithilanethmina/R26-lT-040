@@ -9,3 +9,5 @@ requests
 beautifulsoup4
 xgboost
 joblib
+flask
+flask-cors

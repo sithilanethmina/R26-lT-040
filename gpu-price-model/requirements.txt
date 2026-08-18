@@ -9,3 +9,5 @@ optuna
 rapidfuzz
 shap
 plotly
+fastapi
+uvicorn

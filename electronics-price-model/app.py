@@ -6,6 +6,11 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    from flask import jsonify
+    return jsonify({"status": "ok", "service": "electronics_price_predictor"})
+
 # Dictionary to store all loaded models
 models_db = {
     'laptop': {},
@@ -18,22 +23,31 @@ def load_models():
     for algo in ['xgboost', 'random_forest', 'gradient_boosting']:
         path = f'models/laptop_{algo}.pkl'
         if os.path.exists(path):
-            models_db['laptop'][algo] = joblib.load(path)
-            print(f"Loaded Laptop {algo} model")
+            try:
+                models_db['laptop'][algo] = joblib.load(path)
+                print(f"Loaded Laptop {algo} model")
+            except Exception as e:
+                print(f"Failed to load Laptop {algo} model: {e}")
 
     # Monitor Models
     for algo in ['xgboost', 'random_forest']:
         path = f'models/monitor_{algo}.pkl'
         if os.path.exists(path):
-            models_db['monitor'][algo] = joblib.load(path)
-            print(f"Loaded Monitor {algo} model")
+            try:
+                models_db['monitor'][algo] = joblib.load(path)
+                print(f"Loaded Monitor {algo} model")
+            except Exception as e:
+                print(f"Failed to load Monitor {algo} model: {e}")
 
     # Tablet Models
     for algo in ['xgboost', 'random_forest']:
         path = f'models/tablet_{algo}.pkl'
         if os.path.exists(path):
-            models_db['tablet'][algo] = joblib.load(path)
-            print(f"Loaded Tablet {algo} model")
+            try:
+                models_db['tablet'][algo] = joblib.load(path)
+                print(f"Loaded Tablet {algo} model")
+            except Exception as e:
+                print(f"Failed to load Tablet {algo} model: {e}")
 
 load_models()
 
@@ -148,4 +162,4 @@ def model_info():
     return jsonify(info)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=True, port=8004, use_reloader=False)

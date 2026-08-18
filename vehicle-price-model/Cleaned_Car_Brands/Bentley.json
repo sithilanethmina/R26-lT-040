@@ -1,0 +1,21 @@
+[
+    {
+        "brand": "Bentley",
+        "vehicle_type": "Car",
+        "model": "V8s",
+        "variant": "",
+        "title_raw": "Bentley V8s 2018 Car",
+        "model_year": 2018,
+        "manufacture_year": 2017,
+        "registration_year": 2018,
+        "vehicle_age": 8,
+        "mileage_km": 49000,
+        "mileage_per_year": 6125.0,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Colombo"
+    }
+]

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FairPriceLK Checker</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <h1>FairPriceLK</h1>
+            </div>
+            <button id="extractBtn" class="btn btn-small btn-secondary" title="Auto-extract details from page">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Extract
+            </button>
+        </header>
+
+        <main>
+            <div id="extractionStatus" class="status-msg hidden"></div>
+            <div id="errorSection" class="error-msg hidden"></div>
+
+            <div class="form-group">
+                <label for="categorySelect">Product Category</label>
+                <select id="categorySelect">
+                    <option value="gpu">Graphics Card (GPU)</option>
+                    <option value="mobile">Mobile Phone</option>
+                    <option value="vehicle">Vehicle</option>
+                    <option value="electronics">Electronics (Laptop/Monitor)</option>
+                </select>
+            </div>
+
+            <!-- Form sections container -->
+            <div id="dynamicForms">
+                
+                <!-- GPU Form -->
+                <div id="gpuForm" class="category-form">
+                    <div class="form-group">
+                        <label for="gpuModelInput">GPU Model</label>
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="gpuModelInput" placeholder="Type to search (e.g. RTX 3060, RX 580)" autocomplete="off">
+                            <div id="gpuModelSuggestions" class="suggestions-dropdown hidden"></div>
+                        </div>
+                        <span id="gpuModelError" class="field-error hidden"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gpuVramSelect">VRAM (GB)</label>
+                            <select id="gpuVramSelect">
+                                <option value="8">8 GB</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gpuBrandSelect">Brand</label>
+                            <select id="gpuBrandSelect">
+                                <option value="Any">Any</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gpuManufacturerSelect">Manufacturer</label>
+                        <select id="gpuManufacturerSelect">
+                            <option value="Any">Any</option>
+                            <option value="NVIDIA">NVIDIA</option>
+                            <option value="AMD">AMD</option>
+                            <option value="Intel">Intel</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Mobile Form -->
+                <div id="mobileForm" class="category-form hidden">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mobileTypeSelect">OS</label>
+                            <select id="mobileTypeSelect">
+                                <option value="android">Android</option>
+                                <option value="iphone">iPhone</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileBrandInput">Brand</label>
+                            <input type="text" id="mobileBrandInput" placeholder="e.g. Samsung">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileModelInput">Model</label>
+                        <input type="text" id="mobileModelInput" placeholder="e.g. Galaxy S21">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mobileStorageInput">Storage (GB)</label>
+                            <input type="number" id="mobileStorageInput" placeholder="128" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobileRamInput">RAM (GB)</label>
+                            <input type="number" id="mobileRamInput" placeholder="6" step="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileWarrantyInput">Warranty (Days)</label>
+                        <input type="number" id="mobileWarrantyInput" placeholder="0" step="1" value="0">
+                    </div>
+                </div>
+
+                <!-- Vehicle Form -->
+                <div id="vehicleForm" class="category-form hidden">
+                    <div class="form-group">
+                        <label for="vehicleModelSelect">Model</label>
+                        <select id="vehicleModelSelect">
+                            <option value="Toyota Corolla">Toyota Corolla</option>
+                            <option value="Toyota Aqua">Toyota Aqua</option>
+                            <option value="Suzuki Alto">Suzuki Alto</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleYearInput">Year</label>
+                            <input type="number" id="vehicleYearInput" placeholder="2015" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleVariantInput">Variant</label>
+                            <input type="text" id="vehicleVariantInput" placeholder="e.g. 121, G1_Manual_2000-2012">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleTransmissionSelect">Transmission</label>
+                            <select id="vehicleTransmissionSelect">
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleFuelSelect">Fuel</label>
+                            <select id="vehicleFuelSelect">
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronics Form -->
+                <div id="electronicsForm" class="category-form hidden">
+                    <div class="form-group">
+                        <label for="elecCategorySelect">Type</label>
+                        <select id="elecCategorySelect">
+                            <option value="laptop">Laptop</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="tablet">Tablet</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="elecBrandInput">Brand</label>
+                            <input type="text" id="elecBrandInput" placeholder="e.g. Dell">
+                        </div>
+                        <div class="form-group">
+                            <label for="elecModelInput">Model</label>
+                            <input type="text" id="elecModelInput" placeholder="e.g. XPS 13">
+                        </div>
+                    </div>
+                    <div class="form-row" id="elecRamStorageRow">
+                        <div class="form-group">
+                            <label for="elecRamInput">RAM (GB)</label>
+                            <input type="number" id="elecRamInput" placeholder="8" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="elecStorageInput">Storage (GB)</label>
+                            <input type="number" id="elecStorageInput" placeholder="256" step="1">
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End dynamicForms -->
+
+            <div class="divider"></div>
+
+            <div class="form-group">
+                <label for="priceInput">Listed Price (LKR)</label>
+                <div class="input-with-prefix">
+                    <span class="prefix">Rs.</span>
+                    <input type="number" id="priceInput" placeholder="85000">
+                </div>
+            </div>
+
+            <button id="predictBtn" class="btn btn-primary">
+                Check Price
+            </button>
+
+            <div id="resultSection" class="result-box hidden">
+                <div class="result-header" id="resultHeader">ESTIMATED FAIR MARKET RANGE</div>
+                <div class="result-price">
+                    Rs. <span id="predictedPrice">--</span>
+                </div>
+                <div class="result-meta">
+                    <span id="fairnessBadge" class="badge">--</span>
+                    <span id="priceDiff" class="diff-text">--</span>
+                </div>
+                <div id="verdictDescription" class="verdict-desc hidden"></div>
+                <div class="result-footer">
+                    <span id="modelUsedName">--</span>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="status-indicator">
+                <span id="serverStatusDot" class="dot"></span>
+                <span id="serverStatusText">Checking connection...</span>
+            </div>
+        </footer>
+    </div>
+    <script src="config.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

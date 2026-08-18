@@ -1,0 +1,101 @@
+{
+  "version": "v2.0",
+  "best_model": "random_forest",
+  "n_models": 6,
+  "feature_count": 17,
+  "training_records": {
+    "total_records": 14663,
+    "train_records": 11730,
+    "test_records": 2933,
+    "train_ratio_pct": 80.0,
+    "features_count": 17,
+    "models": {
+      "lightgbm": {
+        "name": "LightGBM",
+        "train_records": 11730,
+        "test_records": 2933,
+        "tune_records": 11730,
+        "preprocessing": "Tree-based (No scaling)",
+        "notes": "Tuned with Optuna on 11,730 training records; evaluated on 2,933 test records."
+      },
+      "xgboost": {
+        "name": "XGBoost",
+        "train_records": 11730,
+        "test_records": 2933,
+        "tune_records": 11730,
+        "preprocessing": "Tree-based (No scaling)",
+        "notes": "Tuned with Optuna on 11,730 training records; evaluated on 2,933 test records."
+      },
+      "random_forest": {
+        "name": "Random Forest",
+        "train_records": 11730,
+        "test_records": 2933,
+        "tune_records": 11730,
+        "preprocessing": "Tree-based (SimpleImputer + OrdinalEncoder)",
+        "notes": "Tuned with Optuna on 11,730 training records; evaluated on 2,933 test records."
+      },
+      "knn": {
+        "name": "KNN (K-Nearest Neighbors)",
+        "train_records": 11730,
+        "test_records": 2933,
+        "tune_records": 11730,
+        "preprocessing": "StandardScaler Normalized",
+        "notes": "Features normalized using StandardScaler across 11,730 training records."
+      },
+      "svr": {
+        "name": "SVR (Support Vector Regressor)",
+        "train_records": 11730,
+        "test_records": 2933,
+        "tune_records": 5000,
+        "preprocessing": "StandardScaler Normalized",
+        "notes": "Hyperparameters tuned on 5,000 records for speed; final model fitted on all 11,730 training records."
+      },
+      "stacking_ensemble": {
+        "name": "Stacking Ensemble",
+        "train_records": 11730,
+        "test_records": 2933,
+        "tune_records": 11730,
+        "preprocessing": "Base Estimators (LGBM + RF + KNN) \u2192 Ridge Meta-Learner",
+        "notes": "Trained using 5-fold cross-validated meta-features across all 11,730 training records."
+      }
+    }
+  },
+  "results": {
+    "lightgbm": {
+      "mape_pct": 9.31,
+      "r2": 0.9847,
+      "rmse_lkr": 6978.0,
+      "within_10pct": 64.47
+    },
+    "xgboost": {
+      "mape_pct": 9.28,
+      "r2": 0.9847,
+      "rmse_lkr": 6957.0,
+      "within_10pct": 64.47
+    },
+    "random_forest": {
+      "mape_pct": 9.26,
+      "r2": 0.9848,
+      "rmse_lkr": 6946.0,
+      "within_10pct": 64.68
+    },
+    "knn": {
+      "mape_pct": 9.59,
+      "r2": 0.9834,
+      "rmse_lkr": 7267.0,
+      "within_10pct": 62.94
+    },
+    "svr": {
+      "mape_pct": 9.57,
+      "r2": 0.9841,
+      "rmse_lkr": 7318.0,
+      "within_10pct": 64.13
+    },
+    "stacking_ensemble": {
+      "mape_pct": 9.27,
+      "r2": 0.9848,
+      "rmse_lkr": 6950.0,
+      "within_10pct": 64.68
+    }
+  }
+}

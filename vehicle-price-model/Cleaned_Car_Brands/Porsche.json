@@ -1,0 +1,42 @@
+[
+    {
+        "brand": "Porsche",
+        "vehicle_type": "Car",
+        "model": "Panamera",
+        "variant": "",
+        "title_raw": "Porsche Panamera 2013 Car",
+        "model_year": 2013,
+        "manufacture_year": 2012,
+        "registration_year": 2013,
+        "vehicle_age": 13,
+        "mileage_km": 121600,
+        "mileage_per_year": 9353.85,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Nugegoda",
+        "price": 41000000
+    },
+    {
+        "brand": "Porsche",
+        "vehicle_type": "Car",
+        "model": "Panamera",
+        "variant": "S Hybrid 3L TWIN TURBO",
+        "title_raw": "Porsche Panamera S Hybrid 3L TWIN TURBO 2013 Car",
+        "model_year": 2013,
+        "manufacture_year": 2012,
+        "registration_year": 2013,
+        "vehicle_age": 13,
+        "mileage_km": 63000,
+        "mileage_per_year": 4846.15,
+        "engine_cc": null,
+        "fuel_type_raw": "Hybrid",
+        "fuel_type": "Hybrid",
+        "transmission": "Automatic",
+        "condition": "Unknown",
+        "location": "Kelaniya",
+        "price": 32000000
+    }
+]

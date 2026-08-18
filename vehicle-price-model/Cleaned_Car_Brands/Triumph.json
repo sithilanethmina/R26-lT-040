@@ -1,0 +1,22 @@
+[
+    {
+        "brand": "Triumph",
+        "vehicle_type": "Car",
+        "model": "MAYFLOWER",
+        "variant": "",
+        "title_raw": "Triumph MAYFLOWER 1980 Car",
+        "model_year": 1980,
+        "manufacture_year": 1979,
+        "registration_year": 1980,
+        "vehicle_age": 46,
+        "mileage_km": 80000,
+        "mileage_per_year": 1739.13,
+        "engine_cc": null,
+        "fuel_type_raw": "Petrol",
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "condition": "Unknown",
+        "location": "Battaramulla",
+        "price": 2500000
+    }
+]

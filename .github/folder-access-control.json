@@ -2,9 +2,9 @@
   "default_policy": "allow",
   "owners": {
     ".github": ["sithilanethmina"],
-    "electronics-price-model": ["NimsaraThenuka"],
+    "electronics-price-model": ["NimsaraThenuka", "sithilanethmina"],
     "gpu-price-model": ["sithilanethmina"],
-    "mobile-price-model": ["Kavi-Gomez"],
-    "vehicle-price-model": ["DulaG"]
+    "mobile-price-model": ["Kavi-Gomez", "sithilanethmina"],
+    "vehicle-price-model": ["DulaG", "sithilanethmina"]
   }
 }

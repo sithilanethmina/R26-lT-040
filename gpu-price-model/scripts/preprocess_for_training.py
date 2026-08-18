@@ -96,7 +96,8 @@ def main():
         if not trusted_info:
             # Data Validation: Invalid/unknown models are likely typos or fakes
             # (e.g., GTX 6501). Discard to prevent training data poisoning.
-            print(f"⚠ Discarding invalid model: '{model}' (Raw: {raw_title[:50]}...)")
+            safe_title = raw_title[:50].encode('ascii', 'ignore').decode('ascii')
+            print(f"WARNING: Discarding invalid model: '{model}' (Raw: {safe_title}...)")
             item["Discard_Reason"] = "Invalid or unknown GPU model"
             discarded_items.append(item)
             continue
@@ -162,22 +163,25 @@ def main():
         df = pd.DataFrame(final_data)
         original_count = len(df)
         
-        def remove_outliers(group):
-            if len(group) < 4:
-                return group
-            q1 = group["Price_LKR"].quantile(0.25)
-            q3 = group["Price_LKR"].quantile(0.75)
+        def get_outlier_mask(s):
+            if len(s) < 4:
+                return pd.Series(True, index=s.index)
+            q1 = s.quantile(0.25)
+            q3 = s.quantile(0.75)
             iqr = q3 - q1
             if iqr == 0:
-                return group
+                return pd.Series(True, index=s.index)
             
             lower_bound = q1 - 1.5 * iqr
             upper_bound = q3 + 1.5 * iqr
-            return group[(group["Price_LKR"] >= lower_bound) & (group["Price_LKR"] <= upper_bound)]
+            return (s >= lower_bound) & (s <= upper_bound)
             
         # Group by BOTH Model and Brand so premium brands (like ASUS) aren't compared to cheaper brands
-        filtered_df = df.groupby(["Extracted_Model", "Brand"], dropna=False, group_keys=False).apply(remove_outliers)
-        outliers_df = df.drop(filtered_df.index)
+        mask = df.groupby(["Extracted_Model", "Brand"], dropna=False)["Price_LKR"].transform(get_outlier_mask)
+        mask = mask.astype(bool)
+        
+        filtered_df = df[mask]
+        outliers_df = df[~mask]
         outliers_data = outliers_df.to_dict(orient="records")
         outliers_removed = len(outliers_data)
         
@@ -215,10 +219,10 @@ def main():
     with open(discarded_file, "w", encoding="utf-8") as f:
         json.dump(discarded_items, f, indent=4)
 
-    print(f"✓ Processed {len(final_data) + outliers_removed} valid records")
-    print(f"✓ Discarded {len(discarded_items)} invalid records (saved to {discarded_file.relative_to(project_root)})")
-    print(f"✓ Removed {outliers_removed} price outliers via IQR (saved to {outliers_file.relative_to(project_root)})")
-    print(f"✓ Saved {len(final_data)} clean records to {output_file.relative_to(project_root)}")
+    print(f"[OK] Processed {len(final_data) + outliers_removed} valid records")
+    print(f"[OK] Discarded {len(discarded_items)} invalid records (saved to {discarded_file.relative_to(project_root)})")
+    print(f"[OK] Removed {outliers_removed} price outliers via IQR (saved to {outliers_file.relative_to(project_root)})")
+    print(f"[OK] Saved {len(final_data)} clean records to {output_file.relative_to(project_root)}")
 
 
 if __name__ == "__main__":

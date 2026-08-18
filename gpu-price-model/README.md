@@ -528,25 +528,59 @@ The sidebar includes a dropdown to select which trained model to use for predict
 - Use models with different bias-variance tradeoffs
 - Demonstrate the impact of model selection on research presentations
 
-## Run The Scrapers
+## Running the Complete Pipeline
 
-Examples:
+To run the full data collection, processing, feature engineering, model training, conformal calibration, validation, and app execution from scratch, follow these steps in order:
 
+**1. Data Collection (Scraping & Initial Cleaning)**
 ```powershell
-python scrapers/ikman_used_gpus_scraper.py
-python scrapers/msk_used_gpus_scraper.py
-python scrapers/md_used_gpus_scraper.py
+python scripts/run_pipeline.py
 ```
+*Outputs: `data/cleaned/all_scraped_data.json`*
 
-By default, the scrapers save outputs into:
+**2. Schema Harmonization**
+```powershell
+python scripts/restructure_data.py
+```
+*Outputs: `data/final/restructured_scraped_data.json`*
 
-- `data/raw`
-- `data/cleaned`
+**3. Data Validation & Preprocessing**
+```powershell
+python scripts/preprocess_for_training.py
+```
+*Outputs: `data/final/training_data_v2.json`*
 
-## Files You Can Mention In The Demo
+**4. Feature Enrichment & Spec Joining**
+```powershell
+python scripts/build_benchmark_features.py
+```
+*Outputs: `data/final/gpu_enriched_dataset.csv` (Enriches dataset with PassMark benchmarks and `tier_class` performance tiers, with pre-split leakage removed)*
 
-- `scripts/train_model.py`: trains the ML model
-- `src/gpu_price_predictor/pipeline.py`: data processing and feature engineering
-- `src/gpu_price_predictor/app.py`: prediction UI
-- `artifacts/model_metrics.json`: model performance results
-- `artifacts/gpu_training_dataset.csv`: merged dataset used for training
+**5. Model Training (v2 Multi-Model Ensemble)**
+```powershell
+python scripts/train_model_v2.py
+```
+*Outputs: `artifacts/gpu_price_model_v2.joblib` and `artifacts/training_summary_v2.json` (Trains 6 models using post-split IQR filtering, Optuna tuning, and distance-model imputation)*
+
+**6. Conformal Prediction Calibration**
+```powershell
+python scripts/calibrate_conformal_ranges.py
+```
+*Outputs: Updated `artifacts/gpu_price_model_v2.joblib` containing tier-stratified 90% confidence conformal quantiles ($q_{0.90}$)*
+
+**7. Conformal Range Backtesting & Validation**
+```powershell
+python scripts/validate_conformal_ranges.py
+```
+*Outputs: Holdout test set validation report evaluating Empirical Coverage Ratio (ECR, target 90%), Mean Relative Interval Width (MRIW), and price verdict distributions*
+
+**8. Model Explainability (Optional)**
+```powershell
+python scripts/run_shap_analysis.py
+```
+*Outputs: `artifacts/shap_summary_plot.png`*
+
+**9. Run the Streamlit Application**
+```powershell
+streamlit run scripts/run_app.py
+```

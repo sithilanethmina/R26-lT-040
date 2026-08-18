@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "FairPriceLK Checker",
+  "version": "1.0",
+  "description": "Check if Sri Lankan second-hand marketplace prices are fair using ML models.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Check Fair Price",
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["config.js", "gpu_metadata.json", "icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
