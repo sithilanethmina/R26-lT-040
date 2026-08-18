@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-08-14T16:55:15",
+  "target": "listed_price",
+  "features": [
+    "brand",
+    "model",
+    "storage_gb",
+    "ram_gb",
+    "warranty_days",
+    "battery_health_percent",
+    "dual_sim",
+    "has_5g",
+    "has_esim",
+    "model_tier",
+    "brand_tier",
+    "phone_age_years",
+    "is_flagship"
+  ],
+  "training_condition_filter": "used",
+  "results": {
+    "random_forest_iphone": {
+      "model_name": "Random Forest",
+      "phone_type": "iphone",
+      "total_records": 4896,
+      "train_records": 3916,
+      "test_records": 980,
+      "mae": 10316.05964889372,
+      "rmse": 17074.05199700642,
+      "r2_score": 0.9407325349786436,
+      "mape_percent": 11.723152672354027,
+      "cv_mae": 10780.830796310693
+    },
+    "lightgbm_iphone": {
+      "model_name": "LightGBM",
+      "phone_type": "iphone",
+      "total_records": 4896,
+      "train_records": 3916,
+      "test_records": 980,
+      "mae": 10119.943886022376,
+      "rmse": 17126.417732852413,
+      "r2_score": 0.9403684335069912,
+      "mape_percent": 11.464843460188224,
+      "cv_mae": 10839.851264369898
+    },
+    "xgboost_iphone": {
+      "model_name": "XGBoost",
+      "phone_type": "iphone",
+      "total_records": 4896,
+      "train_records": 3916,
+      "test_records": 980,
+      "mae": 10015.843530771685,
+      "rmse": 17502.810672711257,
+      "r2_score": 0.9377185460089501,
+      "mape_percent": 11.422513483981572,
+      "cv_mae": 10598.040374057011
+    },
+    "catboost_iphone": {
+      "model_name": "CatBoost",
+      "phone_type": "iphone",
+      "total_records": 4896,
+      "train_records": 3916,
+      "test_records": 980,
+      "mae": 10008.345661054755,
+      "rmse": 17413.0802650962,
+      "r2_score": 0.9383554968590628,
+      "mape_percent": 11.34074795704079,
+      "cv_mae": 10621.263896065131
+    },
+    "random_forest_android": {
+      "model_name": "Random Forest",
+      "phone_type": "android",
+      "total_records": 4926,
+      "train_records": 3940,
+      "test_records": 986,
+      "mae": 7776.453893826607,
+      "rmse": 11746.662399162567,
+      "r2_score": 0.808415820809334,
+      "mape_percent": 31.8073588756858,
+      "cv_mae": 7439.3800618332125
+    },
+    "lightgbm_android": {
+      "model_name": "LightGBM",
+      "phone_type": "android",
+      "total_records": 4926,
+      "train_records": 3940,
+      "test_records": 986,
+      "mae": 7804.624196546673,
+      "rmse": 11650.709012041378,
+      "r2_score": 0.8115329732904846,
+      "mape_percent": 31.757264305420257,
+      "cv_mae": 7585.4319317189465
+    },
+    "xgboost_android": {
+      "model_name": "XGBoost",
+      "phone_type": "android",
+      "total_records": 4926,
+      "train_records": 3940,
+      "test_records": 986,
+      "mae": 7857.742793642241,
+      "rmse": 11846.472473349775,
+      "r2_score": 0.8051462503792757,
+      "mape_percent": 31.61923654234332,
+      "cv_mae": 7504.541569340896
+    },
+    "catboost_android": {
+      "model_name": "CatBoost",
+      "phone_type": "android",
+      "total_records": 4926,
+      "train_records": 3940,
+      "test_records": 986,
+      "mae": 7772.653262156392,
+      "rmse": 11810.522475380074,
+      "r2_score": 0.8063270851028613,
+      "mape_percent": 32.9166953764207,
+      "cv_mae": 7524.724654302941
+    }
+  },
+  "skipped_models": {},
+  "recommendations": {
+    "android": {
+      "recommended_model": "CatBoost",
+      "recommended_model_mae": 7772.653262156392,
+      "recommended_model_r2_score": 0.8063270851028613,
+      "lowest_mae_model": "CatBoost",
+      "lowest_mae": 7772.653262156392,
+      "highest_r2_model": "LightGBM",
+      "highest_r2_score": 0.8115329732904846
+    },
+    "iphone": {
+      "recommended_model": "CatBoost",
+      "recommended_model_mae": 10008.345661054755,
+      "recommended_model_r2_score": 0.9383554968590628,
+      "lowest_mae_model": "CatBoost",
+      "lowest_mae": 10008.345661054755,
+      "highest_r2_model": "Random Forest",
+      "highest_r2_score": 0.9407325349786436
+    }
+  },
+  "fair_price_output_files": {
+    "json": "D:\\TEst\\R26-lT-040\\mobile-price-model\\outputs\\fair_price_predictions.json",
+    "csv": "D:\\TEst\\R26-lT-040\\mobile-price-model\\outputs\\fair_price_predictions.csv"
+  }
+}
