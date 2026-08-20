@@ -185,7 +185,7 @@ the app builds the same feature structure used during training and sends it into
 The app then returns:
 
 - predicted price in LKR
-- estimated price range based on model error
+- estimated fair market price range (`[lower_bound, upper_bound]`) with calibrated statistical coverage
 
 If the user chooses `Any` for brand or stock:
 
@@ -193,6 +193,32 @@ If the user chooses `Any` for brand or stock:
 - then averages those predictions
 
 So the result still comes from the ML model, not from hardcoded fallback values.
+
+### 7. How Price Range is Determined (Split Conformal Prediction)
+
+Rather than using arbitrary percentage buffers (e.g. ±15%) or assuming normal distribution errors, the system calculates statistically rigorous **Fair Market Price Ranges** using **Split Conformal Prediction** calibrated in log-space ($\ln(\text{Price} + 1)$):
+
+1. **Nonconformity Scoring via Out-of-Fold (OOF) Residuals**:
+   - During 5-fold cross-validation (`scripts/calibrate_conformal_ranges.py`), out-of-fold log predictions are compared to actual listing prices to calculate absolute log-space residuals:
+     $$\alpha_i = |\ln(y_i + 1) - \ln(\hat{y}_i + 1)|$$
+2. **Tier-Stratified Conformal Quantiles ($q_{0.90}$)**:
+   - Market volatility differs across budget segments. Quantiles are calibrated across three price tiers:
+     - **Entry Tier** ($< \text{LKR } 35,000$)
+     - **Mid Tier** ($\text{LKR } 35,000 - 110,000$)
+     - **High Tier** ($> \text{LKR } 110,000$)
+   - For a target $1 - \alpha = 90\%$ coverage with $n$ samples, the empirical conformal quantile level is calculated as:
+     $$p = \min\left(1.0, 0.90 \times \left(1 + \frac{1}{n}\right)\right), \quad q_{0.90} = \text{Quantile}(\{\alpha_i\}, p)$$
+3. **Small-Sample Penalty Multiplier ($k(n)$)**:
+   - When a specific GPU model has limited marketplace listings ($n < 20$), the interval is widened using a sample-size penalty to reflect epistemic uncertainty:
+     $$k(n) = \begin{cases} 1.0 + \frac{1.5}{\sqrt{n + 1}}, & \text{if } n < 10 \\ 1.0 + \frac{0.5}{\sqrt{n}}, & \text{if } 10 \le n < 20 \\ 1.0, & \text{if } n \ge 20 \end{cases}$$
+   - The effective quantile becomes $q_{\text{effective}} = q_{0.90} \times k(n)$.
+4. **Range Construction & Inverse Transformation**:
+   - The lower and upper bounds are bounded in log-space and converted back to LKR via $\exp(x) - 1$:
+     $$\text{Lower Bound} = \max\left(0, \exp\left(\hat{y}_{\log} - q_{\text{effective}}\right) - 1\right)$$
+     $$\text{Upper Bound} = \exp\left(\hat{y}_{\log} + q_{\text{effective}}\right) - 1$$
+   - Values are rounded to the nearest 100 LKR for clean presentation.
+5. **Empirical Validation**:
+   - Backtested against the 20% holdout test set (`scripts/validate_conformal_ranges.py`) to guarantee an **Empirical Coverage Ratio (ECR)** of $\ge 90\%$ while minimizing Mean Relative Interval Width (MRIW).
 
 ## Why This Is Machine Learning
 

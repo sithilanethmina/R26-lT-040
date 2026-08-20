@@ -1,12 +1,15 @@
 {
   "manifest_version": 3,
   "name": "FairPriceLK Checker",
-  "version": "1.0",
-  "description": "Check if Sri Lankan second-hand marketplace prices are fair using ML models.",
+  "version": "1.1",
+  "description": "Check if Sri Lankan second-hand marketplace prices are fair using ML models directly on webpage listings and extension popup.",
   "permissions": [
     "activeTab",
     "scripting"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "host_permissions": [
     "<all_urls>"
   ],
@@ -20,9 +23,45 @@
   "icons": {
     "128": "icon.png"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.ikman.lk/*",
+        "*://*.patpat.lk/*",
+        "*://*.riyasewana.com/*",
+        "*://*.daraz.lk/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "config.js",
+        "fairness_calculator.js",
+        "extractors/gpu.js",
+        "extractors/mobile.js",
+        "extractors/vehicle.js",
+        "extractors/electronics.js",
+        "extractors/index.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
   "web_accessible_resources": [
     {
-      "resources": ["config.js", "gpu_metadata.json", "icon.png"],
+      "resources": [
+        "config.js",
+        "fairness_calculator.js",
+        "gpu_metadata.json",
+        "icon.png",
+        "content.css",
+        "extractors/gpu.js",
+        "extractors/mobile.js",
+        "extractors/vehicle.js",
+        "extractors/electronics.js",
+        "extractors/index.js"
+      ],
       "matches": ["<all_urls>"]
     }
   ]

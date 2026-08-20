@@ -47,17 +47,21 @@ def start_services():
                 print(f"Skipping {svc['name']} - {file_to_run} not found.")
                 continue
                 
-        print(f"Starting {svc['name']}...")
+        print(f"Starting {svc['name']} in a new window...")
         env = os.environ.copy()
         python_paths = [str(PROJECT_ROOT), str(PROJECT_ROOT / "api-gateway"), str(PROJECT_ROOT / "gpu-price-model" / "src")]
         if "PYTHONPATH" in env:
             python_paths.append(env["PYTHONPATH"])
         env["PYTHONPATH"] = os.pathsep.join(python_paths)
         
+        # On Windows, open each service in its own visible console window
+        creationflags = subprocess.CREATE_NEW_CONSOLE if sys.platform == "win32" else 0
+        
         p = subprocess.Popen(
             svc["cmd"], 
             cwd=str(svc["cwd"]),
-            env=env
+            env=env,
+            creationflags=creationflags
         )
         processes.append((svc['name'], p))
         time.sleep(1) # stagger startup
