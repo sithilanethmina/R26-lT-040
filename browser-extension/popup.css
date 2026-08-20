@@ -1,22 +1,29 @@
 :root {
     --bg: #FAFAF8;
     --bg-surface: #FFFFFF;
-    --bg-result: #F5F4F0;
-    --text-primary: #1A1A18;
-    --text-secondary: #6B6B66;
-    --border: #E5E5E3;
+    --bg-surface-alt: #F4F4F1;
+    --text-primary: #18181B;
+    --text-secondary: #52525B;
+    --text-subtle: #71717A;
+    --border: #E4E4E0;
     --border-hover: #D1D1CD;
-    --accent: #D97706; /* Warm amber */
+    --accent: #D97706; /* Warm Amber Brand */
     --accent-hover: #B45309;
-    --success: #16A34A;
-    --warning: #D97706;
+    --accent-light: #FFFBEB;
+    --success: #15803D;
+    --success-bg: #F0FDF4;
+    --success-border: #BBF7D0;
+    --warning: #B45309;
+    --warning-bg: #FFFBEB;
+    --warning-border: #FDE68A;
     --danger: #DC2626;
-    --radius: 6px;
+    --danger-bg: #FEF2F2;
+    --danger-border: #FECACA;
+    --radius: 8px;
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 12px;
     --space-4: 16px;
-    --space-5: 20px;
 }
 
 * {
@@ -26,25 +33,30 @@
 }
 
 body {
-    width: 360px;
-    background-color: var(--bg);
+    width: 396px;
+    background-color: #FFFFFF;
     color: var(--text-primary);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.4;
+    padding: 8px;
 }
 
 .app-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: calc(100vh - 16px);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-3) var(--space-4);
+    padding: 10px 16px;
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border);
 }
@@ -52,201 +64,250 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    color: var(--text-primary);
+    gap: 8px;
+}
+
+.logo img {
+    border-radius: 4px;
+    object-fit: contain;
 }
 
 h1 {
     font-size: 14px;
     font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.2px;
 }
 
 main {
-    padding: var(--space-4);
+    padding: 14px 16px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 12px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    margin-bottom: var(--space-2);
-    flex: 1;
-}
-
-.form-row {
-    display: flex;
-    gap: var(--space-3);
-}
-
-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-secondary);
-}
-
-input, select {
-    width: 100%;
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 13px;
-    transition: border-color 0.15s ease;
-}
-
-input:hover, select:hover {
-    border-color: var(--border-hover);
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-input::placeholder {
-    color: #A3A39F;
-}
-
-.input-with-prefix {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.input-with-prefix .prefix {
-    position: absolute;
-    left: var(--space-3);
-    color: var(--text-secondary);
-    font-size: 13px;
-    pointer-events: none;
-}
-
-.input-with-prefix input {
-    padding-left: 32px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    border: none;
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-    width: 100%;
-}
-
-.btn-small {
-    width: auto;
-    padding: var(--space-1) var(--space-2);
-    font-size: 12px;
-}
-
-.btn-primary {
-    background-color: var(--accent);
-    color: white;
-    padding: 10px 16px;
-    font-weight: 700;
-}
-
-.btn-primary:hover:not(:disabled) {
-    background-color: var(--accent-hover);
-}
-
-.btn-secondary {
-    background-color: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-}
-
-.btn-secondary:hover {
-    background-color: #F0F0EE;
-}
-
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.divider {
-    height: 1px;
-    background-color: var(--border);
-    margin: var(--space-2) 0;
-}
-
-.category-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* Result Box */
+/* Intelligence Report Box */
 .result-box {
-    background-color: var(--bg-result);
+    background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: var(--space-4);
+    padding: 14px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
 
-.result-header {
+.product-identity-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cat-tag {
+    background: var(--bg-surface-alt);
+    color: var(--text-secondary);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.prod-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Price Tiles */
+.price-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.price-tile {
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.price-tile.highlight {
+    background: var(--accent-light);
+    border-color: var(--warning-border);
+}
+
+.price-tile-lbl {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.price-tile-val {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* Range Gauge */
+.range-gauge-wrapper {
+    padding: 4px 0;
+}
+
+.range-gauge-track {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.range-gauge-fill {
+    position: absolute;
+    height: 100%;
+    background: #CBD5E1;
+    border-radius: 3px;
+}
+
+.range-gauge-marker {
+    position: absolute;
+    top: -4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    transform: translateX(-50%);
+}
+
+/* Verdict Banner */
+.verdict-banner {
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.verdict-banner.great-deal {
+    background: #ECFDF5;
+    border: 1px solid #A7F3D0;
+    color: #047857;
+}
+
+.verdict-banner.fair {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1D4ED8;
+}
+
+.verdict-banner.high, .verdict-banner.warning {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    color: #B45309;
+}
+
+.verdict-banner.overpriced {
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    color: #B91C1C;
+}
+
+.verdict-banner.suspicious, .verdict-banner.scam, .verdict-banner.danger {
+    background: #FFF1F2;
+    border: 1px solid #FECDD3;
+    color: #BE123C;
+}
+
+.verdict-banner.neutral {
+    background: #F4F4F5;
+    border: 1px solid #E4E4E7;
+    color: #52525B;
+}
+
+.verdict-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.verdict-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.verdict-score {
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0.85;
+}
+
+.verdict-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.35;
+    margin-top: 2px;
+}
+
+.result-footer {
+    font-size: 10px;
+    color: var(--text-subtle);
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Collapsible Spec Editor */
+.spec-editor-details {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.spec-editor-summary {
+    padding: 10px 12px;
+    cursor: pointer;
     font-size: 11px;
     font-weight: 700;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.result-price {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.result-meta {
+    letter-spacing: 0.4px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--space-3);
-    margin-top: var(--space-1);
+    background: #FAFAF8;
+    user-select: none;
 }
 
-.badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: var(--radius);
-    font-size: 11px;
-    font-weight: 700;
-    background-color: var(--border);
-    color: var(--text-primary);
-    border: 1px solid rgba(0,0,0,0.05);
+.spec-editor-summary .edit-hint {
+    font-size: 10px;
+    color: var(--text-subtle);
+    text-transform: none;
+    font-weight: normal;
 }
 
-.badge.fair {
-    background-color: #DCFCE7;
-    color: var(--success);
-    border-color: #BBF7D0;
-}
-
-.badge.overpriced {
-    background-color: #FEF3C7;
-    color: var(--warning);
-    border-color: #FDE68A;
+.spec-editor-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--border);
 }
 
 .badge.warning {

@@ -1058,32 +1058,36 @@ def calculate_fair_market_range(
 def calculate_fairness_score(listed_price: float, lower_bound: float, upper_bound: float) -> float:
     """
     Continuous Fairness Score S ∈ [0, 100].
-    
-    midpoint = (lower + upper) / 2
-    half_width = (upper - lower) / 2
-    z = (listed_price - midpoint) / half_width
-    
-    Inside range (-1 <= z <= 1): S = 100 - 25 * |z|   (75 at boundary, 100 at midpoint)
-    Outside range (|z| > 1): S = max(0, 75 * exp(-0.8 * (|z| - 1)))
+    Takes into account market bounds and penalizes extreme anomalies.
     """
     if not listed_price or listed_price <= 0 or upper_bound <= lower_bound:
         return 0.0
         
     midpoint = (lower_bound + upper_bound) / 2.0
-    half_width = (upper_bound - lower_bound) / 2.0
+    diff_pct = ((listed_price - midpoint) / midpoint) * 100.0
     
-    if half_width <= 0:
-        return 50.0
+    # Anomaly / Scam tier (< -35%)
+    if diff_pct < -35.0:
+        return round(max(15.0, min(40.0, 50.0 + (diff_pct * 0.4))), 1)
         
-    z = (listed_price - midpoint) / half_width
-    abs_z = abs(z)
-    
-    if abs_z <= 1.0:
-        score = 100.0 - 25.0 * abs_z
-    else:
-        score = 75.0 * math.exp(-0.8 * (abs_z - 1.0))
+    # Great deal (-35% to -10%)
+    if diff_pct < -10.0:
+        score = 85.0 + ((-diff_pct - 10.0) / 25.0) * 15.0
+        return round(min(100.0, max(85.0, score)), 1)
         
-    return round(max(0.0, min(100.0, score)), 1)
+    # Fair price (-10% to +10%)
+    if diff_pct <= 10.0:
+        score = 84.0 - (abs(diff_pct) / 10.0) * 14.0
+        return round(score, 1)
+        
+    # Slightly overpriced (+10% to +25%)
+    if diff_pct <= 25.0:
+        score = 69.0 - ((diff_pct - 10.0) / 15.0) * 19.0
+        return round(max(50.0, score), 1)
+        
+    # Significantly overpriced (> +25%)
+    score = 49.0 - min(39.0, (diff_pct - 25.0) * 0.8)
+    return round(max(10.0, score), 1)
 
 
 def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: float) -> dict[str, Any]:
@@ -1104,34 +1108,54 @@ def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: f
     diff = listed_price - midpoint
     diff_pct = (diff / midpoint) * 100.0
     
-    if listed_price < lower_bound:
+    if diff_pct < -35.0:
         return {
-            "verdict_code": "BELOW_RANGE",
-            "verdict": "Unusually Low / Below Typical Market Range",
-            "badge_class": "warning",
+            "verdict_code": "SUSPICIOUS_LOW",
+            "verdict": "⚠️ Suspiciously Low Price",
+            "badge_class": "suspicious",
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "description": "Asking price is below expected market range. Verify card condition and test under load (FurMark/3DMark) before purchasing."
+            "description": f"Asking price is ~{abs(round(diff_pct))}% below market average. Beware of ex-mining damage, defective VRAM, or advance deposit scams."
         }
-    elif listed_price > upper_bound:
+    elif diff_pct < -10.0:
         return {
-            "verdict_code": "ABOVE_RANGE",
-            "verdict": "Above Typical Market Range",
-            "badge_class": "overpriced",
+            "verdict_code": "GREAT_DEAL",
+            "verdict": "🟢 Great Deal / Bargain",
+            "badge_class": "great-deal",
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "description": "Asking price is higher than typical market listings. Negotiate down toward the fair range unless listing includes warranty or extra accessories."
+            "description": f"Priced ~{abs(round(diff_pct))}% below average market rate. High value opportunity if hardware passes thermal/load tests."
         }
-    else:
+    elif diff_pct <= 10.0:
         return {
-            "verdict_code": "WITHIN_RANGE",
-            "verdict": "Within Expected Market Range",
+            "verdict_code": "FAIR_PRICE",
+            "verdict": "🔵 Fair Market Price",
             "badge_class": "fair",
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
             "description": "Asking price matches expected Sri Lankan market distribution for this GPU model and specification."
+        }
+    elif diff_pct <= 25.0:
+        return {
+            "verdict_code": "SLIGHTLY_HIGH",
+            "verdict": "🟡 Slightly Overpriced",
+            "badge_class": "high",
+            "fairness_score": score,
+            "price_difference_lkr": round(diff, 0),
+            "price_difference_pct": round(diff_pct, 1),
+            "description": f"Listed ~{round(diff_pct)}% higher than typical market rate. Room for negotiation toward the fair baseline."
+        }
+    else:
+        return {
+            "verdict_code": "OVERPRICED",
+            "verdict": "🔴 Significantly Overpriced",
+            "badge_class": "overpriced",
+            "fairness_score": score,
+            "price_difference_lkr": round(diff, 0),
+            "price_difference_pct": round(diff_pct, 1),
+            "description": f"Listed ~{round(diff_pct)}% above expected market average. Heavy negotiation recommended unless official warranty is included."
         }
 

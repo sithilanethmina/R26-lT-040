@@ -830,10 +830,16 @@ def _render_prediction_results(
     desc = verdict_info.get("description", "")
 
     if listed_price and listed_price > 0:
-        if badge_cls == "fair":
-            fairness_badge_html = f'<span class="badge fair">{verdict_text.upper()}</span>'
+        if badge_cls == "great-deal":
+            fairness_badge_html = f'<span class="badge" style="background:#ECFDF5; border:1px solid #A7F3D0; color:#047857;">{verdict_text.upper()}</span>'
+        elif badge_cls == "fair":
+            fairness_badge_html = f'<span class="badge" style="background:#EFF6FF; border:1px solid #BFDBFE; color:#1D4ED8;">{verdict_text.upper()}</span>'
+        elif badge_cls == "high":
+            fairness_badge_html = f'<span class="badge" style="background:#FFFBEB; border:1px solid #FDE68A; color:#B45309;">{verdict_text.upper()}</span>'
         elif badge_cls == "overpriced":
-            fairness_badge_html = f'<span class="badge overpriced">{verdict_text.upper()}</span>'
+            fairness_badge_html = f'<span class="badge" style="background:#FEF2F2; border:1px solid #FECACA; color:#B91C1C;">{verdict_text.upper()}</span>'
+        elif badge_cls == "suspicious":
+            fairness_badge_html = f'<span class="badge" style="background:#FFF1F2; border:1px solid #FECDD3; color:#BE123C;">{verdict_text.upper()}</span>'
         else:
             fairness_badge_html = f'<span class="badge scam">{verdict_text.upper()}</span>'
 

@@ -341,7 +341,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             await chrome.scripting.executeScript({
                 target: { tabId: tab.id },
-                files: ['content.js']
+                files: [
+                    'config.js',
+                    'extractors/gpu.js',
+                    'extractors/mobile.js',
+                    'extractors/vehicle.js',
+                    'extractors/electronics.js',
+                    'extractors/index.js',
+                    'content.js'
+                ]
             }).catch(() => {});
 
             chrome.tabs.sendMessage(tab.id, { action: "extract_details" }, (response) => {
@@ -572,115 +580,113 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const resultHeader = document.getElementById('resultHeader');
         const verdictDescEl = document.getElementById('verdictDescription');
+        const displayListedPrice = document.getElementById('displayListedPrice');
+        const detectedCategoryTag = document.getElementById('detectedCategoryTag');
+        const detectedModelTitle = document.getElementById('detectedModelTitle');
+        const verdictBanner = document.getElementById('verdictBanner');
+        const rangeMarker = document.getElementById('rangeMarker');
+
+        if (detectedCategoryTag) detectedCategoryTag.innerText = category.toUpperCase();
+        if (detectedModelTitle) {
+            const m = data.metadata ? (data.metadata.model_name || data.metadata.model) : (document.getElementById('gpuModelInput')?.value || category.toUpperCase());
+            detectedModelTitle.innerText = m;
+        }
+
+        if (displayListedPrice) {
+            displayListedPrice.innerText = listedPrice ? `Rs. ${listedPrice.toLocaleString('en-LK')}` : 'Not Specified';
+        }
 
         if (verdictDescEl) {
             verdictDescEl.innerText = "";
             verdictDescEl.classList.add('hidden');
         }
 
+        let lowerPrice = 0;
+        let upperPrice = 0;
+        let pointPrice = 0;
+        let modelUsed = "";
+
         if (category === 'gpu' || (data.fair_market_range && data.fair_market_range.lower_price_lkr)) {
-            const lowerPrice = data.lower_price || (data.fair_market_range ? data.fair_market_range.lower_price_lkr : 0);
-            const upperPrice = data.upper_price || (data.fair_market_range ? data.fair_market_range.upper_price_lkr : 0);
-            const pointPrice = data.predicted_price || 0;
-            const modelUsed = (data.best_model_used || "XGBoost").replace('_', ' ').toUpperCase();
-
-            if (resultHeader) resultHeader.innerText = "ESTIMATED FAIR MARKET RANGE";
-            
-            predictedPriceEl.innerText = `${lowerPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})} – ${upperPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})}`;
-            
-            let modelFooterText = `Model: ${modelUsed} · Pt Est: LKR ${pointPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})}`;
-            if (data.metadata && data.metadata.limited_data_warning) {
-                modelFooterText += " (⚠ Limited Data)";
-            }
-            modelUsedName.innerText = modelFooterText;
-
-            resultSection.classList.remove('hidden');
-
-            const evalData = data.evaluation;
-            if (evalData && evalData.verdict_code && evalData.verdict_code !== 'NO_PRICE') {
-                fairnessBadge.className = 'badge ' + (evalData.badge_class || 'fair');
-                fairnessBadge.innerText = evalData.verdict.toUpperCase();
-                
-                let diffText = `Listing: Rs. ${listedPrice.toLocaleString('en-LK')}`;
-                if (evalData.fairness_score !== undefined) {
-                    diffText += ` (Score: ${evalData.fairness_score}/100)`;
-                }
-                priceDiffEl.innerText = diffText;
-                fairnessBadge.classList.remove('hidden');
-
-                if (evalData.description && verdictDescEl) {
-                    verdictDescEl.innerText = evalData.description;
-                    verdictDescEl.classList.remove('hidden');
-                }
-            } else if (listedPrice && !isNaN(listedPrice) && listedPrice > 0) {
-                const midpoint = (lowerPrice + upperPrice) / 2;
-                fairnessBadge.className = 'badge';
-                if (listedPrice < lowerPrice) {
-                    fairnessBadge.innerText = "BELOW TYPICAL MARKET RANGE";
-                    fairnessBadge.classList.add('warning');
-                } else if (listedPrice > upperPrice) {
-                    fairnessBadge.innerText = "ABOVE TYPICAL MARKET RANGE";
-                    fairnessBadge.classList.add('overpriced');
-                } else {
-                    fairnessBadge.innerText = "WITHIN EXPECTED MARKET RANGE";
-                    fairnessBadge.classList.add('fair');
-                }
-                fairnessBadge.classList.remove('hidden');
-                priceDiffEl.innerText = `Listing: Rs. ${listedPrice.toLocaleString('en-LK')}`;
+            lowerPrice = data.lower_price || (data.fair_market_range ? data.fair_market_range.lower_price_lkr : 0);
+            upperPrice = data.upper_price || (data.fair_market_range ? data.fair_market_range.upper_price_lkr : 0);
+            pointPrice = data.predicted_price || 0;
+            modelUsed = (data.best_model_used || "Random Forest").replace('_', ' ').toUpperCase();
+        } else if (category === 'mobile') {
+            pointPrice = data.predicted_price || 0;
+            lowerPrice = data.fair_market_range ? data.fair_market_range.lower_price_lkr : Math.round(pointPrice * 0.9);
+            upperPrice = data.fair_market_range ? data.fair_market_range.upper_price_lkr : Math.round(pointPrice * 1.1);
+            modelUsed = "Mobile Model (" + (data.phone_type || "Standard") + ")";
+        } else if (category === 'vehicle') {
+            if (data.predictions && data.predictions.length > 0) {
+                pointPrice = data.predictions[0].predictedPrice || 0;
+                modelUsed = data.predictions[0].name || "Vehicle Model";
             } else {
-                priceDiffEl.innerText = "Enter listing price above to evaluate fairness";
-                fairnessBadge.className = 'badge hidden';
+                pointPrice = data.predicted_price || 0;
+                modelUsed = "Vehicle Model";
             }
+            lowerPrice = data.fair_market_range ? data.fair_market_range.lower_price_lkr : Math.round(pointPrice * 0.92);
+            upperPrice = data.fair_market_range ? data.fair_market_range.upper_price_lkr : Math.round(pointPrice * 1.08);
+        } else if (category === 'electronics') {
+            pointPrice = typeof data.price === 'string' ? parseFloat(data.price.replace(/[^0-9.]/g, '')) : (data.price || 0);
+            modelUsed = data.model_name || "Electronics Model";
+            lowerPrice = data.fair_market_range ? data.fair_market_range.lower_price_lkr : Math.round(pointPrice * 0.9);
+            upperPrice = data.fair_market_range ? data.fair_market_range.upper_price_lkr : Math.round(pointPrice * 1.1);
+        }
 
+        // Display Estimated Range / Point Price
+        if (upperPrice > lowerPrice && lowerPrice > 0) {
+            predictedPriceEl.innerText = `Rs. ${Math.round(lowerPrice/1000)}k – ${Math.round(upperPrice/1000)}k`;
+        } else if (pointPrice > 0) {
+            predictedPriceEl.innerText = `Rs. ${Math.round(pointPrice).toLocaleString('en-LK')}`;
         } else {
-            // Non-GPU fallback (single price)
-            let predictedPrice = 0;
-            let modelUsed = "";
+            predictedPriceEl.innerText = "--";
+        }
 
-            if (category === 'mobile') {
-                predictedPrice = data.predicted_price;
-                modelUsed = "Mobile Model (" + (data.phone_type || "") + ")";
-            } else if (category === 'vehicle') {
-                if (data.predictions && data.predictions.length > 0) {
-                    predictedPrice = data.predictions[0].predictedPrice;
-                    modelUsed = data.predictions[0].name || "Vehicle Model";
+        // Calculate visual marker position
+        if (rangeMarker && listedPrice && upperPrice > lowerPrice) {
+            const span = (upperPrice - lowerPrice) * 1.5;
+            const minBound = lowerPrice - (span * 0.25);
+            const markerPos = Math.max(4, Math.min(96, ((listedPrice - minBound) / span) * 100));
+            rangeMarker.style.left = `${markerPos}%`;
+        }
+
+        let modelFooterText = `Model: ${modelUsed} · Pt Est: Rs. ${pointPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})}`;
+        if (data.metadata && data.metadata.limited_data_warning) {
+            modelFooterText += " (Limited Data)";
+        }
+        modelUsedName.innerText = modelFooterText;
+        resultSection.classList.remove('hidden');
+
+        // Evaluate Fairness
+        let fairness = null;
+        if (window.FairPriceLK_Fairness) {
+            fairness = window.FairPriceLK_Fairness.evaluate(listedPrice, pointPrice, lowerPrice, upperPrice, category);
+        }
+
+        if (fairness && fairness.status === "OK") {
+            if (verdictBanner) verdictBanner.className = 'verdict-banner ' + fairness.badgeClass;
+            fairnessBadge.innerText = fairness.badgeText;
+            priceDiffEl.innerText = fairness.score !== null ? `Score: ${fairness.score}/100` : '';
+
+            if (verdictDescEl) {
+                let descHtml = fairness.advice;
+                if (fairness.actionAdvice) {
+                    descHtml += `<div style="margin-top: 6px; font-weight: 500; font-size: 11px;">💡 ${fairness.actionAdvice}</div>`;
                 }
-            } else if (category === 'electronics') {
-                predictedPrice = typeof data.price === 'string' ? parseFloat(data.price.replace(/[^0-9.]/g, '')) : data.price;
-                modelUsed = data.model_name || "Electronics Model";
-            }
-
-            if (resultHeader) resultHeader.innerText = "PREDICTED MARKET VALUE";
-            predictedPriceEl.innerText = predictedPrice ? predictedPrice.toLocaleString('en-LK', {maximumFractionDigits: 0}) : "--";
-            modelUsedName.innerText = "Model used: " + modelUsed;
-            
-            resultSection.classList.remove('hidden');
-
-            if (listedPrice && !isNaN(listedPrice) && listedPrice > 0 && predictedPrice) {
-                const diff = listedPrice - predictedPrice;
-                const diffPercent = (diff / predictedPrice) * 100;
-                const diffFormatted = Math.abs(diff).toLocaleString('en-LK', {maximumFractionDigits: 0});
-                
-                priceDiffEl.innerText = diff > 0 ? `+Rs.${diffFormatted} (+${diffPercent.toFixed(1)}%)` : `-Rs.${diffFormatted} (${Math.abs(diffPercent).toFixed(1)}%)`;
-
-                fairnessBadge.className = 'badge';
-                if (diffPercent > 15) {
-                    fairnessBadge.innerText = "OVERPRICED";
-                    fairnessBadge.classList.add('overpriced');
-                } else if (diffPercent < -25) {
-                    fairnessBadge.innerText = "SCAM RISK";
-                    fairnessBadge.classList.add('scam');
-                } else {
-                    fairnessBadge.innerText = "FAIR PRICE";
-                    fairnessBadge.classList.add('fair');
+                if (fairness.negotiationTarget) {
+                    descHtml += `<div style="margin-top: 4px; font-weight: 600; color: #1e3a8a; font-size: 11px;">🎯 Counter-Offer: ${fairness.negotiationTarget}</div>`;
                 }
-                fairnessBadge.classList.remove('hidden');
-            } else {
-                priceDiffEl.innerText = "No listing price provided";
-                fairnessBadge.className = 'badge hidden';
+                verdictDescEl.innerHTML = descHtml;
+                verdictDescEl.classList.remove('hidden');
             }
+        } else if (listedPrice && listedPrice > 0) {
+            priceDiffEl.innerText = `Asking: Rs. ${listedPrice.toLocaleString('en-LK')}`;
+            fairnessBadge.innerText = "Evaluated";
+        } else {
+            priceDiffEl.innerText = "Specify price to score";
+            if (verdictBanner) verdictBanner.className = 'verdict-banner neutral';
+            fairnessBadge.innerText = "Price Missing";
         }
     }
 
