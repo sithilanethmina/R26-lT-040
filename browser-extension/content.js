@@ -16,9 +16,7 @@
     }
 
     let currentExtraction = null;
-    let widgetRoot = null;
-    let inlineBadgeRoot = null;
-    let isExpanded = false;
+    let embeddedCardRoot = null;
     let cachedPrediction = null;
 
     // --- High-level extraction runner ---
@@ -56,161 +54,136 @@
         return hasAdPattern || hasListingHeader;
     }
 
+    function findInsertionTarget() {
+        // Priority 1: Price element or price container
+        const priceEl = currentExtraction && currentExtraction.pageContext ? currentExtraction.pageContext.price_element : null;
+        if (priceEl) {
+            // If the price element is inside a container, insert after price or container
+            const container = priceEl.closest('div[data-testid="price-section"]') || 
+                              priceEl.closest('.price-section') || 
+                              priceEl.closest('div') || 
+                              priceEl;
+            return { element: container, position: 'afterend' };
+        }
+
+        // Priority 2: Ikman / General marketplace ad details section or h1
+        const titleEl = document.querySelector('h1');
+        if (titleEl) {
+            return { element: titleEl, position: 'afterend' };
+        }
+
+        // Fallback: main content container or body
+        const main = document.querySelector('main') || document.querySelector('article') || document.body;
+        return { element: main, position: 'beforeend' };
+    }
+
     function initOnPageWidget() {
-        if (document.getElementById('fairpricelk-widget-root')) return;
-        
         if (!isItemDetailPage()) return;
 
-        widgetRoot = document.createElement('div');
-        widgetRoot.id = 'fairpricelk-widget-root';
-        document.body.appendChild(widgetRoot);
-
         runExtraction();
-        renderWidget();
-        renderInlineBadge();
+        renderEmbeddedCard();
 
-        // If extraction is 100% valid, automatically trigger evaluation
+        // If extraction is valid, automatically trigger evaluation
         if (currentExtraction && currentExtraction.valid) {
             triggerPrediction();
         }
     }
 
-    function renderInlineBadge() {
-        // Find price element from extraction
-        const priceEl = currentExtraction && currentExtraction.pageContext ? currentExtraction.pageContext.price_element : null;
-        if (!priceEl) return;
+    function renderEmbeddedCard() {
+        const target = findInsertionTarget();
+        if (!target || !target.element) return;
 
-        if (!inlineBadgeRoot) {
-            inlineBadgeRoot = document.createElement('span');
-            inlineBadgeRoot.className = 'fplk-inline-badge-container';
-            inlineBadgeRoot.id = 'fairpricelk-inline-root';
-            // Insert right next to price
-            priceEl.insertAdjacentElement('afterend', inlineBadgeRoot);
-        }
-
-        const ext = currentExtraction || { valid: false };
-        let tagClass = 'neutral';
-        let tagText = 'Evaluating';
-        let valText = 'Checking market...';
-
-        if (cachedPrediction && cachedPrediction.evaluation) {
-            tagClass = cachedPrediction.evaluation.badge_class || 'fair';
-            tagText = cachedPrediction.evaluation.verdict || 'FAIR';
-            if (cachedPrediction.fair_market_range && cachedPrediction.fair_market_range.lower_price_lkr) {
-                valText = `Est. Rs ${Math.round(cachedPrediction.fair_market_range.lower_price_lkr / 1000)}k–${Math.round(cachedPrediction.fair_market_range.upper_price_lkr / 1000)}k`;
-            } else if (cachedPrediction.predicted_price) {
-                valText = `Est. Rs ${Math.round(cachedPrediction.predicted_price / 1000)}k`;
+        if (!embeddedCardRoot) {
+            // Check if already in DOM
+            const existing = document.getElementById('fairpricelk-embedded-card');
+            if (existing) {
+                embeddedCardRoot = existing;
+            } else {
+                embeddedCardRoot = document.createElement('div');
+                embeddedCardRoot.id = 'fairpricelk-embedded-card';
+                embeddedCardRoot.className = 'fplk-embedded-container';
+                target.element.insertAdjacentElement(target.position, embeddedCardRoot);
             }
-        } else if (!ext.valid) {
-            tagClass = 'neutral';
-            tagText = 'Details Needed';
-            valText = 'FairPriceLK';
         }
-
-        const iconUrl = chrome.runtime.getURL('icon.png');
-
-        inlineBadgeRoot.innerHTML = `
-            <div class="fplk-inline-badge" title="FairPriceLK Price Intelligence - Click for details">
-                <span class="fplk-inline-brand">
-                    <img src="${iconUrl}" width="14" height="14" alt="FairPriceLK" style="border-radius: 3px; object-fit: contain; vertical-align: middle;">
-                    FairPriceLK
-                </span>
-                <span class="fplk-inline-divider"></span>
-                <span class="fplk-inline-val">${valText}</span>
-                <span class="fplk-inline-tag ${tagClass}">${tagText}</span>
-            </div>
-        `;
-
-        inlineBadgeRoot.onclick = (e) => {
-            e.stopPropagation();
-            isExpanded = true;
-            renderWidget();
-        };
-    }
-
-    function renderWidget() {
-        if (!widgetRoot) return;
 
         const ext = currentExtraction || { valid: false, category: 'gpu', data: {} };
         const data = ext.data || {};
         const cat = ext.category || 'gpu';
         const iconUrl = chrome.runtime.getURL('icon.png');
 
-        widgetRoot.innerHTML = `
-            ${isExpanded ? `
-                <div class="fplk-card-backdrop" id="fplk-backdrop"></div>
-                <div class="fplk-card" id="fplk-card-container">
-                    <div class="fplk-header">
-                        <div class="fplk-brand-wrap">
-                            <img src="${iconUrl}" width="20" height="20" alt="FairPriceLK Logo" style="border-radius: 4px; object-fit: contain;">
-                            <h3>FairPriceLK Valuation</h3>
-                        </div>
-                        <div class="fplk-header-controls">
-                            <button class="fplk-icon-btn" id="fplk-reextract-btn" title="Re-scan Page">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                            </button>
-                            <button class="fplk-icon-btn" id="fplk-close-btn" title="Close">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </button>
-                        </div>
+        embeddedCardRoot.innerHTML = `
+            <div class="fplk-embedded-box">
+                <!-- Header with branding and rescan -->
+                <div class="fplk-embedded-header">
+                    <div class="fplk-brand-wrap">
+                        <img src="${iconUrl}" width="20" height="20" alt="FairPriceLK Logo" style="border-radius: 4px; object-fit: contain;">
+                        <span class="fplk-brand-name">FairPriceLK Valuation</span>
+                        <span class="fplk-category-pill">${cat.toUpperCase()}</span>
                     </div>
-
-                    <div class="fplk-body">
-                        <!-- Product Identity -->
-                        <div class="fplk-product-identity">
-                            <div class="fplk-product-title">${data.title || data.model || "Marketplace Listing"}</div>
-                            <div class="fplk-product-meta">
-                                <span class="fplk-product-tag">${cat.toUpperCase()}</span>
-                                ${data.brand ? `<span>Brand: <strong>${data.brand}</strong></span>` : ''}
-                                ${data.vram_gb ? `<span>· VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
-                                ${data.model_year ? `<span>· Year: <strong>${data.model_year}</strong></span>` : ''}
-                            </div>
-                        </div>
-
-                        ${!ext.valid ? `
-                            <div class="fplk-verdict-box error">
-                                <div class="fplk-verdict-header">
-                                    <span class="fplk-verdict-tag">Information Needed</span>
-                                </div>
-                                <div class="fplk-verdict-body">
-                                    ${ext.error_message || "Could not automatically identify full specifications. Please check or confirm details below."}
-                                </div>
-                            </div>
-                        ` : ''}
-
-                        ${cachedPrediction ? renderPredictionResult(cachedPrediction, data.listed_price) : ''}
-
-                        <!-- Manual Adjustment Section -->
-                        <details class="fplk-form-section">
-                            <summary class="fplk-form-title" style="cursor: pointer;">
-                                <span>Refine Detected Details</span>
-                                <span style="font-size: 10px; color: #71717A;">Click to edit</span>
-                            </summary>
-
-                            <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
-                                ${renderCategoryFormFields(cat, data)}
-
-                                <div class="fplk-form-group">
-                                    <label class="fplk-label">Listing Asking Price (LKR)</label>
-                                    <input type="number" class="fplk-input" id="fplk-input-price" value="${data.listed_price || ''}" placeholder="e.g. 75000">
-                                </div>
-
-                                <button class="fplk-btn" id="fplk-eval-btn">
-                                    Recalculate Market Value
-                                </button>
-                            </div>
-                        </details>
-
-                        <div class="fplk-footer">
-                            <span>FairPriceLK Intelligence</span>
-                            <span>Engine: Local Active</span>
-                        </div>
+                    <div class="fplk-header-controls">
+                        <button class="fplk-embedded-btn-icon" id="fplk-embedded-reextract-btn" title="Re-scan listing">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                            <span>Re-scan</span>
+                        </button>
                     </div>
                 </div>
-            ` : ''}
+
+                <div class="fplk-embedded-body">
+                    <!-- Extracted Listing Details -->
+                    <div class="fplk-extracted-details">
+                        <div class="fplk-extracted-title">
+                            <strong>${data.title || data.model || "Marketplace Listing"}</strong>
+                        </div>
+                        <div class="fplk-extracted-tags">
+                            ${data.listed_price ? `<span class="fplk-extracted-tag price">Asking: Rs. ${Number(data.listed_price).toLocaleString('en-LK')}</span>` : ''}
+                            ${data.brand ? `<span class="fplk-extracted-tag">Brand: <strong>${data.brand}</strong></span>` : ''}
+                            ${data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ''}
+                            ${data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
+                            ${data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ''}
+                            ${data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ''}
+                            ${data.model_year ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year}</strong></span>` : ''}
+                            ${data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ''}
+                        </div>
+                    </div>
+
+                    <!-- Evaluation or Missing info -->
+                    ${!ext.valid && !cachedPrediction ? `
+                        <div class="fplk-verdict-box neutral">
+                            <div class="fplk-verdict-header">
+                                <span class="fplk-verdict-tag">Listing Details Detected</span>
+                            </div>
+                            <div class="fplk-verdict-body">
+                                ${ext.error_message || "Could not automatically identify all specifications for valuation. You can refine details below."}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${cachedPrediction ? renderPredictionResult(cachedPrediction, data.listed_price) : ''}
+
+                    <!-- Manual Refine Form (Collapsible/Accordion) -->
+                    <details class="fplk-form-section">
+                        <summary class="fplk-form-title" style="cursor: pointer;">
+                            <span>Refine Details / Manual Estimate</span>
+                            <span style="font-size: 10px; color: #71717A;">Click to adjust</span>
+                        </summary>
+
+                        <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+                            ${renderCategoryFormFields(cat, data)}
+
+                            <div class="fplk-form-group">
+                                <label class="fplk-label">Listing Asking Price (LKR)</label>
+                                <input type="number" class="fplk-input" id="fplk-input-price" value="${data.listed_price || ''}" placeholder="e.g. 75000">
+                            </div>
+
+                            <button class="fplk-btn" id="fplk-eval-btn">
+                                Recalculate Market Valuation
+                            </button>
+                        </div>
+                    </details>
+                </div>
+            </div>
         `;
 
-        renderInlineBadge();
         attachEventListeners();
     }
 
@@ -253,15 +226,17 @@
         }
 
         return `
-            <!-- Price Comparison Grid -->
+            <!-- Price Range & Score Grid -->
             <div class="fplk-price-grid">
-                <div class="fplk-price-card">
-                    <span class="fplk-price-label">Asking Price</span>
-                    <span class="fplk-price-val">${listedPrice ? `Rs. ${Number(listedPrice).toLocaleString('en-LK')}` : 'Not Specified'}</span>
-                </div>
                 <div class="fplk-price-card primary">
-                    <span class="fplk-price-label">Est. Market Range</span>
-                    <span class="fplk-price-val" style="font-size: 15px;">Rs. ${Math.round(lower/1000)}k – ${Math.round(upper/1000)}k</span>
+                    <span class="fplk-price-label">Fair Market Range</span>
+                    <span class="fplk-price-val">Rs. ${Math.round(lower/1000)}k – ${Math.round(upper/1000)}k</span>
+                    <span class="fplk-price-sublabel">Mid: Rs. ${Math.round(pointPrice).toLocaleString('en-LK')}</span>
+                </div>
+                <div class="fplk-price-card score-card">
+                    <span class="fplk-price-label">Fairness Score</span>
+                    <span class="fplk-price-val fplk-score-val ${badgeCls}">${scoreVal !== undefined && scoreVal !== null ? `${scoreVal}/100` : 'N/A'}</span>
+                    <span class="fplk-price-sublabel">${verdictTitle}</span>
                 </div>
             </div>
 
@@ -270,7 +245,7 @@
                 <div class="fplk-visual-range-container">
                     <div class="fplk-visual-range-labels">
                         <span>Low: Rs. ${Math.round(lower/1000)}k</span>
-                        <span>Mid: Rs. ${Math.round(pointPrice/1000)}k</span>
+                        <span>Fair Mid: Rs. ${Math.round(pointPrice/1000)}k</span>
                         <span>High: Rs. ${Math.round(upper/1000)}k</span>
                     </div>
                     <div class="fplk-range-track">
@@ -278,20 +253,20 @@
                         <div class="fplk-range-marker ${badgeCls}" style="left: ${markerPos}%;"></div>
                     </div>
                     <div class="fplk-gauge-subtext">
-                        ● Asking Price: <strong>Rs. ${Number(listedPrice).toLocaleString('en-LK')}</strong> 
-                        ${fairness && fairness.diffPercent ? `(${fairness.diffPercent > 0 ? '+' : ''}${fairness.diffPercent}%)` : ''}
+                        Asking Price: <strong>Rs. ${Number(listedPrice).toLocaleString('en-LK')}</strong> 
+                        ${fairness && fairness.diffPercent ? `(${fairness.diffPercent > 0 ? '+' : ''}${Math.round(fairness.diffPercent)}% vs. fair mid)` : ''}
                     </div>
                 </div>
             ` : ''}
 
-            <!-- Fairness & Verdict Card -->
+            <!-- Fairness Description & Advice Card -->
             <div class="fplk-verdict-box ${badgeCls}">
                 <div class="fplk-verdict-header">
                     <span class="fplk-verdict-tag">${verdictTitle}</span>
                     ${scoreVal !== undefined && scoreVal !== null ? `<span class="fplk-score-pill">Score: <strong>${scoreVal}/100</strong></span>` : ''}
                 </div>
                 <div class="fplk-verdict-body">
-                    ${adviceText || 'Estimated using second-hand market distribution and hardware specifications.'}
+                    ${adviceText || 'Estimated based on second-hand market distribution and hardware specifications.'}
                 </div>
                 ${actionAdvice ? `
                     <div class="fplk-action-advice">
@@ -412,30 +387,14 @@
     }
 
     function attachEventListeners() {
-        const backdrop = document.getElementById('fplk-backdrop');
-        if (backdrop) {
-            backdrop.addEventListener('click', () => {
-                isExpanded = false;
-                renderWidget();
-            });
-        }
-
-        const closeBtn = document.getElementById('fplk-close-btn');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                isExpanded = false;
-                renderWidget();
-            });
-        }
-
-        const reextractBtn = document.getElementById('fplk-reextract-btn');
+        const reextractBtn = document.getElementById('fplk-embedded-reextract-btn');
         if (reextractBtn) {
             reextractBtn.addEventListener('click', () => {
                 runExtraction();
                 if (currentExtraction && currentExtraction.valid) {
                     triggerPrediction();
                 } else {
-                    renderWidget();
+                    renderEmbeddedCard();
                 }
             });
         }
@@ -510,22 +469,8 @@
 
         const evalBtn = document.getElementById('fplk-eval-btn');
         if (evalBtn) {
-            evalBtn.innerHTML = `<span class="fplk-spinner"></span> Checking ML Valuation...`;
+            evalBtn.innerHTML = `<span class="fplk-spinner"></span> Calculating Valuation...`;
             evalBtn.disabled = true;
-        }
-
-        // Show loading in inline badge
-        if (inlineBadgeRoot) {
-            const iconUrl = chrome.runtime.getURL('icon.png');
-            inlineBadgeRoot.innerHTML = `
-                <div class="fplk-inline-badge" title="Valuating...">
-                    <span class="fplk-inline-brand">
-                        <img src="${iconUrl}" width="14" height="14" alt="FairPriceLK" style="border-radius: 3px; object-fit: contain; vertical-align: middle;">
-                        Valuating...
-                    </span>
-                    <span class="fplk-inline-spinner"></span>
-                </div>
-            `;
         }
 
         // Send message to background script to bypass Chrome HTTPS -> HTTP Mixed-Content restriction
@@ -548,7 +493,7 @@
 
             cachedPrediction = response.data;
             currentExtraction.valid = true;
-            renderWidget();
+            renderEmbeddedCard();
         });
     }
 
@@ -561,7 +506,7 @@
                 ? `Cannot connect to local backend at ${getApiBase()}. Please ensure start_all.py is running.`
                 : `Prediction error: ${errMsg}`;
         }
-        renderWidget();
+        renderEmbeddedCard();
     }
 
     // --- Message Listener for Extension Popup (Preserves 100% compatibility) ---

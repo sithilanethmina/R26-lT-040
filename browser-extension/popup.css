@@ -32,6 +32,10 @@
     padding: 0;
 }
 
+.hidden {
+    display: none !important;
+}
+
 body {
     width: 396px;
     background-color: #FFFFFF;
@@ -40,6 +44,121 @@ body {
     font-size: 13px;
     line-height: 1.4;
     padding: 8px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+    flex: 1;
+}
+
+.form-row {
+    display: flex;
+    gap: var(--space-3);
+}
+
+label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+input, select {
+    width: 100%;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.15s ease;
+}
+
+input:hover, select:hover {
+    border-color: var(--border-hover);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+input::placeholder {
+    color: #A3A39F;
+}
+
+.input-with-prefix {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-prefix .prefix {
+    position: absolute;
+    left: var(--space-3);
+    color: var(--text-secondary);
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.input-with-prefix input {
+    padding-left: 32px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    width: 100%;
+}
+
+.btn-small {
+    width: auto;
+    padding: var(--space-1) var(--space-2);
+    font-size: 12px;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    padding: 10px 16px;
+    font-weight: 700;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #F0F0EE;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.category-form {
+    display: flex;
+    flex-direction: column;
 }
 
 .app-container {
