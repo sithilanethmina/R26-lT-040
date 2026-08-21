@@ -29,6 +29,12 @@ from src.feature_engineering import (
     compute_model_tier,
     compute_phone_age,
 )
+from src.phone_specs import (
+    IPHONE_RAM_GB_BY_MODEL,
+    MAX_PHONE_RAM_GB,
+    get_android_valid_ram,
+    snap_ram_to_nearest_valid,
+)
 from src.predict import get_model_info, load_model
 
 HIDDEN_MODEL_NAMES = {"other model", "unknown"}
@@ -140,12 +146,40 @@ def main() -> None:
             cat_sub = model_sub[np.isclose(model_sub["storage_gb"], storage_gb, atol=0.01)]
             ref = cat_sub if not cat_sub.empty else model_sub
 
-            rams = sorted(float(v) for v in ref["ram_gb"].dropna().unique())
+            # ── RAM validation: only show RAM options that are real ───────
+            data_rams = sorted(float(v) for v in ref["ram_gb"].dropna().unique())
+
+            if phone_type == "iphone":
+                # Use known iPhone RAM specs
+                known_ram = IPHONE_RAM_GB_BY_MODEL.get(model)
+                if known_ram is not None:
+                    valid_rams = [known_ram]
+                else:
+                    valid_rams = data_rams
+            else:
+                # Use known Android RAM specs
+                valid_ram_list = get_android_valid_ram(brand, model)
+                if valid_ram_list is not None:
+                    valid_rams = sorted(valid_ram_list)
+                else:
+                    # Unknown model: keep data values but cap at MAX_PHONE_RAM_GB
+                    valid_rams = sorted(v for v in data_rams if v <= MAX_PHONE_RAM_GB)
+
+            # Warn if data had invalid values that were filtered
+            filtered_out = [v for v in data_rams if v not in valid_rams]
+            if filtered_out:
+                st.caption(f"⚠️ Removed invalid RAM values from data: {', '.join(f'{int(v)}GB' for v in filtered_out)}")
+
+            rams = valid_rams if valid_rams else [6.0]
             default_ram = safe_median(ref["ram_gb"], 6.0)
+            # Snap default to nearest valid option
+            if rams and default_ram not in rams:
+                default_ram = snap_ram_to_nearest_valid(default_ram, rams)
+
             ram_gb = st.selectbox(
                 "RAM (GB)",
-                rams or [default_ram],
-                index=closest_idx(rams or [default_ram], default_ram),
+                rams,
+                index=closest_idx(rams, default_ram),
                 format_func=lambda v: f"{int(v)} GB" if float(v).is_integer() else f"{v} GB",
             )
 

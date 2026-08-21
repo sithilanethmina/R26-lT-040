@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T16:55:15",
+  "generated_at": "2026-08-21T13:26:38",
   "target": "listed_price",
   "features": [
     "brand",
@@ -27,7 +27,7 @@
       "mae": 10316.05964889372,
       "rmse": 17074.05199700642,
       "r2_score": 0.9407325349786436,
-      "mape_percent": 11.723152672354027,
+      "mape_percent": 11.723152672354026,
       "cv_mae": 10780.830796310693
     },
     "lightgbm_iphone": {
@@ -69,62 +69,62 @@
     "random_forest_android": {
       "model_name": "Random Forest",
       "phone_type": "android",
-      "total_records": 4926,
-      "train_records": 3940,
-      "test_records": 986,
-      "mae": 7776.453893826607,
-      "rmse": 11746.662399162567,
-      "r2_score": 0.808415820809334,
-      "mape_percent": 31.8073588756858,
-      "cv_mae": 7439.3800618332125
+      "total_records": 4904,
+      "train_records": 3923,
+      "test_records": 981,
+      "mae": 7439.464848045777,
+      "rmse": 11299.397428944481,
+      "r2_score": 0.827145841879075,
+      "mape_percent": 28.248630542137036,
+      "cv_mae": 7631.499182165836
     },
     "lightgbm_android": {
       "model_name": "LightGBM",
       "phone_type": "android",
-      "total_records": 4926,
-      "train_records": 3940,
-      "test_records": 986,
-      "mae": 7804.624196546673,
-      "rmse": 11650.709012041378,
-      "r2_score": 0.8115329732904846,
-      "mape_percent": 31.757264305420257,
-      "cv_mae": 7585.4319317189465
+      "total_records": 4904,
+      "train_records": 3923,
+      "test_records": 981,
+      "mae": 7430.612260732268,
+      "rmse": 11265.061795553982,
+      "r2_score": 0.8281947543668631,
+      "mape_percent": 28.29144869600023,
+      "cv_mae": 7748.078391278553
     },
     "xgboost_android": {
       "model_name": "XGBoost",
       "phone_type": "android",
-      "total_records": 4926,
-      "train_records": 3940,
-      "test_records": 986,
-      "mae": 7857.742793642241,
-      "rmse": 11846.472473349775,
-      "r2_score": 0.8051462503792757,
-      "mape_percent": 31.61923654234332,
-      "cv_mae": 7504.541569340896
+      "total_records": 4904,
+      "train_records": 3923,
+      "test_records": 981,
+      "mae": 7528.163035168196,
+      "rmse": 11452.661295048105,
+      "r2_score": 0.8224248881984891,
+      "mape_percent": 28.825923355619455,
+      "cv_mae": 7733.572426258297
     },
     "catboost_android": {
       "model_name": "CatBoost",
       "phone_type": "android",
-      "total_records": 4926,
-      "train_records": 3940,
-      "test_records": 986,
-      "mae": 7772.653262156392,
-      "rmse": 11810.522475380074,
-      "r2_score": 0.8063270851028613,
-      "mape_percent": 32.9166953764207,
-      "cv_mae": 7524.724654302941
+      "total_records": 4904,
+      "train_records": 3923,
+      "test_records": 981,
+      "mae": 7416.298907982922,
+      "rmse": 11359.840887671979,
+      "r2_score": 0.825291610707235,
+      "mape_percent": 28.536496080629824,
+      "cv_mae": 7765.1535518789415
     }
   },
   "skipped_models": {},
   "recommendations": {
     "android": {
-      "recommended_model": "CatBoost",
-      "recommended_model_mae": 7772.653262156392,
-      "recommended_model_r2_score": 0.8063270851028613,
+      "recommended_model": "LightGBM",
+      "recommended_model_mae": 7430.612260732268,
+      "recommended_model_r2_score": 0.8281947543668631,
       "lowest_mae_model": "CatBoost",
-      "lowest_mae": 7772.653262156392,
+      "lowest_mae": 7416.298907982922,
       "highest_r2_model": "LightGBM",
-      "highest_r2_score": 0.8115329732904846
+      "highest_r2_score": 0.8281947543668631
     },
     "iphone": {
       "recommended_model": "CatBoost",
@@ -137,7 +137,7 @@
     }
   },
   "fair_price_output_files": {
-    "json": "D:\\TEst\\R26-lT-040\\mobile-price-model\\outputs\\fair_price_predictions.json",
-    "csv": "D:\\TEst\\R26-lT-040\\mobile-price-model\\outputs\\fair_price_predictions.csv"
+    "json": "D:\\final project\\R26-lT-040\\mobile-price-model\\outputs\\fair_price_predictions.json",
+    "csv": "D:\\final project\\R26-lT-040\\mobile-price-model\\outputs\\fair_price_predictions.csv"
   }
 }
