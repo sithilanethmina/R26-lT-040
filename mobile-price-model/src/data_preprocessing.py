@@ -26,9 +26,12 @@ from .config import (
 )
 from .phone_specs import (
     IPHONE_RAM_GB_BY_NORMALIZED_MODEL,
+    MAX_PHONE_RAM_GB,
     get_android_capabilities,
+    get_android_valid_ram,
     get_iphone_capabilities,
     normalized_model_key,
+    snap_ram_to_nearest_valid,
 )
 
 logger = logging.getLogger(__name__)
@@ -237,6 +240,56 @@ def apply_iphone_ram(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def apply_android_ram(df: pd.DataFrame) -> pd.DataFrame:
+    """Override scraped Android RAM values with known model specifications.
+
+    For phones in the ANDROID_RAM_GB lookup, the scraped value is snapped to
+    the nearest valid RAM size.  For unknown phones, values above
+    MAX_PHONE_RAM_GB are capped.
+    """
+    android_mask = df["phone_type"] == "android"
+    if not android_mask.any():
+        return df
+
+    changed = 0
+    for idx in df.index[android_mask]:
+        brand = str(df.at[idx, "brand"]).strip()
+        model = str(df.at[idx, "model"]).strip()
+        current_ram = df.at[idx, "ram_gb"]
+
+        if pd.isna(current_ram):
+            continue
+
+        current_ram = float(current_ram)
+        valid_rams = get_android_valid_ram(brand, model)
+
+        if valid_rams is not None:
+            # Known phone: snap to nearest valid RAM
+            corrected = snap_ram_to_nearest_valid(current_ram, valid_rams)
+            if corrected != current_ram:
+                df.at[idx, "ram_gb"] = corrected
+                changed += 1
+        elif current_ram > MAX_PHONE_RAM_GB:
+            # Unknown phone but implausibly high RAM → cap it
+            df.at[idx, "ram_gb"] = MAX_PHONE_RAM_GB
+            changed += 1
+
+    if changed:
+        logger.info("Corrected %s Android RAM values.", f"{changed:,}")
+    return df
+
+
+def sanitize_ram_values(df: pd.DataFrame) -> pd.DataFrame:
+    """Final safety net: cap any remaining RAM values above MAX_PHONE_RAM_GB."""
+    ram = pd.to_numeric(df["ram_gb"], errors="coerce")
+    over_cap = ram > MAX_PHONE_RAM_GB
+    count = int(over_cap.sum())
+    if count:
+        df.loc[over_cap, "ram_gb"] = MAX_PHONE_RAM_GB
+        logger.info("Capped %s remaining RAM values above %.0f GB.", count, MAX_PHONE_RAM_GB)
+    return df
+
+
 def apply_phone_capabilities(df: pd.DataFrame) -> pd.DataFrame:
     """Override noisy capability columns with predefined values."""
     if df.empty:
@@ -354,6 +407,8 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # Apply known specs
     df = apply_iphone_ram(df)
+    df = apply_android_ram(df)
+    df = sanitize_ram_values(df)
     df = apply_phone_capabilities(df)
 
     # Dedup after standardisation
