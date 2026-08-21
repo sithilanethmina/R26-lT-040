@@ -1492,3 +1492,17 @@ PREDICTED PRICE: Rs 161,415.03
 [ACTIVE] Random Forest: R2 Score = 0.9338
          Gradient Boosting: R2 Score = 0.9522
 ----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP 24 IPS LED HDMI Frameless Monitor 1080P Full HD | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 8,965.08
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP 24 IPS LED HDMI Frameless Monitor 1080P Full HD | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 8,965.08
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
