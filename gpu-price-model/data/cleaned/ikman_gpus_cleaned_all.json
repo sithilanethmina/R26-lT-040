@@ -53,7 +53,7 @@
         "Clean_Price_LKR": 29500,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -66,7 +66,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GTX 650TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -79,7 +79,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -279,7 +279,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GTX 650TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -292,7 +292,7 @@
         "Clean_Price_LKR": 9900,
         "Extracted_Model": "GTX 750TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -305,7 +305,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -318,7 +318,7 @@
         "Clean_Price_LKR": 41000,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -518,7 +518,7 @@
         "Clean_Price_LKR": 9900,
         "Extracted_Model": "R 7 260",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -531,7 +531,7 @@
         "Clean_Price_LKR": 21900,
         "Extracted_Model": "GTX 1050",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -544,7 +544,7 @@
         "Clean_Price_LKR": 31900,
         "Extracted_Model": "GTX 1050 TI",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -557,7 +557,7 @@
         "Clean_Price_LKR": 34500,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -614,7 +614,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -638,7 +638,7 @@
         "Clean_Price_LKR": 29900,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -651,7 +651,7 @@
         "Clean_Price_LKR": 40500,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -664,7 +664,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -1601,7 +1601,7 @@
         "Clean_Price_LKR": 34500,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -2549,7 +2549,7 @@
         "Clean_Price_LKR": 15500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -2661,7 +2661,7 @@
         "Clean_Price_LKR": 52000,
         "Extracted_Model": "GTX 1070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -2993,7 +2993,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -3006,7 +3006,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -3052,7 +3052,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -3065,7 +3065,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 440",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5828,7 +5828,7 @@
         "Clean_Price_LKR": 450000,
         "Extracted_Model": "RTX 5080",
         "VRAM_GB": "16",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5867,7 +5867,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5906,7 +5906,7 @@
         "Clean_Price_LKR": 12750,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5919,7 +5919,7 @@
         "Clean_Price_LKR": 20500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5932,7 +5932,7 @@
         "Clean_Price_LKR": 82000,
         "Extracted_Model": "RX 6600XT",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5945,7 +5945,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5958,7 +5958,7 @@
         "Clean_Price_LKR": 20000,
         "Extracted_Model": "R 9 290",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -5971,7 +5971,7 @@
         "Clean_Price_LKR": 5500,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6010,7 +6010,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6023,7 +6023,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6036,7 +6036,7 @@
         "Clean_Price_LKR": 49500,
         "Extracted_Model": "GTX 1660",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6049,7 +6049,7 @@
         "Clean_Price_LKR": 4250,
         "Extracted_Model": "GTX 560",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6062,7 +6062,7 @@
         "Clean_Price_LKR": 45000,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6075,7 +6075,7 @@
         "Clean_Price_LKR": 29900,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6088,7 +6088,7 @@
         "Clean_Price_LKR": 15500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6101,7 +6101,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6114,7 +6114,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 610",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6140,7 +6140,7 @@
         "Clean_Price_LKR": 7700,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6153,7 +6153,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6179,7 +6179,7 @@
         "Clean_Price_LKR": 14000,
         "Extracted_Model": "RX 550",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6192,7 +6192,7 @@
         "Clean_Price_LKR": 15000,
         "Extracted_Model": "GTX 950",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6218,7 +6218,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6231,7 +6231,7 @@
         "Clean_Price_LKR": 88000,
         "Extracted_Model": "RTX 3060",
         "VRAM_GB": "12",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6244,7 +6244,7 @@
         "Clean_Price_LKR": 49000,
         "Extracted_Model": "GTX 1070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6270,7 +6270,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6283,7 +6283,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6296,7 +6296,7 @@
         "Clean_Price_LKR": 11900,
         "Extracted_Model": "GTX 750 TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6309,7 +6309,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6322,7 +6322,7 @@
         "Clean_Price_LKR": 4900,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6335,7 +6335,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 440",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6348,7 +6348,7 @@
         "Clean_Price_LKR": 10900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6361,7 +6361,7 @@
         "Clean_Price_LKR": 10900,
         "Extracted_Model": "R 7260",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6374,7 +6374,7 @@
         "Clean_Price_LKR": 20000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6387,7 +6387,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6400,7 +6400,7 @@
         "Clean_Price_LKR": 10900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6413,7 +6413,7 @@
         "Clean_Price_LKR": 15500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6426,7 +6426,7 @@
         "Clean_Price_LKR": 32900,
         "Extracted_Model": "GTX 1050 TI",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6439,7 +6439,7 @@
         "Clean_Price_LKR": 21900,
         "Extracted_Model": "GTX 1050",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6452,7 +6452,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6465,7 +6465,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6478,7 +6478,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6491,7 +6491,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GTX 650 TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6504,7 +6504,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6530,7 +6530,7 @@
         "Clean_Price_LKR": 16000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6543,7 +6543,7 @@
         "Clean_Price_LKR": 10500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6556,7 +6556,7 @@
         "Clean_Price_LKR": 4000,
         "Extracted_Model": "GT 640",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6569,7 +6569,7 @@
         "Clean_Price_LKR": 5000,
         "Extracted_Model": "GTX 550TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6582,7 +6582,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6595,7 +6595,7 @@
         "Clean_Price_LKR": 5000,
         "Extracted_Model": "GT 710",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6634,7 +6634,7 @@
         "Clean_Price_LKR": 5000,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6647,7 +6647,7 @@
         "Clean_Price_LKR": 85000,
         "Extracted_Model": "RTX 3070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6660,7 +6660,7 @@
         "Clean_Price_LKR": 42900,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6673,7 +6673,7 @@
         "Clean_Price_LKR": 19500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6686,7 +6686,7 @@
         "Clean_Price_LKR": 60000,
         "Extracted_Model": "RTX 2060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6699,7 +6699,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6712,7 +6712,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6725,7 +6725,7 @@
         "Clean_Price_LKR": 29500,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6738,7 +6738,7 @@
         "Clean_Price_LKR": 19500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6751,7 +6751,7 @@
         "Clean_Price_LKR": 15500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6777,7 +6777,7 @@
         "Clean_Price_LKR": 45000,
         "Extracted_Model": "RX 290",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6790,7 +6790,7 @@
         "Clean_Price_LKR": 135000,
         "Extracted_Model": "RTX 3080",
         "VRAM_GB": "10",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6803,7 +6803,7 @@
         "Clean_Price_LKR": 15500,
         "Extracted_Model": "GTX 670",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6816,7 +6816,7 @@
         "Clean_Price_LKR": 14500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6829,7 +6829,7 @@
         "Clean_Price_LKR": 27500,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6842,7 +6842,7 @@
         "Clean_Price_LKR": 59500,
         "Extracted_Model": "RTX 2060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6855,7 +6855,7 @@
         "Clean_Price_LKR": 75000,
         "Extracted_Model": "RTX 2060",
         "VRAM_GB": "12",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6868,7 +6868,7 @@
         "Clean_Price_LKR": 10500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6881,7 +6881,7 @@
         "Clean_Price_LKR": 20000,
         "Extracted_Model": "GTX 1050",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6894,7 +6894,7 @@
         "Clean_Price_LKR": 45000,
         "Extracted_Model": "GTX 1070 TI",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6907,7 +6907,7 @@
         "Clean_Price_LKR": 31000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6920,7 +6920,7 @@
         "Clean_Price_LKR": 20500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6933,7 +6933,7 @@
         "Clean_Price_LKR": 12750,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6946,7 +6946,7 @@
         "Clean_Price_LKR": 6000,
         "Extracted_Model": "GTX 560",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6959,7 +6959,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6972,7 +6972,7 @@
         "Clean_Price_LKR": 19900,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6985,7 +6985,7 @@
         "Clean_Price_LKR": 19900,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -6998,7 +6998,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7011,7 +7011,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7024,7 +7024,7 @@
         "Clean_Price_LKR": 15900,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7037,7 +7037,7 @@
         "Clean_Price_LKR": 21900,
         "Extracted_Model": "GTX 1050",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7050,7 +7050,7 @@
         "Clean_Price_LKR": 29900,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7063,7 +7063,7 @@
         "Clean_Price_LKR": 10900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7076,7 +7076,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7089,7 +7089,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 705",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7102,7 +7102,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 430",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7115,7 +7115,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7128,7 +7128,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GTX 650TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7167,7 +7167,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7180,7 +7180,7 @@
         "Clean_Price_LKR": 65000,
         "Extracted_Model": "RTX 2080",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7193,7 +7193,7 @@
         "Clean_Price_LKR": 22000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7206,7 +7206,7 @@
         "Clean_Price_LKR": 10000,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7219,7 +7219,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7232,7 +7232,7 @@
         "Clean_Price_LKR": 12000,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7241,11 +7241,11 @@
         "Raw_Title": "RX 580 8GB VGA",
         "Raw_Price": "Rs 32,000",
         "Details": "Ratnapura, Computer Accessories",
-        "Full_Description": "Very good GPU for gaming 😁.\nIn cheese 🧀 condition.\nPlayed games as fh5, rdr2 \nSelling due to upgrade \nOnly used 3 months.\nDelivery can be arranged.\nIf interested msg.",
+        "Full_Description": "Very good GPU for gaming 😁.\nWith box\nIn cheese 🧀 condition.\nPlayed games as fh5, rdr2 \nSelling due to upgrade \nOnly used 3 months.\nDelivery can be arranged.\nIf interested msg.",
         "Clean_Price_LKR": 32000,
         "Extracted_Model": "RX 580",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7258,7 +7258,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7271,7 +7271,7 @@
         "Clean_Price_LKR": 25000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7284,7 +7284,7 @@
         "Clean_Price_LKR": 24500,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7310,7 +7310,7 @@
         "Clean_Price_LKR": 10000,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7323,7 +7323,7 @@
         "Clean_Price_LKR": 31000,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7336,7 +7336,7 @@
         "Clean_Price_LKR": 16000,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7362,7 +7362,7 @@
         "Clean_Price_LKR": 11900,
         "Extracted_Model": "GTX 750TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7375,7 +7375,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7388,7 +7388,7 @@
         "Clean_Price_LKR": 10900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7401,7 +7401,7 @@
         "Clean_Price_LKR": 9900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7414,7 +7414,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7427,7 +7427,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7440,7 +7440,7 @@
         "Clean_Price_LKR": 135000,
         "Extracted_Model": "RTX 3060 TI",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7453,7 +7453,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7466,7 +7466,7 @@
         "Clean_Price_LKR": 5900,
         "Extracted_Model": "GTX 550TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7479,7 +7479,7 @@
         "Clean_Price_LKR": 8800,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7492,7 +7492,7 @@
         "Clean_Price_LKR": 8900,
         "Extracted_Model": "GT 740",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7518,7 +7518,7 @@
         "Clean_Price_LKR": 22000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7531,7 +7531,7 @@
         "Clean_Price_LKR": 11500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7544,7 +7544,7 @@
         "Clean_Price_LKR": 34000,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7557,7 +7557,7 @@
         "Clean_Price_LKR": 20000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7570,7 +7570,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 710",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7583,7 +7583,7 @@
         "Clean_Price_LKR": 20500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7596,7 +7596,7 @@
         "Clean_Price_LKR": 12750,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7609,7 +7609,7 @@
         "Clean_Price_LKR": 36000,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7622,7 +7622,7 @@
         "Clean_Price_LKR": 55000,
         "Extracted_Model": "RTX 2060 SUPER",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7635,7 +7635,7 @@
         "Clean_Price_LKR": 15000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7661,7 +7661,7 @@
         "Clean_Price_LKR": 28500,
         "Extracted_Model": "GTX 980",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7674,7 +7674,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7687,7 +7687,7 @@
         "Clean_Price_LKR": 3500,
         "Extracted_Model": "GT 440",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7700,7 +7700,7 @@
         "Clean_Price_LKR": 49000,
         "Extracted_Model": "GTX 1660",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7713,7 +7713,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7726,7 +7726,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7739,7 +7739,7 @@
         "Clean_Price_LKR": 27500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7752,7 +7752,7 @@
         "Clean_Price_LKR": 10000,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7765,7 +7765,7 @@
         "Clean_Price_LKR": 60000,
         "Extracted_Model": "RTX 2070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7778,7 +7778,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7791,7 +7791,7 @@
         "Clean_Price_LKR": 5000,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7830,7 +7830,7 @@
         "Clean_Price_LKR": 115000,
         "Extracted_Model": "RTX 3070TI",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7843,7 +7843,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7856,7 +7856,7 @@
         "Clean_Price_LKR": 8000,
         "Extracted_Model": "GTX 560",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7869,7 +7869,7 @@
         "Clean_Price_LKR": 31500,
         "Extracted_Model": "GTX 1050TI",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7882,7 +7882,7 @@
         "Clean_Price_LKR": 24500,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7895,7 +7895,7 @@
         "Clean_Price_LKR": 19900,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7908,7 +7908,7 @@
         "Clean_Price_LKR": 15500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7921,7 +7921,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7934,7 +7934,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GTX 650 TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7947,7 +7947,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7960,7 +7960,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7973,7 +7973,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7986,7 +7986,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 440",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -7999,7 +7999,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8012,7 +8012,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8025,7 +8025,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8038,7 +8038,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GT 635",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8051,7 +8051,7 @@
         "Clean_Price_LKR": 7900,
         "Extracted_Model": "GT 630",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8064,7 +8064,7 @@
         "Clean_Price_LKR": 11900,
         "Extracted_Model": "R 7260",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8077,7 +8077,7 @@
         "Clean_Price_LKR": 10900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8090,7 +8090,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8103,7 +8103,7 @@
         "Clean_Price_LKR": 8999,
         "Extracted_Model": "GT 730",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8116,7 +8116,7 @@
         "Clean_Price_LKR": 42000,
         "Extracted_Model": "GTX 1650",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8142,7 +8142,7 @@
         "Clean_Price_LKR": 48000,
         "Extracted_Model": "GTX 1070",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8155,7 +8155,7 @@
         "Clean_Price_LKR": 30000,
         "Extracted_Model": "RX 6500 XT",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8168,7 +8168,7 @@
         "Clean_Price_LKR": 21250,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8181,7 +8181,7 @@
         "Clean_Price_LKR": 6000,
         "Extracted_Model": "HD 6800",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8194,7 +8194,7 @@
         "Clean_Price_LKR": 56000,
         "Extracted_Model": "RTX 2060",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8207,7 +8207,7 @@
         "Clean_Price_LKR": 15000,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8220,7 +8220,7 @@
         "Clean_Price_LKR": 20500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8233,7 +8233,7 @@
         "Clean_Price_LKR": 31000,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8246,7 +8246,7 @@
         "Clean_Price_LKR": 12800,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8259,7 +8259,7 @@
         "Clean_Price_LKR": 65000,
         "Extracted_Model": "RTX 2070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8272,7 +8272,7 @@
         "Clean_Price_LKR": 10000,
         "Extracted_Model": "GTX 660TI",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8285,7 +8285,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8298,7 +8298,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 730",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8311,7 +8311,7 @@
         "Clean_Price_LKR": 9900,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8324,7 +8324,7 @@
         "Clean_Price_LKR": 49500,
         "Extracted_Model": "GTX 1660",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8337,7 +8337,7 @@
         "Clean_Price_LKR": 29900,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8350,7 +8350,7 @@
         "Clean_Price_LKR": 6900,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8363,7 +8363,7 @@
         "Clean_Price_LKR": 3900,
         "Extracted_Model": "GT 705",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8376,7 +8376,7 @@
         "Clean_Price_LKR": 3500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8389,7 +8389,7 @@
         "Clean_Price_LKR": 18500,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8402,7 +8402,7 @@
         "Clean_Price_LKR": 5000,
         "Extracted_Model": "GTX 550 TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8636,7 +8636,7 @@
         "Clean_Price_LKR": 49500,
         "Extracted_Model": "GTX 1660 SUPER",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8649,7 +8649,7 @@
         "Clean_Price_LKR": 21500,
         "Extracted_Model": "GTX 1050",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8662,7 +8662,7 @@
         "Clean_Price_LKR": 32000,
         "Extracted_Model": "GTX 1050 TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8675,7 +8675,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8701,7 +8701,7 @@
         "Clean_Price_LKR": 12900,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8727,7 +8727,7 @@
         "Clean_Price_LKR": 29900,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8818,7 +8818,7 @@
         "Clean_Price_LKR": 44500,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8896,7 +8896,7 @@
         "Clean_Price_LKR": 11000,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8909,7 +8909,7 @@
         "Clean_Price_LKR": 13000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8922,7 +8922,7 @@
         "Clean_Price_LKR": 45000,
         "Extracted_Model": "GTX 1660 TI",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8935,7 +8935,7 @@
         "Clean_Price_LKR": 90000,
         "Extracted_Model": "RTX 3060",
         "VRAM_GB": "12",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8948,7 +8948,7 @@
         "Clean_Price_LKR": 150000,
         "Extracted_Model": "RTX 5060",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8961,7 +8961,7 @@
         "Clean_Price_LKR": 68000,
         "Extracted_Model": "RX 6600",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -8974,7 +8974,7 @@
         "Clean_Price_LKR": 14000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9013,7 +9013,7 @@
         "Clean_Price_LKR": 54000,
         "Extracted_Model": "GTX 1080",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9026,7 +9026,7 @@
         "Clean_Price_LKR": 49000,
         "Extracted_Model": "GTX 1660",
         "VRAM_GB": "6",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9039,7 +9039,7 @@
         "Clean_Price_LKR": 29000,
         "Extracted_Model": "GTX 1050TI",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9052,7 +9052,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 660",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9065,7 +9065,7 @@
         "Clean_Price_LKR": 15000,
         "Extracted_Model": "GTX 660TI",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9091,7 +9091,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 512",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9104,7 +9104,7 @@
         "Clean_Price_LKR": 115000,
         "Extracted_Model": "RTX 3070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9117,7 +9117,7 @@
         "Clean_Price_LKR": 67000,
         "Extracted_Model": "RTX 2070",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9130,7 +9130,7 @@
         "Clean_Price_LKR": 4500,
         "Extracted_Model": "GT 430",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9143,7 +9143,7 @@
         "Clean_Price_LKR": 8500,
         "Extracted_Model": "GTX 650 TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9156,7 +9156,7 @@
         "Clean_Price_LKR": 7500,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9169,7 +9169,7 @@
         "Clean_Price_LKR": 11500,
         "Extracted_Model": "GTX 750TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9182,7 +9182,7 @@
         "Clean_Price_LKR": 9000,
         "Extracted_Model": "GTX 750 TI",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9195,7 +9195,7 @@
         "Clean_Price_LKR": 10000,
         "Extracted_Model": "GTX 550TI",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9208,7 +9208,7 @@
         "Clean_Price_LKR": 11500,
         "Extracted_Model": "GTX 760",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9221,7 +9221,7 @@
         "Clean_Price_LKR": 50000,
         "Extracted_Model": "GTX 1660 TI",
         "VRAM_GB": null,
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9234,7 +9234,7 @@
         "Clean_Price_LKR": 12500,
         "Extracted_Model": "GTX 770",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9247,7 +9247,7 @@
         "Clean_Price_LKR": 10000,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": "1",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9260,7 +9260,7 @@
         "Clean_Price_LKR": 28500,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": "3",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9273,7 +9273,7 @@
         "Clean_Price_LKR": 13500,
         "Extracted_Model": "GTX 750TI",
         "VRAM_GB": "2",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9286,7 +9286,7 @@
         "Clean_Price_LKR": 68500,
         "Extracted_Model": "RX 6600XT",
         "VRAM_GB": "8",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9299,7 +9299,7 @@
         "Clean_Price_LKR": 27000,
         "Extracted_Model": "GTX 1050TI",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     },
     {
@@ -9312,7 +9312,163 @@
         "Clean_Price_LKR": 23000,
         "Extracted_Model": "GTX 960",
         "VRAM_GB": "4",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8d4058ccdcdab2f784389d",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-1660-super-6gb-oc-edition-for-sale-gampaha",
+        "Raw_Title": "GTX 1660 Super 6GB OC Edition VGA Card",
+        "Raw_Price": "Rs 50,000",
+        "Details": "Gampaha, Computer Accessories",
+        "Full_Description": "Asus GTX 1660 Super 6 GB ( oc edition )\n\nUsed VGA but better working \n\nWorking better ✅\nNo issues  ✅\n\nContact 👉\n\nCall Unavailable 🚫\nOnly Whatsapp Message ✅",
+        "Clean_Price_LKR": 50000,
+        "Extracted_Model": "GTX 1660 SUPER",
+        "VRAM_GB": "6",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8d182552c48c7f3425a921",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-760-2gb-for-sale-matara",
+        "Raw_Title": "Gtx 760 2GB VGA Card",
+        "Raw_Price": "Rs 12,500",
+        "Details": "Matara, Computer Accessories",
+        "Full_Description": "No any errors \n\nJust plug and play \n\n8 Pin",
+        "Clean_Price_LKR": 12500,
+        "Extracted_Model": "GTX 760",
+        "VRAM_GB": "2",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8c570f39d038f197c52149",
+        "Listing_URL": "https://ikman.lk/en/ad/pny-geforce-rtx-5060-8gb-vga-for-sale-colombo",
+        "Raw_Title": "PNY Geforce RTX 5060 8GB VGA",
+        "Raw_Price": "Rs 98,000",
+        "Details": "Colombo, Computer Accessories",
+        "Full_Description": "PNY Geforce RTX 5060 8GB VGA\nBrand new not used",
+        "Clean_Price_LKR": 98000,
+        "Extracted_Model": "RTX 5060",
+        "VRAM_GB": "8",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8c365dd4d73e305c789564",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-1050ti-4gb-gaming-vga-card-for-sale-anuradhapura",
+        "Raw_Title": "GTX 1050TI 4GB Gaming VGA Card",
+        "Raw_Price": "Rs 23,000",
+        "Details": "Anuradhapura, Computer Accessories",
+        "Full_Description": "කිසිම අවුලක් නෑ..සල්ලි හදිස්සියක් නිසා දෙන්නේ\nවැඩි දුර විස්තර සදහා  whatsapp මැසේජ් එකක් දාන්න.. ❤️",
+        "Clean_Price_LKR": 23000,
+        "Extracted_Model": "GTX 1050TI",
+        "VRAM_GB": "4",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8bf7be92ee2877940548d0",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-1060-6gb-for-sale-colombo-43",
+        "Raw_Title": "GTX 1060 6GB VGA",
+        "Raw_Price": "Rs 35,000",
+        "Details": "Colombo, Computer Accessories",
+        "Full_Description": "6GB GDDR5 VRAM\nDual Fan\nNo Errors\n💯% work \n\nLast games played\n\nRDR 2 \nGHOST OF TSUSHIMA\nWWE 2K25",
+        "Clean_Price_LKR": 35000,
+        "Extracted_Model": "GTX 1060",
+        "VRAM_GB": "6",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8bc37ccc2a391c6ac2f5ad",
+        "Listing_URL": "https://ikman.lk/en/ad/msi-rx-5700-8gb-vga-card-for-sale-gampaha",
+        "Raw_Title": "Msi Rx 5700 8gb Vga Card",
+        "Raw_Price": "Rs 52,500",
+        "Details": "Gampaha, Computer Accessories",
+        "Full_Description": "Msi rx 5700 8gb graphics card\nMech oc edition \nFull set box \n",
+        "Clean_Price_LKR": 52500,
+        "Extracted_Model": "RX 5700",
+        "VRAM_GB": "8",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8aae914d3b0a50b64d9d0a",
+        "Listing_URL": "https://ikman.lk/en/ad/rx-5700-8gb-vga-card-for-sale-kandy",
+        "Raw_Title": "Rx 5700 8gb Vga Card",
+        "Raw_Price": "Rs 52,000",
+        "Details": "Kandy, Computer Accessories",
+        "Full_Description": "Msi rx 5700 8gb graphics card\nWith box\nNo errors\n99 condition ",
+        "Clean_Price_LKR": 52000,
+        "Extracted_Model": "RX 5700",
+        "VRAM_GB": "8",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a89b10f158d5dae78adf322",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-1060-6gb-for-sale-ratnapura",
+        "Raw_Title": "GTX 1060 6GB VGA Card",
+        "Raw_Price": "Rs 38,000",
+        "Details": "Ratnapura, Computer Accessories",
+        "Full_Description": "Good condition 💯\nNo hidden errors\nMore details call me",
+        "Clean_Price_LKR": 38000,
+        "Extracted_Model": "GTX 1060",
+        "VRAM_GB": "6",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a89aef29c68fa4f757565d9",
+        "Listing_URL": "https://ikman.lk/en/ad/gigabyte-for-sale-ratnapura-1",
+        "Raw_Title": "GTX 1060 6GB VGA Card",
+        "Raw_Price": "Rs 26,000",
+        "Details": "Ratnapura, Computer Accessories",
+        "Full_Description": "GTX 1060 6GB VGA \nSELLING DUE TO MOENY URGENT \nNO ENY ERRORS \n100% WORKING FINE \n\nUSED FOR GAMING \nLOCATION RATNAPURA \nCONATCT",
+        "Clean_Price_LKR": 26000,
+        "Extracted_Model": "GTX 1060",
+        "VRAM_GB": "6",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a896f1d4f9d33cddd92ada5",
+        "Listing_URL": "https://ikman.lk/en/ad/zotac-gtx-750-ti-2gb-low-profile-vga-for-sale-colombo",
+        "Raw_Title": "Zotac GTX 750 Ti 2GB Low Profile VGA",
+        "Raw_Price": "Rs 17,500",
+        "Details": "Colombo, Computer Accessories",
+        "Full_Description": "Used Zotac GTX 750 Ti 2GB GDDR5 graphics card for sale.Single-fan, low-profile variant ideal for slim casing upgrades.\n\n- Good condition, used for light gaming and office work.\n- Low power consumption (No 6-pin connector needed).\n- Card only. No box.\n\nSelling for Rs. 17,500. Genuine buyers are welcome No exchanges.",
+        "Clean_Price_LKR": 17500,
+        "Extracted_Model": "GTX 750 TI",
+        "VRAM_GB": "2",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a8920ebce686575eb867c3d",
+        "Listing_URL": "https://ikman.lk/en/ad/gigabyte-gtx-960-2gb-vga-card-for-sale-colombo",
+        "Raw_Title": "Gigabyte GTX 960 2GB VGA Card",
+        "Raw_Price": "Rs 7,000",
+        "Details": "Colombo, Computer Accessories",
+        "Full_Description": "2 Fan are workers ng but no display Hadaganna puluwang.",
+        "Clean_Price_LKR": 7000,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": "2",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
+        "Source": "ikman"
+    },
+    {
+        "Listing_ID": "6a85a83543adae31052169ac",
+        "Listing_URL": "https://ikman.lk/en/ad/rtx-2060-8gb-and-msi-a520-amd-board-for-sale-kalutara",
+        "Raw_Title": "RTX 2060 8GB and Msi A520 AMD VGA Card",
+        "Raw_Price": "Rs 65,000",
+        "Details": "Kalutara, Computer Accessories",
+        "Full_Description": "Both Last  65000\nDelivery available\nNo negotiations and bargains",
+        "Clean_Price_LKR": 65000,
+        "Extracted_Model": "RTX 2060",
+        "VRAM_GB": "8",
+        "Scraped_At_UTC": "2026-08-25T11:13:20+00:00",
         "Source": "ikman"
     }
 ]

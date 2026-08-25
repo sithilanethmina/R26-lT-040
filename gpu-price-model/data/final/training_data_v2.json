@@ -888,6 +888,12 @@
         "Brand": "EMTEK"
     },
     {
+        "Price_LKR": 9000.0,
+        "Extracted_Model": "GTX 650 TI",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
         "Price_LKR": 10500.0,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": 1.0,
@@ -2316,6 +2322,12 @@
         "Brand": "NVIDIA"
     },
     {
+        "Price_LKR": 25000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA"
+    },
+    {
         "Price_LKR": 38000.0,
         "Extracted_Model": "GTX 1060",
         "VRAM_GB": 6.0,
@@ -3576,6 +3588,12 @@
         "Brand": "NVIDIA"
     },
     {
+        "Price_LKR": 8000.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
         "Price_LKR": 16000.0,
         "Extracted_Model": "GTX 1050",
         "VRAM_GB": 2.0,
@@ -3592,12 +3610,6 @@
         "Extracted_Model": "RTX 3060 TI",
         "VRAM_GB": 8.0,
         "Brand": "ASUS"
-    },
-    {
-        "Price_LKR": 7500.0,
-        "Extracted_Model": "GT 610",
-        "VRAM_GB": 1.0,
-        "Brand": "NVIDIA"
     },
     {
         "Price_LKR": 135000.0,
@@ -3930,12 +3942,6 @@
         "Brand": "NVIDIA"
     },
     {
-        "Price_LKR": 40000.0,
-        "Extracted_Model": "GTX 1660",
-        "VRAM_GB": 6.0,
-        "Brand": "GIGABYTE"
-    },
-    {
         "Price_LKR": 4500.0,
         "Extracted_Model": "GT 710",
         "VRAM_GB": 1.0,
@@ -4040,6 +4046,12 @@
     {
         "Price_LKR": 10000.0,
         "Extracted_Model": "GTX 660",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
         "VRAM_GB": 2.0,
         "Brand": "NVIDIA"
     },
@@ -4398,12 +4410,6 @@
         "Brand": "EMTEK"
     },
     {
-        "Price_LKR": 7700.0,
-        "Extracted_Model": "GTX 750",
-        "VRAM_GB": 1.0,
-        "Brand": "NVIDIA"
-    },
-    {
         "Price_LKR": 29000.0,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": 4.0,
@@ -4610,6 +4616,12 @@
     {
         "Price_LKR": 5000.0,
         "Extracted_Model": "GT 710",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
         "VRAM_GB": 2.0,
         "Brand": "NVIDIA"
     },
@@ -5028,6 +5040,12 @@
         "Brand": "ASUS"
     },
     {
+        "Price_LKR": 15000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
         "Price_LKR": 25000.0,
         "Extracted_Model": "RX 6800",
         "VRAM_GB": 16.0,
@@ -5433,6 +5451,12 @@
         "Price_LKR": 7500.0,
         "Extracted_Model": "GTX 650",
         "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 7500.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
         "Brand": "ASUS"
     },
     {
@@ -5698,5 +5722,239 @@
         "Extracted_Model": "GTX 970",
         "VRAM_GB": 4.0,
         "Brand": "ASUS"
+    },
+    {
+        "Price_LKR": 45000.0,
+        "Extracted_Model": "GTX 1660 TI",
+        "VRAM_GB": 6.0,
+        "Brand": "PNY"
+    },
+    {
+        "Price_LKR": 90000.0,
+        "Extracted_Model": "RTX 3060",
+        "VRAM_GB": 12.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 150000.0,
+        "Extracted_Model": "RTX 5060",
+        "VRAM_GB": 8.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "ZOTAC"
+    },
+    {
+        "Price_LKR": 18000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 54000.0,
+        "Extracted_Model": "GTX 1080",
+        "VRAM_GB": 8.0,
+        "Brand": "GIGABYTE"
+    },
+    {
+        "Price_LKR": 49000.0,
+        "Extracted_Model": "GTX 1660",
+        "VRAM_GB": 6.0,
+        "Brand": "GIGABYTE"
+    },
+    {
+        "Price_LKR": 29000.0,
+        "Extracted_Model": "GTX 1050 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "MSI"
+    },
+    {
+        "Price_LKR": 13500.0,
+        "Extracted_Model": "GTX 660",
+        "VRAM_GB": 2.0,
+        "Brand": "MSI"
+    },
+    {
+        "Price_LKR": 15000.0,
+        "Extracted_Model": "GTX 660 TI",
+        "VRAM_GB": 2.0,
+        "Brand": "GIGABYTE"
+    },
+    {
+        "Price_LKR": 7500.0,
+        "Extracted_Model": "GT 1030",
+        "VRAM_GB": 2.0,
+        "Brand": "ASUS"
+    },
+    {
+        "Price_LKR": 115000.0,
+        "Extracted_Model": "RTX 3070",
+        "VRAM_GB": 8.0,
+        "Brand": "EMTEK"
+    },
+    {
+        "Price_LKR": 67000.0,
+        "Extracted_Model": "RTX 2070",
+        "VRAM_GB": 8.0,
+        "Brand": "GALAX"
+    },
+    {
+        "Price_LKR": 4500.0,
+        "Extracted_Model": "GT 430",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 8500.0,
+        "Extracted_Model": "GTX 650 TI",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 7500.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 11500.0,
+        "Extracted_Model": "GTX 750 TI",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 9000.0,
+        "Extracted_Model": "GTX 750 TI",
+        "VRAM_GB": 1.0,
+        "Brand": "GALAX"
+    },
+    {
+        "Price_LKR": 10000.0,
+        "Extracted_Model": "GTX 550 TI",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 11500.0,
+        "Extracted_Model": "GTX 760",
+        "VRAM_GB": 2.0,
+        "Brand": "GALAX"
+    },
+    {
+        "Price_LKR": 50000.0,
+        "Extracted_Model": "GTX 1660 TI",
+        "VRAM_GB": 6.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 12500.0,
+        "Extracted_Model": "GTX 770",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 10000.0,
+        "Extracted_Model": "GTX 650",
+        "VRAM_GB": 1.0,
+        "Brand": "ZOTAC"
+    },
+    {
+        "Price_LKR": 28500.0,
+        "Extracted_Model": "GTX 1060",
+        "VRAM_GB": 3.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 13500.0,
+        "Extracted_Model": "GTX 750 TI",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 68500.0,
+        "Extracted_Model": "RX 6600 XT",
+        "VRAM_GB": 8.0,
+        "Brand": "AMD"
+    },
+    {
+        "Price_LKR": 27000.0,
+        "Extracted_Model": "GTX 1050 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 23000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 4200.0,
+        "Extracted_Model": "GT 610",
+        "VRAM_GB": 1.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 16000.0,
+        "Extracted_Model": "GTX 760",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA"
+    },
+    {
+        "Price_LKR": 28000.0,
+        "Extracted_Model": "RX 570",
+        "VRAM_GB": 4.0,
+        "Brand": "AMD"
+    },
+    {
+        "Price_LKR": 48000.0,
+        "Extracted_Model": "GTX 1070",
+        "VRAM_GB": 8.0,
+        "Brand": "EVGA"
+    },
+    {
+        "Price_LKR": 49500.0,
+        "Extracted_Model": "GTX 1070",
+        "VRAM_GB": 8.0,
+        "Brand": "ZOTAC"
+    },
+    {
+        "Price_LKR": 65000.0,
+        "Extracted_Model": "RX 5700 XT",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI"
+    },
+    {
+        "Price_LKR": 76000.0,
+        "Extracted_Model": "RX 6600",
+        "VRAM_GB": 8.0,
+        "Brand": "ASROCK"
+    },
+    {
+        "Price_LKR": 110000.0,
+        "Extracted_Model": "RTX 3060",
+        "VRAM_GB": 12.0,
+        "Brand": "GALAX"
+    },
+    {
+        "Price_LKR": 125000.0,
+        "Extracted_Model": "RTX 4060",
+        "VRAM_GB": 8.0,
+        "Brand": "ASUS"
+    },
+    {
+        "Price_LKR": 49000.0,
+        "Extracted_Model": "GTX 1070",
+        "VRAM_GB": 8.0,
+        "Brand": "GALAX"
+    },
+    {
+        "Price_LKR": 53000.0,
+        "Extracted_Model": "GTX 1660 SUPER",
+        "VRAM_GB": 6.0,
+        "Brand": "MSI"
     }
 ]

@@ -55,6 +55,7 @@ def main():
             "VRAM_GB": item.get("VRAM_GB"),
             "Manufacturer": None,
             "Source": source,
+            "Full_Description": item.get("Full_Description"),
         }
 
         # --- SOURCE-SPECIFIC MAPPING ---
@@ -99,8 +100,8 @@ def main():
 
     # The 'restructured_scraped_data.json' will be used by 'build_benchmark_features.py'
     # to create the final training dataset.
-    print(f"✓ Restructured {len(restructured_data)} records")
-    print(f"✓ Saved to {output_file.relative_to(project_root)}")
+    print(f"[OK] Restructured {len(restructured_data)} records")
+    print(f"[OK] Saved to {output_file.relative_to(project_root)}")
 
 
 if __name__ == "__main__":

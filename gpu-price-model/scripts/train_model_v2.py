@@ -1,23 +1,23 @@
 """
-GPU Price Predictor V2 — Phase 2: Model Training
+GPU Price Predictor V2 - Phase 2: Model Training
 =================================================
 Reads:  data/final/gpu_enriched_dataset.csv
 Writes: artifacts/gpu_price_model_v2.joblib
         artifacts/training_summary_v2.json
 
 Models trained (all share log(price_lkr) target):
-  1. LightGBM          (tree   – no scaling)
-  2. XGBoost           (tree   – no scaling)
-  3. Random Forest     (tree   – no scaling)
-  4. KNN               (scaled – StandardScaler)
-  5. SVR (RBF)         (scaled – StandardScaler)
-  6. Stacking Ensemble (LightGBM + RF + KNN base → Ridge meta)
+  1. LightGBM          (tree   - no scaling)
+  2. XGBoost           (tree   - no scaling)
+  3. Random Forest     (tree   - no scaling)
+  4. KNN               (scaled - StandardScaler)
+  5. SVR (RBF)         (scaled - StandardScaler)
+  6. Stacking Ensemble (LightGBM + RF + KNN base -> Ridge meta)
 
 Hyperparameter tuning: Optuna (50 trials, 5-fold CV, MAPE objective).
 Selection metric: lowest MAPE on locked 20% holdout set.
 
 FIXES vs original:
-  - StackingRegressor cloned estimators losing tuned params → now uses
+  - StackingRegressor cloned estimators losing tuned params -> now uses
     set_params / pipeline reconstruction to preserve Optuna-tuned values
   - compute_mape log-scale detection threshold documented and tightened
   - SVR row-cap constant named explicitly (SVR_OPTUNA_TRIALS)
@@ -66,7 +66,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
+# -- Paths ---------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "final"
 ARTIFACTS_DIR = ROOT / "artifacts"
@@ -78,16 +78,16 @@ SUMMARY_OUT = ARTIFACTS_DIR / "training_summary_v2.json"
 
 RANDOM_STATE = 42
 N_OPTUNA_TRIALS = 50
-# SVR is O(n²) — cap training rows for tuning speed; still full set for final fit
+# SVR is O(n ) - cap training rows for tuning speed; still full set for final fit
 SVR_MAX_ROWS = 5_000
 SVR_OPTUNA_TRIALS = 30       # fewer trials than other models; named explicitly
 CV_FOLDS = 5
 
-# Log-scale detection threshold: log(LKR 500,000) ≈ 13.1 — threshold of 20
+# Log-scale detection threshold: log(LKR 500,000)   13.1 - threshold of 20
 # is well above any realistic log-price value for Sri Lankan GPU listings.
 LOG_SCALE_THRESHOLD = 20
 
-# ── Feature Definitions ───────────────────────────────────────────────────────
+# -- Feature Definitions -------------------------------------------------------
 # These features were extracted and enriched during the preprocessing phase.
 # We use both raw specs (vram, clock) and benchmark scores (G3Dmark) as predictors.
 NUMERIC_FEATURES = [
@@ -121,7 +121,7 @@ ALL_FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
 TARGET = "log_price_lkr"
 
 
-# ── Metric Helpers ────────────────────────────────────────────────────────────
+# -- Metric Helpers ------------------------------------------------------------
 
 def _to_lkr(arr: np.ndarray) -> np.ndarray:
     """Convert log-scale predictions to LKR if they appear to be log-scaled."""
@@ -131,7 +131,7 @@ def _to_lkr(arr: np.ndarray) -> np.ndarray:
 def compute_mape(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     """
     MAPE (Mean Absolute Percentage Error) on the original (LKR) scale.
-    Formula: (1/n) * Σ |(Actual - Predicted) / Actual| * 100
+    Formula: (1/n) *   |(Actual - Predicted) / Actual| * 100
     This is highly intuitive for price prediction as it expresses error as a percentage.
     """
     y_true_lkr = _to_lkr(y_true)
@@ -174,10 +174,10 @@ def evaluate_all(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
     }
 
 
-# ── Data Loading ──────────────────────────────────────────────────────────────
+# -- Data Loading --------------------------------------------------------------
 
 def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.ndarray]:
-    log.info("Loading enriched dataset …")
+    log.info("Loading enriched dataset ...")
     if not ENRICHED_CSV.exists():
         raise FileNotFoundError(
             f"Enriched dataset not found: {ENRICHED_CSV}\n"
@@ -197,6 +197,21 @@ def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.
 
     df = df.dropna(subset=[TARGET]).copy()
 
+    # Multi-tier deduplication guard prior to split
+    before_split_dedup = len(df)
+    if "listing_id" in df.columns and df["listing_id"].notna().any():
+        has_id = df["listing_id"].notna()
+        dedup_id = df[has_id].drop_duplicates(subset=["listing_id"], keep="last")
+        df = pd.concat([dedup_id, df[~has_id]], ignore_index=True)
+    if "listing_url" in df.columns and df["listing_url"].notna().any():
+        has_url = df["listing_url"].notna()
+        dedup_url = df[has_url].drop_duplicates(subset=["listing_url"], keep="last")
+        df = pd.concat([dedup_url, df[~has_url]], ignore_index=True)
+    df.drop_duplicates(subset=["extracted_model", "price_lkr", "vram_gb", "brand"], keep="last", inplace=True)
+    df.reset_index(drop=True, inplace=True)
+    if before_split_dedup - len(df) > 0:
+        log.info("  Removed %d duplicate records prior to splitting", before_split_dedup - len(df))
+
     x = df[ALL_FEATURES].copy()
     y = df[TARGET].to_numpy(dtype=float)
 
@@ -206,11 +221,17 @@ def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.
     x_train, x_test, y_train, y_test = train_test_split(
         x, y, test_size=0.20, random_state=RANDOM_STATE, stratify=price_quintile
     )
-    log.info("  Train: %d rows | Test: %d rows", len(x_train), len(x_test))
+
+    # Verification check: Ensure 0% identical row collision between Train and Test
+    train_hashes = set(x_train.apply(lambda row: hash(tuple(row.values)), axis=1))
+    test_hashes = set(x_test.apply(lambda row: hash(tuple(row.values)), axis=1))
+    collision_count = len(train_hashes.intersection(test_hashes))
+    log.info("  Train: %d rows | Test: %d rows | Exact cross-split collisions: %d", len(x_train), len(x_test), collision_count)
+
     return x_train, x_test, y_train, y_test
 
 
-# ── Preprocessors ─────────────────────────────────────────────────────────────
+# -- Preprocessors -------------------------------------------------------------
 
 def build_tree_preprocessor() -> ColumnTransformer:
     """
@@ -264,7 +285,7 @@ def build_scaled_preprocessor() -> ColumnTransformer:
     )
 
 
-# ── Optuna Tuning ─────────────────────────────────────────────────────────────
+# -- Optuna Tuning -------------------------------------------------------------
 
 def _neg_mape_scorer(estimator, X, y) -> float:
     preds = estimator.predict(X)
@@ -284,7 +305,7 @@ def optuna_tune(
     - Objective: Minimize MAPE using 5-fold Cross-Validation.
     - Returns: (Fitted Pipeline with best params, Parameters dictionary).
     """
-    log.info("  Tuning %s (%d trials) …", name, n_trials)
+    log.info("  Tuning %s (%d trials) ...", name, n_trials)
     t0 = time.time()
 
     def objective(trial: optuna.Trial) -> float:
@@ -309,7 +330,7 @@ def optuna_tune(
     return best_pipeline, best_params
 
 
-# ── Model Factories ───────────────────────────────────────────────────────────
+# -- Model Factories -----------------------------------------------------------
 
 def _lgbm_factory(trial: optuna.Trial) -> Pipeline:
     params = {
@@ -386,7 +407,7 @@ def _svr_factory(trial: optuna.Trial) -> Pipeline:
     ])
 
 
-# ── Build & Tune All Candidates ───────────────────────────────────────────────
+# -- Build & Tune All Candidates -----------------------------------------------
 
 def build_and_tune_candidates(
     x_train: pd.DataFrame,
@@ -426,7 +447,7 @@ def build_and_tune_candidates(
         "SVR", _svr_factory, x_svr, y_svr, n_trials=SVR_OPTUNA_TRIALS)
 
     # Refit SVR on FULL training data with best params
-    log.info("  SVR: refitting on full training set with best params …")
+    log.info("  SVR: refitting on full training set with best params ...")
     svr_pipeline = _svr_factory(optuna.trial.FixedTrial(best_params["svr"]))
     svr_pipeline.fit(x_train, y_train)
     models["svr"] = svr_pipeline
@@ -434,7 +455,7 @@ def build_and_tune_candidates(
     return models, best_params
 
 
-# ── Stacking Ensemble ─────────────────────────────────────────────────────────
+# -- Stacking Ensemble ---------------------------------------------------------
 
 def fit_stacking_ensemble(
     best_params: dict[str, dict],
@@ -448,7 +469,7 @@ def fit_stacking_ensemble(
     The meta-learner learns how to weight the predictions of the base models 
     to achieve a final, more robust prediction.
     """
-    log.info("  Building Stacking Ensemble with tuned hyperparameters …")
+    log.info("  Building Stacking Ensemble with tuned hyperparameters ...")
 
     unfitted_estimators = [
         ("lgbm", _lgbm_factory(optuna.trial.FixedTrial(best_params["lightgbm"]))),
@@ -468,7 +489,7 @@ def fit_stacking_ensemble(
     return stacking
 
 
-# ── Evaluation ────────────────────────────────────────────────────────────────
+# -- Evaluation ----------------------------------------------------------------
 
 def evaluate_all_models(
     models: dict[str, object],
@@ -493,25 +514,25 @@ def evaluate_all_models(
     return results
 
 
-# ── Print Comparison Table ────────────────────────────────────────────────────
+# -- Print Comparison Table ----------------------------------------------------
 
 def print_comparison_table(results: dict[str, dict], best_name: str) -> None:
-    header = f"{'Model':<24} {'MAPE%':>8} {'R²':>8} {'Within10%':>10} {'RMSE (LKR)':>12}"
-    print("\n" + "─" * len(header))
+    header = f"{'Model':<24} {'MAPE%':>8} {'R ':>8} {'Within10%':>10} {'RMSE (LKR)':>12}"
+    print("\n" + "-" * len(header))
     print(header)
-    print("─" * len(header))
+    print("-" * len(header))
     for name, m in sorted(results.items(), key=lambda kv: kv[1]["mape_pct"]):
-        marker = "  ◀ BEST" if name == best_name else ""
+        marker = "    BEST" if name == best_name else ""
         print(
             f"{name:<24} {m['mape_pct']:>7.1f}%"
             f" {m['r2']:>8.4f}"
             f" {m['within_10pct']:>9.1f}%"
             f" {m['rmse_lkr']:>12,.0f}{marker}"
         )
-    print("─" * len(header))
+    print("-" * len(header))
 
 
-# ── Save Artifacts ────────────────────────────────────────────────────────────
+# -- Save Artifacts ------------------------------------------------------------
 
 def save_artifacts(
     models: dict[str, object],
@@ -574,7 +595,7 @@ def save_artifacts(
                 "train_records": n_train,
                 "test_records": n_test,
                 "tune_records": n_train,
-                "preprocessing": "Base Estimators (LGBM + RF + KNN) → Ridge Meta-Learner",
+                "preprocessing": "Base Estimators (LGBM + RF + KNN) -> Ridge Meta-Learner",
                 "notes": f"Trained using 5-fold cross-validated meta-features across all {n_train:,} training records.",
             },
         },
@@ -593,7 +614,7 @@ def save_artifacts(
         "training_records": record_meta,
     }
     joblib.dump(artifact, MODEL_OUT)
-    log.info("Saved model artifact → %s", MODEL_OUT)
+    log.info("Saved model artifact -> %s", MODEL_OUT)
 
     summary = {
         "version": "v2.0",
@@ -604,40 +625,40 @@ def save_artifacts(
         "results": results,
     }
     SUMMARY_OUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    log.info("Saved training summary → %s", SUMMARY_OUT)
+    log.info("Saved training summary -> %s", SUMMARY_OUT)
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# -- Main ----------------------------------------------------------------------
 
 def main() -> None:
-    print("╔══════════════════════════════════════════════════════════╗")
-    print("║  GPU Price Predictor V2 — Phase 2: Model Training        ║")
-    print("╚══════════════════════════════════════════════════════════╝\n")
+    print("============================================================")
+    print("|  GPU Price Predictor V2 - Phase 2: Model Training        |")
+    print("============================================================\n")
 
     x_train, x_test, y_train, y_test = load_enriched_dataset()
 
-    print("\n── Step 1: Tune & Train Individual Models ────────────────────")
+    print("\n-- Step 1: Tune & Train Individual Models --------------------")
     models, best_params = build_and_tune_candidates(x_train, y_train)
 
-    print("\n── Step 2: Fit Stacking Ensemble ─────────────────────────────")
+    print("\n-- Step 2: Fit Stacking Ensemble -----------------------------")
     # Pass best_params so stacking builds unfitted pipelines with tuned params
     models["stacking_ensemble"] = fit_stacking_ensemble(best_params, x_train, y_train)
 
-    print("\n── Step 3: Evaluate All Models on Holdout Set ────────────────")
+    print("\n-- Step 3: Evaluate All Models on Holdout Set ----------------")
     results = evaluate_all_models(models, x_test, y_test)
 
     best_name = min(results, key=lambda k: results[k]["mape_pct"])
 
     print_comparison_table(results, best_name)
-    print(f"\n✅ Best model: {best_name}  (MAPE={results[best_name]['mape_pct']:.1f}%)")
+    print(f"\n[OK] Best model: {best_name}  (MAPE={results[best_name]['mape_pct']:.1f}%)")
 
-    print("\n── Step 4: Save Artifacts ────────────────────────────────────")
+    print("\n-- Step 4: Save Artifacts ------------------------------------")
     save_artifacts(models, results, best_name, ALL_FEATURES, n_train=len(x_train), n_test=len(x_test))
 
     if results[best_name]["mape_pct"] > 15:
-        print("\n⚠  MAPE > 15% — consider lowering fuzzy match threshold in Phase 1.")
+        print("\n[!]  MAPE > 15% - consider lowering fuzzy match threshold in Phase 1.")
     else:
-        print("\n🎉 Target MAPE < 15% achieved!")
+        print("\n Target MAPE < 15% achieved!")
 
 
 if __name__ == "__main__":

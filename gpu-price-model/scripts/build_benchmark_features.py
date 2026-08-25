@@ -1,13 +1,13 @@
 """
-Phase 1 — Build Benchmark Features
+Phase 1 - Build Benchmark Features
 ====================================
 Produces: data/final/gpu_enriched_dataset.csv
 
 Steps
 -----
-1. Load training_data_v1.json + training_data_v2.json  →  combined market listings
-2. Fuzzy-join listings → GPU_benchmarks_v7.csv          →  G3Dmark, G2Dmark, TDP, testDate
-3. Fuzzy-join listings → gpu_1986-2026.csv              →  fp32_gflops, memory_bandwidth_gb_s,
+1. Load training_data_v1.json + training_data_v2.json  ->  combined market listings
+2. Fuzzy-join listings -> GPU_benchmarks_v7.csv          ->  G3Dmark, G2Dmark, TDP, testDate
+3. Fuzzy-join listings -> gpu_1986-2026.csv              ->  fp32_gflops, memory_bandwidth_gb_s,
                                                              shader_units, gpu_base_clock_mhz,
                                                              boost_clock_mhz, architecture,
                                                              release_year (ground-truth)
@@ -33,7 +33,7 @@ import numpy as np
 import pandas as pd
 from rapidfuzz import process as fz_process, fuzz
 
-# ── Paths ─────────────────────────────────────────────────────────────────────
+# -- Paths ---------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "final"
 
@@ -44,12 +44,12 @@ BENCHMARKS_CSV = DATA_DIR / "GPU_benchmarks_v7.csv"
 SPECS_CSV = DATA_DIR / "gpu_1986-2026.csv"
 OUTPUT_CSV = DATA_DIR / "gpu_enriched_dataset.csv"
 
-# ── Constants ─────────────────────────────────────────────────────────────────
+# -- Constants -----------------------------------------------------------------
 CURRENT_YEAR = 2026
 FUZZY_THRESHOLD_BENCH = 85   # threshold for benchmark join
 FUZZY_THRESHOLD_SPEC = 82    # slightly looser for spec join (longer names)
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# -- Helpers -------------------------------------------------------------------
 
 def normalize_model_name(raw: str) -> str:
     """
@@ -57,10 +57,10 @@ def normalize_model_name(raw: str) -> str:
 
     Examples
     --------
-    "GTX 960"      →  "GeForce GTX 960"
-    "RTX 3060 TI"  →  "GeForce RTX 3060 Ti"
-    "RX 5700 XT"   →  "Radeon RX 5700 XT"
-    "GT 1030"      →  "GeForce GT 1030"
+    "GTX 960"      ->  "GeForce GTX 960"
+    "RTX 3060 TI"  ->  "GeForce RTX 3060 Ti"
+    "RX 5700 XT"   ->  "Radeon RX 5700 XT"
+    "GT 1030"      ->  "GeForce GT 1030"
     """
     s = str(raw).strip()
 
@@ -81,7 +81,7 @@ def normalize_model_name(raw: str) -> str:
 def parse_numeric(value_str, unit_hint="") -> float | None:
     """
     Extract the first float from a string like '9.7 TFLOPS', '200 W', '672.0 GB/s',
-    '2048 MHz', etc.  Converts TFLOPS → GFLOPS automatically.
+    '2048 MHz', etc.  Converts TFLOPS -> GFLOPS automatically.
     Returns None if unparseable.
     """
     if pd.isna(value_str) or str(value_str).strip() in ("", "unknown", "N/A"):
@@ -93,7 +93,7 @@ def parse_numeric(value_str, unit_hint="") -> float | None:
     if not match:
         return None
     val = float(match.group())
-    # TFLOPS → GFLOPS
+    # TFLOPS -> GFLOPS
     if "TFLOP" in s.upper():
         val *= 1000.0
     return val
@@ -205,11 +205,11 @@ def fuzzy_join(
     return pd.Series(results, index=query_series.index)
 
 
-# ── 1. Load Listings ──────────────────────────────────────────────────────────
+# -- 1. Load Listings ----------------------------------------------------------
 
 def load_listings() -> pd.DataFrame:
     print("=" * 60)
-    print("Step 1: Loading market listings …")
+    print("Step 1: Loading market listings ...")
     v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8"))) if LISTING_V1.exists() else pd.DataFrame()
     v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8"))) if LISTING_V2.exists() else pd.DataFrame()
     v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
@@ -221,19 +221,47 @@ def load_listings() -> pd.DataFrame:
         "Extracted_Model": "extracted_model",
         "VRAM_GB": "vram_gb",
         "Brand": "brand",
+        "Listing_ID": "listing_id",
+        "Product_ID": "listing_id",
+        "Listing_URL": "listing_url",
+        "Product_URL": "listing_url",
+        "Raw_Title": "raw_title",
+        "Scraped_At_UTC": "scraped_at_utc",
     }, inplace=True)
 
     # Drop rows with missing price or model
     before = len(df)
     df.dropna(subset=["price_lkr", "extracted_model"], inplace=True)
     df = df[df["price_lkr"] > 0].copy()
-    print(f"  Loaded {before} total rows → {len(df)} after dropping nulls/zero-price")
+    print(f"  Loaded {before} total rows -> {len(df)} after dropping nulls/zero-price")
 
-    # Deduplicate listings
+    # Multi-tiered Deduplication to eliminate duplicate listing leakage
     before_dedup = len(df)
-    df.drop_duplicates(subset=["extracted_model", "price_lkr", "vram_gb", "brand"], inplace=True)
+
+    # Tier 1: Deduplicate by unique Listing ID if present (keep latest scrape)
+    if "listing_id" in df.columns and df["listing_id"].notna().any():
+        if "scraped_at_utc" in df.columns and df["scraped_at_utc"].notna().any():
+            df.sort_values("scraped_at_utc", ascending=True, inplace=True)
+        has_id = df["listing_id"].notna()
+        dedup_id = df[has_id].drop_duplicates(subset=["listing_id"], keep="last")
+        df = pd.concat([dedup_id, df[~has_id]], ignore_index=True)
+
+    # Tier 2: Deduplicate by unique Listing URL if present
+    if "listing_url" in df.columns and df["listing_url"].notna().any():
+        has_url = df["listing_url"].notna()
+        dedup_url = df[has_url].drop_duplicates(subset=["listing_url"], keep="last")
+        df = pd.concat([dedup_url, df[~has_url]], ignore_index=True)
+
+    # Tier 3: Deduplicate identical title + price
+    if "raw_title" in df.columns and df["raw_title"].notna().any():
+        has_title = df["raw_title"].notna()
+        dedup_title = df[has_title].drop_duplicates(subset=["raw_title", "price_lkr"], keep="last")
+        df = pd.concat([dedup_title, df[~has_title]], ignore_index=True)
+
+    # Tier 4: Exact attribute collision (model, price, vram, brand)
+    df.drop_duplicates(subset=["extracted_model", "price_lkr", "vram_gb", "brand"], keep="last", inplace=True)
     df.reset_index(drop=True, inplace=True)
-    print(f"  Deduplication: removed {before_dedup - len(df)} duplicate listings → {len(df)} unique records")
+    print(f"  Deduplication: removed {before_dedup - len(df)} duplicate listings -> {len(df)} unique records")
 
     # Create normalised model column for fuzzy matching
     df["norm_model"] = df["extracted_model"].apply(normalize_model_name)
@@ -241,10 +269,10 @@ def load_listings() -> pd.DataFrame:
     return df
 
 
-# ── 2. Fuzzy-join to PassMark Benchmarks ────────────────────────────────────
+# -- 2. Fuzzy-join to PassMark Benchmarks ------------------------------------
 
 def join_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
-    print("\nStep 2: Fuzzy-joining to GPU_benchmarks_v7.csv …")
+    print("\nStep 2: Fuzzy-joining to GPU_benchmarks_v7.csv ...")
     bdf = pd.read_csv(BENCHMARKS_CSV)
     bdf.columns = bdf.columns.str.strip()
 
@@ -265,7 +293,7 @@ def join_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
           f"({matched / len(unique_models) * 100:.1f}%)")
 
     if matched / len(unique_models) < 0.60:
-        print("  ⚠  Match rate below 60% — consider lowering FUZZY_THRESHOLD_BENCH to 75.")
+        print("  [!]  Match rate below 60% - consider lowering FUZZY_THRESHOLD_BENCH to 75.")
 
     df["bench_match"] = df["norm_model"].map(match_map)
 
@@ -288,10 +316,10 @@ def join_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# ── 3. Fuzzy-join to TechPowerUp Specs ──────────────────────────────────────
+# -- 3. Fuzzy-join to TechPowerUp Specs --------------------------------------
 
 def join_specs(df: pd.DataFrame) -> pd.DataFrame:
-    print("\nStep 3: Fuzzy-joining to gpu_1986-2026.csv for hardware specs …")
+    print("\nStep 3: Fuzzy-joining to gpu_1986-2026.csv for hardware specs ...")
 
     # Read only the columns we need to save memory
     SPEC_COLS = [
@@ -387,10 +415,10 @@ def derive_tier_class(model_name: str) -> str:
     return "Other"
 
 
-# ── 4. Engineer Derived Features ─────────────────────────────────────────────
+# -- 4. Engineer Derived Features ---------------------------------------------
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
-    print("\nStep 4: Engineering derived features …")
+    print("\nStep 4: Engineering derived features ...")
 
     # --- Release year: prefer spec, fallback to bench ---
     df["release_year"] = df["release_year_spec"].combine_first(df["release_year_bench"])
@@ -424,7 +452,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     df["ti_variant"] = df["extracted_model"].apply(is_ti_variant)
 
     # --- Log price (target) ---
-    df["log_price_lkr"] = np.log(df["price_lkr"])
+    df["log_price_lkr"] = np.log1p(df["price_lkr"])
 
     print("  Features engineered.")
     for feat in ["gpu_age_years", "tdp_watts", "perf_score", "log_G3Dmark",
@@ -435,7 +463,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# ── 5. Finalise Dataset ───────────────────────────────────────────────────────
+# -- 5. Finalise Dataset -------------------------------------------------------
 
 FINAL_COLUMNS = [
     # Target
@@ -452,29 +480,28 @@ FINAL_COLUMNS = [
     "release_year", "gpu_age_years",
     "architecture",
     "tier_class", "model_number", "series_family", "gpu_generation", "ti_variant",
-    # Diagnostic
-    "bench_match", "spec_match",
+    # Diagnostic & Metadata
+    "bench_match", "spec_match", "listing_id", "listing_url", "raw_title", "scraped_at_utc",
 ]
 
 
 def finalise(df: pd.DataFrame) -> pd.DataFrame:
-    print("\nStep 5: Finalising dataset (retaining all valid price listings without pre-split leakage) …")
+    print("\nStep 5: Finalising dataset (retaining all valid price listings without pre-split leakage) ...")
     df = df[df["price_lkr"] >= 3000].copy()
 
     # Keep only final columns that exist
     cols = [c for c in FINAL_COLUMNS if c in df.columns]
     df = df[cols].copy()
     return df
-    return df
 
 
-# ── 6. Save and Report ────────────────────────────────────────────────────────
+# -- 6. Save and Report --------------------------------------------------------
 
 def save_and_report(df: pd.DataFrame) -> None:
     df.to_csv(OUTPUT_CSV, index=False)
-    print(f"\n✅ Saved {len(df)} rows → {OUTPUT_CSV}")
+    print(f"\n[OK] Saved {len(df)} rows -> {OUTPUT_CSV}")
 
-    print("\n── Feature Coverage Summary ──────────────────────────────────────")
+    print("\n-- Feature Coverage Summary --------------------------------------")
     FEATURE_COLS = [
         "vram_gb", "G3Dmark", "G2Dmark", "log_G3Dmark",
         "fp32_gflops", "tdp_watts", "memory_bandwidth_gb_s",
@@ -485,27 +512,27 @@ def save_and_report(df: pd.DataFrame) -> None:
     for col in FEATURE_COLS:
         if col in df.columns:
             pct = df[col].notna().mean() * 100
-            bar = "█" * int(pct // 5) + "░" * (20 - int(pct // 5))
+            bar = "#" * int(pct // 5) + "." * (20 - int(pct // 5))
             print(f"  {col:<28} {bar} {pct:5.1f}%")
 
-    print("\n── Price Distribution ────────────────────────────────────────────")
+    print("\n-- Price Distribution --------------------------------------------")
     print(df["price_lkr"].describe().to_string())
 
-    print("\n── Series Family Distribution ────────────────────────────────────")
+    print("\n-- Series Family Distribution ------------------------------------")
     if "series_family" in df.columns:
         print(df["series_family"].value_counts().to_string())
 
-    print("\n── GPU Generation Distribution ───────────────────────────────────")
+    print("\n-- GPU Generation Distribution -----------------------------------")
     if "gpu_generation" in df.columns:
         print(df["gpu_generation"].value_counts().sort_index().to_string())
 
-    print("\n── Sample Rows (first 5) ─────────────────────────────────────────")
+    print("\n-- Sample Rows (first 5) -----------------------------------------")
     preview_cols = ["extracted_model", "price_lkr", "vram_gb", "brand",
                     "G3Dmark", "tdp_watts", "gpu_age_years", "series_family", "architecture"]
     preview = [c for c in preview_cols if c in df.columns]
     print(df[preview].head().to_string(index=False))
 
-    print("\n── Unmatched Models (benchmark) ──────────────────────────────────")
+    print("\n-- Unmatched Models (benchmark) ----------------------------------")
     model_col = "extracted_model" if "extracted_model" in df.columns else "norm_model"
     if "bench_match" in df.columns and model_col in df.columns:
         unmatched = (
@@ -516,9 +543,9 @@ def save_and_report(df: pd.DataFrame) -> None:
         if len(unmatched):
             print(unmatched.to_string())
         else:
-            print("  All models matched! 🎉")
+            print("  All models matched! ")
 
-    print("\n── Unmatched Models (specs) ──────────────────────────────────────")
+    print("\n-- Unmatched Models (specs) --------------------------------------")
     if "spec_match" in df.columns and model_col in df.columns:
         unmatched_spec = (
             df[df["spec_match"].isna()][model_col]
@@ -528,20 +555,20 @@ def save_and_report(df: pd.DataFrame) -> None:
         if len(unmatched_spec):
             print(unmatched_spec.to_string())
         else:
-            print("  All models matched! 🎉")
+            print("  All models matched!")
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# -- Main ----------------------------------------------------------------------
 
 def main():
-    print("╔══════════════════════════════════════════════════════════╗")
-    print("║  GPU Price Predictor V2 — Phase 1: Build Features        ║")
-    print("╚══════════════════════════════════════════════════════════╝\n")
+    print("=" * 60)
+    print("  GPU Price Predictor V2 - Phase 1: Build Features")
+    print("=" * 60 + "\n")
 
     # Validate inputs
     for path in [LISTING_V1, LISTING_V2, BENCHMARKS_CSV, SPECS_CSV]:
         if not path.exists():
-            print(f"❌ Missing file: {path}")
+            print(f"[!] Missing file: {path}")
             sys.exit(1)
 
     df = load_listings()

@@ -200,7 +200,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
                 brand: brand || "Any",
                 manufacturer: manufacturer || "Any",
                 listed_price: price || null,
-                stock: "In Stock"
+                stock: "In Stock",
+                description: raw_text || title || ""
             }
         };
     }
