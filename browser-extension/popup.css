@@ -391,6 +391,135 @@ main {
     justify-content: space-between;
 }
 
+/* Score Breakdown Section */
+.breakdown-details {
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.breakdown-summary {
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    background: #FAFAF8;
+}
+
+.breakdown-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.breakdown-summary-hint {
+    font-size: 10px;
+    color: var(--text-subtle);
+    font-weight: normal;
+}
+
+.breakdown-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #FFFFFF;
+    border-top: 1px solid var(--border);
+}
+
+.breakdown-formula-box {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.formula-label {
+    font-size: 9px;
+    font-weight: 800;
+    color: #64748B;
+    letter-spacing: 0.5px;
+}
+
+.formula-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1E293B;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.breakdown-factors {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.breakdown-factor-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #FAFAF8;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+.factor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.factor-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.factor-pill {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.factor-pill.positive, .factor-pill.optimal, .factor-pill.favorable, .factor-pill.low {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.factor-pill.neutral, .factor-pill.normal {
+    background: #EFF6FF;
+    color: #1E40AF;
+}
+
+.factor-pill.negative, .factor-pill.outside, .factor-pill.high {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.factor-pill.penalty, .factor-pill.heavy-penalty, .factor-pill.outlier, .factor-pill.high-premium {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.factor-desc {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
 /* Collapsible Spec Editor */
 .spec-editor-details {
     background: var(--bg-surface);

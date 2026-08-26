@@ -12,6 +12,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from gpu_price_predictor.app import load_artifact, load_enriched, predict_all
 from gpu_price_predictor.pipeline import (
+    apply_condition_adjustment,
     calculate_fair_market_range,
     get_fairness_verdict,
     get_model_sample_count,
@@ -83,6 +84,8 @@ class PredictRequest(BaseModel):
     manufacturer: Optional[str] = "Any"
     stock: Optional[str] = "In Stock"
     listed_price: Optional[float] = None
+    description: Optional[str] = None
+    is_shop: Optional[bool] = False
 
 @app.post("/predict")
 def predict(request: PredictRequest):
@@ -93,37 +96,62 @@ def predict(request: PredictRequest):
     brand = request.brand if request.brand else "Any"
     
     try:
+        # Get raw log predictions directly from model outputs to avoid double-logging
+        predictions_log = predict_all(
+            artifact=artifact,
+            model_name=request.model,
+            vram=vram,
+            brand=brand,
+            enriched=enriched,
+            return_log=True
+        )
+        
+        # Get LKR predictions for raw display mapping
         predictions = predict_all(
             artifact=artifact,
             model_name=request.model,
             vram=vram,
             brand=brand,
-            enriched=enriched
+            enriched=enriched,
+            return_log=False
         )
         
-        if not predictions:
+        if not predictions_log or not predictions:
             raise HTTPException(status_code=500, detail="Failed to generate prediction.")
             
         best_name = artifact.get("best_model_name", "")
         
         # Sort to get a fallback if best_name is not in predictions
-        sorted_preds = sorted(predictions.items(), key=lambda kv: kv[1])
-        best_price = predictions.get(best_name, sorted_preds[0][1])
+        sorted_preds_log = sorted(predictions_log.items(), key=lambda kv: kv[1])
+        base_log_price = predictions_log.get(best_name, sorted_preds_log[0][1])
+
+        sorted_preds_lkr = sorted(predictions.items(), key=lambda kv: kv[1])
+        base_best_price = predictions.get(best_name, sorted_preds_lkr[0][1])
 
         # Sample count lookup from enriched dataset for data penalty adjustment
         sample_count = get_model_sample_count(request.model, enriched)
 
-        # Conformal prediction log-space calculation
-        predicted_log_price = float(import_np().log1p(best_price))
+        # 2. Apply empirical condition & warranty adjustment
+        condition_adj = apply_condition_adjustment(
+            predicted_log_price=base_log_price,
+            description=request.description,
+            is_shop=bool(request.is_shop),
+        )
+
+        effective_log_price = condition_adj["adjusted_log_price"]
+        final_adjusted_price = condition_adj["adjusted_price_lkr"]
+
+        # 3. Conformal fair market range on condition-adjusted baseline
         calibration_data = artifact.get("conformal_calibration", None)
         
         range_info = calculate_fair_market_range(
-            predicted_log_price=predicted_log_price,
+            predicted_log_price=effective_log_price,
             sample_count=sample_count,
             calibration_data=calibration_data,
             confidence_level="90%"
         )
 
+        # 4. Continuous fairness verdict against condition-adjusted range
         verdict_info = get_fairness_verdict(
             listed_price=request.listed_price or 0.0,
             lower_bound=range_info["lower_price_lkr"],
@@ -131,7 +159,13 @@ def predict(request: PredictRequest):
         )
         
         return {
-            "predicted_price": best_price,
+            "predicted_price": final_adjusted_price,
+            "base_specs_price": float(round(base_best_price, -2)),
+            "condition_adjusted_price": final_adjusted_price,
+            "condition_adjustment_pct": condition_adj["condition_multiplier_pct"],
+            "condition_delta_lkr": condition_adj["condition_delta_lkr"],
+            "condition_tags": condition_adj["condition_tags"],
+            "applied_condition_factors": condition_adj["applied_factors"],
             "best_model_used": best_name,
             "lower_price": range_info["lower_price_lkr"],
             "upper_price": range_info["upper_price_lkr"],

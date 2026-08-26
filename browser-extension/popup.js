@@ -670,23 +670,46 @@ document.addEventListener('DOMContentLoaded', () => {
             priceDiffEl.innerText = fairness.score !== null ? `Score: ${fairness.score}/100` : '';
 
             if (verdictDescEl) {
-                let descHtml = fairness.advice;
-                if (fairness.actionAdvice) {
-                    descHtml += `<div style="margin-top: 6px; font-weight: 500; font-size: 11px;">💡 ${fairness.actionAdvice}</div>`;
-                }
-                if (fairness.negotiationTarget) {
-                    descHtml += `<div style="margin-top: 4px; font-weight: 600; color: #1e3a8a; font-size: 11px;">🎯 Counter-Offer: ${fairness.negotiationTarget}</div>`;
-                }
-                verdictDescEl.innerHTML = descHtml;
+                verdictDescEl.innerHTML = fairness.advice || "";
                 verdictDescEl.classList.remove('hidden');
+            }
+
+            // Populate Score Breakdown Section
+            const scoreBreakdownSection = document.getElementById('scoreBreakdownSection');
+            const breakdownFormulaText = document.getElementById('breakdownFormulaText');
+            const breakdownFactorsList = document.getElementById('breakdownFactorsList');
+
+            if (scoreBreakdownSection && fairness.breakdown) {
+                scoreBreakdownSection.classList.remove('hidden');
+                if (breakdownFormulaText) {
+                    breakdownFormulaText.innerText = fairness.breakdown.formulaExplanation || "--";
+                }
+                if (breakdownFactorsList && Array.isArray(fairness.breakdown.factors)) {
+                    breakdownFactorsList.innerHTML = fairness.breakdown.factors.map(f => {
+                        const pillClass = (f.impact || 'neutral').toLowerCase().replace(/\s+/g, '-');
+                        return `
+                            <div class="breakdown-factor-row">
+                                <div class="factor-header">
+                                    <span class="factor-name">${f.name}</span>
+                                    <span class="factor-pill ${pillClass}">${f.value}</span>
+                                </div>
+                                <div class="factor-desc">${f.desc}</div>
+                            </div>
+                        `;
+                    }).join('');
+                }
             }
         } else if (listedPrice && listedPrice > 0) {
             priceDiffEl.innerText = `Asking: Rs. ${listedPrice.toLocaleString('en-LK')}`;
             fairnessBadge.innerText = "Evaluated";
+            const scoreBreakdownSection = document.getElementById('scoreBreakdownSection');
+            if (scoreBreakdownSection) scoreBreakdownSection.classList.add('hidden');
         } else {
             priceDiffEl.innerText = "Specify price to score";
             if (verdictBanner) verdictBanner.className = 'verdict-banner neutral';
             fairnessBadge.innerText = "Price Missing";
+            const scoreBreakdownSection = document.getElementById('scoreBreakdownSection');
+            if (scoreBreakdownSection) scoreBreakdownSection.classList.add('hidden');
         }
     }
 

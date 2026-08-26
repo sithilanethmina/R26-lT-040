@@ -11,3 +11,5 @@ shap
 plotly
 fastapi
 uvicorn
+requests
+beautifulsoup4

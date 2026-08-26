@@ -369,6 +369,134 @@
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* Score Breakdown Accordion */
+.fplk-breakdown-details {
+    background: #FAFAF8;
+    border: 1px solid #E4E4E0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fplk-breakdown-summary {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4B5563;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    background: #F4F4F1;
+}
+
+.fplk-breakdown-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fplk-breakdown-summary-hint {
+    font-size: 10px;
+    color: #71717A;
+    font-weight: normal;
+}
+
+.fplk-breakdown-body {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #FFFFFF;
+    border-top: 1px solid #E4E4E0;
+}
+
+.fplk-formula-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fplk-formula-title {
+    font-size: 9px;
+    font-weight: 800;
+    color: #64748B;
+    letter-spacing: 0.5px;
+}
+
+.fplk-formula-math {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1E293B;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.fplk-factors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.fplk-factor-card {
+    background: #FAFAF8;
+    border: 1px solid #E4E4E0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fplk-factor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fplk-factor-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #18181B;
+}
+
+.fplk-factor-tag {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.fplk-factor-tag.positive, .fplk-factor-tag.optimal, .fplk-factor-tag.favorable, .fplk-factor-tag.low {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.fplk-factor-tag.neutral, .fplk-factor-tag.normal {
+    background: #EFF6FF;
+    color: #1E40AF;
+}
+
+.fplk-factor-tag.negative, .fplk-factor-tag.outside, .fplk-factor-tag.high {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.fplk-factor-tag.penalty, .fplk-factor-tag.heavy-penalty, .fplk-factor-tag.outlier, .fplk-factor-tag.high-premium {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.fplk-factor-desc {
+    font-size: 10px;
+    color: #52525B;
+    line-height: 1.35;
+}
+
 /* Manual Form Container */
 .fplk-form-section {
     display: flex;

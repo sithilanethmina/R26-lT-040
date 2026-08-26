@@ -751,8 +751,7 @@ def _gpu_generation(m: str) -> int:
         try:
             return _derive_gpu_gen(m)
         except Exception:
-            pass
-    return 0
+            return 0
 
 
 def predict_all(
@@ -762,8 +761,9 @@ def predict_all(
     brand: str,
     enriched: pd.DataFrame | None,
     custom_specs: dict | None = None,
+    return_log: bool = False,
 ) -> dict[str, float]:
-    """Run all trained models and return {model_name: predicted_lkr}."""
+    """Run all trained models and return {model_name: predicted_lkr or log_pred}."""
     feature_cols: list[str] = artifact["feature_columns"]
     all_models: dict = artifact.get("all_models", {})
 
@@ -781,12 +781,13 @@ def predict_all(
     for name, pipeline in all_models.items():
         try:
             pred = float(pipeline.predict(df_inf)[0])
-            results[name] = max(0.0, float(np.expm1(pred)))
+            if return_log:
+                results[name] = float(pred)
+            else:
+                results[name] = max(0.0, float(np.expm1(pred)))
         except Exception:
             pass
     return results
-
-
 # ── Shared prediction renderer ────────────────────────────────────────────────
 
 def _render_prediction_results(
@@ -799,21 +800,38 @@ def _render_prediction_results(
     listed_price: float = 0.0,
     calibration_data: dict | None = None,
     sample_count: int = 20,
+    description: str = "",
+    is_shop: bool = False,
 ) -> None:
     """Render FairPriceLK prediction card + per-model breakdown."""
     if not predictions:
         st.error("All models failed to produce a prediction. Check that the artifact is valid.")
         return
 
-    from gpu_price_predictor.pipeline import calculate_fair_market_range, get_fairness_verdict
+    from gpu_price_predictor.pipeline import (
+        apply_condition_adjustment,
+        calculate_fair_market_range,
+        get_fairness_verdict,
+    )
 
     sorted_preds = sorted(predictions.items(), key=lambda kv: kv[1])
-    best_price = predictions.get(best_name, sorted_preds[0][1])
+    base_price = predictions.get(best_name, sorted_preds[0][1])
+
+    # ── Condition & Warranty Adjustment ─────────────────────────────────────────
+    base_log_price = float(np.log1p(base_price))
+    condition_adj = apply_condition_adjustment(
+        predicted_log_price=base_log_price,
+        description=description,
+        is_shop=is_shop,
+    )
+    effective_log_price = condition_adj["adjusted_log_price"]
+    adjusted_best_price = condition_adj["adjusted_price_lkr"]
+    condition_multiplier = condition_adj["condition_multiplier_pct"]
+    applied_factors = condition_adj["applied_factors"]
 
     # ── Conformal Range Calculation ─────────────────────────────────────────────
-    predicted_log_price = float(np.log1p(best_price))
     range_info = calculate_fair_market_range(
-        predicted_log_price=predicted_log_price,
+        predicted_log_price=effective_log_price,
         sample_count=sample_count,
         calibration_data=calibration_data,
         confidence_level="90%"
@@ -851,6 +869,15 @@ def _render_prediction_results(
         fairness_badge_html = '<span class="badge">ESTIMATED FAIR MARKET RANGE</span>'
         price_diff_html = '<span class="diff-text">Enter seller asking price above to evaluate listing fairness</span>'
 
+    # Condition factors HTML pills
+    condition_pills_html = ""
+    if applied_factors:
+        pills = []
+        for f in applied_factors:
+            fname = f["factor"].replace("_", " ").title()
+            pills.append(f'<span style="background:#FEF3C7; border:1px solid #FCD34D; color:#92400E; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600;">{fname} ({f["pct_impact"]})</span>')
+        condition_pills_html = f'<div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; align-items:center;"><span style="font-size:11px; font-weight:700; color:#6B6B66;">CONDITION ADJUSTMENTS ({condition_multiplier:+.1f}%):</span> {" ".join(pills)}</div>'
+
     best_mape = eval_results.get(best_name, {}).get("mape_pct", "?")
     warn_html = ""
     if range_info.get("limited_data_warning"):
@@ -864,6 +891,7 @@ def _render_prediction_results(
             {fairness_badge_html}
             {price_diff_html}
         </div>
+        {condition_pills_html}
         {f'<div style="font-size:12px;color:#6B6B66;margin-top:6px;">💡 {desc}</div>' if desc else ''}
         <div class="result-footer">
             Primary model: <strong>{best_name.replace('_', ' ').title()}</strong> (MAPE {best_mape}%) &nbsp;·&nbsp; {label} &nbsp;·&nbsp; {vram:.0f} GB VRAM &nbsp;·&nbsp; {brand}{warn_html}
@@ -872,7 +900,7 @@ def _render_prediction_results(
     """, unsafe_allow_html=True)
 
     with st.expander("Technical Model Details & Point Prediction", expanded=False):
-        st.write(f"**Internal Model Point Estimate:** `Rs. {best_price:,.0f}` (Range midpoint: `Rs. {(lower_price + upper_price)/2:,.0f}`)")
+        st.write(f"**Base Hardware Point Estimate:** `Rs. {base_price:,.0f}` &nbsp;·&nbsp; **Condition-Adjusted Point Estimate:** `Rs. {adjusted_best_price:,.0f}` ({condition_multiplier:+.1f}%)")
         st.caption("The fair market range is derived using Split Conformal Prediction on empirical out-of-fold log-residuals.")
         
         st.markdown('<div class="section-label">All model predictions</div>', unsafe_allow_html=True)
@@ -1156,6 +1184,13 @@ def main():
         with fcol4:
             listed_price = st.number_input("Listed / Asking Price (LKR — Optional)", min_value=0.0, value=0.0, step=1000.0, key="listed_price_input", help="Enter seller asking price to evaluate fairness")
 
+        listed_desc = st.text_area(
+            "Listing Description / Notes (Optional)",
+            placeholder="Paste description or mention condition details (e.g. '06 months company warranty included', 'urgent sale', 'සුපිරි තත්වයේ', 'needs fan repair')",
+            key="listed_desc_input",
+            help="Bilingual condition extractor automatically parses warranty, urgent sales, repairs, and condition factors",
+        )
+
         if st.button("Check Price", key="btn_listed"):
             with st.spinner("Evaluating models…"):
                 predictions = predict_all(artifact, selected_model, selected_vram,
@@ -1174,6 +1209,7 @@ def main():
                 listed_price=listed_price,
                 calibration_data=artifact.get("conformal_calibration"),
                 sample_count=s_count,
+                description=listed_desc,
             )
 
             if not matches.empty:
@@ -1238,6 +1274,13 @@ def main():
         with r2c2:
             custom_listed_price = st.number_input("Listed / Asking Price (LKR — Optional)", min_value=0.0, value=0.0, step=1000.0, key="cust_listed_price", help="Enter seller asking price to evaluate fairness")
 
+        cust_desc = st.text_area(
+            "Listing Description / Notes (Optional)",
+            placeholder="Paste description or mention condition details (e.g. '06 months company warranty included', 'urgent sale', 'සුපිරි තත්වයේ', 'needs fan repair')",
+            key="cust_desc_input",
+            help="Bilingual condition extractor automatically parses warranty, urgent sales, repairs, and condition factors",
+        )
+
         # Auto-lookup
         if custom_name.strip():
             specs = lookup_gpu_specs(custom_name.strip(), bench_df, specs_df)
@@ -1290,6 +1333,7 @@ def main():
                             listed_price=custom_listed_price,
                             calibration_data=artifact.get("conformal_calibration"),
                             sample_count=cust_s_count,
+                            description=cust_desc,
                         )
                     else:
                         st.error("All models failed. Check that the artifact matches the feature schema.")
