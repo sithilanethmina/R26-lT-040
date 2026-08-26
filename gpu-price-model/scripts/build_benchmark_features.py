@@ -78,6 +78,21 @@ def normalize_model_name(raw: str) -> str:
     return s.strip()
 
 
+def check_keyword_guard(query: str, candidate: str) -> bool:
+    """
+    Ensures that distinguishing keywords like 'Ti', 'Super', and 'XT'
+    match exactly between the query and candidate.
+    """
+    q_lower = query.lower()
+    c_lower = candidate.lower()
+    for kw in ["ti", "super", "xt"]:
+        has_q = bool(re.search(rf"\b{kw}\b", q_lower))
+        has_c = bool(re.search(rf"\b{kw}\b", c_lower))
+        if has_q != has_c:
+            return False
+    return True
+
+
 def parse_numeric(value_str, unit_hint="") -> float | None:
     """
     Extract the first float from a string like '9.7 TFLOPS', '200 W', '672.0 GB/s',
@@ -284,9 +299,15 @@ def join_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
 
     match_map: dict[str, str | None] = {}
     for nm in unique_models:
-        hit = fz_process.extractOne(nm, bench_names, scorer=fuzz.token_sort_ratio,
-                                    score_cutoff=FUZZY_THRESHOLD_BENCH)
-        match_map[nm] = hit[0] if hit else None
+        hits = fz_process.extract(nm, bench_names, scorer=fuzz.token_sort_ratio, limit=10)
+        match = None
+        for cand, score, _ in hits:
+            if score < FUZZY_THRESHOLD_BENCH:
+                continue
+            if check_keyword_guard(nm, cand):
+                match = cand
+                break
+        match_map[nm] = match
 
     matched = sum(1 for v in match_map.values() if v is not None)
     print(f"  Benchmark match rate: {matched}/{len(unique_models)} "
@@ -343,9 +364,15 @@ def join_specs(df: pd.DataFrame) -> pd.DataFrame:
 
     match_map: dict[str, str | None] = {}
     for nm in unique_models:
-        hit = fz_process.extractOne(nm, spec_names, scorer=fuzz.token_sort_ratio,
-                                    score_cutoff=FUZZY_THRESHOLD_SPEC)
-        match_map[nm] = hit[0] if hit else None
+        hits = fz_process.extract(nm, spec_names, scorer=fuzz.token_sort_ratio, limit=10)
+        match = None
+        for cand, score, _ in hits:
+            if score < FUZZY_THRESHOLD_SPEC:
+                continue
+            if check_keyword_guard(nm, cand):
+                match = cand
+                break
+        match_map[nm] = match
 
     matched = sum(1 for v in match_map.values() if v is not None)
     print(f"  Spec match rate: {matched}/{len(unique_models)} "
@@ -435,9 +462,6 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     # --- Log G3Dmark ---
     df["log_G3Dmark"] = np.log1p(df["G3Dmark"].fillna(0))
 
-    # --- Perf per watt ---
-    df["perf_per_watt"] = df["perf_score"] / df["tdp_watts"].replace(0, np.nan)
-
     # --- Tier class & Model number ---
     df["tier_class"] = df["extracted_model"].apply(derive_tier_class)
     df["model_number"] = df["extracted_model"].apply(derive_model_number)
@@ -456,7 +480,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
 
     print("  Features engineered.")
     for feat in ["gpu_age_years", "tdp_watts", "perf_score", "log_G3Dmark",
-                 "perf_per_watt", "tier_class", "model_number", "gpu_generation"]:
+                 "tier_class", "model_number", "gpu_generation"]:
         cov = df[feat].notna().mean() * 100
         print(f"    {feat:<28}: {cov:.1f}% filled")
 
@@ -476,7 +500,7 @@ FINAL_COLUMNS = [
     "fp32_gflops", "memory_bandwidth_gb_s", "shader_units",
     "gpu_base_clock_mhz", "boost_clock_mhz",
     # Combined / derived
-    "tdp_watts", "perf_score", "perf_per_watt",
+    "tdp_watts", "perf_score",
     "release_year", "gpu_age_years",
     "architecture",
     "tier_class", "model_number", "series_family", "gpu_generation", "ti_variant",
@@ -506,7 +530,7 @@ def save_and_report(df: pd.DataFrame) -> None:
         "vram_gb", "G3Dmark", "G2Dmark", "log_G3Dmark",
         "fp32_gflops", "tdp_watts", "memory_bandwidth_gb_s",
         "shader_units", "gpu_base_clock_mhz", "boost_clock_mhz",
-        "perf_per_watt", "gpu_age_years", "gpu_generation",
+        "gpu_age_years", "gpu_generation",
         "model_number", "series_family", "ti_variant", "architecture",
     ]
     for col in FEATURE_COLS:

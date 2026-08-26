@@ -93,14 +93,7 @@ LOG_SCALE_THRESHOLD = 20
 NUMERIC_FEATURES = [
     "vram_gb",
     "G3Dmark",               # High correlation with performance
-    "G2Dmark",
-    "fp32_gflops",
     "tdp_watts",
-    "memory_bandwidth_gb_s",
-    "shader_units",
-    "gpu_base_clock_mhz",
-    "boost_clock_mhz",
-    "perf_per_watt",
     "gpu_age_years",
     "gpu_generation",
     "ti_variant",            # Binary: 1 if 'Ti', else 0
