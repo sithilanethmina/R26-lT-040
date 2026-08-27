@@ -302,7 +302,7 @@
     {
         "brand": "Kia",
         "vehicle_type": "SUV",
-        "model": "Sportage",
+        "model": "2008",
         "title_raw": "Kia Sportage 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 240000.0,
@@ -2237,7 +2237,7 @@
     {
         "brand": "Kia",
         "vehicle_type": "SUV",
-        "model": "Sportage",
+        "model": "2008",
         "title_raw": "Kia Sportage 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 165000.0,
@@ -4007,7 +4007,7 @@
     {
         "brand": "Kia",
         "vehicle_type": "SUV",
-        "model": "SORENTO",
+        "model": "Sorento",
         "title_raw": "Kia SORENTO 2011 SUV (Used)",
         "model_year": 2011,
         "mileage_km": 154743.0,
@@ -4937,7 +4937,7 @@
     {
         "brand": "Kia",
         "vehicle_type": "SUV",
-        "model": "SORENTO",
+        "model": "Sorento",
         "title_raw": "Kia SORENTO 2011 SUV (Used)",
         "model_year": 2011,
         "mileage_km": 205999.0,
@@ -4967,7 +4967,7 @@
     {
         "brand": "Kia",
         "vehicle_type": "SUV",
-        "model": "Sportage",
+        "model": "2008",
         "title_raw": "Kia Sportage 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 232431.0,
@@ -5117,7 +5117,7 @@
     {
         "brand": "Kia",
         "vehicle_type": "SUV",
-        "model": "SORENTO",
+        "model": "Sorento",
         "title_raw": "Kia SORENTO 2014 SUV (Used)",
         "model_year": 2014,
         "mileage_km": 161000.0,

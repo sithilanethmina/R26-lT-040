@@ -39,7 +39,12 @@
             return false;
         }
 
-        // 2. Must be an individual ad detail page or contain a clear item price + header
+        // 2. Riyasewana.com vehicle listing pages use /buy/<slug> pattern
+        if (href.includes('riyasewana.com/buy/')) {
+            return true;
+        }
+
+        // 3. Must be an individual ad detail page or contain a clear item price + header
         const hasAdPattern = href.includes('/ad/') || 
                              href.includes('/item/') || 
                              href.includes('/product/') ||
@@ -136,13 +141,19 @@
                         </div>
                         <div class="fplk-extracted-tags">
                             ${data.listed_price ? `<span class="fplk-extracted-tag price">Asking: Rs. ${Number(data.listed_price).toLocaleString('en-LK')}</span>` : ''}
-                            ${data.brand ? `<span class="fplk-extracted-tag">Brand: <strong>${data.brand}</strong></span>` : ''}
+                            ${data.vehicle_type ? `<span class="fplk-extracted-tag">Category: <strong>${data.vehicle_type === 'suvs' ? 'SUV' : data.vehicle_type === 'vans' ? 'Van' : 'Car'}</strong></span>` : ''}
+                            ${data.brand || data.make ? `<span class="fplk-extracted-tag">Make: <strong>${data.brand || data.make}</strong></span>` : ''}
                             ${data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ''}
                             ${data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
                             ${data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ''}
                             ${data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ''}
-                            ${data.model_year ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year}</strong></span>` : ''}
+                            ${(data.model_year || data.year) ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year || data.year}</strong></span>` : ''}
                             ${data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ''}
+                            ${data.engine_cc || data.engineCC ? `<span class="fplk-extracted-tag">Engine CC: <strong>${data.engine_cc || data.engineCC}</strong></span>` : ''}
+                            ${data.mileage || data.mileage_km ? `<span class="fplk-extracted-tag">Mileage: <strong>${Number(data.mileage || data.mileage_km).toLocaleString('en-LK')} km</strong></span>` : ''}
+                            ${data.gear || data.transmission ? `<span class="fplk-extracted-tag">Gear: <strong>${data.gear || data.transmission}</strong></span>` : ''}
+                            ${data.fuelType || data.fuel_type ? `<span class="fplk-extracted-tag">Fuel: <strong>${data.fuelType || data.fuel_type}</strong></span>` : ''}
+                            ${data.condition ? `<span class="fplk-extracted-tag">Condition: <strong>${data.condition}</strong></span>` : ''}
                         </div>
                     </div>
 
@@ -217,21 +228,12 @@
         const actionAdvice = fairness ? fairness.actionAdvice : null;
         const negotiationTarget = fairness ? fairness.negotiationTarget : null;
 
-        // Calculate visual marker position (0% - 100%)
-        let markerPos = 50;
-        if (listedPrice && upper > lower) {
-            const span = (upper - lower) * 1.5;
-            const minBound = lower - (span * 0.25);
-            markerPos = Math.max(4, Math.min(96, ((listedPrice - minBound) / span) * 100));
-        }
-
         return `
             <!-- Price Range & Score Grid -->
             <div class="fplk-price-grid">
                 <div class="fplk-price-card primary">
-                    <span class="fplk-price-label">Fair Market Range</span>
-                    <span class="fplk-price-val">Rs. ${Math.round(lower/1000)}k – ${Math.round(upper/1000)}k</span>
-                    <span class="fplk-price-sublabel">Mid: Rs. ${Math.round(pointPrice).toLocaleString('en-LK')}</span>
+                    <span class="fplk-price-label">PREDICTED PRICE</span>
+                    <span class="fplk-price-val">Rs. ${Math.round(pointPrice).toLocaleString('en-LK')}</span>
                 </div>
                 <div class="fplk-price-card score-card">
                     <span class="fplk-price-label">Fairness Score</span>
@@ -239,25 +241,6 @@
                     <span class="fplk-price-sublabel">${verdictTitle}</span>
                 </div>
             </div>
-
-            <!-- Visual Price Position Gauge -->
-            ${listedPrice ? `
-                <div class="fplk-visual-range-container">
-                    <div class="fplk-visual-range-labels">
-                        <span>Low: Rs. ${Math.round(lower/1000)}k</span>
-                        <span>Fair Mid: Rs. ${Math.round(pointPrice/1000)}k</span>
-                        <span>High: Rs. ${Math.round(upper/1000)}k</span>
-                    </div>
-                    <div class="fplk-range-track">
-                        <div class="fplk-range-fill" style="left: 15%; width: 70%;"></div>
-                        <div class="fplk-range-marker ${badgeCls}" style="left: ${markerPos}%;"></div>
-                    </div>
-                    <div class="fplk-gauge-subtext">
-                        Asking Price: <strong>Rs. ${Number(listedPrice).toLocaleString('en-LK')}</strong> 
-                        ${fairness && fairness.diffPercent ? `(${fairness.diffPercent > 0 ? '+' : ''}${Math.round(fairness.diffPercent)}% vs. fair mid)` : ''}
-                    </div>
-                </div>
-            ` : ''}
 
             <!-- Fairness Description & Advice Card -->
             <div class="fplk-verdict-box ${badgeCls}">
@@ -350,23 +333,61 @@
                 </div>
             `;
         } else if (category === 'vehicle') {
+            const currentMake  = data.brand || data.make || '';
+            const currentModel = data.model || '';
+            const currentYear  = data.model_year || data.year || 2015;
+            const currentMileage = data.mileage_km || data.mileage || '';
+            const currentGear  = data.transmission || data.gear || 'Automatic';
+            const currentFuel  = data.fuel_type || data.fuelType || 'Petrol';
+            const currentCC    = data.engine_cc || '';
+            const currentVariant = data.variant || 'Standard';
             return `
-                <div class="fplk-form-group full-width">
-                    <label class="fplk-label">Vehicle Model</label>
-                    <select class="fplk-select" id="fplk-vehicle-model">
-                        <option value="Toyota Corolla" ${data.model === 'Toyota Corolla' ? 'selected' : ''}>Toyota Corolla</option>
-                        <option value="Toyota Aqua" ${data.model === 'Toyota Aqua' ? 'selected' : ''}>Toyota Aqua</option>
-                        <option value="Suzuki Alto" ${data.model === 'Suzuki Alto' ? 'selected' : ''}>Suzuki Alto</option>
-                    </select>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Make (Brand)</label>
+                        <input type="text" class="fplk-input" id="fplk-vehicle-make" value="${currentMake}" placeholder="e.g. Toyota">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Model</label>
+                        <input type="text" class="fplk-input" id="fplk-vehicle-model" value="${currentModel}" placeholder="e.g. Aqua">
+                    </div>
                 </div>
                 <div class="fplk-form-grid">
                     <div class="fplk-form-group">
                         <label class="fplk-label">Year</label>
-                        <input type="number" class="fplk-input" id="fplk-vehicle-year" value="${data.model_year || 2015}">
+                        <input type="number" class="fplk-input" id="fplk-vehicle-year" value="${currentYear}" min="1980" max="2026">
                     </div>
                     <div class="fplk-form-group">
-                        <label class="fplk-label">Variant</label>
-                        <input type="text" class="fplk-input" id="fplk-vehicle-variant" value="${data.variant || '121'}">
+                        <label class="fplk-label">Mileage (km)</label>
+                        <input type="number" class="fplk-input" id="fplk-vehicle-mileage" value="${currentMileage}" placeholder="e.g. 75000">
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Transmission</label>
+                        <select class="fplk-select" id="fplk-vehicle-transmission">
+                            <option value="Automatic" ${currentGear === 'Automatic' ? 'selected' : ''}>Automatic</option>
+                            <option value="Manual" ${currentGear === 'Manual' ? 'selected' : ''}>Manual</option>
+                        </select>
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Fuel Type</label>
+                        <select class="fplk-select" id="fplk-vehicle-fuel">
+                            <option value="Petrol"   ${currentFuel === 'Petrol'   ? 'selected' : ''}>Petrol</option>
+                            <option value="Diesel"   ${currentFuel === 'Diesel'   ? 'selected' : ''}>Diesel</option>
+                            <option value="Hybrid"   ${currentFuel === 'Hybrid'   ? 'selected' : ''}>Hybrid</option>
+                            <option value="Electric" ${currentFuel === 'Electric' ? 'selected' : ''}>Electric</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Engine (CC) <span style="color:#71717A;font-size:10px;">(optional)</span></label>
+                        <input type="number" class="fplk-input" id="fplk-vehicle-enginecc" value="${currentCC}" placeholder="e.g. 1500">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Variant <span style="color:#71717A;font-size:10px;">(optional)</span></label>
+                        <input type="text" class="fplk-input" id="fplk-vehicle-variant" value="${currentVariant}" placeholder="e.g. G Grade">
                     </div>
                 </div>
             `;
@@ -439,15 +460,31 @@
             if (rEl) d.ram_gb = parseFloat(rEl.value) || 6;
             d.warranty_days = 0;
         } else if (cat === 'vehicle') {
-            const mEl = document.getElementById('fplk-vehicle-model');
-            const yEl = document.getElementById('fplk-vehicle-year');
-            const vEl = document.getElementById('fplk-vehicle-variant');
+            const makeEl  = document.getElementById('fplk-vehicle-make');
+            const mEl     = document.getElementById('fplk-vehicle-model');
+            const yEl     = document.getElementById('fplk-vehicle-year');
+            const miEl    = document.getElementById('fplk-vehicle-mileage');
+            const txEl    = document.getElementById('fplk-vehicle-transmission');
+            const fuelEl  = document.getElementById('fplk-vehicle-fuel');
+            const ccEl    = document.getElementById('fplk-vehicle-enginecc');
+            const vEl     = document.getElementById('fplk-vehicle-variant');
 
-            if (mEl) d.model = mEl.value;
-            if (yEl) d.model_year = parseInt(yEl.value, 10) || 2015;
-            if (vEl) d.variant = vEl.value.trim();
-            d.transmission = 'Automatic';
-            d.fuel_type = 'Petrol';
+            if (makeEl) { d.brand = makeEl.value.trim(); d.make = d.brand; }
+            if (mEl)    d.model = mEl.value.trim();
+            if (yEl)    d.model_year = parseInt(yEl.value, 10) || 2015;
+            if (miEl && miEl.value) {
+                const km = parseInt(miEl.value, 10);
+                d.mileage_km = (!isNaN(km) && km > 0) ? km : null;
+                d.mileage = d.mileage_km;
+            }
+            if (txEl)  { d.transmission = txEl.value; d.gear = d.transmission; }
+            if (fuelEl){ d.fuel_type = fuelEl.value; d.fuelType = d.fuel_type; }
+            if (ccEl && ccEl.value) {
+                const cc = parseInt(ccEl.value, 10);
+                d.engine_cc = (!isNaN(cc) && cc > 0) ? cc : null;
+            }
+            if (vEl)   d.variant = vEl.value.trim() || 'Standard';
+            d.year = d.model_year;
         } else if (cat === 'electronics') {
             const bEl = document.getElementById('fplk-elec-brand');
             const mEl = document.getElementById('fplk-elec-model');
@@ -465,7 +502,7 @@
     async function triggerPrediction() {
         if (!currentExtraction || !currentExtraction.data) return;
         const cat = currentExtraction.category || 'gpu';
-        const payload = currentExtraction.data;
+        const originalData = currentExtraction.data;
 
         const evalBtn = document.getElementById('fplk-eval-btn');
         if (evalBtn) {
@@ -473,28 +510,59 @@
             evalBtn.disabled = true;
         }
 
-        // Send message to background script to bypass Chrome HTTPS -> HTTP Mixed-Content restriction
-        chrome.runtime.sendMessage({
-            action: "predict_price",
-            category: cat,
-            payload: payload
-        }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.warn("Runtime message error:", chrome.runtime.lastError);
-                handlePredictionFailure(chrome.runtime.lastError.message);
-                return;
-            }
+        let payloadForFetch = { ...originalData };
+        
+        // Strip listed_price from the backend payload (used only for frontend fairness calculation)
+        delete payloadForFetch.listed_price;
 
-            if (!response || !response.success) {
-                const errMsg = response ? response.error : "No response from local server";
-                handlePredictionFailure(errMsg);
-                return;
+        let subpath = '';
+        if (cat === 'vehicle') {
+            const vType = originalData.vehicle_type || 'cars';
+            
+            if (vType === 'suvs') {
+                subpath = 'suv';
+            } else if (vType === 'vans') {
+                subpath = 'van';
+            } else {
+                // For standard cars, strictly limit the payload to only the 7 expected fields
+                payloadForFetch = {
+                    brand: originalData.brand,
+                    model: originalData.model,
+                    variant: originalData.variant,
+                    model_year: originalData.model_year,
+                    mileage_km: originalData.mileage_km,
+                    fuel_type: originalData.fuel_type,
+                    transmission: originalData.transmission
+                };
             }
+        }
 
-            cachedPrediction = response.data;
-            currentExtraction.valid = true;
-            renderEmbeddedCard();
-        });
+        try {
+            chrome.runtime.sendMessage({
+                action: "predict_price",
+                category: cat,
+                subpath: subpath,
+                payload: payloadForFetch
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error("Extension message error:", chrome.runtime.lastError);
+                    handlePredictionFailure(`Extension error: ${chrome.runtime.lastError.message}`);
+                    return;
+                }
+                
+                if (!response || !response.success) {
+                    handlePredictionFailure(response ? response.error : "Unknown error from background script");
+                    return;
+                }
+
+                cachedPrediction = response.data;
+                currentExtraction.valid = true;
+                renderEmbeddedCard();
+            });
+        } catch (err) {
+            console.error("Message dispatch error:", err);
+            handlePredictionFailure(`${err.name}: ${err.message}`);
+        }
     }
 
     function handlePredictionFailure(errMsg) {

@@ -1,0 +1,740 @@
+brand,model,variant,fuel_type,transmission,engine_code,model_year,mileage_km,vehicle_age,engine_cc,Actual_Price_LKR,Predicted_Price_LKR,Difference_LKR,Error_Margin_%,Confidence
+Toyota,Townace,402M,Petrol,Automatic,NA,2008,200000.0,18,1500.0,5800000.0,8.503852e+06,2703852.0,46.62,High
+Toyota,Kdh,Super GL Tyepe,Diesel,Automatic,NA,2013,144000.0,13,3000.0,21800000.0,2.2739308e+07,939308.0,4.31,High
+Toyota,Dolphin,LH102,Diesel,Manual,3L,1990,150000.0,36,2780.0,5995000.0,6.637729e+06,642729.0,10.72,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,1993,241533.0,33,2870.0,7550000.0,8.626671e+06,1076671.0,14.26,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,2011,200000.0,15,2950.0,9950000.0,9.791627e+06,-158373.0,1.59,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2015,30000.0,11,2980.0,25000000.0,2.4279668e+07,-720332.0,2.88,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1991,120000.0,35,2000.0,2975000.0,3.527928e+06,552928.0,18.59,High
+Toyota,Lh40B,Standard,Diesel,Manual,NA,1982,1.0,44,1600.0,975000.0,1.178851e+06,203851.0,20.91,Low — insufficient van market data
+Nissan,Vanette,Standard,Diesel,Manual,NA,1998,50000.0,28,1990.0,4350000.0,4.385727e+06,35727.0,0.82,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1990,125000.0,36,1450.0,2900000.0,2.749985e+06,-150015.0,5.17,High
+Toyota,Lh61,Standard,Diesel,Manual,NA,1987,87000.0,39,2500.0,3800000.0,4.092944e+06,292944.0,7.71,Low — insufficient van market data
+Toyota,Dolphin,LH123,Diesel,Manual,5L,1992,250000.0,34,2900.0,8350000.0,7.879868e+06,-470132.0,5.63,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1993,209000.0,33,2700.0,6600000.0,7.149429e+06,549429.0,8.32,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1991,235148.0,35,2700.0,6150000.0,5.950578e+06,-199422.0,3.24,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2007,242233.0,19,2490.0,16500000.0,1.7272844e+07,772844.0,4.68,High
+Nissan,Largo,Standard,Diesel,Manual,NA,1996,1.0,30,1950.0,2950000.0,3.564404e+06,614404.0,20.83,Medium
+Nissan,Vanette,Standard,Diesel,Manual,NA,2002,189350.0,24,2100.0,6650000.0,5.584914e+06,-1065086.0,16.02,High
+Toyota,Townace,Standard,Petrol,Manual,NA,1999,185000.0,27,1700.0,6350000.0,5.69228e+06,-657720.0,10.36,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1985,2556.0,41,2180.0,2650000.0,1.772282e+06,-877718.0,33.12,Medium
+Nissan,Clipper,Every PA Limited,Petrol,Automatic,NA,2024,6200.0,2,650.0,7750000.0,7.801288e+06,51288.0,0.66,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1991,1.0,35,1990.0,2850000.0,2.944516e+06,94516.0,3.32,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2019,75000.0,7,650.0,6500000.0,6.056674e+06,-443326.0,6.82,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1999,364687.0,27,3200.0,8500000.0,8.683053e+06,183053.0,2.15,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2015,105000.0,11,650.0,5750000.0,6.040672e+06,290672.0,5.06,High
+Toyota,Cr41,Standard,Diesel,Manual,NA,1998,235000.0,28,2000.0,6450000.0,6.369024e+06,-80976.0,1.26,Medium
+Toyota,Kdh,Dark Prime,Diesel,Automatic,NA,2015,109000.0,11,2960.0,23900000.0,2.4332192e+07,432192.0,1.81,High
+Toyota,Kdh,Standard,Petrol,Automatic,NA,2016,75000.0,10,2600.0,21800000.0,3.3263684e+07,11463684.0,52.59,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2012,1.0,14,650.0,4450000.0,4.706702e+06,256702.0,5.77,High
+Toyota,Hiace,Super GL,Diesel,Automatic,NA,2000,212000.0,26,3000.0,12350000.0,1.0608234e+07,-1741766.0,14.1,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2016,100000.0,10,660.0,5100000.0,5.606178e+06,506178.0,9.93,High
+Suzuki,Da17,Standard,Petrol,Automatic,NA,2016,120000.0,10,650.0,5800000.0,5.803217e+06,3217.0,0.06,Low — insufficient van market data
+Toyota,Shell,Standard,Diesel,Manual,NA,1983,1.0,43,2440.0,3100000.0,3.189418e+06,89418.0,2.88,High
+Toyota,Kdh,Standard,Diesel,Manual,NA,2008,213564.0,18,2990.0,19500000.0,1.5853264e+07,-3646736.0,18.7,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1983,100000.0,43,2000.0,3000000.0,2.076894e+06,-923106.0,30.77,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1997,273000.0,29,1970.0,6000000.0,5.613021e+06,-386979.0,6.45,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1989,350491.0,37,2440.0,5000000.0,5.238926e+06,238926.0,4.78,High
+Toyota,Noah,CR42,Diesel,Automatic,NA,1999,2.0,27,2180.0,7400000.0,7.133145e+06,-266855.0,3.61,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1993,1.0,33,2660.0,7750000.0,7.214049e+06,-535951.0,6.92,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1995,100000.0,31,2700.0,4900000.0,6.543857e+06,1643857.0,33.55,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1995,1234.0,31,2800.0,10700000.0,1.0564237e+07,-135763.0,1.27,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1985,270000.0,41,1830.0,2430000.0,2.275474e+06,-154526.0,6.36,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1980,1.0,46,2200.0,980000.0,1.273176e+06,293176.0,29.92,Medium
+Nissan,Clipper,NV100,Petrol,Automatic,NA,2012,147000.0,14,650.0,4750000.0,4.428226e+06,-321774.0,6.77,High
+Suzuki,Every,Standard,Petrol,Manual,NA,2000,101500.0,26,660.0,3200000.0,3.512957e+06,312957.0,9.78,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1992,1.0,34,2660.0,5850000.0,6.839354e+06,989354.0,16.91,High
+Nissan,Caravan,Vrge23,Diesel,Manual,NA,1981,1.0,45,2700.0,1600000.0,1.901006e+06,301006.0,18.81,High
+Nissan,Caravan,E25,Diesel,Automatic,NA,2006,1.0,20,2700.0,9000000.0,1.0600751e+07,1600751.0,17.79,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1983,65000.0,43,1400.0,1000000.0,1.278985e+06,278985.0,27.9,Medium
+Toyota,Hiace,LH61,Diesel,Manual,NA,1987,178000.0,39,2440.0,3775000.0,4.413183e+06,638183.0,16.91,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2007,207000.0,19,2500.0,15950000.0,1.7320416e+07,1370416.0,8.59,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2014,125000.0,12,680.0,4890000.0,5.275224e+06,385224.0,7.88,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2011,138000.0,15,1590.0,8690000.0,8.388052e+06,-301948.0,3.47,Medium
+Toyota,Kdh,Standard,Petrol,Automatic,NA,2015,196000.0,11,2000.0,18700000.0,1.980228e+07,1102280.0,5.89,High
+Nissan,E25,Standard,Diesel,Manual,NA,2003,520000.0,23,2950.0,9500000.0,6.343927e+06,-3156073.0,33.22,Medium
+Toyota,Cr26,Standard,Petrol,Manual,NA,1988,1.0,38,1900.0,2575000.0,2.739658e+06,164658.0,6.39,Low — insufficient van market data
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1990,1111.0,36,2380.0,2700000.0,2.56813e+06,-131870.0,4.88,Medium
+Suzuki,Every,SEMI JOIN,Petrol,Automatic,NA,2017,98500.0,9,650.0,5475000.0,6.288084e+06,813084.0,14.85,High
+Mazda,Brawny,Standard,Diesel,Manual,NA,1991,50000.5,35,1800.0,3800000.0,3.680986e+06,-119014.0,3.13,Medium
+Toyota,Liteace,Standard,Diesel,Automatic,NA,1995,244000.0,31,2000.0,5300000.0,4.692704e+06,-607296.0,11.46,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2020,64000.0,6,650.0,6775000.0,6.019688e+06,-755312.0,11.15,High
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2017,100000.0,9,650.0,4975000.0,5.32688e+06,351880.0,7.07,High
+Toyota,Cr27,Standard,Diesel,Manual,NA,1991,357000.0,35,2000.0,3950000.0,3.739074e+06,-210926.0,5.34,Medium
+Toyota,Townace,Standard,Diesel,Manual,NA,2001,200000.0,25,1970.0,5400000.0,6.44587e+06,1045870.0,19.37,High
+Toyota,Cr42,Standard,Diesel,Automatic,NA,1999,225000.0,27,2100.0,6975000.0,7.197014e+06,222014.0,3.18,Low — insufficient van market data
+Mazda,Bongo,Standard,Diesel,Manual,NA,1997,324000.0,29,2180.0,4825000.0,4.591033e+06,-233967.0,4.85,High
+Toyota,Dolphin,LH113,Diesel,Manual,3L,1993,169000.0,33,2770.0,8200000.0,8.648599e+06,448599.0,5.47,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1990,146000.0,36,1970.0,3275000.0,3.410438e+06,135438.0,4.14,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2003,1.0,23,1990.0,6550000.0,5.315558e+06,-1234442.0,18.85,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2012,238000.0,14,2980.0,17200000.0,1.9989364e+07,2789364.0,16.22,High
+Toyota,Kdh,HIACE 200,Petrol,Automatic,NA,2005,220000.0,21,2490.0,14700000.0,1.6117359e+07,1417359.0,9.64,High
+Toyota,Noah,CR41,Diesel,Manual,NA,1998,180000.0,28,2000.0,6800000.0,6.089136e+06,-710864.0,10.45,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2005,123.0,21,600.0,3950000.0,3.734345e+06,-215655.0,5.46,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2005,340123.0,21,2490.0,18500000.0,1.5400984e+07,-3099016.0,16.75,High
+Toyota,Noah,Standard,Petrol,Automatic,NA,2007,139000.0,19,1800.0,7850000.0,8.770581e+06,920581.0,11.73,High
+Toyota,Noah,Standard,Petrol,Automatic,NA,2001,212500.0,25,1780.0,7800000.0,6.991383e+06,-808617.0,10.37,High
+Nissan,Caravan,High Roof,Diesel,Manual,NA,1993,209000.0,33,2700.0,7900000.0,6.841488e+06,-1058512.0,13.4,High
+Suzuki,Every,DA17,Petrol,Automatic,NA,2016,113000.0,10,650.0,6150000.0,6.190927e+06,40927.0,0.67,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1997,176000.0,29,3150.0,9650000.0,8.311377e+06,-1338623.0,13.87,High
+Toyota,Kdh,Super GL Dark Prime,Diesel,Automatic,NA,2017,141000.0,9,2960.0,26900000.0,2.5376048e+07,-1523952.0,5.67,High
+Nissan,E25,Standard,Diesel,Automatic,NA,2011,154000.0,15,2950.0,10500000.0,8.844968e+06,-1655032.0,15.76,Medium
+Mazda,Bongo,Standard,Diesel,Manual,NA,2007,174000.0,19,2180.0,7200000.0,6.245472e+06,-954528.0,13.26,High
+Nissan,Caravan,Standard,Petrol,Manual,NA,1993,209000.0,33,2700.0,6500000.0,6.873552e+06,373552.0,5.75,High
+Nissan,Nv200,Standard,Petrol,Manual,NA,2012,135000.0,14,1800.0,8100000.0,6.916827e+06,-1183173.0,14.61,Medium
+Toyota,Cr41,Standard,Diesel,Manual,NA,1997,250000.0,29,2000.0,6500000.0,6.330945e+06,-169055.0,2.6,Medium
+Nissan,Serena,Standard,Diesel,Automatic,NA,1995,11111.0,31,1970.0,2600000.0,3.064532e+06,464532.0,17.87,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,108000.0,10,660.0,5895000.0,6.22056e+06,325560.0,5.52,High
+Toyota,Lh61,Standard,Diesel,Manual,NA,1989,130000.0,37,2800.0,4400000.0,4.660806e+06,260806.0,5.93,Low — insufficient van market data
+Toyota,Hiace,Standard,Diesel,Manual,NA,1990,1.0,36,2440.0,4650000.0,5.789911e+06,1139911.0,24.51,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1991,200000.0,35,1970.0,3975000.0,3.527928e+06,-447072.0,11.25,High
+Suzuki,Omni,Standard,Petrol,Manual,NA,2004,1.0,22,800.0,2100000.0,2.103835e+06,3835.0,0.18,Low — insufficient van market data
+Nissan,Vanette,Standard,Diesel,Automatic,NA,2006,310000.0,20,1990.0,5985000.0,6.71181e+06,726810.0,12.14,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1994,254652.0,32,2000.0,5325000.0,4.627813e+06,-697187.0,13.09,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2012,225000.0,14,3000.0,19800000.0,1.9989364e+07,189364.0,0.96,High
+Toyota,Voxy,Standard,Hybrid,Automatic,NA,2014,120000.0,12,1799.0,16500000.0,1.617322e+07,-326780.0,1.98,Medium
+Toyota,Townace,Standard,Diesel,Manual,NA,1987,150000.0,39,1970.0,2555000.0,2.680478e+06,125478.0,4.91,High
+Nissan,Nv100,Standard,Petrol,Automatic,NA,2015,220000.0,11,650.0,5700000.0,6.272225e+06,572225.0,10.04,Low — insufficient van market data
+Suzuki,Every Wagon,PZ,Petrol,Automatic,NA,2019,114000.0,7,650.0,7675000.0,6.480176e+06,-1194824.0,15.57,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1995,187425.0,31,2770.0,9350000.0,9.689741e+06,339741.0,3.63,High
+Toyota,Townace,CR27,Diesel,Manual,NA,1991,1.0,35,2000.0,3450000.0,3.552527e+06,102527.0,2.97,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1991,2345.0,35,2770.0,6775000.0,6.813112e+06,38112.0,0.56,High
+Toyota,Cr27,Standard,Diesel,Automatic,NA,1989,158000.0,37,1990.0,3330000.0,3.600774e+06,270774.0,8.13,Medium
+Toyota,Noah,Standard,Diesel,Automatic,NA,2001,299023.0,25,2200.0,8000000.0,7.514012e+06,-485988.0,6.07,High
+Daihatsu,Hijet,Standard,Petrol,Manual,NA,2001,170000.0,25,650.0,3495000.0,3.022354e+06,-472646.0,13.52,High
+Toyota,Cm20,Standard,Diesel,Manual,NA,1983,120000.0,43,1800.0,1975000.0,1.932442e+06,-42558.0,2.15,Low — insufficient van market data
+Mazda,Bongo,Standard,Diesel,Automatic,NA,2006,118000.0,20,1996.0,5250000.0,6.621752e+06,1371752.0,26.13,High
+Toyota,Dolphin,Hiace,Diesel,Manual,5L,1994,1.0,32,3000.0,9200000.0,9.04999e+06,-150010.0,1.63,High
+Mitsubishi,Delica,Standard,Petrol,Manual,NA,1982,123459.0,44,1985.0,825000.0,1.231241e+06,406241.0,49.24,Medium
+Toyota,Noah,Standard,Diesel,Manual,NA,1997,1.0,29,1900.0,6250000.0,5.803234e+06,-446766.0,7.15,High
+Toyota,Dolphin,Standard,Diesel,Manual,Other,1994,350000.0,32,2000.0,6550000.0,8.471684e+06,1921684.0,29.34,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1984,86454.0,42,1830.0,2460000.0,2.046609e+06,-413391.0,16.8,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2014,108579.0,12,650.0,6500000.0,5.479588e+06,-1020412.0,15.7,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2016,90900.0,10,650.0,5990000.0,5.854704e+06,-135296.0,2.26,High
+Toyota,Dolphin,Standard,Diesel,Automatic,3L,1996,120000.0,30,2770.0,8200000.0,9.89549e+06,1695490.0,20.68,High
+Suzuki,Every,DA 52,Petrol,Automatic,NA,2001,150000.0,25,650.0,3900000.0,3.838012e+06,-61988.0,1.59,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,1991,1223.0,35,3000.0,7800000.0,6.804904e+06,-995096.0,12.76,High
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1991,160000.0,35,2440.0,7250000.0,6.464652e+06,-785348.0,10.83,High
+Nissan,Bongo,Standard,Diesel,Manual,NA,1997,175000.0,29,1890.0,4700000.0,4.975579e+06,275579.0,5.86,Low — insufficient van market data
+Suzuki,Every,Standard,Petrol,Manual,NA,2000,145000.0,26,650.0,3325000.0,3.454265e+06,129265.0,3.89,High
+Mazda,Bongo,Standard,Diesel,Automatic,NA,1999,203834.0,27,2180.0,6500000.0,4.84393e+06,-1656070.0,25.48,High
+Suzuki,Every,DA52,Petrol,Automatic,NA,1999,1.0,27,650.0,3450000.0,3.709654e+06,259654.0,7.53,High
+Toyota,Liteace,Standard,Petrol,Manual,NA,1982,97000.0,44,1300.0,950000.0,1.244141e+06,294141.0,30.96,High
+Toyota,Hiace,Dolphin,Diesel,Automatic,NA,1993,285000.0,33,2446.0,7200000.0,7.443694e+06,243694.0,3.38,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1990,12345.0,36,2000.0,2875000.0,2.806035e+06,-68965.0,2.4,High
+Toyota,Townace,CR26,Diesel,Manual,NA,1989,1.0,37,2000.0,2550000.0,3.197367e+06,647367.0,25.39,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2014,131000.0,12,650.0,5175000.0,5.205076e+06,30076.0,0.58,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1983,24.0,43,1250.0,950000.0,1.543873e+06,593873.0,62.51,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1996,168000.0,30,1500.0,5600000.0,4.286988e+06,-1313012.0,23.45,High
+Toyota,Hiace,Standard,Diesel,Automatic,NA,1994,12345.0,32,2770.0,8985000.0,8.406526e+06,-578474.0,6.44,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1998,123456.0,28,2000.0,4850000.0,4.736705e+06,-113295.0,2.34,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1983,1235.0,43,2300.0,1490000.0,1.638157e+06,148157.0,9.94,High
+Mazda,Brawny,Standard,Diesel,Manual,NA,1993,150000.0,33,2180.0,4450000.0,4.153677e+06,-296323.0,6.66,Medium
+Toyota,Townace,S402M,Petrol,Automatic,NA,2011,142000.0,15,1490.0,6999000.0,8.064302e+06,1065302.0,15.22,High
+Toyota,Liteace,Standard,Diesel,Automatic,NA,2008,300000.0,18,2800.0,8000000.0,1.0901016e+07,2901016.0,36.26,High
+Mazda,Brawny,Standard,Diesel,Manual,NA,1993,40000.0,33,2949.0,4875000.0,5.753292e+06,878292.0,18.02,Medium
+Suzuki,Every,Standard,Petrol,Manual,NA,2002,126200.0,24,650.0,3600000.0,3.529964e+06,-70036.0,1.95,High
+Toyota,Cr27,Standard,Diesel,Manual,NA,1996,50000.0,30,2000.0,4600000.0,4.99937e+06,399370.0,8.68,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1992,19000.0,34,2700.0,6590000.0,7.821454e+06,1231454.0,18.69,High
+Toyota,Kdh,Standard,Diesel,Manual,NA,2006,33365.0,20,2500.0,15000000.0,1.5637399e+07,637399.0,4.25,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2006,130000.0,20,650.0,4900000.0,4.749126e+06,-150874.0,3.08,High
+Nissan,Caravan,Standard,Petrol,Automatic,NA,1993,209000.0,33,2700.0,6500000.0,7.038171e+06,538171.0,8.28,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1994,125000.0,32,2000.0,4100000.0,4.015184e+06,-84816.0,2.07,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2015,144000.0,11,660.0,5690000.0,5.989316e+06,299316.0,5.26,High
+Suzuki,Every,DA17v,Petrol,Automatic,NA,2019,85.0,7,660.0,6950000.0,6.499524e+06,-450476.0,6.48,High
+Toyota,Dolphin,LH 172,Diesel,Manual,5L,1998,200000.0,28,2980.0,10650000.0,1.0888528e+07,238528.0,2.24,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,1999,370000.0,27,3000.0,12490000.0,1.0836214e+07,-1653786.0,13.24,High
+Toyota,Kdh,200,Diesel,Manual,NA,2007,316000.0,19,2500.0,15200000.0,1.5942473e+07,742473.0,4.88,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1988,100000.0,38,2200.0,5500000.0,4.302836e+06,-1197164.0,21.77,High
+Toyota,Kdh,201 GL,Diesel,Automatic,NA,2007,341871.0,19,2980.0,16500000.0,1.7354708e+07,854708.0,5.18,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1989,12348.0,37,2500.0,3850000.0,5.444686e+06,1594686.0,41.42,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2012,99.0,14,2980.0,18500000.0,2.0269404e+07,1769404.0,9.56,High
+Toyota,Cr41,Standard,Diesel,Manual,NA,1996,272000.0,30,1970.0,6000000.0,5.854865e+06,-145135.0,2.42,Medium
+Toyota,Noah,Standard,Petrol,Automatic,NA,1998,135000.0,28,2000.0,6250000.0,6.44614e+06,196140.0,3.14,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2012,137000.0,14,650.0,4725000.0,4.428226e+06,-296774.0,6.28,High
+Toyota,Dolphin,113,Diesel,Manual,3L,1997,280000.0,29,2800.0,8250000.0,1.0447734e+07,2197734.0,26.64,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1998,1.0,28,2798.0,11300000.0,9.105673e+06,-2194327.0,19.42,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1998,224000.0,28,2000.0,4600000.0,4.583718e+06,-16282.0,0.35,High
+Nissan,Caravan,Standard,Diesel,Automatic,NA,2006,150000.0,20,2950.0,8400000.0,1.0271112e+07,1871112.0,22.28,High
+Toyota,Lh113,Standard,Diesel,Manual,NA,1992,154231.0,34,2770.0,7750000.0,7.10741e+06,-642590.0,8.29,Medium
+Toyota,Townace,CR42,Diesel,Automatic,NA,2000,260000.0,26,2180.0,7300000.0,6.799624e+06,-500376.0,6.85,High
+Toyota,Noah,Kr42,Petrol,Manual,NA,2006,158000.0,20,1780.0,7000000.0,7.762238e+06,762238.0,10.89,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2016,90900.0,10,650.0,5990000.0,5.854704e+06,-135296.0,2.26,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,2006,160000.0,20,1500.0,5200000.0,6.045854e+06,845854.0,16.27,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1990,66.5,36,2440.0,6850000.0,5.789911e+06,-1060089.0,15.48,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2013,295000.0,13,1500.0,8950000.0,8.061596e+06,-888404.0,9.93,Medium
+Toyota,Lh61V,Standard,Diesel,Manual,NA,1989,1.0,37,2440.0,4475000.0,4.477442e+06,2442.0,0.05,Low — insufficient van market data
+Mazda,Bongo,Standard,Petrol,Automatic,NA,1999,1.0,27,2000.0,5300000.0,5.211757e+06,-88243.0,1.66,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1985,100.0,41,2970.0,1165000.0,2.735215e+06,1570215.0,134.78,Medium
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,145000.0,10,650.0,5775000.0,6.064436e+06,289436.0,5.01,High
+Toyota,Noah,Kr42,Petrol,Automatic,NA,2006,110800.0,20,1779.0,9800000.0,8.465748e+06,-1334252.0,13.61,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1997,300000.0,29,1990.0,4880000.0,4.325934e+06,-554066.0,11.35,High
+Toyota,Kdh,GL,Diesel,Automatic,NA,2014,112000.0,12,3000.0,18575000.0,2.4294768e+07,5719768.0,30.79,High
+Suzuki,Every,Semi Join,Petrol,Manual,NA,2001,157000.0,25,650.0,3750000.0,3.539558e+06,-210442.0,5.61,High
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2012,115000.0,14,650.0,4985000.0,4.429564e+06,-555436.0,11.14,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1982,580000.0,44,1800.0,2100000.0,1.421363e+06,-678637.0,32.32,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1994,2.0,32,2770.0,8900000.0,8.967787e+06,67787.0,0.76,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1983,63500.0,43,2340.0,1675000.0,1.370071e+06,-304929.0,18.2,High
+Toyota,Noah,CR41 Townace,Diesel,Automatic,NA,1998,123456.0,28,1990.0,5950000.0,6.447672e+06,497672.0,8.36,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1991,1.0,35,2770.0,6875000.0,6.813112e+06,-61888.0,0.9,High
+Nissan,Clipper,NV100 Full Join Turbo,Petrol,Automatic,NA,2018,52000.0,8,660.0,6850000.0,5.879928e+06,-970072.0,14.16,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2007,160000.0,19,660.0,5200000.0,5.040926e+06,-159074.0,3.06,High
+Nissan,Serena,Standard,Diesel,Manual,NA,1992,1.0,34,2000.0,2000000.0,2.449998e+06,449998.0,22.5,High
+Suzuki,Every,DA64,Petrol,Automatic,NA,2006,182000.0,20,650.0,4795000.0,4.73768e+06,-57320.0,1.2,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1995,150745.5,31,1950.0,2850000.0,4.023146e+06,1173146.0,41.16,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1995,3.0,31,2660.0,5250000.0,7.708828e+06,2458828.0,46.83,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2004,168000.0,22,2180.0,5950000.0,7.869512e+06,1919512.0,32.26,High
+Toyota,Grand,Hiace,Diesel,Manual,NA,2008,214920.0,18,2494.0,7500000.0,1.0711173e+07,3211173.0,42.82,Low — insufficient van market data
+Nissan,Vanette,Standard,Diesel,Manual,NA,2013,125000.0,13,2180.0,7400000.0,6.82271e+06,-577290.0,7.8,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2025,11500.0,1,660.0,7850000.0,8.562077e+06,712077.0,9.07,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1990,100000.0,36,1970.0,3475000.0,3.410438e+06,-64562.0,1.86,High
+Toyota,Kdh,Standard,Petrol,Automatic,NA,2014,173546.0,12,2000.0,25500000.0,2.0016644e+07,-5483356.0,21.5,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2007,195655.0,19,2180.0,6000000.0,6.437938e+06,437938.0,7.3,High
+Toyota,Voxy,Standard,Hybrid,Automatic,NA,2015,60000.0,11,1800.0,15300000.0,1.6184514e+07,884514.0,5.78,Medium
+Mazda,Bongo,Standard,Diesel,Automatic,NA,2006,155000.0,20,2000.0,6850000.0,6.566124e+06,-283876.0,4.14,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,2006,150000.0,20,1990.0,6850000.0,6.779972e+06,-70028.0,1.02,High
+Toyota,Esquire,Standard,Hybrid,Automatic,NA,2015,49000.0,11,1790.0,19875000.0,1.5922022e+07,-3952978.0,19.89,Low — insufficient van market data
+Nissan,Largo,Standard,Diesel,Manual,NA,1992,95000.0,34,1950.0,2550000.0,2.75398e+06,203980.0,8.0,Medium
+Mazda,Bongo,Standard,Petrol,Manual,NA,2003,188300.0,23,1780.0,5850000.0,4.948138e+06,-901862.0,15.42,High
+Mazda,Bongo,Standard,Diesel,Automatic,NA,2010,1.0,16,2000.0,7300000.0,7.470782e+06,170782.0,2.34,High
+Toyota,Townace,Standard,Petrol,Manual,NA,1986,156238.0,40,1400.0,2750000.0,2.14912e+06,-600880.0,21.85,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2000,34970.0,26,2300.0,4950000.0,5.565395e+06,615395.0,12.43,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1991,100000.0,35,1970.0,3050000.0,3.091848e+06,41848.0,1.37,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2011,145000.0,15,2980.0,19850000.0,1.91143e+07,-735700.0,3.71,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1980,80000.0,46,2400.0,980000.0,1.453408e+06,473408.0,48.31,High
+Toyota,Cr41,TownAce,Diesel,Automatic,NA,1997,247000.0,29,1970.0,6700000.0,6.727716e+06,27716.0,0.41,Medium
+Mazda,Bongo,Standard,Diesel,Manual,NA,2005,194440.0,21,1990.0,6850000.0,5.405134e+06,-1444866.0,21.09,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1981,1.0,45,1970.0,1300000.0,1.219178e+06,-80822.0,6.22,High
+Nissan,Serena,Standard,Diesel,Manual,NA,1991,235000.0,35,1970.0,2500000.0,2.167895e+06,-332105.0,13.28,High
+Mitsubishi,L300,Delica,Diesel,Manual,NA,1986,1.0,40,2008.0,500000.0,1.844194e+06,1344194.0,268.84,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1995,220000.0,31,1970.0,4950000.0,5.019904e+06,69904.0,1.41,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1983,1234.0,43,2000.0,975000.0,1.3103e+06,335300.0,34.39,Medium
+Toyota,Noah,Standard,Petrol,Automatic,NA,2002,230000.0,24,1800.0,8900000.0,7.049914e+06,-1850086.0,20.79,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1996,125000.0,30,2660.0,7200000.0,7.716477e+06,516477.0,7.17,High
+Toyota,Noah,Standard,Diesel,Manual,NA,1997,170000.0,29,1970.0,6200000.0,5.793993e+06,-406007.0,6.55,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1983,131000.0,43,1400.0,1270000.0,1.192558e+06,-77442.0,6.1,High
+Toyota,Shell,LH60,Diesel,Manual,NA,1983,1.0,43,2440.0,2700000.0,3.217752e+06,517752.0,19.18,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,1998,197000.0,28,2000.0,5975000.0,6.470388e+06,495388.0,8.29,High
+Nissan,Vanette,Lion Face,Petrol,Manual,NA,2000,156000.0,26,1790.0,5475000.0,4.96171e+06,-513290.0,9.38,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2012,125000.0,14,600.0,5450000.0,5.218824e+06,-231176.0,4.24,High
+Toyota,Cr42,Standard,Diesel,Automatic,NA,1999,225000.0,27,2000.0,6975000.0,6.767698e+06,-207302.0,2.97,Low — insufficient van market data
+Nissan,Vanette,Standard,Diesel,Manual,NA,2005,190000.0,21,2180.0,6000000.0,5.754894e+06,-245106.0,4.09,High
+Toyota,Shell,Standard,Diesel,Manual,NA,1988,1000.0,38,2440.0,43025000.0,4.046386e+06,-38978614.0,90.6,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1989,1234.0,37,1970.0,2500000.0,2.794645e+06,294645.0,11.79,High
+Toyota,Kdh,Standard,Diesel,Manual,NA,2015,280000.0,11,2800.0,17500000.0,2.1050972e+07,3550972.0,20.29,High
+Toyota,Kdh,HIGH ROOF 223,Diesel,Automatic,NA,2017,171000.0,9,3000.0,24000000.0,2.3976716e+07,-23284.0,0.1,High
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2007,132000.0,19,650.0,4275000.0,4.110421e+06,-164579.0,3.85,High
+Suzuki,Every Wagon,Pz Turbo,Petrol,Automatic,NA,2025,3500.0,1,650.0,9600000.0,8.686325e+06,-913675.0,9.52,Medium
+Toyota,Townace,Standard,Diesel,Manual,NA,1988,200000.0,38,1830.0,2650000.0,2.773045e+06,123045.0,4.64,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1994,211000.0,32,2380.0,3650000.0,3.273209e+06,-376791.0,10.32,Medium
+Toyota,Cr41,Standard,Diesel,Manual,NA,1999,1.0,27,2200.0,5895000.0,6.935024e+06,1040024.0,17.64,Medium
+Nissan,Vanette,Standard,Diesel,Manual,NA,1991,111111.0,35,1990.0,3000000.0,2.89863e+06,-101370.0,3.38,High
+Toyota,Kdh,200,Diesel,Automatic,NA,2007,250000.0,19,2500.0,17500000.0,1.7354708e+07,-145292.0,0.83,High
+Suzuki,Every,DA64,Petrol,Automatic,NA,2006,180.0,20,660.0,4975000.0,4.831805e+06,-143195.0,2.88,High
+Mitsubishi,Po5,Standard,Diesel,Manual,NA,1990,264219.0,36,2800.0,3950000.0,3.327902e+06,-622098.0,15.75,Medium
+Toyota,Hiace,Standard,Diesel,Manual,NA,1992,417110.0,34,2693.0,8800000.0,7.096789e+06,-1703211.0,19.35,High
+Toyota,Dolphin,Standard,Diesel,Automatic,5L,1998,212000.0,28,3000.0,11111111.0,1.0939174e+07,-171937.0,1.55,High
+Suzuki,Every,Standard,Petrol,Manual,NA,2000,161000.0,26,1300.0,3275000.0,3.779305e+06,504305.0,15.4,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1984,257800.0,42,1600.0,1685000.0,1.344105e+06,-340895.0,20.23,High
+Toyota,Kdh,Standard,Diesel,Manual,NA,2010,195000.0,16,2500.0,17500000.0,1.5830391e+07,-1669609.0,9.54,High
+Toyota,Lh61,Standard,Diesel,Manual,NA,1989,25000.0,37,1000.0,3700000.0,2.930397e+06,-769603.0,20.8,Low — insufficient van market data
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2015,174000.0,11,2982.0,22800000.0,2.3909036e+07,1109036.0,4.86,High
+Nissan,E25,Standard,Petrol,Automatic,NA,2007,170000.0,19,3000.0,9200000.0,8.68891e+06,-511090.0,5.56,Medium
+Suzuki,Every,Standard,Petrol,Automatic,NA,2018,130000.0,8,660.0,6070000.0,6.142796e+06,72796.0,1.2,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2025,2000.0,1,650.0,9100000.0,8.513492e+06,-586508.0,6.45,High
+Toyota,Townace,CR27,Diesel,Manual,NA,1994,2.0,32,1970.0,4900000.0,4.625096e+06,-274904.0,5.61,High
+Mitsubishi,Delica,Standard,Diesel,Manual,NA,1981,80400.0,45,2340.0,1200000.0,1.354609e+06,154609.0,12.88,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1994,168600.0,32,2440.0,7200000.0,7.826058e+06,626058.0,8.7,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1991,100000.0,35,1800.0,850000.0,2.469902e+06,1619902.0,190.58,Medium
+Toyota,Hiace,Standard,Petrol,Manual,NA,1987,178000.0,39,2400.0,3825000.0,3.70462e+06,-120380.0,3.15,High
+Toyota,Kdh,High Roof,Diesel,Automatic,NA,2007,210000.0,19,2960.0,16200000.0,1.7343292e+07,1143292.0,7.06,High
+Toyota,Townace,CR26,Diesel,Manual,NA,1982,258808.0,44,1830.0,2500000.0,1.434139e+06,-1065861.0,42.63,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1991,150000.0,35,1600.0,3650000.0,3.348071e+06,-301929.0,8.27,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1992,1000.0,34,2770.0,7500000.0,7.920348e+06,420348.0,5.6,High
+Toyota,Townace,CR27,Diesel,Manual,NA,1991,1000.0,35,1970.0,4150000.0,3.552527e+06,-597473.0,14.4,High
+Toyota,Noah,KR42,Diesel,Automatic,NA,2004,120000.0,22,2200.0,6900000.0,7.861508e+06,961508.0,13.93,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1982,113055.5,44,2000.0,1380000.0,1.0768e+06,-303200.0,21.97,Medium
+Toyota,Townace,Standard,Diesel,Automatic,NA,2001,200000.0,25,2180.0,7250000.0,7.083226e+06,-166774.0,2.3,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1990,12345.0,36,1950.0,2425000.0,2.77555e+06,350550.0,14.46,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2019,140000.0,7,690.0,6300000.0,6.280814e+06,-19186.0,0.3,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1991,200000.0,35,1950.0,3200000.0,2.86714e+06,-332860.0,10.4,High
+Suzuki,Every,Da62 JOIN,Petrol,Manual,NA,2001,115000.0,25,650.0,3750000.0,3.55709e+06,-192910.0,5.14,High
+Toyota,Dolphin,113,Diesel,Manual,5L,1994,1.0,32,2995.0,8550000.0,9.311959e+06,761959.0,8.91,High
+Suzuki,Omni,Standard,Petrol,Manual,NA,2006,50000.0,20,800.0,2150000.0,2.291357e+06,141357.0,6.57,Low — insufficient van market data
+Toyota,Kdh,211 Super GL,Diesel,Automatic,NA,2014,179000.0,12,3000.0,23500000.0,2.394404e+07,444040.0,1.89,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1990,1256.0,36,1500.0,3480000.0,3.250879e+06,-229121.0,6.58,High
+Toyota,Hiace,Standard,Diesel,Automatic,NA,1986,200000.0,40,2440.0,4350000.0,4.237464e+06,-112536.0,2.59,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2000,154516.0,26,650.0,3760000.0,3.7609e+06,900.0,0.02,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2013,235000.0,13,2990.0,20300000.0,2.1489472e+07,1189472.0,5.86,High
+Nissan,E25,Standard,Diesel,Automatic,NA,2007,205000.0,19,3000.0,9750000.0,8.79852e+06,-951480.0,9.76,Medium
+Nissan,Caravan,Standard,Diesel,Manual,NA,1989,25555.5,37,2700.0,6400000.0,5.562996e+06,-837004.0,13.08,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1997,42500.0,29,2660.0,7950000.0,7.954966e+06,4966.0,0.06,High
+Toyota,Townace,Standard,Petrol,Manual,NA,1981,10000.0,45,1200.0,750000.0,1.00104e+06,251040.0,33.47,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1990,1.0,36,2340.0,2650000.0,2.56813e+06,-81870.0,3.09,Medium
+Toyota,Lh30,Standard,Diesel,Manual,NA,1981,375000.0,45,2180.0,1375000.0,1.134258e+06,-240742.0,17.51,Medium
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2015,20000.0,11,3000.0,29500000.0,2.4279668e+07,-5220332.0,17.7,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,2002,250000.0,24,2180.0,6100000.0,5.368874e+06,-731126.0,11.99,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,1999,391000.0,27,2184.0,7250000.0,6.998247e+06,-251753.0,3.47,High
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1992,11000.0,34,2440.0,6950000.0,7.182724e+06,232724.0,3.35,High
+Toyota,Noah,Standard,Diesel,Manual,NA,1998,406070.0,28,2000.0,6250000.0,5.885134e+06,-364866.0,5.84,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2019,61000.0,7,660.0,6700000.0,6.494059e+06,-205941.0,3.07,High
+Toyota,Townace,Standard,Diesel,Automatic,NA,1989,227.0,37,1970.0,3330000.0,3.3181e+06,-11900.0,0.36,High
+Mazda,Brawny,Standard,Petrol,Manual,NA,1994,1855.0,32,2200.0,4150000.0,4.372092e+06,222092.0,5.35,Medium
+Nissan,Caravan,VWE24,Diesel,Manual,NA,2006,123.0,20,3150.0,8250000.0,1.0748482e+07,2498482.0,30.28,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2007,167000.0,19,660.0,5400000.0,5.040926e+06,-359074.0,6.65,High
+Toyota,Dolphin,113,Diesel,Manual,5L,1990,325000.0,36,2960.0,6850000.0,6.624916e+06,-225084.0,3.29,High
+Toyota,Cr26,Standard,Diesel,Manual,NA,1987,1.0,39,1830.0,2600000.0,2.78925e+06,189250.0,7.28,Low — insufficient van market data
+Nissan,Vanette,Standard,Diesel,Manual,NA,1988,125500.0,38,1950.0,2350000.0,2.433609e+06,83609.0,3.56,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,1997,256000.0,29,3000.0,11200000.0,1.0080677e+07,-1119323.0,9.99,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,1995,200000.0,31,2880.0,9500000.0,9.994886e+06,494886.0,5.21,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,120000.0,9,650.0,5875000.0,6.13319e+06,258190.0,4.39,High
+Toyota,Kdh,High Roof,Diesel,Manual,NA,2026,20.0,1,3000.0,22300000.0,2.213634e+07,-163660.0,0.73,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2013,149000.0,13,2960.0,22000000.0,2.159124e+07,-408760.0,1.86,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2017,88.0,9,650.0,1475000.0,5.859155e+06,4384155.0,297.23,High
+Suzuki,Every Wagon,Pz,Petrol,Automatic,NA,2025,2490.0,1,660.0,9950000.0,8.735896e+06,-1214104.0,12.2,Medium
+Nissan,E25,Standard,Diesel,Automatic,NA,2007,233941.0,19,2950.0,9500000.0,8.354664e+06,-1145336.0,12.06,Medium
+Daihatsu,Atrai,Standard,Petrol,Automatic,NA,2018,68795.0,8,660.0,5950000.0,6.534148e+06,584148.0,9.82,Medium
+Nissan,Vanette,Standard,Diesel,Manual,NA,1994,100000.0,32,2180.0,4200000.0,3.848644e+06,-351356.0,8.37,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2004,165000.0,22,800.0,2900000.0,4.176816e+06,1276816.0,44.03,High
+Toyota,Noah,Standard,Petrol,Manual,NA,2004,191250.0,22,1500.0,5850000.0,6.535618e+06,685618.0,11.72,High
+Nissan,Caravan,E25,Diesel,Manual,NA,2003,295000.0,23,3200.0,7950000.0,8.261102e+06,311102.0,3.91,High
+Toyota,Shell,LH51,Diesel,Manual,NA,1980,1234.0,46,2440.0,4250000.0,2.268613e+06,-1981387.0,46.62,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1984,250000.0,42,1400.0,1075000.0,1.344105e+06,269105.0,25.03,High
+Toyota,Cr41,Standard,Diesel,Manual,NA,1997,1.0,29,1970.0,6500000.0,6.130418e+06,-369582.0,5.69,Medium
+Nissan,Caravan,Standard,Diesel,Manual,NA,1992,2.0,34,2700.0,6575000.0,6.898184e+06,323184.0,4.92,High
+Mitsubishi,L400,Standard,Diesel,Automatic,NA,1995,88880.0,31,2470.0,4385000.0,4.486632e+06,101632.0,2.32,Low — insufficient van market data
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,1999,170000.0,27,660.0,3600000.0,3.564935e+06,-35065.0,0.97,High
+Nissan,Caravan,E25,Diesel,Automatic,NA,2007,277000.0,19,2950.0,8700000.0,9.617049e+06,917049.0,10.54,High
+Toyota,Shell,Standard,Diesel,Manual,NA,1987,123457.0,39,2490.0,4190000.0,3.739969e+06,-450031.0,10.74,High
+Toyota,Cr41,Standard,Diesel,Manual,NA,1996,220000.0,30,1970.0,5990000.0,5.854865e+06,-135135.0,2.26,Medium
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1985,12345.0,41,1200.0,1550000.0,1.604007e+06,54007.0,3.48,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2012,207500.0,14,2980.0,18000000.0,2.0044416e+07,2044416.0,11.36,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2014,135000.0,12,650.0,5575000.0,5.42761e+06,-147390.0,2.64,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2011,216000.0,15,650.0,5400000.0,4.985668e+06,-414332.0,7.67,High
+Suzuki,Every,DA17,Petrol,Automatic,NA,2018,88000.0,8,660.0,6390000.0,6.344586e+06,-45414.0,0.71,High
+Nissan,Caravan,QD 32,Diesel,Manual,NA,1997,198856.0,29,3200.0,9150000.0,8.506456e+06,-643544.0,7.03,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2013,1.0,13,650.0,4575000.0,4.752854e+06,177854.0,3.89,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1991,120000.0,35,2440.0,6250000.0,5.819822e+06,-430178.0,6.88,High
+Toyota,Shell,Standard,Diesel,Manual,NA,1987,61790.0,39,2500.0,4300000.0,3.79708e+06,-502920.0,11.7,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2015,115000.0,11,2980.0,26000000.0,2.4279668e+07,-1720332.0,6.62,High
+Suzuki,Carry,Standard,Petrol,Manual,NA,2001,318500.0,25,1300.0,3650000.0,3.991167e+06,341167.0,9.35,Low — insufficient van market data
+Toyota,Liteace,Standard,Diesel,Manual,NA,1993,275000.0,33,1900.0,3900000.0,3.77151e+06,-128490.0,3.29,High
+Suzuki,Every Wagon,Standard,Petrol,Automatic,NA,2012,169000.0,14,650.0,5780000.0,5.327292e+06,-452708.0,7.83,Medium
+Toyota,Noah,KR42,Petrol,Automatic,NA,2007,220000.0,19,1800.0,7900000.0,8.719865e+06,819865.0,10.38,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2006,130000.0,20,650.0,4900000.0,4.749126e+06,-150874.0,3.08,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1999,178000.0,27,3200.0,8750000.0,8.683053e+06,-66947.0,0.77,High
+Suzuki,Every,Standard,Petrol,Manual,NA,1999,100000.0,27,660.0,3260000.0,3.49406e+06,234060.0,7.18,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1991,111111.0,35,1990.0,3000000.0,2.89863e+06,-101370.0,3.38,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2025,800.0,1,2850.0,29200000.0,2.4646216e+07,-4553784.0,15.6,High
+Nissan,Vanette,Standard,Petrol,Automatic,NA,2007,182000.0,19,1780.0,7350000.0,6.728474e+06,-621526.0,8.46,High
+Toyota,Townace,Lotto CR27,Diesel,Automatic,NA,1993,176000.0,33,2000.0,3975000.0,4.678968e+06,703968.0,17.71,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2006,12.0,20,2000.0,2200000.0,6.298882e+06,4098882.0,186.31,High
+Mazda,Bongo,Standard,Petrol,Manual,NA,2008,221500.0,18,1800.0,5650000.0,6.04368e+06,393680.0,6.97,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2012,130000.0,14,660.0,5275000.0,5.265122e+06,-9878.0,0.19,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1998,99999.0,28,1400.0,990000.0,3.346175e+06,2356175.0,238.0,High
+Suzuki,Every,Da17,Petrol,Automatic,NA,2015,189000.0,11,660.0,5800000.0,5.911076e+06,111076.0,1.92,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,1998,241573.0,28,2000.0,5975000.0,6.470388e+06,495388.0,8.29,High
+Toyota,Hiace,Dolphin,Diesel,Manual,NA,1993,299000.0,33,2779.0,8950000.0,7.910829e+06,-1039171.0,11.61,High
+Nissan,Caravan,Standard,Diesel,Automatic,NA,2004,180000.0,22,2950.0,9600000.0,8.516537e+06,-1083463.0,11.29,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1993,300000.0,33,2700.0,7350000.0,7.149429e+06,-200571.0,2.73,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,2010,160000.0,16,1990.0,7850000.0,7.39258e+06,-457420.0,5.83,High
+Nissan,Vanette,GL Model,Diesel,Automatic,NA,2006,170000.0,20,2500.0,7800000.0,8.590048e+06,790048.0,10.13,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,2003,1.0,23,2770.0,11300000.0,9.989473e+06,-1310527.0,11.6,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1994,75000.0,32,2000.0,2750000.0,3.962438e+06,1212438.0,44.09,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1990,256983.0,36,2560.0,6100000.0,5.990669e+06,-109331.0,1.79,High
+Nissan,Serena,Standard,Diesel,Automatic,NA,1998,250000.0,28,2600.0,3350000.0,4.441916e+06,1091916.0,32.59,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1993,12233.0,33,2340.0,2890000.0,3.109468e+06,219468.0,7.59,Medium
+Mitsubishi,Po15,Standard,Diesel,Manual,NA,2011,200000.0,15,2500.0,7150000.0,6.81195e+06,-338050.0,4.73,Low — insufficient van market data
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2014,74000.0,12,660.0,5480000.0,5.321087e+06,-158913.0,2.9,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1996,1.0,30,1830.0,2150000.0,4.345434e+06,2195434.0,102.11,High
+Toyota,Noah,KR41,Diesel,Automatic,NA,2002,168700.0,24,2180.0,5950000.0,7.530518e+06,1580518.0,26.56,High
+Toyota,Noah,Standard,Petrol,Automatic,NA,2006,150000.0,20,1780.0,7650000.0,8.514986e+06,864986.0,11.31,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2011,216000.0,15,650.0,5450000.0,4.985668e+06,-464332.0,8.52,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2007,198122.0,19,2490.0,17800000.0,1.7320416e+07,-479584.0,2.69,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,1999,1251.0,27,650.0,3000000.0,3.706536e+06,706536.0,23.55,High
+Toyota,Noah,Standard,Diesel,Manual,NA,1999,190247.0,27,2000.0,6490000.0,6.037482e+06,-452518.0,6.97,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1987,75000.0,39,1950.0,2200000.0,2.325196e+06,125196.0,5.69,High
+Toyota,Townace,CR27,Diesel,Manual,NA,1989,227.0,37,1970.0,3850000.0,3.182272e+06,-667728.0,17.34,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2000,156000.0,26,2180.0,6050000.0,5.526679e+06,-523321.0,8.65,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1993,12345.0,33,2700.0,7250000.0,7.276102e+06,26102.0,0.36,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1992,232000.0,34,2770.0,8000000.0,7.91424e+06,-85760.0,1.07,High
+Toyota,Lh40,Standard,Diesel,Manual,NA,1980,257800.0,46,1600.0,1585000.0,1.158654e+06,-426346.0,26.9,Low — insufficient van market data
+Mazda,Bongo,SK22V,Diesel,Manual,NA,1999,148000.0,27,2200.0,5275000.0,4.785734e+06,-489266.0,9.28,High
+Toyota,Kdh,Standard,Petrol,Automatic,NA,2007,200000.0,19,2000.0,18000000.0,1.3303829e+07,-4696171.0,26.09,High
+Toyota,Noah,KR42,Diesel,Automatic,NA,2000,200000.0,26,2200.0,8000000.0,7.168484e+06,-831516.0,10.39,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2017,149000.0,9,650.0,6250000.0,5.613102e+06,-636898.0,10.19,High
+Toyota,Shell,Standard,Diesel,Manual,NA,1984,1.0,42,2440.0,4050000.0,3.23299e+06,-817010.0,20.17,High
+Toyota,Dolphin,Grand Cabin,Diesel,Automatic,5L,1998,250.0,28,3000.0,10800000.0,1.114011e+07,340110.0,3.15,High
+Toyota,Noah,KR42,Petrol,Automatic,NA,2002,146500.0,24,2000.0,7450000.0,7.315093e+06,-134907.0,1.81,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1986,1.0,40,1880.0,2450000.0,2.285428e+06,-164572.0,6.72,High
+Suzuki,Da17,Standard,Petrol,Automatic,NA,2016,148000.0,10,655.0,6275000.0,5.786362e+06,-488638.0,7.79,Low — insufficient van market data
+Daihatsu,Hijet,Standard,Petrol,Manual,NA,1999,222000.0,27,660.0,3000000.0,2.99675e+06,-3250.0,0.11,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1995,410000.0,31,1970.0,5130000.0,5.019904e+06,-110096.0,2.15,High
+Nissan,Caravan,NV350,Diesel,Automatic,NA,2012,250000.0,14,3000.0,15500000.0,1.0616291e+07,-4883709.0,31.51,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1988,300000.0,38,1990.0,2675000.0,2.57427e+06,-100730.0,3.77,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2014,225000.0,12,2980.0,24700000.0,2.377974e+07,-920260.0,3.73,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1981,329000.0,45,2000.0,1320000.0,1.222461e+06,-97539.0,7.39,High
+Toyota,Kdh,201,Diesel,Automatic,NA,2012,177000.0,14,2980.0,19000000.0,2.0179216e+07,1179216.0,6.21,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2011,123.0,15,660.0,5500000.0,5.121404e+06,-378596.0,6.88,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2014,200000.0,12,650.0,5150000.0,5.796806e+06,646806.0,12.56,High
+Toyota,Townace,Lotto,Diesel,Manual,NA,1998,1.0,28,1970.0,4880000.0,5.702272e+06,822272.0,16.85,High
+Toyota,Dolphin,113,Diesel,Manual,3L,1990,165000.0,36,2770.0,7450000.0,6.632907e+06,-817093.0,10.97,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2000,10000.0,26,2180.0,5550000.0,5.551544e+06,1544.0,0.03,High
+Suzuki,Every Wagon,Turbo,Petrol,Automatic,NA,2014,137000.0,12,664.0,6290000.0,6.211786e+06,-78214.0,1.24,Medium
+Nissan,Vanette,Standard,Diesel,Manual,NA,1982,70000.0,44,1990.0,1775000.0,1.267244e+06,-507756.0,28.61,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2008,1.0,18,3000.0,19800000.0,1.75009e+07,-2299100.0,11.61,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2018,1234.0,8,660.0,6400000.0,6.339252e+06,-60748.0,0.95,High
+Mazda,Scrum,Standard,Petrol,Manual,NA,2004,112506.0,22,650.0,4000000.0,3.169418e+06,-830582.0,20.76,Low — insufficient van market data
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1993,200000.0,33,2770.0,8200000.0,8.650216e+06,450216.0,5.49,High
+Mazda,Bongo,Standard,Diesel,Automatic,NA,2015,185000.0,11,2000.0,7300000.0,7.858494e+06,558494.0,7.65,High
+Toyota,Noah,KR42,Diesel,Automatic,NA,1998,260000.0,28,3000.0,7700000.0,7.884446e+06,184446.0,2.4,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1983,100000.0,43,2300.0,1675000.0,1.360296e+06,-314704.0,18.79,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1993,209000.0,33,2700.0,6400000.0,7.149429e+06,749429.0,11.71,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1994,1.0,32,2770.0,8400000.0,8.967787e+06,567787.0,6.76,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1994,196000.0,32,1970.0,4980000.0,4.599688e+06,-380312.0,7.64,High
+Toyota,Lh20,Standard,Diesel,Manual,NA,1982,250000.0,44,2600.0,1120000.0,1.90126e+06,781260.0,69.76,Low — insufficient van market data
+Toyota,Liteace,Standard,Diesel,Manual,NA,1982,50000.0,44,1970.0,1575000.0,1.348794e+06,-226206.0,14.36,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1980,56172.5,46,2000.0,2500000.0,1.065917e+06,-1434083.0,57.36,Medium
+Toyota,Noah,KR42,Petrol,Automatic,NA,2007,128000.0,19,1800.0,7940000.0,8.719865e+06,779865.0,9.82,High
+Toyota,High,Roof Super Long,Diesel,Manual,NA,2002,156832.5,24,2900.0,12000000.0,1.0239249e+07,-1760751.0,14.67,Low — insufficient van market data
+Toyota,Noah,KR42,Diesel,Automatic,NA,2004,198000.0,22,2000.0,7300000.0,7.697742e+06,397742.0,5.45,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1995,300000.0,31,2500.0,7500000.0,8.617922e+06,1117922.0,14.91,High
+Toyota,Kdh,High Roof 221,Diesel,Automatic,NA,2017,120000.0,9,2980.0,25000000.0,2.4348396e+07,-651604.0,2.61,High
+Toyota,Kr42,Standard,Petrol,Automatic,NA,1997,26550.0,29,1780.0,6100000.0,5.618318e+06,-481682.0,7.9,Medium
+Toyota,Kdh,Standard,Petrol,Automatic,NA,2008,130650.0,18,2000.0,14950000.0,1.3457236e+07,-1492764.0,9.99,High
+Toyota,Unknown,Standard,Diesel,Manual,NA,1989,1.0,37,1970.0,3800000.0,3.092759e+06,-707241.0,18.61,Low — insufficient van market data
+Mitsubishi,L400,Standard,Diesel,Manual,NA,1995,275.0,31,2800.0,2990000.0,5.106724e+06,2116724.0,70.79,Low — insufficient van market data
+Toyota,Kdh,200 Super GL,Diesel,Automatic,NA,2006,180000.0,20,2500.0,18500000.0,1.6851492e+07,-1648508.0,8.91,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1992,235695.0,34,2550.0,4900000.0,5.41674e+06,516740.0,10.55,High
+Toyota,Cr27,Standard,Diesel,Manual,NA,1994,1.0,32,1970.0,4750000.0,4.501694e+06,-248306.0,5.23,Medium
+Toyota,Kdh,Standard,Petrol,Automatic,NA,2016,60000.0,10,1990.0,22000000.0,2.0657516e+07,-1342484.0,6.1,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1982,1.0,44,2000.0,1150000.0,1.106354e+06,-43646.0,3.8,Medium
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2007,207657.0,19,2490.0,16500000.0,1.7320416e+07,820416.0,4.97,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1986,200000.0,40,1950.0,2300000.0,2.124499e+06,-175501.0,7.63,High
+Suzuki,Da64,Full Jone,Petrol,Automatic,NA,2012,161000.0,14,600.0,4975000.0,4.869232e+06,-105768.0,2.13,Low — insufficient van market data
+Nissan,E25,High Roof,Diesel,Manual,NA,2003,1.0,23,2950.0,9500000.0,6.321618e+06,-3178382.0,33.46,Medium
+Daihatsu,Hijet,Atrai,Petrol,Automatic,NA,2019,75000.0,7,650.0,5475000.0,6.137812e+06,662812.0,12.11,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1999,411564.0,27,2180.0,5700000.0,5.271115e+06,-428885.0,7.52,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2023,29000.0,3,680.0,7600000.0,8.095155e+06,495155.0,6.52,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1988,213141.0,38,1900.0,2490000.0,2.433609e+06,-56391.0,2.26,High
+Toyota,Noah,Standard,Petrol,Automatic,NA,2007,130000.0,19,1800.0,9750000.0,8.770581e+06,-979419.0,10.05,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,93000.0,9,650.0,6375000.0,6.316856e+06,-58144.0,0.91,High
+Nissan,Serena,Standard,Diesel,Automatic,NA,1992,61820.5,34,2000.0,3000000.0,2.483597e+06,-516403.0,17.21,High
+Nissan,Caravan,E25,Diesel,Automatic,NA,2004,200000.0,22,3150.0,10500000.0,8.649506e+06,-1850494.0,17.62,High
+Toyota,Townace,Standard,Diesel,Automatic,NA,1997,223255.0,29,1800.0,5500000.0,6.010859e+06,510859.0,9.29,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,2006,11800.0,20,1990.0,5250000.0,6.287077e+06,1037077.0,19.75,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,109000.0,9,650.0,5300000.0,6.199837e+06,899837.0,16.98,High
+Toyota,Liteace,CM36,Diesel,Manual,NA,1991,88500.0,35,1950.0,3375000.0,3.194767e+06,-180233.0,5.34,High
+Toyota,Lh51,Standard,Diesel,Manual,NA,1987,250000.0,39,1950.0,4850000.0,2.698617e+06,-2151383.0,44.36,Medium
+Nissan,Caravan,Standard,Diesel,Automatic,NA,2001,10.0,25,3150.0,9800000.0,9.01512e+06,-784880.0,8.01,High
+Nissan,Vanette,Lion Face,Diesel,Automatic,NA,2006,250000.0,20,1990.0,7150000.0,6.665742e+06,-484258.0,6.77,High
+Toyota,Noah,Standard,Diesel,Manual,NA,1998,1.0,28,1970.0,6850000.0,5.830772e+06,-1019228.0,14.88,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2011,78309.0,15,1590.0,11000000.0,8.388052e+06,-2611948.0,23.74,Medium
+Suzuki,Every Wagon,PZ Turbo,Petrol,Automatic,NA,2025,5000.0,1,650.0,9575000.0,8.686325e+06,-888675.0,9.28,Medium
+Nissan,Vanette,Standard,Diesel,Automatic,NA,1996,179000.0,30,2180.0,4450000.0,4.186279e+06,-263721.0,5.93,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1997,300000.0,29,2700.0,9600000.0,7.746213e+06,-1853787.0,19.31,High
+Nissan,Vanette,C22,Diesel,Manual,NA,1990,193938.0,36,1950.0,3300000.0,2.812894e+06,-487106.0,14.76,High
+Daihatsu,Hijet,Standard,Petrol,Manual,NA,1999,186000.0,27,650.0,2675000.0,2.926546e+06,251546.0,9.4,High
+Daihatsu,Atrai,Wagon,Petrol,Automatic,NA,2016,112000.0,10,660.0,6600000.0,6.176072e+06,-423928.0,6.42,Medium
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,85000.0,9,650.0,5875000.0,6.316856e+06,441856.0,7.52,High
+Toyota,Townace,CR36,Diesel,Manual,NA,1994,1.0,32,1970.0,5000000.0,4.625096e+06,-374904.0,7.5,High
+Toyota,Noah,KR42,Diesel,Automatic,NA,2000,191000.0,26,1970.0,6850000.0,6.566156e+06,-283844.0,4.14,High
+Toyota,Cr41,Standard,Diesel,Manual,NA,1999,160000.0,27,2500.0,6250000.0,8.097186e+06,1847186.0,29.55,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1995,175000.0,31,2770.0,8600000.0,9.689741e+06,1089741.0,12.67,High
+Suzuki,Every,DA 17 PC LIMITED,Petrol,Automatic,NA,2017,95000.0,9,631.0,6375000.0,6.322172e+06,-52828.0,0.83,High
+Nissan,Caravan,Vrg,Diesel,Manual,NA,1981,123456.0,45,2700.0,2950000.0,1.756119e+06,-1193881.0,40.47,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1980,100000.0,46,1500.0,875000.0,1.05635e+06,181350.0,20.73,Medium
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2016,110000.0,10,650.0,5975000.0,5.728337e+06,-246663.0,4.13,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1987,123456.0,39,1830.0,2725000.0,2.35094e+06,-374060.0,13.73,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2018,111111.0,8,1999.0,6375000.0,8.424118e+06,2049118.0,32.14,High
+Mitsubishi,Po5,Standard,Diesel,Manual,NA,1989,200000.0,37,2499.0,3150000.0,3.177896e+06,27896.0,0.89,Medium
+Daihatsu,Hijet,Standard,Petrol,Manual,NA,2007,10.0,19,650.0,4400000.0,3.965924e+06,-434076.0,9.87,High
+Toyota,Townace,Lotto CR27,Diesel,Manual,NA,1994,385472.0,32,1980.0,4850000.0,4.610008e+06,-239992.0,4.95,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1995,1.0,31,2500.0,7700000.0,8.657305e+06,957305.0,12.43,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2013,90000.0,13,650.0,4975000.0,4.435195e+06,-539805.0,10.85,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1984,255500.0,42,1850.0,2100000.0,1.811275e+06,-288725.0,13.75,High
+Toyota,Noah,CR42 3c,Diesel,Automatic,NA,2005,1.0,21,2180.0,6875000.0,8.305585e+06,1430585.0,20.81,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2002,213000.0,24,2000.0,7275000.0,7.309786e+06,34786.0,0.48,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2011,120000.0,15,2000.0,7950000.0,9.2793e+06,1329300.0,16.72,Medium
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2007,160000.0,19,650.0,4050000.0,4.110421e+06,60421.0,1.49,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1994,1.0,32,2770.0,9050000.0,8.967787e+06,-82213.0,0.91,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2014,169000.0,12,660.0,5650000.0,5.923581e+06,273581.0,4.84,High
+Toyota,Townace,CR27,Diesel,Manual,NA,1989,123456.0,37,1970.0,3275000.0,3.172633e+06,-102367.0,3.13,High
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1991,1.0,35,2440.0,6700000.0,6.469642e+06,-230358.0,3.44,High
+Daihatsu,Hijet,320 Cruze,Petrol,Automatic,NA,2011,133000.0,15,650.0,4775000.0,4.678526e+06,-96474.0,2.02,High
+Suzuki,Every Wagon,Standard,Petrol,Automatic,NA,2025,10000.0,1,660.0,9300000.0,8.735896e+06,-564104.0,6.07,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1992,1.0,34,2440.0,7600000.0,7.182724e+06,-417276.0,5.49,High
+Nissan,Clipper,DR17v,Petrol,Automatic,NA,2018,75000.0,8,660.0,5690000.0,5.923152e+06,233152.0,4.1,High
+Toyota,Liteace,Custom CR27,Diesel,Automatic,NA,1988,1.0,38,2000.0,3200000.0,2.91611e+06,-283890.0,8.87,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1999,160000.0,27,2700.0,7250000.0,7.899996e+06,649996.0,8.97,High
+Toyota,Kr42,Standard,Diesel,Manual,NA,1998,250000.0,28,2000.0,5800000.0,7.069519e+06,1269519.0,21.89,Medium
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2017,104000.0,9,2800.0,28100000.0,2.431628e+07,-3783720.0,13.47,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2017,101477.0,9,650.0,5850000.0,5.744612e+06,-105388.0,1.8,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1989,350000.0,37,1830.0,2600000.0,3.015591e+06,415591.0,15.98,High
+Nissan,Caravan,E25,Petrol,Automatic,NA,2008,138691.0,18,2950.0,8550000.0,9.591458e+06,1041458.0,12.18,High
+Toyota,Shell,Standard,Diesel,Manual,NA,1984,180000.0,42,2000.0,3950000.0,2.146209e+06,-1803791.0,45.67,High
+Toyota,Dolphin,Standard,Diesel,Automatic,3L,2000,200000.0,26,2770.0,12500000.0,1.087568e+07,-1624320.0,12.99,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1993,9999.0,33,2380.0,2400000.0,3.109468e+06,709468.0,29.56,Medium
+Toyota,Shell,LH61V,Diesel,Manual,NA,1991,68000.0,35,2700.0,4950000.0,4.646564e+06,-303436.0,6.13,High
+Toyota,Lh51,Standard,Diesel,Manual,NA,1989,100000.0,37,2800.0,4500000.0,4.397294e+06,-102706.0,2.28,Medium
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,131750.0,9,650.0,6300000.0,6.121094e+06,-178906.0,2.84,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,88000.0,9,650.0,5975000.0,6.316856e+06,341856.0,5.72,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,2000,200000.0,26,2800.0,900000.0,1.1508608e+07,10608608.0,1178.73,High
+Toyota,Kdh,200 Super,Diesel,Automatic,NA,2007,220.0,19,2500.0,19500000.0,1.754572e+07,-1954280.0,10.02,High
+Toyota,Lh113,Standard,Diesel,Manual,NA,1991,1.0,35,2400.0,6400000.0,4.482471e+06,-1917529.0,29.96,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1997,1.0,29,2770.0,8000000.0,9.702317e+06,1702317.0,21.28,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1983,55629.0,43,1950.0,1250000.0,1.392026e+06,142026.0,11.36,High
+Mazda,Brawny,Standard,Diesel,Manual,NA,1986,100000.0,40,2950.0,3825000.0,3.408039e+06,-416961.0,10.9,Medium
+Toyota,Hiace,LH 172,Diesel,Automatic,NA,2000,335000.0,26,2980.0,12900000.0,9.92458e+06,-2975420.0,23.07,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2000,1.0,26,2000.0,6850000.0,6.614222e+06,-235778.0,3.44,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1982,10.0,44,2400.0,1325000.0,1.655292e+06,330292.0,24.93,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1986,5556.0,40,1970.0,3150000.0,2.251786e+06,-898214.0,28.51,High
+Toyota,Kdh,TRH200 Super GL,Petrol,Automatic,NA,2014,97000.0,12,1980.0,19200000.0,2.1317116e+07,2117116.0,11.03,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1993,230000.0,33,1750.0,3400000.0,3.46358e+06,63580.0,1.87,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2011,155000.0,15,2990.0,20800000.0,1.91143e+07,-1685700.0,8.1,High
+Nissan,Caravan,E25 GX,Diesel,Automatic,NA,2005,430000.0,21,3000.0,9800000.0,9.694991e+06,-105009.0,1.07,High
+Suzuki,Every,DA62v,Petrol,Manual,NA,2002,100000.0,24,650.0,3850000.0,3.55709e+06,-292910.0,7.61,High
+Toyota,Kr42,Standard,Diesel,Manual,NA,2001,170000.0,25,1970.0,6525000.0,7.890606e+06,1365606.0,20.93,Medium
+Toyota,Cr27,Standard,Diesel,Automatic,NA,1994,210000.0,32,2000.0,4400000.0,4.884003e+06,484003.0,11.0,Medium
+Daihatsu,S200,Standard,Petrol,Automatic,NA,2002,141600.0,24,650.0,3000000.0,3.35784e+06,357840.0,11.93,Low — insufficient van market data
+Toyota,Noah,CR42,Diesel,Manual,NA,2000,1.0,26,2000.0,7150000.0,6.357276e+06,-792724.0,11.09,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1981,85000.0,45,1600.0,1575000.0,1.114522e+06,-460478.0,29.24,High
+Toyota,Cr42,Standard,Diesel,Manual,NA,1999,1.0,27,2000.0,6100000.0,6.533842e+06,433842.0,7.11,Low — insufficient van market data
+Toyota,Lh40B,Standard,Diesel,Manual,NA,1986,255586.0,40,2200.0,2050000.0,2.066408e+06,16408.0,0.8,Low — insufficient van market data
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,1999,250000.0,27,650.0,3200000.0,3.137777e+06,-62223.0,1.94,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2019,56000.0,7,650.0,7335000.0,6.471117e+06,-863883.0,11.78,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1998,123.0,28,2180.0,3950000.0,4.554992e+06,604992.0,15.32,High
+Daihatsu,Hijet,Standard,Petrol,Manual,NA,2004,115761.0,22,650.0,2750000.0,3.031742e+06,281742.0,10.25,High
+Toyota,Lh30,Standard,Diesel,Manual,NA,1981,1851.0,45,2800.0,1100000.0,1.965125e+06,865125.0,78.65,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1993,300000.0,33,2770.0,9600000.0,8.650216e+06,-949784.0,9.89,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,2010,100000.0,16,2800.0,11000000.0,1.2912899e+07,1912899.0,17.39,High
+Toyota,Dolphin,Standard,Diesel,Manual,Other,1993,198899.0,33,2000.0,8195000.0,8.129466e+06,-65534.0,0.8,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,2001,235800.0,25,3150.0,6700000.0,8.646603e+06,1946603.0,29.05,High
+Daihatsu,Atrai,Standard,Petrol,Automatic,NA,2016,132000.0,10,650.0,5500000.0,5.991852e+06,491852.0,8.94,Medium
+Toyota,Lh30,Standard,Diesel,Manual,NA,1980,56172.5,46,2000.0,1400000.0,1.065917e+06,-334083.0,23.86,Medium
+Toyota,Hiace,Standard,Diesel,Automatic,NA,1984,281000.0,42,2440.0,5000000.0,3.506042e+06,-1493958.0,29.88,High
+Suzuki,Every,DA17,Petrol,Automatic,NA,2019,112000.0,7,650.0,6225000.0,6.356584e+06,131584.0,2.11,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1992,188000.0,34,2000.0,3650000.0,4.053431e+06,403431.0,11.05,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1984,140000.0,42,1970.0,1548000.0,1.365761e+06,-182239.0,11.77,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2012,121500.0,14,660.0,5050000.0,4.782646e+06,-267354.0,5.29,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1988,227300.0,38,2100.0,2775000.0,2.981249e+06,206249.0,7.43,High
+Toyota,Dolphin,LH182,Diesel,Manual,5L,2002,182000.0,24,3000.0,11800000.0,1.1521589e+07,-278411.0,2.36,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1995,80000.0,31,2000.0,3885000.0,5.161409e+06,1276409.0,32.85,High
+Toyota,Dolphin,Standard,Diesel,Automatic,5L,1993,442423.0,33,2986.0,7500000.0,8.70344e+06,1203440.0,16.05,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1999,232.0,27,3200.0,11000000.0,9.034795e+06,-1965205.0,17.87,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1980,369528.0,46,2200.0,3000000.0,1.486786e+06,-1513214.0,50.44,High
+Toyota,Liteace,Cm36,Diesel,Manual,NA,1992,147000.0,34,1950.0,3090000.0,3.636134e+06,546134.0,17.67,High
+Toyota,Dolphin,103,Diesel,Manual,3L,1994,175.0,32,2750.0,6100000.0,9.000962e+06,2900962.0,47.56,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2014,126000.0,12,650.0,5190000.0,5.205076e+06,15076.0,0.29,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1990,123456.0,36,2700.0,6650000.0,5.805835e+06,-844165.0,12.69,High
+Suzuki,Every,Full Join,Petrol,Automatic,NA,2015,118000.0,11,650.0,6275000.0,6.015676e+06,-259324.0,4.13,High
+Nissan,Vrg,Standard,Diesel,Manual,NA,1985,1000.0,41,2390.0,30000000.0,3.199624e+06,-26800376.0,89.33,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1991,1.0,35,2770.0,8300000.0,6.813112e+06,-1486888.0,17.91,High
+Nissan,Serena,Standard,Diesel,Manual,NA,1993,160728.0,33,2000.0,2375000.0,2.594532e+06,219532.0,9.24,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1999,227140.0,27,2000.0,6200000.0,5.921943e+06,-278057.0,4.48,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2000,154516.0,26,650.0,3760000.0,3.7609e+06,900.0,0.02,High
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2007,187000.0,19,660.0,3975000.0,4.37729e+06,402290.0,10.12,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,1994,145000.0,32,3000.0,7500000.0,9.007059e+06,1507059.0,20.09,High
+Suzuki,Da64V,Every,Petrol,Automatic,NA,2014,105000.0,12,650.0,5595000.0,5.70613e+06,111130.0,1.99,Low — insufficient van market data
+Nissan,Caravan,Standard,Diesel,Manual,NA,1999,250000.0,27,3200.0,9500000.0,8.683053e+06,-816947.0,8.6,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1996,77228.0,30,2400.0,8500000.0,6.700068e+06,-1799932.0,21.18,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2015,79000.0,11,660.0,5825000.0,5.715748e+06,-109252.0,1.88,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1983,100000.0,43,2200.0,2300000.0,2.324683e+06,24683.0,1.07,High
+Toyota,Kdh,211,Diesel,Automatic,NA,2007,400000.0,19,3000.0,19000000.0,1.7212496e+07,-1787504.0,9.41,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,100500.0,9,650.0,5950000.0,6.288084e+06,338084.0,5.68,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2007,176000.0,19,660.0,1050000.0,4.453144e+06,3403144.0,324.11,High
+Toyota,Vellfire,Standard,Hybrid,Automatic,NA,2012,124000.0,14,2400.0,29000000.0,1.3051114e+07,-15948886.0,55.0,Low — insufficient van market data
+Toyota,Lh61,Standard,Diesel,Manual,NA,1987,1.0,39,2440.0,3450000.0,4.159488e+06,709488.0,20.56,Low — insufficient van market data
+Toyota,Hiace,Standard,Diesel,Manual,NA,1987,123456.0,39,2500.0,3600000.0,4.535392e+06,935392.0,25.98,High
+Mitsubishi,Delica,Standard,Petrol,Manual,NA,1986,60000.0,40,1620.0,1600000.0,1.607254e+06,7254.0,0.45,Medium
+Toyota,Noah,CR42,Diesel,Manual,NA,1999,190247.0,27,2000.0,7200000.0,6.228669e+06,-971331.0,13.49,High
+Suzuki,Every,DEALERS,Petrol,Automatic,NA,2019,132000.0,7,650.0,5590000.0,6.288072e+06,698072.0,12.49,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1998,223997.5,28,2100.0,4550000.0,4.449069e+06,-100931.0,2.22,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2002,145000.0,24,660.0,3775000.0,3.90369e+06,128690.0,3.41,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1995,15214.0,31,2000.0,4550000.0,5.034494e+06,484494.0,10.65,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1989,1.0,37,1970.0,3500000.0,3.163934e+06,-336066.0,9.6,High
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1991,114857.0,35,2500.0,6550000.0,6.913642e+06,363642.0,5.55,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1983,98500.0,43,2400.0,1150000.0,1.523983e+06,373983.0,32.52,High
+Toyota,Dolphin,LH113,Diesel,Manual,3L,1991,65000.0,35,2770.0,7125000.0,6.806586e+06,-318414.0,4.47,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,130.0,10,1000.0,6500000.0,6.58777e+06,87770.0,1.35,High
+Nissan,Caravan,E25,Diesel,Manual,NA,2007,162074.0,19,2950.0,9000000.0,8.949964e+06,-50036.0,0.56,High
+Toyota,Hiace,Dolphin,Diesel,Manual,NA,1990,250005.0,36,2440.0,6900000.0,5.742322e+06,-1157678.0,16.78,High
+Nissan,Vanette,Standard,Petrol,Automatic,NA,2008,120000.0,18,2000.0,6700000.0,6.88393e+06,183930.0,2.75,High
+Toyota,Townace,NOAH CR42,Diesel,Automatic,NA,2000,228472.0,26,2200.0,7350000.0,6.788253e+06,-561747.0,7.64,High
+Toyota,Cr42,Standard,Diesel,Manual,NA,2001,200000.0,25,2184.0,7400000.0,7.434648e+06,34648.0,0.47,Low — insufficient van market data
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1992,65799.0,34,2700.0,7850000.0,7.815422e+06,-34578.0,0.44,High
+Toyota,Cr42,Standard,Diesel,Automatic,NA,1999,228219.0,27,2100.0,6800000.0,7.197014e+06,397014.0,5.84,Low — insufficient van market data
+Nissan,Caravan,Standard,Diesel,Manual,NA,1981,1.0,45,2700.0,2600000.0,2.062234e+06,-537766.0,20.68,High
+Mitsubishi,Po5,Standard,Diesel,Manual,NA,1986,1.0,40,2500.0,3000000.0,2.632012e+06,-367988.0,12.27,Medium
+Suzuki,Every,Standard,Petrol,Automatic,NA,2018,90000.0,8,650.0,6275000.0,6.316856e+06,41856.0,0.67,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,2003,1234.0,23,1234.0,11875000.0,6.255934e+06,-5619066.0,47.32,High
+Nissan,Vanette,Standard,Petrol,Automatic,NA,2007,172.0,19,1780.0,6550000.0,6.787508e+06,237508.0,3.63,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2002,180000.0,24,2180.0,7700000.0,7.567776e+06,-132224.0,1.72,High
+Toyota,Dolphin,Standard,Diesel,Automatic,2L,1994,350000.0,32,2500.0,6975000.0,9.141957e+06,2166957.0,31.07,High
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2012,240000.0,14,660.0,4600000.0,4.572105e+06,-27895.0,0.61,High
+Toyota,Noah,Standard,Hybrid,Automatic,NA,2014,205000.0,12,1800.0,16000000.0,1.5510174e+07,-489826.0,3.06,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,2000,312000.0,26,2180.0,5000000.0,5.366187e+06,366187.0,7.32,High
+Toyota,Townace,Standard,Diesel,Automatic,NA,1998,250000.0,28,1970.0,5750000.0,6.070558e+06,320558.0,5.57,High
+Nissan,E25,Standard,Diesel,Automatic,NA,2007,246000.0,19,2950.0,9500000.0,8.298776e+06,-1201224.0,12.64,Medium
+Nissan,Clipper,Standard,Petrol,Automatic,NA,2011,89.0,15,650.0,1575000.0,4.214632e+06,2639632.0,167.6,High
+Toyota,Lh113,Standard,Diesel,Manual,NA,1993,120000.0,33,2700.0,9250000.0,7.715218e+06,-1534782.0,16.59,Medium
+Toyota,Noah,KR42,Diesel,Automatic,NA,2004,198000.0,22,2000.0,7200000.0,7.697742e+06,497742.0,6.91,High
+Toyota,Kdh,Super GL,Diesel,Automatic,NA,2013,170000.0,13,2980.0,22100000.0,2.2739308e+07,639308.0,2.89,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2013,135343.0,13,1590.0,9200000.0,8.493599e+06,-706401.0,7.68,Medium
+Toyota,Kdh,Dark Prime,Diesel,Automatic,NA,2015,109000.0,11,2980.0,24200000.0,2.4332192e+07,132192.0,0.55,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,98800.0,10,650.0,5900000.0,6.273768e+06,373768.0,6.34,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1988,240000.0,38,1990.0,3100000.0,2.926164e+06,-173836.0,5.61,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2011,136850.0,15,650.0,5400000.0,5.029378e+06,-370622.0,6.86,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2014,11.0,12,650.0,5750000.0,6.058084e+06,308084.0,5.36,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1988,200000.0,38,1000.0,2590000.0,2.377001e+06,-212999.0,8.22,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1994,125000.0,32,2100.0,3550000.0,4.039512e+06,489512.0,13.79,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2016,115000.0,10,1600.0,10550000.0,1.1242719e+07,692719.0,6.57,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1994,145000.0,32,2779.0,8300000.0,9.429474e+06,1129474.0,13.61,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2000,250000.0,26,2180.0,6900000.0,7.11204e+06,212040.0,3.07,High
+Toyota,Dolphin,102,Diesel,Manual,3L,1992,250000.0,34,2800.0,6850000.0,8.12628e+06,1276280.0,18.63,High
+Nissan,Nv200,Standard,Petrol,Automatic,NA,2011,159000.0,15,1600.0,8500000.0,9.238982e+06,738982.0,8.69,Medium
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2015,89000.0,11,3000.0,27000000.0,2.4279668e+07,-2720332.0,10.08,High
+Toyota,Noah,KR42,Diesel,Automatic,NA,2000,1.0,26,2200.0,6950000.0,7.168484e+06,218484.0,3.14,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,1996,375000.0,30,2000.0,6350000.0,5.352668e+06,-997332.0,15.71,High
+Mitsubishi,Po5,Standard,Diesel,Manual,NA,1991,140499.0,35,2500.0,4000000.0,3.409018e+06,-590982.0,14.77,Medium
+Toyota,Dolphin,Standard,Diesel,Automatic,3L,1999,165000.0,27,2770.0,12500000.0,1.0665549e+07,-1834451.0,14.68,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2001,180000.0,25,2000.0,8600000.0,7.23189e+06,-1368110.0,15.91,High
+Toyota,Kdh,Standard,Diesel,Manual,NA,2008,253466.0,18,2000.0,19000000.0,1.1236802e+07,-7763198.0,40.86,High
+Toyota,Liteace,Standard,Diesel,Manual,NA,1989,190000.0,37,1970.0,2520000.0,2.794645e+06,274645.0,10.9,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1999,243000.0,27,2180.0,5450000.0,5.271115e+06,-178885.0,3.28,High
+Nissan,Serena,Standard,Diesel,Automatic,NA,1995,110000.0,31,2500.0,2800000.0,4.04812e+06,1248120.0,44.58,High
+Toyota,Estima,Standard,Petrol,Automatic,NA,2008,65260.0,18,2438.0,6500000.0,9.823371e+06,3323371.0,51.13,Low — insufficient van market data
+Nissan,Vanette,Standard,Diesel,Manual,NA,2001,262500.0,25,2400.0,5600000.0,5.834342e+06,234342.0,4.18,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1991,123.0,35,1950.0,3500000.0,2.886958e+06,-613042.0,17.52,High
+Mitsubishi,Delica,Standard,Diesel,Manual,NA,1984,360000.0,42,2300.0,1400000.0,1.662874e+06,262874.0,18.78,Medium
+Toyota,Cr27,Standard,Diesel,Manual,NA,1990,100000.0,36,1970.0,3250000.0,3.540986e+06,290986.0,8.95,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1992,180000.0,34,2770.0,5800000.0,7.91424e+06,2114240.0,36.45,High
+Toyota,Noah,CR42 Flatroof 4 Door,Diesel,Manual,NA,2002,200000.0,24,2150.0,7850000.0,7.187706e+06,-662294.0,8.44,High
+Suzuki,Every,DA62,Petrol,Automatic,NA,2006,221000.0,20,650.0,4050000.0,4.711812e+06,661812.0,16.34,High
+Nissan,Largo,Highway,Diesel,Automatic,NA,1997,1.0,29,2000.0,4300000.0,4.385878e+06,85878.0,2.0,Medium
+Nissan,Vanette,Standard,Diesel,Manual,NA,1998,300000.0,28,2180.0,4950000.0,4.521252e+06,-428748.0,8.66,High
+Toyota,Kdh,200SUPER GL UPDATE,Diesel,Automatic,NA,2007,245000.0,19,2490.0,16375000.0,1.7354708e+07,979708.0,5.98,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2005,250000.0,21,650.0,3375000.0,3.715447e+06,340447.0,10.09,High
+Mitsubishi,Delica,PO5,Petrol,Manual,NA,1999,111.0,27,1590.0,2450000.0,3.442337e+06,992337.0,40.5,Medium
+Toyota,Noah,CR42,Diesel,Automatic,NA,1998,210000.0,28,2180.0,6200000.0,7.065758e+06,865758.0,13.96,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1985,52521.0,41,1500.0,1250000.0,1.347835e+06,97835.0,7.83,High
+Toyota,Noah,CR 52,Diesel,Automatic,NA,2000,225000.0,26,2000.0,5975000.0,6.669901e+06,694901.0,11.63,High
+Toyota,Kdh,200,Diesel,Automatic,NA,2006,285200.0,20,2490.0,17800000.0,1.6772065e+07,-1027935.0,5.77,High
+Toyota,Dolphin,Standard,Diesel,Manual,5L,2002,210000.0,24,3000.0,13700000.0,1.1482363e+07,-2217637.0,16.19,High
+Toyota,Dolphin,113 SuperGL,Diesel,Automatic,3L,1995,290000.0,31,2770.0,8600000.0,9.955654e+06,1355654.0,15.76,High
+Nissan,Vrg,Standard,Diesel,Manual,NA,1982,12345.0,44,2180.0,1300000.0,1.80583e+06,505830.0,38.91,Medium
+Toyota,Liteace,Standard,Diesel,Manual,NA,1989,11111.0,37,1970.0,2950000.0,2.794645e+06,-155355.0,5.27,High
+Nissan,Caravan,E 26,Diesel,Manual,NA,2015,169000.0,11,2488.0,13800000.0,1.2177048e+07,-1622952.0,11.76,High
+Suzuki,Every,Da17,Petrol,Automatic,NA,2015,149000.0,11,660.0,5875000.0,5.994356e+06,119356.0,2.03,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1998,197995.0,28,2180.0,4950000.0,4.521252e+06,-428748.0,8.66,High
+Mitsubishi,Po15,Standard,Diesel,Manual,NA,2014,250000.0,12,2500.0,6800000.0,9.29824e+06,2498240.0,36.74,Low — insufficient van market data
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,146000.0,9,650.0,5890000.0,6.078275e+06,188275.0,3.2,High
+Toyota,Noah,Kr42 Cr42,Diesel,Automatic,NA,2001,1.0,25,2180.0,8500000.0,7.477019e+06,-1022981.0,12.04,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,1996,179000.0,30,2180.0,4450000.0,4.186279e+06,-263721.0,5.93,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,137000.0,10,650.0,6230000.0,6.064436e+06,-165564.0,2.66,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2017,68000.0,9,660.0,6375000.0,6.339252e+06,-35748.0,0.56,High
+Suzuki,Every,SEMI JOIN,Petrol,Automatic,NA,2017,171500.0,9,650.0,5275000.0,6.058528e+06,783528.0,14.85,High
+Toyota,Kr42,Standard,Petrol,Automatic,NA,1998,182000.0,28,1800.0,5675000.0,5.70465e+06,29650.0,0.52,Medium
+Nissan,Caravan,Standard,Diesel,Manual,NA,1988,100000.0,38,2280.0,4500000.0,4.369095e+06,-130905.0,2.91,High
+Toyota,Lh51,Standard,Diesel,Manual,NA,1989,222000.0,37,2440.0,4300000.0,4.200596e+06,-99404.0,2.31,Medium
+Nissan,Vanette,Standard,Diesel,Manual,NA,2005,190000.0,21,2180.0,5300000.0,5.754894e+06,454894.0,8.58,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,137336.0,10,650.0,6000000.0,6.064436e+06,64436.0,1.07,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1988,300000.0,38,2500.0,4000000.0,4.664354e+06,664354.0,16.61,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2019,84200.0,7,650.0,6700000.0,6.471117e+06,-228883.0,3.42,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1987,150000.0,39,1970.0,2500000.0,2.680478e+06,180478.0,7.22,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1998,130000.0,28,2180.0,4350000.0,4.685532e+06,335532.0,7.71,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1988,213151.0,38,1900.0,2495000.0,2.433609e+06,-61391.0,2.46,High
+Nissan,E25,Standard,Diesel,Automatic,NA,2007,400000.0,19,2900.0,8000000.0,8.076194e+06,76194.0,0.95,Medium
+Toyota,Townace,Standard,Diesel,Manual,NA,1997,223255.0,29,1970.0,5500000.0,5.613021e+06,113021.0,2.05,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1996,31000.0,30,2600.0,8500000.0,7.91985e+06,-580150.0,6.83,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1984,58000.0,42,2300.0,1750000.0,1.4953e+06,-254700.0,14.55,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1998,100000.0,28,2770.0,10000000.0,1.0443769e+07,443769.0,4.44,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2006,310000.0,20,2990.0,16650000.0,1.6692948e+07,42948.0,0.26,High
+Toyota,Shell,Standard,Diesel,Manual,NA,1984,100000.0,42,2440.0,3000000.0,2.967375e+06,-32625.0,1.09,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,1999,170000.0,27,1970.0,6850000.0,6.426456e+06,-423544.0,6.18,High
+Toyota,Noah,Cr,Diesel,Automatic,NA,2000,20.0,26,2200.0,5650000.0,7.180492e+06,1530492.0,27.09,High
+Nissan,Caravan,Standard,Diesel,Automatic,NA,1995,487987.0,31,2660.0,7650000.0,7.529757e+06,-120243.0,1.57,High
+Toyota,Kr41,TownAce Noah,Diesel,Manual,NA,1998,168320.0,28,1800.0,5700000.0,6.997106e+06,1297106.0,22.76,Low — insufficient van market data
+Nissan,Vanette,Lion Face,Diesel,Manual,NA,2013,285308.0,13,1990.0,6550000.0,6.589906e+06,39906.0,0.61,High
+Daihatsu,Hijet,Standard,Petrol,Automatic,NA,2004,215000.0,22,650.0,3590000.0,3.327787e+06,-262213.0,7.3,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1998,225000.0,28,3200.0,9850000.0,8.514028e+06,-1335972.0,13.56,High
+Nissan,Caravan,Standard,Diesel,Automatic,NA,2012,269000.0,14,2950.0,15900000.0,1.0312138e+07,-5587862.0,35.14,High
+Suzuki,Every,Standard,Petrol,Automatic,NA,2019,87000.0,7,650.0,6300000.0,6.471117e+06,171117.0,2.72,High
+Toyota,Cr41,Standard,Diesel,Manual,NA,1997,188000.0,29,1970.0,5965000.0,6.130418e+06,165418.0,2.77,Medium
+Toyota,Townace,CR41,Diesel,Automatic,NA,1999,180000.0,27,2000.0,6500000.0,6.295302e+06,-204698.0,3.15,High
+Toyota,Dolphin,Standard,Diesel,Automatic,3L,1994,300000.0,32,2800.0,8100000.0,9.132738e+06,1032738.0,12.75,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2012,136000.0,14,3000.0,22200000.0,2.0191536e+07,-2008464.0,9.05,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,2000,400000.0,26,2000.0,6300000.0,5.072591e+06,-1227409.0,19.48,High
+Toyota,Cr27,Standard,Diesel,Manual,NA,1992,345300.0,34,2000.0,5000000.0,4.143675e+06,-856325.0,17.13,Medium
+Suzuki,Every,Da 17,Petrol,Automatic,NA,2016,120000.0,10,650.0,5500000.0,6.124376e+06,624376.0,11.35,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1989,80000.0,37,2500.0,4500000.0,5.428562e+06,928562.0,20.63,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1995,175000.0,31,2770.0,10850000.0,9.689741e+06,-1160259.0,10.69,High
+Toyota,Kdh,DARK PRIME,Diesel,Automatic,NA,2017,110000.0,9,2980.0,31000000.0,2.4368884e+07,-6631116.0,21.39,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1991,120000.0,35,1970.0,3800000.0,3.527928e+06,-272072.0,7.16,High
+Toyota,Kdh,TRH GL,Petrol,Automatic,NA,2014,107000.0,12,2000.0,17375000.0,2.123162e+07,3856620.0,22.2,High
+Mazda,Bongo,Standard,Diesel,Manual,NA,1994,125000.0,32,2400.0,3650000.0,4.257535e+06,607535.0,16.64,High
+Nissan,Serena,Standard,Diesel,Automatic,NA,1994,500384.0,32,2000.0,2850000.0,2.777806e+06,-72194.0,2.53,High
+Toyota,Cr27,Standard,Diesel,Manual,NA,1995,1.0,31,1970.0,5675000.0,4.801974e+06,-873026.0,15.38,Medium
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1985,52521.0,41,1970.0,1175000.0,1.512805e+06,337805.0,28.75,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1994,1.0,32,2770.0,6990000.0,8.967787e+06,1977787.0,28.29,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1999,123456.0,27,1990.0,4500000.0,5.014588e+06,514588.0,11.44,High
+Nissan,Vanette,Standard,Petrol,Manual,NA,1982,150000.0,44,1500.0,1975000.0,1.174372e+06,-800628.0,40.54,High
+Toyota,Lh51,Standard,Diesel,Manual,NA,1988,250000.0,38,2200.0,4650000.0,3.34244e+06,-1307560.0,28.12,Medium
+Nissan,Vanette,Lion Face,Petrol,Manual,NA,2010,132142.0,16,1890.0,6400000.0,6.144278e+06,-255722.0,4.0,High
+Mitsubishi,Minicab,Standard,Petrol,Automatic,NA,2007,65000.0,19,650.0,4350000.0,4.117495e+06,-232505.0,5.34,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1984,12.0,42,2500.0,2850000.0,3.600135e+06,750135.0,26.32,High
+Daihatsu,Hijet,S200,Petrol,Automatic,NA,2000,142000.0,26,660.0,3400000.0,3.265474e+06,-134526.0,3.96,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1993,25.0,33,1600.0,1050000.0,3.009808e+06,1959808.0,186.65,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2005,82630.0,21,2800.0,16500000.0,1.5937761e+07,-562239.0,3.41,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1991,11.0,35,1990.0,3250000.0,2.918666e+06,-331334.0,10.19,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,1992,308013.0,34,1950.0,2950000.0,3.239039e+06,289039.0,9.8,High
+Toyota,Unknown,Standard,Diesel,Manual,NA,1991,444444.0,35,2315.0,3075000.0,3.732376e+06,657376.0,21.38,Low — insufficient van market data
+Daihatsu,Atrai,Standard,Petrol,Automatic,NA,2014,134000.0,12,650.0,5990000.0,5.794468e+06,-195532.0,3.26,Medium
+Toyota,Lh51,Standard,Diesel,Manual,NA,1986,205000.0,40,2440.0,3950000.0,3.389693e+06,-560307.0,14.18,Medium
+Mazda,Bongo,Standard,Petrol,Automatic,NA,2015,162000.0,11,1800.0,7700000.0,7.759034e+06,59034.0,0.77,High
+Toyota,High,Roof Super Long,Diesel,Manual,NA,2002,156832.5,24,2900.0,12000000.0,1.0239249e+07,-1760751.0,14.67,Low — insufficient van market data
+Suzuki,Every,Standard,Petrol,Automatic,NA,2016,145000.0,10,650.0,5760000.0,6.064436e+06,304436.0,5.29,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1989,1.0,37,2125.0,1980000.0,2.368712e+06,388712.0,19.63,Medium
+Suzuki,Every,Standard,Petrol,Automatic,NA,2018,10000.0,8,650.0,5800000.0,6.316856e+06,516856.0,8.91,High
+Toyota,Cr41,Standard,Diesel,Automatic,NA,1998,178000.0,28,1970.0,5900000.0,6.502246e+06,602246.0,10.21,Medium
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1990,275000.0,36,2600.0,5575000.0,6.661624e+06,1086624.0,19.49,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1988,200000.0,38,1830.0,2975000.0,2.773045e+06,-201955.0,6.79,High
+Toyota,Townace,Standard,Petrol,Automatic,NA,2008,200000.0,18,1500.0,6000000.0,7.97982e+06,1979820.0,33.0,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1997,42500.0,29,2700.0,9650000.0,8.023392e+06,-1626608.0,16.86,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2009,190000.0,17,2960.0,17200000.0,1.784342e+07,643420.0,3.74,High
+Toyota,Hiace,Standard,Diesel,Manual,NA,1989,77500.0,37,2600.0,3650000.0,5.428562e+06,1778562.0,48.73,High
+Toyota,Lh103,Standard,Diesel,Automatic,NA,1994,125000.0,32,2800.0,8500000.0,7.914202e+06,-585798.0,6.89,Low — insufficient van market data
+Toyota,Noah,KR42 3C,Diesel,Manual,NA,2005,1.0,21,2000.0,7250000.0,7.529319e+06,279319.0,3.85,High
+Mitsubishi,L300,Standard,Diesel,Manual,NA,1985,52521.0,41,2000.0,1175000.0,1.512805e+06,337805.0,28.75,High
+Toyota,Kdh,Standard,Diesel,Automatic,NA,2004,240000.0,22,2960.0,17000000.0,1.1792004e+07,-5207996.0,30.64,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1995,120000.0,31,2700.0,7300000.0,7.633272e+06,333272.0,4.57,High
+Suzuki,Every,PA,Petrol,Automatic,NA,2024,13000.0,2,660.0,7350000.0,8.24566e+06,895660.0,12.19,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1987,150000.0,39,1800.0,2520000.0,2.595616e+06,75616.0,3.0,High
+Toyota,Dolphin,Standard,Diesel,Manual,3L,1997,190000.0,29,2770.0,8200000.0,9.694843e+06,1494843.0,18.23,High
+Toyota,Dolphin,Super Long,Diesel,Manual,5L,2007,210000.0,19,3100.0,13900000.0,1.2563109e+07,-1336891.0,9.62,High
+Toyota,Noah,Kr42,Petrol,Automatic,NA,2006,115000.0,20,1990.0,7750000.0,8.587533e+06,837533.0,10.81,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1994,250000.0,32,2000.0,3825000.0,3.698316e+06,-126684.0,3.31,High
+Mitsubishi,L300,Standard,Petrol,Manual,NA,1982,50005.0,44,1970.0,1800000.0,1.150795e+06,-649205.0,36.07,High
+Nissan,Vanette,Standard,Diesel,Automatic,NA,1999,1230.0,27,2100.0,4850000.0,5.154429e+06,304429.0,6.28,High
+Nissan,E25,Standard,Diesel,Automatic,NA,2007,233941.0,19,2950.0,10500000.0,8.354664e+06,-2145336.0,20.43,Medium
+Toyota,Shell,Lh51,Diesel,Manual,NA,1989,12345.0,37,2440.0,3950000.0,4.118716e+06,168716.0,4.27,High
+Toyota,Townace,CR27,Diesel,Manual,NA,1991,1.0,35,2200.0,4000000.0,3.87653e+06,-123470.0,3.09,High
+Toyota,Townace,Standard,Petrol,Manual,NA,1981,10000.0,45,1200.0,750000.0,1.00104e+06,251040.0,33.47,High
+Toyota,Dolphin,LH110,Diesel,Manual,2L,1991,385000.0,35,2440.0,6500000.0,6.463444e+06,-36556.0,0.56,High
+Toyota,Noah,Standard,Petrol,Automatic,NA,2014,132000.0,12,1800.0,15500000.0,1.5520177e+07,20177.0,0.13,High
+Isuzu,Fargo,Standard,Diesel,Manual,NA,1990,1.0,36,2340.0,2675000.0,2.56813e+06,-106870.0,4.0,Medium
+Mazda,Bongo,Standard,Diesel,Automatic,NA,2006,155000.0,20,2000.0,7000000.0,6.566124e+06,-433876.0,6.2,High
+Toyota,Noah,Standard,Diesel,Automatic,NA,2002,240000.0,24,2400.0,7800000.0,7.580662e+06,-219338.0,2.81,High
+Toyota,Townace,Standard,Diesel,Manual,NA,1991,120000.0,35,2100.0,3750000.0,3.744884e+06,-5116.0,0.14,High
+Toyota,Vellfire,Standard,Hybrid,Automatic,NA,2012,114000.0,14,2500.0,28000000.0,1.8068428e+07,-9931572.0,35.47,Low — insufficient van market data
+Toyota,Dolphin,Standard,Diesel,Manual,2L,1991,100000.0,35,2440.0,5500000.0,6.464652e+06,964652.0,17.54,High
+Nissan,Vanette,Standard,Diesel,Manual,NA,1984,100000.0,42,1990.0,1800000.0,1.431534e+06,-368466.0,20.47,High
+Mitsubishi,Po5,Standard,Diesel,Manual,NA,1990,264219.0,36,2500.0,3950000.0,3.288148e+06,-661852.0,16.76,Medium
+Mazda,Bongo,Standard,Petrol,Automatic,NA,2005,180000.0,21,1500.0,6300000.0,5.550215e+06,-749785.0,11.9,High
+Nissan,Serena,Standard,Diesel,Manual,NA,1992,123456.0,34,1970.0,2450000.0,2.417171e+06,-32829.0,1.34,High
+Nissan,E25,Standard,Diesel,Automatic,NA,2011,260000.0,15,2500.0,10800000.0,8.37662e+06,-2423380.0,22.44,Medium
+Mazda,Bongo,Standard,Diesel,Manual,NA,1983,1234.0,43,2000.0,2750000.0,2.199577e+06,-550423.0,20.02,High
+Toyota,Lh61,Standard,Diesel,Manual,NA,1987,87000.0,39,2000.0,4650000.0,2.814732e+06,-1835268.0,39.47,Low — insufficient van market data
+Toyota,Liteace,Standard,Diesel,Manual,NA,1985,250000.0,41,1830.0,1800000.0,2.042423e+06,242423.0,13.47,High
+Nissan,Caravan,Standard,Diesel,Manual,NA,1999,100000.0,27,2700.0,11000000.0,8.088526e+06,-2911474.0,26.47,High
+Suzuki,Every,Da17,Petrol,Automatic,NA,2016,125670.0,10,650.0,6050000.0,6.112298e+06,62298.0,1.03,High

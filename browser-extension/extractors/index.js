@@ -115,6 +115,12 @@ window.FairPriceLK_Extractors.index = (function () {
         const text = `${pageContext.title} ${pageContext.raw_text}`.toLowerCase();
 
         // 1. URL based detection
+
+        // Riyasewana.com vehicle listings always follow /buy/<slug> pattern
+        if (url.includes("riyasewana.com/buy/")) {
+            return "vehicle";
+        }
+
         if (url.includes("computer-accessories") || url.includes("graphic-card") || url.includes("vga") || url.includes("gpu")) {
             return "gpu";
         }

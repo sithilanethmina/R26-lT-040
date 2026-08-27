@@ -314,6 +314,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     checkHealth();
     initGpuMetadata();
+    initVehicleMetadata('cars');
+
+    // --- Vehicle Metadata ---
+    let VEHICLE_METADATA = {};
+    async function initVehicleMetadata(type = 'cars') {
+        let endpoint = `${GATEWAY_URL}/api/vehicle/metadata`;
+        if (type === 'suvs') endpoint += '/suv';
+        if (type === 'vans') endpoint += '/van';
+        
+        try {
+            const res = await fetch(endpoint, { signal: AbortSignal.timeout(2000) });
+            if (res.ok) {
+                VEHICLE_METADATA = await res.json();
+                populateVehicleBrands();
+            }
+        } catch (e) {
+            console.warn("Failed to load vehicle metadata:", e);
+        }
+    }
+
+    function populateVehicleBrands(selectedBrand) {
+        const brandSelect = document.getElementById('vehicleBrandSelect');
+        if (!brandSelect) return;
+        brandSelect.innerHTML = '<option value="">Select Brand</option>';
+        Object.keys(VEHICLE_METADATA).sort().forEach(b => {
+            const opt = document.createElement('option');
+            opt.value = b;
+            opt.textContent = b;
+            brandSelect.appendChild(opt);
+        });
+        if (selectedBrand && VEHICLE_METADATA[selectedBrand]) {
+            brandSelect.value = selectedBrand;
+        }
+        populateVehicleModels();
+    }
+
+    function populateVehicleModels(selectedModel) {
+        const brandSelect = document.getElementById('vehicleBrandSelect');
+        const modelSelect = document.getElementById('vehicleModelSelect');
+        if (!brandSelect || !modelSelect) return;
+        
+        const brand = brandSelect.value;
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+        if (brand && VEHICLE_METADATA[brand]) {
+            VEHICLE_METADATA[brand].sort().forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = m;
+                opt.textContent = m;
+                modelSelect.appendChild(opt);
+            });
+        }
+        if (selectedModel) {
+            modelSelect.value = selectedModel;
+        }
+    }
+
+    document.getElementById('vehicleTypeSelect').addEventListener('change', (e) => initVehicleMetadata(e.target.value));
+    document.getElementById('vehicleBrandSelect').addEventListener('change', () => populateVehicleModels());
 
     // --- Category Switching ---
     const forms = {
@@ -352,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             }).catch(() => {});
 
-            chrome.tabs.sendMessage(tab.id, { action: "extract_details" }, (response) => {
+            chrome.tabs.sendMessage(tab.id, { action: "extract_details" }, async (response) => {
                 setLoading(extractBtn, false, '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Extract');
                 
                 if (chrome.runtime.lastError) {
@@ -361,8 +419,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (response && response.success) {
-                    populateForm(response.data);
-                    showStatus("Details extracted from page.");
+                    await populateForm(response.data);
+                    showStatus("Details extracted from page. Auto-predicting...");
+                    // Auto-trigger the predict button
+                    document.getElementById('predictBtn').click();
                 } else {
                     showError("Extraction failed.");
                 }
@@ -387,7 +447,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setLoading(predictBtn, true, 'Checking...');
 
         try {
-            const response = await fetch(`${GATEWAY_URL}/api/${category}/predict`, {
+            let endpoint = `${GATEWAY_URL}/api/${category}/predict`;
+            if (category === 'vehicle') {
+                const vType = document.getElementById('vehicleTypeSelect').value;
+                if (vType === 'suvs') endpoint = `${GATEWAY_URL}/api/vehicle/predict/suv`;
+                if (vType === 'vans') endpoint = `${GATEWAY_URL}/api/vehicle/predict/van`;
+            }
+
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -469,11 +536,17 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         } else if (category === 'vehicle') {
             const variant = document.getElementById('vehicleVariantInput').value.trim();
-            if (!variant) { showError("Variant is required."); return null; }
+            const model = document.getElementById('vehicleModelSelect').value;
+            const brand = document.getElementById('vehicleBrandSelect').value;
+            if (!brand) { showError("Brand is required."); return null; }
+            if (!model) { showError("Model is required."); return null; }
             return {
-                model: document.getElementById('vehicleModelSelect').value,
+                brand: brand,
+                model: model,
                 model_year: parseInt(document.getElementById('vehicleYearInput').value) || 2015,
-                variant: variant,
+                mileage_km: parseInt(document.getElementById('vehicleMileageInput').value) || 0,
+                engine_cc: parseInt(document.getElementById('vehicleEngineCCInput').value) || 1000,
+                variant: variant || "Standard",
                 transmission: document.getElementById('vehicleTransmissionSelect').value,
                 fuel_type: document.getElementById('vehicleFuelSelect').value
             };
@@ -493,7 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
-    function populateForm(data) {
+    async function populateForm(data) {
         if (!data) return;
         if (data.price) priceInput.value = data.price;
         
@@ -565,9 +638,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('mobileTypeSelect').value = "android";
             }
         } else if (cat === 'vehicle') {
-            const text = ((data.title || "")).toLowerCase();
-            if (text.includes("aqua")) document.getElementById('vehicleModelSelect').value = "Toyota Aqua";
-            if (text.includes("alto")) document.getElementById('vehicleModelSelect').value = "Suzuki Alto";
+            const make = data.make || data.brand || "";
+            const model = data.model || "";
+            const vType = data.vehicle_type || 'cars';
+            
+            document.getElementById('vehicleTypeSelect').value = vType;
+            
+            await initVehicleMetadata(vType);
+            
+            const matchedBrand = Object.keys(VEHICLE_METADATA).find(b => b.toUpperCase() === make.toUpperCase());
+            if (matchedBrand) {
+                populateVehicleBrands(matchedBrand);
+                const sortedModels = [...(VEHICLE_METADATA[matchedBrand] || [])].sort((a, b) => b.length - a.length);
+                const matchedModel = sortedModels.find(m => {
+                    const mUp = m.toUpperCase();
+                    const modUp = model.toUpperCase();
+                    return mUp === modUp || modUp.includes(mUp) || (data.title && data.title.toUpperCase().includes(mUp));
+                });
+                if (matchedModel) {
+                    populateVehicleModels(matchedModel);
+                }
+            }
+            
+            if (data.year || data.model_year) document.getElementById('vehicleYearInput').value = data.year || data.model_year;
+            if (data.variant) document.getElementById('vehicleVariantInput').value = data.variant;
+            if (data.mileage) document.getElementById('vehicleMileageInput').value = data.mileage;
+            if (data.engine_cc || data.engineCC) document.getElementById('vehicleEngineCCInput').value = data.engine_cc || data.engineCC;
+            if (data.description) document.getElementById('vehicleDescriptionInput').value = data.description;
+            
+            const transmission = data.gear || data.transmission || "";
+            if (transmission.toLowerCase().includes("auto")) {
+                document.getElementById('vehicleTransmissionSelect').value = "Automatic";
+            } else if (transmission.toLowerCase().includes("manual")) {
+                document.getElementById('vehicleTransmissionSelect').value = "Manual";
+            }
+            
+            const fuel = data.fuelType || data.fuel_type || "";
+            if (fuel.toLowerCase().includes("petrol")) {
+                document.getElementById('vehicleFuelSelect').value = "Petrol";
+            } else if (fuel.toLowerCase().includes("diesel")) {
+                document.getElementById('vehicleFuelSelect').value = "Diesel";
+            } else if (fuel.toLowerCase().includes("hybrid")) {
+                document.getElementById('vehicleFuelSelect').value = "Hybrid";
+            } else if (fuel.toLowerCase().includes("electric")) {
+                document.getElementById('vehicleFuelSelect').value = "Electric";
+            }
         } else if (cat === 'electronics') {
             if (data.brand) document.getElementById('elecBrandInput').value = data.brand;
             if (data.model) document.getElementById('elecModelInput').value = data.model;
@@ -591,10 +706,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (detectedModelTitle) {
             const m = data.metadata ? (data.metadata.model_name || data.metadata.model) : (document.getElementById('gpuModelInput')?.value || category.toUpperCase());
             detectedModelTitle.innerText = m;
-        }
-
-        if (displayListedPrice) {
-            displayListedPrice.innerText = listedPrice ? `Rs. ${listedPrice.toLocaleString('en-LK')}` : 'Not Specified';
         }
 
         if (verdictDescEl) {
@@ -634,21 +745,11 @@ document.addEventListener('DOMContentLoaded', () => {
             upperPrice = data.fair_market_range ? data.fair_market_range.upper_price_lkr : Math.round(pointPrice * 1.1);
         }
 
-        // Display Estimated Range / Point Price
-        if (upperPrice > lowerPrice && lowerPrice > 0) {
-            predictedPriceEl.innerText = `Rs. ${Math.round(lowerPrice/1000)}k – ${Math.round(upperPrice/1000)}k`;
-        } else if (pointPrice > 0) {
+        // Display Point Price
+        if (pointPrice > 0) {
             predictedPriceEl.innerText = `Rs. ${Math.round(pointPrice).toLocaleString('en-LK')}`;
         } else {
             predictedPriceEl.innerText = "--";
-        }
-
-        // Calculate visual marker position
-        if (rangeMarker && listedPrice && upperPrice > lowerPrice) {
-            const span = (upperPrice - lowerPrice) * 1.5;
-            const minBound = lowerPrice - (span * 0.25);
-            const markerPos = Math.max(4, Math.min(96, ((listedPrice - minBound) / span) * 100));
-            rangeMarker.style.left = `${markerPos}%`;
         }
 
         let modelFooterText = `Model: ${modelUsed} · Pt Est: Rs. ${pointPrice.toLocaleString('en-LK', {maximumFractionDigits: 0})}`;

@@ -16,40 +16,41 @@ DFSK,Glory 580,73,7943973,2019,2023,Petrol,1510,High
 DFSK,Glory 330,28,4847500,2016,2021,Diesel,1334,Medium
 DFSK,Glory,24,5466250,2016,2021,Diesel,1364,Medium
 DFSK,580,2,7875000,2021,2021,Petrol,1500,Low — insufficient SUV market data
-Daihatsu,Terios,42,6545952,1998,2014,Petrol,1450,Medium
-Daihatsu,Rocky,36,13507083,2023,2026,Hybrid,1166,Medium
+Daihatsu,Terios,40,6543250,1998,2014,Petrol,1448,Medium
+Daihatsu,Rocky,33,13477727,2023,2026,Hybrid,1164,Medium
 Daihatsu,ROCKY,5,13855000,2025,2025,Hybrid,1198,Low — insufficient SUV market data
-Honda,Vezel,893,14415099,2013,2026,Hybrid,1498,High
-Honda,CRV,200,14819600,1996,2025,Petrol,1664,High
-Honda,VEZEL,60,15310067,2014,2026,Hybrid,1503,High
+Daihatsu,Raize,3,13830000,2024,2024,Hybrid,1193,Low — insufficient SUV market data
+Daihatsu,2008,2,6600000,2008,2008,Petrol,1500,Low — insufficient SUV market data
+Honda,Vezel,953,14471445,2013,2026,Hybrid,1498,High
+Honda,CRV,204,15138578,1996,2025,Petrol,1661,High
 Honda,HR-V,20,5233750,1999,2004,Petrol,1581,Medium
-Honda,Crv,7,11872857,2017,2019,Petrol,1500,Low — insufficient SUV market data
 Honda,BR-V,5,10455000,2017,2017,Petrol,1500,Low — insufficient SUV market data
 Honda,Crossroad,5,7718000,2007,2007,Petrol,1800,Low — insufficient SUV market data
 Honda,Z,4,19943750,2026,2026,Hybrid,1498,Low — insufficient SUV market data
 Honda,ZRV,3,21233333,2023,2023,Petrol,1499,Low — insufficient SUV market data
+Honda,2008,2,8450000,2008,2008,Petrol,1800,Low — insufficient SUV market data
 Honda,Tribute,2,5350000,2003,2003,Petrol,1960,Low — insufficient SUV market data
-Hyundai,Tucson,57,7713333,2005,2019,Diesel,1965,High
+Hyundai,Tucson,64,7585703,2005,2019,Diesel,1967,High
 Hyundai,Santa Fe,45,7813556,2001,2014,Diesel,2226,Medium
 Hyundai,Venue,19,9920789,2019,2026,Petrol,1000,Medium
-Hyundai,TUCSON,6,6475000,2006,2011,Petrol,1982,Low — insufficient SUV market data
 Hyundai,Terracan,3,8600000,2006,2006,Diesel,2967,Low — insufficient SUV market data
-Kia,Sorento,177,10794633,2004,2015,Diesel,2232,High
-Kia,Sportage,83,8302831,2000,2015,Diesel,2002,High
+Kia,Sorento,180,10814667,2004,2015,Diesel,2231,High
+Kia,Sportage,80,8366812,2000,2015,Diesel,2003,High
 Kia,Sonet,60,12111250,2025,2026,Petrol,1000,High
 Kia,Stonic,13,9394231,2019,2020,Petrol,1000,Low — insufficient SUV market data
 Kia,SONET,6,12045833,2026,2026,Petrol,999,Low — insufficient SUV market data
 Kia,Seltos,5,19900000,2026,2026,Petrol,1500,Low — insufficient SUV market data
 Kia,Syros,4,13375000,2026,2026,Petrol,1000,Low — insufficient SUV market data
+Kia,2008,3,6596667,2008,2008,Diesel,2000,Low — insufficient SUV market data
 Kia,SELTOS,3,13583333,2020,2020,Petrol,1500,Low — insufficient SUV market data
-Kia,SORENTO,2,10845000,2011,2011,Diesel,2200,Low — insufficient SUV market data
-Land-Rover,Discovery 4,50,26874300,2010,2018,Diesel,2990,High
-Land-Rover,Defender,36,37221806,1992,2026,Diesel,2374,Medium
+Land-Rover,Discovery 4,49,27075816,2010,2018,Diesel,2949,Medium
+Land-Rover,Defender,29,40127069,1992,2026,Diesel,2317,Medium
 Land-Rover,Freelander,15,6948000,1999,2013,Diesel,2023,Medium
 Land-Rover,Freelander 2,13,10184615,2011,2013,Diesel,2320,Low — insufficient SUV market data
 Land-Rover,Discovery 5,12,31224167,2015,2019,Diesel,2223,Low — insufficient SUV market data
 Land-Rover,Discovery,10,23670000,2009,2019,Diesel,2340,Low — insufficient SUV market data
 Land-Rover,Range Rover Sport,10,43170000,2016,2018,Diesel,2299,Low — insufficient SUV market data
+Land-Rover,2008,8,24225000,2008,2008,Diesel,2625,Low — insufficient SUV market data
 Land-Rover,Range Rover,6,65416667,2018,2019,Hybrid,2000,Low — insufficient SUV market data
 Land-Rover,Discovery 4S,4,32250000,2014,2014,Diesel,3000,Low — insufficient SUV market data
 Land-Rover,Land,2,19000000,1990,1990,Diesel,2500,Low — insufficient SUV market data
@@ -60,82 +61,66 @@ Mahindra,KUV 100,58,5809397,2020,2025,Petrol,1193,High
 Mahindra,Scorpio,5,3553000,2003,2003,Diesel,2582,Low — insufficient SUV market data
 Mahindra,Kuv,2,5420000,2021,2021,Petrol,1200,Low — insufficient SUV market data
 Mahindra,Montero,2,10275000,2001,2001,Petrol,3500,Low — insufficient SUV market data
-Micro,Rexton,98,9274694,2007,2018,Diesel,2441,High
-Micro,Kyron,85,5445471,2007,2011,Diesel,2033,High
+Micro,Rexton,119,9461345,2007,2018,Diesel,2410,High
+Micro,Kyron,88,5480057,2007,2011,Diesel,2032,High
+Micro,Korando,29,7721724,2011,2016,Diesel,2006,Medium
 Micro,Tivoli,29,7450172,2015,2018,Petrol,1603,Medium
-Micro,Korando,26,7895769,2011,2016,Diesel,1999,Medium
 Micro,Actyon,16,5119375,2008,2012,Diesel,1991,Medium
-Micro,Rexton W,15,10848667,2014,2017,Diesel,2093,Medium
-Micro,SsangYong,3,9550000,2008,2008,Diesel,2700,Low — insufficient SUV market data
+Micro,2008,2,4295000,2008,2008,Diesel,2400,Low — insufficient SUV market data
 Micro,Almaz,2,12850000,2022,2022,Petrol,1500,Low — insufficient SUV market data
-Micro,KORANDO,2,6325000,2014,2014,Diesel,2100,Low — insufficient SUV market data
-Micro,Meiya,2,4295000,2008,2008,Diesel,2400,Low — insufficient SUV market data
-Mitsubishi,Montero,218,16841927,1998,2017,Diesel,3062,High
+Mitsubishi,Montero,212,16862925,1998,2017,Diesel,3074,High
 Mitsubishi,Outlander,147,12866376,2003,2025,Hybrid,2065,High
 Mitsubishi,Pajero,85,7936882,1990,2013,Diesel,2454,High
-Mitsubishi,Montero Sport,72,13818125,2008,2012,Diesel,2491,High
+Mitsubishi,Montero Sport,68,14044191,2011,2012,Diesel,2506,High
 Mitsubishi,Eclipse Cross,56,14272321,2018,2025,Petrol,1500,High
 Mitsubishi,Pajero IO,23,5493478,1999,2005,Petrol,1925,Medium
 Mitsubishi,Xpander,16,13005938,2018,2020,Petrol,1499,Medium
+Mitsubishi,2008,13,12457692,2008,2008,Diesel,2625,Low — insufficient SUV market data
 Mitsubishi,ASX,5,10620000,2014,2014,Petrol,2000,Low — insufficient SUV market data
 Mitsubishi,Pajero Mini,3,3831667,1996,1996,Petrol,1090,Low — insufficient SUV market data
 Mitsubishi,Unknown,3,5993333,2001,2001,Petrol,2610,Low — insufficient SUV market data
 Mitsubishi,4DR5,2,2675000,1991,1991,Diesel,3500,Low — insufficient SUV market data
 Mitsubishi,Airtrek,2,6490000,2007,2007,Petrol,2000,Low — insufficient SUV market data
 Mitsubishi,MONTERO,2,21000000,2013,2013,Diesel,2350,Low — insufficient SUV market data
-Nissan,X-Trail,210,9530238,2000,2026,Petrol,2014,High
+Nissan,X-Trail,224,9735714,2000,2026,Petrol,2015,High
 Nissan,Magnite,92,8814674,2025,2026,Petrol,1005,High
-Nissan,Patrol,22,25640909,2001,2015,Diesel,3456,Medium
 Nissan,Juke,19,8480789,2010,2020,Petrol,1341,Medium
+Nissan,Patrol,17,26776471,2001,2015,Diesel,3484,Medium
 Nissan,Qashqai,17,11126176,2011,2019,Petrol,1270,Medium
+Nissan,2008,8,16175000,2008,2008,Diesel,2850,Low — insufficient SUV market data
 Nissan,QASHQAI,6,14650000,2019,2019,Petrol,1300,Low — insufficient SUV market data
 Nissan,MAGNITE,5,8674000,2025,2025,Petrol,996,Low — insufficient SUV market data
-Nissan,X-TRAIL,5,16024000,2013,2025,Petrol,1996,Low — insufficient SUV market data
 Nissan,Gravite,4,9975000,2026,2026,Petrol,995,Low — insufficient SUV market data
-Nissan,X-trail,3,10183333,2015,2015,Hybrid,2000,Low — insufficient SUV market data
-Nissan,Dualis,2,6750000,2008,2008,Petrol,2000,Low — insufficient SUV market data
-Peugeot,3008,56,13950714,2016,2020,Petrol,1238,High
+Peugeot,3008,57,13877895,2016,2020,Petrol,1252,High
 Peugeot,5008,23,15553913,2018,2019,Petrol,1200,Medium
-Peugeot,2017,3,1741667,2008,2008,Petrol,1367,Low — insufficient SUV market data
-Peugeot,2018,2,3000000,2008,2008,Petrol,1200,Low — insufficient SUV market data
-Peugeot,2019,2,12600000,2008,2008,Petrol,1200,Low — insufficient SUV market data
-Peugeot,2025,2,22500000,2008,2008,Petrol,1200,Low — insufficient SUV market data
-Range-Rover,Sport,23,39869565,2008,2019,Petrol,2659,Medium
+Peugeot,2008,11,9902273,2008,2008,Petrol,1245,Low — insufficient SUV market data
 Range-Rover,Evoque,20,19706250,2012,2024,Diesel,2087,Medium
+Range-Rover,Sport,20,42350000,2011,2019,Diesel,2468,Medium
 Range-Rover,Autobiography,10,70700000,2019,2019,Petrol,2000,Low — insufficient SUV market data
+Range-Rover,2008,3,23333333,2008,2008,Petrol,3933,Low — insufficient SUV market data
 Range-Rover,Vogue,3,61333333,2019,2019,Petrol,2000,Low — insufficient SUV market data
-Range-Rover,4.4L,2,60500000,2014,2014,Diesel,4400,Low — insufficient SUV market data
+Range-Rover,V8,2,60500000,2014,2014,Diesel,4400,Low — insufficient SUV market data
+Suzuki,Vitara,90,6643556,1996,2020,Petrol,1970,High
 Suzuki,Fronx,70,10865714,2025,2026,Petrol,1000,High
-Suzuki,Vitara,37,7017297,1996,2020,Petrol,1791,Medium
-Suzuki,Xbee,26,9559615,2018,2025,Hybrid,999,Medium
-Suzuki,Grand Vitara,24,6828125,1998,2014,Petrol,2049,Medium
-Suzuki,Escudo,13,5934615,1999,2007,Petrol,2145,Low — insufficient SUV market data
+Suzuki,Xbee,32,9440625,2018,2025,Hybrid,999,Medium
 Suzuki,Gypsy,13,2397308,1990,1999,Petrol,995,Low — insufficient SUV market data
 Suzuki,Jimny,11,5683636,2000,2017,Petrol,774,Low — insufficient SUV market data
-Suzuki,S,10,8785000,2017,2019,Petrol,1000,Low — insufficient SUV market data
-Suzuki,GRAND,2,5250000,2003,2003,Petrol,1000,Low — insufficient SUV market data
-Suzuki,Sx4,2,5387500,2008,2008,Petrol,1600,Low — insufficient SUV market data
-Suzuki,XBEE,2,8187500,2018,2018,Hybrid,995,Low — insufficient SUV market data
-Toyota,Raize,505,13332531,2019,2026,Hybrid,1126,High
-Toyota,CHR,227,13607907,2016,2023,Petrol,1225,High
-Toyota,Prado,146,27311336,1997,2025,Petrol,2801,High
-Toyota,Land Cruiser Prado,127,31818622,1996,2026,Petrol,2787,High
+Suzuki,S Cross,10,9175000,2017,2018,Petrol,1000,Low — insufficient SUV market data
+Suzuki,2008,2,5387500,2008,2008,Petrol,1600,Low — insufficient SUV market data
+Toyota,Raize,535,13343249,2019,2026,Hybrid,1127,High
+Toyota,Prado,318,31228117,1991,2026,Petrol,2788,High
+Toyota,CHR,242,13686260,2016,2023,Petrol,1225,High
 Toyota,Taisor,121,11569876,2025,2026,Petrol,1000,High
-Toyota,Land Cruiser,118,33340085,1991,2025,Diesel,3778,High
-Toyota,Harrier,73,14794247,1999,2025,Petrol,2453,High
-Toyota,Rush,47,11454255,2006,2025,Petrol,1461,Medium
-Toyota,RAV4,45,6036000,1996,2013,Petrol,2079,Medium
+Toyota,Harrier,62,15739194,1999,2025,Petrol,2331,High
+Toyota,V8,56,35294464,1999,2017,Diesel,4471,High
+Toyota,RAV4,48,6351979,1996,2013,Petrol,2094,Medium
+Toyota,2008,44,12238750,2008,2008,Petrol,2682,Medium
+Toyota,Rush,40,12210625,2006,2025,Petrol,1461,Medium
 Toyota,Fortuner,34,19343676,2006,2017,Diesel,2836,Medium
-Toyota,Yaris Cross,32,16453438,2023,2025,Hybrid,1499,Medium
-Toyota,RAIZE,29,13612414,2020,2026,Hybrid,1144,Medium
+Toyota,S Cross,32,16453438,2023,2025,Hybrid,1499,Medium
 Toyota,Cami,17,4437353,1999,2002,Petrol,1304,Medium
-Toyota,Chr,15,13956000,2017,2020,Petrol,1226,Medium
-Toyota,PRADO,6,23166667,2008,2013,Diesel,2311,Low — insufficient SUV market data
+Toyota,Box Prado,10,13927500,1990,1995,Diesel,2913,Low — insufficient SUV market data
 Toyota,Lexus,4,8500000,2007,2007,Petrol,3000,Low — insufficient SUV market data
-Toyota,Surf,4,8262500,2008,2008,Diesel,2585,Low — insufficient SUV market data
 Toyota,Vanguard,3,10850000,2013,2013,Petrol,2360,Low — insufficient SUV market data
-Toyota,95,2,11100000,1998,1998,Diesel,3000,Low — insufficient SUV market data
 Toyota,BZ4X,2,28995000,2024,2024,Electric,1200,Low — insufficient SUV market data
-Toyota,Box,2,9062500,1990,1990,Diesel,2995,Low — insufficient SUV market data
-Toyota,RX,2,10500000,2008,2008,Petrol,3300,Low — insufficient SUV market data
 Toyota,Sahara,2,22600000,2005,2005,Diesel,4200,Low — insufficient SUV market data

@@ -32,7 +32,7 @@
     {
         "brand": "Range-Rover",
         "vehicle_type": "SUV",
-        "model": "Sport",
+        "model": "2008",
         "title_raw": "Range-Rover Sport HSEbiography 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 123000.0,
@@ -62,7 +62,7 @@
     {
         "brand": "Range-Rover",
         "vehicle_type": "SUV",
-        "model": "Sport",
+        "model": "2008",
         "title_raw": "Range-Rover Sport HSE 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 123000.0,
@@ -317,7 +317,7 @@
     {
         "brand": "Range-Rover",
         "vehicle_type": "SUV",
-        "model": "4.4L",
+        "model": "V8",
         "title_raw": "Range-Rover 4.4L V8 2014 SUV (Used)",
         "model_year": 2014,
         "mileage_km": 82000.0,
@@ -422,7 +422,7 @@
     {
         "brand": "Range-Rover",
         "vehicle_type": "SUV",
-        "model": "4.4L",
+        "model": "V8",
         "title_raw": "Range-Rover 4.4L V8 2014 SUV (Used)",
         "model_year": 2014,
         "mileage_km": 82000.0,
@@ -917,7 +917,7 @@
     {
         "brand": "Range-Rover",
         "vehicle_type": "SUV",
-        "model": "Sport",
+        "model": "2008",
         "title_raw": "Range-Rover Sport 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 159000.0,

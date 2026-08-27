@@ -2,7 +2,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 1998 SUV (Used)",
         "model_year": 1998,
         "mileage_km": 240000.0,
@@ -107,7 +107,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2014 SUV (Used)",
         "model_year": 2014,
         "mileage_km": 127000.0,
@@ -122,7 +122,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 1999 SUV (Used)",
         "model_year": 1999,
         "mileage_km": null,
@@ -257,7 +257,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "XBEE",
+        "model": "Xbee",
         "title_raw": "Suzuki XBEE MZ TURBO 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 81000.0,
@@ -317,7 +317,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 150000.0,
@@ -347,7 +347,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "ESCUDO",
+        "model": "Vitara",
         "title_raw": "Suzuki ESCUDO 2004 SUV (Used)",
         "model_year": 2004,
         "mileage_km": 178450.0,
@@ -452,7 +452,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 1997 SUV (Used)",
         "model_year": 1997,
         "mileage_km": 240000.0,
@@ -497,7 +497,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 72000.0,
@@ -587,7 +587,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 138000.0,
@@ -632,7 +632,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2004 SUV (Used)",
         "model_year": 2004,
         "mileage_km": 162000.0,
@@ -677,7 +677,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "ESCUDO",
+        "model": "Vitara",
         "title_raw": "Suzuki ESCUDO GRAND VITARA 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 197950.0,
@@ -692,7 +692,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2014 SUV (Used)",
         "model_year": 2014,
         "mileage_km": 127000.0,
@@ -707,7 +707,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Sx4",
+        "model": "2008",
         "title_raw": "Suzuki Sx4 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 163000.0,
@@ -722,7 +722,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 72000.0,
@@ -752,7 +752,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 138000.0,
@@ -842,7 +842,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo Grand Vitara 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 181000.0,
@@ -872,7 +872,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2017 SUV (Used)",
         "model_year": 2017,
         "mileage_km": 125000.0,
@@ -917,7 +917,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "GRAND",
+        "model": "Vitara",
         "title_raw": "Suzuki GRAND ESCUDO 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 130000.0,
@@ -977,7 +977,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2006 SUV (Used)",
         "model_year": 2006,
         "mileage_km": 200000.0,
@@ -1067,7 +1067,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo Grand Vitara 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 181000.0,
@@ -1097,7 +1097,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2017 SUV (Used)",
         "model_year": 2017,
         "mileage_km": 125000.0,
@@ -1142,7 +1142,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "GRAND",
+        "model": "Vitara",
         "title_raw": "Suzuki GRAND ESCUDO 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 130000.0,
@@ -1187,7 +1187,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Sx4",
+        "model": "2008",
         "title_raw": "Suzuki Sx4 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 100000.0,
@@ -1247,7 +1247,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 96000.0,
@@ -1277,7 +1277,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 192000.0,
@@ -1427,7 +1427,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 10L Turbo 2017 SUV (Used)",
         "model_year": 2017,
         "mileage_km": 87000.0,
@@ -1517,7 +1517,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "XBEE",
+        "model": "Xbee",
         "title_raw": "Suzuki XBEE 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 132.0,
@@ -1622,7 +1622,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2011 SUV (Used)",
         "model_year": 2011,
         "mileage_km": 219000.0,
@@ -1652,7 +1652,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2007 SUV (Used)",
         "model_year": 2007,
         "mileage_km": 170000.0,
@@ -1712,7 +1712,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 130000.0,
@@ -1727,7 +1727,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 1998 SUV (Used)",
         "model_year": 1998,
         "mileage_km": 200000.0,
@@ -1817,7 +1817,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 190000.0,
@@ -1877,7 +1877,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 110000.0,
@@ -1967,7 +1967,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2006 SUV (Used)",
         "model_year": 2006,
         "mileage_km": 208000.0,
@@ -2102,7 +2102,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2000 SUV (Used)",
         "model_year": 2000,
         "mileage_km": 150000.0,
@@ -2117,7 +2117,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki GRAND VITARA 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 148000.0,
@@ -2177,7 +2177,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 1999 SUV (Used)",
         "model_year": 1999,
         "mileage_km": 155.0,
@@ -2207,7 +2207,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2012 SUV (Used)",
         "model_year": 2012,
         "mileage_km": 169000.0,
@@ -2252,7 +2252,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "XBee",
+        "model": "Xbee",
         "title_raw": "Suzuki XBee MZ 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 82000.0,
@@ -2282,7 +2282,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": null,
@@ -2297,7 +2297,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "XBee",
+        "model": "Xbee",
         "title_raw": "Suzuki XBee 2024 SUV Unregistered (Recondition)",
         "model_year": 2024,
         "mileage_km": 2300.0,
@@ -2312,7 +2312,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2001 SUV (Used)",
         "model_year": 2001,
         "mileage_km": 130000.0,
@@ -2342,7 +2342,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 161300.0,
@@ -2357,7 +2357,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 52000.0,
@@ -2387,7 +2387,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 1999 SUV (Used)",
         "model_year": 1999,
         "mileage_km": null,
@@ -2402,7 +2402,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2L VVT 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 108000.0,
@@ -2417,7 +2417,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2007 SUV (Used)",
         "model_year": 2007,
         "mileage_km": 122660.0,
@@ -2462,7 +2462,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "XBEE",
+        "model": "Xbee",
         "title_raw": "Suzuki XBEE 2019 SUV (Used)",
         "model_year": 2019,
         "mileage_km": 75000.0,
@@ -2552,7 +2552,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2007 SUV (Used)",
         "model_year": 2007,
         "mileage_km": 154000.0,
@@ -2612,7 +2612,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 115000.0,
@@ -2642,7 +2642,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 189000.0,
@@ -2777,7 +2777,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 114000.0,
@@ -2807,7 +2807,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 283000.0,
@@ -2837,7 +2837,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2007 SUV (Used)",
         "model_year": 2007,
         "mileage_km": null,
@@ -2867,7 +2867,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Scross",
+        "model": "S Cross",
         "title_raw": "Suzuki Scross 2017 SUV (Used)",
         "model_year": 2017,
         "mileage_km": 111.0,
@@ -2912,7 +2912,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 1999 SUV (Used)",
         "model_year": 1999,
         "mileage_km": 145.0,
@@ -2927,7 +2927,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 290000.0,
@@ -2942,7 +2942,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2019 SUV (Used)",
         "model_year": 2019,
         "mileage_km": 60000.0,
@@ -2972,7 +2972,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2000 SUV (Used)",
         "model_year": 2000,
         "mileage_km": 150000.0,
@@ -3002,7 +3002,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 153.0,
@@ -3047,7 +3047,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "XBEE",
+        "model": "Xbee",
         "title_raw": "Suzuki XBEE 2024 SUV Unregistered (Recondition)",
         "model_year": 2024,
         "mileage_km": 18000.0,
@@ -3197,7 +3197,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "SCROSS",
+        "model": "S Cross",
         "title_raw": "Suzuki SCROSS 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 124000.0,
@@ -3242,7 +3242,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2006 SUV (Used)",
         "model_year": 2006,
         "mileage_km": 190000.0,
@@ -3257,7 +3257,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2003 SUV (Used)",
         "model_year": 2003,
         "mileage_km": 115000.0,
@@ -3272,7 +3272,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2006 SUV (Used)",
         "model_year": 2006,
         "mileage_km": 260.0,
@@ -3302,7 +3302,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "ESCUDO",
+        "model": "Vitara",
         "title_raw": "Suzuki ESCUDO 2007 SUV (Used)",
         "model_year": 2007,
         "mileage_km": 159999.0,
@@ -3317,7 +3317,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "S",
+        "model": "S Cross",
         "title_raw": "Suzuki S Cross 2018 SUV (Used)",
         "model_year": 2018,
         "mileage_km": 79112.0,
@@ -3452,7 +3452,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Escudo",
+        "model": "Vitara",
         "title_raw": "Suzuki Escudo 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": null,
@@ -3527,7 +3527,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 2012 SUV (Used)",
         "model_year": 2012,
         "mileage_km": 175000.0,
@@ -3692,7 +3692,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "SUV",
-        "model": "Grand Vitara",
+        "model": "Vitara",
         "title_raw": "Suzuki Grand Vitara 1998 SUV (Used)",
         "model_year": 1998,
         "mileage_km": 195000.0,

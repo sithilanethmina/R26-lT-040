@@ -1,0 +1,77 @@
+brand,model,record_count,mean_price,min_year,max_year,dominant_fuel,mean_engine_cc,confidence
+Daihatsu,Hijet,99,4468182,1999,2024,Petrol,663,High
+Daihatsu,Atrai,15,6307000,2014,2023,Petrol,654,Medium
+Daihatsu,S200,11,3161364,1999,2002,Petrol,652,Low — insufficient van market data
+Daihatsu,S200V,2,3500000,2004,2004,Petrol,660,Low — insufficient van market data
+Isuzu,Fargo,43,2501279,1983,1994,Diesel,2264,Medium
+Mazda,Bongo,110,5735136,1983,2015,Diesel,2034,High
+Mazda,Brawny,40,4683750,1985,2000,Diesel,2354,Medium
+Mazda,Vanette,5,5525000,1994,2006,Diesel,1990,Low — insufficient van market data
+Mazda,Scrum,4,3385000,2001,2004,Petrol,650,Low — insufficient van market data
+Mitsubishi,L300,85,1901271,1980,2013,Diesel,1888,High
+Mitsubishi,Minicab,62,4336613,1999,2017,Petrol,651,High
+Mitsubishi,Po5,30,3760833,1986,2004,Diesel,2495,Medium
+Mitsubishi,Delica,27,1597963,1980,1999,Petrol,1706,Medium
+Mitsubishi,Po15,11,5211364,1991,2014,Diesel,2401,Low — insufficient van market data
+Mitsubishi,L400,6,5025000,1995,1997,Diesel,2640,Low — insufficient van market data
+Nissan,Vanette,339,4429056,1982,2013,Diesel,1997,High
+Nissan,Caravan,279,7666129,1980,2015,Diesel,2710,High
+Nissan,Clipper,65,5399385,2007,2024,Petrol,658,High
+Nissan,Serena,53,2753679,1991,2003,Diesel,1966,High
+Nissan,E25,33,8658485,2002,2012,Diesel,2859,Medium
+Nissan,Nv200,30,11990833,2009,2018,Petrol,1624,Medium
+Nissan,Largo,18,2733333,1990,1997,Diesel,1915,Medium
+Nissan,Vrg,17,4515294,1980,1985,Diesel,2387,Medium
+Nissan,Bongo,2,4112500,1997,1997,Diesel,2035,Low — insufficient van market data
+Nissan,Nv,2,13800000,2017,2017,Diesel,2510,Low — insufficient van market data
+Nissan,Nv100,2,6175000,2015,2015,Petrol,655,Low — insufficient van market data
+Nissan,Nv350,2,16400000,2015,2015,Diesel,2500,Low — insufficient van market data
+Nissan,Primastar,2,3750000,2013,2013,Diesel,2000,Low — insufficient van market data
+Suzuki,Every,388,5698905,1999,2025,Petrol,667,High
+Suzuki,Every Wagon,23,8369130,2012,2025,Petrol,654,Medium
+Suzuki,Da17,11,6080455,2015,2016,Petrol,666,Low — insufficient van market data
+Suzuki,Da64,9,4862778,2007,2018,Petrol,647,Low — insufficient van market data
+Suzuki,Omni,8,1946875,2004,2007,Petrol,800,Low — insufficient van market data
+Suzuki,Carry,3,3866667,2001,2001,Petrol,1300,Low — insufficient van market data
+Suzuki,Da64V,2,5595000,2014,2014,Petrol,650,Low — insufficient van market data
+Suzuki,Nv100,2,6175000,2015,2015,Petrol,655,Low — insufficient van market data
+Suzuki,Unknown,2,5665000,2015,2015,Petrol,650,Low — insufficient van market data
+Toyota,Townace,345,4384548,1980,2012,Diesel,1933,High
+Toyota,Dolphin,334,9115961,1989,2010,Diesel,2727,High
+Toyota,Kdh,306,19934487,2004,2026,Diesel,2715,High
+Toyota,Noah,206,7532306,1996,2014,Diesel,2014,High
+Toyota,Hiace,157,8172994,1980,2026,Diesel,2536,High
+Toyota,Liteace,112,2922009,1982,2008,Diesel,1904,High
+Toyota,Shell,79,4281019,1980,1996,Diesel,2381,High
+Toyota,Lh30,43,1246163,1980,1986,Diesel,2021,Medium
+Toyota,Cr27,37,4108649,1989,1998,Diesel,1967,Medium
+Toyota,Cr41,28,6364643,1996,1999,Diesel,2005,Medium
+Toyota,Kr42,28,10985000,1997,2007,Diesel,2022,Medium
+Toyota,Lh51,26,3784808,1983,1994,Diesel,2379,Medium
+Toyota,Lh113,17,8159706,1991,1997,Diesel,2643,Medium
+Toyota,Lotto,17,5030882,1993,2000,Diesel,2026,Medium
+Toyota,Voxy,17,16468824,2014,2015,Hybrid,1791,Medium
+Toyota,Cr42,13,6998077,1999,2002,Diesel,2090,Low — insufficient van market data
+Toyota,Lh20,13,1094615,1980,1982,Diesel,1960,Low — insufficient van market data
+Toyota,Lh61,11,4402273,1986,1989,Diesel,2328,Low — insufficient van market data
+Toyota,Cr26,7,2541429,1986,1988,Diesel,1769,Low — insufficient van market data
+Toyota,Gdh,5,28800000,2018,2024,Diesel,2781,Low — insufficient van market data
+Toyota,Kr41,4,5868750,1998,1998,Diesel,1690,Low — insufficient van market data
+Toyota,Lh40,4,1480000,1980,1980,Diesel,1700,Low — insufficient van market data
+Toyota,Lh40B,4,1375000,1982,1986,Diesel,1600,Low — insufficient van market data
+Toyota,Unknown,4,2581250,1989,1991,Diesel,1950,Low — insufficient van market data
+Toyota,High,3,12000000,2002,2002,Diesel,2900,Low — insufficient van market data
+Toyota,Lh103,3,7491667,1994,1994,Diesel,2783,Low — insufficient van market data
+Toyota,Lh61V,3,5158333,1989,1989,Diesel,2480,Low — insufficient van market data
+Toyota,Trh,3,20066667,2012,2012,Petrol,1997,Low — insufficient van market data
+Toyota,Alphard,2,50150000,2024,2024,Hybrid,2500,Low — insufficient van market data
+Toyota,Cm20,2,1962500,1983,1983,Diesel,1800,Low — insufficient van market data
+Toyota,Esquire,2,19387500,2015,2015,Hybrid,1745,Low — insufficient van market data
+Toyota,Estima,2,6500000,2008,2008,Petrol,2419,Low — insufficient van market data
+Toyota,Grand,2,7675000,2008,2008,Diesel,2497,Low — insufficient van market data
+Toyota,Granvia,2,6875000,2007,2007,Diesel,2500,Low — insufficient van market data
+Toyota,Lh102,2,7025000,1992,1992,Diesel,2440,Low — insufficient van market data
+Toyota,Lh50,2,1405000,1983,1983,Diesel,1756,Low — insufficient van market data
+Toyota,Lh51V,2,4325000,1988,1988,Diesel,2200,Low — insufficient van market data
+Toyota,Regius,2,6095000,1999,1999,Diesel,2990,Low — insufficient van market data
+Toyota,Vellfire,2,28500000,2012,2012,Hybrid,2450,Low — insufficient van market data

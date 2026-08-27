@@ -29,13 +29,17 @@ warnings.filterwarnings("ignore")
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).resolve().parent
-
-CAR_MODEL_DIR   = BASE_DIR / "Car_price_Prediction" / "models"  / "combined"
-CAR_OUT_DIR     = BASE_DIR / "Car_price_Prediction" / "outputs" / "combined"
+CAR_BASE_DIR    = BASE_DIR / "Car_price_Prediction"
+CAR_MODEL_DIR   = CAR_BASE_DIR / "models"  / "combined"
+CAR_OUT_DIR     = CAR_BASE_DIR / "outputs" / "combined"
 
 SUV_BASE_DIR    = BASE_DIR / "SUV_Price_Prediction"
 SUV_MODEL_DIR   = SUV_BASE_DIR / "models"  / "suv"
 SUV_OUT_DIR     = SUV_BASE_DIR / "outputs" / "suv"
+
+VAN_BASE_DIR    = BASE_DIR / "VAN_Price_Prediction"
+VAN_MODEL_DIR   = VAN_BASE_DIR / "models" / "van"
+VAN_OUT_DIR     = VAN_BASE_DIR / "outputs" / "van"
 
 # ─── Feature config (must match training scripts exactly) ─────────────────────
 CAR_CATEGORICAL  = ["brand", "model", "variant", "fuel_type", "transmission"]
@@ -45,6 +49,10 @@ CAR_FEATURES     = CAR_CATEGORICAL + CAR_NUMERIC
 SUV_CATEGORICAL  = ["brand", "model", "variant", "fuel_type", "transmission"]
 SUV_NUMERIC      = ["model_year", "mileage_km", "vehicle_age", "engine_cc"]
 SUV_FEATURES     = SUV_CATEGORICAL + SUV_NUMERIC
+
+VAN_CATEGORICAL  = ["brand", "model", "variant", "fuel_type", "transmission", "engine_code"]
+VAN_NUMERIC      = ["model_year", "mileage_km", "vehicle_age", "engine_cc"]
+VAN_FEATURES     = VAN_CATEGORICAL + VAN_NUMERIC
 
 REFERENCE_YEAR = 2026
 
@@ -80,6 +88,22 @@ except FileNotFoundError as exc:
 
 SUV_IS_CATBOOST = "CatBoost" in suv_model_type
 
+# ─── Load Van Artifacts ───────────────────────────────────────────────────────
+print("Loading Van model artifacts …")
+try:
+    van_model    = joblib.load(VAN_MODEL_DIR / "best_van_model.pkl")
+    van_encoder  = joblib.load(VAN_MODEL_DIR / "van_ordinal_encoder.pkl")
+    van_model_type = type(van_model).__name__
+    print(f"  [OK] Van model  : {van_model_type}")
+    print(f"  [OK] Van encoder: OrdinalEncoder")
+except FileNotFoundError as exc:
+    print(f"Van model artifact not found: {exc}")
+    van_model = None
+    van_encoder = None
+    van_model_type = None
+
+VAN_IS_CATBOOST = "CatBoost" in van_model_type if van_model_type else False
+
 # ─── Load NLP Configs ─────────────────────────────────────────────────────────
 print("Loading NLP configs …")
 with open(CAR_OUT_DIR / "nlp_config.json", encoding="utf-8") as f:
@@ -88,14 +112,25 @@ with open(CAR_OUT_DIR / "nlp_config.json", encoding="utf-8") as f:
 with open(SUV_OUT_DIR / "suv_nlp_config.json", encoding="utf-8") as f:
     SUV_NLP_CONFIG = json.load(f)
 
+try:
+    with open(VAN_OUT_DIR / "van_nlp_config.json", encoding="utf-8") as f:
+        VAN_NLP_CONFIG = json.load(f)
+except FileNotFoundError:
+    VAN_NLP_CONFIG = {}
+
 print("  [OK] NLP configs loaded")
 
 # ─── Load Brand/Model Lookups ────────────────────────────────────────────────
 print("Loading brand/model lookup tables …")
 car_lookup_df = pd.read_csv(CAR_OUT_DIR / "brand_model_lookup.csv")
 suv_lookup_df = pd.read_csv(SUV_OUT_DIR / "suv_brand_model_lookup.csv")
+try:
+    van_lookup_df = pd.read_csv(VAN_OUT_DIR / "van_brand_model_lookup.csv")
+except FileNotFoundError:
+    van_lookup_df = pd.DataFrame(columns=["brand", "model", "confidence"])
 print(f"  [OK] Car lookup : {len(car_lookup_df)} entries")
 print(f"  [OK] SUV lookup : {len(suv_lookup_df)} entries")
+print(f"  [OK] Van lookup : {len(van_lookup_df)} entries")
 
 
 def _build_metadata(df: pd.DataFrame) -> dict:
@@ -109,6 +144,7 @@ def _build_metadata(df: pd.DataFrame) -> dict:
 
 CAR_METADATA = _build_metadata(car_lookup_df)
 SUV_METADATA = _build_metadata(suv_lookup_df)
+VAN_METADATA = _build_metadata(van_lookup_df)
 
 # ─── App ──────────────────────────────────────────────────────────────────────
 app = FastAPI(
@@ -208,6 +244,20 @@ def _get_confidence(brand: str, model_name: str, lookup_df: pd.DataFrame) -> str
     return "Low"
 
 
+def _map_van_engine_code(brand: str, model: str, fuel_type: str, engine_cc: float) -> str:
+    """Assign engine code for Toyota Dolphin Diesel."""
+    if brand.lower() != "toyota" or fuel_type.lower() != "diesel":
+        return "NA"
+    if model.lower() != "dolphin":
+        return "NA"
+    if pd.isna(engine_cc) or engine_cc < 0:
+        return "NA"
+    if 2300 <= engine_cc <= 2600: return "2L"
+    if 2600 <= engine_cc <= 2850: return "3L"
+    if 2850 <= engine_cc <= 3150: return "5L"
+    return "Other"
+
+
 def _map_suv_generations(brand: str, model: str, year: int, variant: str) -> str:
     """Assign generation tags to the variant column."""
     v = str(variant).strip()
@@ -258,7 +308,7 @@ class PredictRequest(BaseModel):
     brand:        str            = Field(...,        examples=["Toyota"])
     model:        str            = Field(...,        examples=["Vitz"])
     variant:      str            = Field("Standard", examples=["KSP90"])
-    model_year:   int            = Field(...,        ge=1990, le=2026, examples=[2018])
+    model_year:   int            = Field(...,        ge=1980, le=2026, examples=[2018])
     mileage_km:   Optional[float] = Field(None,     ge=0, le=500_000, examples=[55000])
     fuel_type:    str            = Field(...,        examples=["Petrol"])
     transmission: str            = Field(...,        examples=["Automatic"])
@@ -274,12 +324,29 @@ class SUVPredictRequest(BaseModel):
     brand:        str            = Field(...,        examples=["Toyota"])
     model:        str            = Field(...,        examples=["Raize"])
     variant:      str            = Field("Standard", examples=["GLS"])
-    model_year:   int            = Field(...,        ge=1990, le=2026, examples=[2022])
+    model_year:   int            = Field(...,        ge=1980, le=2026, examples=[2022])
     mileage_km:   Optional[float] = Field(None,     ge=0, le=500_000, examples=[45000])
     fuel_type:    str            = Field(...,        examples=["Hybrid"])
     transmission: str            = Field(...,        examples=["Automatic"])
     engine_cc:    int            = Field(...,        ge=600, le=8000,  examples=[1490])
     description:  Optional[str]  = Field(None,       examples=["4WD, one owner, service records"])
+
+    @field_validator("variant")
+    @classmethod
+    def default_variant(cls, v: str) -> str:
+        return v.strip() if v.strip() else "Standard"
+
+
+class VanPredictRequest(BaseModel):
+    brand:        str            = Field(...,        examples=["Toyota"])
+    model:        str            = Field(...,        examples=["Hiace"])
+    variant:      str            = Field("Standard", examples=["Super GL"])
+    model_year:   int            = Field(...,        ge=1980, le=2026, examples=[2015])
+    mileage_km:   Optional[float] = Field(None,     ge=0, le=600_000, examples=[100000])
+    fuel_type:    str            = Field(...,        examples=["Diesel"])
+    transmission: str            = Field(...,        examples=["Automatic"])
+    engine_cc:    Optional[float] = Field(None,      ge=500, le=6000,  examples=[3000])
+    description:  Optional[str]  = Field(None,       examples=["Good condition"])
 
     @field_validator("variant")
     @classmethod
@@ -313,8 +380,15 @@ def metadata_suv():
     return SUV_METADATA
 
 
+@app.get("/metadata/van")
+def metadata_van():
+    """Return the brand → [models] lookup for the Van prediction model."""
+    return VAN_METADATA
+
+
 # ─── Car Prediction Endpoint ──────────────────────────────────────────────────
 @app.post("/api/predict", response_model=PredictResponse)
+@app.post("/predict", response_model=PredictResponse)
 def predict_car(req: PredictRequest):
     vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
 
@@ -373,6 +447,7 @@ def predict_car(req: PredictRequest):
 
 # ─── SUV Prediction Endpoint ──────────────────────────────────────────────────
 @app.post("/api/predict/suv", response_model=PredictResponse)
+@app.post("/predict/suv", response_model=PredictResponse)
 def predict_suv(req: SUVPredictRequest):
     vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
 
@@ -430,6 +505,71 @@ def predict_suv(req: SUVPredictRequest):
     )
 
 
+# ─── Van Prediction Endpoint ──────────────────────────────────────────────────
+@app.post("/api/predict/van", response_model=PredictResponse)
+@app.post("/predict/van", response_model=PredictResponse)
+def predict_van(req: VanPredictRequest):
+    if not van_model:
+        raise HTTPException(status_code=503, detail="Van model not loaded.")
+    
+    vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
+
+    if req.mileage_km is None or req.mileage_km <= 0:
+        effective_mileage    = float(vehicle_age * 15000)
+        is_estimated_mileage = True
+    else:
+        effective_mileage    = req.mileage_km
+        is_estimated_mileage = False
+
+    mileage_per_year = round(effective_mileage / vehicle_age, 2)
+    engine_cc = req.engine_cc if req.engine_cc else _extract_engine_cc(f"{req.variant} {req.model}")
+    engine_code = _map_van_engine_code(req.brand, req.model, req.fuel_type, engine_cc)
+
+    row = {
+        "brand":        req.brand,
+        "model":        req.model,
+        "variant":      req.variant,
+        "fuel_type":    req.fuel_type,
+        "transmission": req.transmission,
+        "engine_code":  engine_code,
+        "model_year":   req.model_year,
+        "mileage_km":   effective_mileage,
+        "vehicle_age":  vehicle_age,
+        "engine_cc":    float(engine_cc) if engine_cc > 0 else -1.0,
+    }
+    df = pd.DataFrame([row])[VAN_FEATURES]
+    
+    try:
+        if VAN_IS_CATBOOST:
+            log_price = van_model.predict(df)[0]
+        else:
+            df_enc = df.copy()
+            df_enc[VAN_CATEGORICAL] = van_encoder.transform(
+                df[VAN_CATEGORICAL].astype(str)
+            )
+            log_price = van_model.predict(df_enc)[0]
+
+        predicted_price = int(round(np.expm1(log_price)))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Van prediction failed: {exc}") from exc
+
+    confidence = _get_confidence(req.brand, req.model, van_lookup_df)
+    nlp        = _score_description(req.description or "", VAN_NLP_CONFIG)
+
+    return PredictResponse(
+        predicted_price=predicted_price,
+        model_used=van_model_type,
+        vehicle_age=vehicle_age,
+        mileage_per_year=mileage_per_year,
+        used_mileage_km=effective_mileage,
+        is_mileage_estimated=is_estimated_mileage,
+        confidence=confidence,
+        nlp_score=nlp["nlp_score"] if req.description else None,
+        nlp_signals=nlp["nlp_signals"] if req.description else None,
+        nlp_verdict=nlp["nlp_verdict"] if req.description else None,
+    )
+
+
 # ─── Health Check ─────────────────────────────────────────────────────────────
 @app.get("/health")
 def health():
@@ -437,9 +577,10 @@ def health():
         "status": "ok",
         "car_model": car_model_type,
         "suv_model": suv_model_type,
+        "van_model": van_model_type,
     }
 
 
 # ─── Dev Entry Point ──────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app:app", host="0.0.0.0", port=8003, reload=True)
