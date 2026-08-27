@@ -2,42 +2,54 @@ import { useState, useEffect, FormEvent } from "react";
 import "./App.css";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
-type VehicleCategory = "cars" | "suv";
+type VehicleCategory = "cars" | "suv" | "van";
 
 interface CarFormData {
-  brand:        string;
-  model:        string;
-  variant:      string;
-  model_year:   number;
-  mileage_km:   number;
-  fuel_type:    string;
+  brand: string;
+  model: string;
+  variant: string;
+  model_year: number;
+  mileage_km: number;
+  fuel_type: string;
   transmission: string;
-  description:  string;
+  description: string;
 }
 
 interface SUVFormData {
-  brand:        string;
-  model:        string;
-  variant:      string;
-  model_year:   number;
-  mileage_km:   number;
-  fuel_type:    string;
+  brand: string;
+  model: string;
+  variant: string;
+  model_year: number;
+  mileage_km: number;
+  fuel_type: string;
   transmission: string;
-  engine_cc:    number;
-  description:  string;
+  engine_cc: number;
+  description: string;
+}
+
+interface VanFormData {
+  brand: string;
+  model: string;
+  variant: string;
+  model_year: number;
+  mileage_km: number;
+  fuel_type: string;
+  transmission: string;
+  engine_cc: number;
+  description: string;
 }
 
 interface PredictionResult {
-  predicted_price:      number;
-  model_used:           string;
-  vehicle_age:          number;
-  mileage_per_year:     number;
-  used_mileage_km:      number;
+  predicted_price: number;
+  model_used: string;
+  vehicle_age: number;
+  mileage_per_year: number;
+  used_mileage_km: number;
   is_mileage_estimated: boolean;
-  confidence:           string;
-  nlp_score:            number | null;
-  nlp_signals:          string[] | null;
-  nlp_verdict:          string | null;
+  confidence: string;
+  nlp_score: number | null;
+  nlp_signals: string[] | null;
+  nlp_verdict: string | null;
 }
 
 interface Metadata {
@@ -48,38 +60,50 @@ interface Metadata {
 type AppState = "idle" | "loading" | "success" | "error";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
-const FUEL_TYPES    = ["Petrol", "Hybrid", "Diesel", "Electric"];
+const FUEL_TYPES = ["Petrol", "Hybrid", "Diesel", "Electric"];
 const TRANSMISSIONS = ["Automatic", "Manual"];
-const CURRENT_YEAR  = new Date().getFullYear();
+const CURRENT_YEAR = new Date().getFullYear();
 
 const DEFAULT_CAR_FORM: CarFormData = {
-  brand:        "",
-  model:        "",
-  variant:      "Standard",
-  model_year:   CURRENT_YEAR - 5,
-  mileage_km:   50000,
-  fuel_type:    "Petrol",
+  brand: "",
+  model: "",
+  variant: "Standard",
+  model_year: CURRENT_YEAR - 5,
+  mileage_km: 50000,
+  fuel_type: "Petrol",
   transmission: "Automatic",
-  description:  "",
+  description: "",
 };
 
 const DEFAULT_SUV_FORM: SUVFormData = {
-  brand:        "",
-  model:        "",
-  variant:      "Standard",
-  model_year:   CURRENT_YEAR - 5,
-  mileage_km:   60000,
-  fuel_type:    "Petrol",
+  brand: "",
+  model: "",
+  variant: "Standard",
+  model_year: CURRENT_YEAR - 5,
+  mileage_km: 60000,
+  fuel_type: "Petrol",
   transmission: "Automatic",
-  engine_cc:    1500,
-  description:  "",
+  engine_cc: 1500,
+  description: "",
+};
+
+const DEFAULT_VAN_FORM: VanFormData = {
+  brand: "",
+  model: "",
+  variant: "Standard",
+  model_year: CURRENT_YEAR - 5,
+  mileage_km: 60000,
+  fuel_type: "Diesel",
+  transmission: "Automatic",
+  engine_cc: 2000,
+  description: "",
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function formatLKR(amount: number): string {
   return new Intl.NumberFormat("en-LK", {
-    style:                 "currency",
-    currency:              "LKR",
+    style: "currency",
+    currency: "LKR",
     maximumFractionDigits: 0,
   }).format(amount);
 }
@@ -92,27 +116,31 @@ function getVehicleAge(year: number): number {
 export default function App() {
   const [category, setCategory] = useState<VehicleCategory>("cars");
 
-  const [carForm,  setCarForm]  = useState<CarFormData>(DEFAULT_CAR_FORM);
-  const [suvForm,  setSuvForm]  = useState<SUVFormData>(DEFAULT_SUV_FORM);
+  const [carForm, setCarForm] = useState<CarFormData>(DEFAULT_CAR_FORM);
+  const [suvForm, setSuvForm] = useState<SUVFormData>(DEFAULT_SUV_FORM);
+  const [vanForm, setVanForm] = useState<VanFormData>(DEFAULT_VAN_FORM);
 
   const [carMeta, setCarMeta] = useState<Metadata>({ brands: [], models: {} });
   const [suvMeta, setSuvMeta] = useState<Metadata>({ brands: [], models: {} });
+  const [vanMeta, setVanMeta] = useState<Metadata>({ brands: [], models: {} });
   const [metaError, setMetaError] = useState<string>("");
 
-  const [state,    setState]    = useState<AppState>("idle");
-  const [result,   setResult]   = useState<PredictionResult | null>(null);
+  const [state, setState] = useState<AppState>("idle");
+  const [result, setResult] = useState<PredictionResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
 
   // ─── Fetch metadata on mount ──────────────────────────────────────────────
   useEffect(() => {
     const BASE = "http://localhost:8000";
     Promise.all([
-      fetch(`${BASE}/metadata/cars`).then((r) => r.json()),
-      fetch(`${BASE}/metadata/suv`).then((r) => r.json()),
+      fetch(`${BASE}/metadata/cars`).then((r) => r.ok ? r.json() : { brands: [], models: {} }),
+      fetch(`${BASE}/metadata/suv`).then((r) => r.ok ? r.json() : { brands: [], models: {} }),
+      fetch(`${BASE}/metadata/van`).then((r) => r.ok ? r.json() : { brands: [], models: {} }),
     ])
-      .then(([cars, suv]: [Metadata, Metadata]) => {
+      .then(([cars, suv, van]: [Metadata, Metadata, Metadata]) => {
         setCarMeta(cars);
         setSuvMeta(suv);
+        setVanMeta(van);
       })
       .catch(() =>
         setMetaError(
@@ -123,8 +151,9 @@ export default function App() {
 
   // ─── Derived ─────────────────────────────────────────────────────────────
   const isCarMode = category === "cars";
-  const meta      = isCarMode ? carMeta : suvMeta;
-  const form      = isCarMode ? carForm : suvForm;
+  const isSuvMode = category === "suv";
+  const meta = isCarMode ? carMeta : isSuvMode ? suvMeta : vanMeta;
+  const form = isCarMode ? carForm : isSuvMode ? suvForm : vanForm;
 
   const availableModels: string[] =
     form.brand && meta.models[form.brand] ? meta.models[form.brand] : [];
@@ -168,16 +197,32 @@ export default function App() {
     }));
   }
 
-  const handleChange = isCarMode ? handleCarChange : handleSuvChange;
+  function handleVanChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+    setVanForm((prev) => ({
+      ...prev,
+      [name]:
+        name === "model_year" || name === "mileage_km" || name === "engine_cc"
+          ? Number(value)
+          : value,
+      ...(name === "brand" ? { model: "" } : {}),
+    }));
+  }
+
+  const handleChange = isCarMode ? handleCarChange : isSuvMode ? handleSuvChange : handleVanChange;
 
   function setFuelType(ft: string) {
     if (isCarMode) setCarForm((p) => ({ ...p, fuel_type: ft }));
-    else           setSuvForm((p) => ({ ...p, fuel_type: ft }));
+    else if (isSuvMode) setSuvForm((p) => ({ ...p, fuel_type: ft }));
+    else setVanForm((p) => ({ ...p, fuel_type: ft }));
   }
 
   function setTransmission(tr: string) {
     if (isCarMode) setCarForm((p) => ({ ...p, transmission: tr }));
-    else           setSuvForm((p) => ({ ...p, transmission: tr }));
+    else if (isSuvMode) setSuvForm((p) => ({ ...p, transmission: tr }));
+    else setVanForm((p) => ({ ...p, transmission: tr }));
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -188,7 +233,9 @@ export default function App() {
 
     const endpoint = isCarMode
       ? "http://localhost:8000/api/predict"
-      : "http://localhost:8000/api/predict/suv";
+      : isSuvMode
+        ? "http://localhost:8000/api/predict/suv"
+        : "http://localhost:8000/api/predict/van";
 
     const payload = {
       ...form,
@@ -197,9 +244,9 @@ export default function App() {
 
     try {
       const res = await fetch(endpoint, {
-        method:  "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(payload),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
@@ -264,6 +311,14 @@ export default function App() {
               onClick={() => handleCategorySwitch("suv")}
             >
               <span className="category-icon">🚙</span> SUVs
+            </button>
+            <button
+              type="button"
+              id="category-van"
+              className={`category-pill${category === "van" ? " category-pill--active" : ""}`}
+              onClick={() => handleCategorySwitch("van")}
+            >
+              <span className="category-icon">🚐</span> Vans
             </button>
           </div>
 
@@ -361,7 +416,7 @@ export default function App() {
                   id="model_year"
                   name="model_year"
                   type="number"
-                  min={1990}
+                  min={1980}
                   max={CURRENT_YEAR}
                   value={form.model_year}
                   onChange={handleChange}
@@ -553,9 +608,9 @@ export default function App() {
               {/* Confidence + NLP Verdict */}
               <div className="result-badges-row">
                 <span className={`confidence-badge confidence-badge--${result.confidence.toLowerCase().split(" ")[0]}`}>
-                  {result.confidence === "High"   && "◉ High Confidence"}
+                  {result.confidence === "High" && "◉ High Confidence"}
                   {result.confidence === "Medium" && "◎ Medium Confidence"}
-                  {result.confidence === "Low"    && "○ Low Confidence"}
+                  {result.confidence === "Low" && "○ Low Confidence"}
                   {result.confidence === "Unknown" && "? Unknown"}
                 </span>
                 {result.nlp_verdict && (

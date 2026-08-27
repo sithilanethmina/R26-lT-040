@@ -167,7 +167,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL T31 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 144000.0,
@@ -557,7 +557,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Patrol",
+        "model": "2008",
         "title_raw": "Nissan Patrol GRX 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 235000.0,
@@ -677,7 +677,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL T31 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 144000.0,
@@ -902,7 +902,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL 2025 SUV Brand New",
         "model_year": 2025,
         "mileage_km": 1.0,
@@ -1037,7 +1037,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Dualis",
+        "model": "2008",
         "title_raw": "Nissan Dualis 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 154996.0,
@@ -1277,7 +1277,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail Nt30 2001 SUV (Used)",
         "model_year": 2001,
         "mileage_km": 137000.0,
@@ -1517,7 +1517,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Patrol",
+        "model": "2008",
         "title_raw": "Nissan Patrol GRX 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 235000.0,
@@ -1592,7 +1592,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL T31 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 144000.0,
@@ -1862,7 +1862,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Patrol",
+        "model": "2008",
         "title_raw": "Nissan Patrol GRX 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 235000.0,
@@ -2297,7 +2297,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail 2015 SUV (Used)",
         "model_year": 2015,
         "mileage_km": 140000.0,
@@ -2552,7 +2552,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Patrol",
+        "model": "2008",
         "title_raw": "Nissan Patrol GRX 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 235000.0,
@@ -2702,7 +2702,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL 2016 SUV (Used)",
         "model_year": 2016,
         "mileage_km": 129400.0,
@@ -2852,7 +2852,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL 2025 SUV Brand New",
         "model_year": 2025,
         "mileage_km": 1.0,
@@ -3092,7 +3092,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Qashqai",
+        "model": "2008",
         "title_raw": "Nissan Qashqai 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 167000.0,
@@ -3482,7 +3482,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail T30 2005 SUV (Used)",
         "model_year": 2005,
         "mileage_km": 135.0,
@@ -3857,7 +3857,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Patrol",
+        "model": "2008",
         "title_raw": "Nissan Patrol GRX Y61 TB48 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 92000.0,
@@ -3872,7 +3872,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail 2015 SUV (Used)",
         "model_year": 2015,
         "mileage_km": 106000.0,
@@ -5297,7 +5297,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-TRAIL",
+        "model": "X-Trail",
         "title_raw": "Nissan X-TRAIL E-POWER Limited 2024 SUV Unregistered (Recondition)",
         "model_year": 2024,
         "mileage_km": 19900.0,
@@ -5432,7 +5432,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail 2013 SUV (Used)",
         "model_year": 2013,
         "mileage_km": 169000.0,
@@ -5582,7 +5582,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail 2011 SUV (Used)",
         "model_year": 2011,
         "mileage_km": null,
@@ -6092,7 +6092,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "Dualis",
+        "model": "2008",
         "title_raw": "Nissan Dualis 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 154996.0,
@@ -6227,7 +6227,7 @@
     {
         "brand": "Nissan",
         "vehicle_type": "SUV",
-        "model": "X-trail",
+        "model": "X-Trail",
         "title_raw": "Nissan X-trail 2015 SUV (Used)",
         "model_year": 2015,
         "mileage_km": 158000.0,

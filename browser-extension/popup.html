@@ -33,32 +33,21 @@
                     <span id="detectedModelTitle" class="prod-title">Marketplace Listing</span>
                 </div>
 
-                <div class="price-comparison-grid">
-                    <div class="price-tile">
-                        <span class="price-tile-lbl">Asking Price</span>
-                        <span class="price-tile-val" id="displayListedPrice">Rs. --</span>
+                <div class="price-comparison-grid" style="align-items: stretch;">
+                    <!-- New Predicted Price Box -->
+                    <div class="price-tile highlight" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <span class="price-tile-lbl">PREDICTED PRICE</span>
+                        <span class="price-tile-val" id="predictedPrice" style="font-size: 18px; margin-top: 4px;">--</span>
                     </div>
-                    <div class="price-tile highlight">
-                        <span class="price-tile-lbl">Est. Market Range</span>
-                        <span class="price-tile-val" id="predictedPrice">--</span>
-                    </div>
-                </div>
 
-                <!-- Visual Range Bar -->
-                <div class="range-gauge-wrapper" id="rangeGauge">
-                    <div class="range-gauge-track">
-                        <div class="range-gauge-fill" style="left: 15%; width: 70%;"></div>
-                        <div class="range-gauge-marker" id="rangeMarker" style="left: 50%;"></div>
+                    <!-- Verdict Box -->
+                    <div class="verdict-banner" id="verdictBanner" style="margin-top: 0; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="verdict-top">
+                            <span id="fairnessBadge" class="verdict-title">--</span>
+                            <span id="priceDiff" class="verdict-score">--</span>
+                        </div>
+                        <div id="verdictDescription" class="verdict-desc hidden"></div>
                     </div>
-                </div>
-
-                <!-- Verdict Box -->
-                <div class="verdict-banner" id="verdictBanner">
-                    <div class="verdict-top">
-                        <span id="fairnessBadge" class="verdict-title">--</span>
-                        <span id="priceDiff" class="verdict-score">--</span>
-                    </div>
-                    <div id="verdictDescription" class="verdict-desc hidden"></div>
                 </div>
 
                 <!-- Score Calculation Breakdown (Collapsible) -->
@@ -183,21 +172,41 @@
                         <!-- Vehicle Form -->
                         <div id="vehicleForm" class="category-form hidden">
                             <div class="form-group">
-                                <label for="vehicleModelSelect">Model</label>
-                                <select id="vehicleModelSelect">
-                                    <option value="Toyota Corolla">Toyota Corolla</option>
-                                    <option value="Toyota Aqua">Toyota Aqua</option>
-                                    <option value="Suzuki Alto">Suzuki Alto</option>
+                                <label for="vehicleTypeSelect">Vehicle Type</label>
+                                <select id="vehicleTypeSelect">
+                                    <option value="cars">Cars</option>
+                                    <option value="suvs">SUVs</option>
+                                    <option value="vans">Vans</option>
                                 </select>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
+                                    <label for="vehicleBrandSelect">Brand</label>
+                                    <select id="vehicleBrandSelect"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vehicleModelSelect">Model</label>
+                                    <select id="vehicleModelSelect"></select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="vehicleVariantInput">Variant</label>
+                                    <input type="text" id="vehicleVariantInput" placeholder="e.g. 121">
+                                </div>
+                                <div class="form-group">
                                     <label for="vehicleYearInput">Year</label>
                                     <input type="number" id="vehicleYearInput" placeholder="2015" step="1">
                                 </div>
+                            </div>
+                            <div class="form-row">
                                 <div class="form-group">
-                                    <label for="vehicleVariantInput">Variant</label>
-                                    <input type="text" id="vehicleVariantInput" placeholder="e.g. 121, G1_Manual_2000-2012">
+                                    <label for="vehicleMileageInput">Mileage (km)</label>
+                                    <input type="number" id="vehicleMileageInput" placeholder="100000" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="vehicleEngineCCInput">Engine (CC)</label>
+                                    <input type="number" id="vehicleEngineCCInput" placeholder="1500" step="1">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -214,8 +223,13 @@
                                         <option value="Petrol">Petrol</option>
                                         <option value="Diesel">Diesel</option>
                                         <option value="Hybrid">Hybrid</option>
+                                        <option value="Electric">Electric</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicleDescriptionInput">Description (Optional)</label>
+                                <textarea id="vehicleDescriptionInput" placeholder="Any listing text" rows="2"></textarea>
                             </div>
                         </div>
 

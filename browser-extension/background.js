@@ -16,7 +16,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             apiBase = self.CONFIG.API_BASE_URL;
         }
 
-        const endpoint = `${apiBase}/api/${category}/predict`;
+        const subpath = request.subpath ? `/${request.subpath}` : '';
+        const endpoint = `${apiBase}/api/${category}/predict${subpath}`;
         console.log(`[FairPriceLK Background] Fetching ${endpoint} with payload:`, payload);
 
         fetch(endpoint, {

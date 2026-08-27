@@ -460,6 +460,23 @@ async def metadata_proxy(category: str):
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Proxy error: {str(e)}")
 
+@app.get("/api/{category}/metadata/{subpath}")
+async def metadata_proxy_subpath(category: str, subpath: str):
+    """Proxy metadata requests with a subpath (e.g., /metadata/suv) to downstream."""
+    if category not in SERVICES:
+        raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
+    
+    service_url = SERVICES[category]["url"]
+    
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        try:
+            response = await client.get(f"{service_url}/metadata/{subpath}")
+            return JSONResponse(status_code=response.status_code, content=response.json())
+        except httpx.RequestError as e:
+            raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Proxy error: {str(e)}")
+
 @app.post("/api/{category}/predict")
 async def predict_proxy(category: str, request: Request):
     """Proxy prediction requests to the appropriate downstream service."""
@@ -478,6 +495,32 @@ async def predict_proxy(category: str, request: Request):
         try:
             response = await client.post(
                 f"{service_url}/predict",
+                json=body,
+                headers={"Content-Type": "application/json"}
+            )
+            return JSONResponse(status_code=response.status_code, content=response.json())
+        except httpx.RequestError as e:
+            raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Proxy error: {str(e)}")
+
+@app.post("/api/{category}/predict/{subpath}")
+async def predict_proxy_subpath(category: str, subpath: str, request: Request):
+    """Proxy prediction requests with a subpath (e.g., /predict/suv) to downstream."""
+    if category not in SERVICES:
+        raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
+    
+    service_url = SERVICES[category]["url"]
+    
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+        
+    async with httpx.AsyncClient(timeout=30.0) as client:
+        try:
+            response = await client.post(
+                f"{service_url}/predict/{subpath}",
                 json=body,
                 headers={"Content-Type": "application/json"}
             )

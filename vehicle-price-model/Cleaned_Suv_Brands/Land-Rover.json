@@ -107,7 +107,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover DEFENDER 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 160000.0,
@@ -152,7 +152,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover Defender 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 95000.0,
@@ -572,7 +572,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover Defender 110 TD5 2.5 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 95000.0,
@@ -1217,7 +1217,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Discovery",
+        "model": "2008",
         "title_raw": "Land-Rover Discovery 3 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 248000.0,
@@ -1682,7 +1682,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover Defender 110 TD5 2.5 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 98000.0,
@@ -2057,7 +2057,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover Defender PUMA EDITION 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 128000.0,
@@ -2147,7 +2147,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Discovery 4",
+        "model": "V8",
         "title_raw": "Land-Rover Discovery 4 HSE V8 2011 SUV (Used)",
         "model_year": 2011,
         "mileage_km": 125000.0,
@@ -2297,7 +2297,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover Defender 2.2 Puma 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 98000.0,
@@ -3017,7 +3017,7 @@
     {
         "brand": "Land-Rover",
         "vehicle_type": "SUV",
-        "model": "Defender",
+        "model": "2008",
         "title_raw": "Land-Rover Defender 110 KAHN 2.2 PUMA 2008 SUV (Used)",
         "model_year": 2008,
         "mileage_km": 51000.0,
