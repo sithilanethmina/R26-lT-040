@@ -50,6 +50,29 @@
                     </div>
                 </div>
 
+                <!-- Score Calculation Breakdown (Collapsible) -->
+                <details class="breakdown-details" id="scoreBreakdownSection">
+                    <summary class="breakdown-summary">
+                        <span class="breakdown-summary-title">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            Score Breakdown & Calculation
+                        </span>
+                        <span class="breakdown-summary-hint">View factors</span>
+                    </summary>
+                    <div class="breakdown-content" id="scoreBreakdownContent">
+                        <!-- Formula Callout -->
+                        <div class="breakdown-formula-box" id="breakdownFormula">
+                            <div class="formula-label">CALCULATION FORMULA</div>
+                            <div class="formula-text" id="breakdownFormulaText">--</div>
+                        </div>
+
+                        <!-- Factor List -->
+                        <div class="breakdown-factors" id="breakdownFactorsList">
+                            <!-- Populated dynamically by popup.js -->
+                        </div>
+                    </div>
+                </details>
+
                 <div class="result-footer">
                     <span id="modelUsedName">--</span>
                 </div>

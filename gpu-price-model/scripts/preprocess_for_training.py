@@ -151,10 +151,14 @@ def main():
         # Add to final dataset
         final_data.append(
             {
+                "Listing_ID": item.get("Product_ID"),
+                "Listing_URL": item.get("Product_URL"),
+                "Raw_Title": raw_title,
                 "Price_LKR": price,
                 "Extracted_Model": model,
                 "VRAM_GB": vram_val,
                 "Brand": extracted_brand,
+                "Scraped_At_UTC": item.get("Scraped_At_UTC"),
             }
         )
 

@@ -395,14 +395,7 @@ TARGET_COLUMN = "price_lkr"
 FEATURE_COLUMNS_V2_NUMERIC = [
     "vram_gb",
     "G3Dmark",
-    "G2Dmark",
-    "fp32_gflops",
     "tdp_watts",
-    "memory_bandwidth_gb_s",
-    "shader_units",
-    "gpu_base_clock_mhz",
-    "boost_clock_mhz",
-    "perf_per_watt",
     "gpu_age_years",
     "gpu_generation",
     "ti_variant",
@@ -1158,4 +1151,117 @@ def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: f
             "price_difference_pct": round(diff_pct, 1),
             "description": f"Listed ~{round(diff_pct)}% above expected market average. Heavy negotiation recommended unless official warranty is included."
         }
+
+
+# --- CONDITION & WARRANTY CORRECTION ENGINE ---
+
+CONDITION_COEFFICIENTS_PATH = ARTIFACTS_DIR / "condition_correction_coefficients.json"
+_CONDITION_COEFS_CACHE = None
+
+
+def load_condition_coefficients(path: Path = CONDITION_COEFFICIENTS_PATH) -> dict[str, Any]:
+    """Loads empirically fitted condition correction coefficients from artifact."""
+    global _CONDITION_COEFS_CACHE
+    if _CONDITION_COEFS_CACHE is not None:
+        return _CONDITION_COEFS_CACHE
+
+    if not path.exists():
+        return {
+            "version": "default",
+            "intercept": 0.0,
+            "coefficients": {
+                "warranty_months": 0.0084,
+                "needs_repair": -0.3792,
+                "urgent_sale": -0.0277,
+                "tested_working": -0.0114,
+                "good_condition": 0.0167,
+                "brand_new": 0.0982,
+                "price_negotiable": 0.0226,
+                "is_shop": 0.0758,
+            },
+        }
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            _CONDITION_COEFS_CACHE = json.load(f)
+            return _CONDITION_COEFS_CACHE
+    except Exception:
+        return {
+            "version": "default",
+            "intercept": 0.0,
+            "coefficients": {},
+        }
+
+
+def apply_condition_adjustment(
+    predicted_log_price: float,
+    condition_tags: dict[str, Any] | None = None,
+    description: str | None = None,
+    is_shop: bool = False,
+    coefficients: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """
+    Applies statistically derived hedonic condition adjustments to the specs baseline.
+    
+    Returns:
+        dict with:
+            - unadjusted_log_price: float
+            - adjusted_log_price: float
+            - unadjusted_price_lkr: float
+            - adjusted_price_lkr: float
+            - condition_delta_lkr: float
+            - condition_multiplier_pct: float
+            - condition_tags: dict
+            - applied_factors: list[dict]
+    """
+    if condition_tags is None:
+        from gpu_price_predictor.condition_extractor import extract_condition_tags
+        source = "md" if is_shop else "ikman"
+        condition_tags = extract_condition_tags(description, source=source)
+
+    if coefficients is None:
+        coefficients = load_condition_coefficients()
+
+    coefs = coefficients.get("coefficients", {})
+    intercept = float(coefficients.get("intercept", 0.0))
+
+    # Calculate adjustment delta
+    adjustment_delta = 0.0
+    applied_factors = []
+
+    for feat_name, beta in coefs.items():
+        val = condition_tags.get(feat_name, 0)
+        if isinstance(val, bool):
+            val = 1.0 if val else 0.0
+        else:
+            val = float(val or 0.0)
+
+        if val > 0:
+            factor_impact = float(beta) * val
+            adjustment_delta += factor_impact
+            pct_effect = round((math.exp(factor_impact) - 1.0) * 100.0, 1)
+            applied_factors.append({
+                "factor": feat_name,
+                "value": val,
+                "beta": float(beta),
+                "log_impact": round(factor_impact, 4),
+                "pct_impact": f"{pct_effect:+.1f}%",
+            })
+
+    unadjusted_lkr = float(np.expm1(predicted_log_price))
+    adjusted_log_price = predicted_log_price + adjustment_delta
+    adjusted_lkr = float(np.expm1(adjusted_log_price))
+    multiplier_pct = round((math.exp(adjustment_delta) - 1.0) * 100.0, 1)
+
+    return {
+        "unadjusted_log_price": predicted_log_price,
+        "adjusted_log_price": adjusted_log_price,
+        "unadjusted_price_lkr": float(round(unadjusted_lkr, -2)),
+        "adjusted_price_lkr": float(round(adjusted_lkr, -2)),
+        "condition_delta_lkr": float(round(adjusted_lkr - unadjusted_lkr, -2)),
+        "condition_multiplier_pct": multiplier_pct,
+        "condition_tags": condition_tags,
+        "applied_factors": applied_factors,
+    }
+
 
