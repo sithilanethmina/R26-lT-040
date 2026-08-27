@@ -67,25 +67,23 @@ window.FairPriceLK_Fairness = (function () {
         let actionAdvice = "Good standard price. If negotiating, a modest 3-5% discount is typical.";
         let isSuspicious = false;
 
-        // TIER 1: Unusually Low (Potential Risk, Down-Payment Trick, or Scam)
+        // TIER 1: Unusually Low (Potential Defects, Parts-Only, Down-Payment Trick)
         if (diffPercent < -35) {
             tier = "SUSPICIOUS_LOW";
             badgeText = "⚠️ Suspiciously Low";
             badgeClass = "suspicious";
             color = "#DC2626";
-            // Anomaly penalty: cap score low
             score = Math.max(15, Math.min(40, Math.round(50 + (diffPercent * 0.4))));
             isSuspicious = true;
             headline = `Listed ~${Math.abs(Math.round(diffPercent))}% below market average`;
             
             const categoryRisks = {
-                vehicle: "Car/Bike listings this far below market often represent leasing down-payment amounts, salvage titles, or advance-deposit scams.",
-                mobile: "Unusually low mobile prices often indicate iCloud/MDM lock, defective displays/FaceID, or advance payment scams.",
-                gpu: "Severe GPU discounts frequently indicate heavily degraded ex-mining cards, modified BIOS, or counterfeit chips.",
-                electronics: "Hardware priced far below baseline may have unrepairable motherboard issues or missing critical accessories."
+                gpu: "GPU priced far below market baseline. Sellers usually price items this low due to defects mentioned in the description (e.g., artifacting, dead display ports, overheating, fan noise, or BIOS issues). Check the listing description carefully.",
+                mobile: "Unusually low mobile price. Often indicates defects mentioned in description (e.g. cracked display, FaceID/TouchID failure, battery service) or carrier/iCloud locks.",
+                vehicle: "Vehicle listing far below market. Often represents leasing down-payment amounts or salvage/accident history.",
+                electronics: "Hardware priced far below baseline may have unrepairable component faults or missing accessories."
             };
-            advice = categoryRisks[category] || "Price is unusually far below typical second-hand market listings.";
-            actionAdvice = "Do NOT send advance bank deposits. Insist on in-person inspection and thorough hardware/document verification.";
+            advice = categoryRisks[category] || "Price is unusually far below typical second-hand market listings. Check listing description for noted defects or issues.";
         }
         // TIER 2: Great Deal (-35% to -10%)
         else if (diffPercent < -10) {
@@ -93,12 +91,10 @@ window.FairPriceLK_Fairness = (function () {
             badgeText = "🟢 Great Deal";
             badgeClass = "great-deal";
             color = "#16A34A";
-            // Score from 85 to 100
             score = Math.round(85 + ((-diffPercent - 10) / 25) * 15);
             score = Math.min(100, Math.max(85, score));
             headline = `Listed ~${Math.abs(Math.round(diffPercent))}% below fair market value`;
             advice = "Competitively priced below typical market average for similar items.";
-            actionAdvice = "High value opportunity! Items priced this well tend to sell quickly.";
         }
         // TIER 3: Fair Market Price (-10% to +10%)
         else if (diffPercent <= 10) {
@@ -106,13 +102,11 @@ window.FairPriceLK_Fairness = (function () {
             badgeText = "🔵 Fair Price";
             badgeClass = "fair";
             color = "#2563EB";
-            // Score from 70 to 84
             score = Math.round(84 - (Math.abs(diffPercent) / 10) * 14);
             headline = diffPercent < 0 
                 ? `Priced ~${Math.abs(Math.round(diffPercent))}% below average`
                 : `Priced ~${Math.round(diffPercent)}% within fair market average`;
             advice = "Asking price is well within standard second-hand market expectations.";
-            actionAdvice = "Fair valuation. A counter-offer around " + formatLKR(lowerPrice || (fairMid * 0.93)) + " may save extra cash.";
         }
         // TIER 4: Slightly Overpriced (+10% to +25%)
         else if (diffPercent <= 25) {
@@ -120,11 +114,16 @@ window.FairPriceLK_Fairness = (function () {
             badgeText = "🟡 Slightly Overpriced";
             badgeClass = "high";
             color = "#D97706";
-            // Score from 50 to 69
             score = Math.round(69 - ((diffPercent - 10) / 15) * 19);
             headline = `Listed ~${Math.round(diffPercent)}% above expected market average`;
-            advice = "Asking price is somewhat higher than comparable verified listings.";
-            actionAdvice = `Suggest offering ${formatLKR(fairMid)} – ${formatLKR(fairMid * 1.05)} to bring it down to fair market rate.`;
+            
+            const categoryHighNote = {
+                gpu: "Asking price is above baseline. Second-hand GPUs in this range often command a premium if the seller provides remaining company/agent warranty, full box, or brand-new condition.",
+                mobile: "Asking price is above baseline. Often due to remaining official warranty or mint condition with original accessories.",
+                vehicle: "Asking price is above average. Often associated with low genuine mileage or comprehensive service history.",
+                electronics: "Priced above average baseline. Often justified if agent warranty remains or accessories are included."
+            };
+            advice = categoryHighNote[category] || "Asking price is somewhat higher than comparable verified baseline listings.";
         }
         // TIER 5: Significantly Overpriced (> +25%)
         else {
@@ -132,17 +131,139 @@ window.FairPriceLK_Fairness = (function () {
             badgeText = "🔴 Overpriced";
             badgeClass = "overpriced";
             color = "#EF4444";
-            // Score below 50
             score = Math.max(10, Math.round(49 - Math.min(39, (diffPercent - 25) * 0.8)));
             headline = `Listed ~${Math.round(diffPercent)}% above fair market value`;
-            advice = "Asking price is significantly higher than market reality.";
-            actionAdvice = `Substantial negotiation recommended. Fair value sits around ${formatLKR(fairMid)}.`;
+            
+            const categoryOverpricedNote = {
+                gpu: "Asking price is significantly above baseline market rate. Check whether the listing includes extensive remaining official warranty, sealed packaging, or high-tier aftermarket cooling.",
+                mobile: "Asking price is significantly above market rate. Likely includes brand-new condition or long active warranty.",
+                vehicle: "Asking price is significantly above baseline market rate.",
+                electronics: "Asking price is significantly above typical baseline listings."
+            };
+            advice = categoryOverpricedNote[category] || "Asking price is significantly higher than typical baseline market value.";
         }
 
-        // Suggested Target Offer (Target between Lower Bound and Fair Midpoint)
-        const targetLow = Math.round((lowerPrice || (fairMid * 0.9)) / 500) * 500;
-        const targetHigh = Math.round(fairMid / 500) * 500;
-        const negotiationTarget = (diffPercent > 5) ? `Rs. ${targetLow.toLocaleString('en-LK')} – Rs. ${targetHigh.toLocaleString('en-LK')}` : null;
+        // Breakdown & Calculation Factor Details
+        let factors = [];
+        let formulaText = "";
+
+        const isWithinRange = (lowerPrice > 0 && upperPrice > 0)
+            ? (listedPrice >= lowerPrice && listedPrice <= upperPrice)
+            : Math.abs(diffPercent) <= 10;
+
+        if (diffPercent < -35) {
+            formulaText = `Underprice Anomaly: Base 50 - (${Math.abs(Math.round(diffPercent))} * 0.4) = ${score}/100`;
+            factors.push({
+                name: "Market Baseline Comparison",
+                impact: "Negative",
+                value: `${Math.round(diffPercent)}% vs. Midpoint`,
+                desc: `Asking price is significantly below fair market average (${formatLKR(fairMid)}).`
+            });
+            factors.push({
+                name: "Defect / Condition Note",
+                impact: "Penalty",
+                value: "Check Description",
+                desc: "Items priced this far below baseline typically have faults/defects noted in description (e.g. ports, thermals, fans, or display issues)."
+            });
+            factors.push({
+                name: "Range Confidence",
+                impact: "Outside",
+                value: "Below Lower Bound",
+                desc: `Listed below estimated market lower boundary of ${formatLKR(lowerPrice || (fairMid * 0.85))}.`
+            });
+        } else if (diffPercent < -10) {
+            formulaText = `Great Deal Calculation: Base 85 + ((${Math.abs(Math.round(diffPercent))} - 10) / 25 * 15) = ${score}/100`;
+            factors.push({
+                name: "Market Baseline Comparison",
+                impact: "Positive",
+                value: `${Math.abs(Math.round(diffPercent))}% Below Mid`,
+                desc: `Competitively priced below the expected market baseline of ${formatLKR(fairMid)}.`
+            });
+            factors.push({
+                name: "Market Range Fit",
+                impact: "Favorable",
+                value: isWithinRange ? "Within Bounds" : "Near Lower Bound",
+                desc: `Fair market interval: ${formatLKR(lowerPrice)} – ${formatLKR(upperPrice)}.`
+            });
+            factors.push({
+                name: "Market Valuation Tier",
+                impact: "Low",
+                value: "High Value",
+                desc: "Price is attractive relative to standard market distribution."
+            });
+        } else if (diffPercent <= 10) {
+            formulaText = `Fair Range Valuation: Base 84 - (${Math.abs(Math.round(diffPercent))} / 10 * 14) = ${score}/100`;
+            factors.push({
+                name: "Market Baseline Comparison",
+                impact: "Neutral",
+                value: `${diffPercent >= 0 ? '+' : ''}${Math.round(diffPercent)}% of Mid`,
+                desc: `Matches typical validated seller prices (Market midpoint: ${formatLKR(fairMid)}).`
+            });
+            factors.push({
+                name: "Market Range Fit",
+                impact: "Optimal",
+                value: "Inside Range",
+                desc: `Firmly situated within estimated confidence range (${formatLKR(lowerPrice)} – ${formatLKR(upperPrice)}).`
+            });
+            factors.push({
+                name: "Market Distribution",
+                impact: "Normal",
+                value: "Standard Range",
+                desc: "Asking price aligns with average second-hand market listings."
+            });
+        } else if (diffPercent <= 25) {
+            formulaText = `Above Baseline Deduction: Base 69 - ((${Math.round(diffPercent)} - 10) / 15 * 19) = ${score}/100`;
+            factors.push({
+                name: "Market Baseline Comparison",
+                impact: "Negative",
+                value: `+${Math.round(diffPercent)}% Above Mid`,
+                desc: `Exceeds the predicted fair value baseline of ${formatLKR(fairMid)}.`
+            });
+            factors.push({
+                name: "Warranty / Condition Premium",
+                impact: "Outside",
+                value: "Check Warranty",
+                desc: "Premium prices in this tier are commonly accompanied by remaining company/agent warranty, original packaging, or mint condition."
+            });
+            factors.push({
+                name: "Market Range Fit",
+                impact: "Outside",
+                value: "Above Upper Bound",
+                desc: `Priced above standard baseline upper confidence interval (${formatLKR(upperPrice)}).`
+            });
+        } else {
+            formulaText = `High Premium Deduction: Base 49 - ((${Math.round(diffPercent)} - 25) * 0.8) = ${score}/100`;
+            factors.push({
+                name: "Market Baseline Comparison",
+                impact: "Heavy Penalty",
+                value: `+${Math.round(diffPercent)}% Premium`,
+                desc: `Significantly above fair market midpoint of ${formatLKR(fairMid)} (Difference: +${formatLKR(diffLkr)}).`
+            });
+            factors.push({
+                name: "Warranty & Extras Check",
+                impact: "Outlier",
+                value: "High Markup",
+                desc: "Unless accompanied by substantial active warranty, brand-new condition, or rare custom editions, this price carries a steep markup."
+            });
+            factors.push({
+                name: "Market Range Fit",
+                impact: "Outlier",
+                value: "Extreme Deviation",
+                desc: `Far exceeds standard secondary market upper boundary of ${formatLKR(upperPrice)}.`
+            });
+        }
+
+        const breakdown = {
+            askingPrice: listedPrice,
+            fairMidpoint: Math.round(fairMid),
+            lowerBound: Math.round(lowerPrice),
+            upperBound: Math.round(upperPrice),
+            diffPercent: Math.round(diffPercent * 10) / 10,
+            diffLkr: Math.round(diffLkr),
+            formulaExplanation: formulaText,
+            isWithinRange: isWithinRange,
+            factors: factors
+        };
 
         return {
             status: "OK",
@@ -155,10 +276,11 @@ window.FairPriceLK_Fairness = (function () {
             diffLkr: Math.round(diffLkr),
             headline: headline,
             advice: advice,
-            actionAdvice: actionAdvice,
-            negotiationTarget: negotiationTarget,
+            actionAdvice: null,
+            negotiationTarget: null,
             isSuspicious: isSuspicious,
-            fairMidpoint: Math.round(fairMid)
+            fairMidpoint: Math.round(fairMid),
+            breakdown: breakdown
         };
     }
 

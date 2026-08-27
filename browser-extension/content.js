@@ -251,17 +251,41 @@
                 <div class="fplk-verdict-body">
                     ${adviceText || 'Estimated based on second-hand market distribution and hardware specifications.'}
                 </div>
-                ${actionAdvice ? `
-                    <div class="fplk-action-advice">
-                        <strong>💡 Recommendation:</strong> ${actionAdvice}
-                    </div>
-                ` : ''}
-                ${negotiationTarget ? `
-                    <div class="fplk-negotiation-badge">
-                        🎯 Target Counter-Offer: <strong>${negotiationTarget}</strong>
-                    </div>
-                ` : ''}
             </div>
+
+            <!-- Score Calculation Breakdown (Collapsible Accordion) -->
+            ${fairness && fairness.breakdown ? `
+                <details class="fplk-breakdown-details">
+                    <summary class="fplk-breakdown-summary">
+                        <span class="fplk-breakdown-summary-title">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            Score Breakdown & How It's Calculated
+                        </span>
+                        <span class="fplk-breakdown-summary-hint">View factors</span>
+                    </summary>
+                    <div class="fplk-breakdown-body">
+                        <div class="fplk-formula-card">
+                            <div class="fplk-formula-title">FORMULA STEP</div>
+                            <div class="fplk-formula-math">${fairness.breakdown.formulaExplanation}</div>
+                        </div>
+
+                        <div class="fplk-factors-list">
+                            ${(fairness.breakdown.factors || []).map(f => {
+                                const pillClass = (f.impact || 'neutral').toLowerCase().replace(/\s+/g, '-');
+                                return `
+                                    <div class="fplk-factor-card">
+                                        <div class="fplk-factor-header">
+                                            <span class="fplk-factor-name">${f.name}</span>
+                                            <span class="fplk-factor-tag ${pillClass}">${f.value}</span>
+                                        </div>
+                                        <div class="fplk-factor-desc">${f.desc}</div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                </details>
+            ` : ''}
         `;
     }
 
