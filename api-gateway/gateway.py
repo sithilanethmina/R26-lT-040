@@ -454,7 +454,11 @@ async def metadata_proxy(category: str):
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
             response = await client.get(f"{service_url}/metadata")
-            return JSONResponse(status_code=response.status_code, content=response.json())
+            try:
+                content = response.json()
+            except Exception:
+                content = {"detail": response.text or f"Service returned status {response.status_code}"}
+            return JSONResponse(status_code=response.status_code, content=content)
         except httpx.RequestError as e:
             raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
         except Exception as e:
@@ -471,7 +475,11 @@ async def metadata_proxy_subpath(category: str, subpath: str):
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
             response = await client.get(f"{service_url}/metadata/{subpath}")
-            return JSONResponse(status_code=response.status_code, content=response.json())
+            try:
+                content = response.json()
+            except Exception:
+                content = {"detail": response.text or f"Service returned status {response.status_code}"}
+            return JSONResponse(status_code=response.status_code, content=content)
         except httpx.RequestError as e:
             raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
         except Exception as e:
@@ -498,7 +506,11 @@ async def predict_proxy(category: str, request: Request):
                 json=body,
                 headers={"Content-Type": "application/json"}
             )
-            return JSONResponse(status_code=response.status_code, content=response.json())
+            try:
+                content = response.json()
+            except Exception:
+                content = {"detail": response.text or f"Service returned status {response.status_code}"}
+            return JSONResponse(status_code=response.status_code, content=content)
         except httpx.RequestError as e:
             raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
         except Exception as e:
@@ -524,7 +536,11 @@ async def predict_proxy_subpath(category: str, subpath: str, request: Request):
                 json=body,
                 headers={"Content-Type": "application/json"}
             )
-            return JSONResponse(status_code=response.status_code, content=response.json())
+            try:
+                content = response.json()
+            except Exception:
+                content = {"detail": response.text or f"Service returned status {response.status_code}"}
+            return JSONResponse(status_code=response.status_code, content=content)
         except httpx.RequestError as e:
             raise HTTPException(status_code=503, detail=f"Downstream service unreachable: {str(e)}")
         except Exception as e:
