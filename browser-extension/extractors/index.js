@@ -6,7 +6,7 @@
 window.FairPriceLK_Extractors = window.FairPriceLK_Extractors || {};
 
 window.FairPriceLK_Extractors.index = (function () {
-
+    
     function scrapePageDom() {
         const result = {
             title: "",
@@ -30,7 +30,7 @@ window.FairPriceLK_Extractors.index = (function () {
             'span[data-testid="price"]',
             'h2', 'h3', 'strong'
         ];
-
+        
         let foundPrice = null;
         let targetPriceElement = null;
         for (const sel of priceSelectors) {
@@ -51,7 +51,7 @@ window.FairPriceLK_Extractors.index = (function () {
 
         // Fallback scan all text nodes for "Rs"
         if (!foundPrice) {
-            const allElements = Array.from(document.querySelectorAll('div, span, p, td')).filter(el =>
+            const allElements = Array.from(document.querySelectorAll('div, span, p, td')).filter(el => 
                 el && el.innerText && (el.innerText.includes('Rs') || el.innerText.includes('LKR')) && el.children.length === 0
             );
             if (allElements.length > 0) {
@@ -67,7 +67,7 @@ window.FairPriceLK_Extractors.index = (function () {
 
         // 3. Extract Key-Value Spec Pairs (Ikman attribute list, tables, dl/dt/dd)
         const keyValues = {};
-
+        
         // Scan dl/dt/dd and tables
         document.querySelectorAll('tr, dl, div, li').forEach(row => {
             const text = (row.innerText || "").trim();
@@ -82,12 +82,12 @@ window.FairPriceLK_Extractors.index = (function () {
         // Scan sequential divs/spans often used by ikman
         const allText = document.querySelectorAll('div, span, p, li');
         let fullCollectedText = "";
-
+        
         for (let i = 0; i < allText.length; i++) {
             const el = allText[i];
             const t = (el && el.innerText ? el.innerText : "").trim();
             if (!t) continue;
-
+            
             if (fullCollectedText.length < 4000) {
                 fullCollectedText += t + " ";
             }

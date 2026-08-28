@@ -44,37 +44,19 @@ def normalize_whitespace(value: Any) -> str:
 
 def normalize_model(model: Any) -> str:
     """
-    Standardizes GPU names (e.g., 'Nvidia GeForce RTX 3060Ti Gaming OC' -> 'RTX 3060 TI').
-    Used to match scraped data with benchmark databases and training pipelines.
+    Standardizes GPU names (e.g., 'Nvidia GeForce RTX 3060' -> 'RTX 3060').
+    Used to match scraped data with benchmark databases.
     """
     text = normalize_whitespace(model).upper()
     if text == UNKNOWN.upper():
         return UNKNOWN
 
-    text = text.replace("-", " ").replace("_", " ").replace("/", " ")
-    text = re.sub(r"\bGEFORCE\b", " ", text)
-    text = re.sub(r"\bRADEON\b", " ", text)
-    text = re.sub(r"\bNVIDIA\b", " ", text)
-    text = re.sub(r"\bAMD\b", " ", text)
-    text = re.sub(r"\bINTEL\s+ARC\b", "ARC", text)
-
-    # Strip common board partner and marketing buzzwords
-    marketing_patterns = [
-        r"\bGAMING\s+OC\b", r"\bGAMING\b", r"\bOC\s+EDITION\b", r"\bOC\b",
-        r"\bTUF\s+GAMING\b", r"\bTUF\b", r"\bROG\s+STRIX\b", r"\bSTRIX\b",
-        r"\bVENTUS\s*\d*X?\b", r"\bSUPRIM\s*X?\b", r"\bMECH\s*\d*X?\b",
-        r"\bEAGLE\s+OC\b", r"\bEAGLE\b", r"\bWINDFORCE\s*\d*X?\b", r"\bAORUS\b",
-        r"\bTWIN\s+FAN\b", r"\bTWIN\s+EDGE\b", r"\bTRINITY\b", r"\bAMP\s+HOLO\b",
-        r"\bDUAL\s+FAN\b", r"\bDUAL\b", r"\bPHOENIX\b", r"\bKO\b",
-        r"\bFTW3\b", r"\bXC3\b", r"\bBLACK\s+EDITION\b",
-        r"\bXLR8\b", r"\bVERTROO\b", r"\bSWFT\b", r"\bQICK\b", r"\bMERC\b",
-        r"\bDIRECT\s+IMPORT\b", r"\bORIGINAL\b", r"\bGENUINE\b",
-        r"\bGDDR\d[X]?\b", r"\b\d+\s*GB\b", r"\b\d+G\b",
-        r"\bVGA(?:\s+CARD)?\b", r"\bVIDEO\s+CARD\b", r"\bGRAPHICS?\s+CARD\b", r"\bGPU\b"
-    ]
-    for pattern in marketing_patterns:
-        text = re.sub(pattern, " ", text, flags=re.IGNORECASE)
-
+    text = text.replace("-", " ")
+    text = re.sub(r"\bGEFORCE\b", "", text)
+    text = re.sub(r"\bRADEON\b", "", text)
+    text = re.sub(r"\bNVIDIA\b", "", text)
+    text = re.sub(r"\bAMD\b", "", text)
+    text = re.sub(r"\bINTEL ARC\b", "ARC", text)
     text = re.sub(r"([A-Z]+)\s*(\d{3,4})([A-Z]*)", r"\1 \2 \3", text)
     text = re.sub(r"\b(TI|XT|XTX|SUPER)\b", r" \1", text)
     text = re.sub(r"\s+", " ", text).strip()
@@ -1068,48 +1050,42 @@ def calculate_fair_market_range(
 
 def calculate_fairness_score(listed_price: float, lower_bound: float, upper_bound: float) -> float:
     """
-    Continuous Price Fairness Index S ∈ [0, 100].
-    
-    Mathematically anchored on the empirical fair market interval [lower_bound, upper_bound].
-    - Peaks at 100.0 when listed_price exactly matches the estimated market midpoint.
-    - Remains high (80.0 to 100.0) anywhere within the empirical conformal confidence range [lower_bound, upper_bound].
-    - Decreases smoothly and monotonically as price deviates outside the confidence interval.
+    Continuous Fairness Score S ∈ [0, 100].
+    Takes into account market bounds and penalizes extreme anomalies.
     """
-    if not listed_price or listed_price <= 0:
+    if not listed_price or listed_price <= 0 or upper_bound <= lower_bound:
         return 0.0
-    if not lower_bound or not upper_bound or upper_bound <= lower_bound:
-        return 50.0
-
+        
     midpoint = (lower_bound + upper_bound) / 2.0
-    half_width = max((upper_bound - lower_bound) / 2.0, midpoint * 0.05)
-
-    # 1. Inside empirical fair market range: Score in [80.0, 100.0]
-    if lower_bound <= listed_price <= upper_bound:
-        dist_from_mid = abs(listed_price - midpoint)
-        score = 100.0 - (dist_from_mid / half_width) * 20.0
-        return round(float(score), 1)
-
-    # 2. Outside empirical fair market range: Smooth Gaussian-like exponential decay from 80.0
-    if listed_price < lower_bound:
-        excess_dist = lower_bound - listed_price
-        # Extreme negative outlier (> 1.5x interval width below lower bound)
-        decay = (excess_dist / half_width) ** 1.3
-        score = max(5.0, 80.0 - (decay * 25.0))
-        return round(float(score), 1)
-    else:
-        excess_dist = listed_price - upper_bound
-        decay = (excess_dist / half_width) ** 1.3
-        score = max(5.0, 80.0 - (decay * 25.0))
-        return round(float(score), 1)
+    diff_pct = ((listed_price - midpoint) / midpoint) * 100.0
+    
+    # Anomaly / Scam tier (< -35%)
+    if diff_pct < -35.0:
+        return round(max(15.0, min(40.0, 50.0 + (diff_pct * 0.4))), 1)
+        
+    # Great deal (-35% to -10%)
+    if diff_pct < -10.0:
+        score = 85.0 + ((-diff_pct - 10.0) / 25.0) * 15.0
+        return round(min(100.0, max(85.0, score)), 1)
+        
+    # Fair price (-10% to +10%)
+    if diff_pct <= 10.0:
+        score = 84.0 - (abs(diff_pct) / 10.0) * 14.0
+        return round(score, 1)
+        
+    # Slightly overpriced (+10% to +25%)
+    if diff_pct <= 25.0:
+        score = 69.0 - ((diff_pct - 10.0) / 15.0) * 19.0
+        return round(max(50.0, score), 1)
+        
+    # Significantly overpriced (> +25%)
+    score = 49.0 - min(39.0, (diff_pct - 25.0) * 0.8)
+    return round(max(10.0, score), 1)
 
 
 def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: float) -> dict[str, Any]:
     """
-    Statistically anchored fairness verdict against empirical prediction interval.
-    
-    Resolves Issue I1 (arbitrary cutoffs), Issue I2 (non-monotonic score semantics),
-    and Issue I3 (groundless scam claims) by anchoring decisions on empirical
-    conformal bounds and framing low-end anomalies as statistical price outliers.
+    Determines verdict category, badge label, score, and user recommendation.
     """
     if not listed_price or listed_price <= 0:
         return {
@@ -1119,20 +1095,13 @@ def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: f
             "fairness_score": 0.0,
             "description": "Enter listed seller asking price to evaluate listing fairness."
         }
-
-    midpoint = (lower_bound + upper_bound) / 2.0 if (lower_bound and upper_bound and upper_bound > lower_bound) else listed_price
-    diff = listed_price - midpoint
-    diff_pct = (diff / midpoint) * 100.0 if midpoint > 0 else 0.0
+        
     score = calculate_fairness_score(listed_price, lower_bound, upper_bound)
+    midpoint = (lower_bound + upper_bound) / 2.0
+    diff = listed_price - midpoint
+    diff_pct = (diff / midpoint) * 100.0
     
-    half_width = (upper_bound - lower_bound) / 2.0 if (lower_bound and upper_bound and upper_bound > lower_bound) else (midpoint * 0.10)
-    has_valid_bounds = bool(lower_bound and upper_bound and upper_bound > lower_bound)
-
-    # Tier 1: Statistical Price Outlier (Extreme underpricing)
-    # Triggered when price is beyond 1.5x interval half-width below lower bound or diff_pct < -35%
-    is_extreme_underprice = (has_valid_bounds and listed_price < (lower_bound - 1.5 * half_width)) or (diff_pct < -35.0)
-    
-    if is_extreme_underprice:
+    if diff_pct < -35.0:
         return {
             "verdict_code": "SUSPICIOUS_LOW",
             "verdict": "⚠️ Suspiciously Low Price",
@@ -1140,25 +1109,19 @@ def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: f
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "is_within_conformal_range": False,
-            "description": f"Asking price is ~{abs(round(diff_pct))}% below estimated market range. Unusually low price: typically indicates seller-noted hardware faults (defective VRAM/thermals), parts-only sales, or down-payment listings."
+            "description": f"Asking price is ~{abs(round(diff_pct))}% below market average. Beware of ex-mining damage, defective VRAM, or advance deposit scams."
         }
-        
-    # Tier 2: High Value Deal (Below lower conformal bound but not extreme outlier)
-    elif (has_valid_bounds and listed_price < lower_bound) or (diff_pct < -10.0):
+    elif diff_pct < -10.0:
         return {
             "verdict_code": "GREAT_DEAL",
-            "verdict": "🟢 Great Deal",
+            "verdict": "🟢 Great Deal / Bargain",
             "badge_class": "great-deal",
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "is_within_conformal_range": False,
-            "description": f"Priced ~{abs(round(diff_pct))}% below estimated market midpoint. Favorable deal below standard market range; standard hardware verification recommended."
+            "description": f"Priced ~{abs(round(diff_pct))}% below average market rate. High value opportunity if hardware passes thermal/load tests."
         }
-        
-    # Tier 3: Within Empirical Fair Market Range [lower_bound, upper_bound]
-    elif (has_valid_bounds and lower_bound <= listed_price <= upper_bound) or (abs(diff_pct) <= 10.0):
+    elif diff_pct <= 10.0:
         return {
             "verdict_code": "FAIR_PRICE",
             "verdict": "🔵 Fair Market Price",
@@ -1166,34 +1129,27 @@ def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: f
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "is_within_conformal_range": True,
-            "description": "Asking price matches the normal fair market range for this specification."
+            "description": "Asking price matches expected Sri Lankan market distribution for this GPU model and specification."
         }
-        
-    # Tier 4: Slightly Above Expected Market Range
-    elif (has_valid_bounds and listed_price <= (upper_bound + 1.2 * half_width)) or (diff_pct <= 25.0):
+    elif diff_pct <= 25.0:
         return {
             "verdict_code": "SLIGHTLY_HIGH",
-            "verdict": "🟡 Slightly Above Average",
+            "verdict": "🟡 Slightly Overpriced",
             "badge_class": "high",
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "is_within_conformal_range": False,
-            "description": f"Listed ~{round(diff_pct)}% above average market range. Premium may be justified if active warranty, box, or mint condition is provided."
+            "description": f"Listed ~{round(diff_pct)}% higher than typical market rate. Room for negotiation toward the fair baseline."
         }
-        
-    # Tier 5: Significantly Overpriced (Upper Outlier)
     else:
         return {
             "verdict_code": "OVERPRICED",
-            "verdict": "🔴 Overpriced",
+            "verdict": "🔴 Significantly Overpriced",
             "badge_class": "overpriced",
             "fairness_score": score,
             "price_difference_lkr": round(diff, 0),
             "price_difference_pct": round(diff_pct, 1),
-            "is_within_conformal_range": False,
-            "description": f"Listed ~{round(diff_pct)}% above estimated market range. Noticeable markup relative to standard second-hand market prices."
+            "description": f"Listed ~{round(diff_pct)}% above expected market average. Heavy negotiation recommended unless official warranty is included."
         }
 
 
@@ -1273,13 +1229,6 @@ def apply_condition_adjustment(
     adjustment_delta = 0.0
     applied_factors = []
 
-    # Verifiable factors only:
-    # - ONLY warranty_months and is_shop are permitted to increase the valuation.
-    # - Subjective marketing claims ("100% condition", "used in AC", "like brand new", "mint", "negotiable") cannot increase the price.
-    # - Negative penalties (needs_repair, urgent_sale) decrease the price.
-    ALLOWED_POSITIVE_FACTORS = {"warranty_months", "is_shop"}
-    ALLOWED_NEGATIVE_FACTORS = {"needs_repair", "urgent_sale"}
-
     for feat_name, beta in coefs.items():
         val = condition_tags.get(feat_name, 0)
         if isinstance(val, bool):
@@ -1287,21 +1236,8 @@ def apply_condition_adjustment(
         else:
             val = float(val or 0.0)
 
-        # Cap maximum effective warranty duration to 24 months
-        if feat_name == "warranty_months":
-            val = min(24.0, val)
-
         if val > 0:
             factor_impact = float(beta) * val
-
-            # If positive impact, only allow verified warranty or shop status
-            if factor_impact > 0 and feat_name not in ALLOWED_POSITIVE_FACTORS:
-                continue
-
-            # If negative impact, allow verified repair/urgent discounts
-            if factor_impact < 0 and feat_name not in ALLOWED_NEGATIVE_FACTORS:
-                continue
-
             adjustment_delta += factor_impact
             pct_effect = round((math.exp(factor_impact) - 1.0) * 100.0, 1)
             applied_factors.append({
@@ -1311,9 +1247,6 @@ def apply_condition_adjustment(
                 "log_impact": round(factor_impact, 4),
                 "pct_impact": f"{pct_effect:+.1f}%",
             })
-
-    # Bound cumulative adjustments: Max +15% upside for multi-year warranty + shop, down to -40% for repair/broken
-    adjustment_delta = max(-0.51, min(0.140, adjustment_delta))  # ln(1.15) ≈ 0.140
 
     unadjusted_lkr = float(np.expm1(predicted_log_price))
     adjusted_log_price = predicted_log_price + adjustment_delta
