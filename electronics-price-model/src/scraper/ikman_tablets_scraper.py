@@ -20,8 +20,8 @@ def scrape_tablets():
     scraper = cloudscraper.create_scraper()
     
     print("STEP 1: Gathering Tablet links from Search Pages...")
-    # Scrape 3 pages as requested
-    for page in range(1, 4):
+    # Scrape 20 pages as requested
+    for page in range(1, 21):
         print(f"-> Reading Page {page}...")
         url = f"{base_url}&page={page}"
         headers = {"User-Agent": random.choice(user_agents)}

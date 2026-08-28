@@ -32,7 +32,7 @@
     // --- Create UI Elements ---
     function isItemDetailPage() {
         const href = window.location.href.toLowerCase();
-        
+
         // 1. Must NOT be an aggregate category or search results listing page
         if (href.includes('/ads/') || href.includes('/ads?')) {
             // ikman detail pages have /en/ad/ or /si/ad/ (singular 'ad'), search feeds have /ads/ (plural 'ads')
@@ -45,13 +45,13 @@
         }
 
         // 3. Must be an individual ad detail page or contain a clear item price + header
-        const hasAdPattern = href.includes('/ad/') || 
-                             href.includes('/item/') || 
-                             href.includes('/product/') ||
-                             href.includes('/view/');
+        const hasAdPattern = href.includes('/ad/') ||
+            href.includes('/item/') ||
+            href.includes('/product/') ||
+            href.includes('/view/');
 
         const hasListingHeader = document.querySelector('h1') && (
-            document.querySelector('[class*="price"]') || 
+            document.querySelector('[class*="price"]') ||
             document.querySelector('div[data-testid="price"]') ||
             document.querySelector('span[data-testid="price"]')
         );
@@ -64,10 +64,10 @@
         const priceEl = currentExtraction && currentExtraction.pageContext ? currentExtraction.pageContext.price_element : null;
         if (priceEl) {
             // If the price element is inside a container, insert after price or container
-            const container = priceEl.closest('div[data-testid="price-section"]') || 
-                              priceEl.closest('.price-section') || 
-                              priceEl.closest('div') || 
-                              priceEl;
+            const container = priceEl.closest('div[data-testid="price-section"]') ||
+                priceEl.closest('.price-section') ||
+                priceEl.closest('div') ||
+                priceEl;
             return { element: container, position: 'afterend' };
         }
 
@@ -253,18 +253,18 @@
         const lower = hasRange ? pred.fair_market_range.lower_price_lkr : (pred.predicted_price * 0.9);
         const upper = hasRange ? pred.fair_market_range.upper_price_lkr : (pred.predicted_price * 1.1);
         const pointPrice = pred.predicted_price || pred.price || ((lower + upper) / 2);
-        
+
         // Evaluate using universal engine
         let fairness = null;
         const category = (currentExtraction && currentExtraction.category) ? currentExtraction.category : 'gpu';
         const itemDetails = (currentExtraction && currentExtraction.data) ? currentExtraction.data : {};
         if (window.FairPriceLK_Fairness) {
             fairness = window.FairPriceLK_Fairness.evaluate(
-                listedPrice, 
-                pointPrice, 
-                lower, 
-                upper, 
-                category, 
+                listedPrice,
+                pointPrice,
+                lower,
+                upper,
+                category,
                 itemDetails
             );
         }
@@ -319,8 +319,8 @@
 
                         <div class="fplk-factors-list">
                             ${(fairness.breakdown.factors || []).map(f => {
-                                const pillClass = (f.impact || 'neutral').toLowerCase().replace(/\s+/g, '-');
-                                return `
+            const pillClass = (f.impact || 'neutral').toLowerCase().replace(/\s+/g, '-');
+            return `
                                     <div class="fplk-factor-card">
                                         <div class="fplk-factor-header">
                                             <span class="fplk-factor-name">${f.name}</span>
@@ -329,7 +329,7 @@
                                         <div class="fplk-factor-desc">${f.desc}</div>
                                     </div>
                                 `;
-                            }).join('')}
+        }).join('')}
                         </div>
                     </div>
                 </details>
@@ -339,10 +339,10 @@
 
     function renderCategoryFormFields(category, data) {
         if (category === 'gpu') {
-            const models = (window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.gpu) ? 
-                            window.FairPriceLK_Extractors.gpu.CANONICAL_MODELS : [];
-            const brands = (window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.gpu) ? 
-                            window.FairPriceLK_Extractors.gpu.KNOWN_BRANDS : ["Any", "ASUS", "MSI", "GIGABYTE", "ZOTAC"];
+            const models = (window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.gpu) ?
+                window.FairPriceLK_Extractors.gpu.CANONICAL_MODELS : [];
+            const brands = (window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.gpu) ?
+                window.FairPriceLK_Extractors.gpu.KNOWN_BRANDS : ["Any", "ASUS", "MSI", "GIGABYTE", "ZOTAC"];
 
             const currentModel = data.model || "";
             const currentBrand = data.brand || "Any";
@@ -360,9 +360,9 @@
                     <div class="fplk-form-group">
                         <label class="fplk-label">VRAM (GB)</label>
                         <select class="fplk-select" id="fplk-select-gpu-vram">
-                            ${[1, 2, 3, 4, 6, 8, 10, 11, 12, 16, 20, 24].map(v => 
-                                `<option value="${v}" ${Number(currentVram) === v ? 'selected' : ''}>${v} GB</option>`
-                            ).join('')}
+                            ${[1, 2, 3, 4, 6, 8, 10, 11, 12, 16, 20, 24].map(v =>
+                `<option value="${v}" ${Number(currentVram) === v ? 'selected' : ''}>${v} GB</option>`
+            ).join('')}
                         </select>
                     </div>
                     <div class="fplk-form-group">
@@ -415,13 +415,13 @@
                 </div>
             `;
         } else if (category === 'vehicle') {
-            const currentMake  = data.brand || data.make || '';
+            const currentMake = data.brand || data.make || '';
             const currentModel = data.model || '';
-            const currentYear  = data.model_year || data.year || 2015;
+            const currentYear = data.model_year || data.year || 2015;
             const currentMileage = data.mileage_km || data.mileage || '';
-            const currentGear  = data.transmission || data.gear || 'Automatic';
-            const currentFuel  = data.fuel_type || data.fuelType || 'Petrol';
-            const currentCC    = data.engine_cc || '';
+            const currentGear = data.transmission || data.gear || 'Automatic';
+            const currentFuel = data.fuel_type || data.fuelType || 'Petrol';
+            const currentCC = data.engine_cc || '';
             const currentVariant = data.variant || 'Standard';
             return `
                 <div class="fplk-form-grid">
@@ -455,9 +455,9 @@
                     <div class="fplk-form-group">
                         <label class="fplk-label">Fuel Type</label>
                         <select class="fplk-select" id="fplk-vehicle-fuel">
-                            <option value="Petrol"   ${currentFuel === 'Petrol'   ? 'selected' : ''}>Petrol</option>
-                            <option value="Diesel"   ${currentFuel === 'Diesel'   ? 'selected' : ''}>Diesel</option>
-                            <option value="Hybrid"   ${currentFuel === 'Hybrid'   ? 'selected' : ''}>Hybrid</option>
+                            <option value="Petrol"   ${currentFuel === 'Petrol' ? 'selected' : ''}>Petrol</option>
+                            <option value="Diesel"   ${currentFuel === 'Diesel' ? 'selected' : ''}>Diesel</option>
+                            <option value="Hybrid"   ${currentFuel === 'Hybrid' ? 'selected' : ''}>Hybrid</option>
                             <option value="Electric" ${currentFuel === 'Electric' ? 'selected' : ''}>Electric</option>
                         </select>
                     </div>
@@ -543,7 +543,6 @@
             if (mEl) d.model = mEl.value.trim();
             if (sEl) d.storage_gb = parseFloat(sEl.value) || 128;
             if (rEl) d.ram_gb = parseFloat(rEl.value) || 6;
-            
             const bhEl = document.getElementById('fplk-mobile-battery');
             const wEl = document.getElementById('fplk-mobile-warranty');
             if (bhEl && bhEl.value) {
@@ -579,30 +578,30 @@
                 }
             }
         } else if (cat === 'vehicle') {
-            const makeEl  = document.getElementById('fplk-vehicle-make');
-            const mEl     = document.getElementById('fplk-vehicle-model');
-            const yEl     = document.getElementById('fplk-vehicle-year');
-            const miEl    = document.getElementById('fplk-vehicle-mileage');
-            const txEl    = document.getElementById('fplk-vehicle-transmission');
-            const fuelEl  = document.getElementById('fplk-vehicle-fuel');
-            const ccEl    = document.getElementById('fplk-vehicle-enginecc');
-            const vEl     = document.getElementById('fplk-vehicle-variant');
+            const makeEl = document.getElementById('fplk-vehicle-make');
+            const mEl = document.getElementById('fplk-vehicle-model');
+            const yEl = document.getElementById('fplk-vehicle-year');
+            const miEl = document.getElementById('fplk-vehicle-mileage');
+            const txEl = document.getElementById('fplk-vehicle-transmission');
+            const fuelEl = document.getElementById('fplk-vehicle-fuel');
+            const ccEl = document.getElementById('fplk-vehicle-enginecc');
+            const vEl = document.getElementById('fplk-vehicle-variant');
 
             if (makeEl) { d.brand = makeEl.value.trim(); d.make = d.brand; }
-            if (mEl)    d.model = mEl.value.trim();
-            if (yEl)    d.model_year = parseInt(yEl.value, 10) || 2015;
+            if (mEl) d.model = mEl.value.trim();
+            if (yEl) d.model_year = parseInt(yEl.value, 10) || 2015;
             if (miEl && miEl.value) {
                 const km = parseInt(miEl.value, 10);
                 d.mileage_km = (!isNaN(km) && km > 0) ? km : null;
                 d.mileage = d.mileage_km;
             }
-            if (txEl)  { d.transmission = txEl.value; d.gear = d.transmission; }
-            if (fuelEl){ d.fuel_type = fuelEl.value; d.fuelType = d.fuel_type; }
+            if (txEl) { d.transmission = txEl.value; d.gear = d.transmission; }
+            if (fuelEl) { d.fuel_type = fuelEl.value; d.fuelType = d.fuel_type; }
             if (ccEl && ccEl.value) {
                 const cc = parseInt(ccEl.value, 10);
                 d.engine_cc = (!isNaN(cc) && cc > 0) ? cc : null;
             }
-            if (vEl)   d.variant = vEl.value.trim() || 'Standard';
+            if (vEl) d.variant = vEl.value.trim() || 'Standard';
             d.year = d.model_year;
         } else if (cat === 'electronics') {
             const bEl = document.getElementById('fplk-elec-brand');
@@ -630,7 +629,7 @@
         }
 
         let payloadForFetch = { ...originalData };
-        
+
         // Strip listed_price from the backend payload (used only for frontend fairness calculation)
         delete payloadForFetch.listed_price;
 
@@ -655,7 +654,7 @@
             };
         } else if (cat === 'vehicle') {
             const vType = originalData.vehicle_type || 'cars';
-            
+
             if (vType === 'suvs') {
                 subpath = 'suv';
             } else if (vType === 'vans') {
@@ -686,7 +685,7 @@
                     handlePredictionFailure(`Extension error: ${chrome.runtime.lastError.message}`, manualOverride);
                     return;
                 }
-                
+
                 if (!response || !response.success) {
                     handlePredictionFailure(response ? response.error : "Unknown error from background script", manualOverride);
                     return;
@@ -707,7 +706,7 @@
         if (currentExtraction) {
             currentExtraction.valid = false;
             const isFailedToFetch = errMsg && (errMsg.includes("Failed to fetch") || errMsg.includes("NetworkError"));
-            currentExtraction.error_message = isFailedToFetch 
+            currentExtraction.error_message = isFailedToFetch
                 ? `Cannot connect to local backend at ${getApiBase()}. Please ensure start_all.py is running.`
                 : `${errMsg}`;
         }
