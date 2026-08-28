@@ -113,8 +113,23 @@ window.FairPriceLK_Extractors.index = (function () {
     function detectCategory(pageContext) {
         const url = (pageContext.url || "").toLowerCase();
         const text = `${pageContext.title} ${pageContext.raw_text}`.toLowerCase();
+        const titleLower = (pageContext.title || "").toLowerCase();
 
-        // 1. URL based detection
+        // 1. High-precision Title-based detection (checked first to bypass generic sidebar/footer matches)
+        if (/\b(rtx|gtx|rx\s*\d{3,4}|graphics card|vga card|geforce|radeon)\b/i.test(titleLower)) {
+            return "gpu";
+        }
+        if (/\b(laptop|notebook|macbook|thinkpad|latitude|inspiron|ideapad|precision|vostro|pavilion|elitebook|probook|envy|spectre|omen|victus|zenbook|vivobook|rog|tuf|predator|aspire|swift|spin|chromebook|surface|yoga|legion|xps|alienware|monitor|display|screen|tablet|ipad|tab|galaxy tab|mediapad|matepad)\b/i.test(titleLower)) {
+            return "electronics";
+        }
+        if (/\b(iphone|samsung galaxy|redmi|poco|oneplus|pixel|android phone|mobile phone|mobiles|phones)\b/i.test(titleLower)) {
+            return "mobile";
+        }
+        if (/\b(toyota|suzuki|corolla|aqua|alto|honda|nissan|hybrid|automatic transmission|car|vehicle|van|suv)\b/i.test(titleLower)) {
+            return "vehicle";
+        }
+
+        // 2. URL based detection
 
         // Riyasewana.com vehicle listings always follow /buy/<slug> pattern
         if (url.includes("riyasewana.com/buy/")) {
@@ -138,7 +153,7 @@ window.FairPriceLK_Extractors.index = (function () {
             return "electronics";
         }
 
-        // 2. Keyword heuristic detection
+        // 3. Keyword heuristic detection
         if (/\b(rtx|gtx|rx\s*\d{3,4}|graphics card|vga card|geforce|radeon)\b/i.test(text)) {
             return "gpu";
         }

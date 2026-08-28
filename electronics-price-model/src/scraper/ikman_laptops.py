@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import os
 
-def scrape_ikman_laptops(pages=1):
+def scrape_ikman_laptops(start_page=11, end_page=20):
     base_url = "https://ikman.lk/en/ads?query=laptops"
     
     headers = {
@@ -13,7 +13,7 @@ def scrape_ikman_laptops(pages=1):
 
     all_laptops = []
 
-    for page in range(1, pages + 1):
+    for page in range(start_page, end_page + 1):
         print(f"Scraping page {page}...")
         url = f"{base_url}&page={page}"
         response = requests.get(url, headers=headers)
@@ -71,12 +71,14 @@ def scrape_ikman_laptops(pages=1):
 
     if all_laptops:
         df = pd.DataFrame(all_laptops)
-        output_path = os.path.join("..", "..", "data", "raw", "laptops_data.csv")
-        # Ensure we are saving in the right directory assuming we run from src/scraper
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        output_path = os.path.abspath(os.path.join(script_dir, "..", "..", "data", "raw", "laptops_data.csv"))
+        # Ensure directory exists
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
         df.to_csv(output_path, index=False)
         print(f"Successfully saved {len(all_laptops)} records to {output_path}")
     else:
         print("No data extracted. Might need to update HTML selectors.")
 
 if __name__ == "__main__":
-    scrape_ikman_laptops(pages=3)
+    scrape_ikman_laptops(start_page=11, end_page=20)

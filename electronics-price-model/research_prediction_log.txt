@@ -1,0 +1,1365 @@
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP VICTUS | Specs: 16GB RAM, 512GB 
+PREDICTED PRICE: Rs 204,376.70
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP VICTUS | Specs: 32GB RAM, 512GB 
+PREDICTED PRICE: Rs 221,639.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP VICTUS | Specs: 16GB RAM, 512GB 
+PREDICTED PRICE: Rs 204,376.70
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP VICTUS | Specs: 16GB RAM, 512GB 
+PREDICTED PRICE: Rs 161,374.22
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP VICTUS | Specs: 16GB RAM, 512GB 
+PREDICTED PRICE: Rs 116,787.79
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP VICTUS | Specs: 16GB RAM, 512GB 
+PREDICTED PRICE: Rs 204,376.70
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 5300 | Specs: 6GB RAM, 128GB SSD
+PREDICTED PRICE: Rs 61,906.52
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 114,272.23
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE ideaPad03 | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 111,893.41
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: ASUS 22 Eye Care Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 57,674.38
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: APPLE Inspiron 5410 | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 234,448.83
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 4GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 69,963.00
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 82,948.31
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: APPLE Inspiron 5410 | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 234,448.83
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS VIVOBOOK | Specs: 16GB RAM, 512GB SSD
+PREDICTED PRICE: Rs 170,105.77
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: APPLE Inspiron 5410 | Specs: 16GB RAM, 16GB SSD
+PREDICTED PRICE: Rs 234,448.83
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Inspiron 5410 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Inspiron 5410 | Specs: 16GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 119,179.56
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo Thinkpad t530 | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 68,352.20
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 7430 | Specs: 32GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 156,873.28
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL DELL LATITUDE | Specs: 8GB RAM, 512GB SSD
+PREDICTED PRICE: Rs 138,726.06
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: LENOVO I3 5th gen | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 41,240.73
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 17,286.66
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 17,286.66
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: LENOVO 24" IPS MONITOR (1980 x 1080P) FHD|FRAMELESS|HDMI | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 53,900.03
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E202 USED HD+ IPS MONITOR 20" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 29,182.59
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL 22inch IPS Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 45,050.83
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON 15 3520 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 94,895.12
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZENBOOK | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 282,325.66
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZENBOOK | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 274,705.66
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZENBOOK | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 245,689.11
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ZENBOOK | Specs: 8GB RAM, 256GB HDD
+PREDICTED PRICE: Rs 234,789.30
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook X1504VAP | Specs: 16GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 122,098.70
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS VIVOBOOK | Specs: 16GB RAM, 512GB HDD
+PREDICTED PRICE: Rs 63,808.37
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS VIVOBOOK | Specs: 16GB RAM, 512GB HDD
+PREDICTED PRICE: Rs 121,192.62
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP HP Probook 450 G6 | Specs: 16GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 113,113.59
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: APPLE MacBook Pro m5 32gb 1b | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 248,733.41
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: TOSHIBA Toshiba satellite | Specs: 4GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 82,138.98
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo Thinkpad t530 | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 68,352.20
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Tuf | Specs: 16GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 134,663.16
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 17,286.66
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE iPad 11th Generation | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 114,272.23
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL 23 Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 54,596.48
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: LENOVO ThinkVision T24i-30 USED IPS HDMI MONITOR 24" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 53,900.03
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E222 USED IPS MONITOR FULL HD 22" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 37,477.07
+[ACTIVE] XGBoost: R2 Score = 0.9566
+         Random Forest: R2 Score = 0.9441
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG TAB S10 FE | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG TAB S10 FE | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 106,846.31
+[ACTIVE] XGBoost: R2 Score = 0.6916
+         Random Forest: R2 Score = 0.6762
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 97,399.04
+[ACTIVE] XGBoost: R2 Score = 0.8915
+         Random Forest: R2 Score = 0.8840
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 110,004.25
+[ACTIVE] XGBoost: R2 Score = 0.8981
+         Random Forest: R2 Score = 0.8798
+         Gradient Boosting: R2 Score = 0.9012
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E222 USED IPS MONITOR FULL HD 22" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 38,030.06
+[ACTIVE] XGBoost: R2 Score = 0.8742
+         Random Forest: R2 Score = 0.8592
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsun Galaxy Tab 4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 86,058.84
+[ACTIVE] XGBoost: R2 Score = 0.7043
+         Random Forest: R2 Score = 0.6899
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 110,004.25
+[ACTIVE] XGBoost: R2 Score = 0.8981
+         Random Forest: R2 Score = 0.8798
+         Gradient Boosting: R2 Score = 0.9012
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 110,004.25
+[ACTIVE] XGBoost: R2 Score = 0.8981
+         Random Forest: R2 Score = 0.8798
+         Gradient Boosting: R2 Score = 0.9012
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 110,004.25
+[ACTIVE] XGBoost: R2 Score = 0.8981
+         Random Forest: R2 Score = 0.8798
+         Gradient Boosting: R2 Score = 0.9012
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 110,004.25
+[ACTIVE] XGBoost: R2 Score = 0.8981
+         Random Forest: R2 Score = 0.8798
+         Gradient Boosting: R2 Score = 0.9012
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3400 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 110,004.25
+[ACTIVE] XGBoost: R2 Score = 0.8981
+         Random Forest: R2 Score = 0.8798
+         Gradient Boosting: R2 Score = 0.9012
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E222 USED IPS MONITOR FULL HD 22" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 38,213.84
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: ACER 24” FRAMELESS MONITORS | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 46,157.14
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 5420 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 121,041.55
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo ThinkPad T580 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 5420 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 121,041.55
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: LENOVO Lenovo | Specs: 4GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 92,464.90
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 52,638.30
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Rog STRIX G16 | Specs: 16GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 165,021.80
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 64,283.76
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 64,283.76
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO Lenovo | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: ACER Acer | Specs: 4GB RAM, 128GB 
+PREDICTED PRICE: Rs 47,798.42
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: ASUS ASUS Vivobook X1504VAP | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 23,634.85
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: HP Hp I3-4th Gen Laptop | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 76,138.62
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL Dell Latitude 3410 | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 24,852.06
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 24,852.06
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3410 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG TAB S10 FE | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: SAMSUNG F24T450FQE 24" Inch Full HD IPS Frameless HDMI Used Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 24,852.06
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: LENOVO 24 Inch Ips Frameless Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,914.85
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E202 USED HD+ IPS MONITOR 20" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E202 USED HD+ IPS MONITOR 20" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL 24inch Type C Frameless Monitor 2022 model P2422HE | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 24,605.00
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL 24inch Type C Frameless Monitor 2022 model P2422HE | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3410 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE Ipad 6th gen | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 101,081.79
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Galaxy A8 Tab | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 76,497.91
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3410 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 3410 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E202 USED HD+ IPS MONITOR 20" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP EliteBook 850 G7 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 82,192.08
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP EliteBook 850 G7 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 82,192.08
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP EliteBook 850 G7 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 82,192.08
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP EliteBook 850 G7 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 82,192.08
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP EliteBook 850 G7 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 82,192.08
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP Hp elitebook | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 66,364.05
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 113,998.49
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 134,957.31
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 134,957.31
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Vivobook X515JA | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS asus mx509MA | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 113,998.49
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS asus mx509MA | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 113,998.49
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: APPLE MSI PRO MP225 E12VL 21.5" Inch 120Hz 1ms FHD Slim Frameless Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,914.85
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS asus mx509MA | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 113,998.49
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS asus mx509MA | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG Samsung A8 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE iPad 6GEN 128GB cellular | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 101,081.79
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE iPad 6GEN 128GB cellular | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 101,081.79
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS asus mx509MA | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 113,998.49
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS X512FA | Specs: 4GB RAM, 512GB 
+PREDICTED PRICE: Rs 130,956.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS AsusVivobook X1502V-BQ548 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook 15 | Specs: 16GB RAM, 256GB 
+PREDICTED PRICE: Rs 129,296.23
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS ASUS Vivobook M1605NAQ | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Vivobook 15 OLED | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Vivobook E1504FA-BQ1968 | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: ACER EK251 P6BI 25" Inch 144Hz IPS HDMI Frameless Gaming Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 17,805.90
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE Ipad 6th gen | Specs: 8GB RAM, 128GB 
+PREDICTED PRICE: Rs 101,081.79
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: SAMSUNG SM-T310 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 83,454.89
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE iPad 6th Gen | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 105,013.75
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: APPLE iPad 6th Gen | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 105,013.75
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Vivobook E1504FA-BQ1968 | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Vivobook 15 OLED | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Vivobook X1504 v | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus Vivobook X1504 v | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL INSPIRON | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 90,929.59
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 512GB 
+PREDICTED PRICE: Rs 143,524.98
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: ASUS Asus VivoBook X1504VA | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 117,228.13
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: MSI GTX 1060 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 105,695.85
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: MSI GTX 1060 | Specs: 8GB RAM, 256GB SSD
+PREDICTED PRICE: Rs 105,695.85
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------

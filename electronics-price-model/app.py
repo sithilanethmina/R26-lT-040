@@ -143,6 +143,7 @@ def predict():
         return jsonify({
             'success': True,
             'price': f"Rs {predicted_price:,.2f}",
+            'predicted_price': predicted_price,
             'model_name': model_data['model_name'],
             'accuracy': float(model_data.get('accuracy', 0)),
             'all_results': all_results

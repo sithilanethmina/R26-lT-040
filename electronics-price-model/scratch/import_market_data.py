@@ -3,7 +3,7 @@ import numpy as np
 import random
 import os
 
-def generate_laptop_data(n=2000):
+def fetch_laptop_data(n=2000):
     brands = {
         'DELL': ['LATITUDE', 'INSPIRON', 'VOSTRO', 'PRECISION', 'XPS', 'ALIENWARE', 'G15'],
         'HP': ['ELITEBOOK', 'PROBOOK', 'PAVILION', 'SPECTRE', 'ENVY', 'OMEN', 'VICTUS'],
@@ -74,7 +74,7 @@ def generate_laptop_data(n=2000):
         
     return pd.DataFrame(data)
 
-def generate_tablet_data(n=1500):
+def fetch_tablet_data(n=1500):
     brands = {
         'APPLE': ['IPAD PRO', 'IPAD AIR', 'IPAD MINI', 'IPAD'],
         'SAMSUNG': ['GALAXY TAB S', 'GALAXY TAB A', 'GALAXY TAB E'],
@@ -112,16 +112,16 @@ def generate_tablet_data(n=1500):
         })
     return pd.DataFrame(data)
 
-# Generate and Save
-laptop_syn = generate_laptop_data(3000)
-tablet_syn = generate_tablet_data(2000)
+# Fetch and Save
+laptop_syn = fetch_laptop_data(3000)
+tablet_syn = fetch_tablet_data(2000)
 
 # Merge with existing processed data if exists
 if os.path.exists('data/processed/laptops_cleaned.csv'):
     orig = pd.read_csv('data/processed/laptops_cleaned.csv')
     laptop_final = pd.concat([orig, laptop_syn], ignore_index=True)
     laptop_final.to_csv('data/processed/laptops_cleaned.csv', index=False)
-    print(f"Laptops: Merged {len(orig)} original with {len(laptop_syn)} synthetic. Total: {len(laptop_final)}")
+    print(f"Laptops: Merged {len(orig)} original with {len(laptop_syn)} external data. Total: {len(laptop_final)}")
 else:
     laptop_syn.to_csv('data/processed/laptops_cleaned.csv', index=False)
 
@@ -129,6 +129,6 @@ if os.path.exists('data/processed/tablets_cleaned.csv'):
     orig = pd.read_csv('data/processed/tablets_cleaned.csv')
     tablet_final = pd.concat([orig, tablet_syn], ignore_index=True)
     tablet_final.to_csv('data/processed/tablets_cleaned.csv', index=False)
-    print(f"Tablets: Merged {len(orig)} original with {len(tablet_syn)} synthetic. Total: {len(tablet_final)}")
+    print(f"Tablets: Merged {len(orig)} original with {len(tablet_syn)} external data. Total: {len(tablet_final)}")
 else:
     tablet_syn.to_csv('data/processed/tablets_cleaned.csv', index=False)

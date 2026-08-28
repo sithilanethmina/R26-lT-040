@@ -300,16 +300,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Check Gateway Health ---
     async function checkHealth() {
         try {
-            const res = await fetch(`${GATEWAY_URL}/api/health`, { signal: AbortSignal.timeout(2000) });
+            const res = await fetch(`${GATEWAY_URL}/api/health`, { signal: AbortSignal.timeout(5000) });
             if (res.ok) {
                 serverStatusDot.className = 'dot online';
                 serverStatusText.innerText = 'Server Connected';
             } else {
-                throw new Error();
+                throw new Error(`Status ${res.status}`);
             }
-        } catch {
+        } catch (err) {
+            console.error("Health check failed:", err);
             serverStatusDot.className = 'dot offline';
-            serverStatusText.innerText = 'Server Offline (localhost:8000)';
+            const displayUrl = GATEWAY_URL.replace(/^https?:\/\//, '');
+            serverStatusText.innerText = `Server Offline (${displayUrl}) - ${err.message || err}`;
         }
     }
     checkHealth();

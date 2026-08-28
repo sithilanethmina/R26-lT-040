@@ -147,6 +147,9 @@
                             ${data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
                             ${data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ''}
                             ${data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ''}
+                            ${data.size ? `<span class="fplk-extracted-tag">Size: <strong>${data.size}</strong></span>` : ''}
+                            ${data.refresh_rate ? `<span class="fplk-extracted-tag">Refresh: <strong>${data.refresh_rate}</strong></span>` : ''}
+                            ${data.resolution ? `<span class="fplk-extracted-tag">Resolution: <strong>${data.resolution}</strong></span>` : ''}
                             ${(data.model_year || data.year) ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year || data.year}</strong></span>` : ''}
                             ${data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ''}
                             ${data.engine_cc || data.engineCC ? `<span class="fplk-extracted-tag">Engine CC: <strong>${data.engine_cc || data.engineCC}</strong></span>` : ''}
@@ -416,18 +419,77 @@
                 </div>
             `;
         } else {
-            return `
-                <div class="fplk-form-grid">
-                    <div class="fplk-form-group">
-                        <label class="fplk-label">Brand</label>
-                        <input type="text" class="fplk-input" id="fplk-elec-brand" value="${data.brand || ''}" placeholder="e.g. Dell">
+            const subCat = data.category || 'laptop';
+            if (subCat === 'monitor') {
+                return `
+                    <div class="fplk-form-grid">
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Brand</label>
+                            <input type="text" class="fplk-input" id="fplk-elec-brand" value="${data.brand || ''}" placeholder="e.g. Dell">
+                        </div>
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Model</label>
+                            <input type="text" class="fplk-input" id="fplk-elec-model" value="${data.model || ''}" placeholder="e.g. SE2419H">
+                        </div>
                     </div>
-                    <div class="fplk-form-group">
-                        <label class="fplk-label">Model</label>
-                        <input type="text" class="fplk-input" id="fplk-elec-model" value="${data.model || ''}" placeholder="e.g. XPS 13">
+                    <div class="fplk-form-grid">
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Size (Inch)</label>
+                            <input type="number" class="fplk-input" id="fplk-monitor-size" value="${parseFloat(data.size) || 24}">
+                        </div>
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Refresh Rate (Hz)</label>
+                            <input type="number" class="fplk-input" id="fplk-monitor-refresh" value="${parseFloat(data.refresh_rate) || 60}">
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+            } else if (subCat === 'tablet') {
+                return `
+                    <div class="fplk-form-grid">
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Brand</label>
+                            <input type="text" class="fplk-input" id="fplk-elec-brand" value="${data.brand || ''}" placeholder="e.g. Apple">
+                        </div>
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Model</label>
+                            <input type="text" class="fplk-input" id="fplk-elec-model" value="${data.model || ''}" placeholder="e.g. iPad Air">
+                        </div>
+                    </div>
+                    <div class="fplk-form-grid">
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">RAM (GB)</label>
+                            <input type="number" class="fplk-input" id="fplk-elec-ram" value="${data.ram_gb || 4}">
+                        </div>
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Storage (GB)</label>
+                            <input type="number" class="fplk-input" id="fplk-elec-storage" value="${data.storage_gb || 64}">
+                        </div>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="fplk-form-grid">
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Brand</label>
+                            <input type="text" class="fplk-input" id="fplk-elec-brand" value="${data.brand || ''}" placeholder="e.g. Dell">
+                        </div>
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Model</label>
+                            <input type="text" class="fplk-input" id="fplk-elec-model" value="${data.model || ''}" placeholder="e.g. Inspiron 15">
+                        </div>
+                    </div>
+                    <div class="fplk-form-grid">
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">RAM (GB)</label>
+                            <input type="number" class="fplk-input" id="fplk-elec-ram" value="${data.ram_gb || 8}">
+                        </div>
+                        <div class="fplk-form-group">
+                            <label class="fplk-label">Storage (GB)</label>
+                            <input type="number" class="fplk-input" id="fplk-elec-storage" value="${data.storage_gb || 256}">
+                        </div>
+                    </div>
+                `;
+            }
         }
     }
 
@@ -512,12 +574,34 @@
         } else if (cat === 'electronics') {
             const bEl = document.getElementById('fplk-elec-brand');
             const mEl = document.getElementById('fplk-elec-model');
+            const rEl = document.getElementById('fplk-elec-ram');
+            const sEl = document.getElementById('fplk-elec-storage');
+            const szEl = document.getElementById('fplk-monitor-size');
+            const rfEl = document.getElementById('fplk-monitor-refresh');
 
             if (bEl) d.brand = bEl.value.trim();
             if (mEl) d.model = mEl.value.trim();
-            d.category = 'laptop';
-            d.ram = 8;
-            d.storage = 256;
+            
+            const subCat = d.category || 'laptop';
+            if (subCat === 'monitor') {
+                if (szEl) d.size = parseFloat(szEl.value) || 24;
+                if (rfEl) d.refresh_rate = parseFloat(rfEl.value) || 60;
+                delete d.ram;
+                delete d.ram_gb;
+                delete d.storage;
+                delete d.storage_gb;
+            } else {
+                if (rEl) {
+                    d.ram = parseFloat(rEl.value) || 8;
+                    d.ram_gb = d.ram;
+                }
+                if (sEl) {
+                    d.storage = parseFloat(sEl.value) || 256;
+                    d.storage_gb = d.storage;
+                }
+                delete d.size;
+                delete d.refresh_rate;
+            }
         }
 
         currentExtraction.data = d;

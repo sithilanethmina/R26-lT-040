@@ -1,1 +1,5 @@
 /gpu-explainer
+__pycache__/
+*.pyc
+.venv/
+.env

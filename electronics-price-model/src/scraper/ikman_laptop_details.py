@@ -19,7 +19,9 @@ def extract_properties(soup):
     return properties
 
 def scrape_details():
-    df = pd.read_csv('../../data/raw/laptops_data.csv')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_path = os.path.abspath(os.path.join(script_dir, '..', '..', 'data', 'raw', 'laptops_data.csv'))
+    df = pd.read_csv(input_path)
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)"
@@ -78,7 +80,8 @@ def scrape_details():
         time.sleep(1) # be polite to the server
         
     out_df = pd.DataFrame(detailed_data)
-    out_path = '../../data/raw/laptops_detailed.csv'
+    out_path = os.path.abspath(os.path.join(script_dir, '..', '..', 'data', 'raw', 'laptops_detailed.csv'))
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
     out_df.to_csv(out_path, index=False)
     print(f"Saved {len(detailed_data)} detailed records to {out_path}!")
 

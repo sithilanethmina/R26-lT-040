@@ -477,20 +477,202 @@ async def metadata_proxy_subpath(category: str, subpath: str):
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Proxy error: {str(e)}")
 
+def is_electronics_item(brand: str, model: str) -> bool:
+    import re
+    brand_lower = str(brand).lower().strip()
+    model_lower = str(model).lower().strip()
+    
+    # Dedicated computer and monitor brands
+    dedicated_pc_brands = {"dell", "hp", "lenovo", "asus", "acer", "msi", "viewsonic", "benq", "aoc", "toshiba"}
+    
+    # Check if brand matches any dedicated PC brand
+    if brand_lower in dedicated_pc_brands:
+        return True
+        
+    # Keywords indicating a laptop, monitor, or tablet
+    electronics_keywords = {
+        "laptop", "notebook", "macbook", "thinkpad", "latitude", "inspiron", 
+        "ideapad", "precision", "vostro", "pavilion", "elitebook", "probook", 
+        "envy", "spectre", "omen", "victus", "zenbook", "vivobook", "rog", 
+        "tuf", "predator", "aspire", "swift", "spin", "chromebook", "surface", 
+        "yoga", "legion", "xps", "alienware", "monitor", "display", "screen", 
+        "hz", "inch", "resolution", "curved", "tablet", "ipad", "tab", 
+        "galaxy tab", "mediapad", "matepad"
+    }
+    
+    # Check if any electronics keyword matches the model or brand string
+    if any(kw in model_lower for kw in electronics_keywords) or any(kw in brand_lower for kw in electronics_keywords):
+        # Exclude typical phone keywords to prevent false positives
+        phone_keywords = ["galaxy s", "galaxy a", "galaxy n", "galaxy z", "iphone", "mi ", "redmi", "poco", "xperia", "mate ", "p30", "p40", "p50", "nova"]
+        if any(pk in model_lower for pk in phone_keywords) and not any(ek in model_lower for ek in ["tab", "book", "pad", "monitor"]):
+            return False
+        return True
+        
+    return False
+
 @app.post("/api/{category}/predict")
 async def predict_proxy(category: str, request: Request):
     """Proxy prediction requests to the appropriate downstream service."""
     if category not in SERVICES:
         raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
     
-    service_url = SERVICES[category]["url"]
-    
     try:
         body = await request.json()
     except Exception:
         body = {}
         
-    # Proxy the request
+    # Check if this is an electronics item misclassified under another category (e.g. mobile)
+    brand_val = body.get("brand", "")
+    model_val = body.get("model", "")
+    
+    if is_electronics_item(brand_val, model_val) and category != "electronics":
+        target_service_url = SERVICES["electronics"]["url"]
+        model_lower = model_val.lower()
+        
+        # Correct the brand if it was misidentified (e.g., brand detected is APPLE but model is Dell Latitude)
+        actual_brand = brand_val
+        for b in ["dell", "hp", "lenovo", "asus", "acer", "apple", "samsung", "msi", "lg", "viewsonic", "benq", "aoc", "toshiba", "sony", "huawei", "xiaomi"]:
+            if b in model_lower:
+                actual_brand = b.upper()
+                break
+                
+        # Determine electronics subcategory (laptop, monitor, tablet)
+        if any(k in model_lower for k in ["monitor", "display", "screen"]):
+            subcat = "monitor"
+        elif any(k in model_lower for k in ["tablet", "ipad", "tab", "pad"]):
+            subcat = "tablet"
+        else:
+            subcat = "laptop"
+            
+        ram_gb = body.get("ram_gb", body.get("ram", 8))
+        storage_gb = body.get("storage_gb", body.get("storage", 256))
+        
+        elec_payload = {
+            "category": subcat,
+            "brand": actual_brand,
+            "model": model_val,
+            "algorithm": "xgboost"
+        }
+        
+        if subcat == "laptop":
+            import re
+            generation = 0.0
+            gen_match = re.search(r'(\d+)(?:th|rd|nd|st)\s*(?:gen|generation)', model_lower)
+            if gen_match:
+                generation = float(gen_match.group(1))
+            else:
+                gen_match2 = re.search(r'i[3579]-(\d+)', model_lower)
+                if gen_match2:
+                    generation = float(gen_match2.group(1))
+                else:
+                    if "m1" in model_lower:
+                        generation = 1.0
+                    elif "m2" in model_lower:
+                        generation = 2.0
+                    elif "m3" in model_lower:
+                        generation = 3.0
+                        
+            cpu_val = "Intel Core i5"
+            if "i3" in model_lower:
+                cpu_val = "Intel Core i3"
+            elif "i7" in model_lower:
+                cpu_val = "Intel Core i7"
+            elif "i9" in model_lower:
+                cpu_val = "Intel Core i9"
+            elif "ryzen 3" in model_lower:
+                cpu_val = "AMD Ryzen 3"
+            elif "ryzen 5" in model_lower:
+                cpu_val = "AMD Ryzen 5"
+            elif "ryzen 7" in model_lower:
+                cpu_val = "AMD Ryzen 7"
+            elif "m1" in model_lower:
+                cpu_val = "Apple M1"
+            elif "m2" in model_lower:
+                cpu_val = "Apple M2"
+            elif "m3" in model_lower:
+                cpu_val = "Apple M3"
+            elif "i5" in model_lower:
+                cpu_val = "Intel Core i5"
+                
+            storage_type = "SSD"
+            if "hdd" in model_lower:
+                storage_type = "HDD"
+                
+            elec_payload.update({
+                "ram": ram_gb,
+                "storage": storage_gb,
+                "storageType": storage_type,
+                "generation": generation,
+                "cpu": cpu_val
+            })
+            
+        elif subcat == "monitor":
+            import re
+            size = 24.0
+            size_match = re.search(r'(\d+)\s*(?:inch|")', model_lower)
+            if size_match:
+                size = float(size_match.group(1))
+                
+            refresh_rate = 144.0
+            hz_match = re.search(r'(\d+)\s*hz', model_lower)
+            if hz_match:
+                refresh_rate = float(hz_match.group(1))
+                
+            elec_payload.update({
+                "size": size,
+                "refreshRate": refresh_rate,
+                "condition": "Used",
+                "resolution": "FHD"
+            })
+            
+        elif subcat == "tablet":
+            elec_payload.update({
+                "ram": ram_gb,
+                "storage": storage_gb
+            })
+            
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            try:
+                elec_response = await client.post(
+                    f"{target_service_url}/predict",
+                    json=elec_payload,
+                    headers={"Content-Type": "application/json"}
+                )
+                if elec_response.status_code == 200:
+                    elec_data = elec_response.json()
+                    predicted_price = float(elec_data.get("predicted_price", 0.0))
+                    
+                    if not predicted_price and "price" in elec_data:
+                        price_str = elec_data["price"]
+                        import re
+                        cleaned_price = re.sub(r'[^0-9.]', '', price_str)
+                        if cleaned_price:
+                            predicted_price = float(cleaned_price)
+                            
+                    if category == "mobile":
+                        return JSONResponse(status_code=200, content={
+                            "predicted_price": predicted_price,
+                            "phone_type": f"Electronics ({subcat.capitalize()})",
+                            "inputs": {
+                                "brand": actual_brand,
+                                "model": model_val,
+                                "storage_gb": storage_gb,
+                                "ram_gb": ram_gb,
+                                "warranty_days": body.get("warranty_days", 0)
+                            }
+                        })
+                    else:
+                        return JSONResponse(status_code=200, content={
+                            "predicted_price": predicted_price,
+                            "price": elec_data.get("price", f"Rs {predicted_price:,.2f}"),
+                            "category": "electronics",
+                            "subcat": subcat
+                        })
+            except Exception as e:
+                print(f"Error redirecting to electronics service: {e}")
+                
+    # Proxy the request as normal
+    service_url = SERVICES[category]["url"]
     async with httpx.AsyncClient(timeout=30.0) as client:
         try:
             response = await client.post(
