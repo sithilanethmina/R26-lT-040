@@ -602,8 +602,8 @@
     {
         "brand": "Chevrolet",
         "vehicle_type": "Car",
-        "model": "Cruze",
-        "variant": "SWIFT LIMITED",
+        "model": "Swift",
+        "variant": "",
         "title_raw": "Chevrolet Cruze SWIFT LIMITED 2004 Car",
         "model_year": 2004,
         "manufacture_year": 2003,

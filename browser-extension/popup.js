@@ -317,6 +317,32 @@ document.addEventListener('DOMContentLoaded', () => {
     checkHealth();
     initGpuMetadata();
     initVehicleMetadata('cars');
+    initMobileMetadata();
+
+    // --- Mobile Metadata ---
+    let MOBILE_METADATA = {};
+    async function initMobileMetadata() {
+        try {
+            const localRes = await fetch('mobile_metadata.json').catch(() => null);
+            if (localRes && localRes.ok) {
+                MOBILE_METADATA = await localRes.json();
+            }
+        } catch (e) {
+            console.warn("Local mobile_metadata.json load failed:", e);
+        }
+
+        try {
+            const liveRes = await fetch(`${GATEWAY_URL}/api/mobile/metadata`, { signal: AbortSignal.timeout(2000) }).catch(() => null);
+            if (liveRes && liveRes.ok) {
+                const liveData = await liveRes.json();
+                if (liveData && liveData.brands && liveData.brands.length > 0) {
+                    MOBILE_METADATA = liveData;
+                }
+            }
+        } catch (e) {
+            // keep local metadata
+        }
+    }
 
     // --- Vehicle Metadata ---
     let VEHICLE_METADATA = {};
@@ -421,10 +447,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (response && response.success) {
+                    if (response.data.category === 'unsupported' || response.data.is_unsupported_item) {
+                        showError(response.data.error_message || "This listing was detected as a Smart Watch / Accessory. FairPriceLK only provides valuation for Mobile Phones (Smartphones), GPUs, Vehicles, and Computers.");
+                        return;
+                    }
+
                     await populateForm(response.data);
-                    showStatus("Details extracted from page. Auto-predicting...");
-                    // Auto-trigger the predict button
-                    document.getElementById('predictBtn').click();
+                    const cond = (response.data.condition || '').toLowerCase();
+                    const title = (response.data.title || '').toLowerCase();
+                    const isBrandNew = cond.includes('brand new') || cond === 'new' || cond.includes('brand-new') || (title.includes('brand new') && !cond.includes('used'));
+
+                    if (isBrandNew) {
+                        showStatus("⚠️ Notice: Listing is marked as Brand New. FairPriceLK valuation is designed for Used items only.");
+                    } else {
+                        showStatus("Details extracted from page. Auto-predicting...");
+                        // Auto-trigger the predict button
+                        document.getElementById('predictBtn').click();
+                    }
                 } else {
                     showError("Extraction failed.");
                 }
@@ -633,11 +672,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (cat === 'mobile') {
             if (data.brand) document.getElementById('mobileBrandInput').value = data.brand;
             if (data.model) document.getElementById('mobileModelInput').value = data.model;
-            const text = ((data.title || "")).toLowerCase();
-            if (text.includes("iphone") || text.includes("apple")) {
-                document.getElementById('mobileTypeSelect').value = "iphone";
+            if (data.storage) document.getElementById('mobileStorageInput').value = data.storage;
+            if (data.ram) document.getElementById('mobileRamInput').value = data.ram;
+            if (data.warranty_days !== undefined) document.getElementById('mobileWarrantyInput').value = data.warranty_days;
+            if (data.phone_type) {
+                document.getElementById('mobileTypeSelect').value = data.phone_type;
             } else {
-                document.getElementById('mobileTypeSelect').value = "android";
+                const text = ((data.title || "") + " " + (data.brand || "")).toLowerCase();
+                document.getElementById('mobileTypeSelect').value = (text.includes("iphone") || text.includes("apple")) ? "iphone" : "android";
             }
         } else if (cat === 'vehicle') {
             const make = data.make || data.brand || "";

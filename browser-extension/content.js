@@ -543,7 +543,6 @@
             if (mEl) d.model = mEl.value.trim();
             if (sEl) d.storage_gb = parseFloat(sEl.value) || 128;
             if (rEl) d.ram_gb = parseFloat(rEl.value) || 6;
-
             const bhEl = document.getElementById('fplk-mobile-battery');
             const wEl = document.getElementById('fplk-mobile-warranty');
             if (bhEl && bhEl.value) {
