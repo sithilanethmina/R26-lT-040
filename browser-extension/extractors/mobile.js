@@ -684,6 +684,16 @@ window.FairPriceLK_Extractors.mobile = (function () {
 
     // ── Main parse() ─────────────────────────────────────────────────────────
 
+    const NON_PHONE_PATTERNS = [
+        /\b(smart\s*watch|smartwatch|watch|wrist\s*watch|fitness\s*band|wristband|watch\s*strap)\b/i,
+        /\b(airpods|earbuds|earphones|headphones|headset|bluetooth\s*speaker|ear\s*buds|tws)\b/i,
+        /\b(charger|charging\s*cable|power\s*adapter|data\s*cable|fast\s*charger|wireless\s*charger)\b/i,
+        /\b(phone\s*case|back\s*cover|flip\s*cover|pouch|silicone\s*case|leather\s*case)\b/i,
+        /\b(tempered\s*glass|screen\s*protector|lens\s*protector|gorilla\s*glass)\b/i,
+        /\b(power\s*bank|powerbank|battery\s*pack)\b/i,
+        /\b(sim\s*tray|housing|display\s*panel|touch\s*display|lcd\s*panel|spare\s*parts|battery\s*replacement)\b/i
+    ];
+
     function parse(pageContext) {
         const { title = "", price = null, raw_text = "", key_values = {} } = pageContext;
 
@@ -692,8 +702,28 @@ window.FairPriceLK_Extractors.mobile = (function () {
         try { scraped = scrapeListingDOM(); }
         catch (e) { console.warn('[FairPriceLK] Mobile scrape failed:', e); }
 
-        // Build combined search scope from all sources
         const scopeTitle = scraped.title || title;
+
+        // Check if item is an accessory or smartwatch (NOT a mobile phone)
+        const isNonPhone = NON_PHONE_PATTERNS.some(p => p.test(scopeTitle) || p.test(title));
+        if (isNonPhone) {
+            return {
+                category: "unsupported",
+                valid: false,
+                is_unsupported_item: true,
+                error_message: `This listing appears to be a Smart Watch / Accessory ("${scopeTitle || title}"), not a mobile phone. FairPriceLK mobile valuation is designed for Smartphones only.`,
+                data: {
+                    title: scopeTitle || title,
+                    listed_price: scraped.price || price || null,
+                    condition: scraped.condition || key_values.condition || null,
+                    brand: null,
+                    model: null,
+                    item_type: "Smart Watch / Accessory"
+                }
+            };
+        }
+
+        // Build combined search scope from all sources
         const descText = scraped.description || "";
         const scope = `${scopeTitle} ${scraped.brand || key_values.brand || ""} ${scraped.model || key_values.model || ""} ${raw_text} ${descText}`;
 

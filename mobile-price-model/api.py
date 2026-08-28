@@ -45,10 +45,65 @@ def get_recommended_model_info(phone_type: str, eval_data: dict) -> tuple:
     metrics = eval_data.get("results", {}).get(model_key, {})
     return model_name, model_path, metrics
 
+LOOKUP_FILE = BASE_DIR / "outputs" / "mobile_brand_model_lookup.json"
+supported_brand_models = {}
+
+def load_brand_model_lookup() -> dict:
+    if LOOKUP_FILE.exists():
+        with LOOKUP_FILE.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+import re
+
+def normalize_key(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(s).lower())
+
+def find_matched_model(brand: str, model: str) -> tuple[Optional[str], Optional[str]]:
+    """Match brand and model against verified supported database."""
+    if not supported_brand_models:
+        return brand, model
+        
+    b_match = None
+    b_norm = normalize_key(brand)
+    for b in supported_brand_models:
+        if b.lower() == brand.lower() or normalize_key(b) == b_norm:
+            b_match = b
+            break
+        # Special brand aliases
+        if brand.lower() in ["redmi", "poco", "mi"] and b.lower() == "xiaomi":
+            b_match = "Xiaomi"
+            break
+            
+    if not b_match:
+        return None, None
+        
+    models_list = supported_brand_models[b_match]
+    m_norm = normalize_key(model)
+    
+    # 1. Exact or normalized key match
+    for m in models_list:
+        if normalize_key(m) == m_norm or m.lower() == model.lower():
+            return b_match, m
+            
+    # 2. Substring match (e.g., '15 Pro' -> 'iPhone 15 Pro', 'A07' -> 'Galaxy A07')
+    candidates = []
+    for m in models_list:
+        cand_norm = normalize_key(m)
+        if cand_norm in m_norm or m_norm in cand_norm:
+            candidates.append(m)
+            
+    if candidates:
+        candidates.sort(key=lambda x: abs(len(normalize_key(x)) - len(m_norm)))
+        return b_match, candidates[0]
+        
+    return b_match, None
+
 @app.on_event("startup")
 def startup_event():
-    global evaluation_data
+    global evaluation_data, supported_brand_models
     evaluation_data = load_evaluation_data()
+    supported_brand_models = load_brand_model_lookup()
     
     # Pre-load recommended models
     for phone_type in ["android", "iphone"]:
@@ -82,19 +137,40 @@ class PredictRequest(BaseModel):
 def health_check():
     return {"status": "ok", "service": "mobile_price_predictor"}
 
+@app.get("/metadata")
+def get_metadata():
+    if not supported_brand_models:
+        lookup = load_brand_model_lookup()
+    else:
+        lookup = supported_brand_models
+    return {
+        "brands": sorted(list(lookup.keys())),
+        "models": lookup
+    }
+
 @app.post("/predict")
 def predict(request: PredictRequest):
     # 1. Standardize brand casing (e.g. "VIVO" -> "Vivo", "APPLE" -> "Apple")
     clean_brand = standardize_brand(request.brand)
     clean_model = request.model.strip()
 
-    # 2. Determine and validate phone_type
+    # 2. Strict model validation: Ensure the model is in the supported models dataset
+    matched_brand, matched_model = find_matched_model(clean_brand, clean_model)
+    if not matched_brand or not matched_model:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Model '{request.model}' ({clean_brand}) is not supported. FairPriceLK only provides valuation for verified mobile phone models in its dataset."
+        )
+
+    clean_brand = matched_brand
+    clean_model = matched_model
+
+    # 3. Determine and validate phone_type
     req_phone_type = (request.phone_type or "").lower().strip()
     if clean_brand == "Apple" or "iphone" in clean_model.lower() or "iphone" in clean_brand.lower():
         phone_type = "iphone"
         clean_brand = "Apple"
     elif req_phone_type in ["android", "iphone"]:
-        # If explicitly passed iphone but brand is Android (e.g. Vivo, Samsung), override to android
         if req_phone_type == "iphone" and clean_brand not in ["Apple", "Unknown"]:
             phone_type = "android"
         else:
@@ -112,14 +188,14 @@ def predict(request: PredictRequest):
 
     model_pipeline = models_cache[phone_type]
     
-    # 3. Compute or validate engineered features using Python modules for 100% fidelity
+    # 4. Compute or validate engineered features using Python modules for 100% fidelity
     row_dict = {"brand": clean_brand, "model": clean_model}
     model_tier = request.model_tier if request.model_tier is not None else compute_model_tier(row_dict)
     brand_tier = request.brand_tier if request.brand_tier is not None else compute_brand_tier(clean_brand)
     phone_age_years = request.phone_age_years if request.phone_age_years is not None else compute_phone_age(row_dict)
     is_flagship = request.is_flagship if request.is_flagship is not None else compute_is_flagship(row_dict)
 
-    # 4. Build input DataFrame matching FEATURE_COLUMNS
+    # 5. Build input DataFrame matching FEATURE_COLUMNS
     input_data = {
         "brand": clean_brand,
         "model": clean_model,
@@ -159,6 +235,7 @@ def predict(request: PredictRequest):
                 "upper_price_lkr": predicted_price + mae
             },
             "phone_type": phone_type,
+            "matched_model": clean_model,
             "inputs": json_safe_inputs
         }
     except Exception as e:

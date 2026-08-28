@@ -82,19 +82,35 @@
         return { element: main, position: 'beforeend' };
     }
 
+    function isBrandNewCondition(conditionStr, titleStr = '') {
+        const cond = (conditionStr || '').toLowerCase().trim();
+        const title = (titleStr || '').toLowerCase().trim();
+        if (cond.includes('brand new') || cond === 'new' || cond.includes('brand-new') || cond.includes('unregistered') || cond.includes('sealed')) {
+            return true;
+        }
+        if (title.includes('brand new') && !cond.includes('used')) {
+            return true;
+        }
+        return false;
+    }
+
     function initOnPageWidget() {
         if (!isItemDetailPage()) return;
 
         runExtraction();
         renderEmbeddedCard();
 
-        // If extraction is valid, automatically trigger evaluation
-        if (currentExtraction && currentExtraction.valid) {
+        const data = currentExtraction && currentExtraction.data ? currentExtraction.data : {};
+        const isBrandNew = isBrandNewCondition(data.condition, data.title);
+        const isUnsupported = currentExtraction && (currentExtraction.category === 'unsupported' || currentExtraction.is_unsupported_item);
+
+        // If extraction is valid, NOT Brand New, and NOT an unsupported item, automatically trigger evaluation
+        if (currentExtraction && currentExtraction.valid && !isBrandNew && !isUnsupported) {
             triggerPrediction();
         }
     }
 
-    function renderEmbeddedCard() {
+    function renderEmbeddedCard(manualEstimateRequested = false) {
         const target = findInsertionTarget();
         if (!target || !target.element) return;
 
@@ -114,6 +130,8 @@
         const ext = currentExtraction || { valid: false, category: 'gpu', data: {} };
         const data = ext.data || {};
         const cat = ext.category || 'gpu';
+        const isUnsupported = cat === 'unsupported' || ext.is_unsupported_item;
+        const isBrandNew = isBrandNewCondition(data.condition, data.title);
         const iconUrl = chrome.runtime.getURL('icon.png');
 
         embeddedCardRoot.innerHTML = `
@@ -123,7 +141,7 @@
                     <div class="fplk-brand-wrap">
                         <img src="${iconUrl}" width="20" height="20" alt="FairPriceLK Logo" style="border-radius: 4px; object-fit: contain;">
                         <span class="fplk-brand-name">FairPriceLK Valuation</span>
-                        <span class="fplk-category-pill">${cat.toUpperCase()}</span>
+                        <span class="fplk-category-pill" style="${isUnsupported ? 'background:#FEE2E2; color:#991B1B; border-color:#FECACA;' : ''}">${isUnsupported ? 'UNSUPPORTED' : cat.toUpperCase()}</span>
                     </div>
                     <div class="fplk-header-controls">
                         <button class="fplk-embedded-btn-icon" id="fplk-embedded-reextract-btn" title="Re-scan listing">
@@ -141,27 +159,52 @@
                         </div>
                         <div class="fplk-extracted-tags">
                             ${data.listed_price ? `<span class="fplk-extracted-tag price">Asking: Rs. ${Number(data.listed_price).toLocaleString('en-LK')}</span>` : ''}
-                            ${data.phone_type ? `<span class="fplk-extracted-tag">Type: <strong>${data.phone_type === 'iphone' ? 'iPhone' : 'Android'}</strong></span>` : ''}
-                            ${data.vehicle_type ? `<span class="fplk-extracted-tag">Category: <strong>${data.vehicle_type === 'suvs' ? 'SUV' : data.vehicle_type === 'vans' ? 'Van' : 'Car'}</strong></span>` : ''}
-                            ${data.brand || data.make ? `<span class="fplk-extracted-tag">Make: <strong>${data.brand || data.make}</strong></span>` : ''}
-                            ${data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ''}
-                            ${data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
-                            ${data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ''}
-                            ${data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ''}
-                            ${data.battery_health_percent ? `<span class="fplk-extracted-tag">Battery Health: <strong>${data.battery_health_percent}%</strong></span>` : ''}
-                            ${data.warranty_days ? `<span class="fplk-extracted-tag">Warranty: <strong>${data.warranty_days} days</strong></span>` : ''}
-                            ${(data.model_year || data.year) ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year || data.year}</strong></span>` : ''}
-                            ${data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ''}
-                            ${data.engine_cc || data.engineCC ? `<span class="fplk-extracted-tag">Engine CC: <strong>${data.engine_cc || data.engineCC}</strong></span>` : ''}
-                            ${data.mileage || data.mileage_km ? `<span class="fplk-extracted-tag">Mileage: <strong>${Number(data.mileage || data.mileage_km).toLocaleString('en-LK')} km</strong></span>` : ''}
-                            ${data.gear || data.transmission ? `<span class="fplk-extracted-tag">Gear: <strong>${data.gear || data.transmission}</strong></span>` : ''}
-                            ${data.fuelType || data.fuel_type ? `<span class="fplk-extracted-tag">Fuel: <strong>${data.fuelType || data.fuel_type}</strong></span>` : ''}
-                            ${data.condition ? `<span class="fplk-extracted-tag">Condition: <strong>${data.condition}</strong></span>` : ''}
+                            ${data.item_type ? `<span class="fplk-extracted-tag" style="background:#FEE2E2; color:#991B1B; border-color:#FECACA;">Type: <strong>${data.item_type}</strong></span>` : ''}
+                            ${!isUnsupported && data.phone_type ? `<span class="fplk-extracted-tag">Type: <strong>${data.phone_type === 'iphone' ? 'iPhone' : 'Android'}</strong></span>` : ''}
+                            ${!isUnsupported && data.vehicle_type ? `<span class="fplk-extracted-tag">Category: <strong>${data.vehicle_type === 'suvs' ? 'SUV' : data.vehicle_type === 'vans' ? 'Van' : 'Car'}</strong></span>` : ''}
+                            ${!isUnsupported && (data.brand || data.make) ? `<span class="fplk-extracted-tag">Make: <strong>${data.brand || data.make}</strong></span>` : ''}
+                            ${!isUnsupported && data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ''}
+                            ${!isUnsupported && data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
+                            ${!isUnsupported && data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ''}
+                            ${!isUnsupported && data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ''}
+                            ${!isUnsupported && data.battery_health_percent ? `<span class="fplk-extracted-tag">Battery Health: <strong>${data.battery_health_percent}%</strong></span>` : ''}
+                            ${!isUnsupported && data.warranty_days ? `<span class="fplk-extracted-tag">Warranty: <strong>${data.warranty_days} days</strong></span>` : ''}
+                            ${!isUnsupported && (data.model_year || data.year) ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year || data.year}</strong></span>` : ''}
+                            ${!isUnsupported && data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ''}
+                            ${!isUnsupported && (data.engine_cc || data.engineCC) ? `<span class="fplk-extracted-tag">Engine CC: <strong>${data.engine_cc || data.engineCC}</strong></span>` : ''}
+                            ${!isUnsupported && (data.mileage || data.mileage_km) ? `<span class="fplk-extracted-tag">Mileage: <strong>${Number(data.mileage || data.mileage_km).toLocaleString('en-LK')} km</strong></span>` : ''}
+                            ${!isUnsupported && (data.gear || data.transmission) ? `<span class="fplk-extracted-tag">Gear: <strong>${data.gear || data.transmission}</strong></span>` : ''}
+                            ${!isUnsupported && (data.fuelType || data.fuel_type) ? `<span class="fplk-extracted-tag">Fuel: <strong>${data.fuelType || data.fuel_type}</strong></span>` : ''}
+                            ${data.condition ? `<span class="fplk-extracted-tag ${isBrandNew ? 'price' : ''}">Condition: <strong>${data.condition}</strong></span>` : ''}
                         </div>
                     </div>
 
+                    <!-- Unsupported Item Notice -->
+                    ${isUnsupported ? `
+                        <div class="fplk-verdict-box warning" style="background:#FEF2F2; border:1px solid #FECACA; color:#991B1B;">
+                            <div class="fplk-verdict-header">
+                                <span class="fplk-verdict-tag" style="background:#FEE2E2; color:#991B1B; font-weight:700;">⚠️ CATEGORY NOT SUPPORTED: MOBILE PHONES ONLY</span>
+                            </div>
+                            <div class="fplk-verdict-body" style="font-size: 12.5px; color: #7F1D1D; line-height: 1.5; margin-top: 4px;">
+                                ${ext.error_message || `This listing appears to be a <strong>Smart Watch / Accessory</strong> ("${data.title || 'Listing'}"), not a mobile phone. FairPriceLK's valuation models are designed specifically for <strong>Mobile Phones (Smartphones)</strong>, <strong>Graphics Cards</strong>, <strong>Vehicles</strong>, and <strong>Laptops/Monitors</strong>.`}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- Brand New Notice -->
+                    ${!isUnsupported && isBrandNew && !manualEstimateRequested ? `
+                        <div class="fplk-verdict-box warning">
+                            <div class="fplk-verdict-header">
+                                <span class="fplk-verdict-tag" style="background:#FDE68A; color:#92400E; font-weight:700;">⚠️ USED ITEMS VALUATION ONLY</span>
+                            </div>
+                            <div class="fplk-verdict-body" style="font-size: 12.5px; color: #78350F; line-height: 1.5; margin-top: 4px;">
+                                This listing is marked as <strong>${data.condition || 'Brand New'}</strong>. FairPriceLK's valuation models are designed and trained exclusively on <strong>Used / Second-Hand</strong> market transactions and do not evaluate brand new retail units.
+                            </div>
+                        </div>
+                    ` : ''}
+
                     <!-- Evaluation or Missing info -->
-                    ${!ext.valid && !cachedPrediction ? `
+                    ${!isUnsupported && !ext.valid && !cachedPrediction && !isBrandNew ? `
                         <div class="fplk-verdict-box neutral">
                             <div class="fplk-verdict-header">
                                 <span class="fplk-verdict-tag">Listing Details Detected</span>
@@ -172,9 +215,10 @@
                         </div>
                     ` : ''}
 
-                    ${cachedPrediction ? renderPredictionResult(cachedPrediction, data.listed_price) : ''}
+                    ${!isUnsupported && cachedPrediction && (!isBrandNew || manualEstimateRequested) ? renderPredictionResult(cachedPrediction, data.listed_price) : ''}
 
-                    <!-- Manual Refine Form (Collapsible/Accordion) -->
+                    <!-- Manual Refine Form (Collapsible/Accordion) - Only for supported Used items -->
+                    ${!isUnsupported && !isBrandNew ? `
                     <details class="fplk-form-section">
                         <summary class="fplk-form-title" style="cursor: pointer;">
                             <span>Refine Details / Manual Estimate</span>
@@ -194,6 +238,7 @@
                             </button>
                         </div>
                     </details>
+                    ` : ''}
                 </div>
             </div>
         `;
@@ -448,8 +493,11 @@
         const reextractBtn = document.getElementById('fplk-embedded-reextract-btn');
         if (reextractBtn) {
             reextractBtn.addEventListener('click', () => {
+                cachedPrediction = null;
                 runExtraction();
-                if (currentExtraction && currentExtraction.valid) {
+                const d = currentExtraction && currentExtraction.data ? currentExtraction.data : {};
+                const isBrandNew = isBrandNewCondition(d.condition, d.title);
+                if (currentExtraction && currentExtraction.valid && !isBrandNew) {
                     triggerPrediction();
                 } else {
                     renderEmbeddedCard();
@@ -461,7 +509,7 @@
         if (evalBtn) {
             evalBtn.addEventListener('click', () => {
                 readFormInputsIntoData();
-                triggerPrediction();
+                triggerPrediction(true);
             });
         }
     }
@@ -570,7 +618,7 @@
         currentExtraction.data = d;
     }
 
-    async function triggerPrediction() {
+    async function triggerPrediction(manualOverride = false) {
         if (!currentExtraction || !currentExtraction.data) return;
         const cat = currentExtraction.category || 'gpu';
         const originalData = currentExtraction.data;
@@ -635,35 +683,35 @@
             }, (response) => {
                 if (chrome.runtime.lastError) {
                     console.error("Extension message error:", chrome.runtime.lastError);
-                    handlePredictionFailure(`Extension error: ${chrome.runtime.lastError.message}`);
+                    handlePredictionFailure(`Extension error: ${chrome.runtime.lastError.message}`, manualOverride);
                     return;
                 }
                 
                 if (!response || !response.success) {
-                    handlePredictionFailure(response ? response.error : "Unknown error from background script");
+                    handlePredictionFailure(response ? response.error : "Unknown error from background script", manualOverride);
                     return;
                 }
 
                 cachedPrediction = response.data;
                 currentExtraction.valid = true;
-                renderEmbeddedCard();
+                renderEmbeddedCard(manualOverride);
             });
         } catch (err) {
             console.error("Message dispatch error:", err);
-            handlePredictionFailure(`${err.name}: ${err.message}`);
+            handlePredictionFailure(`${err.name}: ${err.message}`, manualOverride);
         }
     }
 
-    function handlePredictionFailure(errMsg) {
+    function handlePredictionFailure(errMsg, manualOverride = false) {
         cachedPrediction = null;
         if (currentExtraction) {
             currentExtraction.valid = false;
             const isFailedToFetch = errMsg && (errMsg.includes("Failed to fetch") || errMsg.includes("NetworkError"));
             currentExtraction.error_message = isFailedToFetch 
                 ? `Cannot connect to local backend at ${getApiBase()}. Please ensure start_all.py is running.`
-                : `Prediction error: ${errMsg}`;
+                : `${errMsg}`;
         }
-        renderEmbeddedCard();
+        renderEmbeddedCard(manualOverride);
     }
 
     // --- Message Listener for Extension Popup (Preserves 100% compatibility) ---
@@ -684,8 +732,11 @@
                         phone_type: d.phone_type || "android",
                         warranty_days: d.warranty_days || 0,
                         vram: d.vram_gb ? String(d.vram_gb) : "",
-                        category: extraction ? extraction.category : "gpu",
+                        condition: d.condition || "",
+                        item_type: d.item_type || null,
+                        category: extraction ? extraction.category : "unsupported",
                         valid: extraction ? extraction.valid : false,
+                        is_unsupported_item: extraction ? (extraction.is_unsupported_item || extraction.category === 'unsupported') : false,
                         error_message: extraction ? extraction.error_message : null
                     }
                 });
