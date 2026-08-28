@@ -141,12 +141,15 @@
                         </div>
                         <div class="fplk-extracted-tags">
                             ${data.listed_price ? `<span class="fplk-extracted-tag price">Asking: Rs. ${Number(data.listed_price).toLocaleString('en-LK')}</span>` : ''}
+                            ${data.phone_type ? `<span class="fplk-extracted-tag">Type: <strong>${data.phone_type === 'iphone' ? 'iPhone' : 'Android'}</strong></span>` : ''}
                             ${data.vehicle_type ? `<span class="fplk-extracted-tag">Category: <strong>${data.vehicle_type === 'suvs' ? 'SUV' : data.vehicle_type === 'vans' ? 'Van' : 'Car'}</strong></span>` : ''}
                             ${data.brand || data.make ? `<span class="fplk-extracted-tag">Make: <strong>${data.brand || data.make}</strong></span>` : ''}
                             ${data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ''}
                             ${data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ''}
                             ${data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ''}
                             ${data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ''}
+                            ${data.battery_health_percent ? `<span class="fplk-extracted-tag">Battery Health: <strong>${data.battery_health_percent}%</strong></span>` : ''}
+                            ${data.warranty_days ? `<span class="fplk-extracted-tag">Warranty: <strong>${data.warranty_days} days</strong></span>` : ''}
                             ${(data.model_year || data.year) ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year || data.year}</strong></span>` : ''}
                             ${data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ''}
                             ${data.engine_cc || data.engineCC ? `<span class="fplk-extracted-tag">Engine CC: <strong>${data.engine_cc || data.engineCC}</strong></span>` : ''}
@@ -355,6 +358,16 @@
                         <input type="number" class="fplk-input" id="fplk-mobile-ram" value="${data.ram_gb || 6}">
                     </div>
                 </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Battery Health (%) <span style="color:#71717A;font-size:10px;">(iPhone)</span></label>
+                        <input type="number" class="fplk-input" id="fplk-mobile-battery" value="${data.battery_health_percent !== null && data.battery_health_percent !== undefined ? data.battery_health_percent : ''}" placeholder="e.g. 87" min="50" max="100">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Warranty (Days)</label>
+                        <input type="number" class="fplk-input" id="fplk-mobile-warranty" value="${data.warranty_days || 0}" min="0">
+                    </div>
+                </div>
             `;
         } else if (category === 'vehicle') {
             const currentMake  = data.brand || data.make || '';
@@ -482,7 +495,41 @@
             if (mEl) d.model = mEl.value.trim();
             if (sEl) d.storage_gb = parseFloat(sEl.value) || 128;
             if (rEl) d.ram_gb = parseFloat(rEl.value) || 6;
-            d.warranty_days = 0;
+            
+            const bhEl = document.getElementById('fplk-mobile-battery');
+            const wEl = document.getElementById('fplk-mobile-warranty');
+            if (bhEl && bhEl.value) {
+                const bh = parseFloat(bhEl.value);
+                d.battery_health_percent = (!isNaN(bh) && bh >= 50 && bh <= 100) ? bh : null;
+            } else {
+                d.battery_health_percent = null;
+            }
+            if (wEl && wEl.value) {
+                d.warranty_days = parseFloat(wEl.value) || 0;
+            } else {
+                d.warranty_days = 0;
+            }
+
+            // Re-derive engineered features using the extractor's helpers if available
+            const mobileExt = window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.mobile;
+            if (mobileExt && mobileExt.parse) {
+                // Trigger a fresh parse to recompute features based on updated brand/model
+                const freshParsed = mobileExt.parse({
+                    title: d.model || '',
+                    price: d.listed_price,
+                    raw_text: '',
+                    key_values: { brand: d.brand, model: d.model }
+                });
+                if (freshParsed && freshParsed.data) {
+                    d.model_tier = freshParsed.data.model_tier;
+                    d.brand_tier = freshParsed.data.brand_tier;
+                    d.phone_age_years = freshParsed.data.phone_age_years;
+                    d.is_flagship = freshParsed.data.is_flagship;
+                    d.has_5g = freshParsed.data.has_5g;
+                    d.has_esim = freshParsed.data.has_esim;
+                    d.dual_sim = freshParsed.data.dual_sim;
+                }
+            }
         } else if (cat === 'vehicle') {
             const makeEl  = document.getElementById('fplk-vehicle-make');
             const mEl     = document.getElementById('fplk-vehicle-model');
@@ -540,7 +587,25 @@
         delete payloadForFetch.listed_price;
 
         let subpath = '';
-        if (cat === 'vehicle') {
+        if (cat === 'mobile') {
+            // Strictly limit payload to the fields the Mobile API PredictRequest expects
+            payloadForFetch = {
+                phone_type: originalData.phone_type || 'android',
+                brand: originalData.brand || '',
+                model: originalData.model || '',
+                storage_gb: originalData.storage_gb || 128,
+                ram_gb: originalData.ram_gb || 6,
+                warranty_days: originalData.warranty_days !== undefined && originalData.warranty_days !== null ? originalData.warranty_days : 0,
+                battery_health_percent: originalData.battery_health_percent !== undefined && originalData.battery_health_percent !== null ? originalData.battery_health_percent : null,
+                dual_sim: originalData.dual_sim ? true : false,
+                has_5g: originalData.has_5g ? true : false,
+                has_esim: originalData.has_esim ? true : false,
+                model_tier: originalData.model_tier !== undefined ? originalData.model_tier : 3,
+                brand_tier: originalData.brand_tier !== undefined ? originalData.brand_tier : 2,
+                phone_age_years: originalData.phone_age_years !== undefined ? originalData.phone_age_years : 3.0,
+                is_flagship: originalData.is_flagship !== undefined ? originalData.is_flagship : 0
+            };
+        } else if (cat === 'vehicle') {
             const vType = originalData.vehicle_type || 'cars';
             
             if (vType === 'suvs') {
@@ -614,6 +679,10 @@
                         price: d.listed_price ? String(d.listed_price) : "",
                         brand: d.brand || "",
                         model: d.model || "",
+                        storage: d.storage_gb ? String(d.storage_gb) : "",
+                        ram: d.ram_gb ? String(d.ram_gb) : "",
+                        phone_type: d.phone_type || "android",
+                        warranty_days: d.warranty_days || 0,
                         vram: d.vram_gb ? String(d.vram_gb) : "",
                         category: extraction ? extraction.category : "gpu",
                         valid: extraction ? extraction.valid : false,

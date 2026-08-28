@@ -631,11 +631,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (cat === 'mobile') {
             if (data.brand) document.getElementById('mobileBrandInput').value = data.brand;
             if (data.model) document.getElementById('mobileModelInput').value = data.model;
-            const text = ((data.title || "")).toLowerCase();
-            if (text.includes("iphone") || text.includes("apple")) {
-                document.getElementById('mobileTypeSelect').value = "iphone";
+            if (data.storage) document.getElementById('mobileStorageInput').value = data.storage;
+            if (data.ram) document.getElementById('mobileRamInput').value = data.ram;
+            if (data.warranty_days !== undefined) document.getElementById('mobileWarrantyInput').value = data.warranty_days;
+            if (data.phone_type) {
+                document.getElementById('mobileTypeSelect').value = data.phone_type;
             } else {
-                document.getElementById('mobileTypeSelect').value = "android";
+                const text = ((data.title || "") + " " + (data.brand || "")).toLowerCase();
+                document.getElementById('mobileTypeSelect').value = (text.includes("iphone") || text.includes("apple")) ? "iphone" : "android";
             }
         } else if (cat === 'vehicle') {
             const make = data.make || data.brand || "";
