@@ -1,7 +1,7 @@
 /**
  * FairPriceLK - GPU Category Extractor
  * Provides high-precision parsing of GPU listings from marketplace pages (Ikman, etc.)
- * Strictly matches canonical GPU models and checks required fields.
+ * Only accepts one exact canonical model from the listing title or model field.
  */
 
 window.FairPriceLK_Extractors = window.FairPriceLK_Extractors || {};
@@ -33,27 +33,6 @@ window.FairPriceLK_Extractors.gpu = (function () {
         "GAINWARD", "XFX", "MANLI", "LEADTEK", "NVIDIA", "AMD", "INTEL"
     ];
 
-    const MODEL_ALIASES = {
-        "GTX 1080 SUPER": "GTX 1080",
-        "GTX 2060": "RTX 2060",
-        "GTX 3060 TI": "RTX 3060 TI",
-        "RX 2070": "RTX 2070",
-        "RTX3060": "RTX 3060",
-        "RTX3070": "RTX 3070",
-        "RTX3080": "RTX 3080",
-        "RTX4060": "RTX 4060",
-        "RTX4070": "RTX 4070",
-        "RTX4080": "RTX 4080",
-        "RTX4090": "RTX 4090",
-        "GTX1660": "GTX 1660",
-        "GTX1650": "GTX 1650",
-        "GTX1050TI": "GTX 1050 TI",
-        "GTX750TI": "GTX 750 TI",
-        "RX580": "RX 580",
-        "RX570": "RX 570",
-        "RX6600": "RX 6600"
-    };
-
     function normalizeText(text) {
         if (!text) return "";
         let clean = String(text).toUpperCase().replace(/[-_]/g, " ").replace(/\s+/g, " ").trim();
@@ -63,39 +42,35 @@ window.FairPriceLK_Extractors.gpu = (function () {
         clean = clean.replace(/\bAMD\b/g, " ");
         clean = clean.replace(/\bINTEL\s+ARC\b/g, "ARC");
         // Separate prefix from numbers e.g. RTX3060 -> RTX 3060, RX580 -> RX 580
-        clean = clean.replace(/\b(RTX|GTX|RX|GT|GTS|ARC|HD|R9|R7)\s*(\d{3,4})\b/g, "$1 $2");
+        clean = clean.replace(/\b(RTX|GTX|RX|GT|GTS|ARC|HD|R9|R7)\s*(\d{3,4})(?=\s*(?:XTX|SUPER|TI|XT)?\b)/g, "$1 $2");
         // Normalize suffix spacing e.g. 3060TI -> 3060 TI
         clean = clean.replace(/\b(\d{3,4})\s*(TI|XT|XTX|SUPER)\b/g, "$1 $2");
         clean = clean.replace(/\s+/g, " ").trim();
         return clean;
     }
 
-    function extractModel(combinedText) {
+    function extractModelCandidates(combinedText) {
         if (!combinedText) return null;
         const rawNormalized = normalizeText(combinedText);
         const padded = ` ${rawNormalized} `;
 
-        // 1. Check alias mapping first (sorted by length descending)
-        const sortedAliases = Object.keys(MODEL_ALIASES).sort((a, b) => normalizeText(b).length - normalizeText(a).length);
-        for (const alias of sortedAliases) {
-            const normAlias = normalizeText(alias);
-            const regex = new RegExp(`(?:^|\\s)${normAlias.replace(/\s+/g, '\\s+')}(?=\\s|$)`, 'i');
-            if (regex.test(padded)) {
-                return MODEL_ALIASES[alias];
-            }
-        }
-
-        // 2. Match canonical models (sorted by normalized length descending so "RTX 3060 TI" > "RTX 3060")
-        const sortedModels = [...CANONICAL_MODELS].sort((a, b) => normalizeText(b).length - normalizeText(a).length);
-        for (const model of sortedModels) {
+        const matches = [];
+        for (const model of CANONICAL_MODELS) {
             const normModel = normalizeText(model);
             const regex = new RegExp(`(?:^|\\s)${normModel.replace(/\s+/g, '\\s+')}(?=\\s|$)`, 'i');
             if (regex.test(padded)) {
-                return model;
+                matches.push(model);
             }
         }
+        return matches.filter(candidate => {
+            const normalizedCandidate = normalizeText(candidate);
+            return !matches.some(other => other !== candidate && normalizeText(other).startsWith(`${normalizedCandidate} `));
+        });
+    }
 
-        return null;
+    function extractModel(combinedText) {
+        const matches = extractModelCandidates(combinedText);
+        return matches && matches.length === 1 ? matches[0] : null;
     }
 
     function extractVram(combinedText, matchedModel) {
@@ -173,16 +148,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
 
     function parse(pageContext) {
         const { title = "", price = null, raw_text = "", key_values = {} } = pageContext;
-        const searchScope = `${title} ${key_values.brand || ""} ${key_values.model || ""} ${raw_text}`;
-
-        const model = extractModel(`${title} ${key_values.model || ""}`) || extractModel(searchScope);
-        const vram = extractVram(`${title} ${key_values.vram || ""}`, model) || extractVram(searchScope, model);
+        const modelSource = `${title} ${key_values.model || ""}`;
+        const modelCandidates = extractModelCandidates(modelSource) || [];
+        const model = modelCandidates.length === 1 ? modelCandidates[0] : null;
+        const vram = extractVram(`${title} ${key_values.vram || ""}`, model) || extractVram(raw_text, model);
         const brand = extractBrand(`${title} ${key_values.brand || ""}`, key_values);
         const manufacturer = extractManufacturer(model, brand);
 
         // Validation for 100% precision guarantee
         const missingFields = [];
-        if (!model) missingFields.push("GPU Model");
+        if (!model) missingFields.push(modelCandidates.length > 1 ? "One GPU Model (multiple found)" : "GPU Model");
         if (!vram) missingFields.push("VRAM (GB)");
         if (!price || isNaN(price) || price <= 0) missingFields.push("Listing Price");
 
@@ -192,7 +167,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
             category: "gpu",
             valid: isValid,
             missing_fields: missingFields,
-            error_message: isValid ? null : `Could not auto-extract 100% of GPU specifications: Missing [${missingFields.join(", ")}]. Please enter manually.`,
+            error_message: isValid ? null : `Could not safely identify one exact GPU model: Missing [${missingFields.join(", ")}]. Please select the model manually.`,
+            manual_selection_required: !model,
+            detected_models: modelCandidates,
             data: {
                 title: title,
                 model: model || "",

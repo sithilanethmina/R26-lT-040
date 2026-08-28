@@ -39,7 +39,7 @@ DATA_DIR = ROOT / "data" / "final"
 
 LISTING_V1 = DATA_DIR / "training_data_v1.json"
 LISTING_V2 = DATA_DIR / "training_data_v2.json"
-LISTING_V3 = DATA_DIR / "training_data_v3.json"
+# LISTING_V3 = DATA_DIR / "training_data_v3.json"
 BENCHMARKS_CSV = DATA_DIR / "GPU_benchmarks_v7.csv"
 SPECS_CSV = DATA_DIR / "gpu_1986-2026.csv"
 OUTPUT_CSV = DATA_DIR / "gpu_enriched_dataset.csv"
@@ -227,8 +227,8 @@ def load_listings() -> pd.DataFrame:
     print("Step 1: Loading market listings ...")
     v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8"))) if LISTING_V1.exists() else pd.DataFrame()
     v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8"))) if LISTING_V2.exists() else pd.DataFrame()
-    v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
-    df = pd.concat([v1, v2, v3], ignore_index=True)
+    # v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
+    df = pd.concat([v1, v2], ignore_index=True)
 
     # Normalise column names
     df.rename(columns={
