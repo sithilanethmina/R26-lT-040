@@ -45,7 +45,7 @@ USER_AGENT = (
 )
 
 INITIAL_DATA_PATTERN = re.compile(r"window\.initialData\s*=\s*(\{.*?\})\s*</script>", re.DOTALL)
-MOBILE_PHONE_CATEGORY_NAMES = {"mobile phones"}
+MOBILE_PHONE_CATEGORY_NAMES = {"mobile phones", "mobiles", "phones"}
 INCREMENTAL_SAVE_INTERVAL = 25  # Save progress every N detail pages
 KNOWN_STORAGE_GB_VALUES = {8, 16, 32, 64, 128, 256, 512, 1024, 2048}
 WORD_NUMBERS = {
@@ -765,15 +765,38 @@ def scrape_ikman_records(
     detail_limit: Optional[int] = None,
     output_path: Optional[Path] = None,
     urls_file: Optional[Path] = DEFAULT_URLS_FILE,
+    skip_existing: bool = True,
+    queries: Optional[list[str]] = None,
 ) -> tuple[list[dict[str, Any]], ScrapeStats]:
-    detail_urls, search_stats = collect_listing_urls(
-        listings_url=listings_url,
-        pages=pages,
-        delay_seconds=delay_seconds,
-        timeout=timeout,
-        retries=retries,
-        urls_file=urls_file,
-    )
+    if queries:
+        all_detail_urls: list[str] = []
+        combined_stats = ScrapeStats()
+        for q in queries:
+            query_url = f"https://ikman.lk/en/ads/sri-lanka/mobile-phones?sort=relevance&buy_now=0&urgent=0&query={urlencode({'q': q})[2:]}&enum.condition=used"
+            logging.info("--- Collecting URLs for query: %s ---", q)
+            q_urls, q_stats = collect_listing_urls(
+                listings_url=query_url,
+                pages=pages,
+                delay_seconds=delay_seconds,
+                timeout=timeout,
+                retries=retries,
+                urls_file=urls_file,
+            )
+            all_detail_urls.extend(q_urls)
+            combined_stats.search_pages_read += q_stats.search_pages_read
+            combined_stats.listing_urls_found += q_stats.listing_urls_found
+        detail_urls = dedupe_preserve_order(all_detail_urls)
+        search_stats = combined_stats
+        search_stats.unique_listing_urls = len(detail_urls)
+    else:
+        detail_urls, search_stats = collect_listing_urls(
+            listings_url=listings_url,
+            pages=pages,
+            delay_seconds=delay_seconds,
+            timeout=timeout,
+            retries=retries,
+            urls_file=urls_file,
+        )
     logging.info(
         "Search phase complete. Found %s unique listing URLs from %s search pages.",
         f"{len(detail_urls):,}", search_stats.search_pages_read,
@@ -786,6 +809,7 @@ def scrape_ikman_records(
         retries=retries,
         detail_limit=detail_limit,
         output_path=output_path,
+        skip_existing=skip_existing,
     )
     detail_stats.search_pages_read = search_stats.search_pages_read
     detail_stats.listing_urls_found = search_stats.listing_urls_found
@@ -926,6 +950,8 @@ def parse_args() -> argparse.Namespace:
         description="Scrape Ikman mobile-phone ads, update the raw dataset, and retrain models.",
     )
     parser.add_argument("--url", default=DEFAULT_LISTINGS_URL, help="Ikman listings URL to scrape.")
+    parser.add_argument("--query", default=None, help="Single query keyword to search (e.g. 'iPhone 17').")
+    parser.add_argument("--queries", nargs="+", default=None, help="Multiple search query keywords to search sequentially.")
     parser.add_argument(
         "--pages", type=int, default=0,
         help="Number of search pages to scrape. Use 0 (default) to auto-detect and scrape ALL pages.",
@@ -939,6 +965,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--urls-file", type=Path, default=DEFAULT_URLS_FILE, help="Path to JSON file storing collected listing URLs.")
     parser.add_argument("--collect-urls-only", action="store_true", help="Only scan search pages and save listing URLs to --urls-file; do not scrape details.")
     parser.add_argument("--scrape-from-urls", action="store_true", help="Read listing URLs from --urls-file and scrape ad details directly.")
+    parser.add_argument("--no-skip-existing", action="store_true", help="Do not skip URLs that already exist in the output dataset.")
     parser.add_argument("--skip-train", action="store_true", help="Only scrape and merge; do not retrain.")
     parser.add_argument("--dry-run", action="store_true", help="Scrape and report stats without writing or training.")
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging.")
@@ -957,18 +984,46 @@ def main() -> None:
         raise ValueError("--detail-limit must be at least 1 when provided")
 
     effective_output = None if args.dry_run else args.output
+    skip_existing = not args.no_skip_existing
+
+    queries = None
+    if args.queries:
+        queries = args.queries
+    elif args.query:
+        queries = [args.query]
 
     # Mode 1: Collect URLs only and stop
     if args.collect_urls_only:
         logging.info("Running in --collect-urls-only mode. URLs will be saved to: %s", args.urls_file)
-        urls, search_stats = collect_listing_urls(
-            listings_url=args.url,
-            pages=args.pages,
-            delay_seconds=max(0.0, args.delay),
-            timeout=args.timeout,
-            retries=max(0, args.retries),
-            urls_file=args.urls_file,
-        )
+        if queries:
+            all_urls = []
+            combined_stats = ScrapeStats()
+            for q in queries:
+                q_url = f"https://ikman.lk/en/ads/sri-lanka/mobile-phones?sort=relevance&buy_now=0&urgent=0&query={urlencode({'q': q})[2:]}&enum.condition=used"
+                logging.info("Collecting URLs for: %s", q)
+                urls, s_stats = collect_listing_urls(
+                    listings_url=q_url,
+                    pages=args.pages,
+                    delay_seconds=max(0.0, args.delay),
+                    timeout=args.timeout,
+                    retries=max(0, args.retries),
+                    urls_file=args.urls_file,
+                )
+                all_urls.extend(urls)
+                combined_stats.search_pages_read += s_stats.search_pages_read
+                combined_stats.listing_urls_found += s_stats.listing_urls_found
+            urls = dedupe_preserve_order(all_urls)
+            save_urls_file(args.urls_file, urls)
+            search_stats = combined_stats
+        else:
+            urls, search_stats = collect_listing_urls(
+                listings_url=args.url,
+                pages=args.pages,
+                delay_seconds=max(0.0, args.delay),
+                timeout=args.timeout,
+                retries=max(0, args.retries),
+                urls_file=args.urls_file,
+            )
         logging.info(
             "URL collection finished: %s unique listing URLs saved to %s across %s search pages.",
             f"{len(urls):,}", args.urls_file, search_stats.search_pages_read,
@@ -988,6 +1043,7 @@ def main() -> None:
             retries=max(0, args.retries),
             detail_limit=args.detail_limit,
             output_path=effective_output,
+            skip_existing=skip_existing,
         )
     else:
         # Standard mode: Collect URLs and scrape details
@@ -1000,6 +1056,8 @@ def main() -> None:
             detail_limit=args.detail_limit,
             output_path=effective_output,
             urls_file=args.urls_file,
+            skip_existing=skip_existing,
+            queries=queries,
         )
 
     existing_records = load_json_records(args.output)
@@ -1041,3 +1099,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
