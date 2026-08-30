@@ -22,8 +22,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "Countryman",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper Countryman 2015 Car",
         "model_year": 2015,
         "manufacture_year": 2014,
@@ -42,8 +42,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "Clubman",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper Clubman 2017 Car",
         "model_year": 2017,
         "manufacture_year": 2016,
@@ -82,8 +82,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "Countryman",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper Countryman 2014 Car",
         "model_year": 2014,
         "manufacture_year": 2013,
@@ -102,7 +102,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1960 Car",
         "model_year": 1960,
@@ -122,7 +122,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2016 Car",
         "model_year": 2016,
@@ -142,7 +142,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1973 Car",
         "model_year": 1973,
@@ -162,8 +162,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "F56",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper F56 2014 Car",
         "model_year": 2014,
         "manufacture_year": 2013,
@@ -202,7 +202,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1992 Car",
         "model_year": 1992,
@@ -222,8 +222,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "EFI",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper EFI 1991 Car",
         "model_year": 1991,
         "manufacture_year": 1990,
@@ -242,7 +242,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1972 Car",
         "model_year": 1972,
@@ -262,7 +262,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2017 Car",
         "model_year": 2017,
@@ -282,7 +282,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1960 Car",
         "model_year": 1960,
@@ -302,7 +302,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2017 Car",
         "model_year": 2017,
@@ -322,7 +322,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1969 Car",
         "model_year": 1969,
@@ -342,8 +342,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "S Grade",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper S Grade 2017 Car",
         "model_year": 2017,
         "manufacture_year": 2016,
@@ -362,7 +362,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2014 Car",
         "model_year": 2014,
@@ -382,7 +382,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2015 Car",
         "model_year": 2015,
@@ -402,7 +402,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2017 Car",
         "model_year": 2017,
@@ -442,7 +442,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2018 Car",
         "model_year": 2018,
@@ -462,8 +462,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "Cabriolet",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper Cabriolet 2017 Car",
         "model_year": 2017,
         "manufacture_year": 2016,
@@ -482,7 +482,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1978 Car",
         "model_year": 1978,
@@ -502,7 +502,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1980 Car",
         "model_year": 1980,
@@ -542,7 +542,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1980 Car",
         "model_year": 1980,
@@ -562,7 +562,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1960 Car",
         "model_year": 1960,
@@ -602,7 +602,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1972 Car",
         "model_year": 1972,
@@ -622,7 +622,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1968 Car",
         "model_year": 1968,
@@ -642,7 +642,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1985 Car",
         "model_year": 1985,
@@ -682,7 +682,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 2000 Car",
         "model_year": 2000,
@@ -722,7 +722,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1970 Car",
         "model_year": 1970,
@@ -762,8 +762,8 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
-        "variant": "JCW",
+        "model": "Mini Cooper",
+        "variant": "",
         "title_raw": "Mini Cooper JCW 2013 Car",
         "model_year": 2013,
         "manufacture_year": 2012,
@@ -782,7 +782,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1971 Car",
         "model_year": 1971,
@@ -802,7 +802,7 @@
     {
         "brand": "Mini",
         "vehicle_type": "Car",
-        "model": "Cooper",
+        "model": "Mini Cooper",
         "variant": "",
         "title_raw": "Mini Cooper 1964 Car",
         "model_year": 1964,

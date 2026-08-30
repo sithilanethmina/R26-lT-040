@@ -54,13 +54,12 @@ Land-Rover,2008,8,24225000,2008,2008,Diesel,2625,Low — insufficient SUV market
 Land-Rover,Range Rover,6,65416667,2018,2019,Hybrid,2000,Low — insufficient SUV market data
 Land-Rover,Discovery 4S,4,32250000,2014,2014,Diesel,3000,Low — insufficient SUV market data
 Land-Rover,Land,2,19000000,1990,1990,Diesel,2500,Low — insufficient SUV market data
-MG,ZS,123,9178488,2018,2026,Petrol,1012,High
-MG,Zs,6,8587500,2018,2019,Petrol,1082,Low — insufficient SUV market data
+MG,ZS,131,9092569,2018,2026,Petrol,1015,High
 MG,ZX,2,8287500,2018,2018,Petrol,1000,Low — insufficient SUV market data
 Mahindra,KUV 100,58,5809397,2020,2025,Petrol,1193,High
 Mahindra,Scorpio,5,3553000,2003,2003,Diesel,2582,Low — insufficient SUV market data
 Mahindra,Kuv,2,5420000,2021,2021,Petrol,1200,Low — insufficient SUV market data
-Mahindra,Montero,2,10275000,2001,2001,Petrol,3500,Low — insufficient SUV market data
+Mahindra,Montero 3rd gen,2,10275000,2001,2001,Petrol,3500,Low — insufficient SUV market data
 Micro,Rexton,119,9461345,2007,2018,Diesel,2410,High
 Micro,Kyron,88,5480057,2007,2011,Diesel,2032,High
 Micro,Korando,29,7721724,2011,2016,Diesel,2006,Medium
@@ -68,22 +67,22 @@ Micro,Tivoli,29,7450172,2015,2018,Petrol,1603,Medium
 Micro,Actyon,16,5119375,2008,2012,Diesel,1991,Medium
 Micro,2008,2,4295000,2008,2008,Diesel,2400,Low — insufficient SUV market data
 Micro,Almaz,2,12850000,2022,2022,Petrol,1500,Low — insufficient SUV market data
-Mitsubishi,Montero,212,16862925,1998,2017,Diesel,3074,High
-Mitsubishi,Outlander,147,12866376,2003,2025,Hybrid,2065,High
-Mitsubishi,Pajero,85,7936882,1990,2013,Diesel,2454,High
-Mitsubishi,Montero Sport,68,14044191,2011,2012,Diesel,2506,High
+Mitsubishi,Outlander,151,12873823,2003,2025,Hybrid,2063,High
+Mitsubishi,Montero 4th gen,119,20836723,2007,2017,Diesel,3034,High
+Mitsubishi,Montero 3rd gen,104,12209327,1998,2006,Petrol,3098,High
+Mitsubishi,Pajero,78,7974103,1990,2013,Diesel,2484,High
+Mitsubishi,Montero Sport,72,13818125,2008,2012,Diesel,2491,High
 Mitsubishi,Eclipse Cross,56,14272321,2018,2025,Petrol,1500,High
-Mitsubishi,Pajero IO,23,5493478,1999,2005,Petrol,1925,Medium
+Mitsubishi,Pajero Io,28,5575179,1999,2005,Petrol,1901,Medium
 Mitsubishi,Xpander,16,13005938,2018,2020,Petrol,1499,Medium
-Mitsubishi,2008,13,12457692,2008,2008,Diesel,2625,Low — insufficient SUV market data
 Mitsubishi,ASX,5,10620000,2014,2014,Petrol,2000,Low — insufficient SUV market data
 Mitsubishi,Pajero Mini,3,3831667,1996,1996,Petrol,1090,Low — insufficient SUV market data
 Mitsubishi,Unknown,3,5993333,2001,2001,Petrol,2610,Low — insufficient SUV market data
+Mitsubishi,2008,2,8900000,2008,2008,Diesel,2675,Low — insufficient SUV market data
 Mitsubishi,4DR5,2,2675000,1991,1991,Diesel,3500,Low — insufficient SUV market data
 Mitsubishi,Airtrek,2,6490000,2007,2007,Petrol,2000,Low — insufficient SUV market data
-Mitsubishi,MONTERO,2,21000000,2013,2013,Diesel,2350,Low — insufficient SUV market data
 Nissan,X-Trail,224,9735714,2000,2026,Petrol,2015,High
-Nissan,Magnite,92,8814674,2025,2026,Petrol,1005,High
+Nissan,Magnite,91,8823626,2025,2026,Petrol,1005,High
 Nissan,Juke,19,8480789,2010,2020,Petrol,1341,Medium
 Nissan,Patrol,17,26776471,2001,2015,Diesel,3484,Medium
 Nissan,Qashqai,17,11126176,2011,2019,Petrol,1270,Medium
