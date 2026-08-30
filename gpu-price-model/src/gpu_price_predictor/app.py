@@ -1364,6 +1364,134 @@ def main():
                     "Prediction requires hardware specs — check the GPU name spelling."
                 )
 
+    # ── GPU Model Distribution & Market Analysis ─────────────────────────────
+    st.divider()
+    st.markdown('<div class="section-label">GPU Model Distribution & Market Intelligence</div>', unsafe_allow_html=True)
+
+    if enriched is not None:
+        model_col_main = _get_model_col(enriched)
+        
+        # 1. Market-wide Model Volume Distribution
+        m_counts = enriched[model_col_main].value_counts()
+        total_recs = len(enriched)
+
+        dist_c1, dist_c2 = st.columns(2)
+        with dist_c1:
+            st.markdown("<div class='section-label'>Top 15 Most Listed GPU Models</div>", unsafe_allow_html=True)
+            top_15_models = m_counts.head(15)
+            st.bar_chart(top_15_models)
+            st.caption(f"Top 15 models account for **{top_15_models.sum():,}** listings ({top_15_models.sum()/total_recs*100:.1f}% of total dataset).")
+
+        with dist_c2:
+            st.markdown("<div class='section-label'>Market Share by GPU Series / Family</div>", unsafe_allow_html=True)
+            if "series_family" in enriched.columns:
+                series_counts = enriched["series_family"].value_counts().head(10)
+                st.bar_chart(series_counts)
+                st.caption("Distribution across major series families (RTX, GTX, RX, GT, ARC, etc.).")
+            elif "tier_class" in enriched.columns:
+                tier_counts = enriched["tier_class"].value_counts()
+                st.bar_chart(tier_counts)
+                st.caption("Distribution across performance tiers.")
+
+        # 2. Individual GPU Model Distribution Deep-Dive
+        st.markdown("##### 🔍 Inspect Individual GPU Model Distribution")
+        sel_dist_model = st.selectbox(
+            "Select GPU Model to View Market Price & VRAM Distribution",
+            options=sorted(enriched[model_col_main].dropna().unique().tolist()),
+            index=0,
+            key="sel_gpu_model_dist",
+            help="Select any GPU model to inspect its exact price distribution, VRAM variants, and brand market share."
+        )
+
+        if sel_dist_model:
+            model_subset = enriched[enriched[model_col_main] == sel_dist_model]
+            m_prices = model_subset["price_lkr"].dropna()
+            m_vrams = model_subset["vram_gb"].dropna()
+            m_brands = model_subset["brand"].dropna() if "brand" in model_subset.columns else pd.Series(dtype=object)
+
+            # Metric Cards
+            dm1, dm2, dm3, dm4, dm5 = st.columns(5)
+            with dm1:
+                st.metric("Total Listings", f"{len(model_subset):,}", f"{len(model_subset)/total_recs*100:.1f}% of market")
+            with dm2:
+                st.metric("Median Resale Price", f"LKR {m_prices.median():,.0f}" if not m_prices.empty else "—")
+            with dm3:
+                min_p = m_prices.min() if not m_prices.empty else 0
+                max_p = m_prices.max() if not m_prices.empty else 0
+                st.metric("Price Range", f"LKR {min_p:,.0f} – {max_p:,.0f}")
+            with dm4:
+                std_p = m_prices.std() if len(m_prices) > 1 else 0
+                st.metric("Std Deviation", f"LKR {std_p:,.0f}")
+            with dm5:
+                typ_vram = m_vrams.median() if not m_vrams.empty else 0
+                st.metric("Typical VRAM", f"{typ_vram:.0f} GB" if typ_vram > 0 else "—")
+
+            # Charts for selected model
+            mc_col1, mc_col2 = st.columns(2)
+            with mc_col1:
+                st.markdown(f"<div class='section-label'>Price Distribution for {sel_dist_model}</div>", unsafe_allow_html=True)
+                if m_prices.nunique() > 1:
+                    n_bins = min(10, max(3, int(np.ceil(np.sqrt(len(m_prices))))))
+                    bin_edges = np.linspace(m_prices.min(), m_prices.max(), n_bins + 1)
+                    price_bands = pd.cut(m_prices, bins=bin_edges, include_lowest=True)
+                    dist_series = price_bands.value_counts(sort=False)
+                    dist_series.index = [f"Rs. {b.left:,.0f} - {b.right:,.0f}" for b in dist_series.index]
+                    st.bar_chart(dist_series.rename("Listings"))
+                    st.caption("Distribution of asking prices across market brackets.")
+                else:
+                    st.info(f"Fixed price point in dataset: LKR {m_prices.iloc[0]:,.0f} ({len(model_subset)} listings).")
+
+            with mc_col2:
+                st.markdown(f"<div class='section-label'>Brand & VRAM Breakdown for {sel_dist_model}</div>", unsafe_allow_html=True)
+                if not m_brands.empty and m_brands.nunique() > 1:
+                    st.bar_chart(m_brands.value_counts().head(6).rename("Listings by Brand"))
+                elif not m_vrams.empty and m_vrams.nunique() > 1:
+                    st.bar_chart(m_vrams.value_counts().rename("Listings by VRAM"))
+                elif not m_brands.empty:
+                    st.info(f"Primary Brand in dataset: **{m_brands.iloc[0]}** ({len(model_subset)} listings)")
+
+            with st.expander(f"View all {len(model_subset)} market listings for {sel_dist_model}"):
+                sub_cols = [c for c in [model_col_main, "brand", "vram_gb", "price_lkr", "G3Dmark", "gpu_age_years", "architecture"] if c in model_subset.columns]
+                st.dataframe(
+                    model_subset[sub_cols].sort_values("price_lkr").reset_index(drop=True),
+                    width="stretch",
+                    column_config={
+                        "price_lkr": st.column_config.NumberColumn("Price (LKR)", format="LKR %,d"),
+                        "vram_gb": st.column_config.NumberColumn("VRAM (GB)", format="%.1f GB"),
+                    }
+                )
+
+        # 3. Complete Model Distribution Master Table
+        with st.expander("📊 Complete Model-by-Model Distribution Summary Table"):
+            summary_records = []
+            for m_name, grp in enriched.groupby(model_col_main):
+                p_col = grp["price_lkr"].dropna()
+                v_col = grp["vram_gb"].dropna()
+                b_list = grp["brand"].dropna().value_counts().head(3).index.tolist() if "brand" in grp.columns else []
+                summary_records.append({
+                    "GPU Model": m_name,
+                    "Listings": len(grp),
+                    "Market Share %": round(len(grp) / total_recs * 100, 2),
+                    "Median Price (LKR)": int(p_col.median()) if not p_col.empty else 0,
+                    "Min Price (LKR)": int(p_col.min()) if not p_col.empty else 0,
+                    "Max Price (LKR)": int(p_col.max()) if not p_col.empty else 0,
+                    "Std Dev (LKR)": int(p_col.std()) if len(p_col) > 1 else 0,
+                    "Typical VRAM": f"{v_col.median():.0f} GB" if not v_col.empty else "—",
+                    "Top Brands": ", ".join(b_list) if b_list else "Any",
+                })
+            sum_df = pd.DataFrame(summary_records).sort_values("Listings", ascending=False).reset_index(drop=True)
+            st.dataframe(
+                sum_df,
+                width="stretch",
+                column_config={
+                    "Median Price (LKR)": st.column_config.NumberColumn("Median Price (LKR)", format="LKR %,d"),
+                    "Min Price (LKR)": st.column_config.NumberColumn("Min Price (LKR)", format="LKR %,d"),
+                    "Max Price (LKR)": st.column_config.NumberColumn("Max Price (LKR)", format="LKR %,d"),
+                    "Std Dev (LKR)": st.column_config.NumberColumn("Std Dev (LKR)", format="LKR %,d"),
+                    "Market Share %": st.column_config.NumberColumn("Market Share", format="%.2f%%"),
+                }
+            )
+
     # ── Used Dataset Records by Model Inspector ───────────────────────────────
     st.divider()
     st.markdown('<div class="section-label">Used dataset records per model</div>', unsafe_allow_html=True)
