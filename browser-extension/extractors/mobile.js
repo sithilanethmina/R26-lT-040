@@ -44,7 +44,10 @@ window.FairPriceLK_Extractors.mobile = (function () {
         "iphone 13": 4, "iphone 13 mini": 4, "iphone 13 pro": 6, "iphone 13 pro max": 6,
         "iphone 14": 6, "iphone 14 plus": 6, "iphone 14 pro": 6, "iphone 14 pro max": 6,
         "iphone 15": 6, "iphone 15 plus": 6, "iphone 15 pro": 8, "iphone 15 pro max": 8,
-        "iphone 16": 8, "iphone 16 plus": 8, "iphone 16 pro": 8, "iphone 16 pro max": 8
+        "iphone 16": 8, "iphone 16 plus": 8, "iphone 16 pro": 8, "iphone 16 pro max": 8,
+        "iphone 16e": 8,
+        "iphone 17": 8, "iphone 17 air": 12, "iphone air": 12,
+        "iphone 17 pro": 12, "iphone 17 pro max": 12, "iphone 17e": 8
     };
 
     // ── iPhone release years (for phone_age_years) ───────────────────────────
@@ -58,7 +61,10 @@ window.FairPriceLK_Extractors.mobile = (function () {
         "iphone 13": 2021, "iphone 13 mini": 2021, "iphone 13 pro": 2021, "iphone 13 pro max": 2021,
         "iphone 14": 2022, "iphone 14 plus": 2022, "iphone 14 pro": 2022, "iphone 14 pro max": 2022,
         "iphone 15": 2023, "iphone 15 plus": 2023, "iphone 15 pro": 2023, "iphone 15 pro max": 2023,
-        "iphone 16": 2024, "iphone 16 plus": 2024, "iphone 16 pro": 2024, "iphone 16 pro max": 2024
+        "iphone 16": 2024, "iphone 16 plus": 2024, "iphone 16 pro": 2024, "iphone 16 pro max": 2024,
+        "iphone 16e": 2025,
+        "iphone 17": 2025, "iphone 17 air": 2025, "iphone air": 2025,
+        "iphone 17 pro": 2025, "iphone 17 pro max": 2025, "iphone 17e": 2025
     };
 
     // ── iPhone model tier (1–10 scale) ───────────────────────────────────────
@@ -72,7 +78,10 @@ window.FairPriceLK_Extractors.mobile = (function () {
         "iphone 13": 7, "iphone 13 mini": 7, "iphone 13 pro": 8, "iphone 13 pro max": 9,
         "iphone 14": 7, "iphone 14 plus": 7, "iphone 14 pro": 9, "iphone 14 pro max": 10,
         "iphone 15": 8, "iphone 15 plus": 8, "iphone 15 pro": 9, "iphone 15 pro max": 10,
-        "iphone 16": 8, "iphone 16 plus": 8, "iphone 16 pro": 10, "iphone 16 pro max": 10
+        "iphone 16": 8, "iphone 16 plus": 8, "iphone 16 pro": 10, "iphone 16 pro max": 10,
+        "iphone 16e": 7,
+        "iphone 17": 9, "iphone 17 air": 9, "iphone air": 9,
+        "iphone 17 pro": 10, "iphone 17 pro max": 10, "iphone 17e": 8
     };
 
     // ── Android model tier patterns → (regex, tier, isFlagship) ──────────────
@@ -143,7 +152,9 @@ window.FairPriceLK_Extractors.mobile = (function () {
         "iphone 14": true, "iphone 14 plus": true, "iphone 14 pro": true, "iphone 14 pro max": true,
         "iphone 15": true, "iphone 15 plus": true, "iphone 15 pro": true, "iphone 15 pro max": true,
         "iphone 16": true, "iphone 16 plus": true, "iphone 16 pro": true, "iphone 16 pro max": true,
-        "iphone se 3": true
+        "iphone se 3": true, "iphone 16e": true,
+        "iphone 17": true, "iphone 17 air": true, "iphone air": true,
+        "iphone 17 pro": true, "iphone 17 pro max": true, "iphone 17e": true
     };
     const IPHONE_ESIM_SUPPORT = {
         "iphone xs": true, "iphone xs max": true, "iphone xr": true,
@@ -153,7 +164,10 @@ window.FairPriceLK_Extractors.mobile = (function () {
         "iphone 13": true, "iphone 13 mini": true, "iphone 13 pro": true, "iphone 13 pro max": true,
         "iphone 14": true, "iphone 14 plus": true, "iphone 14 pro": true, "iphone 14 pro max": true,
         "iphone 15": true, "iphone 15 plus": true, "iphone 15 pro": true, "iphone 15 pro max": true,
-        "iphone 16": true, "iphone 16 plus": true, "iphone 16 pro": true, "iphone 16 pro max": true
+        "iphone 16": true, "iphone 16 plus": true, "iphone 16 pro": true, "iphone 16 pro max": true,
+        "iphone 16e": true,
+        "iphone 17": true, "iphone 17 air": true, "iphone air": true,
+        "iphone 17 pro": true, "iphone 17 pro max": true, "iphone 17e": true
     };
 
     // ── DOM Scraping Helpers ─────────────────────────────────────────────────
@@ -177,7 +191,8 @@ window.FairPriceLK_Extractors.mobile = (function () {
             dual_sim: null,
             has_esim: null,
             operating_system: null,
-            network: null
+            network: null,
+            battery_health: null
         };
 
         try {
@@ -227,6 +242,9 @@ window.FairPriceLK_Extractors.mobile = (function () {
                                                                              result.storage = value;
                     else if (label === 'RAM' || label.includes('RAM'))       result.ram = value;
                     else if (label.includes('WARRANTY'))                     result.warranty = value;
+                    else if (label.includes('BATTERY') && (label.includes('HEALTH') || label.includes('CONDITION')))
+                                                                             result.battery_health = value;
+                    else if (label === 'BATTERY' || label === 'BH')          result.battery_health = value;
                     else if (label.includes('5G'))                           result.has_5g = value;
                     else if (label.includes('SIM'))                          result.dual_sim = value;
                     else if (label.includes('ESIM'))                         result.has_esim = value;
@@ -249,6 +267,10 @@ window.FairPriceLK_Extractors.mobile = (function () {
                 if (lText.includes('STORAGE')  && !result.storage)   result.storage = vText;
                 if (lText.includes('RAM')      && !result.ram)       result.ram = vText;
                 if (lText.includes('WARRANTY') && !result.warranty)  result.warranty = vText;
+                if ((lText.includes('BATTERY') && (lText.includes('HEALTH') || lText.includes('CONDITION'))) && !result.battery_health)
+                                                                    result.battery_health = vText;
+                if ((lText === 'BATTERY' || lText === 'BH') && !result.battery_health)
+                                                                    result.battery_health = vText;
             });
 
             // 5. Ikman-style adjacent div/span pairs
@@ -268,6 +290,8 @@ window.FairPriceLK_Extractors.mobile = (function () {
                 if ((t === 'storage:' || t === 'internal storage:' || t === 'memory:' || t === 'memory') && nextText && !result.storage)
                                                                                          result.storage = nextText;
                 if ((t === 'ram:' || t === 'ram') && nextText && !result.ram)             result.ram = nextText;
+                if ((t === 'battery health:' || t === 'battery health' || t === 'battery condition:' || t === 'battery condition' || t === 'bh:' || t === 'bh') && nextText && !result.battery_health)
+                                                                                         result.battery_health = nextText;
                 if ((t === 'operating system:' || t === 'operating system' || t === 'os:' || t === 'os') && nextText && !result.operating_system)
                                                                                          result.operating_system = nextText;
                 if ((t === 'network:' || t === 'network') && nextText && !result.network) result.network = nextText;
@@ -541,23 +565,24 @@ window.FairPriceLK_Extractors.mobile = (function () {
         const text = `${title || ''} ${description || ''}`;
         if (!text.trim()) return null;
 
-        // "Battery Health 87%", "BH: 85%", "Battery 92%", "88% battery health"
-        const m1 = text.match(/\b(?:battery\s*health|bh)\s*[:=]?\s*(\d{2,3})\s*%/i);
-        if (m1) {
-            const v = parseFloat(m1[1]);
-            if (v >= 50 && v <= 100) return v;
-        }
+        // Ordered list of patterns — first match wins.
+        // Covers: "Battery Health 87%", "BH: 85%", "Battery 92%", "88% battery health",
+        //         "BH 87", "BH-85", "BH - 85", "battery - 85%", "bat health 92",
+        //         "battery 85", "battary health 90", "btry 88"
+        const patterns = [
+            /\b(?:battery\s*health|bat\s*health|battary\s*health|bh)\s*[:=\-]?\s*(\d{2,3})\s*%/i,
+            /\b(\d{2,3})\s*%\s*(?:battery\s*health|battery|bh)\b/i,
+            /\b(?:battery|battary|btry)\s*[:=\-]?\s*(\d{2,3})\s*%/i,
+            /\b(?:battery\s*health|bat\s*health|battary\s*health|bh)\s*[:=\-]?\s*(\d{2,3})\b/i,
+            /\b(?:battery|battary|btry)\s*[:=\-]?\s*(\d{2,3})(?:\s|$|,|\.|\))/i
+        ];
 
-        const m2 = text.match(/\b(\d{2,3})\s*%\s*(?:battery\s*health|battery|bh)\b/i);
-        if (m2) {
-            const v = parseFloat(m2[1]);
-            if (v >= 50 && v <= 100) return v;
-        }
-
-        const m3 = text.match(/\b(?:battery\s*health|bh)\s*[:=]?\s*(\d{2,3})\b/i);
-        if (m3) {
-            const v = parseFloat(m3[1]);
-            if (v >= 50 && v <= 100) return v;
+        for (const pat of patterns) {
+            const m = text.match(pat);
+            if (m) {
+                const v = parseFloat(m[1]);
+                if (v >= 50 && v <= 100) return v;
+            }
         }
 
         return null;
