@@ -7,3 +7,5 @@ joblib
 fastapi
 uvicorn
 pydantic
+catboost
+lightgbm
