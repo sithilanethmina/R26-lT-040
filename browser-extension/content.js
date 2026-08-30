@@ -37,6 +37,15 @@
   // --- Create UI Elements ---
   function isItemDetailPage() {
     const href = window.location.href.toLowerCase();
+    const hostname = window.location.hostname.toLowerCase();
+
+    // The on-site embedded DOM card is explicitly restricted to ikman.lk and riyasewana.com
+    const isIkman = hostname === "ikman.lk" || hostname.endsWith(".ikman.lk");
+    const isRiyasewana = hostname === "riyasewana.com" || hostname.endsWith(".riyasewana.com");
+
+    if (!isIkman && !isRiyasewana) {
+      return false;
+    }
 
     // 1. Must NOT be an aggregate category or search results listing page
     if (href.includes("/ads/") || href.includes("/ads?")) {
@@ -45,24 +54,27 @@
     }
 
     // 2. Riyasewana.com vehicle listing pages use /buy/<slug> pattern
-    if (href.includes("riyasewana.com/buy/")) {
-      return true;
+    if (isRiyasewana) {
+      return href.includes("/buy/");
     }
 
-    // 3. Must be an individual ad detail page or contain a clear item price + header
-    const hasAdPattern =
-      href.includes("/ad/") ||
-      href.includes("/item/") ||
-      href.includes("/product/") ||
-      href.includes("/view/");
+    // 3. Ikman.lk detail page check
+    if (isIkman) {
+      const hasAdPattern =
+        href.includes("/ad/") ||
+        href.includes("/en/ad/") ||
+        href.includes("/si/ad/");
 
-    const hasListingHeader =
-      document.querySelector("h1") &&
-      (document.querySelector('[class*="price"]') ||
-        document.querySelector('div[data-testid="price"]') ||
-        document.querySelector('span[data-testid="price"]'));
+      const hasListingHeader =
+        document.querySelector("h1") &&
+        (document.querySelector('[class*="price"]') ||
+          document.querySelector('div[data-testid="price"]') ||
+          document.querySelector('span[data-testid="price"]'));
 
-    return hasAdPattern || hasListingHeader;
+      return hasAdPattern || Boolean(hasListingHeader);
+    }
+
+    return false;
   }
 
   function findInsertionTarget() {
@@ -95,15 +107,21 @@
     return { element: main, position: "beforeend" };
   }
 
-  function isBrandNewCondition(conditionStr, titleStr = "") {
+  function isBrandNewCondition(conditionStr, titleStr = "", rawText = "", keyValues = {}) {
+    if (window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.index && window.FairPriceLK_Extractors.index.isBrandNewCondition) {
+      return window.FairPriceLK_Extractors.index.isBrandNewCondition(conditionStr, titleStr, rawText, keyValues);
+    }
     const cond = (conditionStr || "").toLowerCase().trim();
     const title = (titleStr || "").toLowerCase().trim();
     if (
       cond.includes("brand new") ||
       cond === "new" ||
+      cond.startsWith("new") ||
       cond.includes("brand-new") ||
       cond.includes("unregistered") ||
-      cond.includes("sealed")
+      cond.includes("sealed") ||
+      cond.includes("අලුත්") ||
+      cond.includes("புதிய")
     ) {
       return true;
     }
@@ -121,16 +139,17 @@
 
     const data =
       currentExtraction && currentExtraction.data ? currentExtraction.data : {};
-    const isBrandNew = isBrandNewCondition(data.condition, data.title);
+    const ext = currentExtraction || {};
+    const isBrandNew =
+      ext.is_brand_new !== undefined
+        ? ext.is_brand_new
+        : isBrandNewCondition(data.condition, data.title, ext.pageContext ? ext.pageContext.raw_text : "", ext.pageContext ? ext.pageContext.key_values : {});
     const isUnsupported =
-      currentExtraction &&
-      (currentExtraction.category === "unsupported" ||
-        currentExtraction.is_unsupported_item);
+      ext.category === "unsupported" || ext.is_unsupported_item;
 
     // If extraction is valid, NOT Brand New, and NOT an unsupported item, automatically trigger evaluation
     if (
-      currentExtraction &&
-      currentExtraction.valid &&
+      ext.valid &&
       !isBrandNew &&
       !isUnsupported
     ) {
@@ -139,6 +158,7 @@
   }
 
   function renderEmbeddedCard(manualEstimateRequested = false) {
+    if (!isItemDetailPage()) return;
     const target = findInsertionTarget();
     if (!target || !target.element) return;
 
@@ -163,7 +183,10 @@
     const data = ext.data || {};
     const cat = ext.category || "gpu";
     const isUnsupported = cat === "unsupported" || ext.is_unsupported_item;
-    const isBrandNew = isBrandNewCondition(data.condition, data.title);
+    const isBrandNew =
+      ext.is_brand_new !== undefined
+        ? ext.is_brand_new
+        : isBrandNewCondition(data.condition, data.title, ext.pageContext ? ext.pageContext.raw_text : "", ext.pageContext ? ext.pageContext.key_values : {});
     const iconUrl = chrome.runtime.getURL("icon.png");
 
     embeddedCardRoot.innerHTML = `
@@ -172,7 +195,7 @@
                 <div class="fplk-embedded-header">
                     <div class="fplk-brand-wrap">
                         <img src="${iconUrl}" width="20" height="20" alt="FairPriceLK Logo" style="border-radius: 4px; object-fit: contain;">
-                        <span class="fplk-brand-name">FairPriceLK Valuation</span>
+                        <span class="fplk-brand-name">FairPriceLK</span>
                         <span class="fplk-category-pill" style="${isUnsupported ? "background:#FEE2E2; color:#991B1B; border-color:#FECACA;" : ""}">${isUnsupported ? "UNSUPPORTED" : cat.toUpperCase()}</span>
                     </div>
                     <div class="fplk-header-controls">
@@ -233,28 +256,30 @@
                         ? `
                         <div class="fplk-verdict-box warning">
                             <div class="fplk-verdict-header">
-                                <span class="fplk-verdict-tag" style="background:#FDE68A; color:#92400E; font-weight:700;">⚠️ USED ITEMS VALUATION ONLY</span>
+                                <span class="fplk-verdict-tag" style="background:#FDE68A; color:#92400E; font-weight:700;">⚠️ BRAND NEW ITEM</span>
                             </div>
-                            <div class="fplk-verdict-body" style="font-size: 12.5px; color: #78350F; line-height: 1.5; margin-top: 4px;">
-                                This listing is marked as <strong>${data.condition || "Brand New"}</strong>. FairPriceLK's valuation models are designed and trained exclusively on <strong>Used / Second-Hand</strong> market transactions and do not evaluate brand new retail units.
+                            <div class="fplk-verdict-body" style="font-size: 13px; color: #78350F; line-height: 1.5; margin-top: 4px;">
+                                FairPriceLK only predicts prices for <strong>used / second-hand</strong> items. Valuation is unavailable for brand new listings.
                             </div>
                         </div>
                     `
                         : ""
                     }
 
-                    <!-- Evaluation or Missing info -->
+                    <!-- Evaluation or Missing/Invalid info -->
                     ${
                       !isUnsupported &&
                       !ext.valid &&
                       !cachedPrediction &&
                       !isBrandNew
                         ? `
-                        <div class="fplk-verdict-box neutral">
+                        <div class="fplk-verdict-box ${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'warning' : 'neutral'}">
                             <div class="fplk-verdict-header">
-                                <span class="fplk-verdict-tag">Listing Details Detected</span>
+                                <span class="fplk-verdict-tag" style="${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'background:#FEE2E2; color:#991B1B; font-weight:700;' : ''}">
+                                    ${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? '⚠️ SPECIFICATION ISSUE' : 'Listing Details Detected'}
+                                </span>
                             </div>
-                            <div class="fplk-verdict-body">
+                            <div class="fplk-verdict-body" style="${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'font-size:12.5px; color:#7F1D1D; line-height:1.5; margin-top:4px;' : ''}">
                                 ${ext.error_message || "Could not automatically identify all specifications for valuation. You can refine details below."}
                             </div>
                         </div>
@@ -866,6 +891,7 @@
               ? extraction.is_unsupported_item ||
                 extraction.category === "unsupported"
               : false,
+            is_brand_new: extraction ? Boolean(extraction.is_brand_new) : false,
             error_message: extraction ? extraction.error_message : null,
           },
         });

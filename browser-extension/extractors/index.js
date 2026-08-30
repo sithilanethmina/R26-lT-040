@@ -68,6 +68,17 @@ window.FairPriceLK_Extractors.index = (function () {
         // 3. Extract Key-Value Spec Pairs (Ikman attribute list, tables, dl/dt/dd)
         const keyValues = {};
 
+        // Ikman specific attribute items / classes
+        document.querySelectorAll('[class*="word-break"], [class*="item-property"], [class*="meta-item"], [class*="attribute"], [data-testid*="attribute"]').forEach(el => {
+            const text = (el.innerText || "").trim();
+            if (text.includes(":") && text.length < 120) {
+                const parts = text.split(":");
+                const k = parts[0].toLowerCase().trim();
+                const v = parts.slice(1).join(":").trim();
+                if (k && v && !keyValues[k]) keyValues[k] = v;
+            }
+        });
+
         // Scan dl/dt/dd and tables
         document.querySelectorAll('tr, dl, div, li').forEach(row => {
             const text = (row.innerText || "").trim();
@@ -75,12 +86,12 @@ window.FairPriceLK_Extractors.index = (function () {
                 const parts = text.split(":");
                 const k = parts[0].toLowerCase().trim();
                 const v = parts.slice(1).join(":").trim();
-                if (k && v) keyValues[k] = v;
+                if (k && v && !keyValues[k]) keyValues[k] = v;
             }
         });
 
         // Scan sequential divs/spans often used by ikman
-        const allText = document.querySelectorAll('div, span, p, li');
+        const allText = document.querySelectorAll('div, span, p, li, strong, b');
         let fullCollectedText = "";
 
         for (let i = 0; i < allText.length; i++) {
@@ -96,12 +107,28 @@ window.FairPriceLK_Extractors.index = (function () {
             const nextEl = el.nextElementSibling;
             const nextText = nextEl && nextEl.innerText ? nextEl.innerText.trim() : "";
 
-            if (lower === 'brand:' || lower === 'brand') keyValues.brand = nextText;
-            if (lower === 'model:' || lower === 'model') keyValues.model = nextText;
-            if (lower === 'condition:' || lower === 'condition') keyValues.condition = nextText;
-            if (lower === 'edition:' || lower === 'edition') keyValues.edition = nextText;
-            if (lower === 'trim / edition:' || lower === 'trim/edition:') keyValues.variant = nextText;
-            if (lower === 'year of manufacture:' || lower === 'year:') keyValues.year = nextText;
+            if (lower === 'brand:' || lower === 'brand') keyValues.brand = keyValues.brand || nextText;
+            if (lower === 'model:' || lower === 'model') keyValues.model = keyValues.model || nextText;
+            if (lower === 'condition:' || lower === 'condition' || lower === 'තත්ත්වය:' || lower === 'තත්වය:' || lower === 'நிலை:') keyValues.condition = keyValues.condition || nextText;
+            if (lower === 'edition:' || lower === 'edition') keyValues.edition = keyValues.edition || nextText;
+            if (lower === 'trim / edition:' || lower === 'trim/edition:') keyValues.variant = keyValues.variant || nextText;
+            if (lower === 'year of manufacture:' || lower === 'year:') keyValues.year = keyValues.year || nextText;
+        }
+
+        // Direct condition fallback scan if still not found
+        if (!keyValues.condition) {
+            document.querySelectorAll('div, span, p, li').forEach(el => {
+                if (keyValues.condition) return;
+                const text = (el.innerText || "").trim();
+                const lower = text.toLowerCase();
+                if (lower.startsWith("condition:") || lower.startsWith("condition :")) {
+                    keyValues.condition = text.replace(/^condition\s*:\s*/i, '').trim();
+                } else if (lower.startsWith("තත්ත්වය:") || lower.startsWith("තත්වය:")) {
+                    keyValues.condition = text.replace(/^තත්?ත්වය\s*:\s*/i, '').trim();
+                } else if (lower.startsWith("நிலை:")) {
+                    keyValues.condition = text.replace(/^நிலை\s*:\s*/i, '').trim();
+                }
+            });
         }
 
         // 4. Extract Breadcrumbs / Category Tags
@@ -201,9 +228,79 @@ window.FairPriceLK_Extractors.index = (function () {
         return "unsupported";
     }
 
+    function isBrandNewCondition(conditionStr, titleStr, rawText, keyValues) {
+        const cond = String(conditionStr || "").toLowerCase().trim();
+        const title = String(titleStr || "").toLowerCase().trim();
+
+        // 1. Direct condition keywords
+        const brandNewKeywords = [
+            "new", "brand new", "brand-new", "brandnew", "sealed", "sealed pack",
+            "box pack", "box packed", "unopened", "unregistered", "brand new sealed",
+            "100% new", "100% brand new", "අලුත්", "අලුත්ම", "නොපැදවූ", "புதியது", "புதிய"
+        ];
+
+        if (brandNewKeywords.some(kw => cond === kw || cond.startsWith(kw))) {
+            return true;
+        }
+
+        if ((cond.includes("brand new") || cond.includes("brand-new") || cond.includes("brandnew") || cond.includes("sealed")) &&
+            !cond.includes("used") && !cond.includes("refurbished") && !cond.includes("reconditioned")) {
+            return true;
+        }
+
+        // 2. Check keyValues
+        if (keyValues && typeof keyValues === "object") {
+            for (const [k, v] of Object.entries(keyValues)) {
+                const kLow = String(k).toLowerCase();
+                const vLow = String(v).toLowerCase().trim();
+                if (kLow.includes("condition") || kLow.includes("තත්ව") || kLow.includes("நிலை")) {
+                    if (brandNewKeywords.some(kw => vLow === kw || vLow.startsWith(kw))) {
+                        return true;
+                    }
+                    if ((vLow.includes("new") || vLow.includes("sealed") || vLow.includes("unregistered")) &&
+                        !vLow.includes("used") && !vLow.includes("refurbish") && !vLow.includes("recondition")) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        // 3. Fallback scan DOM elements on ikman.lk
+        try {
+            const condNodes = Array.from(document.querySelectorAll('div, span, li, p, td')).filter(el => {
+                const t = (el.innerText || "").trim().toLowerCase();
+                return t.startsWith("condition:") || t.startsWith("condition :") || t.startsWith("තත්ත්වය:") || t.startsWith("තත්වය:") || t.startsWith("நிலை:");
+            });
+            for (const el of condNodes) {
+                const t = (el.innerText || "").toLowerCase();
+                if ((t.includes("new") || t.includes("sealed") || t.includes("අලුත්") || t.includes("புதிய")) &&
+                    !t.includes("used") && !t.includes("recondition") && !t.includes("refurbish")) {
+                    return true;
+                }
+            }
+        } catch (e) {}
+
+        // 4. Title analysis (ruling out "like brand new", "same as brand new", "used like brand new")
+        const isLikeBrandNew = /\b(like\s+brand\s*new|as\s+brand\s*new|same\s+as\s+brand\s*new|used\s+like|99%\s*condition|mint\s*condition)\b/i.test(title);
+        if (!isLikeBrandNew) {
+            const titleBrandNewPattern = /\b(brand\s*new|brandnew|sealed\s*pack|sealed\s*box|box\s*pack|box\s*packed|company\s*seal|unregistered|100%\s*brand\s*new)\b/i;
+            if (titleBrandNewPattern.test(title) && !title.includes("used") && !title.includes("second hand") && !title.includes("2nd hand")) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     function extractAll() {
         const pageContext = scrapePageDom();
         const category = detectCategory(pageContext);
+        const isBrandNew = isBrandNewCondition(
+            pageContext.key_values ? pageContext.key_values.condition : "",
+            pageContext.title,
+            pageContext.raw_text,
+            pageContext.key_values
+        );
 
         if (category === "unsupported") {
             const isNonPhone = NON_PHONE_PATTERNS.some(p => p.test(pageContext.title || ""));
@@ -212,7 +309,8 @@ window.FairPriceLK_Extractors.index = (function () {
                 category: "unsupported",
                 valid: false,
                 is_unsupported_item: true,
-                error_message: `This listing was detected as a ${itemType} ("${pageContext.title || 'Item'}"), not a mobile phone. FairPriceLK valuation is specifically built for Mobile Phones (Smartphones), GPUs, Vehicles, and Computer Hardware.`,
+                is_brand_new: isBrandNew,
+                error_message: `This listing was detected as a ${itemType} ("${pageContext.title || 'Item'}"), not a mobile phone. FairPriceLK is specifically built for Mobile Phones (Smartphones), GPUs, Vehicles, and Computer Hardware.`,
                 data: {
                     title: pageContext.title,
                     listed_price: pageContext.price,
@@ -228,6 +326,10 @@ window.FairPriceLK_Extractors.index = (function () {
         if (extractor && typeof extractor.parse === "function") {
             const parsed = extractor.parse(pageContext);
             parsed.pageContext = pageContext;
+            parsed.is_brand_new = isBrandNew || (parsed.data ? isBrandNewCondition(parsed.data.condition, parsed.data.title || pageContext.title, pageContext.raw_text, pageContext.key_values) : false);
+            if (parsed.data && !parsed.data.condition && pageContext.key_values && pageContext.key_values.condition) {
+                parsed.data.condition = pageContext.key_values.condition;
+            }
             return parsed;
         }
 
@@ -235,11 +337,13 @@ window.FairPriceLK_Extractors.index = (function () {
         return {
             category: category,
             valid: false,
+            is_brand_new: isBrandNew,
             missing_fields: ["Model", "Price"],
             error_message: "Could not safely parse listing specifications.",
             data: {
                 title: pageContext.title,
-                listed_price: pageContext.price
+                listed_price: pageContext.price,
+                condition: pageContext.key_values ? pageContext.key_values.condition : null
             },
             pageContext: pageContext
         };
@@ -248,6 +352,7 @@ window.FairPriceLK_Extractors.index = (function () {
     return {
         scrapePageDom: scrapePageDom,
         detectCategory: detectCategory,
+        isBrandNewCondition: isBrandNewCondition,
         extractAll: extractAll
     };
 })();

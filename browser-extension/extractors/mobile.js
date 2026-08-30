@@ -779,6 +779,8 @@ window.FairPriceLK_Extractors.mobile = (function () {
         const missingFields = [];
         if (!brand) missingFields.push("Brand");
         if (!model) missingFields.push("Model");
+        if (!storage) missingFields.push("Storage (GB)");
+        if (!ram && phoneType !== "iphone") missingFields.push("RAM (GB)");
         if (!finalPrice || isNaN(finalPrice) || finalPrice <= 0) missingFields.push("Listing Price");
 
         // Step 5: Return — data shape matches API PredictRequest

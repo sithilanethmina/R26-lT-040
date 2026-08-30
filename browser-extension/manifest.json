@@ -27,10 +27,7 @@
     {
       "matches": [
         "*://*.ikman.lk/*",
-        "*://*.patpat.lk/*",
-        "*://*.riyasewana.com/*",
-        "*://*.daraz.lk/*",
-        "<all_urls>"
+        "*://*.riyasewana.com/*"
       ],
       "js": [
         "config.js",
