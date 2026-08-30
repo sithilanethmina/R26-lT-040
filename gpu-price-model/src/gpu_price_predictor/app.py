@@ -1222,6 +1222,26 @@ def main():
                     spread = matches["price_lkr"].max() - matches["price_lkr"].min()
                     st.metric("Price spread", f"LKR {spread:,.0f}")
 
+                st.markdown(
+                    "<div class='section-label'>Market price distribution for this GPU model</div>",
+                    unsafe_allow_html=True,
+                )
+                model_prices = matches["price_lkr"].dropna()
+                if model_prices.nunique() > 1:
+                    # Use a small, data-driven number of bands so sparse models remain readable.
+                    n_bins = min(12, max(3, int(np.ceil(np.sqrt(len(model_prices))))))
+                    bin_edges = np.linspace(model_prices.min(), model_prices.max(), n_bins + 1)
+                    price_bands = pd.cut(model_prices, bins=bin_edges, include_lowest=True)
+                    distribution = price_bands.value_counts(sort=False)
+                    distribution.index = [
+                        f"{band.left:,.0f} - {band.right:,.0f}"
+                        for band in distribution.index
+                    ]
+                    st.bar_chart(distribution.rename("Listings"))
+                    st.caption("Each bar shows how many matching listings fall within that LKR price band.")
+                else:
+                    st.info("There is not enough price variation to show a distribution for this model.")
+
                 color_col = "brand" if "brand" in matches.columns else None
                 st.scatter_chart(matches, x="vram_gb", y="price_lkr", color=color_col)
 
