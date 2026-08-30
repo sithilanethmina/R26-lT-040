@@ -36,6 +36,7 @@ from http.client import IncompleteRead
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_LISTINGS_URL = "https://ikman.lk/en/ads/sri-lanka/mobile-phones"
 RAW_DATA_FILE = BASE_DIR / "data" / "raw" / "ikman_mobile_phones_processed.json"
+DEFAULT_URLS_FILE = BASE_DIR / "data" / "raw" / "ikman_listing_urls.json"
 TRAINING_SCRIPT = BASE_DIR / "src" / "train.py"
 
 USER_AGENT = (
@@ -45,7 +46,7 @@ USER_AGENT = (
 
 INITIAL_DATA_PATTERN = re.compile(r"window\.initialData\s*=\s*(\{.*?\})\s*</script>", re.DOTALL)
 MOBILE_PHONE_CATEGORY_NAMES = {"mobile phones"}
-INCREMENTAL_SAVE_INTERVAL = 100  # Save progress every N detail pages
+INCREMENTAL_SAVE_INTERVAL = 25  # Save progress every N detail pages
 KNOWN_STORAGE_GB_VALUES = {8, 16, 32, 64, 128, 256, 512, 1024, 2048}
 WORD_NUMBERS = {
     "one": 1,
@@ -461,6 +462,10 @@ def extract_record_from_detail(ad: dict[str, Any], detail_url: str) -> Optional[
         return None
 
     properties = build_property_map(ad)
+    condition_raw = (properties.get("condition") or "").strip().lower()
+    if condition_raw != "used":
+        logging.debug("Skipping non-used ad (condition=%s): %s", properties.get("condition"), detail_url)
+        return None
     title = ad.get("title")
     description = ad.get("description")
     edition = properties.get("edition")
@@ -545,6 +550,212 @@ def delay_with_jitter(base_delay: float) -> None:
     time.sleep(jittered)
 
 
+def save_urls_file(path: Path, urls: list[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as file:
+        json.dump(urls, file, indent=2, ensure_ascii=False)
+    logging.info("Saved %s listing URLs to %s", f"{len(urls):,}", path)
+
+
+def load_urls_file(path: Path) -> list[str]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8") as file:
+        data = json.load(file)
+    if isinstance(data, list):
+        return [str(u) for u in data if isinstance(u, str)]
+    return []
+
+
+def collect_listing_urls(
+    listings_url: str,
+    pages: int,
+    delay_seconds: float,
+    timeout: float,
+    retries: int,
+    urls_file: Optional[Path] = DEFAULT_URLS_FILE,
+) -> tuple[list[str], ScrapeStats]:
+    """Collect listing URLs across search pages and save them to disk incrementally."""
+    stats = ScrapeStats()
+    detail_urls: list[str] = []
+    
+    # Load existing URLs if any to append/dedupe
+    if urls_file and urls_file.exists():
+        existing_urls = load_urls_file(urls_file)
+        if existing_urls:
+            detail_urls.extend(existing_urls)
+            logging.info("Loaded %s pre-existing URLs from %s", f"{len(existing_urls):,}", urls_file)
+
+    total_pages = pages
+    auto_detect = pages <= 0
+
+    page = 0
+    consecutive_failures = 0
+    max_consecutive_failures = 5
+    consecutive_empty_pages = 0
+    max_consecutive_empty_pages = 20
+
+    try:
+        while True:
+            page += 1
+            if not auto_detect and page > total_pages:
+                break
+
+            search_url = build_search_url(listings_url, page)
+            page_label = f"{page}/{total_pages:,}" if not auto_detect or total_pages < 99999 else f"{page}/?"
+            logging.info("Reading search page %s: %s", page_label, search_url)
+
+            try:
+                html_text = fetch_text(search_url, timeout=timeout, retries=retries)
+            except Exception as exc:
+                consecutive_failures += 1
+                logging.warning(
+                    "Failed to fetch search page %s (%s/%s consecutive failures): %s",
+                    page, consecutive_failures, max_consecutive_failures, exc,
+                )
+                if consecutive_failures >= max_consecutive_failures:
+                    logging.error("Too many consecutive failures. Stopping search phase.")
+                    break
+                delay_with_jitter(delay_seconds * 2)
+                continue
+
+            consecutive_failures = 0
+            stats.search_pages_read += 1
+            initial_data = extract_initial_data(html_text, search_url)
+
+            if page == 1 and auto_detect:
+                pagination = extract_pagination_data(initial_data)
+                total_ads = pagination.get("total", 0)
+                page_size = pagination.get("pageSize", 25)
+                if total_ads > 0 and page_size > 0:
+                    total_pages = math.ceil(total_ads / page_size)
+                    logging.info(
+                        "Auto-detected pagination: %s total ads, %s per page, %s pages",
+                        f"{total_ads:,}", page_size, f"{total_pages:,}",
+                    )
+                else:
+                    logging.warning("Could not auto-detect pagination. Will stop when no ads found.")
+                    total_pages = 99999
+
+            summaries = extract_search_ads(initial_data)
+            if not summaries:
+                consecutive_empty_pages += 1
+                if total_pages < 99999 and page < total_pages:
+                    logging.debug("Empty page %s — continuing since total_pages=%s.", page, total_pages)
+                elif consecutive_empty_pages >= max_consecutive_empty_pages:
+                    logging.info("%s consecutive empty pages at page %s — stopping search.", consecutive_empty_pages, page)
+                    break
+                delay_with_jitter(delay_seconds * 0.3)
+                continue
+
+            consecutive_empty_pages = 0
+            page_urls = [build_detail_url(summary, search_url) for summary in summaries]
+            page_urls = [url for url in page_urls if url]
+            detail_urls.extend(page_urls)
+            logging.info("Found %s listing URLs on page %s.", f"{len(page_urls):,}", page)
+
+            # Save URLs incrementally every 20 pages
+            if urls_file and page % 20 == 0:
+                saved_deduped = dedupe_preserve_order(detail_urls)
+                save_urls_file(urls_file, saved_deduped)
+
+            if auto_detect and page >= total_pages:
+                logging.info("Reached last page (%s).", total_pages)
+                break
+
+            delay_with_jitter(delay_seconds)
+    except KeyboardInterrupt:
+        logging.info("URL collection interrupted by user. Saving collected URLs...")
+    finally:
+        stats.listing_urls_found = len(detail_urls)
+        detail_urls = dedupe_preserve_order(detail_urls)
+        stats.unique_listing_urls = len(detail_urls)
+        if urls_file:
+            save_urls_file(urls_file, detail_urls)
+
+    return detail_urls, stats
+
+
+def scrape_details_from_urls(
+    detail_urls: list[str],
+    delay_seconds: float,
+    timeout: float,
+    retries: int,
+    detail_limit: Optional[int] = None,
+    output_path: Optional[Path] = None,
+    skip_existing: bool = True,
+) -> tuple[list[dict[str, Any]], ScrapeStats]:
+    """Visit each detail URL, extract phone attributes, and incrementally save records."""
+    stats = ScrapeStats()
+    detail_urls = dedupe_preserve_order(detail_urls)
+    
+    # Filter out URLs already in output file
+    if skip_existing and output_path and output_path.exists():
+        existing_records = load_json_records(output_path)
+        existing_urls = {
+            normalized_url_key(r.get("url"))
+            for r in existing_records
+            if r.get("url")
+        }
+        initial_count = len(detail_urls)
+        detail_urls = [
+            u for u in detail_urls
+            if normalized_url_key(u) not in existing_urls
+        ]
+        logging.info(
+            "Filtered out %s already scraped URLs. %s remaining to scrape.",
+            f"{initial_count - len(detail_urls):,}",
+            f"{len(detail_urls):,}",
+        )
+
+    if detail_limit is not None:
+        detail_urls = detail_urls[:detail_limit]
+    stats.unique_listing_urls = len(detail_urls)
+
+    records: list[dict[str, Any]] = []
+    try:
+        for index, detail_url in enumerate(detail_urls, start=1):
+            logging.info("Reading ad detail %s/%s: %s", f"{index:,}", f"{len(detail_urls):,}", detail_url)
+            try:
+                html_text = fetch_text(detail_url, timeout=timeout, retries=retries)
+                stats.detail_pages_read += 1
+                initial_data = extract_initial_data(html_text, detail_url)
+                ad = extract_detail_ad(initial_data)
+                if not ad:
+                    stats.failed_detail_pages += 1
+                    logging.warning("No ad detail payload found: %s", detail_url)
+                    continue
+
+                record = extract_record_from_detail(ad, detail_url)
+                if record is None:
+                    stats.skipped_non_phone_ads += 1
+                    continue
+
+                records.append(record)
+                stats.mobile_phone_records += 1
+            except Exception as exc:
+                stats.failed_detail_pages += 1
+                logging.warning("Skipping detail page after error: %s | %s", detail_url, exc)
+
+            # Incremental save every N detail pages to prevent data loss
+            if output_path and index % INCREMENTAL_SAVE_INTERVAL == 0 and records:
+                _incremental_save(output_path, records)
+                logging.info(
+                    "Incremental save: %s records saved so far (%s/%s detail pages done).",
+                    f"{len(records):,}", f"{index:,}", f"{len(detail_urls):,}",
+                )
+
+            if index < len(detail_urls):
+                delay_with_jitter(delay_seconds)
+    except KeyboardInterrupt:
+        logging.info("Detail scraping interrupted by user. Saving processed records...")
+    finally:
+        if output_path and records:
+            _incremental_save(output_path, records)
+
+    return records, stats
+
+
 def scrape_ikman_records(
     listings_url: str,
     pages: int,
@@ -553,141 +764,32 @@ def scrape_ikman_records(
     retries: int,
     detail_limit: Optional[int] = None,
     output_path: Optional[Path] = None,
+    urls_file: Optional[Path] = DEFAULT_URLS_FILE,
 ) -> tuple[list[dict[str, Any]], ScrapeStats]:
-    stats = ScrapeStats()
-    detail_urls: list[str] = []
-    total_pages = pages
-    auto_detect = pages <= 0
-
-    # --- Phase 1: Collect all listing URLs from search pages ---
-    page = 0
-    consecutive_failures = 0
-    max_consecutive_failures = 5
-    consecutive_empty_pages = 0
-    max_consecutive_empty_pages = 20  # ikman.lk has sporadic gaps; don't stop too early
-    empty_pages_total = 0
-    while True:
-        page += 1
-        if not auto_detect and page > total_pages:
-            break
-
-        search_url = build_search_url(listings_url, page)
-        page_label = f"{page}/{total_pages:,}" if not auto_detect or total_pages < 99999 else f"{page}/?"
-        logging.info("Reading search page %s: %s", page_label, search_url)
-
-        try:
-            html_text = fetch_text(search_url, timeout=timeout, retries=retries)
-        except Exception as exc:
-            consecutive_failures += 1
-            logging.warning(
-                "Failed to fetch search page %s (%s/%s consecutive failures): %s",
-                page, consecutive_failures, max_consecutive_failures, exc,
-            )
-            if consecutive_failures >= max_consecutive_failures:
-                logging.error("Too many consecutive failures. Stopping search phase.")
-                break
-            delay_with_jitter(delay_seconds * 2)  # Extra delay after failure
-            continue
-
-        consecutive_failures = 0  # Reset on success
-
-        stats.search_pages_read += 1
-        initial_data = extract_initial_data(html_text, search_url)
-
-        # Auto-detect total pages from first page's pagination data
-        if page == 1 and auto_detect:
-            pagination = extract_pagination_data(initial_data)
-            total_ads = pagination.get("total", 0)
-            page_size = pagination.get("pageSize", 25)
-            if total_ads > 0 and page_size > 0:
-                total_pages = math.ceil(total_ads / page_size)
-                logging.info(
-                    "Auto-detected pagination: %s total ads, %s per page, %s pages",
-                    f"{total_ads:,}", page_size, f"{total_pages:,}",
-                )
-            else:
-                logging.warning("Could not auto-detect pagination. Will stop when no ads found.")
-                total_pages = 99999  # large sentinel; will stop when page returns 0 ads
-
-        summaries = extract_search_ads(initial_data)
-        if not summaries:
-            consecutive_empty_pages += 1
-            empty_pages_total += 1
-            # Only stop if we have no known total OR too many consecutive empty pages
-            if total_pages < 99999 and page < total_pages:
-                logging.debug(
-                    "Empty page %s (gap %s/%s) — continuing since total_pages=%s.",
-                    page, consecutive_empty_pages, max_consecutive_empty_pages, total_pages,
-                )
-            elif consecutive_empty_pages >= max_consecutive_empty_pages:
-                logging.info(
-                    "%s consecutive empty pages at page %s — stopping search.",
-                    consecutive_empty_pages, page,
-                )
-                break
-            delay_with_jitter(delay_seconds * 0.3)  # Fast skip for empty pages
-            continue
-
-        consecutive_empty_pages = 0  # Reset on non-empty page
-        page_urls = [build_detail_url(summary, search_url) for summary in summaries]
-        page_urls = [url for url in page_urls if url]
-        detail_urls.extend(page_urls)
-        logging.info("Found %s listing URLs on page %s.", f"{len(page_urls):,}", page)
-
-        if auto_detect and page >= total_pages:
-            logging.info("Reached last page (%s).", total_pages)
-            break
-
-        delay_with_jitter(delay_seconds)
-
-    stats.listing_urls_found = len(detail_urls)
-    detail_urls = dedupe_preserve_order(detail_urls)
-    if detail_limit is not None:
-        detail_urls = detail_urls[:detail_limit]
-    stats.unique_listing_urls = len(detail_urls)
-
+    detail_urls, search_stats = collect_listing_urls(
+        listings_url=listings_url,
+        pages=pages,
+        delay_seconds=delay_seconds,
+        timeout=timeout,
+        retries=retries,
+        urls_file=urls_file,
+    )
     logging.info(
         "Search phase complete. Found %s unique listing URLs from %s search pages.",
-        f"{stats.unique_listing_urls:,}", stats.search_pages_read,
+        f"{len(detail_urls):,}", search_stats.search_pages_read,
     )
 
-    # --- Phase 2: Visit each detail page ---
-    records: list[dict[str, Any]] = []
-    for index, detail_url in enumerate(detail_urls, start=1):
-        logging.info("Reading ad detail %s/%s: %s", f"{index:,}", f"{len(detail_urls):,}", detail_url)
-        try:
-            html_text = fetch_text(detail_url, timeout=timeout, retries=retries)
-            stats.detail_pages_read += 1
-            initial_data = extract_initial_data(html_text, detail_url)
-            ad = extract_detail_ad(initial_data)
-            if not ad:
-                stats.failed_detail_pages += 1
-                logging.warning("No ad detail payload found: %s", detail_url)
-                continue
-
-            record = extract_record_from_detail(ad, detail_url)
-            if record is None:
-                stats.skipped_non_phone_ads += 1
-                continue
-
-            records.append(record)
-            stats.mobile_phone_records += 1
-        except Exception as exc:
-            stats.failed_detail_pages += 1
-            logging.warning("Skipping detail page after error: %s | %s", detail_url, exc)
-
-        # Incremental save every N detail pages to prevent data loss
-        if output_path and index % INCREMENTAL_SAVE_INTERVAL == 0 and records:
-            _incremental_save(output_path, records)
-            logging.info(
-                "Incremental save: %s records saved so far (%s/%s detail pages done).",
-                f"{len(records):,}", f"{index:,}", f"{len(detail_urls):,}",
-            )
-
-        if index < len(detail_urls):
-            delay_with_jitter(delay_seconds)
-
-    return records, stats
+    records, detail_stats = scrape_details_from_urls(
+        detail_urls=detail_urls,
+        delay_seconds=delay_seconds,
+        timeout=timeout,
+        retries=retries,
+        detail_limit=detail_limit,
+        output_path=output_path,
+    )
+    detail_stats.search_pages_read = search_stats.search_pages_read
+    detail_stats.listing_urls_found = search_stats.listing_urls_found
+    return records, detail_stats
 
 
 def _incremental_save(output_path: Path, scraped_records: list[dict[str, Any]]) -> None:
@@ -762,6 +864,8 @@ def merge_records(existing_records: list[dict[str, Any]], scraped_records: list[
     ordered_keys: list[str] = []
 
     for record in existing_records:
+        if (record.get("condition") or "").strip().lower() != "used":
+            continue
         key = record_key(record)
         if key not in records_by_key:
             ordered_keys.append(key)
@@ -774,6 +878,8 @@ def merge_records(existing_records: list[dict[str, Any]], scraped_records: list[
     seen_scraped_keys: set[str] = set()
 
     for record in scraped_records:
+        if (record.get("condition") or "").strip().lower() != "used":
+            continue
         key = record_key(record)
         if key in seen_scraped_keys:
             duplicate_scraped_records += 1
@@ -830,6 +936,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--retries", type=int, default=3, help="Retries per request.")
     parser.add_argument("--detail-limit", type=int, default=None, help="Optional cap for detail pages, useful for tests.")
     parser.add_argument("--output", type=Path, default=RAW_DATA_FILE, help="Raw processed dataset JSON path.")
+    parser.add_argument("--urls-file", type=Path, default=DEFAULT_URLS_FILE, help="Path to JSON file storing collected listing URLs.")
+    parser.add_argument("--collect-urls-only", action="store_true", help="Only scan search pages and save listing URLs to --urls-file; do not scrape details.")
+    parser.add_argument("--scrape-from-urls", action="store_true", help="Read listing URLs from --urls-file and scrape ad details directly.")
     parser.add_argument("--skip-train", action="store_true", help="Only scrape and merge; do not retrain.")
     parser.add_argument("--dry-run", action="store_true", help="Scrape and report stats without writing or training.")
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging.")
@@ -842,21 +951,56 @@ def main() -> None:
     os.chdir(BASE_DIR)
 
     if args.all_pages:
-        args.pages = 0  # 0 means auto-detect all pages
+        args.pages = 0
 
     if args.detail_limit is not None and args.detail_limit < 1:
         raise ValueError("--detail-limit must be at least 1 when provided")
 
     effective_output = None if args.dry_run else args.output
-    scraped_records, scrape_stats = scrape_ikman_records(
-        listings_url=args.url,
-        pages=args.pages,
-        delay_seconds=max(0.0, args.delay),
-        timeout=args.timeout,
-        retries=max(0, args.retries),
-        detail_limit=args.detail_limit,
-        output_path=effective_output,
-    )
+
+    # Mode 1: Collect URLs only and stop
+    if args.collect_urls_only:
+        logging.info("Running in --collect-urls-only mode. URLs will be saved to: %s", args.urls_file)
+        urls, search_stats = collect_listing_urls(
+            listings_url=args.url,
+            pages=args.pages,
+            delay_seconds=max(0.0, args.delay),
+            timeout=args.timeout,
+            retries=max(0, args.retries),
+            urls_file=args.urls_file,
+        )
+        logging.info(
+            "URL collection finished: %s unique listing URLs saved to %s across %s search pages.",
+            f"{len(urls):,}", args.urls_file, search_stats.search_pages_read,
+        )
+        return
+
+    # Mode 2: Scrape details from saved URLs
+    if args.scrape_from_urls:
+        if not args.urls_file.exists():
+            raise FileNotFoundError(f"URLs file not found at {args.urls_file}. Run with --collect-urls-only first.")
+        urls = load_urls_file(args.urls_file)
+        logging.info("Loaded %s listing URLs from %s", f"{len(urls):,}", args.urls_file)
+        scraped_records, scrape_stats = scrape_details_from_urls(
+            detail_urls=urls,
+            delay_seconds=max(0.0, args.delay),
+            timeout=args.timeout,
+            retries=max(0, args.retries),
+            detail_limit=args.detail_limit,
+            output_path=effective_output,
+        )
+    else:
+        # Standard mode: Collect URLs and scrape details
+        scraped_records, scrape_stats = scrape_ikman_records(
+            listings_url=args.url,
+            pages=args.pages,
+            delay_seconds=max(0.0, args.delay),
+            timeout=args.timeout,
+            retries=max(0, args.retries),
+            detail_limit=args.detail_limit,
+            output_path=effective_output,
+            urls_file=args.urls_file,
+        )
 
     existing_records = load_json_records(args.output)
     merged_records, merge_stats = merge_records(existing_records, scraped_records)
