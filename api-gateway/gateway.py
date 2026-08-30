@@ -529,11 +529,13 @@ async def predict_proxy(category: str, request: Request):
     except Exception:
         body = {}
         
-    # Check if this is an electronics item misclassified under another category (e.g. mobile)
+    # Only recover electronics listings that were misclassified as mobile.
+    # Never reclassify an explicit GPU request: ASUS, MSI, Acer, etc. make both
+    # laptops and graphics cards, so brand-based detection is not safe for GPUs.
     brand_val = body.get("brand", "")
     model_val = body.get("model", "")
     
-    if is_electronics_item(brand_val, model_val) and category != "electronics":
+    if category == "mobile" and is_electronics_item(brand_val, model_val):
         target_service_url = SERVICES["electronics"]["url"]
         model_lower = model_val.lower()
         
