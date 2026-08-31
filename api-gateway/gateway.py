@@ -693,7 +693,7 @@ async def predict_proxy(category: str, request: Request):
     brand_val = body.get("brand", "")
     model_val = body.get("model", "")
     
-    if is_electronics_item(brand_val, model_val) and category != "electronics" and category != "vehicle":
+    if category == "mobile" and is_electronics_item(brand_val, model_val):
         target_service_url = SERVICES["electronics"]["url"]
         model_lower = model_val.lower()
         

@@ -808,6 +808,26 @@ def _render_prediction_results(
         st.error("All models failed to produce a prediction. Check that the artifact is valid.")
         return
 
+    # Safety Guard 1: Newly Released Generation Restriction (RTX 50-series / Blackwell)
+    import re
+    if bool(re.search(r'\b(rtx\s*50\d{2}|rx\s*90\d{2})\b', str(label).lower())):
+        st.warning(
+            f"⚠️ **Newly Released Generation**: "
+            f"The **{label}** belongs to a newly released hardware generation. "
+            "Secondary market pricing has not yet stabilized in Sri Lanka, so automatic price valuation is restricted to ensure accuracy."
+        )
+        return
+
+    # Safety Guard 2: Check for minimum sample size threshold (N >= 3)
+    MIN_SAMPLE_THRESHOLD = 3
+    if sample_count < MIN_SAMPLE_THRESHOLD:
+        st.warning(
+            f"⚠️ **Insufficient Market Data**: "
+            f"Market listings for **{label}** are currently limited in Sri Lanka. "
+            "Automatic price valuation is unavailable to ensure accuracy."
+        )
+        return
+
     from gpu_price_predictor.pipeline import (
         apply_condition_adjustment,
         calculate_fair_market_range,

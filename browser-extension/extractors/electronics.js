@@ -13,7 +13,8 @@ window.FairPriceLK_Extractors.electronics = (function () {
 
     function extractSubCategory(title, combinedText) {
         const titleLower = (title || "").toLowerCase();
-        const lower = (combinedText || "").toLowerCase();
+        // Strip generic marketplace category headers like "computers & tablets" from text before checking subcategory
+        const lower = (combinedText || "").toLowerCase().replace(/computers\s*(?:&|and)\s*tablets/gi, '');
         
         // 1. Check title first (highest confidence)
         if (titleLower.includes("monitor") || titleLower.includes("monitors")) {
@@ -22,10 +23,10 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (titleLower.includes("tablet") || titleLower.includes("ipad") || titleLower.includes("matepad") || titleLower.includes("mediapad") || titleLower.includes("galaxy tab") || titleLower.includes("mi pad")) {
             return "tablet";
         }
-        if (titleLower.includes("tab ") || titleLower.endsWith("tab") || /\btab\b/.test(titleLower)) {
+        if (/\b(ipad|matepad|mediapad|galaxy tab|surface pro|surface go)\b/i.test(titleLower)) {
             return "tablet";
         }
-        if (titleLower.includes("laptop") || titleLower.includes("notebook") || titleLower.includes("macbook") || titleLower.includes("thinkpad") || titleLower.includes("elitebook") || titleLower.includes("probook") || titleLower.includes("zenbook") || titleLower.includes("vivobook") || titleLower.includes("latitude") || titleLower.includes("inspiron") || titleLower.includes("vostro") || titleLower.includes("precision")) {
+        if (titleLower.includes("laptop") || titleLower.includes("notebook") || titleLower.includes("macbook") || titleLower.includes("thinkpad") || titleLower.includes("elitebook") || titleLower.includes("probook") || titleLower.includes("zenbook") || titleLower.includes("vivobook") || titleLower.includes("latitude") || titleLower.includes("inspiron") || titleLower.includes("vostro") || titleLower.includes("precision") || titleLower.includes("tuf") || titleLower.includes("rog")) {
             return "laptop";
         }
         
@@ -33,10 +34,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (lower.includes("monitor") || lower.includes("monitors")) {
             return "monitor";
         }
-        if (lower.includes("tablet") || lower.includes("ipad") || lower.includes("matepad") || lower.includes("mediapad") || lower.includes("galaxy tab") || lower.includes("mi pad")) {
-            return "tablet";
-        }
-        if (lower.includes("tab ") || lower.endsWith("tab") || /\btab\b/.test(lower)) {
+        if (lower.includes("ipad") || lower.includes("matepad") || lower.includes("mediapad") || lower.includes("galaxy tab") || lower.includes("mi pad") || /\btablet\b/i.test(lower)) {
             return "tablet";
         }
         if (lower.includes("laptop") || lower.includes("notebook") || lower.includes("macbook") || lower.includes("thinkpad") || lower.includes("elitebook") || lower.includes("probook") || lower.includes("zenbook") || lower.includes("vivobook") || lower.includes("latitude") || lower.includes("inspiron") || lower.includes("vostro") || lower.includes("precision")) {
