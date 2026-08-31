@@ -66,7 +66,7 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
         "Listing_URL": "https://ikman.lk/en/ad/gtx-970-4gb-vga-card-for-sale-gampaha-1",
         "Raw_Title": "GTX 970 4GB VGA Card",
         "Price_LKR": 21000.0,
@@ -128,17 +128,6 @@
         "Extracted_Model": "GTX 970",
         "VRAM_GB": 4.0,
         "Brand": "NVIDIA",
-        "Scraped_At_UTC": "2026-05-09T11:40:02+00:00",
-        "Discard_Reason": "Price Outlier (IQR Filtering)"
-    },
-    {
-        "Listing_ID": "69da8cbaa41f75b7f79c39cf",
-        "Listing_URL": "https://ikman.lk/en/ad/asus-tuf-rtx-3060-ti-8gb-oc-edition-gaming-gpu-excellent-condition-for-sale-anuradhapura",
-        "Raw_Title": "Asus Tuf RTX 3060 Ti 8GB OC Edition Gaming VGA",
-        "Price_LKR": 90000.0,
-        "Extracted_Model": "RTX 3060 TI",
-        "VRAM_GB": 8.0,
-        "Brand": "ASUS",
         "Scraped_At_UTC": "2026-05-09T11:40:02+00:00",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
@@ -231,7 +220,7 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
         "Listing_URL": "https://mdcomputers.lk/product/gtx750-2gb-used-vga-random-brand",
         "Raw_Title": "GTX750 2GB USED VGA ( RANDOM BRAND )",
         "Price_LKR": 15000.0,
@@ -242,7 +231,7 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
         "Listing_URL": "https://mdcomputers.lk/product/used-gigabyte-gtx970-4gb-vga-card",
         "Raw_Title": "GTX970 4GB USED VGA CARD",
         "Price_LKR": 31000.0,
@@ -253,7 +242,18 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
+        "Listing_URL": "https://mdcomputers.lk/product/gigabyte-gtx1050ti-4gb-used-graphics-card",
+        "Raw_Title": "GIGABYTE GTX1050TI 4GB USED GRAPHICS CARD",
+        "Price_LKR": 35000.0,
+        "Extracted_Model": "GTX 1050 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "GIGABYTE",
+        "Scraped_At_UTC": "2026-05-09T11:40:23+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": null,
         "Listing_URL": "https://mdcomputers.lk/product/msi-geforce-rtx2080-8gb-ventus-used-vga",
         "Raw_Title": "MSI VENTUS RTX2080 8GB SUPER USED VGA",
         "Price_LKR": 85000.0,
@@ -264,51 +264,7 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
-        "Listing_URL": "https://mdcomputers.lk/product/asus-tuf-rtx3060ti-8gb-used-vga",
-        "Raw_Title": "ASUS TUF RTX3060TI 8GB USED VGA",
-        "Price_LKR": 102000.0,
-        "Extracted_Model": "RTX 3060 TI",
-        "VRAM_GB": 8.0,
-        "Brand": "ASUS",
-        "Scraped_At_UTC": "2026-05-09T11:40:23+00:00",
-        "Discard_Reason": "Price Outlier (IQR Filtering)"
-    },
-    {
-        "Listing_ID": "3999",
-        "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-asus-tuf-rtx3060ti-8gb-vga-3-fan",
-        "Raw_Title": "USED ASUS TUF RTX3060TI 8GB VGA ( 3 FAN)",
-        "Price_LKR": 105000.0,
-        "Extracted_Model": "RTX 3060 TI",
-        "VRAM_GB": 8.0,
-        "Brand": "ASUS",
-        "Scraped_At_UTC": "2026-05-09T11:41:52+00:00",
-        "Discard_Reason": "Price Outlier (IQR Filtering)"
-    },
-    {
-        "Listing_ID": "3784",
-        "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-asus-rtx3060ti-8gb-vga",
-        "Raw_Title": "USED ASUS RTX3060TI 8GB VGA",
-        "Price_LKR": 100000.0,
-        "Extracted_Model": "RTX 3060 TI",
-        "VRAM_GB": 8.0,
-        "Brand": "ASUS",
-        "Scraped_At_UTC": "2026-05-09T11:41:52+00:00",
-        "Discard_Reason": "Price Outlier (IQR Filtering)"
-    },
-    {
-        "Listing_ID": "2723",
-        "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-msi-gtx1080-8gb-vga",
-        "Raw_Title": "USED MSI GTX1080 8GB VGA",
-        "Price_LKR": 52000.0,
-        "Extracted_Model": "GTX 1080",
-        "VRAM_GB": 8.0,
-        "Brand": "MSI",
-        "Scraped_At_UTC": "2026-05-09T11:41:52+00:00",
-        "Discard_Reason": "Price Outlier (IQR Filtering)"
-    },
-    {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
         "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-zotac-trinity-rtx3080-10gb-vga",
         "Raw_Title": "USED ZOTAC TRINITY RTX3080 10GB VGA",
         "Price_LKR": 130000.0,
@@ -319,7 +275,7 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
         "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-msi-rtx2080-8gb-vga",
         "Raw_Title": "USED MSI VENTUS RTX2080 8GB VGA",
         "Price_LKR": 90000.0,
@@ -330,13 +286,24 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": NaN,
+        "Listing_ID": null,
         "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-gigabyte-gtx970-4gb-vga",
         "Raw_Title": "USED GIGABYTE GTX970 4GB VGA (SINGLE FAN)",
         "Price_LKR": 27000.0,
         "Extracted_Model": "GTX 970",
         "VRAM_GB": 4.0,
         "Brand": "GIGABYTE",
+        "Scraped_At_UTC": "2026-05-09T11:41:52+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": null,
+        "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-jetstream-gtx960-4gb-vga",
+        "Raw_Title": "USED JETSTREAM GTX960 4GB VGA",
+        "Price_LKR": 25000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 4.0,
+        "Brand": "NVIDIA",
         "Scraped_At_UTC": "2026-05-09T11:41:52+00:00",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
@@ -473,6 +440,17 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
+        "Listing_ID": "69e35452207ea631fd3a5f25",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-960-2gb-for-sale-kalutara-13",
+        "Raw_Title": "GTX 960 2GB",
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Scraped_At_UTC": "2026-05-10T11:02:44+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
         "Listing_ID": "69dfce287a0944d11f4b91d7",
         "Listing_URL": "https://ikman.lk/en/ad/rtx-2070-8gb-msi-ventus-for-sale-matale",
         "Raw_Title": "Rtx 2070 8GB Msi",
@@ -545,6 +523,17 @@
         "Price_LKR": 7700.0,
         "Extracted_Model": "GTX 750",
         "VRAM_GB": 1.0,
+        "Brand": "NVIDIA",
+        "Scraped_At_UTC": "2026-08-12T11:38:08+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": "6a6c8587532c49549160df0a",
+        "Listing_URL": "https://ikman.lk/en/ad/gtx-960-2gb-vga-for-sale-kurunegala-3",
+        "Raw_Title": "GTX 960 2GB VGA",
+        "Price_LKR": 14000.0,
+        "Extracted_Model": "GTX 960",
+        "VRAM_GB": 2.0,
         "Brand": "NVIDIA",
         "Scraped_At_UTC": "2026-08-12T11:38:08+00:00",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
@@ -726,17 +715,6 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
-        "Listing_ID": "6a86d9727b7dfc39913de5b9",
-        "Listing_URL": "https://ikman.lk/en/ad/gtx760-2gb-vga-for-sale-kegalle",
-        "Raw_Title": "Gtx760 2gb Vga",
-        "Price_LKR": 11000.0,
-        "Extracted_Model": "GTX 760",
-        "VRAM_GB": 2.0,
-        "Brand": "NVIDIA",
-        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
-        "Discard_Reason": "Price Outlier (IQR Filtering)"
-    },
-    {
         "Listing_ID": "6a86cfe9807f8d2543cc8a01",
         "Listing_URL": "https://ikman.lk/en/ad/gtx-960-2gb-vga-for-sale-kegalle",
         "Raw_Title": "Gtx 960 2gb Vga",
@@ -770,6 +748,17 @@
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     },
     {
+        "Listing_ID": "6a7f231c64736bf60c8ec328",
+        "Listing_URL": "https://ikman.lk/en/ad/axle-gtx550ti-2gb-vga-for-sale-badulla",
+        "Raw_Title": "Axle Gtx550ti 2GB VGA",
+        "Price_LKR": 10000.0,
+        "Extracted_Model": "GTX 550 TI",
+        "VRAM_GB": 2.0,
+        "Brand": "NVIDIA",
+        "Scraped_At_UTC": "2026-08-21T11:15:13+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
         "Listing_ID": "45128",
         "Listing_URL": "https://mdcomputers.lk/product/gtx750-2gb-used-vga-random-brand",
         "Raw_Title": "GTX750 2GB USED VGA ( RANDOM BRAND )",
@@ -778,6 +767,50 @@
         "VRAM_GB": 2.0,
         "Brand": "NVIDIA",
         "Scraped_At_UTC": "2026-08-21T11:15:54+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": "60528",
+        "Listing_URL": "https://mdcomputers.lk/product/asus-proart-rtx-4060-8gb-used-graphics-card",
+        "Raw_Title": "ASUS PROART RTX 4060 8GB USED GRAPHICS CARD",
+        "Price_LKR": 125000.0,
+        "Extracted_Model": "RTX 4060",
+        "VRAM_GB": 8.0,
+        "Brand": "ASUS",
+        "Scraped_At_UTC": "2026-08-21T11:15:54+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": "6a8c20902e4cd6cf22f88bf7",
+        "Listing_URL": "https://ikman.lk/en/ad/zotac-gtx-660-2gb-graphics-card-vikinniimtt-for-sale-ratnapura",
+        "Raw_Title": "ZOTAC GTX 660 2GB Graphics VGA Card",
+        "Price_LKR": 9800.0,
+        "Extracted_Model": "GTX 660",
+        "VRAM_GB": 2.0,
+        "Brand": "ZOTAC",
+        "Scraped_At_UTC": "2026-08-30T10:05:36+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": "4042",
+        "Listing_URL": "https://www.mskcomputers.lk/used-graphic-card-vga/used-gigabyte-gtx1050ti-4gb-vga",
+        "Raw_Title": "USED GIGABYTE GTX1050TI 4GB VGA",
+        "Price_LKR": 28000.0,
+        "Extracted_Model": "GTX 1050 TI",
+        "VRAM_GB": 4.0,
+        "Brand": "GIGABYTE",
+        "Scraped_At_UTC": "2026-08-30T10:07:28+00:00",
+        "Discard_Reason": "Price Outlier (IQR Filtering)"
+    },
+    {
+        "Listing_ID": "47769",
+        "Listing_URL": "https://mdcomputers.lk/product/msi-geforce-rtx2080-8gb-super-ventus-used-vga",
+        "Raw_Title": "MSI GAMING X GEFORCE RTX2080 8GB USED GRAPHICS CARD",
+        "Price_LKR": 90000.0,
+        "Extracted_Model": "RTX 2080",
+        "VRAM_GB": 8.0,
+        "Brand": "MSI",
+        "Scraped_At_UTC": "2026-08-31T04:53:09+00:00",
         "Discard_Reason": "Price Outlier (IQR Filtering)"
     }
 ]
