@@ -27,7 +27,10 @@
     {
       "matches": [
         "*://*.ikman.lk/*",
-        "*://*.riyasewana.com/*"
+        "*://*.riyasewana.com/*",
+        "*://*.daraz.lk/*",
+        "*://*.facebook.com/marketplace/*",
+        "*://*.patpat.lk/*"
       ],
       "js": [
         "config.js",

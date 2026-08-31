@@ -180,7 +180,12 @@
       category: "gpu",
       data: {},
     };
-    const data = ext.data || {};
+    // Prioritize authoritative enriched specs from backend Single Source of Truth if prediction is available
+    const authoritativeSpecs = (cachedPrediction && (cachedPrediction.enriched_specs || cachedPrediction.inputs)) || {};
+    const data = {
+      ...(ext.data || {}),
+      ...authoritativeSpecs,
+    };
     const cat = ext.category || "gpu";
     const isUnsupported = cat === "unsupported" || ext.is_unsupported_item;
     const isBrandNew =
@@ -235,9 +240,8 @@
                     </div>
 
                     <!-- Unsupported Item Notice -->
-                    ${
-                      isUnsupported
-                        ? `
+                    ${isUnsupported
+        ? `
                         <div class="fplk-verdict-box warning" style="background:#FEF2F2; border:1px solid #FECACA; color:#991B1B;">
                             <div class="fplk-verdict-header">
                                 <span class="fplk-verdict-tag" style="background:#FEE2E2; color:#991B1B; font-weight:700;">⚠️ CATEGORY NOT SUPPORTED</span>
@@ -247,13 +251,12 @@
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
 
                     <!-- Brand New Notice -->
-                    ${
-                      !isUnsupported && isBrandNew && !manualEstimateRequested
-                        ? `
+                    ${!isUnsupported && isBrandNew && !manualEstimateRequested
+        ? `
                         <div class="fplk-verdict-box warning">
                             <div class="fplk-verdict-header">
                                 <span class="fplk-verdict-tag" style="background:#FDE68A; color:#92400E; font-weight:700;">⚠️ BRAND NEW ITEM</span>
@@ -263,36 +266,40 @@
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
 
                     <!-- Evaluation or Missing/Invalid info -->
-                    ${
-                      !isUnsupported &&
-                      !ext.valid &&
-                      !cachedPrediction &&
-                      !isBrandNew
-                        ? `
-                        <div class="fplk-verdict-box ${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'warning' : 'neutral'}">
+                    ${!isUnsupported &&
+        !ext.valid &&
+        !cachedPrediction &&
+        !isBrandNew
+        ? `
+                        <div class="fplk-verdict-box ${ext.error_message ? 'warning' : 'neutral'}">
                             <div class="fplk-verdict-header">
-                                <span class="fplk-verdict-tag" style="${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'background:#FEE2E2; color:#991B1B; font-weight:700;' : ''}">
-                                    ${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? '⚠️ SPECIFICATION ISSUE' : 'Listing Details Detected'}
+                                <span class="fplk-verdict-tag" style="${ext.error_message ? 'background:#FEE2E2; color:#991B1B; font-weight:700;' : ''}">
+                                    ${ext.error_message && (ext.error_message.includes('not supported') || ext.error_message.includes('only provides valuation'))
+          ? '⚠️ MODEL NOT SUPPORTED'
+          : ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting'))
+            ? '⚠️ SPECIFICATION ISSUE'
+            : ext.error_message
+              ? '⚠️ VALUATION UNAVAILABLE'
+              : 'Listing Details Detected'}
                                 </span>
                             </div>
-                            <div class="fplk-verdict-body" style="${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'font-size:12.5px; color:#7F1D1D; line-height:1.5; margin-top:4px;' : ''}">
+                            <div class="fplk-verdict-body" style="${ext.error_message ? 'font-size:12.5px; color:#7F1D1D; line-height:1.5; margin-top:4px;' : ''}">
                                 ${ext.error_message || "Could not automatically identify all specifications for valuation. You can refine details below."}
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
 
                     ${!isUnsupported && cachedPrediction && (!isBrandNew || manualEstimateRequested) ? renderPredictionResult(cachedPrediction, data.listed_price) : ""}
 
                     <!-- Manual Refine Form (Collapsible/Accordion) - Only for supported Used items -->
-                    ${
-                      !isUnsupported && !isBrandNew
-                        ? `
+                    ${!isUnsupported && !isBrandNew
+        ? `
                     <details class="fplk-form-section">
                         <summary class="fplk-form-title" style="cursor: pointer;">
                             <span>Refine Details / Manual Estimate</span>
@@ -313,8 +320,8 @@
                         </div>
                     </details>
                     `
-                        : ""
-                    }
+        : ""
+      }
                 </div>
             </div>
         `;
@@ -403,9 +410,8 @@
             </div>
 
             <!-- Score Calculation Breakdown (Collapsible Accordion) -->
-            ${
-              fairness && fairness.breakdown
-                ? `
+            ${fairness && fairness.breakdown
+        ? `
                 <details class="fplk-breakdown-details">
                     <summary class="fplk-breakdown-summary">
                         <span class="fplk-breakdown-summary-title">
@@ -422,11 +428,11 @@
 
                         <div class="fplk-factors-list">
                             ${(fairness.breakdown.factors || [])
-                              .map((f) => {
-                                const pillClass = (f.impact || "neutral")
-                                  .toLowerCase()
-                                  .replace(/\s+/g, "-");
-                                return `
+          .map((f) => {
+            const pillClass = (f.impact || "neutral")
+              .toLowerCase()
+              .replace(/\s+/g, "-");
+            return `
                                     <div class="fplk-factor-card">
                                         <div class="fplk-factor-header">
                                             <span class="fplk-factor-name">${f.name}</span>
@@ -435,14 +441,14 @@
                                         <div class="fplk-factor-desc">${f.desc}</div>
                                     </div>
                                 `;
-                              })
-                              .join("")}
+          })
+          .join("")}
                         </div>
                     </div>
                 </details>
             `
-                : ""
-            }
+        : ""
+      }
         `;
   }
 
@@ -474,11 +480,11 @@
                         <label class="fplk-label">VRAM (GB)</label>
                         <select class="fplk-select" id="fplk-select-gpu-vram">
                             ${[1, 2, 3, 4, 6, 8, 10, 11, 12, 16, 20, 24]
-                              .map(
-                                (v) =>
-                                  `<option value="${v}" ${Number(currentVram) === v ? "selected" : ""}>${v} GB</option>`,
-                              )
-                              .join("")}
+          .map(
+            (v) =>
+              `<option value="${v}" ${Number(currentVram) === v ? "selected" : ""}>${v} GB</option>`,
+          )
+          .join("")}
                         </select>
                     </div>
                     <div class="fplk-form-group">
@@ -660,8 +666,8 @@
       if (tEl) d.phone_type = tEl.value;
       if (bEl) d.brand = bEl.value.trim();
       if (mEl) d.model = mEl.value.trim();
-      if (sEl) d.storage_gb = parseFloat(sEl.value) || 128;
-      if (rEl) d.ram_gb = parseFloat(rEl.value) || 6;
+      if (sEl && sEl.value) d.storage_gb = parseFloat(sEl.value);
+      if (rEl && rEl.value) d.ram_gb = parseFloat(rEl.value);
 
       const bhEl = document.getElementById("fplk-mobile-battery");
       const wEl = document.getElementById("fplk-mobile-warranty");
@@ -676,28 +682,6 @@
         d.warranty_days = parseFloat(wEl.value) || 0;
       } else {
         d.warranty_days = 0;
-      }
-
-      // Re-derive engineered features using the extractor's helpers if available
-      const mobileExt =
-        window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.mobile;
-      if (mobileExt && mobileExt.parse) {
-        // Trigger a fresh parse to recompute features based on updated brand/model
-        const freshParsed = mobileExt.parse({
-          title: d.model || "",
-          price: d.listed_price,
-          raw_text: "",
-          key_values: { brand: d.brand, model: d.model },
-        });
-        if (freshParsed && freshParsed.data) {
-          d.model_tier = freshParsed.data.model_tier;
-          d.brand_tier = freshParsed.data.brand_tier;
-          d.phone_age_years = freshParsed.data.phone_age_years;
-          d.is_flagship = freshParsed.data.is_flagship;
-          d.has_5g = freshParsed.data.has_5g;
-          d.has_esim = freshParsed.data.has_esim;
-          d.dual_sim = freshParsed.data.dual_sim;
-        }
       }
     } else if (cat === "vehicle") {
       const makeEl = document.getElementById("fplk-vehicle-make");
@@ -766,36 +750,29 @@
 
     let subpath = "";
     if (cat === "mobile") {
-      // Strictly limit payload to the fields the Mobile API PredictRequest expects
+      const pageCtx = currentExtraction.pageContext || {};
       payloadForFetch = {
         phone_type: originalData.phone_type || "android",
         brand: originalData.brand || "",
         model: originalData.model || "",
-        storage_gb: originalData.storage_gb || 128,
-        ram_gb: originalData.ram_gb || 6,
+        title: originalData.title || pageCtx.title || "",
+        description: originalData.description || pageCtx.description || "",
+        raw_text: pageCtx.raw_text || "",
+        storage_gb: originalData.storage_gb || null,
+        ram_gb: originalData.ram_gb || null,
         warranty_days:
           originalData.warranty_days !== undefined &&
-          originalData.warranty_days !== null
+            originalData.warranty_days !== null
             ? originalData.warranty_days
             : 0,
         battery_health_percent:
           originalData.battery_health_percent !== undefined &&
-          originalData.battery_health_percent !== null
+            originalData.battery_health_percent !== null
             ? originalData.battery_health_percent
             : null,
-        dual_sim: originalData.dual_sim ? true : false,
-        has_5g: originalData.has_5g ? true : false,
-        has_esim: originalData.has_esim ? true : false,
-        model_tier:
-          originalData.model_tier !== undefined ? originalData.model_tier : 3,
-        brand_tier:
-          originalData.brand_tier !== undefined ? originalData.brand_tier : 2,
-        phone_age_years:
-          originalData.phone_age_years !== undefined
-            ? originalData.phone_age_years
-            : 3.0,
-        is_flagship:
-          originalData.is_flagship !== undefined ? originalData.is_flagship : 0,
+        dual_sim: originalData.dual_sim !== undefined && originalData.dual_sim !== null ? Boolean(originalData.dual_sim) : null,
+        has_5g: originalData.has_5g !== undefined && originalData.has_5g !== null ? Boolean(originalData.has_5g) : null,
+        has_esim: originalData.has_esim !== undefined && originalData.has_esim !== null ? Boolean(originalData.has_esim) : null
       };
     } else if (cat === "vehicle") {
       const vType = originalData.vehicle_type || "cars";
@@ -862,6 +839,16 @@
 
           cachedPrediction = response.data;
           currentExtraction.valid = true;
+
+          // Unconditionally synchronize authoritative specs from backend Single Source of Truth into currentExtraction.data
+          if (cachedPrediction && (cachedPrediction.enriched_specs || cachedPrediction.inputs)) {
+            const enriched = cachedPrediction.enriched_specs || cachedPrediction.inputs;
+            currentExtraction.data = {
+              ...(currentExtraction.data || {}),
+              ...enriched
+            };
+          }
+
           renderEmbeddedCard(manualOverride);
         },
       );
@@ -909,7 +896,7 @@
             valid: extraction ? extraction.valid : false,
             is_unsupported_item: extraction
               ? extraction.is_unsupported_item ||
-                extraction.category === "unsupported"
+              extraction.category === "unsupported"
               : false,
             is_brand_new: extraction ? Boolean(extraction.is_brand_new) : false,
             error_message: extraction ? extraction.error_message : null,

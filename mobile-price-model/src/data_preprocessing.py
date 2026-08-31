@@ -494,6 +494,39 @@ def remove_suspicious_prices(
     return df
 
 
+def filter_smartphones_only(df: pd.DataFrame) -> pd.DataFrame:
+    """Filter out non-smartphones (button/feature phones) and incomplete/fake listings.
+    
+    A valid smartphone record MUST satisfy:
+    1. Has valid smartphone storage (storage_gb >= 16.0) OR valid smartphone RAM (ram_gb >= 1.0)
+       OR is a recognized smartphone model.
+    2. Is not an explicit button/feature phone (e.g. Nokia 105, 110, 130, 215, 3310, E10, B310E).
+    3. Is not an unreleased/phantom concept (e.g. 'iPhone Air', 'iPhone 17e').
+    """
+    before = len(df)
+    
+    # 1. Feature / button phone pattern blacklist
+    button_phone_pattern = r"(?i)\b(105|106|110|120|130|150|215|216|220|225|230|3310|5310|6300|8110|e10|b310e|b110e|guru\s*music|guru\s*fm|sm-b\d+|c1\s*plus|it\d{3,4}|ke\d{3,4})\b"
+    
+    button_mask = df["model"].str.contains(button_phone_pattern, regex=True, na=False) & (df["brand"].isin(["Nokia", "Samsung", "Itel", "Tecno"]))
+    df = df[~button_mask].copy()
+    
+    # Drop phantom unreleased models (e.g. 'iPhone Air', 'iPhone 17e')
+    phantom_mask = df["model"].isin(["iPhone Air", "iPhone 17e", "iPhone 17 Pro", "iPhone 17 Pro Max", "iPhone 17"])
+    df = df[~phantom_mask].copy()
+    
+    # 2. Require valid smartphone memory: must have storage >= 16 OR RAM >= 1.0
+    has_valid_storage = df["storage_gb"].notna() & (df["storage_gb"] >= 16.0)
+    has_valid_ram = df["ram_gb"].notna() & (df["ram_gb"] >= 1.0)
+    
+    valid_smartphone = has_valid_storage | has_valid_ram
+    df = df[valid_smartphone].copy()
+    
+    logger.info("Smartphone memory & feature phone filter: %s retained, %s removed.",
+                f"{len(df):,}", f"{before - len(df):,}")
+    return df
+
+
 # ── Main preprocessing function ─────────────────────────────────────────────
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
@@ -560,6 +593,9 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     df = apply_android_ram(df)
     df = sanitize_ram_values(df)
     df = apply_phone_capabilities(df)
+
+    # Filter strictly for real smartphones (drops button phones & listings with no RAM and no storage)
+    df = filter_smartphones_only(df)
 
     # Dedup after standardisation
     before = len(df)
