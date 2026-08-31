@@ -83,28 +83,32 @@
       currentExtraction && currentExtraction.pageContext
         ? currentExtraction.pageContext.price_element
         : null;
-    if (priceEl) {
+    if (priceEl && document.body.contains(priceEl)) {
       // If the price element is inside a container, insert after price or container
       const container =
         priceEl.closest('div[data-testid="price-section"]') ||
         priceEl.closest(".price-section") ||
         priceEl.closest("div") ||
         priceEl;
-      return { element: container, position: "afterend" };
+      return { element: container, position: "afterend", isFloating: false };
     }
 
     // Priority 2: Ikman / General marketplace ad details section or h1
     const titleEl = document.querySelector("h1");
-    if (titleEl) {
-      return { element: titleEl, position: "afterend" };
+    if (titleEl && document.body.contains(titleEl)) {
+      return { element: titleEl, position: "afterend", isFloating: false };
     }
 
-    // Fallback: main content container or body
+    // Priority 3: main content container
     const main =
       document.querySelector("main") ||
-      document.querySelector("article") ||
-      document.body;
-    return { element: main, position: "beforeend" };
+      document.querySelector("article");
+    if (main && document.body.contains(main)) {
+      return { element: main, position: "beforeend", isFloating: false };
+    }
+
+    // Fallback: Floating overlay widget pinned on bottom-right of body
+    return { element: document.body, position: "beforeend", isFloating: true };
   }
 
   function isBrandNewCondition(conditionStr, titleStr = "", rawText = "", keyValues = {}) {
@@ -170,9 +174,11 @@
       } else {
         embeddedCardRoot = document.createElement("div");
         embeddedCardRoot.id = "fairpricelk-embedded-card";
-        embeddedCardRoot.className = "fplk-embedded-container";
+        embeddedCardRoot.className = `fplk-embedded-container ${target.isFloating ? "floating-fallback" : ""}`;
         target.element.insertAdjacentElement(target.position, embeddedCardRoot);
       }
+    } else if (target.isFloating && !embeddedCardRoot.classList.contains("floating-fallback")) {
+      embeddedCardRoot.classList.add("floating-fallback");
     }
 
     const ext = currentExtraction || {
@@ -334,6 +340,26 @@
   function renderPredictionResult(pred, listedPrice) {
     if (!pred) return "";
 
+    // 1. Safety Guard Check: Insufficient sample size (< 3) or Generation Restricted
+    if (pred.can_predict === false || pred.status === "insufficient_data" || pred.status === "generation_restricted") {
+      const title = (pred.evaluation && pred.evaluation.verdict) || "Insufficient Market Data";
+      const msg = (pred.evaluation && (pred.evaluation.message || pred.evaluation.description)) || "Market listings for this model are currently limited in Sri Lanka. Automatic price valuation is unavailable to ensure accuracy.";
+
+      return `
+            <div class="fplk-alert-box" style="background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706; padding: 12px 14px; border-radius: 6px; margin: 10px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <span style="font-size: 18px; line-height: 1.2;">⚠️</span>
+                    <div>
+                        <strong style="color: #92400E; font-size: 13px; font-weight: 700; display: block; margin-bottom: 4px;">${title}</strong>
+                        <p style="font-size: 12px; color: #78350F; margin: 0; line-height: 1.5; font-weight: 400;">
+                            ${msg}
+                        </p>
+                    </div>
+                </div>
+            </div>
+      `;
+    }
+
     const hasRange =
       pred.fair_market_range && pred.fair_market_range.lower_price_lkr;
     const lower = hasRange
@@ -386,7 +412,15 @@
     const actionAdvice = fairness ? fairness.actionAdvice : null;
     const negotiationTarget = fairness ? fairness.negotiationTarget : null;
 
+    const lowDataWarningHtml = (pred.metadata && pred.metadata.limited_data_warning) ? `
+            <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-left: 3px solid #D97706; padding: 8px 12px; border-radius: 6px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 14px;">⚠️</span>
+                <span style="font-size: 11.5px; color: #92400E; font-weight: 500; line-height: 1.4;"><strong>Notice:</strong> Market listings for this model are limited. Valuation range has been widened for uncertainty.</span>
+            </div>
+    ` : "";
+
     return `
+            ${lowDataWarningHtml}
             <!-- Price Range & Score Grid -->
             <div class="fplk-price-grid">
                 <div class="fplk-price-card primary">

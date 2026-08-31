@@ -127,6 +127,85 @@ def predict(request: PredictRequest):
 
         sample_count = get_model_sample_count(request.model, enriched)
 
+        # Safety Guard 1: Newly Released Generation Restriction (RTX 50-series / Blackwell)
+        import re
+        if bool(re.search(r'\b(rtx\s*50\d{2}|rx\s*90\d{2})\b', str(request.model).lower())):
+            return {
+                "status": "generation_restricted",
+                "can_predict": False,
+                "predicted_price": None,
+                "price": None,
+                "base_specs_price": None,
+                "condition_adjusted_price": None,
+                "condition_adjustment_pct": 0,
+                "condition_delta_lkr": 0,
+                "condition_tags": [],
+                "applied_condition_factors": [],
+                "best_model_used": best_name,
+                "lower_price": None,
+                "upper_price": None,
+                "fair_market_range": None,
+                "evaluation": {
+                    "verdict": "Newly Released Generation",
+                    "badge_color": "warning",
+                    "badge_text": "New Architecture",
+                    "badge_class": "warning",
+                    "fairness_score": None,
+                    "description": f"The {request.model} belongs to a newly released hardware generation. Secondary market pricing has not yet stabilized in Sri Lanka, so automatic price valuation is restricted to ensure accuracy.",
+                    "message": f"The {request.model} belongs to a newly released hardware generation. Secondary market pricing has not yet stabilized in Sri Lanka, so automatic price valuation is restricted to ensure accuracy."
+                },
+                "metadata": {
+                    "model_name": request.model,
+                    "vram_gb": vram,
+                    "brand": brand,
+                    "tier": "unknown",
+                    "limited_data_warning": True,
+                    "sample_count": sample_count,
+                    "reason": "new_generation_restriction"
+                },
+                "all_predictions": {}
+            }
+
+        # Safety Guard 2: Check for minimum sample size threshold (N >= 3)
+        MIN_SAMPLE_THRESHOLD = 3
+        if sample_count < MIN_SAMPLE_THRESHOLD:
+            return {
+                "status": "insufficient_data",
+                "can_predict": False,
+                "predicted_price": None,
+                "price": None,
+                "base_specs_price": None,
+                "condition_adjusted_price": None,
+                "condition_adjustment_pct": 0,
+                "condition_delta_lkr": 0,
+                "condition_tags": [],
+                "applied_condition_factors": [],
+                "best_model_used": best_name,
+                "lower_price": None,
+                "upper_price": None,
+                "fair_market_range": None,
+                "evaluation": {
+                    "verdict": "Insufficient Market Data",
+                    "badge_color": "warning",
+                    "badge_text": "Insufficient Data",
+                    "badge_class": "warning",
+                    "fairness_score": None,
+                    "description": f"Market listings for {request.model} are currently limited in Sri Lanka. Automatic price valuation is unavailable to ensure accuracy.",
+                    "message": f"Market listings for {request.model} are currently limited in Sri Lanka. Automatic price valuation is unavailable to ensure accuracy."
+                },
+                "metadata": {
+                    "model_name": request.model,
+                    "vram_gb": vram,
+                    "brand": brand,
+                    "tier": "unknown",
+                    "limited_data_warning": True,
+                    "sample_count": sample_count,
+                    "min_required_samples": MIN_SAMPLE_THRESHOLD,
+                    "reason": "sample_count_below_minimum_threshold"
+                },
+                "all_predictions": {}
+            }
+
         # Hedonic adjustment for listing text factors (warranty duration, defect penalty, verified shop markup)
         condition_adj = apply_condition_adjustment(
             predicted_log_price=base_log_price,

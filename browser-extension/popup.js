@@ -924,6 +924,23 @@ document.addEventListener("DOMContentLoaded", () => {
       verdictDescEl.classList.add("hidden");
     }
 
+    // Safety Guard Check: Insufficient sample size (< 3) or Generation Restricted
+    if (data.can_predict === false || data.status === "insufficient_data" || data.status === "generation_restricted") {
+      resultSection.classList.remove("hidden");
+      predictedPriceEl.innerText = "--";
+      priceRangeVal.innerText = "--";
+      if (verdictBanner) verdictBanner.className = "verdict-banner fair";
+      fairnessBadge.innerText = (data.evaluation && data.evaluation.badge_text) || "Restricted";
+      priceDiffEl.innerText = "";
+      const msg = (data.evaluation && (data.evaluation.message || data.evaluation.description)) || "Market listings for this model are currently limited in Sri Lanka. Automatic price valuation is unavailable to ensure accuracy.";
+      if (verdictDescEl) {
+        verdictDescEl.innerHTML = `<span style="color: #92400E; font-weight: 500; display: block; line-height: 1.45;">⚠️ ${msg}</span>`;
+        verdictDescEl.classList.remove("hidden");
+      }
+      modelUsedName.innerText = "FairPriceLK Valuation Guard";
+      return;
+    }
+
     let lowerPrice = 0;
     let upperPrice = 0;
     let pointPrice = 0;

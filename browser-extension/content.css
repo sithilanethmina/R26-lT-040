@@ -599,3 +599,17 @@
 @keyframes fplk-spin {
     to { transform: rotate(360deg); }
 }
+
+/* Floating overlay fallback for when on-page DOM anchor point cannot be found */
+.fplk-embedded-container.floating-fallback {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 380px;
+    max-width: 90vw;
+    z-index: 2147483647;
+    margin: 0;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+

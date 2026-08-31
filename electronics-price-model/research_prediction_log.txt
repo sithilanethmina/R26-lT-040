@@ -4220,3 +4220,48 @@ PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
 Input: APPLE 27 INCH ATEC FULL HD LED USED MONITOR | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 70.0%
 PREDICTED PRICE: Rs 19,004.59 (Range: Rs 14,655 - Rs 23,355)
 ----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Tuf | Specs: 16GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 294,160.00 (Range: Rs 199,535 - Rs 388,785)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Tuf | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 160,500.00 (Range: Rs 144,250 - Rs 176,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS RTX 2060 SUPER | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 71,639.39 (Range: Rs 34,639 - Rs 108,640)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL G15 | Specs: 4GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 113,300.00 (Range: Rs 91,550 - Rs 135,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Victus | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 191,999.00 (Range: Rs 124,249 - Rs 259,749)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Victus | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 203,999.00 (Range: Rs 147,249 - Rs 260,749)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL G15 | Specs: 4GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 113,300.00 (Range: Rs 91,550 - Rs 135,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Victus | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 191,999.00 (Range: Rs 124,249 - Rs 259,749)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS RTX 5070 TI | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 71,639.39 (Range: Rs 34,639 - Rs 108,640)
+----------------------------------------
