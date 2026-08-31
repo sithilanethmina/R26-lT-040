@@ -4,7 +4,7 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies for C extensions, LightGBM, XGBoost
+# Install system dependencies for C extensions, LightGBM, XGBoost, CatBoost
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libgomp1 \
@@ -12,15 +12,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy project files
-COPY . /app/
+# Upgrade pip and build tools
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 
-# Install Python requirements across all microservices
-RUN pip install --no-cache-dir -r gpu-price-model/requirements.txt
-RUN pip install --no-cache-dir -r mobile-price-model/requirements.txt
-RUN pip install --no-cache-dir -r vehicle-price-model/requirements.txt
-RUN pip install --no-cache-dir -r electronics-price-model/requirements.txt
-RUN pip install --no-cache-dir -r api-gateway/requirements.txt
+# Copy root requirements first for layer caching
+COPY requirements.txt /app/
+
+# Install all Python dependencies together to avoid version conflicts
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy all project files
+COPY . /app/
 
 # Set Python path environment variable
 ENV PYTHONPATH="/app:/app/api-gateway:/app/gpu-price-model/src"
