@@ -1,7 +1,7 @@
 # Replace the placeholder usernames with real GitHub usernames or org teams.
 
 /.github/ @sithilanethmina
-/electronics-price-model/ @NimsaraThenuka @sithilanethmina
+/electronics-price-model/ @NimsaraThenuka @sithilanethmina @Kavi-Gomez
 /gpu-price-model/ @sithilanethmina
 /mobile-price-model/ @Kavi-Gomez @sithilanethmina
 /vehicle-price-model/ @DulaG @sithilanethmina
