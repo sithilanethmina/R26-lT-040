@@ -11,7 +11,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         "LG", "VIEWSONIC", "BENQ", "AOC", "TOSHIBA", "SONY", "HUAWEI", "XIAOMI"
     ];
 
-    function extractSubCategory(title, combinedText) {
+    function extractSubCategory(title, combinedText, keyValues = {}) {
         const titleLower = (title || "").toLowerCase();
         // Strip generic marketplace category headers like "computers & tablets" from text before checking subcategory
         const lower = (combinedText || "").toLowerCase().replace(/computers\s*(?:&|and)\s*tablets/gi, '');
@@ -299,7 +299,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         const { title = "", price = null, raw_text = "", key_values = {}, description = "" } = pageContext;
         const scope = `${title} ${description} ${key_values.brand || ""} ${key_values.model || ""} ${raw_text}`;
 
-        const subCat = extractSubCategory(title, scope);
+        const subCat = extractSubCategory(title, scope, key_values);
         const brand = extractBrand(scope, key_values, title);
         let model = key_values.model || title.replace(new RegExp(`\\b${brand}\\b`, 'gi'), '').replace(/for sale.*$/i, '').trim() || "Standard Model";
 
