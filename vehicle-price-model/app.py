@@ -228,7 +228,8 @@ def normalize_car_model(raw_model: str) -> str:
     if "w210" in m: return "W210"
     if "e350" in m: return "E350"
     
-    return raw_model.strip().title()
+    # Return Unknown for any explicitly unmapped Car model
+    return "Unknown"
 
 
 def normalize_suv_model(raw_model: str, engine_cc: float, year: int) -> str:
@@ -284,7 +285,8 @@ def normalize_suv_model(raw_model: str, engine_cc: float, year: int) -> str:
         if "land cruiser" in m: return "Prado"
         return "Prado"
         
-    return raw_model.strip().title()
+    # Return Unknown for any explicitly unmapped SUV model
+    return "Unknown"
 
 
 def normalize_van_model(raw_model: str) -> str:
@@ -313,7 +315,8 @@ def normalize_van_model(raw_model: str) -> str:
 
     if "hijet" in m: return "Hijet"
         
-    return raw_model.strip().title()
+    # Return Unknown for any explicitly unmapped Van model
+    return "Unknown"
 
 
 def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
@@ -500,6 +503,21 @@ def predict_car(req: PredictRequest):
     print(f"[CAR NORMALIZER] Raw Variant: '{req.variant}' -> Cleaned: '{clean_variant}'")
     print("="*50 + "\n", flush=True)
 
+    # Intercept unknown models before ML Prediction
+    if clean_model_name == "Unknown":
+        return PredictResponse(
+            predicted_price=0, 
+            model_used=car_model_type, 
+            vehicle_age=vehicle_age,
+            mileage_per_year=round(effective_mileage / vehicle_age, 2), 
+            used_mileage_km=effective_mileage,
+            is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
+            confidence="Unknown", 
+            nlp_score=0, 
+            nlp_signals=[], 
+            nlp_verdict=None
+        )
+
     row = {
         "brand": req.brand, 
         "model": clean_model_name, 
@@ -545,6 +563,21 @@ def predict_suv(req: SUVPredictRequest):
     print(f"[SUV NORMALIZER] Raw Model: '{req.model}' -> Cleaned: '{clean_model_name}'")
     print(f"[SUV NORMALIZER] Raw Variant: '{req.variant}' -> Cleaned: '{final_variant}'")
     print("="*50 + "\n", flush=True)
+
+    # Intercept unknown models before ML Prediction
+    if clean_model_name == "Unknown":
+        return PredictResponse(
+            predicted_price=0, 
+            model_used=suv_model_type, 
+            vehicle_age=vehicle_age,
+            mileage_per_year=round(effective_mileage / vehicle_age, 2), 
+            used_mileage_km=effective_mileage,
+            is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
+            confidence="Unknown", 
+            nlp_score=0, 
+            nlp_signals=[], 
+            nlp_verdict=None
+        )
 
     row = {
         "brand": req.brand, 
@@ -602,6 +635,21 @@ def predict_van(req: VanPredictRequest):
     print(f"[VAN NORMALIZER] Raw Variant: '{req.variant}' -> Cleaned: '{clean_variant}'")
     print(f"[VAN NORMALIZER] Final Engine CC: {engine_cc_extracted}")
     print("="*50 + "\n", flush=True)
+
+    # Intercept unknown models before ML Prediction
+    if clean_model_name == "Unknown":
+        return PredictResponse(
+            predicted_price=0, 
+            model_used=van_model_type, 
+            vehicle_age=vehicle_age,
+            mileage_per_year=round(effective_mileage / vehicle_age, 2), 
+            used_mileage_km=effective_mileage,
+            is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
+            confidence="Unknown", 
+            nlp_score=0, 
+            nlp_signals=[], 
+            nlp_verdict=None
+        )
 
     row = {
         "brand": req.brand, 

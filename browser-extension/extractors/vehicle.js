@@ -11,6 +11,8 @@ window.FairPriceLK_Extractors = window.FairPriceLK_Extractors || {};
 
 window.FairPriceLK_Extractors.vehicle = (function () {
 
+    const SUPPORTED_SUV_BRANDS = ['toyota', 'suzuki', 'peugeot', 'nissan', 'mitsubishi', 'micro', 'mg', 'kia', 'hyundai', 'honda', 'daihatsu', 'bmw', 'audi'];
+
     // ── Riyasewana DOM Scraper ────────────────────────────────────────────────
     /**
      * Reads the listing details <table> on riyasewana.com.
@@ -31,7 +33,8 @@ window.FairPriceLK_Extractors.vehicle = (function () {
             title:     null,
             description: null,
             vehicle_type: 'cars',
-            variant:   null
+            variant:   null,
+            body_type: null
         };
 
         try {
@@ -97,6 +100,7 @@ window.FairPriceLK_Extractors.vehicle = (function () {
                     else if (label === 'CONDITION' || label.includes('CONDITION'))       result.condition = value;
                     else if (label === 'EDITION' || label === 'TRIM' || label === 'VARIANT') result.variant = value;
                     else if (label === 'BODY TYPE' || label.includes('BODY')) {
+                        result.body_type = value;
                         const bt = value.toUpperCase();
                         if (bt.includes('SUV')) result.vehicle_type = 'suvs';
                         else if (bt.includes('VAN')) result.vehicle_type = 'vans';
@@ -295,6 +299,47 @@ window.FairPriceLK_Extractors.vehicle = (function () {
 
         // ── Step 2: Resolve and clean each field ──────────────────────────
 
+        // --- Unsupported Vehicle Check ---
+        const unsupportedRegex = /\b(motorcycle|motorbike|scooter|lorry|truck|bus|crew\s*cab|double\s*cab|three\s*wheel|tuk\s*tuk|tractor|heavy\s*machinery|excavator|bicycle)\b/i;
+        let isUnsupported = false;
+
+        // Check H1 Title
+        if (unsupportedRegex.test(title)) {
+            isUnsupported = true;
+        }
+
+        // Check Breadcrumbs
+        if (!isUnsupported && pageContext && pageContext.breadcrumbs) {
+            const breadcrumbText = pageContext.breadcrumbs.join(' ');
+            if (unsupportedRegex.test(breadcrumbText)) {
+                isUnsupported = true;
+            }
+        }
+
+        // Check Body Type from scraped data or key_values
+        if (!isUnsupported) {
+            const bodyType = scraped.body_type || (pageContext && pageContext.key_values && (pageContext.key_values['body type'] || pageContext.key_values['body_type'] || pageContext.key_values['body'])) || '';
+            if (unsupportedRegex.test(bodyType)) {
+                isUnsupported = true;
+            }
+        }
+
+        if (isUnsupported) {
+            return {
+                category: 'unsupported',
+                valid: false,
+                is_unsupported_item: true,
+                error_message: "FairPriceLK currently supports Cars, SUVs, and Vans. Valuations for commercial vehicles and bikes are not available.",
+                data: {
+                    title: title,
+                    listed_price: scraped.price || (pageContext && pageContext.price) || null,
+                    item_type: "Unsupported Vehicle"
+                },
+                pageContext: pageContext
+            };
+        }
+        // ----------------------------------
+
         // Price
         const price = scraped.price || (pageContext && pageContext.price) || null;
 
@@ -364,6 +409,24 @@ window.FairPriceLK_Extractors.vehicle = (function () {
         }
 
         // ── Step 3: Validate ─────────────────────────────────────────────
+        
+        // --- Unsupported SUV Brands Check ---
+        const vehicleType = scraped.vehicle_type || 'cars';
+        if (vehicleType === 'suvs' && make && !SUPPORTED_SUV_BRANDS.includes(make.toLowerCase())) {
+            return {
+                category: 'unsupported',
+                valid: false,
+                is_unsupported_item: true,
+                error_message: "FairPriceLK currently does not support price predictions for " + make + " SUVs.",
+                data: {
+                    title: title,
+                    listed_price: price,
+                    item_type: "Unsupported SUV Brand"
+                },
+                pageContext: pageContext
+            };
+        }
+
         const missingFields = [];
         if (!make)    missingFields.push('Make');
         if (!model)   missingFields.push('Model');
