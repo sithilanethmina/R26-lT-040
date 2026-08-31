@@ -115,7 +115,7 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 
 
 # ─── NORMALIZERS ──────────────────────────────────────────────────────────────
-def normalize_car_model(raw_model: str) -> str:
+def normalize_car_model(raw_model: str, brand: str = "") -> str:
     if not isinstance(raw_model, str): 
         return "Unknown"
     
@@ -133,20 +133,141 @@ def normalize_car_model(raw_model: str) -> str:
     if "hustler" in m: return "Hustler"
     if "maruti" in m: return "Maruti"
     if "spacia" in m: return "Spacia"
+    
+    if "kelisa" in m: return "Kelisa"
+    if "bezza" in m: return "Bezza"
+    if "kenari" in m: return "Kenari"
+    if "viva elite" in m: return "Viva Elite"
+    if "axia" in m or "axeya" in m: return "Axia"
+    
     if "aqua" in m: return "Aqua"
     if "prius" in m: return "Prius"
     if "vitz" in m: return "Vitz"
     if "premio" in m: return "Premio"
     if "axio" in m: return "Axio"
+    if "carina" in m: return "Carina"
+    if "allion" in m: return "Allion"
+    if "vios" in m: return "Vios"
+    if "passo" in m: return "Passo"
+    if "121" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 121"
+    if "corolla 141" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 141"
+    if "110" in m and ("corolla" in m or brand.lower() == "toyota"): return "110"
+    if "ae110" in m and ("corolla" in m or brand.lower() == "toyota"): return "AE110"
+    if "ce110" in m and ("corolla" in m or brand.lower() == "toyota"): return "CE110"
+
     
-    return raw_model.strip().title()
+    if "fit gp1" in m: return "Fit GP1"
+    if "fit gp5" in m: return "FIT GP5"
+    if "civic fd3" in m: return "Civic FD3"
+    if "civic fd4" in m: return "Civic FD4"
+    if "civic fd1" in m: return "Civic FD1"
+    if "civic es8" in m: return "Civic ES8"
+    if "civic es5" in m: return "Civic ES5"
+    if "grace" in m: return "Honda Grace"
+    if "insight" in m: return "Insight"
+    if "civic" in m: return "Civic"
+    
+    if "panda cross" in m: return "Panda Cross"
+    if "panda" in m: return "Panda"
+    if "mx7" in m: return "MX7"
+    if "emgrand" in m: return "Emgrand"
+    
+    if "accent" in m: return "Accent"
+    if "sonata" in m: return "Sonata"
+    if "eon" in m: return "Eon"
+    if "elantra" in m: return "Elantra"
+    
+    if any(x in m for x in ["axela", "mazda 3", "mazda 6", "mazda3", "mazda6"]): return "Axela"
+    if m == "3" or m == "6" or m.startswith("3 ") or m.startswith("6 "): return "Axela"
+    if "demio" in m: return "Demio"
+    if "familia" in m: return "Familia"
+    
+    if "cs3" in m: return "CS3"
+    if "cs1" in m: return "CS1"
+    if "cs2" in m: return "CS2"
+    
+    if "fb13" in m: return "FB13"
+    if "fb14" in m: return "FB14"
+    if "fb15" in m: return "FB15"
+    if "n16" in m: return "N16"
+    if "n17" in m: return "N17"
+    if "leaf" in m: return "Leaf"
+    if "cefiro" in m: return "Cefiro"
+    if "march" in m:
+        if "k10" in m: return "March K10"
+        if "k11" in m: return "March K11"
+        if "k12" in m or "ak12" in m: return "March K12"
+        return "March"
+    if "tiida" in m: return "Tiida"
+    
+    if "mira" in m: return "Mira"
+
+    if "indica" in m: return "Indica"
+    if "nano" in m: return "Nano"
+    if "indigo" in m: return "Indigo"
+
+    if "a1" in m: return "A1"
+    if "a3" in m: return "A3"
+    if "a4" in m: return "A4"
+    if "a5" in m: return "A5"
+    if "a6" in m: return "A6"
+
+    if "318i" in m: return "318i"
+    if "520d" in m: return "520D"
+    if "320d" in m: return "320D"
+    if "730ld" in m: return "730Ld"
+    if "530e" in m: return "530e"
+    if "523i" in m: return "523i"
+    if "mini cooper" in m: return "Mini Cooper"
+    if "i8" in m: return "I8"
+
+    if "c180" in m: return "C180"
+    if "e200" in m: return "E200"
+    if "a200" in m: return "A200"
+    if "e300" in m: return "E300"
+    if "slk200" in m or "slk 200" in m: return "SLK200"
+    if "e220" in m: return "E220"
+    if "s350" in m: return "S350"
+    if "e180" in m: return "E180"
+    if "e240" in m: return "E240"
+    if "c200" in m: return "C200"
+    if "cla 200" in m or "cla200" in m: return "CLA 200"
+    if "c250" in m: return "C250"
+    if "w210" in m: return "W210"
+    if "e350" in m: return "E350"
+    
+    # Return Unknown for any explicitly unmapped Car model
+    return "Unknown"
 
 
-def normalize_suv_model(raw_model: str, engine_cc: float) -> str:
+def normalize_suv_model(raw_model: str, engine_cc: float, year: int) -> str:
     if not isinstance(raw_model, str): 
         return "Unknown"
     
     m = raw_model.strip().lower()
+
+    if re.search(r'\bq2\b', m): return "Q2"
+    if re.search(r'\bq3\b', m): return "Q3"
+    if re.search(r'\bq5\b', m): return "Q5"
+    if re.search(r'\bq7\b', m): return "Q7"
+
+    if re.search(r'\bx1\b', m): return "X1"
+    if re.search(r'\bx2\b', m): return "X2"
+    if re.search(r'\bx3\b', m): return "X3"
+    if re.search(r'\bx5\b', m): return "X5"
+    if "zs" in m: return "ZS"
+
+    if "outlander" in m: return "Outlander"
+    if "pajero io" in m or "gdi io" in m or "pajero dgi" in m: return "Pajero Io"
+    if "eclipse cross" in m: return "Eclipse Cross"
+    if "asx" in m: return "ASX"
+    if "montero sport" in m: return "Montero Sport"
+    if "montero" in m:
+        if year and year <= 2006:
+            return "Montero 3rd gen"
+        elif year and year >= 2007:
+            return "Montero 4th gen"
+        return "Montero"
 
     if "box prado" in m or "bj75" in m: return "Box Prado"
     if "xtrail" in m or "x-trail" in m: return "X-Trail"
@@ -177,7 +298,38 @@ def normalize_suv_model(raw_model: str, engine_cc: float) -> str:
         if "land cruiser" in m: return "Prado"
         return "Prado"
         
-    return raw_model.strip().title()
+    # Return Unknown for any explicitly unmapped SUV model
+    return "Unknown"
+
+
+def normalize_van_model(raw_model: str) -> str:
+    if not isinstance(raw_model, str): 
+        return "Unknown"
+    
+    m = raw_model.strip().lower()
+
+    if "townace" in m or "town ace" in m: return "Townace"
+    if "liteace" in m or "lite ace" in m: return "Liteace"
+    if "dolphin" in m: return "Dolphin"
+    if "kdh" in m: return "KDH"
+    if "voxy" in m: return "Voxy"
+
+    if "every" in m: return "Every"
+
+    if "caravan e25" in m or "e25" in m: return "E25"
+    if "caravan" in m: return "Caravan"
+    if "serena" in m: return "Serena"
+    if "vanette" in m: return "Vanette"
+
+    if "bongo" in m: return "Bongo"
+    if "brawny" in m: return "Brawny"
+
+    if "fargo" in m: return "Fargo"
+
+    if "hijet" in m: return "Hijet"
+        
+    # Return Unknown for any explicitly unmapped Van model
+    return "Unknown"
 
 
 def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
@@ -192,7 +344,23 @@ def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
     standard_only_models = [
         "Alto", "Alto K10", "Wagon R", "Wagon R FZ", "Wagon R FX", "Wagon R Stingray",
         "Celerio", "Swift", "Hustler", "Maruti", "Spacia",
-        "Aqua", "Prius", "Vitz", "Premio", "Axio"
+        "Aqua", "Prius", "Vitz", "Premio", "Axio", "Carina", "Allion", "Vios", "Passo", "Corolla 121", "Corolla 141", "110","AE110","CE110"
+        "Kelisa", "Bezza", "Kenari", "Viva Elite", "Axia",
+        "Fit GP1", "FIT GP5", "Civic FD3", "Civic FD4", "Civic FD1", "Civic ES8", "Civic ES5", "Honda Grace", "Insight", "Civic",
+        "Panda", "Panda Cross", "MX7", "Emgrand",
+        "Accent", "Sonata", "Eon", "Elantra",
+        "Axela", "Demio", "Familia",
+        "CS3", "CS1", "CS2",
+        "FB13", "FB14", "FB15", "N16", "N17", "Leaf", "Cefiro", "March K10", "March K11", "March K12", "Tiida",
+        "Mira",
+        "Indica", "Nano", "Indigo",
+        "A1", "A3", "A4", "A5", "A6", "Q2", "Q3", "Q5", "Q7",
+        "318i", "520D", "320D", "730Ld", "530e", "523i", "Mini Cooper", "I8",
+        "C180", "E200", "A200", "E300", "SLK200", "E220", "S350", "E180", "E240", "C200", "CLA 200", "C250", "W210", "E350",
+        "X1", "X2", "X3", "X5", "ZS",
+        "Outlander", "Pajero Io", "Eclipse Cross", "ASX", "Montero Sport", "Montero 3rd gen", "Montero 4th gen",
+        # Vans
+        "Townace", "Liteace", "Dolphin", "KDH", "Voxy", "Every", "E25", "Caravan", "Serena", "Vanette", "Bongo", "Brawny", "Fargo", "Hijet"
     ]
     if clean_model_name in standard_only_models:
         return "Standard"
@@ -212,26 +380,39 @@ def _score_description(description: str, nlp_config: dict) -> dict:
     text = description.lower()
     total_nlp_points = 0
     matched_labels = []
+    has_fatal_issue = False
 
-    for signal in nlp_config.get("positive_signals", {}).values():
-        if any(kw in text for kw in signal["keywords"]):
-            total_nlp_points += signal["points"]
-            matched_labels.append(signal["label"])
-
+    # 1. Process Negative Signals (Identify fatal issues first)
     for signal in nlp_config.get("negative_signals", {}).values():
         if any(kw in text for kw in signal["keywords"]):
             total_nlp_points += signal["points"]
-            matched_labels.append(f"⚠ {signal['label']}")
+            matched_labels.append(f"⚠️ {signal['label']}")
+            if signal["points"] <= -10:
+                has_fatal_issue = True
+
+    # 2. Process Positive Signals
+    for signal in nlp_config.get("positive_signals", {}).values():
+        if any(kw in text for kw in signal["keywords"]):
+            if has_fatal_issue:
+                matched_labels.append(f"(Ignored: {signal['label']})")
+            else:
+                total_nlp_points += signal["points"]
+                matched_labels.append(signal["label"])
 
     scoring = nlp_config.get("scoring", {})
-    final_score = min(scoring.get("final_max", 100), max(0, 50 + max(-30, min(30, total_nlp_points))))
-
-    if final_score >= scoring.get("fairly_priced_min", 65): 
-        verdict = "Fairly Priced ✅"
-    elif final_score >= scoring.get("review_min", 45): 
-        verdict = "Review Carefully ⚠️"
-    else: 
-        verdict = "Caution 🔴"
+    
+    # 3. Apply Fatal Override Logic
+    if has_fatal_issue:
+        final_score = 20
+        verdict = "High Risk 🔴"
+    else:
+        final_score = min(scoring.get("final_max", 100), max(0, 50 + max(-30, min(30, total_nlp_points))))
+        if final_score >= scoring.get("fairly_priced_min", 65): 
+            verdict = "Fairly Priced ✅"
+        elif final_score >= scoring.get("review_min", 45): 
+            verdict = "Review Carefully ⚠️"
+        else: 
+            verdict = "Caution 🔴"
 
     return {"nlp_score": final_score, "nlp_signals": matched_labels, "nlp_verdict": verdict}
 
@@ -340,13 +521,28 @@ def predict_car(req: PredictRequest):
     vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
     effective_mileage = req.mileage_km if req.mileage_km and req.mileage_km > 0 else float(vehicle_age * 12000)
     
-    clean_model_name = normalize_car_model(req.model)
+    clean_model_name = normalize_car_model(req.model, req.brand)
     clean_variant = normalize_variant(clean_model_name, req.variant)
     
     print("\n" + "="*50)
     print(f"[CAR NORMALIZER] Raw Model: '{req.model}' -> Cleaned: '{clean_model_name}'")
     print(f"[CAR NORMALIZER] Raw Variant: '{req.variant}' -> Cleaned: '{clean_variant}'")
     print("="*50 + "\n", flush=True)
+
+    # Intercept unknown models before ML Prediction
+    if clean_model_name == "Unknown":
+        return PredictResponse(
+            predicted_price=0, 
+            model_used=car_model_type, 
+            vehicle_age=vehicle_age,
+            mileage_per_year=round(effective_mileage / vehicle_age, 2), 
+            used_mileage_km=effective_mileage,
+            is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
+            confidence="Unknown", 
+            nlp_score=0, 
+            nlp_signals=[], 
+            nlp_verdict=None
+        )
 
     row = {
         "brand": req.brand, 
@@ -384,7 +580,7 @@ def predict_suv(req: SUVPredictRequest):
     vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
     effective_mileage = req.mileage_km if req.mileage_km and req.mileage_km > 0 else float(vehicle_age * 15000)
     
-    clean_model_name = normalize_suv_model(req.model, float(req.engine_cc))
+    clean_model_name = normalize_suv_model(req.model, float(req.engine_cc), req.model_year)
     clean_variant = normalize_variant(clean_model_name, req.variant)
     
     final_variant = _map_suv_generations(req.brand, clean_model_name, req.model_year, clean_variant)
@@ -393,6 +589,21 @@ def predict_suv(req: SUVPredictRequest):
     print(f"[SUV NORMALIZER] Raw Model: '{req.model}' -> Cleaned: '{clean_model_name}'")
     print(f"[SUV NORMALIZER] Raw Variant: '{req.variant}' -> Cleaned: '{final_variant}'")
     print("="*50 + "\n", flush=True)
+
+    # Intercept unknown models before ML Prediction
+    if clean_model_name == "Unknown":
+        return PredictResponse(
+            predicted_price=0, 
+            model_used=suv_model_type, 
+            vehicle_age=vehicle_age,
+            mileage_per_year=round(effective_mileage / vehicle_age, 2), 
+            used_mileage_km=effective_mileage,
+            is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
+            confidence="Unknown", 
+            nlp_score=0, 
+            nlp_signals=[], 
+            nlp_verdict=None
+        )
 
     row = {
         "brand": req.brand, 
@@ -433,19 +644,50 @@ def predict_van(req: VanPredictRequest):
         
     vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
     effective_mileage = req.mileage_km if req.mileage_km and req.mileage_km > 0 else float(vehicle_age * 15000)
-    engine_cc = req.engine_cc if req.engine_cc else _extract_engine_cc(f"{req.variant} {req.model}")
+    
+    clean_model_name = normalize_van_model(req.model)
+    clean_variant = normalize_variant(clean_model_name, req.variant)
+    
+    engine_cc_extracted = req.engine_cc if req.engine_cc else _extract_engine_cc(f"{req.variant} {req.model}")
+
+    if clean_model_name == "KDH":
+        if "diesel" in req.fuel_type.lower():
+            engine_cc_extracted = 3000.0
+        elif "petrol" in req.fuel_type.lower():
+            engine_cc_extracted = 2000.0
+
+    print("\n" + "="*50)
+    print(f"[VAN NORMALIZER] Raw Model: '{req.model}' -> Cleaned: '{clean_model_name}'")
+    print(f"[VAN NORMALIZER] Raw Variant: '{req.variant}' -> Cleaned: '{clean_variant}'")
+    print(f"[VAN NORMALIZER] Final Engine CC: {engine_cc_extracted}")
+    print("="*50 + "\n", flush=True)
+
+    # Intercept unknown models before ML Prediction
+    if clean_model_name == "Unknown":
+        return PredictResponse(
+            predicted_price=0, 
+            model_used=van_model_type, 
+            vehicle_age=vehicle_age,
+            mileage_per_year=round(effective_mileage / vehicle_age, 2), 
+            used_mileage_km=effective_mileage,
+            is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
+            confidence="Unknown", 
+            nlp_score=0, 
+            nlp_signals=[], 
+            nlp_verdict=None
+        )
 
     row = {
         "brand": req.brand, 
-        "model": req.model, 
-        "variant": req.variant, 
+        "model": clean_model_name, 
+        "variant": clean_variant, 
         "fuel_type": req.fuel_type,
         "transmission": req.transmission, 
-        "engine_code": _map_van_engine_code(req.brand, req.model, req.fuel_type, engine_cc),
+        "engine_code": _map_van_engine_code(req.brand, clean_model_name, req.fuel_type, engine_cc_extracted),
         "model_year": req.model_year, 
         "mileage_km": effective_mileage, 
         "vehicle_age": vehicle_age,
-        "engine_cc": float(engine_cc) if engine_cc > 0 else -1.0
+        "engine_cc": float(engine_cc_extracted) if engine_cc_extracted > 0 else -1.0
     }
     df = pd.DataFrame([row])[VAN_FEATURES]
     
@@ -462,7 +704,7 @@ def predict_van(req: VanPredictRequest):
         mileage_per_year=round(effective_mileage / vehicle_age, 2), 
         used_mileage_km=effective_mileage,
         is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
-        confidence=_get_confidence(req.brand, req.model, van_lookup_df),
+        confidence=_get_confidence(req.brand, clean_model_name, van_lookup_df),
         **nlp
     )
 

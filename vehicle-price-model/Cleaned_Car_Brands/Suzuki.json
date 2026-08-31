@@ -3202,7 +3202,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "Car",
-        "model": "Alto",
+        "model": "A3",
         "variant": "",
         "title_raw": "Suzuki Alto Japan HA36 Gold Badge 2017 Car",
         "model_year": 2017,
@@ -13802,7 +13802,7 @@
     {
         "brand": "Suzuki",
         "vehicle_type": "Car",
-        "model": "Alto",
+        "model": "A3",
         "variant": "",
         "title_raw": "Suzuki Alto HA37SA Grade 2024 Car",
         "model_year": 2024,
@@ -13863,7 +13863,7 @@
         "brand": "Suzuki",
         "vehicle_type": "Car",
         "model": "Mira",
-        "variant": "X Grade",
+        "variant": "",
         "title_raw": "Suzuki Mira X Grade 2024 Car",
         "model_year": 2024,
         "manufacture_year": 2023,

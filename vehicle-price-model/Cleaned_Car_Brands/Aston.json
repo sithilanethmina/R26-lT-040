@@ -2,8 +2,8 @@
     {
         "brand": "Aston",
         "vehicle_type": "Car",
-        "model": "A40",
-        "variant": "Devon",
+        "model": "A4",
+        "variant": "",
         "title_raw": "Aston A40 Devon 1950 Car",
         "model_year": 1950,
         "manufacture_year": 1949,
@@ -22,7 +22,7 @@
     {
         "brand": "Aston",
         "vehicle_type": "Car",
-        "model": "A50",
+        "model": "A5",
         "variant": "",
         "title_raw": "Aston A50 1956 Car",
         "model_year": 1956,

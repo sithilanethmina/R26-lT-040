@@ -39,7 +39,7 @@ DATA_DIR = ROOT / "data" / "final"
 
 LISTING_V1 = DATA_DIR / "training_data_v1.json"
 LISTING_V2 = DATA_DIR / "training_data_v2.json"
-# LISTING_V3 = DATA_DIR / "training_data_v3.json"
+LISTING_V3 = DATA_DIR / "training_data_v3.json"
 BENCHMARKS_CSV = DATA_DIR / "GPU_benchmarks_v7.csv"
 SPECS_CSV = DATA_DIR / "gpu_1986-2026.csv"
 OUTPUT_CSV = DATA_DIR / "gpu_enriched_dataset.csv"
@@ -227,8 +227,8 @@ def load_listings() -> pd.DataFrame:
     print("Step 1: Loading market listings ...")
     v1 = pd.DataFrame(json.loads(LISTING_V1.read_text(encoding="utf-8"))) if LISTING_V1.exists() else pd.DataFrame()
     v2 = pd.DataFrame(json.loads(LISTING_V2.read_text(encoding="utf-8"))) if LISTING_V2.exists() else pd.DataFrame()
-    # v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
-    df = pd.concat([v1, v2], ignore_index=True)
+    v3 = pd.DataFrame(json.loads(LISTING_V3.read_text(encoding="utf-8"))) if LISTING_V3.exists() else pd.DataFrame()
+    df = pd.concat([v1, v2,v3], ignore_index=True)
 
     # Normalise column names
     df.rename(columns={
@@ -447,35 +447,20 @@ def derive_tier_class(model_name: str) -> str:
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     print("\nStep 4: Engineering derived features ...")
 
-    # --- Release year: prefer spec, fallback to bench ---
+    # Combine release year (prefer curated specs database, fallback to benchmark run date)
     df["release_year"] = df["release_year_spec"].combine_first(df["release_year_bench"])
-    df["gpu_age_years"] = CURRENT_YEAR - df["release_year"]
-    # Clamp age to sensible range
-    df["gpu_age_years"] = df["gpu_age_years"].clip(0, 40)
+    df["gpu_age_years"] = (CURRENT_YEAR - df["release_year"]).clip(0, 40)
 
-    # --- TDP: prefer spec (more accurate), fallback to benchmark CSV TDP ---
+    # Prefer detailed spec TDP with fallback to PassMark TDP
     df["tdp_watts"] = df["spec_tdp_watts"].combine_first(df["bench_tdp"])
-
-    # --- Performance score: prefer G3Dmark, fallback to fp32_gflops ---
     df["perf_score"] = df["G3Dmark"].combine_first(df["fp32_gflops"])
-
-    # --- Log G3Dmark ---
     df["log_G3Dmark"] = np.log1p(df["G3Dmark"].fillna(0))
 
-    # --- Tier class & Model number ---
     df["tier_class"] = df["extracted_model"].apply(derive_tier_class)
     df["model_number"] = df["extracted_model"].apply(derive_model_number)
-
-    # --- Series family ---
     df["series_family"] = df["extracted_model"].apply(derive_series_family)
-
-    # --- GPU generation ---
     df["gpu_generation"] = df["norm_model"].apply(derive_gpu_generation)
-
-    # --- Ti variant ---
     df["ti_variant"] = df["extracted_model"].apply(is_ti_variant)
-
-    # --- Log price (target) ---
     df["log_price_lkr"] = np.log1p(df["price_lkr"])
 
     print("  Features engineered.")

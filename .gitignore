@@ -1,5 +1,30 @@
-/gpu-explainer
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+**/*/__pycache__/
+*/__pycache__/
+
+# Log files and directories
+*.log
+*.log.*
+logs/
+log/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environments & OS
 .venv/
+venv/
+ENV/
+env/
 .env
+.env.*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Project specific
+/gpu-explainer

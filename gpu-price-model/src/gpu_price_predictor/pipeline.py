@@ -26,10 +26,7 @@ DEFAULT_DATASETS = {
 UNKNOWN = "Unknown"
 
 
-# --- STRING & DATA NORMALIZATION UTILITIES ---
-# Stored in: src/gpu_price_predictor/pipeline.py
-# Used by: scrapers, cleaning scripts, and training pipeline
-
+# String and data normalization utilities
 def normalize_whitespace(value: Any) -> str:
     """Removes extra spaces and tabs from strings for clean data."""
     if value is None:
@@ -173,9 +170,7 @@ def choose_manufacturer(row: pd.Series) -> str:
     return UNKNOWN
 
 
-# --- DATA LOADING & DEDUPLICATION ---
-# Stored in: src/gpu_price_predictor/pipeline.py
-
+# Data loading and deduplication
 def load_json_records(path: Path) -> list[dict[str, Any]]:
     """Loads records from a JSON file safely."""
     with path.open("r", encoding="utf-8") as handle:
@@ -296,9 +291,7 @@ def normalize_source_frame(source: str, path: Path) -> pd.DataFrame:
     return normalized
 
 
-# --- REFERENCE MAPPING UTILITIES ---
-# Stored in: src/gpu_price_predictor/pipeline.py
-
+# Reference mapping utilities
 def load_alias_map(path: Path = DEFAULT_ALIAS_PATH) -> dict[str, str]:
     """Loads mapping of GPU nicknames to official names."""
     aliases = pd.read_csv(path)
@@ -356,9 +349,7 @@ def ensure_path_list(path_config: Path | list[Path] | tuple[Path, ...]) -> list[
     return list(path_config)
 
 
-# --- STATISTICAL UTILITIES ---
-# Stored in: src/gpu_price_predictor/pipeline.py
-
+# Statistical utilities
 def compute_iqr_summary(frame: pd.DataFrame, column: str) -> dict[str, float | int]:
     """Calculates Interquartile Range to find and remove price outliers."""
     q1 = float(frame[column].quantile(0.25))
@@ -408,8 +399,7 @@ FEATURE_COLUMNS = NUMERIC_SPEC_COLUMNS + CATEGORICAL_SPEC_COLUMNS
 TARGET_COLUMN = "price_lkr"
 
 
-# ── V2 Feature Definitions ────────────────────────────────────────────────────
-
+# V2 Feature Definitions
 FEATURE_COLUMNS_V2_NUMERIC = [
     "vram_gb",
     "G3Dmark",
@@ -510,10 +500,7 @@ class TrainingDatasetBundle:
     iqr_summary: dict[str, float | int]
 
 
-# --- TRAINING DATASET BUILDERS ---
-# Stored in: src/gpu_price_predictor/pipeline.py
-# Imported by: scripts/train_model_v2.py
-
+# Training dataset builders
 def build_training_dataset_bundle(
     dataset_paths: dict[str, Path | list[Path] | tuple[Path, ...]] | None = None,
     alias_path: Path = DEFAULT_ALIAS_PATH,
@@ -591,15 +578,9 @@ def build_training_dataset_bundle(
     matched["vendor"] = matched["vendor"].fillna(UNKNOWN)
     matched = matched.sort_values(["source", "model", "price_lkr"]).reset_index(drop=True)
 
-    # --- Group-wise Outlier Removal (Per-Model IQR) ---
-    # Instead of comparing ALL GPUs together, we calculate the normal price
-    # range for EACH model separately. This catches broken/faulty cards that
-    # are priced far below the market value for that specific model.
-    # e.g. A "broken RTX 3060" at 22,000 LKR will be flagged because other
-    #      RTX 3060 listings are typically 85,000–110,000 LKR.
+    # Per-model IQR filtering prevents cross-tier pricing distortion (e.g. broken 3060 vs entry card)
     def _filter_model_outliers(group: pd.DataFrame) -> pd.DataFrame:
         if len(group) < 4:
-            # Too few listings to reliably detect outliers; keep all
             return group
         q1 = group[TARGET_COLUMN].quantile(0.25)
         q3 = group[TARGET_COLUMN].quantile(0.75)
@@ -644,10 +625,7 @@ def prepare_feature_frame(frame: pd.DataFrame) -> pd.DataFrame:
     return frame[FEATURE_COLUMNS].copy()
 
 
-# --- ML EVALUATION METRICS ---
-# Stored in: src/gpu_price_predictor/pipeline.py
-# Imported by: src/gpu_price_predictor/model_training.py & scripts/train_model_v2.py
-
+# Evaluation metrics
 def evaluate_predictions(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
     """Calculates accuracy metrics (MAE, RMSE, MAPE, R2)."""
     mae = float(np.mean(np.abs(y_true - y_pred)))
@@ -723,8 +701,7 @@ class PredictionArtifacts:
     model_path: Path
 
 
-# --- SPEC & BENCHMARK LOOKUP UTILITIES ---
-
+# Spec and benchmark lookup utilities
 BENCH_CSV = PROJECT_ROOT / "data" / "final" / "GPU_benchmarks_v7.csv"
 SPECS_CSV = PROJECT_ROOT / "data" / "final" / "gpu_1986-2026.csv"
 
@@ -883,8 +860,7 @@ def get_model_sample_count(model_name: str, enriched_df: pd.DataFrame | None) ->
     return len(matches)
 
 
-# --- CENTRALIZED INFERENCE PREPROCESSING ---
-
+# Inference feature engineering
 def build_inference_feature_frame(
     model_name: str,
     vram_gb: float,
@@ -991,8 +967,7 @@ def build_inference_feature_frame(
 
 
 
-# --- CONFORMAL RANGE & FAIRNESS EVALUATION ENGINE ---
-
+# Conformal interval and market fairness evaluation
 def determine_price_tier(price_lkr: float) -> str:
     """Classifies GPU into Entry, Mid, or High market tier based on price point."""
     if price_lkr < 35000:
@@ -1197,8 +1172,7 @@ def get_fairness_verdict(listed_price: float, lower_bound: float, upper_bound: f
         }
 
 
-# --- CONDITION & WARRANTY CORRECTION ENGINE ---
-
+# Hedonic condition and warranty adjustment
 CONDITION_COEFFICIENTS_PATH = ARTIFACTS_DIR / "condition_correction_coefficients.json"
 _CONDITION_COEFS_CACHE = None
 

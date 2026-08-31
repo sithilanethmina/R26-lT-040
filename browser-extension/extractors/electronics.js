@@ -102,7 +102,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (key_values) {
             for (const key of ['ram', 'memory', 'ram (gb)']) {
                 if (key_values[key]) {
-                    const match = key_values[key].match(/(\d+)/);
+                    const match = String(key_values[key]).match(/(\d+)/);
                     if (match) {
                         const val = parseInt(match[1], 10);
                         if ([2, 4, 8, 16, 32, 64].includes(val)) return val;
@@ -126,15 +126,14 @@ window.FairPriceLK_Extractors.electronics = (function () {
             const val = parseInt(match2[1], 10);
             if ([2, 4, 8, 16, 32, 64].includes(val)) return val;
         }
-        
-        return 8;
+        return null;
     }
 
     function extractStorage(combinedText, key_values) {
         if (key_values) {
             for (const key of ['storage', 'storage capacity', 'hard drive', 'storage capacity (gb)']) {
                 if (key_values[key]) {
-                    const match = key_values[key].match(/(\d+)\s*(GB|TB)?/i);
+                    const match = String(key_values[key]).match(/(\d+)\s*(GB|TB)?/i);
                     if (match) {
                         let val = parseInt(match[1], 10);
                         const unit = match[2] ? match[2].toUpperCase() : '';
@@ -171,15 +170,14 @@ window.FairPriceLK_Extractors.electronics = (function () {
             if (match[0].toUpperCase().includes("TB") || val <= 4) val *= 1024;
             if ([128, 256, 512, 1024, 2048].includes(val)) return val;
         }
-        
-        return 256;
+        return null;
     }
 
     function extractSize(combinedText, key_values) {
         if (key_values) {
             for (const key of ['size', 'screen size', 'display size']) {
                 if (key_values[key]) {
-                    const match = key_values[key].match(/(\d+)/);
+                    const match = String(key_values[key]).match(/(\d+)/);
                     if (match) return match[1] + " Inch";
                 }
             }
@@ -188,14 +186,14 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (match) {
             return match[1] + " Inch";
         }
-        return "24 Inch";
+        return null;
     }
 
     function extractHz(combinedText, key_values) {
         if (key_values) {
             for (const key of ['refresh rate', 'frequency']) {
                 if (key_values[key]) {
-                    const match = key_values[key].match(/(\d+)/);
+                    const match = String(key_values[key]).match(/(\d+)/);
                     if (match) return match[1] + "Hz";
                 }
             }
@@ -204,14 +202,14 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (match) {
             return match[1] + "Hz";
         }
-        return "60Hz";
+        return null;
     }
 
     function extractResolution(combinedText, key_values) {
         if (key_values) {
             for (const key of ['resolution', 'display resolution']) {
                 if (key_values[key]) {
-                    const val = key_values[key].toUpperCase();
+                    const val = String(key_values[key]).toUpperCase();
                     if (val.includes("4K") || val.includes("3840")) return "4K";
                     if (val.includes("2K") || val.includes("2560")) return "2K";
                     if (val.includes("FHD") || val.includes("1080")) return "FHD";
@@ -221,7 +219,8 @@ window.FairPriceLK_Extractors.electronics = (function () {
         const lower = (combinedText || "").toLowerCase();
         if (lower.includes("4k") || lower.includes("uhd") || lower.includes("2160p")) return "4K";
         if (lower.includes("2k") || lower.includes("qhd") || lower.includes("1440p")) return "2K";
-        return "FHD";
+        if (lower.includes("fhd") || lower.includes("1080p") || lower.includes("1920")) return "FHD";
+        return null;
     }
 
     function extractCpu(combinedText) {
@@ -400,19 +399,24 @@ window.FairPriceLK_Extractors.electronics = (function () {
 
         const missingFields = [];
         if (!brand || brand === "Generic") missingFields.push("Brand");
+        if (!model) missingFields.push("Model");
         if (!price || isNaN(price) || price <= 0) missingFields.push("Listing Price");
 
         const parsedData = {
             category: subCat,
-            brand: brand,
-            model: model,
+            brand: brand || "",
+            model: model || "",
             listed_price: price || null
         };
 
         if (subCat === "monitor") {
-            parsedData.size = extractSize(scope, key_values);
-            parsedData.refresh_rate = extractHz(scope, key_values);
-            parsedData.resolution = extractResolution(scope, key_values);
+            const size = extractSize(scope, key_values);
+            const hz = extractHz(scope, key_values);
+            const res = extractResolution(scope, key_values);
+            if (!size) missingFields.push("Screen Size");
+            parsedData.size = size || "24 Inch";
+            parsedData.refresh_rate = hz || "60Hz";
+            parsedData.resolution = res || "FHD";
         } else {
             const ram = extractRam(scope, key_values);
             const storage = extractStorage(scope, key_values);

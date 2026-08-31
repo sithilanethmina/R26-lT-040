@@ -102,17 +102,14 @@ def main():
             discarded_items.append(item)
             continue
 
-        # Enrich VRAM from multiple fallback sources
+        # Fallback hierarchy for VRAM extraction
         vram_val = None
-
-        # Try 1: Convert existing VRAM_GB value
         if vram is not None:
             try:
                 vram_val = float(vram)
             except ValueError:
                 pass
 
-        # Try 2: Extract VRAM from Raw_Title if still missing
         if vram_val is None and raw_title:
             match = re.search(r"(\d+)\s*(?:gb|g)\b", raw_title, re.IGNORECASE)
             if match:
@@ -121,18 +118,14 @@ def main():
                 except ValueError:
                     pass
 
-        # Try 3: Get VRAM from trusted specs
         if vram_val is None and trusted_info:
             vram_val = trusted_info.get("VRAM_GB")
 
-        # Extract and standardize brand
+        # Standardize brand name with title and reference fallback
         extracted_brand = None
-
-        # Try 1: Use existing brand if valid
         if brand and brand.lower() != "random brand":
             extracted_brand = brand
 
-        # Try 2: Extract brand from title
         if not extracted_brand and raw_title:
             title_lower = raw_title.lower()
             for b in COMMON_BRANDS:
@@ -140,15 +133,12 @@ def main():
                     extracted_brand = b.upper()
                     break
 
-        # Try 3: Get manufacturer from trusted specs
         if not extracted_brand and trusted_info:
             extracted_brand = trusted_info.get("Manufacturer")
 
-        # Ensure all brands are fully capitalized (e.g. ZOTAC)
         if extracted_brand:
             extracted_brand = extracted_brand.upper()
 
-        # Add to final dataset
         final_data.append(
             {
                 "Listing_ID": item.get("Product_ID"),
@@ -162,7 +152,7 @@ def main():
             }
         )
 
-    # --- OUTLIER REMOVAL ---
+    # Per-(Model, Brand) IQR outlier filtering
     if final_data:
         df = pd.DataFrame(final_data)
         original_count = len(df)
@@ -180,7 +170,6 @@ def main():
             upper_bound = q3 + 1.5 * iqr
             return (s >= lower_bound) & (s <= upper_bound)
             
-        # Group by BOTH Model and Brand so premium brands (like ASUS) aren't compared to cheaper brands
         mask = df.groupby(["Extracted_Model", "Brand"], dropna=False)["Price_LKR"].transform(get_outlier_mask)
         mask = mask.astype(bool)
         
@@ -189,30 +178,23 @@ def main():
         outliers_data = outliers_df.to_dict(orient="records")
         outliers_removed = len(outliers_data)
         
-        # Save outliers dump
         for item in outliers_data:
             item["Discard_Reason"] = "Price Outlier (IQR Filtering)"
-            if pd.isna(item.get("VRAM_GB")):
-                item["VRAM_GB"] = None
-            if pd.isna(item.get("Brand")):
-                item["Brand"] = None
+            for k, v in list(item.items()):
+                if pd.isna(v):
+                    item[k] = None
         
         outliers_file = dumps_dir / "outliers_dump.json"
         with open(outliers_file, "w", encoding="utf-8") as f:
             json.dump(outliers_data, f, indent=4)
         
-        # In case the DataFrame index gets messed up or it drops columns, we recreate the list of dicts
-        # pandas sometimes returns an empty DataFrame if no groups, but we handled that
         final_data = filtered_df.to_dict(orient="records")
-        # Ensure we don't have NaN for None values (pandas converts None to NaN sometimes)
         for item in final_data:
-            if pd.isna(item.get("VRAM_GB")):
-                item["VRAM_GB"] = None
-            if pd.isna(item.get("Brand")):
-                item["Brand"] = None
+            for k, v in list(item.items()):
+                if pd.isna(v):
+                    item[k] = None
     else:
         outliers_removed = 0
-    # -----------------------
 
     # Save training data
     with open(output_file, "w", encoding="utf-8") as f:

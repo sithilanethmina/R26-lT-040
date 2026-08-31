@@ -5,23 +5,16 @@ Reads:  data/final/gpu_enriched_dataset.csv
 Writes: artifacts/gpu_price_model_v2.joblib
         artifacts/training_summary_v2.json
 
-Models trained (all share log(price_lkr) target):
-  1. LightGBM          (tree   - no scaling)
-  2. XGBoost           (tree   - no scaling)
-  3. Random Forest     (tree   - no scaling)
+Models trained on log(price_lkr) target:
+  1. LightGBM          (tree   - unscaled)
+  2. XGBoost           (tree   - unscaled)
+  3. Random Forest     (tree   - unscaled)
   4. KNN               (scaled - StandardScaler)
   5. SVR (RBF)         (scaled - StandardScaler)
   6. Stacking Ensemble (LightGBM + RF + KNN base -> Ridge meta)
 
 Hyperparameter tuning: Optuna (50 trials, 5-fold CV, MAPE objective).
-Selection metric: lowest MAPE on locked 20% holdout set.
-
-FIXES vs original:
-  - StackingRegressor cloned estimators losing tuned params -> now uses
-    set_params / pipeline reconstruction to preserve Optuna-tuned values
-  - compute_mape log-scale detection threshold documented and tightened
-  - SVR row-cap constant named explicitly (SVR_OPTUNA_TRIALS)
-  - load_enriched_dataset stratifies split by log-price quintile
+Selection metric: Lowest MAPE on locked holdout set.
 """
 
 from __future__ import annotations
@@ -40,7 +33,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor, StackingRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import Ridge
-from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.model_selection import GroupKFold, cross_val_score, train_test_split
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder, StandardScaler
@@ -66,7 +59,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-# -- Paths ---------------------------------------------------------------------
+# Paths
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "final"
 ARTIFACTS_DIR = ROOT / "artifacts"
@@ -78,39 +71,34 @@ SUMMARY_OUT = ARTIFACTS_DIR / "training_summary_v2.json"
 
 RANDOM_STATE = 42
 N_OPTUNA_TRIALS = 50
-# SVR is O(n ) - cap training rows for tuning speed; still full set for final fit
+# SVR computational complexity is O(n^2); cap tuning rows before full refit
 SVR_MAX_ROWS = 5_000
-SVR_OPTUNA_TRIALS = 30       # fewer trials than other models; named explicitly
+SVR_OPTUNA_TRIALS = 30
 CV_FOLDS = 5
 
-# Log-scale detection threshold: log(LKR 500,000)   13.1 - threshold of 20
-# is well above any realistic log-price value for Sri Lankan GPU listings.
+# Maximum theoretical log-price threshold for scale detection (log(500,000) ≈ 13.1)
 LOG_SCALE_THRESHOLD = 20
 
-# -- Feature Definitions -------------------------------------------------------
-# These features were extracted and enriched during the preprocessing phase.
-# We use both raw specs (vram, clock) and benchmark scores (G3Dmark) as predictors.
+# Feature definitions
 NUMERIC_FEATURES = [
     "vram_gb",
-    "G3Dmark",               # High correlation with performance
+    "G3Dmark",
     "tdp_watts",
     "gpu_age_years",
     "gpu_generation",
-    "ti_variant",            # Binary: 1 if 'Ti', else 0
+    "ti_variant",
 ]
 
 CATEGORICAL_FEATURES = [
-    "series_family",         # e.g., GeForce, Radeon
-    "brand",                 # e.g., ASUS, MSI
-    "architecture",          # e.g., Ampere, Turing
-    "tier_class",            # Performance tier: 10, 30, 50, 60, 70, 80, 90, Other
+    "series_family",
+    "brand",
+    "architecture",
+    "tier_class",
 ]
 
 ALL_FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
 
-# The target is log-transformed price. Log-scaling stabilizes the variance
-# (homoscedasticity) and prevents high-end cards (e.g. RTX 4090) from 
-# skewing the model's loss function due to their massive raw LKR values.
+# Target price is log-transformed to stabilize variance and prevent high-tier skew
 TARGET = "log_price_lkr"
 
 
@@ -167,9 +155,43 @@ def evaluate_all(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
     }
 
 
-# -- Data Loading --------------------------------------------------------------
+# -- Data Loading & Post-Split Leakage-Free Preprocessing -----------------------
 
-def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.ndarray]:
+def _filter_train_iqr_outliers(
+    x_train: pd.DataFrame,
+    y_train: np.ndarray,
+    model_col: pd.Series,
+) -> tuple[pd.DataFrame, np.ndarray]:
+    """
+    Applies per-model IQR outlier removal STRICTLY on the training split.
+    Guarantees zero data leakage from the holdout test set.
+    """
+    train_df = x_train.copy()
+    train_df["_target"] = y_train
+    train_df["_model"] = model_col.values
+    before_len = len(train_df)
+
+    def _filter_group(grp: pd.DataFrame) -> pd.DataFrame:
+        if len(grp) < 4:
+            return grp
+        q1 = grp["_target"].quantile(0.25)
+        q3 = grp["_target"].quantile(0.75)
+        iqr = q3 - q1
+        lower = q1 - 1.5 * iqr
+        upper = q3 + 1.5 * iqr
+        return grp[(grp["_target"] >= lower) & (grp["_target"] <= upper)]
+
+    filtered = train_df.groupby("_model", group_keys=False).apply(_filter_group)
+    dropped = before_len - len(filtered)
+    if dropped > 0:
+        log.info("  [Leakage-Free IQR] Removed %d price outlier records strictly from training partition", dropped)
+
+    clean_x = filtered[x_train.columns].reset_index(drop=True)
+    clean_y = filtered["_target"].to_numpy(dtype=float)
+    return clean_x, clean_y
+
+
+def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.ndarray, pd.DataFrame, np.ndarray, pd.Series]:
     log.info("Loading enriched dataset ...")
     if not ENRICHED_CSV.exists():
         raise FileNotFoundError(
@@ -205,23 +227,30 @@ def load_enriched_dataset() -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray, np.
     if before_split_dedup - len(df) > 0:
         log.info("  Removed %d duplicate records prior to splitting", before_split_dedup - len(df))
 
+    # Determine canonical model column for group validation
+    model_col_name = "extracted_model" if "extracted_model" in df.columns else "model"
+    model_groups = df[model_col_name].astype(str)
+
     x = df[ALL_FEATURES].copy()
     y = df[TARGET].to_numpy(dtype=float)
 
-    # Stratify by log-price quintile so each fold has balanced price distribution.
+    # Stratify by log-price quintile for holdout set
     price_quintile = pd.qcut(y, q=5, labels=False, duplicates="drop")
 
-    x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.20, random_state=RANDOM_STATE, stratify=price_quintile
+    x_train_raw, x_test, y_train_raw, y_test, train_idx, test_idx = train_test_split(
+        x, y, df.index, test_size=0.20, random_state=RANDOM_STATE, stratify=price_quintile
     )
+
+    # Post-split IQR filtering strictly on x_train to avoid data leakage
+    x_train, y_train = _filter_train_iqr_outliers(x_train_raw, y_train_raw, model_groups.iloc[train_idx])
 
     # Verification check: Ensure 0% identical row collision between Train and Test
     train_hashes = set(x_train.apply(lambda row: hash(tuple(row.values)), axis=1))
     test_hashes = set(x_test.apply(lambda row: hash(tuple(row.values)), axis=1))
     collision_count = len(train_hashes.intersection(test_hashes))
-    log.info("  Train: %d rows | Test: %d rows | Exact cross-split collisions: %d", len(x_train), len(x_test), collision_count)
+    log.info("  Train: %d rows (post-IQR) | Test: %d rows | Exact cross-split collisions: %d", len(x_train), len(x_test), collision_count)
 
-    return x_train, x_test, y_train, y_test
+    return x_train, x_test, y_train, y_test, x, y, model_groups
 
 
 # -- Preprocessors -------------------------------------------------------------
@@ -230,8 +259,8 @@ def build_tree_preprocessor() -> ColumnTransformer:
     """
     Preprocessing for tree-based models (RF, XGB, LGBM).
     - Numeric: Median Imputation (handles missing benchmark scores).
-    - Categorical: Ordinal Encoding (converts text like 'NVIDIA' to numbers).
-    Trees don't require feature scaling (standardization).
+    - Categorical: Robust Ordinal Encoding (converts text like 'ASUS', 'MSI' to numbers).
+      Maps unknown/unseen brands gracefully to most-frequent neutral category instead of negative -1.
     """
     return ColumnTransformer(
         transformers=[
@@ -239,8 +268,9 @@ def build_tree_preprocessor() -> ColumnTransformer:
             (
                 "cat",
                 Pipeline([
-                    ("imputer", SimpleImputer(strategy="constant", fill_value="Unknown")),
-                    ("encoder", OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=-1)),
+                    ("imputer_str", SimpleImputer(strategy="constant", fill_value="Unknown")),
+                    ("encoder", OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=np.nan)),
+                    ("imputer_num", SimpleImputer(strategy="most_frequent")),
                 ]),
                 CATEGORICAL_FEATURES,
             ),
@@ -252,6 +282,7 @@ def build_scaled_preprocessor() -> ColumnTransformer:
     """
     Preprocessing for distance-based models (KNN, SVR).
     - Numeric: Median Imputation + StandardScaler.
+    - Categorical: Robust Ordinal Encoding with neutral unknown fallback.
     Standardization (StandardScaler) is CRITICAL here because these models
     calculate distances between points. Without scaling, a feature like 
     'G3Dmark' (thousands) would drown out 'vram_gb' (single digits).
@@ -269,8 +300,9 @@ def build_scaled_preprocessor() -> ColumnTransformer:
             (
                 "cat",
                 Pipeline([
-                    ("imputer", SimpleImputer(strategy="constant", fill_value="Unknown")),
-                    ("encoder", OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=-1)),
+                    ("imputer_str", SimpleImputer(strategy="constant", fill_value="Unknown")),
+                    ("encoder", OrdinalEncoder(handle_unknown="use_encoded_value", unknown_value=np.nan)),
+                    ("imputer_num", SimpleImputer(strategy="most_frequent")),
                 ]),
                 CATEGORICAL_FEATURES,
             ),
@@ -492,7 +524,7 @@ def evaluate_all_models(
     """
     Loops through all trained models and evaluates them on the Holdout Set.
     This gives us an objective comparison of which algorithm performs best 
-    on the GPU market data.
+    on within-distribution test market data.
     """
     results: dict[str, dict] = {}
     for name, model in models.items():
@@ -507,11 +539,58 @@ def evaluate_all_models(
     return results
 
 
+def evaluate_group_generalization(
+    models: dict[str, object],
+    x_full: pd.DataFrame,
+    y_full: np.ndarray,
+    model_groups: pd.Series,
+    n_splits: int = 5,
+) -> dict[str, dict]:
+    """
+    Group-KFold Cross-Validation grouped by GPU Model.
+    Evaluates how well models generalize to completely unseen GPU hardware models
+    (zero group leakage across train and validation folds).
+    """
+    log.info("  Evaluating Out-of-Model Generalization via Group-KFold (%d folds by GPU model) ...", n_splits)
+    gkf = GroupKFold(n_splits=n_splits)
+    group_results: dict[str, dict] = {}
+
+    for name, model in models.items():
+        # Evaluate primary model estimators across group splits
+        oof_preds = np.zeros_like(y_full)
+        has_pred = np.zeros_like(y_full, dtype=bool)
+
+        for train_idx, val_idx in gkf.split(x_full, y_full, groups=model_groups):
+            # Fit clone of model on group train
+            x_gtrain, y_gtrain = x_full.iloc[train_idx], y_full[train_idx]
+            x_gval = x_full.iloc[val_idx]
+
+            try:
+                # Use current fitted pipeline architecture
+                from sklearn.base import clone
+                g_estimator = clone(model)
+                g_estimator.fit(x_gtrain, y_gtrain)
+                oof_preds[val_idx] = g_estimator.predict(x_gval)
+                has_pred[val_idx] = True
+            except Exception:
+                continue
+
+        if has_pred.any():
+            metrics = evaluate_all(y_full[has_pred], oof_preds[has_pred])
+            group_results[name] = metrics
+            log.info(
+                "  %-22s [Group-KFold Out-of-Model] MAPE=%5.1f%%  R2=%.4f  Within10%%=%5.1f%%",
+                name, metrics["mape_pct"], metrics["r2"], metrics["within_10pct"],
+            )
+
+    return group_results
+
+
 # -- Print Comparison Table ----------------------------------------------------
 
-def print_comparison_table(results: dict[str, dict], best_name: str) -> None:
+def print_comparison_table(results: dict[str, dict], best_name: str, title: str = "Holdout Set Evaluation") -> None:
     header = f"{'Model':<24} {'MAPE%':>8} {'R ':>8} {'Within10%':>10} {'RMSE (LKR)':>12}"
-    print("\n" + "-" * len(header))
+    print(f"\n-- {title} " + "-" * max(0, len(header) - len(title) - 4))
     print(header)
     print("-" * len(header))
     for name, m in sorted(results.items(), key=lambda kv: kv[1]["mape_pct"]):
@@ -532,6 +611,7 @@ def save_artifacts(
     results: dict[str, dict],
     best_name: str,
     feature_cols: list[str],
+    group_results: dict[str, dict] | None = None,
     n_train: int = 0,
     n_test: int = 0,
 ) -> None:
@@ -542,6 +622,8 @@ def save_artifacts(
         "test_records": n_test,
         "train_ratio_pct": round((n_train / total_records * 100), 1) if total_records else 80.0,
         "features_count": len(feature_cols),
+        "validation_strategy": "Stratified Holdout + Group-KFold Cross-Validation (Zero Group Leakage)",
+        "outlier_handling": "Post-split training-only IQR filtering (Zero Test Leakage)",
         "models": {
             "lightgbm": {
                 "name": "LightGBM",
@@ -549,7 +631,7 @@ def save_artifacts(
                 "test_records": n_test,
                 "tune_records": n_train,
                 "preprocessing": "Tree-based (No scaling)",
-                "notes": f"Tuned with Optuna on {n_train:,} training records; evaluated on {n_test:,} test records.",
+                "notes": f"Tuned with Optuna on {n_train:,} post-split clean training records; evaluated on {n_test:,} holdout records.",
             },
             "xgboost": {
                 "name": "XGBoost",
@@ -557,7 +639,7 @@ def save_artifacts(
                 "test_records": n_test,
                 "tune_records": n_train,
                 "preprocessing": "Tree-based (No scaling)",
-                "notes": f"Tuned with Optuna on {n_train:,} training records; evaluated on {n_test:,} test records.",
+                "notes": f"Tuned with Optuna on {n_train:,} post-split clean training records; evaluated on {n_test:,} holdout records.",
             },
             "random_forest": {
                 "name": "Random Forest",
@@ -565,7 +647,7 @@ def save_artifacts(
                 "test_records": n_test,
                 "tune_records": n_train,
                 "preprocessing": "Tree-based (SimpleImputer + OrdinalEncoder)",
-                "notes": f"Tuned with Optuna on {n_train:,} training records; evaluated on {n_test:,} test records.",
+                "notes": f"Tuned with Optuna on {n_train:,} post-split clean training records; evaluated on {n_test:,} holdout records.",
             },
             "knn": {
                 "name": "KNN (K-Nearest Neighbors)",
@@ -573,7 +655,7 @@ def save_artifacts(
                 "test_records": n_test,
                 "tune_records": n_train,
                 "preprocessing": "StandardScaler Normalized",
-                "notes": f"Features normalized using StandardScaler across {n_train:,} training records.",
+                "notes": f"Features normalized using StandardScaler across {n_train:,} post-split clean training records.",
             },
             "svr": {
                 "name": "SVR (Support Vector Regressor)",
@@ -581,7 +663,7 @@ def save_artifacts(
                 "test_records": n_test,
                 "tune_records": min(n_train, SVR_MAX_ROWS),
                 "preprocessing": "StandardScaler Normalized",
-                "notes": f"Hyperparameters tuned on {min(n_train, SVR_MAX_ROWS):,} records for speed; final model fitted on all {n_train:,} training records.",
+                "notes": f"Hyperparameters tuned on {min(n_train, SVR_MAX_ROWS):,} records for speed; final model fitted on all {n_train:,} clean training records.",
             },
             "stacking_ensemble": {
                 "name": "Stacking Ensemble",
@@ -589,7 +671,7 @@ def save_artifacts(
                 "test_records": n_test,
                 "tune_records": n_train,
                 "preprocessing": "Base Estimators (LGBM + RF + KNN) -> Ridge Meta-Learner",
-                "notes": f"Trained using 5-fold cross-validated meta-features across all {n_train:,} training records.",
+                "notes": f"Trained using 5-fold cross-validated meta-features across all {n_train:,} clean training records.",
             },
         },
     }
@@ -604,6 +686,7 @@ def save_artifacts(
         "categorical_features": CATEGORICAL_FEATURES,
         "target": TARGET,
         "evaluation_results": results,
+        "group_kfold_results": group_results or {},
         "training_records": record_meta,
     }
     joblib.dump(artifact, MODEL_OUT)
@@ -615,7 +698,8 @@ def save_artifacts(
         "n_models": len(models),
         "feature_count": len(feature_cols),
         "training_records": record_meta,
-        "results": results,
+        "holdout_results": results,
+        "group_kfold_out_of_model_results": group_results or {},
     }
     SUMMARY_OUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     log.info("Saved training summary -> %s", SUMMARY_OUT)
@@ -628,7 +712,7 @@ def main() -> None:
     print("|  GPU Price Predictor V2 - Phase 2: Model Training        |")
     print("============================================================\n")
 
-    x_train, x_test, y_train, y_test = load_enriched_dataset()
+    x_train, x_test, y_train, y_test, x_full, y_full, model_groups = load_enriched_dataset()
 
     print("\n-- Step 1: Tune & Train Individual Models --------------------")
     models, best_params = build_and_tune_candidates(x_train, y_train)
@@ -642,11 +726,21 @@ def main() -> None:
 
     best_name = min(results, key=lambda k: results[k]["mape_pct"])
 
-    print_comparison_table(results, best_name)
+    print_comparison_table(results, best_name, title="Holdout Set Evaluation (20% Split)")
     print(f"\n[OK] Best model: {best_name}  (MAPE={results[best_name]['mape_pct']:.1f}%)")
 
-    print("\n-- Step 4: Save Artifacts ------------------------------------")
-    save_artifacts(models, results, best_name, ALL_FEATURES, n_train=len(x_train), n_test=len(x_test))
+    print("\n-- Step 4: Benchmark Group-KFold Out-of-Model Generalization -")
+    group_results = evaluate_group_generalization(models, x_full, y_full, model_groups, n_splits=5)
+    if group_results:
+        best_grp_name = min(group_results, key=lambda k: group_results[k]["mape_pct"])
+        print_comparison_table(group_results, best_grp_name, title="Group-KFold Out-of-Model Generalization (Zero Group Leakage)")
+
+    print("\n-- Step 5: Save Artifacts ------------------------------------")
+    save_artifacts(
+        models, results, best_name, ALL_FEATURES,
+        group_results=group_results,
+        n_train=len(x_train), n_test=len(x_test)
+    )
 
     if results[best_name]["mape_pct"] > 15:
         print("\n[!]  MAPE > 15% - consider lowering fuzzy match threshold in Phase 1.")
@@ -655,4 +749,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    main()

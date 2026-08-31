@@ -319,9 +319,9 @@ def remove_outliers_iqr(
     df: pd.DataFrame,
     group_col: str = "phone_type",
     price_col: str = TARGET_COLUMN,
-    multiplier: float = 1.5,
+    multiplier: float = 3.5,
 ) -> pd.DataFrame:
-    """Remove extreme price outliers per phone type using IQR."""
+    """Remove extreme price outliers per phone type using IQR (extreme threshold = 3.5x IQR)."""
     groups = []
     total_removed = 0
     for name, gdf in df.groupby(group_col, dropna=False):
@@ -342,6 +342,156 @@ def remove_outliers_iqr(
         groups.append(gdf.loc[mask])
     logger.info("Total IQR outliers removed: %s", total_removed)
     return pd.concat(groups, ignore_index=True) if groups else df.iloc[0:0].copy()
+
+
+# ── Suspicious price removal ────────────────────────────────────────────────
+
+# Realistic minimum used prices in LKR for popular models.
+# Listings below these thresholds are almost certainly fake or scam posts.
+_MODEL_MIN_PRICE_LKR: dict[str, float] = {
+    # ── iPhones ──────────────────────────────────────────────────────────────
+    "iPhone 17 Pro Max": 350000,
+    "iPhone 17 Pro": 300000,
+    "iPhone 17": 200000,
+    "iPhone Air": 200000,
+    "iPhone 17e": 120000,
+    "iPhone 16 Pro Max": 250000,
+    "iPhone 16 Pro": 200000,
+    "iPhone 16 Plus": 170000,
+    "iPhone 16": 150000,
+    "iPhone 16e": 100000,
+    "iPhone 15 Pro Max": 200000,
+    "iPhone 15 Pro": 170000,
+    "iPhone 15 Plus": 130000,
+    "iPhone 15": 120000,
+    "iPhone 14 Pro Max": 150000,
+    "iPhone 14 Pro": 130000,
+    "iPhone 14 Plus": 100000,
+    "iPhone 14": 85000,
+    "iPhone 13 Pro Max": 120000,
+    "iPhone 13 Pro": 100000,
+    "iPhone 13": 70000,
+    "iPhone 13 mini": 60000,
+    "iPhone 12 Pro Max": 80000,
+    "iPhone 12 Pro": 70000,
+    "iPhone 12": 50000,
+    "iPhone 12 mini": 40000,
+    "iPhone 11 Pro Max": 60000,
+    "iPhone 11 Pro": 50000,
+    "iPhone 11": 35000,
+    "iPhone XS Max": 30000,
+    "iPhone XS": 25000,
+    "iPhone XR": 25000,
+    "iPhone X": 20000,
+    "iPhone SE 3": 40000,
+    "iPhone SE 2": 20000,
+    "iPhone 8 Plus": 15000,
+    "iPhone 8": 12000,
+    "iPhone 7 Plus": 10000,
+    "iPhone 7": 8000,
+    # ── Samsung flagships ────────────────────────────────────────────────────
+    "Galaxy S25 Ultra": 200000,
+    "Galaxy S25+": 150000,
+    "Galaxy S25": 120000,
+    "Galaxy S24 Ultra": 170000,
+    "Galaxy S24+": 120000,
+    "Galaxy S24": 90000,
+    "Galaxy S23 Ultra": 130000,
+    "Galaxy S23+": 90000,
+    "Galaxy S23": 70000,
+    "Galaxy S22 Ultra": 90000,
+    "Galaxy S22+": 65000,
+    "Galaxy S22": 55000,
+    "Galaxy S21 Ultra": 60000,
+    "Galaxy S21 Plus": 45000,
+    "Galaxy S21": 35000,
+    "Galaxy Z Fold6": 250000,
+    "Galaxy Z Fold5": 180000,
+    "Galaxy Z Fold4": 130000,
+    "Galaxy Z Flip6": 150000,
+    "Galaxy Z Flip5": 100000,
+    "Galaxy Z Flip4": 70000,
+    # ── Google Pixel ─────────────────────────────────────────────────────────
+    "Pixel 9 Pro XL": 180000,
+    "Pixel 9 Pro": 150000,
+    "Pixel 9": 100000,
+    "Pixel 8 Pro": 100000,
+    "Pixel 8": 70000,
+    "Pixel 7 Pro": 60000,
+    "Pixel 7": 45000,
+}
+
+
+def remove_suspicious_prices(
+    df: pd.DataFrame,
+    price_col: str = TARGET_COLUMN,
+    iqr_multiplier: float = 2.5,
+    min_group_size: int = 5,
+) -> pd.DataFrame:
+    """Remove listings with suspiciously low prices using two strategies.
+
+    1. **Model-specific thresholds** -- flag any listing whose price is below
+       the known realistic floor for that model (hardcoded in
+       ``_MODEL_MIN_PRICE_LKR``).
+    2. **Per-brand+model IQR** -- for brand+model groups with at least
+       *min_group_size* samples, flag prices below Q1 - *iqr_multiplier* * IQR
+       as extreme low outliers.
+
+    The union of both flag sets is removed.
+    """
+    flagged_indices: set[int] = set()
+
+    # ── Strategy 1: model-specific thresholds ───────────────────────────────
+    threshold_count = 0
+    for model_name, min_price in _MODEL_MIN_PRICE_LKR.items():
+        mask = (df["model"] == model_name) & (df[price_col] < min_price)
+        hits = df.index[mask].tolist()
+        if hits:
+            prices = df.loc[hits, price_col].tolist()
+            logger.info(
+                "Suspicious threshold | %-25s | %s records | prices: %s | min=%s",
+                model_name, len(hits),
+                [f"{p:,.0f}" for p in sorted(prices)[:5]],
+                f"{min_price:,.0f}",
+            )
+            flagged_indices.update(hits)
+            threshold_count += len(hits)
+
+    logger.info("Model-threshold flagged: %s records.", f"{threshold_count:,}")
+
+    # ── Strategy 2: per-brand+model IQR (low-end only) ──────────────────────
+    iqr_count = 0
+    for (brand, model), gdf in df.groupby(["brand", "model"], dropna=False):
+        if len(gdf) < min_group_size:
+            continue
+        prices = gdf[price_col]
+        q1 = prices.quantile(0.25)
+        q3 = prices.quantile(0.75)
+        iqr = q3 - q1
+        if pd.isna(iqr) or iqr <= 0:
+            continue
+        lower_bound = q1 - iqr_multiplier * iqr
+        outlier_mask = prices < lower_bound
+        if not outlier_mask.any():
+            continue
+        hits = gdf.index[outlier_mask].tolist()
+        new_hits = [i for i in hits if i not in flagged_indices]
+        if new_hits:
+            logger.info(
+                "Suspicious IQR      | %-12s %-25s | %s records | bound=%.0f",
+                brand, model, len(new_hits), lower_bound,
+            )
+            flagged_indices.update(new_hits)
+            iqr_count += len(new_hits)
+
+    logger.info("Per-group IQR flagged: %s additional records.", f"{iqr_count:,}")
+    logger.info("Total suspicious removed: %s (of %s).",
+                f"{len(flagged_indices):,}", f"{len(df):,}")
+
+    if flagged_indices:
+        df = df.drop(index=list(flagged_indices)).reset_index(drop=True)
+
+    return df
 
 
 # ── Main preprocessing function ─────────────────────────────────────────────
@@ -416,8 +566,11 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates()
     logger.info("Removed %s post-standardisation duplicates.", f"{before - len(df):,}")
 
-    # Remove price outliers
+    # Remove price outliers (broad per-phone-type)
     df = remove_outliers_iqr(df)
+
+    # Remove suspicious / fake low prices (per-model thresholds + per-group IQR)
+    df = remove_suspicious_prices(df)
 
     logger.info("Preprocessing done. Final records: %s", f"{len(df):,}")
     return df.reset_index(drop=True)

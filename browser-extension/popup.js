@@ -527,24 +527,37 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
               showError(
                 response.data.error_message ||
-                  "This listing was detected as a Smart Watch / Accessory. FairPriceLK only provides valuation for Mobile Phones (Smartphones), GPUs, Vehicles, and Computers.",
+                  "This listing is not in a supported category. FairPriceLK currently provides valuation for Mobile Phones (Smartphones), Graphics Cards (GPUs), Vehicles, and Computer Hardware (Laptops/Monitors).",
               );
               return;
             }
 
             await populateForm(response.data);
-            const cond = (response.data.condition || "").toLowerCase();
-            const title = (response.data.title || "").toLowerCase();
             const isBrandNew =
-              cond.includes("brand new") ||
-              cond === "new" ||
-              cond.includes("brand-new") ||
-              (title.includes("brand new") && !cond.includes("used"));
+              response.data.is_brand_new !== undefined
+                ? response.data.is_brand_new
+                : (function () {
+                    const cond = (response.data.condition || "").toLowerCase();
+                    const title = (response.data.title || "").toLowerCase();
+                    return (
+                      cond.includes("brand new") ||
+                      cond === "new" ||
+                      cond.startsWith("new") ||
+                      cond.includes("brand-new") ||
+                      cond.includes("sealed") ||
+                      cond.includes("unregistered") ||
+                      cond.includes("අලුත්") ||
+                      cond.includes("புதிய") ||
+                      (title.includes("brand new") && !cond.includes("used"))
+                    );
+                  })();
 
             if (isBrandNew) {
               showStatus(
-                "⚠️ Notice: Listing is marked as Brand New. FairPriceLK valuation is designed for Used items only.",
+                "⚠️ Notice: FairPriceLK only predicts prices for used / second-hand items. This listing is identified as Brand New.",
               );
+            } else if (!response.data.valid && response.data.error_message) {
+              showError(response.data.error_message);
             } else {
               showStatus("Details extracted from page. Auto-predicting...");
               // Auto-trigger the predict button

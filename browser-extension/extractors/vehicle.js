@@ -11,6 +11,8 @@ window.FairPriceLK_Extractors = window.FairPriceLK_Extractors || {};
 
 window.FairPriceLK_Extractors.vehicle = (function () {
 
+    const SUPPORTED_SUV_BRANDS = ['toyota', 'suzuki', 'peugeot', 'nissan', 'mitsubishi', 'micro', 'mg', 'kia', 'hyundai', 'honda', 'daihatsu', 'bmw', 'audi'];
+
     // ── Riyasewana DOM Scraper ────────────────────────────────────────────────
     /**
      * Reads the listing details <table> on riyasewana.com.
@@ -31,7 +33,8 @@ window.FairPriceLK_Extractors.vehicle = (function () {
             title:     null,
             description: null,
             vehicle_type: 'cars',
-            variant:   null
+            variant:   null,
+            body_type: null
         };
 
         try {
@@ -45,10 +48,52 @@ window.FairPriceLK_Extractors.vehicle = (function () {
             }
 
             // 1b. Description
-            const morebox = document.querySelector('.morebox') || document.querySelector('.contentbox');
-            if (morebox) {
-                result.description = morebox.innerText.trim();
+            let optionsText = "";
+            let detailsText = "";
+            const headers = Array.from(document.querySelectorAll('h2, h3, h4, h5, div.options, div.more, div.more-card-title'));
+            for (const h of headers) {
+                const title = (h.innerText || h.textContent || '').trim().toUpperCase();
+                if (title === 'OPTIONS' || title === 'MORE DETAILS' || title === 'DESCRIPTION') {
+                    // Collect text from all next siblings until another header
+                    let collected = [];
+                    let sibling = h.nextElementSibling;
+                    while (sibling) {
+                        if (sibling.tagName && (sibling.tagName.match(/^H[1-6]$/) || sibling.className === 'more-card-title')) break;
+                        const t = (sibling.innerText || sibling.textContent || '').replace(/\s+/g, ' ').trim();
+                        if (t) collected.push(t);
+                        sibling = sibling.nextElementSibling;
+                    }
+                    // If sibling iteration got nothing, maybe it's inside a parent wrapper
+                    if (collected.length === 0 && h.parentElement) {
+                        const parentText = (h.parentElement.innerText || h.parentElement.textContent || '').replace(h.innerText || h.textContent, '').replace(/\s+/g, ' ').trim();
+                        if (parentText) collected.push(parentText);
+                    }
+                    
+                    if (collected.length > 0) {
+                        if (title.includes('OPTION')) {
+                            optionsText = collected.join(' ');
+                        } else {
+                            detailsText = collected.join(' ');
+                        }
+                    }
+                }
             }
+            
+            // Independent Fallbacks
+            if (!optionsText) {
+                const optionsBox = document.querySelector('#options, .options-list, .options');
+                if (optionsBox) optionsText = (optionsBox.innerText || optionsBox.textContent || '').replace(/\s+/g, ' ').trim();
+            }
+            if (!detailsText) {
+                const moreBox = document.querySelector('.morebox, .contentbox, .description, .more-card-body');
+                if (moreBox) detailsText = (moreBox.innerText || moreBox.textContent || '').replace(/\s+/g, ' ').trim();
+            }
+            
+            let descParts = [];
+            if (optionsText) descParts.push("Options: " + optionsText);
+            if (detailsText) descParts.push("Details: " + detailsText);
+            
+            result.description = descParts.join(' | ') || "";
 
             // 2. Price — find leaf node containing "Rs." with ≥4 digits
             const leafEls = Array.from(document.querySelectorAll('div, span, p, td, strong, b, h2, h3'));
@@ -97,6 +142,7 @@ window.FairPriceLK_Extractors.vehicle = (function () {
                     else if (label === 'CONDITION' || label.includes('CONDITION'))       result.condition = value;
                     else if (label === 'EDITION' || label === 'TRIM' || label === 'VARIANT') result.variant = value;
                     else if (label === 'BODY TYPE' || label.includes('BODY')) {
+                        result.body_type = value;
                         const bt = value.toUpperCase();
                         if (bt.includes('SUV')) result.vehicle_type = 'suvs';
                         else if (bt.includes('VAN')) result.vehicle_type = 'vans';
@@ -295,6 +341,47 @@ window.FairPriceLK_Extractors.vehicle = (function () {
 
         // ── Step 2: Resolve and clean each field ──────────────────────────
 
+        // --- Unsupported Vehicle Check ---
+        const unsupportedRegex = /\b(motorcycle|motorbike|scooter|lorry|truck|bus|crew\s*cab|double\s*cab|three\s*wheel|tuk\s*tuk|tractor|heavy\s*machinery|excavator|bicycle)\b/i;
+        let isUnsupported = false;
+
+        // Check H1 Title
+        if (unsupportedRegex.test(title)) {
+            isUnsupported = true;
+        }
+
+        // Check Breadcrumbs
+        if (!isUnsupported && pageContext && pageContext.breadcrumbs) {
+            const breadcrumbText = pageContext.breadcrumbs.join(' ');
+            if (unsupportedRegex.test(breadcrumbText)) {
+                isUnsupported = true;
+            }
+        }
+
+        // Check Body Type from scraped data or key_values
+        if (!isUnsupported) {
+            const bodyType = scraped.body_type || (pageContext && pageContext.key_values && (pageContext.key_values['body type'] || pageContext.key_values['body_type'] || pageContext.key_values['body'])) || '';
+            if (unsupportedRegex.test(bodyType)) {
+                isUnsupported = true;
+            }
+        }
+
+        if (isUnsupported) {
+            return {
+                category: 'unsupported',
+                valid: false,
+                is_unsupported_item: true,
+                error_message: "FairPriceLK currently supports Cars, SUVs, and Vans. Valuations for commercial vehicles and bikes are not available.",
+                data: {
+                    title: title,
+                    listed_price: scraped.price || (pageContext && pageContext.price) || null,
+                    item_type: "Unsupported Vehicle"
+                },
+                pageContext: pageContext
+            };
+        }
+        // ----------------------------------
+
         // Price
         const price = scraped.price || (pageContext && pageContext.price) || null;
 
@@ -364,6 +451,24 @@ window.FairPriceLK_Extractors.vehicle = (function () {
         }
 
         // ── Step 3: Validate ─────────────────────────────────────────────
+        
+        // --- Unsupported SUV Brands Check ---
+        const vehicleType = scraped.vehicle_type || 'cars';
+        if (vehicleType === 'suvs' && make && !SUPPORTED_SUV_BRANDS.includes(make.toLowerCase())) {
+            return {
+                category: 'unsupported',
+                valid: false,
+                is_unsupported_item: true,
+                error_message: "FairPriceLK currently does not support price predictions for " + make + " SUVs.",
+                data: {
+                    title: title,
+                    listed_price: price,
+                    item_type: "Unsupported SUV Brand"
+                },
+                pageContext: pageContext
+            };
+        }
+
         const missingFields = [];
         if (!make)    missingFields.push('Make');
         if (!model)   missingFields.push('Model');
@@ -391,6 +496,7 @@ window.FairPriceLK_Extractors.vehicle = (function () {
                 transmission: gear        || 'Automatic',
                 engine_cc:    engineCC,         
                 vehicle_type: scraped.vehicle_type || 'cars',
+                description:  scraped.description || (pageContext && pageContext.description) || null,
 
                 // ── Display / UI fields ───────────────────────────────────
                 title:        title,
