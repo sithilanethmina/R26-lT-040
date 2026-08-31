@@ -180,7 +180,12 @@
       category: "gpu",
       data: {},
     };
-    const data = ext.data || {};
+    // Prioritize authoritative enriched specs from backend Single Source of Truth if prediction is available
+    const authoritativeSpecs = (cachedPrediction && (cachedPrediction.enriched_specs || cachedPrediction.inputs)) || {};
+    const data = {
+      ...(ext.data || {}),
+      ...authoritativeSpecs,
+    };
     const cat = ext.category || "gpu";
     const isUnsupported = cat === "unsupported" || ext.is_unsupported_item;
     const isBrandNew =
@@ -267,19 +272,24 @@
       }
 
                     <!-- Evaluation or Missing/Invalid info -->
-                    ${
-                      !isUnsupported &&
-                      !ext.valid &&
-                      !cachedPrediction &&
-                      !isBrandNew
-                        ? `
-                        <div class="fplk-verdict-box ${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'warning' : 'neutral'}">
+                    ${!isUnsupported &&
+        !ext.valid &&
+        !cachedPrediction &&
+        !isBrandNew
+        ? `
+                        <div class="fplk-verdict-box ${ext.error_message ? 'warning' : 'neutral'}">
                             <div class="fplk-verdict-header">
-                                <span class="fplk-verdict-tag" style="${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'background:#FEE2E2; color:#991B1B; font-weight:700;' : ''}">
-                                    ${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? '⚠️ SPECIFICATION ISSUE' : 'Listing Details Detected'}
+                                <span class="fplk-verdict-tag" style="${ext.error_message ? 'background:#FEE2E2; color:#991B1B; font-weight:700;' : ''}">
+                                    ${ext.error_message && (ext.error_message.includes('not supported') || ext.error_message.includes('only provides valuation'))
+          ? '⚠️ MODEL NOT SUPPORTED'
+          : ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting'))
+            ? '⚠️ SPECIFICATION ISSUE'
+            : ext.error_message
+              ? '⚠️ VALUATION UNAVAILABLE'
+              : 'Listing Details Detected'}
                                 </span>
                             </div>
-                            <div class="fplk-verdict-body" style="${ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting')) ? 'font-size:12.5px; color:#7F1D1D; line-height:1.5; margin-top:4px;' : ''}">
+                            <div class="fplk-verdict-body" style="${ext.error_message ? 'font-size:12.5px; color:#7F1D1D; line-height:1.5; margin-top:4px;' : ''}">
                                 ${ext.error_message || "Could not automatically identify all specifications for valuation. You can refine details below."}
                             </div>
                         </div>
@@ -706,8 +716,8 @@
       if (tEl) d.phone_type = tEl.value;
       if (bEl) d.brand = bEl.value.trim();
       if (mEl) d.model = mEl.value.trim();
-      if (sEl) d.storage_gb = parseFloat(sEl.value) || 128;
-      if (rEl) d.ram_gb = parseFloat(rEl.value) || 6;
+      if (sEl && sEl.value) d.storage_gb = parseFloat(sEl.value);
+      if (rEl && rEl.value) d.ram_gb = parseFloat(rEl.value);
 
       const bhEl = document.getElementById("fplk-mobile-battery");
       const wEl = document.getElementById("fplk-mobile-warranty");
@@ -722,28 +732,6 @@
         d.warranty_days = parseFloat(wEl.value) || 0;
       } else {
         d.warranty_days = 0;
-      }
-
-      // Re-derive engineered features using the extractor's helpers if available
-      const mobileExt =
-        window.FairPriceLK_Extractors && window.FairPriceLK_Extractors.mobile;
-      if (mobileExt && mobileExt.parse) {
-        // Trigger a fresh parse to recompute features based on updated brand/model
-        const freshParsed = mobileExt.parse({
-          title: d.model || "",
-          price: d.listed_price,
-          raw_text: "",
-          key_values: { brand: d.brand, model: d.model },
-        });
-        if (freshParsed && freshParsed.data) {
-          d.model_tier = freshParsed.data.model_tier;
-          d.brand_tier = freshParsed.data.brand_tier;
-          d.phone_age_years = freshParsed.data.phone_age_years;
-          d.is_flagship = freshParsed.data.is_flagship;
-          d.has_5g = freshParsed.data.has_5g;
-          d.has_esim = freshParsed.data.has_esim;
-          d.dual_sim = freshParsed.data.dual_sim;
-        }
       }
     } else if (cat === "vehicle") {
       const makeEl = document.getElementById("fplk-vehicle-make");
@@ -848,13 +836,16 @@
 
     let subpath = "";
     if (cat === "mobile") {
-      // Strictly limit payload to the fields the Mobile API PredictRequest expects
+      const pageCtx = currentExtraction.pageContext || {};
       payloadForFetch = {
         phone_type: originalData.phone_type || "android",
         brand: originalData.brand || "",
         model: originalData.model || "",
-        storage_gb: originalData.storage_gb || 128,
-        ram_gb: originalData.ram_gb || 6,
+        title: originalData.title || pageCtx.title || "",
+        description: originalData.description || pageCtx.description || "",
+        raw_text: pageCtx.raw_text || "",
+        storage_gb: originalData.storage_gb || null,
+        ram_gb: originalData.ram_gb || null,
         warranty_days:
           originalData.warranty_days !== undefined &&
             originalData.warranty_days !== null
@@ -865,19 +856,9 @@
             originalData.battery_health_percent !== null
             ? originalData.battery_health_percent
             : null,
-        dual_sim: originalData.dual_sim ? true : false,
-        has_5g: originalData.has_5g ? true : false,
-        has_esim: originalData.has_esim ? true : false,
-        model_tier:
-          originalData.model_tier !== undefined ? originalData.model_tier : 3,
-        brand_tier:
-          originalData.brand_tier !== undefined ? originalData.brand_tier : 2,
-        phone_age_years:
-          originalData.phone_age_years !== undefined
-            ? originalData.phone_age_years
-            : 3.0,
-        is_flagship:
-          originalData.is_flagship !== undefined ? originalData.is_flagship : 0,
+        dual_sim: originalData.dual_sim !== undefined && originalData.dual_sim !== null ? Boolean(originalData.dual_sim) : null,
+        has_5g: originalData.has_5g !== undefined && originalData.has_5g !== null ? Boolean(originalData.has_5g) : null,
+        has_esim: originalData.has_esim !== undefined && originalData.has_esim !== null ? Boolean(originalData.has_esim) : null
       };
     } else if (cat === "vehicle") {
       const vType = originalData.vehicle_type || "cars";
@@ -944,6 +925,16 @@
 
           cachedPrediction = response.data;
           currentExtraction.valid = true;
+
+          // Unconditionally synchronize authoritative specs from backend Single Source of Truth into currentExtraction.data
+          if (cachedPrediction && (cachedPrediction.enriched_specs || cachedPrediction.inputs)) {
+            const enriched = cachedPrediction.enriched_specs || cachedPrediction.inputs;
+            currentExtraction.data = {
+              ...(currentExtraction.data || {}),
+              ...enriched
+            };
+          }
+
           renderEmbeddedCard(manualOverride);
         },
       );

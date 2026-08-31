@@ -47,6 +47,7 @@ from .config import (
     MODEL_DIR,
     NUMERIC_FEATURES,
     OUTPUT_COLUMNS,
+    OUTPUTS_DIR,
     RANDOM_STATE,
     TARGET_COLUMN,
     TEST_SIZE,
@@ -277,13 +278,20 @@ def train_all_models(
     iphone_df: pd.DataFrame,
     android_df: pd.DataFrame,
     tune: bool = True,
+    dedicated_only: bool = True,
 ) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]], Dict[str, Pipeline]]:
-    """Train all model/phone-type combinations and return results."""
+    """Train dedicated winning models (CatBoost for iPhone, XGBoost for Android) or all models."""
     results: Dict[str, Dict[str, Any]] = {}
     skipped: Dict[str, Dict[str, Any]] = {}
     trained: Dict[str, Pipeline] = {}
 
-    model_configs = _get_model_configs()
+    all_configs = _get_model_configs()
+    config_by_name = {c["name"].lower().replace(" ", "_"): c for c in all_configs}
+
+    target_assignments = {
+        "iphone": ["catboost", "xgboost", "random_forest", "lightgbm"] if not dedicated_only else ["catboost"],
+        "android": ["xgboost", "lightgbm", "random_forest", "catboost"] if not dedicated_only else ["xgboost"],
+    }
 
     for phone_type, dataset in [("iphone", iphone_df), ("android", android_df)]:
         if len(dataset) < MIN_ROWS_REQUIRED:
@@ -298,7 +306,18 @@ def train_all_models(
             X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE,
         )
 
-        for config in model_configs:
+        desired_names = target_assignments.get(phone_type, ["xgboost"])
+        selected_configs = []
+        for name in desired_names:
+            if name in config_by_name:
+                selected_configs.append(config_by_name[name])
+                if dedicated_only:
+                    break
+
+        if not selected_configs:
+            selected_configs = all_configs[:1]
+
+        for config in selected_configs:
             key = f"{config['name'].lower().replace(' ', '_')}_{phone_type}"
             try:
                 pipeline, metrics = train_single_model(
@@ -425,6 +444,32 @@ def save_fair_prices(records: list[Dict[str, Any]]) -> Dict[str, str]:
     return {"json": str(FAIR_PRICE_JSON), "csv": str(FAIR_PRICE_CSV)}
 
 
+def save_metadata_and_lookup(cleaned_df: pd.DataFrame) -> None:
+    """Save verified supported mobile_brand_model_lookup.json and mobile_metadata.json."""
+    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    lookup: dict[str, list[str]] = {}
+    for brand, gdf in cleaned_df.groupby("brand"):
+        models = sorted([str(m) for m in gdf["model"].dropna().unique() if str(m).strip()])
+        if models:
+            lookup[str(brand)] = models
+
+    lookup_file = OUTPUTS_DIR / "mobile_brand_model_lookup.json"
+    with lookup_file.open("w", encoding="utf-8") as f:
+        json.dump(lookup, f, indent=2, ensure_ascii=False)
+
+    metadata_file = OUTPUTS_DIR / "mobile_metadata.json"
+    metadata = {
+        "brands": sorted(list(lookup.keys())),
+        "total_records": len(cleaned_df),
+        "total_models": sum(len(m) for m in lookup.values()),
+        "generated_at": datetime.now().isoformat(timespec="seconds")
+    }
+    with metadata_file.open("w", encoding="utf-8") as f:
+        json.dump(metadata, f, indent=2, ensure_ascii=False)
+        
+    logger.info("Saved lookup & metadata: %s, %s", lookup_file, metadata_file)
+
+
 # ── Save / delete helpers ────────────────────────────────────────────────────
 
 def save_model(model: Pipeline, path: Path) -> None:
@@ -490,8 +535,9 @@ def main() -> None:
             cleaned_df, trained, results, recommendations)
         fair_files = save_fair_prices(fair_records)
 
-        # 8. Save evaluation results
+        # 8. Save evaluation results and lookup metadata
         save_evaluation_results(results, skipped, recommendations, fair_files)
+        save_metadata_and_lookup(cleaned_df)
         print_final_summary(len(iphone_df), len(android_df), comparison, recommendations)
 
         logger.info("Pipeline completed successfully.")
