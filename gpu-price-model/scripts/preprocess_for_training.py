@@ -192,24 +192,21 @@ def main():
         # Save outliers dump
         for item in outliers_data:
             item["Discard_Reason"] = "Price Outlier (IQR Filtering)"
-            if pd.isna(item.get("VRAM_GB")):
-                item["VRAM_GB"] = None
-            if pd.isna(item.get("Brand")):
-                item["Brand"] = None
+            for k, v in list(item.items()):
+                if pd.isna(v):
+                    item[k] = None
         
         outliers_file = dumps_dir / "outliers_dump.json"
         with open(outliers_file, "w", encoding="utf-8") as f:
             json.dump(outliers_data, f, indent=4)
         
         # In case the DataFrame index gets messed up or it drops columns, we recreate the list of dicts
-        # pandas sometimes returns an empty DataFrame if no groups, but we handled that
         final_data = filtered_df.to_dict(orient="records")
-        # Ensure we don't have NaN for None values (pandas converts None to NaN sometimes)
+        # Ensure we don't have NaN for None values (pandas converts None to NaN)
         for item in final_data:
-            if pd.isna(item.get("VRAM_GB")):
-                item["VRAM_GB"] = None
-            if pd.isna(item.get("Brand")):
-                item["Brand"] = None
+            for k, v in list(item.items()):
+                if pd.isna(v):
+                    item[k] = None
     else:
         outliers_removed = 0
     # -----------------------

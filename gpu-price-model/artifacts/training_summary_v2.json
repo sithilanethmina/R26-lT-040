@@ -4,138 +4,138 @@
   "n_models": 6,
   "feature_count": 10,
   "training_records": {
-    "total_records": 5935,
-    "train_records": 4739,
-    "test_records": 1196,
-    "train_ratio_pct": 79.8,
+    "total_records": 5958,
+    "train_records": 4758,
+    "test_records": 1200,
+    "train_ratio_pct": 79.9,
     "features_count": 10,
     "validation_strategy": "Stratified Holdout + Group-KFold Cross-Validation (Zero Group Leakage)",
     "outlier_handling": "Post-split training-only IQR filtering (Zero Test Leakage)",
     "models": {
       "lightgbm": {
         "name": "LightGBM",
-        "train_records": 4739,
-        "test_records": 1196,
-        "tune_records": 4739,
+        "train_records": 4758,
+        "test_records": 1200,
+        "tune_records": 4758,
         "preprocessing": "Tree-based (No scaling)",
-        "notes": "Tuned with Optuna on 4,739 post-split clean training records; evaluated on 1,196 holdout records."
+        "notes": "Tuned with Optuna on 4,758 post-split clean training records; evaluated on 1,200 holdout records."
       },
       "xgboost": {
         "name": "XGBoost",
-        "train_records": 4739,
-        "test_records": 1196,
-        "tune_records": 4739,
+        "train_records": 4758,
+        "test_records": 1200,
+        "tune_records": 4758,
         "preprocessing": "Tree-based (No scaling)",
-        "notes": "Tuned with Optuna on 4,739 post-split clean training records; evaluated on 1,196 holdout records."
+        "notes": "Tuned with Optuna on 4,758 post-split clean training records; evaluated on 1,200 holdout records."
       },
       "random_forest": {
         "name": "Random Forest",
-        "train_records": 4739,
-        "test_records": 1196,
-        "tune_records": 4739,
+        "train_records": 4758,
+        "test_records": 1200,
+        "tune_records": 4758,
         "preprocessing": "Tree-based (SimpleImputer + OrdinalEncoder)",
-        "notes": "Tuned with Optuna on 4,739 post-split clean training records; evaluated on 1,196 holdout records."
+        "notes": "Tuned with Optuna on 4,758 post-split clean training records; evaluated on 1,200 holdout records."
       },
       "knn": {
         "name": "KNN (K-Nearest Neighbors)",
-        "train_records": 4739,
-        "test_records": 1196,
-        "tune_records": 4739,
+        "train_records": 4758,
+        "test_records": 1200,
+        "tune_records": 4758,
         "preprocessing": "StandardScaler Normalized",
-        "notes": "Features normalized using StandardScaler across 4,739 post-split clean training records."
+        "notes": "Features normalized using StandardScaler across 4,758 post-split clean training records."
       },
       "svr": {
         "name": "SVR (Support Vector Regressor)",
-        "train_records": 4739,
-        "test_records": 1196,
-        "tune_records": 4739,
+        "train_records": 4758,
+        "test_records": 1200,
+        "tune_records": 4758,
         "preprocessing": "StandardScaler Normalized",
-        "notes": "Hyperparameters tuned on 4,739 records for speed; final model fitted on all 4,739 clean training records."
+        "notes": "Hyperparameters tuned on 4,758 records for speed; final model fitted on all 4,758 clean training records."
       },
       "stacking_ensemble": {
         "name": "Stacking Ensemble",
-        "train_records": 4739,
-        "test_records": 1196,
-        "tune_records": 4739,
+        "train_records": 4758,
+        "test_records": 1200,
+        "tune_records": 4758,
         "preprocessing": "Base Estimators (LGBM + RF + KNN) -> Ridge Meta-Learner",
-        "notes": "Trained using 5-fold cross-validated meta-features across all 4,739 clean training records."
+        "notes": "Trained using 5-fold cross-validated meta-features across all 4,758 clean training records."
       }
     }
   },
   "holdout_results": {
     "lightgbm": {
-      "mape_pct": 10.03,
-      "r2": 0.976,
-      "rmse_lkr": 4896.0,
-      "within_10pct": 62.04
+      "mape_pct": 9.84,
+      "r2": 0.9737,
+      "rmse_lkr": 7841.0,
+      "within_10pct": 62.42
     },
     "xgboost": {
-      "mape_pct": 11.61,
-      "r2": 0.9656,
-      "rmse_lkr": 6124.0,
-      "within_10pct": 55.85
+      "mape_pct": 11.44,
+      "r2": 0.9649,
+      "rmse_lkr": 7337.0,
+      "within_10pct": 57.5
     },
     "random_forest": {
-      "mape_pct": 9.98,
-      "r2": 0.9769,
-      "rmse_lkr": 4682.0,
-      "within_10pct": 59.53
+      "mape_pct": 9.69,
+      "r2": 0.9761,
+      "rmse_lkr": 7774.0,
+      "within_10pct": 61.75
     },
     "knn": {
-      "mape_pct": 10.6,
-      "r2": 0.974,
-      "rmse_lkr": 5477.0,
-      "within_10pct": 58.03
+      "mape_pct": 11.46,
+      "r2": 0.9649,
+      "rmse_lkr": 8923.0,
+      "within_10pct": 57.5
     },
     "svr": {
-      "mape_pct": 13.62,
-      "r2": 0.9533,
-      "rmse_lkr": 5976.0,
-      "within_10pct": 55.1
+      "mape_pct": 13.04,
+      "r2": 0.9603,
+      "rmse_lkr": 7667.0,
+      "within_10pct": 46.17
     },
     "stacking_ensemble": {
-      "mape_pct": 14.46,
-      "r2": 0.9597,
-      "rmse_lkr": 9585.0,
-      "within_10pct": 42.56
+      "mape_pct": 15.21,
+      "r2": 0.9555,
+      "rmse_lkr": 10142.0,
+      "within_10pct": 38.75
     }
   },
   "group_kfold_out_of_model_results": {
     "lightgbm": {
-      "mape_pct": 20.56,
-      "r2": 0.8906,
-      "rmse_lkr": 15111.0,
-      "within_10pct": 35.85
+      "mape_pct": 25.28,
+      "r2": 0.8288,
+      "rmse_lkr": 15894.0,
+      "within_10pct": 33.62
     },
     "xgboost": {
-      "mape_pct": 19.07,
-      "r2": 0.9144,
-      "rmse_lkr": 15184.0,
-      "within_10pct": 39.26
+      "mape_pct": 19.0,
+      "r2": 0.8956,
+      "rmse_lkr": 14141.0,
+      "within_10pct": 39.61
     },
     "random_forest": {
-      "mape_pct": 20.63,
-      "r2": 0.8805,
-      "rmse_lkr": 14271.0,
-      "within_10pct": 37.79
+      "mape_pct": 20.87,
+      "r2": 0.8774,
+      "rmse_lkr": 14373.0,
+      "within_10pct": 36.62
     },
     "knn": {
-      "mape_pct": 25.85,
-      "r2": 0.8637,
-      "rmse_lkr": 17179.0,
-      "within_10pct": 28.65
+      "mape_pct": 34.87,
+      "r2": 0.7804,
+      "rmse_lkr": 17111.0,
+      "within_10pct": 28.72
     },
     "svr": {
-      "mape_pct": 18.0,
-      "r2": 0.9232,
-      "rmse_lkr": 13764.0,
-      "within_10pct": 45.47
+      "mape_pct": 19.64,
+      "r2": 0.9166,
+      "rmse_lkr": 14064.0,
+      "within_10pct": 35.42
     },
     "stacking_ensemble": {
-      "mape_pct": 20.29,
-      "r2": 0.8937,
-      "rmse_lkr": 14495.0,
-      "within_10pct": 38.88
+      "mape_pct": 22.79,
+      "r2": 0.8386,
+      "rmse_lkr": 15086.0,
+      "within_10pct": 37.16
     }
   }
 }
