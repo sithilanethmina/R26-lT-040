@@ -818,6 +818,23 @@
     const cat = currentExtraction.category || "gpu";
     const originalData = currentExtraction.data;
 
+    // --- Domain & Category Restriction ---
+    const currentDomain = window.location.hostname;
+    if (currentDomain.includes("ikman.lk") && cat === "vehicle") {
+      cachedPrediction = null;
+      currentExtraction.valid = false;
+      currentExtraction.error_message = "⚠️ Vehicles Not Supported For This Platform";
+
+      const evalBtn = document.getElementById("fplk-eval-btn");
+      if (evalBtn) {
+        evalBtn.innerHTML = "Recalculate Market Valuation";
+        evalBtn.disabled = false;
+      }
+      renderEmbeddedCard(manualOverride);
+      return;
+    }
+    // -------------------------------------
+
     const evalBtn = document.getElementById("fplk-eval-btn");
     if (evalBtn) {
       evalBtn.innerHTML = `<span class="fplk-spinner"></span> Calculating Valuation...`;
