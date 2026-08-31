@@ -354,6 +354,18 @@ li[role="option"][aria-selected="true"] {
     color: #1A1A18;
     letter-spacing: -0.02em;
 }
+.result-range {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B6B66;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E3;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 .result-meta {
     display: flex;
     align-items: center;
@@ -905,8 +917,15 @@ def _render_prediction_results(
 
     st.markdown(f"""
     <div class="result-box">
-        <div class="result-header">ESTIMATED FAIR MARKET RANGE (90% CONFIDENCE)</div>
-        <div class="result-price">Rs. {lower_price:,.0f} – Rs. {upper_price:,.0f}</div>
+        <div class="result-header">PREDICTED FAIR MARKET PRICE</div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div class="result-price">Rs. {adjusted_best_price:,.0f}</div>
+            <div class="result-range">
+                <span>Fair Range:</span>
+                <strong style="color: #1A1A18;">Rs. {lower_price:,.0f} – Rs. {upper_price:,.0f}</strong>
+                <span style="font-size: 11px; color: #8C8C88; font-weight: 500;">(90% Conf.)</span>
+            </div>
+        </div>
         <div class="result-meta">
             {fairness_badge_html}
             {price_diff_html}
