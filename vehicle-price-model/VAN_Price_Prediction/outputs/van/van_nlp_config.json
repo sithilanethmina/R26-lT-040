@@ -1,88 +1,143 @@
 {
   "vehicle_type": "Van",
   "positive_signals": {
-    "one_owner": {
+    "verified_ownership": {
       "keywords": [
         "one owner",
         "1 owner",
         "1st owner",
         "single owner",
         "first owner",
-        "lady owner",
-        "lady driven"
+        "\u0db4\u0dc5\u0db8\u0dd4 \u0d85\u0dba\u0dd2\u0dad\u0dd2\u0d9a\u0dbb\u0dd4",
+        "\u0d91\u0d9a\u0db8 \u0d85\u0dba\u0dd2\u0dad\u0dd2\u0d9a\u0dbb\u0dd4"
       ],
       "points": 5,
-      "label": "Single Owner"
+      "label": "Single Owner Verified"
     },
-    "accident_free": {
+    "clear_original_paperwork": {
+      "keywords": [
+        "original book",
+        "clear documents",
+        "clear papers",
+        "clear title",
+        "\u0d94\u0dbb\u0dd2\u0da2\u0dd2\u0db1\u0dbd\u0dca \u0db4\u0ddc\u0dad",
+        "\u0db1\u0dd2\u0dbb\u0dc0\u0dd4\u0dbd\u0dca \u0dbd\u0dd2\u0dba\u0d9a\u0dd2\u0dba\u0dc0\u0dd2\u0dbd\u0dd2",
+        "\u0db4\u0dd0\u0dc4\u0dd0\u0daf\u0dd2\u0dbd\u0dd2 \u0dbd\u0dd2\u0dba\u0d9a\u0dd2\u0dba\u0dc0\u0dd2\u0dbd\u0dd2",
+        "\u0dbd\u0dd2\u0dba\u0d9a\u0dd2\u0dba\u0dc0\u0dd2\u0dbd\u0dd2 \u0dc3\u0db8\u0dca\u0db4\u0dd6\u0dbb\u0dca\u0dab\u0dba\u0dd2"
+      ],
+      "points": 4,
+      "label": "Original Book & Clear Papers"
+    },
+    "original_chassis_and_body": {
       "keywords": [
         "accident free",
         "no accident",
         "no accidents",
         "no crash",
-        "mint condition",
-        "never been in"
+        "never been in",
+        "original paint",
+        "factory paint",
+        "unmodified",
+        "genuine",
+        "original condition",
+        "\u0d85\u0db1\u0dad\u0dd4\u0dbb\u0d9a\u0dca \u0dc0\u0dd3 \u0db1\u0ddc\u0db8\u0dd0\u0dad",
+        "\u0d94\u0dbb\u0dd2\u0da2\u0dd2\u0db1\u0dbd\u0dca \u0db4\u0dda\u0db1\u0dca\u0da7\u0dca",
+        "\u0dc4\u0dd0\u0db4\u0dca\u0db4\u0dd3 \u0db1\u0ddc\u0db8\u0dd0\u0dad",
+        "\u0dc3\u0dd4\u0db4\u0dd2\u0dbb\u0dd2\u0db8 \u0dad\u0dad\u0dca\u0dc0\u0dba\u0dd9\u0db1\u0dca",
+        "\u0d94\u0dbb\u0dd2\u0da2\u0dd2\u0db1\u0dbd\u0dca \u0db6\u0ddc\u0da9\u0dd2"
       ],
       "points": 5,
-      "label": "Accident Free"
+      "label": "Accident Free & Original Body"
     },
-    "low_mileage": {
+    "van_comfort_features": {
       "keywords": [
-        "low mileage",
-        "low km",
-        "low kilo",
-        "less mileage",
-        "very low mileage"
+        "dual ac",
+        "dual a/c",
+        "flat roof ac",
+        "rear ac",
+        "2nd row a/c",
+        "3rd row a/c",
+        "adjustable sheets",
+        "rotatable sheets",
+        "velvet sheets",
+        "line ac",
+        "auto door",
+        "power door",
+        "5 door",
+        "5-door",
+        "super gl",
+        "grand cabin",
+        "gl grade",
+        "\u0da9\u0dd4\u0dc0\u0dbd\u0dca \u0d92\u0dc3\u0dd3",
+        "\u0dbd\u0dba\u0dd2\u0db1\u0dca \u0d92\u0dc3\u0dd3",
+        "\u0d94\u0da7\u0ddd \u0da9\u0ddd",
+        "\u0dbb\u0ddc\u0da7\u0dda\u0da7\u0db6\u0dbd\u0dca \u0dc3\u0dd3\u0da7\u0dca"
       ],
       "points": 4,
-      "label": "Low Mileage Stated"
+      "label": "Van Comfort & Utility Specs"
     },
-    "service_records": {
+    "verified_service_history": {
       "keywords": [
         "service records",
         "service history",
         "full service",
-        "maintained",
         "company maintained",
         "agent maintained",
-        "dealer maintained"
+        "dealer maintained",
+        "all records available",
+        "genuine mileage",
+        "\u0dc3\u0dd2\u0dba\u0dbd\u0dd4\u0db8 \u0dc0\u0dcf\u0dbb\u0dca\u0dad\u0dcf \u0d87\u0dad",
+        "\u0dc3\u0dbb\u0dca\u0dc0\u0dd2\u0dc3\u0dca \u0dbb\u0dd9\u0d9a\u0ddd\u0da9\u0dca",
+        "\u0db1\u0dd2\u0dba\u0ddd\u0da2\u0dd2\u0dad\u0dba\u0dcf \u0db8\u0d9c\u0dd2\u0db1\u0dca \u0db1\u0da9\u0dad\u0dca\u0dad\u0dd4 \u0d9a\u0dbb\u0db1 \u0dbd\u0daf"
       ],
       "points": 4,
-      "label": "Service Records"
+      "label": "Service Records & Mileage Verified"
     },
-    "full_option": {
-      "keywords": [
-        "full option",
-        "fully loaded",
-        "full options",
-        "all options",
-        "top spec",
-        "fully optioned"
-      ],
-      "points": 3,
-      "label": "Full Option"
-    },
-    "original_condition": {
-      "keywords": [
-        "original paint",
-        "original condition",
-        "factory paint",
-        "unmodified",
-        "genuine"
-      ],
-      "points": 3,
-      "label": "Original Condition"
-    },
-    "good_engine": {
+    "engine_running_solid": {
       "keywords": [
         "engine in good condition",
         "smooth engine",
         "no smoke",
         "no leaks",
-        "well maintained engine"
+        "no blow by",
+        "100% running",
+        "engine 100%",
+        "running 100%",
+        "diesel pump repaired",
+        "gear 100%",
+        "\u0d91\u0db1\u0dca\u0da2\u0dd2\u0db1\u0dca 100%",
+        "\u0db0\u0dcf\u0dc0\u0db1 \u0dad\u0dad\u0dca\u0dad\u0dca\u0dc0\u0dba 100%",
+        "\u0daf\u0dd4\u0db8 \u0db1\u0dd0\u0dad"
       ],
       "points": 3,
-      "label": "Engine Confirmed Good"
+      "label": "Engine & Mechanical 100%"
+    },
+    "careful_personal_use": {
+      "keywords": [
+        "home used",
+        "carefully used",
+        "personal used",
+        "house used",
+        "family used",
+        "\u0d9c\u0dd9\u0daf\u0dbb \u0db4\u0dcf\u0dc0\u0dd2\u0da0\u0dca\u0da0\u0dd2 \u0d9a\u0dc5",
+        "\u0db4\u0dde\u0daf\u0dca\u0d9c\u0dbd\u0dd2\u0d9a \u0db4\u0dcf\u0dc0\u0dd2\u0da0\u0dca\u0da0\u0dd2\u0dba",
+        "\u0db4\u0dc0\u0dd4\u0dbd\u0dda \u0db4\u0dcf\u0dc0\u0dd2\u0da0\u0dca\u0da0\u0dd2\u0dba"
+      ],
+      "points": 3,
+      "label": "Personal/Home Used"
+    },
+    "new_wear_and_tear": {
+      "keywords": [
+        "new battery",
+        "new tyres",
+        "new tires",
+        "alloy wheels",
+        "\u0d85\u0dbd\u0dd4\u0dad\u0dca \u0db6\u0dd0\u0da7\u0dbb\u0dd2\u0dba",
+        "\u0d85\u0dbd\u0dd4\u0dad\u0dca \u0da7\u0dba\u0dbb\u0dca",
+        "\u0da7\u0dba\u0dbb\u0dca 4 \u0d85\u0dbd\u0dd4\u0dad\u0dca"
+      ],
+      "points": 2,
+      "label": "New Tyres/Battery"
     },
     "new_unregistered": {
       "keywords": [
@@ -94,95 +149,147 @@
         "recondition",
         "reconditioned"
       ],
-      "points": 2,
-      "label": "New/Unregistered"
-    },
-    "high_roof": {
-      "keywords": [
-        "high roof",
-        "super long",
-        "super gl",
-        "grand cabin"
-      ],
-      "points": 2,
-      "label": "High-Roof/Long Variant"
+      "points": 3,
+      "label": "New/Unregistered Stock"
     }
   },
   "negative_signals": {
-    "urgent_sale": {
+    "fatal_paperwork_issues": {
+      "keywords": [
+        "duplicate book",
+        "cr duplicate",
+        "open papers",
+        "lost book",
+        "second book",
+        "\u0da9\u0dd4\u0db4\u0dca\u0dbd\u0dd2\u0d9a\u0dda\u0da7\u0dca \u0db4\u0ddc\u0dad",
+        "\u0db4\u0ddc\u0dad \u0db1\u0dd0\u0dad\u0dd2\u0dc0\u0dd3 \u0d87\u0dad",
+        "\u0db4\u0ddc\u0dad \u0da9\u0dd4\u0db4\u0dca\u0dbd\u0dd2\u0d9a\u0dda\u0da7\u0dca",
+        "\u0daf\u0dd9\u0dc0\u0dd9\u0db1\u0dd2 \u0db4\u0ddc\u0dad"
+      ],
+      "points": -10,
+      "label": "Duplicate Book / Invalid Papers (High Risk)"
+    },
+    "engine_and_mechanical_issues": {
+      "keywords": [
+        "engine issue",
+        "engine problem",
+        "engine repair",
+        "gearbox issue",
+        "needs repair",
+        "not working",
+        "smoke issue",
+        "oil leak",
+        "head gasket",
+        "blow by",
+        "diesel pump issue",
+        "overheat",
+        "injector issue",
+        "ac not working",
+        "a/c need gas",
+        "a/c repair",
+        "\u0dc3\u0dd4\u0dc5\u0dd4 \u0d85\u0dbd\u0dd4\u0dad\u0dca\u0dc0\u0dd0\u0da9\u0dd2\u0dba\u0dcf\u0dc0\u0db1\u0dca \u0d87\u0dad",
+        "\u0d9c\u0dd2\u0dba\u0dbb\u0dca \u0db6\u0ddc\u0d9a\u0dca\u0dc3\u0dca \u0dbd\u0dd9\u0da9\u0d9a\u0dca",
+        "\u0d91\u0db1\u0dca\u0da2\u0dd2\u0db1\u0dca \u0dbb\u0dd9\u0db4\u0dd9\u0dba\u0dcf\u0dbb\u0dca",
+        "\u0daf\u0dd4\u0db8 \u0daf\u0db8\u0dba\u0dd2",
+        "\u0d92\u0dc3\u0dd3 \u0dc0\u0dd0\u0da9 \u0db1\u0dd0\u0dad"
+      ],
+      "points": -10,
+      "label": "Engine/AC/Mechanical Faults"
+    },
+    "accident_and_structural_damage": {
+      "keywords": [
+        "accident damage",
+        "collision damage",
+        "front damage",
+        "rear damage",
+        "accident repaired",
+        "reconstructed",
+        "salvage",
+        "cut and join",
+        "had an accident",
+        "\u0d85\u0db1\u0dad\u0dd4\u0dbb\u0d9a\u0da7 \u0dbd\u0d9a\u0dca\u0dc0\u0dd6",
+        "\u0dc4\u0dd0\u0db4\u0dca\u0db4\u0dd4\u0db1",
+        "\u0d9a\u0db4\u0dbd\u0dcf \u0d9c\u0dc4\u0db4\u0dd4",
+        "\u0d87\u0d9a\u0dca\u0dc3\u0dd2\u0da9\u0db1\u0dca\u0da7\u0dca \u0dc0\u0dd3 \u0d87\u0dad",
+        "\u0d87\u0d9a\u0dca\u0dc3\u0dd2\u0da9\u0db1\u0dca\u0da7\u0dca \u0dc0\u0dd6"
+      ],
+      "points": -10,
+      "label": "Major Structural/Accident History"
+    },
+    "corrosion_and_body_rot": {
+      "keywords": [
+        "body damage",
+        "panel damage",
+        "dents",
+        "scratches",
+        "tinkering needed",
+        "paint faded",
+        "need to paint",
+        "floor rusted",
+        "heavy rust",
+        "chassis rust",
+        "\u0db4\u0dda\u0db1\u0dca\u0da7\u0dca \u0d9a\u0dbb\u0d9c\u0dad \u0dba\u0dd4\u0dad\u0dd4\u0dba\u0dd2",
+        "\u0dad\u0dd4\u0da9\u0dd4",
+        "\u0db4\u0ddc\u0da9\u0dd2 \u0dc0\u0dd0\u0da9 \u0dc0\u0d9c\u0dba\u0d9a\u0dca \u0dad\u0dd2\u0dba\u0dd9\u0db1\u0dc0\u0dcf",
+        "\u0db4\u0ddc\u0da9\u0dd2 \u0db4\u0ddc\u0da9\u0dd2 \u0dc0\u0dd0\u0da9 \u0dad\u0dd2\u0dba\u0dd9\u0db1\u0dc0\u0dcf",
+        "\u0da7\u0dd2\u0db1\u0dca\u0d9a\u0dbb\u0dd2\u0db1\u0dca \u0d87\u0dad",
+        "\u0daf\u0dd2\u0dbb\u0dd4\u0db8\u0dca \u0d87\u0dad",
+        "\u0daf\u0dd2\u0dbb\u0dcf \u0d87\u0dad",
+        "\u0db8\u0dbd\u0d9a\u0da9 \u0d9a\u0dcf \u0d87\u0dad"
+      ],
+      "points": -6,
+      "label": "Rust & Bodywork Required"
+    },
+    "high_commercial_abuse": {
+      "keywords": [
+        "school van",
+        "hire van",
+        "staff hire",
+        "trip hire",
+        "used heavily",
+        "fleet vehicle",
+        "route van",
+        "high mileage",
+        "rental",
+        "\u0dc3\u0dca\u0d9a\u0dd6\u0dbd\u0dca \u0dc3\u0dbb\u0dca\u0dc0\u0dd2\u0dc3\u0dca",
+        "\u0dc4\u0dba\u0dbb\u0dca \u0daf\u0dd4\u0dc0\u0db4\u0dd4",
+        "\u0da7\u0dca\u200d\u0dbb\u0dd2\u0db4\u0dca \u0d9c\u0dd2\u0dba"
+      ],
+      "points": -6,
+      "label": "Heavy Commercial/School/Hire Use"
+    },
+    "urgent_or_distressed_sale": {
       "keywords": [
         "urgent",
         "urgent sale",
         "quick sale",
         "must sell",
         "need to sell",
-        "asap"
+        "asap",
+        "money urgent",
+        "migrating",
+        "going abroad",
+        "owner migrating",
+        "\u0dc4\u0daf\u0dd2\u0dc3\u0dd2 \u0dc0\u0dd2\u0d9a\u0dd2\u0dab\u0dd3\u0db8\u0d9a\u0dca",
+        "\u0dc3\u0dbd\u0dca\u0dbd\u0dd2 \u0dc4\u0daf\u0dd2\u0dc3\u0dca\u0dc3\u0dd2\u0dba\u0d9a\u0dca",
+        "\u0d89\u0d9a\u0dca\u0db8\u0db1\u0dd2\u0db1\u0dca \u0dc0\u0dd2\u0d9a\u0dd2\u0dab\u0dd3\u0db8\u0da7",
+        "\u0dbb\u0da7 \u0dba\u0db1 \u0db6\u0dd0\u0dc0\u0dd2\u0db1\u0dca"
       ],
       "points": -4,
-      "label": "Urgent Sale (Suspicious)"
+      "label": "Urgent/Distress Sale (Risk)"
     },
-    "accident_damage": {
+    "finance_lease_burden": {
       "keywords": [
-        "accident",
-        "collision damage",
-        "front damage",
-        "rear damage",
-        "accident repaired",
-        "had an accident"
+        "finance available",
+        "leasing can be arranged",
+        "lease",
+        "finance settle",
+        "\u0dbd\u0dd3\u0dc3\u0dd2\u0d82 \u0db8\u0dcf\u0dbb\u0dd4 \u0d9a\u0dc5 \u0dc4\u0dd0\u0d9a",
+        "\u0dc6\u0dd2\u0db1\u0dd1\u0db1\u0dca\u0dc3\u0dca",
+        "\u0dbd\u0dd3\u0dc3\u0dd2\u0d82 \u0d9c\u0dd9\u0dc0\u0dcf\u0d9c\u0dd9\u0db1 \u0dba\u0dcf \u0dc4\u0dd0\u0d9a"
       ],
-      "points": -8,
-      "label": "Accident History"
-    },
-    "engine_issues": {
-      "keywords": [
-        "engine issue",
-        "engine problem",
-        "engine repair",
-        "gearbox issue",
-        "gearbox problem",
-        "needs repair",
-        "not working",
-        "transmission problem",
-        "smoke issue",
-        "oil leak"
-      ],
-      "points": -10,
-      "label": "Engine/Mechanical Issues"
-    },
-    "reconstructed": {
-      "keywords": [
-        "reconstructed",
-        "re-con",
-        "salvage",
-        "written off"
-      ],
-      "points": -8,
-      "label": "Reconstructed/Salvage"
-    },
-    "body_damage": {
-      "keywords": [
-        "body damage",
-        "panel damage",
-        "dents",
-        "rust",
-        "scratches",
-        "bumper damage"
-      ],
-      "points": -5,
-      "label": "Body/Cosmetic Damage"
-    },
-    "high_usage_flag": {
-      "keywords": [
-        "high mileage",
-        "used heavily",
-        "fleet vehicle",
-        "school van",
-        "hire van",
-        "rental",
-        "lease"
-      ],
-      "points": -5,
-      "label": "High Usage/Fleet/Lease"
+      "points": -3,
+      "label": "Lease/Finance Involved"
     }
   },
   "scoring": {

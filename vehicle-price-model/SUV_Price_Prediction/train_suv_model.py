@@ -111,114 +111,213 @@ MONOTONE_CONSTRAINTS = (0, 0, 0, 0, 0, 1, -1, -1, 0)
 # ══════════════════════════════════════════════════════════════
 
 NLP_POSITIVE = {
-    "one_owner": {
-        "keywords": ["one owner", "1 owner", "1st owner", "single owner",
-                     "first owner", "lady owner", "lady driven"],
-        "points": 5, "label": "Single Owner",
+    "verified_ownership": {
+        "keywords": [
+            "one owner", "1 owner", "1st owner", "single owner", "first owner",
+            "පළමු අයිතිකරු", "එකම අයිතිකරු"
+        ],
+        "points": 5,
+        "label": "Single Owner Verified",
     },
-    "accident_free": {
-        "keywords": ["accident free", "no accident", "no accidents",
-                     "no crash", "mint condition", "never been in"],
-        "points": 5, "label": "Accident Free",
+    "clear_original_paperwork": {
+        "keywords": [
+            "original book", "clear documents", "clear papers", "clear title",
+            "ඔරිජිනල් පොත", "නිරවුල් ලියකියවිලි", "පැහැදිලි ලියකියවිලි", "ලියකියවිලි සම්පූර්ණයි"
+        ],
+        "points": 4,
+        "label": "Original Book & Clear Papers",
     },
-    "low_mileage": {
-        "keywords": ["low mileage", "low km", "low kilo", "less mileage",
-                     "very low mileage"],
-        "points": 4, "label": "Low Mileage Stated",
+    "accident_free_original": {
+        "keywords": [
+            "accident free", "no accident", "no accidents", "no crash", "never been in",
+            "original paint", "factory paint", "unmodified", "genuine", "original condition",
+            "අනතුරක් වී නොමැත", "ඔරිජිනල් පේන්ට්", "හැප්පී නොමැත", "සුපිරිම තත්වයෙන්"
+        ],
+        "points": 5,
+        "label": "Accident Free & Original Paint",
     },
-    "service_records": {
-        "keywords": ["service records", "service history", "full service",
-                     "maintained", "company maintained", "agent maintained",
-                     "dealer maintained"],
-        "points": 4, "label": "Service Records",
+    "suv_utility_and_luxury": {
+        "keywords": [
+            "4wd", "awd", "4x4", "all wheel drive", "four wheel drive",
+            "sunroof", "moonroof", "panoramic roof", "electric seats", "memory seats",
+            "7 seater", "7-seater", "leather seats", "leather interior",
+            "roof rails", "power tailgate", "power boot", "height control",
+            "සන්රූෆ්", "ලෙදර් සීට්", "7 සීටර්", "ෆෝ වීල්"
+        ],
+        "points": 4,
+        "label": "SUV Specs (4WD/Sunroof/7-Seater)",
     },
-    "full_option": {
-        "keywords": ["full option", "fully loaded", "full options",
-                     "all options", "top spec", "fully optioned"],
-        "points": 3, "label": "Full Option",
-    },
-    "original_condition": {
-        "keywords": ["original paint", "original condition",
-                     "factory paint", "unmodified", "genuine"],
-        "points": 3, "label": "Original Condition",
+    "verified_service_history": {
+        "keywords": [
+            "service records", "service history", "full service", "company maintained",
+            "agent maintained", "dealer maintained", "all records available", "genuine mileage",
+            "toyota maintained", "united motors maintained", "stafford maintained", "drive one maintained",
+            "සියලුම වාර්තා ඇත", "සර්විස් රෙකෝඩ්", "නියෝජිතයා මගින් නඩත්තු කරන ලද"
+        ],
+        "points": 4,
+        "label": "Agent/Service Records Verified",
     },
     "safety_features": {
-        "keywords": ["360 cam", "360 camera", "blind spot", "bsm",
-                     "lane assist", "pre collision", "safety pack",
-                     "safety package", "parking sensors"],
-        "points": 3, "label": "Safety Features",
+        "keywords": [
+            "360 cam", "360 camera", "around view", "blind spot", "bsm",
+            "lane assist", "pre collision", "safety pack", "safety package",
+            "parking sensors", "sensing", "radar brake", "adaptive cruise"
+        ],
+        "points": 3,
+        "label": "Advanced Safety Package",
+    },
+    "engine_and_hybrid_health": {
+        "keywords": [
+            "engine in good condition", "smooth engine", "no smoke", "no leaks",
+            "100% running", "engine 100%", "running 100%", "hybrid battery replaced",
+            "hybrid battery 100%", "abs 100%", "brand new hybrid battery", "gear 100%",
+            "එන්ජින් 100%", "ධාවන තත්ත්වය 100%"
+        ],
+        "points": 3,
+        "label": "Engine / Hybrid / ABS Healthy",
+    },
+    "careful_personal_use": {
+        "keywords": [
+            "home used", "carefully used", "personal used", "family used",
+            "low mileage", "low km", "low kilo", "less mileage",
+            "ගෙදර පාවිච්චි කළ", "පෞද්ගලික පාවිච්චිය"
+        ],
+        "points": 3,
+        "label": "Carefully / Home Used",
     },
     "new_unregistered": {
-        "keywords": ["brand new", "unregistered", "zero km", "0 km",
-                     "showroom", "recondition", "reconditioned"],
-        "points": 2, "label": "New/Unregistered",
-    },
-    "4wd_awd": {
-        "keywords": ["4wd", "awd", "4x4", "all wheel", "four wheel",
-                     "4 wheel drive"],
-        "points": 2, "label": "4WD/AWD",
+        "keywords": [
+            "brand new", "unregistered", "zero km", "0 km",
+            "showroom", "recondition", "reconditioned"
+        ],
+        "points": 3,
+        "label": "New/Unregistered Stock",
     },
 }
 
 NLP_NEGATIVE = {
-    "urgent_sale": {
-        "keywords": ["urgent", "urgent sale", "quick sale",
-                     "must sell", "need to sell", "asap"],
-        "points": -4, "label": "Urgent Sale (Suspicious)",
+    "fatal_paperwork_issues": {
+        "keywords": [
+             "duplicate book", "cr duplicate", "open papers", "lost book","second book",
+            "ඩුප්ලිකේට් පොත", "පොත නැතිවී ඇත", "පොත ඩුප්ලිකේට්","දෙවෙනි පොත" 
+        ],
+        "points": -10,
+        "label": "Duplicate Book / Invalid Papers (High Risk)",
     },
-    "accident_damage": {
-        "keywords": ["accident", "collision damage", "front damage",
-                     "rear damage", "accident repaired", "had an accident"],
-        "points": -8, "label": "Accident History",
+    "engine_mechanical_and_hybrid_faults": {
+        "keywords": [
+            "engine issue", "engine problem", "engine repair", "gearbox issue",
+            "gearbox problem", "needs repair", "not working", "transmission problem",
+            "turbo problem", "4wd fault", "abs fault", "hybrid battery issue",
+            "abs issue", "rack issue", "smoke issue", "oil leak", "overheat",
+            "සුළු අලුත්වැඩියාවන් ඇත", "ගියර් බොක්ස් ලෙඩක්", "එන්ජින් රෙපෙයාර්",
+            "බැටරි ලෙඩක්", "ඒබීඑස් ලෙඩක්", "දුම දමයි"
+        ],
+        "points": -10,
+        "label": "Engine/Mechanical/Hybrid/4WD Issues",
     },
-    "engine_issues": {
-        "keywords": ["engine issue", "engine problem", "engine repair",
-                     "gearbox issue", "gearbox problem", "needs repair",
-                     "not working", "transmission problem",
-                     "turbo problem", "4wd fault"],
-        "points": -10, "label": "Engine/Mechanical Issues",
+   "accident_and_structural_damage": {
+        "keywords": [
+            "accident damage", "collision damage", "front damage", "rear damage",
+            "accident repaired", "reconstructed", "salvage", "cut and join", "had an accident",
+            "අනතුරකට ලක්වූ", "හැප්පුන", "කපලා ගහපු", "ඇක්සිඩන්ට් වී ඇත", "ඇක්සිඩන්ට් වූ"
+        ],
+        "points": -10,
+        "label": "Major Structural/Accident History",
     },
-    "reconstructed": {
-        "keywords": ["reconstructed", "re-con", "salvage", "written off"],
-        "points": -8, "label": "Reconstructed/Salvage",
+    "corrosion_and_body_rot": {
+        "keywords": [
+            "body damage", "panel damage", "dents", "scratches", "tinkering needed",
+            "paint faded", "need to paint", "floor rusted", "heavy rust", "chassis rust",
+            "පේන්ට් කරගත යුතුයි", "තුඩු", "පොඩි වැඩ වගයක් තියෙනවා",
+            "පොඩි පොඩි වැඩ තියෙනවා", "ටින්කරින් ඇත", "දිරුම් ඇත", "දිරා ඇත", "මලකඩ කා ඇත"
+        ],
+        "points": -6,
+        "label": "Rust & Bodywork Required",
     },
-    "body_damage": {
-        "keywords": ["body damage", "panel damage", "dents",
-                     "rust", "scratches", "bumper damage"],
-        "points": -5, "label": "Body/Cosmetic Damage",
+    "heavy_abuse_or_safari": {
+        "keywords": [
+            "safari used", "tourism used", "offroad used", "off-road used",
+            "high mileage", "used heavily", "fleet vehicle", "rental", "hire",
+            "සෆාරි දුවපු", "හයර් දුවපු"
+        ],
+        "points": -5,
+        "label": "Heavy Commercial/Safari Abuse",
     },
-    "high_mileage_flag": {
-        "keywords": ["high mileage", "used heavily", "fleet vehicle",
-                     "taxi", "rental"],
-        "points": -5, "label": "High Usage/Fleet",
+    "urgent_or_distressed_sale": {
+        "keywords": [
+            "urgent", "urgent sale", "quick sale", "must sell", "need to sell",
+            "asap", "money urgent", "migrating", "going abroad", "owner migrating",
+            "හදිසි විකිණීමක්", "සල්ලි හදිස්සියක්", "ඉක්මනින් විකිණීමට", "රට යන බැවින්"
+        ],
+        "points": -4,
+        "label": "Urgent Distress Sale (Risk)",
+    },
+    "finance_lease_burden": {
+        "keywords": [
+            "finance available", "leasing can be arranged", "lease", "finance settle",
+            "ලීසිං මාරු කළ හැක", "ෆිනෑන්ස්", "ලීසිං ගෙවාගෙන යා හැක"
+        ],
+        "points": -3,
+        "label": "Lease/Finance Involved",
     },
 }
 
 
 def extract_nlp_signals(text: str) -> dict:
+    """Extract NLP signals from listing title/description."""
     if not text or pd.isna(text):
-        return {"signals": [], "nlp_score": 0}
+        return {"signals": [], "nlp_score": 0, "has_fatal_issue": False}
+
     text_lower = str(text).lower()
-    detected, total_pts = [], 0
-    for key, cfg in NLP_POSITIVE.items():
+    detected   = []
+    total_pts  = 0
+    has_fatal_issue = False
+
+    for signal_key, cfg in NLP_NEGATIVE.items():
         for kw in cfg["keywords"]:
-            if kw in text_lower:
-                detected.append({"type": "positive", "key": key,
-                                  "label": cfg["label"], "points": cfg["points"]})
+            if kw.lower() in text_lower:
+                detected.append({
+                    "type"  : "negative",
+                    "key"   : signal_key,
+                    "label" : cfg["label"],
+                    "points": cfg["points"],
+                })
                 total_pts += cfg["points"]
+                if cfg["points"] <= -10:
+                    has_fatal_issue = True
                 break
-    for key, cfg in NLP_NEGATIVE.items():
+
+    for signal_key, cfg in NLP_POSITIVE.items():
         for kw in cfg["keywords"]:
-            if kw in text_lower:
-                detected.append({"type": "negative", "key": key,
-                                  "label": cfg["label"], "points": cfg["points"]})
-                total_pts += cfg["points"]
+            if kw.lower() in text_lower:
+                if has_fatal_issue:
+                    detected.append({
+                        "type"  : "positive",
+                        "key"   : signal_key,
+                        "label" : cfg["label"] + " (Ignored)",
+                        "points": 0,
+                    })
+                else:
+                    detected.append({
+                        "type"  : "positive",
+                        "key"   : signal_key,
+                        "label" : cfg["label"],
+                        "points": cfg["points"],
+                    })
+                    total_pts += cfg["points"]
                 break
-    total_pts = max(-20, min(30, total_pts))
-    return {"signals": detected, "nlp_score": total_pts}
+
+    if has_fatal_issue:
+        total_pts = -50
+    else:
+        total_pts = max(-20, min(30, total_pts))
+
+    return {"signals": detected, "nlp_score": total_pts, "has_fatal_issue": has_fatal_issue}
 
 
 def compute_base_score(listing_price: float, predicted_price: float) -> int:
+    """Base price score (0–70). Rewards fair pricing, penalises over/underpricing."""
     if predicted_price <= 0:
         return 35
     dev = ((listing_price - predicted_price) / predicted_price) * 100
@@ -231,17 +330,32 @@ def compute_base_score(listing_price: float, predicted_price: float) -> int:
     else:            return 10
 
 
-def compute_fair_score(listing_price, predicted_price, nlp_score) -> dict:
-    base  = compute_base_score(listing_price, predicted_price)
-    final = min(100, max(0, base + nlp_score))
-    dev   = ((listing_price - predicted_price) / predicted_price) * 100
-    if   final >= 65:  label = "Fairly Priced ✅"
-    elif final >= 45:  label = "Review Carefully ⚠️"
-    elif dev   < -25:  label = "Suspiciously Underpriced 🔵"
-    else:              label = "Overpriced ❌"
-    return {"base_score": base, "nlp_score": nlp_score,
-            "final_score": final, "label": label,
-            "deviation_pct": round(dev, 2)}
+def compute_fair_score(listing_price: float, predicted_price: float, nlp_score: int, has_fatal_issue: bool = False) -> dict:
+    """Combine base score + NLP modifiers -> final fair score 0-100."""
+    base_score    = compute_base_score(listing_price, predicted_price)
+    deviation_pct = ((listing_price - predicted_price) / predicted_price) * 100
+    
+    if has_fatal_issue:
+        final_score = 20
+        label = "High Risk 🔴"
+    else:
+        final_score = min(100, max(0, base_score + nlp_score))
+        if final_score >= 65:
+            label = "Fairly Priced ✅"
+        elif final_score >= 45:
+            label = "Review Carefully ⚠️"
+        elif deviation_pct < -25:
+            label = "Suspiciously Underpriced 🔵"
+        else:
+            label = "Overpriced ❌"
+
+    return {
+        "base_score"    : base_score,
+        "nlp_score"     : nlp_score,
+        "final_score"   : final_score,
+        "label"         : label,
+        "deviation_pct" : round(deviation_pct, 2),
+    }
 
 
 def get_confidence(record_count: int) -> str:
@@ -832,9 +946,13 @@ def demonstrate_nlp(df, prod_model, encoder):
         predicted     = float(np.expm1(prod_model.predict(inp_enc)[0]))
         listing_price = float(row["price"])
         nlp_result    = extract_nlp_signals(row["title_raw"])
+        
+        # Safely pass has_fatal_issue to compute_fair_score
+        is_fatal = nlp_result.get("has_fatal_issue", False)
         fair_result   = compute_fair_score(
-            listing_price, predicted, nlp_result["nlp_score"]
+            listing_price, predicted, nlp_result["nlp_score"], is_fatal
         )
+        
         print(f"\n  {row['brand']} {row['model']} "
               f"{int(row['model_year'])} {row['fuel_type']} "
               f"({int(row['engine_cc'])}cc)")
@@ -845,7 +963,8 @@ def demonstrate_nlp(df, prod_model, encoder):
         print(f"  Base Score  : {fair_result['base_score']:>3} / 70")
         for sig in nlp_result["signals"]:
             sign = "+" if sig["points"] > 0 else ""
-            print(f"  NLP         : {sig['label']:<32} {sign}{sig['points']} pts")
+            print(f"  NLP Signal  : {sig['label']:<32} {sign}{sig['points']} pts")
+        print(f"  NLP Score   : {fair_result['nlp_score']:>+3}")
         print(f"  FINAL SCORE : {fair_result['final_score']:>3} / 100  "
               f"→  {fair_result['label']}")
 

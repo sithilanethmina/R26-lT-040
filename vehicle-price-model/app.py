@@ -367,26 +367,39 @@ def _score_description(description: str, nlp_config: dict) -> dict:
     text = description.lower()
     total_nlp_points = 0
     matched_labels = []
+    has_fatal_issue = False
 
-    for signal in nlp_config.get("positive_signals", {}).values():
-        if any(kw in text for kw in signal["keywords"]):
-            total_nlp_points += signal["points"]
-            matched_labels.append(signal["label"])
-
+    # 1. Process Negative Signals (Identify fatal issues first)
     for signal in nlp_config.get("negative_signals", {}).values():
         if any(kw in text for kw in signal["keywords"]):
             total_nlp_points += signal["points"]
-            matched_labels.append(f"⚠ {signal['label']}")
+            matched_labels.append(f"⚠️ {signal['label']}")
+            if signal["points"] <= -10:
+                has_fatal_issue = True
+
+    # 2. Process Positive Signals
+    for signal in nlp_config.get("positive_signals", {}).values():
+        if any(kw in text for kw in signal["keywords"]):
+            if has_fatal_issue:
+                matched_labels.append(f"(Ignored: {signal['label']})")
+            else:
+                total_nlp_points += signal["points"]
+                matched_labels.append(signal["label"])
 
     scoring = nlp_config.get("scoring", {})
-    final_score = min(scoring.get("final_max", 100), max(0, 50 + max(-30, min(30, total_nlp_points))))
-
-    if final_score >= scoring.get("fairly_priced_min", 65): 
-        verdict = "Fairly Priced ✅"
-    elif final_score >= scoring.get("review_min", 45): 
-        verdict = "Review Carefully ⚠️"
-    else: 
-        verdict = "Caution 🔴"
+    
+    # 3. Apply Fatal Override Logic
+    if has_fatal_issue:
+        final_score = 20
+        verdict = "High Risk 🔴"
+    else:
+        final_score = min(scoring.get("final_max", 100), max(0, 50 + max(-30, min(30, total_nlp_points))))
+        if final_score >= scoring.get("fairly_priced_min", 65): 
+            verdict = "Fairly Priced ✅"
+        elif final_score >= scoring.get("review_min", 45): 
+            verdict = "Review Carefully ⚠️"
+        else: 
+            verdict = "Caution 🔴"
 
     return {"nlp_score": final_score, "nlp_signals": matched_labels, "nlp_verdict": verdict}
 

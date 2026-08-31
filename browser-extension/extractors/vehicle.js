@@ -48,10 +48,52 @@ window.FairPriceLK_Extractors.vehicle = (function () {
             }
 
             // 1b. Description
-            const morebox = document.querySelector('.morebox') || document.querySelector('.contentbox');
-            if (morebox) {
-                result.description = morebox.innerText.trim();
+            let optionsText = "";
+            let detailsText = "";
+            const headers = Array.from(document.querySelectorAll('h2, h3, h4, h5, div.options, div.more, div.more-card-title'));
+            for (const h of headers) {
+                const title = (h.innerText || h.textContent || '').trim().toUpperCase();
+                if (title === 'OPTIONS' || title === 'MORE DETAILS' || title === 'DESCRIPTION') {
+                    // Collect text from all next siblings until another header
+                    let collected = [];
+                    let sibling = h.nextElementSibling;
+                    while (sibling) {
+                        if (sibling.tagName && (sibling.tagName.match(/^H[1-6]$/) || sibling.className === 'more-card-title')) break;
+                        const t = (sibling.innerText || sibling.textContent || '').replace(/\s+/g, ' ').trim();
+                        if (t) collected.push(t);
+                        sibling = sibling.nextElementSibling;
+                    }
+                    // If sibling iteration got nothing, maybe it's inside a parent wrapper
+                    if (collected.length === 0 && h.parentElement) {
+                        const parentText = (h.parentElement.innerText || h.parentElement.textContent || '').replace(h.innerText || h.textContent, '').replace(/\s+/g, ' ').trim();
+                        if (parentText) collected.push(parentText);
+                    }
+                    
+                    if (collected.length > 0) {
+                        if (title.includes('OPTION')) {
+                            optionsText = collected.join(' ');
+                        } else {
+                            detailsText = collected.join(' ');
+                        }
+                    }
+                }
             }
+            
+            // Independent Fallbacks
+            if (!optionsText) {
+                const optionsBox = document.querySelector('#options, .options-list, .options');
+                if (optionsBox) optionsText = (optionsBox.innerText || optionsBox.textContent || '').replace(/\s+/g, ' ').trim();
+            }
+            if (!detailsText) {
+                const moreBox = document.querySelector('.morebox, .contentbox, .description, .more-card-body');
+                if (moreBox) detailsText = (moreBox.innerText || moreBox.textContent || '').replace(/\s+/g, ' ').trim();
+            }
+            
+            let descParts = [];
+            if (optionsText) descParts.push("Options: " + optionsText);
+            if (detailsText) descParts.push("Details: " + detailsText);
+            
+            result.description = descParts.join(' | ') || "";
 
             // 2. Price — find leaf node containing "Rs." with ≥4 digits
             const leafEls = Array.from(document.querySelectorAll('div, span, p, td, strong, b, h2, h3'));
@@ -454,6 +496,7 @@ window.FairPriceLK_Extractors.vehicle = (function () {
                 transmission: gear        || 'Automatic',
                 engine_cc:    engineCC,         
                 vehicle_type: scraped.vehicle_type || 'cars',
+                description:  scraped.description || (pageContext && pageContext.description) || null,
 
                 // ── Display / UI fields ───────────────────────────────────
                 title:        title,
