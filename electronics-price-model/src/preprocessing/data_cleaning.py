@@ -3,206 +3,306 @@ import numpy as np
 import re
 import os
 
-def clean_price(price_str):
-    if pd.isna(price_str) or price_str == "Unknown" or price_str.strip() == "":
+def clean_price(price_val):
+    if pd.isna(price_val):
         return np.nan
-    # Remove "Rs", commas, and whitespace
-    clean_str = str(price_str).replace('Rs', '').replace(',', '').strip()
+    clean_str = str(price_val).replace('Rs', '').replace(',', '').strip()
     try:
-        return float(clean_str)
+        val = float(clean_str)
+        # Valid realistic price bounds for laptops (15k LKR to 1.5M LKR)
+        if 15000 <= val <= 1500000:
+            return val
+        return np.nan
     except ValueError:
         return np.nan
 
-def clean_ram(ram_str):
-    if pd.isna(ram_str) or ram_str == "Unknown":
-        return np.nan
+def clean_ram(ram_val, title_str=""):
+    ram_str = str(ram_val).upper() if not pd.isna(ram_val) else ""
+    title_str = str(title_str).upper()
     
-    ram_str = str(ram_str).upper()
-    # Extract digits before GB or MB
+    # 1. Try from RAM column
     match = re.search(r'(\d+)\s*(GB|MB)?', ram_str)
     if match:
-        value = float(match.group(1))
-        # If the value is somehow absurdly high, it might be storage misclassified, or MB
-        if value > 128: 
-            return np.nan # Unlikely to be RAM
-        return value
+        val = float(match.group(1))
+        if val in [2, 4, 6, 8, 12, 16, 24, 32, 64, 128]:
+            return val
+            
+    # 2. Try from Title
+    match_title = re.search(r'(\d+)\s*(?:GB|MB)\s*RAM', title_str)
+    if not match_title:
+        match_title = re.search(r'RAM\s*(\d+)\s*(?:GB|MB)?', title_str)
+    if not match_title:
+        match_title = re.search(r'(\d+)\s*GB\s*(?:DDR\d|RAM|MEMORY)', title_str)
+    if match_title:
+        val = float(match_title.group(1))
+        if val in [2, 4, 6, 8, 12, 16, 24, 32, 64, 128]:
+            return val
+            
     return np.nan
 
-def clean_storage(storage_str):
-    if pd.isna(storage_str) or storage_str == "Unknown":
-        return np.nan, "Unknown"
+def clean_storage(storage_val, title_str=""):
+    storage_str = str(storage_val).upper() if not pd.isna(storage_val) else ""
+    title_str = str(title_str).upper()
+    full_text = f"{storage_str} {title_str}"
     
-    storage_str = str(storage_str).upper()
-    
-    # Extract digits and type
-    match = re.search(r'(\d+)\s*(GB|TB)?', storage_str)
+    # Capacity extraction
     capacity = np.nan
+    match = re.search(r'(\d+)\s*(GB|TB)?\s*(?:HDD|SSD|STORAGE|NVME|M\.2|EMMC)', full_text)
     if match:
         val = float(match.group(1))
         unit = match.group(2)
-        
-        # Assume if it's <= 2, it's probably TB. E.g., "1 HDD" -> 1 TB
         if val <= 4 or unit == 'TB':
-            capacity = val * 1024 # Convert to GB
-        else:
+            capacity = val * 1024
+        elif val in [64, 128, 256, 512, 1000, 1024, 2000, 2048]:
             capacity = val
             
-    # Determine type
-    storage_type = "HDD"
-    if "SSD" in storage_str or "NVME" in storage_str or "M.2" in storage_str:
+    # Fallback to standalone numbers
+    if pd.isna(capacity):
+        num_match = re.search(r'\b(128|256|512|1024|1TB|2TB)\b', full_text)
+        if num_match:
+            v_str = num_match.group(1)
+            capacity = 1024.0 if '1TB' in v_str else (2048.0 if '2TB' in v_str else float(v_str))
+
+    # Storage type determination
+    storage_type = "SSD"  # modern default
+    if any(k in full_text for k in ["NVME", "M.2", "SSD", "PCIE"]):
         storage_type = "SSD"
+    elif "HDD" in full_text or "HARD DISK" in full_text:
+        storage_type = "HDD"
         
     return capacity, storage_type
 
-def clean_brand(brand_str, title_str):
-    # Try to extract brand from Brand column, if Unknown, try to guess from Title
-    if pd.isna(brand_str) or brand_str == "Unknown":
-        title_upper = str(title_str).upper()
-        brands = ["DELL", "HP", "ASUS", "ACER", "APPLE", "MICROSOFT"]
-        for b in brands:
-            if b in title_upper:
-                return b
-        return "Other"
+def clean_brand(brand_val, title_str=""):
+    title_upper = str(title_str).upper()
+    brand_upper = str(brand_val).strip().upper() if not pd.isna(brand_val) else ""
     
-    return str(brand_str).strip().upper()
+    brands_priority = [
+        "APPLE", "DELL", "HP", "LENOVO", "ASUS", "ACER", "MSI", 
+        "TOSHIBA", "SAMSUNG", "MICROSOFT", "RAZER", "FUJITSU", "HUAWEI"
+    ]
+    
+    for b in brands_priority:
+        if b in brand_upper or b in title_upper:
+            return b.capitalize()
+    if "MACBOOK" in title_upper or "IPAD" in title_upper:
+        return "Apple"
+    if "SURFACE" in title_upper:
+        return "Microsoft"
+        
+    return "Other"
 
-def clean_model(brand, title):
-    title = str(title).upper()
+def clean_model(brand, title_str):
+    title = str(title_str).upper()
     brand = str(brand).upper()
     
     models = {
-        'DELL': ['LATITUDE', 'INSPIRON', 'VOSTRO', 'PRECISION', 'XPS', 'ALIENWARE', 'G15', 'G3', 'G5', 'G7'],
-        'HP': ['ELITEBOOK', 'PROBOOK', 'PAVILION', 'SPECTRE', 'ENVY', 'OMEN', 'VICTUS', 'ZBOOK', 'NOTEBOOK', 'ELITE'],
-        'LENOVO': ['THINKPAD', 'IDEAPAD', 'LEGION', 'YOGA', 'V15', 'THINKBOOK', 'T470', 'T480', 'T490', 'X1'],
-        'ASUS': ['VIVOBOOK', 'ZENBOOK', 'ROG', 'TUF', 'EXPERTBOOK'],
-        'ACER': ['ASPIRE', 'SWIFT', 'NITRO', 'PREDATOR', 'TRAVELMATE', 'SPIN'],
+        'DELL': ['LATITUDE', 'INSPIRON', 'VOSTRO', 'PRECISION', 'XPS', 'ALIENWARE', 'G15', 'G3', 'G5', 'G7', 'CHROMEBOOK'],
+        'HP': ['ELITEBOOK', 'PROBOOK', 'PAVILION', 'SPECTRE', 'ENVY', 'VICTUS', 'OMEN', 'ZBOOK', '14S', '15S', 'NOTEBOOK', 'DRAGONFLY', 'ELITE'],
+        'LENOVO': ['THINKPAD', 'IDEAPAD', 'LEGION', 'YOGA', 'LOQ', 'THINKBOOK', 'V15', 'V14', 'FLEX'],
+        'ASUS': ['VIVOBOOK', 'ZENBOOK', 'ROG', 'TUF', 'EXPERTBOOK', 'ZEPHYRUS', 'STRIX'],
+        'ACER': ['ASPIRE', 'NITRO', 'PREDATOR', 'SWIFT', 'TRAVELMATE', 'SPIN', 'EXTENSA'],
         'APPLE': ['MACBOOK PRO', 'MACBOOK AIR', 'MACBOOK'],
-        'MSI': ['MODERN', 'STEALTH', 'KATANA', 'SWORD', 'CYBORG', 'GAMING']
+        'MSI': ['MODERN', 'STEALTH', 'KATANA', 'SWORD', 'CYBORG', 'BRAVO', 'GF63', 'PULSE', 'THIN', 'CREATOR'],
+        'MICROSOFT': ['SURFACE PRO', 'SURFACE LAPTOP', 'SURFACE BOOK', 'SURFACE GO', 'SURFACE']
     }
     
     if brand in models:
         for m in models[brand]:
             if m in title:
-                return m
+                return m.title()
                 
-    return "Other"
+    return "Standard / Other"
 
-def clean_cpu(title):
-    title = str(title).upper()
-    # Patterns for CPU types
-    cpu_patterns = {
-        'I9': r'I9|CORE I9',
-        'I7': r'I7|CORE I7',
-        'I5': r'I5|CORE I5',
-        'I3': r'I3|CORE I3',
-        'RYZEN 9': r'RYZEN 9',
-        'RYZEN 7': r'RYZEN 7',
-        'RYZEN 5': r'RYZEN 5',
-        'RYZEN 3': r'RYZEN 3',
-        'M1': r'M1',
-        'M2': r'M2',
-        'M3': r'M3',
-        'CELERON': r'CELERON',
-        'PENTIUM': r'PENTIUM',
-        'QUAD CORE': r'QUAD CORE|QUAD-CORE'
-    }
+def clean_cpu(title_str):
+    title = str(title_str).upper()
     
-    for cpu, pattern in cpu_patterns.items():
+    cpu_rules = [
+        ('Core i9', r'\b(?:CORE\s*I9|I9\b)'),
+        ('Core i7', r'\b(?:CORE\s*I7|I7\b)'),
+        ('Core i5', r'\b(?:CORE\s*I5|I5\b)'),
+        ('Core i3', r'\b(?:CORE\s*I3|I3\b)'),
+        ('Core Ultra', r'\bCORE\s*ULTRA\b'),
+        ('Ryzen 9', r'\bRYZEN\s*9\b'),
+        ('Ryzen 7', r'\bRYZEN\s*7\b'),
+        ('Ryzen 5', r'\bRYZEN\s*5\b'),
+        ('Ryzen 3', r'\bRYZEN\s*3\b'),
+        ('Apple M4', r'\bM4\b'),
+        ('Apple M3', r'\bM3\b'),
+        ('Apple M2', r'\bM2\b'),
+        ('Apple M1', r'\bM1\b'),
+        ('Celeron', r'\bCELERON\b'),
+        ('Pentium', r'\bPENTIUM\b'),
+        ('Quad Core', r'\bQUAD[\s\-]CORE\b'),
+        ('Dual Core', r'\bDUAL[\s\-]CORE\b')
+    ]
+    
+    for cpu_name, pattern in cpu_rules:
         if re.search(pattern, title):
-            return cpu
-    return "Other"
+            return cpu_name
+            
+    return "Other / Dual Core"
 
-def clean_generation(title):
-    title = str(title).upper()
-    # Pattern to find "Xth Gen" or "X Gen"
+def clean_generation(title_str, cpu_name=""):
+    title = str(title_str).upper()
+    
+    # Check for "Xth Gen"
     match = re.search(r'(\d+)(?:ST|ND|RD|TH)?\s*(?:GEN|GENERATION)', title)
     if match:
-        return int(match.group(1))
+        gen = int(match.group(1))
+        if 2 <= gen <= 15:
+            return gen
+            
+    # Check model number pattern e.g., i5-1135G7 (11th Gen), i7-8550U (8th Gen), i5-7200U (7th Gen)
+    model_match = re.search(r'I[3579][\s\-](1[0-4]|\d)\d{2,3}', title)
+    if model_match:
+        gen = int(model_match.group(1))
+        if 2 <= gen <= 15:
+            return gen
+            
+    # Apple M-series mapping to generation tiers
+    if "Apple M4" in cpu_name: return 15
+    if "Apple M3" in cpu_name: return 14
+    if "Apple M2" in cpu_name: return 13
+    if "Apple M1" in cpu_name: return 12
     
-    # Try to find year for MacBooks
-    year_match = re.search(r'(20\d{2})', title)
+    # Year-based estimation for MacBooks
+    year_match = re.search(r'\b(201[5-9]|202[0-6])\b', title)
     if year_match:
         year = int(year_match.group(1))
-        if year >= 2020: return 12 # Approximation for M1/M2 era
+        if year >= 2023: return 14
+        if year >= 2020: return 12
         if year >= 2018: return 8
-        if year >= 2015: return 5
+        if year >= 2015: return 6
         
-    return 0 # Unknown or older
+    return 8  # Median default generation for used market
 
-def process_data(input_csv, output_csv):
-    print(f"Loading data from {input_csv}...")
-    try:
-        df = pd.read_csv(input_csv)
-    except FileNotFoundError:
-        print("Data file not found. Wait for the scraper to finish!")
+def clean_gpu(title_str):
+    title = str(title_str).lower()
+    if re.search(r'rtx\s*40\d0', title): return 'RTX 40-Series'
+    if re.search(r'rtx\s*30\d0', title): return 'RTX 30-Series'
+    if re.search(r'rtx\s*20\d0', title): return 'RTX 20-Series'
+    if re.search(r'gtx\s*(?:16\d0|10\d0|9\d0)', title): return 'GTX Series'
+    if any(k in title for k in ['nvidia', 'geforce', 'radeon', 'dedicated', '4gb vga', '6gb vga', '8gb vga', 'graphics', 'quadro', 'rx ']):
+        return 'Other Dedicated'
+    return 'Integrated'
+
+def clean_touchscreen(title_str):
+    title = str(title_str).lower()
+    return 1 if any(k in title for k in ['touch', 'x360', 'convertible', '2-in-1', '2in1', 'flip', 'yoga']) else 0
+
+def clean_location(loc_str):
+    if pd.isna(loc_str): return "Colombo"
+    loc = str(loc_str).strip()
+    top_districts = ["Colombo", "Gampaha", "Kandy", "Kalutara", "Kurunegala", "Galle", "Matara", "Batticaloa", "Jaffna", "Anuradhapura", "Ratnapura", "Badulla"]
+    for d in top_districts:
+        if d.lower() in loc.lower():
+            return d
+    return "Other"
+
+def process_laptops_dataset(input_csv, output_csv):
+    print("=" * 65)
+    print("LAPTOP DATA PREPROCESSING & FEATURE ENGINEERING PIPELINE")
+    print("=" * 65)
+    print(f"Loading raw dataset from: {input_csv}")
+    
+    if not os.path.exists(input_csv):
+        print(f"[!] Error: Raw file not found at {input_csv}")
         return
         
-    print(f"Raw data shape: {df.shape}")
+    df = pd.read_csv(input_csv)
+    print(f"[*] Raw Records Loaded: {len(df):,}")
     
-    # Filter out items that are strictly just chargers or non-laptops based on title/price
-    # E.g. Price < 5000 is probably a charger or part
-    
-    # 1. Clean Price
-    df['Price_Cleaned'] = df['Price'].apply(clean_price)
-    
-    # Drop rows without a valid price or price too low (like chargers at Rs 2000)
+    # 1. Price Cleaning & Outlier Removal
+    price_col = 'price' if 'price' in df.columns else 'Price'
+    df['Price_Cleaned'] = df[price_col].apply(clean_price)
+    initial_len = len(df)
     df = df.dropna(subset=['Price_Cleaned'])
-    # Filter out outliers (e.g. Chargers or super-expensive misclassified items)
-    df = df[(df['Price_Cleaned'] >= 15000) & (df['Price_Cleaned'] <= 1500000)]
-    print(f"Data shape after price filtering: {df.shape}")
+    print(f"[*] Filtered Price Outliers (Rs 15,000 - 1.5M): {len(df):,} valid rows ({initial_len - len(df)} dropped)")
     
-    # 2. Clean RAM
-    df['RAM_GB'] = df['RAM'].apply(clean_ram)
+    # 2. Extract Specifications
+    print("[*] Extracting and standardizing laptop features...")
+    df['Brand_Cleaned'] = df.apply(lambda r: clean_brand(r.get('brand', r.get('Brand', '')), r['title']), axis=1)
+    df['Model_Cleaned'] = df.apply(lambda r: clean_model(r['Brand_Cleaned'], r['title']), axis=1)
+    df['CPU_Cleaned'] = df['title'].apply(clean_cpu)
+    df['Generation_Cleaned'] = df.apply(lambda r: clean_generation(r['title'], r['CPU_Cleaned']), axis=1)
     
-    # 3. Clean Storage
-    storage_data = df['Storage'].apply(clean_storage)
-    df['Storage_Capacity_GB'] = storage_data.apply(lambda x: x[0])
-    df['Storage_Type'] = storage_data.apply(lambda x: x[1])
+    # RAM Cleaning with smart imputation
+    df['RAM_GB'] = df.apply(lambda r: clean_ram(r.get('ram', r.get('RAM', '')), r['title']), axis=1)
+    # Smart RAM imputation based on CPU tier
+    def impute_ram(row):
+        if not pd.isna(row['RAM_GB']):
+            return row['RAM_GB']
+        cpu = str(row['CPU_Cleaned'])
+        if any(c in cpu for c in ['Core i9', 'Core i7', 'Ryzen 7', 'Ryzen 9', 'Apple M']):
+            return 16.0
+        elif any(c in cpu for c in ['Celeron', 'Pentium', 'Dual Core']):
+            return 4.0
+        return 8.0  # standard median for i3/i5
+    df['RAM_GB'] = df.apply(impute_ram, axis=1)
     
-    # 4. Clean Brand and Model
-    df['Brand_Cleaned'] = df.apply(lambda row: clean_brand(row['Brand'], row['Title']), axis=1)
-    df['Model_Cleaned'] = df.apply(lambda row: clean_model(row['Brand_Cleaned'], row['Title']), axis=1)
+    # Storage Cleaning with smart imputation
+    storage_tuples = df.apply(lambda r: clean_storage(r.get('storage', r.get('Storage', '')), r['title']), axis=1)
+    df['Storage_Capacity_GB'] = storage_tuples.apply(lambda x: x[0])
+    df['Storage_Type'] = storage_tuples.apply(lambda x: x[1])
     
-    # 5. Clean CPU and Generation
-    df['CPU_Cleaned'] = df['Title'].apply(clean_cpu)
-    df['Generation_Cleaned'] = df['Title'].apply(clean_generation)
+    def impute_storage(row):
+        if not pd.isna(row['Storage_Capacity_GB']):
+            return row['Storage_Capacity_GB']
+        cpu = str(row['CPU_Cleaned'])
+        if any(c in cpu for c in ['Core i9', 'Core i7', 'Apple M']):
+            return 512.0
+        return 256.0
+    df['Storage_Capacity_GB'] = df.apply(impute_storage, axis=1)
     
-    # 5. Clean Condition
-    df['Condition_Cleaned'] = df['Condition'].apply(lambda x: "New" if "New" in str(x) else "Used")
+    # GPU, Touchscreen, Condition, and Location
+    df['GPU_Tier'] = df['title'].apply(clean_gpu)
+    df['Is_Touchscreen'] = df['title'].apply(clean_touchscreen)
+    df['Condition_Cleaned'] = df.get('condition', df.get('Condition', 'Used')).apply(lambda x: 'Brand New' if 'Brand New' in str(x) or 'New' in str(x) else 'Used')
+    df['Location_Cleaned'] = df.get('location', df.get('Location', 'Colombo')).apply(clean_location)
     
-    # --- FILTERING STEP ---
-    # Remove specific brands requested by user
-    excluded_brands = ['SAMSUNG', 'TOSHIBA', 'MICROSOFT', 'LENOVO', 'MSI']
-    df = df[~df['Brand_Cleaned'].isin(excluded_brands)]
+    # 3. Final Feature Selection
+    feature_cols = [
+        'title',
+        'Brand_Cleaned',
+        'Model_Cleaned',
+        'CPU_Cleaned',
+        'Generation_Cleaned',
+        'RAM_GB',
+        'Storage_Capacity_GB',
+        'Storage_Type',
+        'GPU_Tier',
+        'Is_Touchscreen',
+        'Condition_Cleaned',
+        'Location_Cleaned',
+        'Price_Cleaned'
+    ]
     
-    # Remove specific CPUs requested by user
-    excluded_cpus = ['CELERON', 'PENTIUM']
-    df = df[~df['CPU_Cleaned'].isin(excluded_cpus)]
-    # ----------------------
+    cleaned_df = df[feature_cols].copy()
     
-    # Fill missing numeric values with median (Simple imputation for now)
-    df['RAM_GB'] = df['RAM_GB'].fillna(df['RAM_GB'].median())
-    df['Storage_Capacity_GB'] = df['Storage_Capacity_GB'].fillna(df['Storage_Capacity_GB'].median())
+    # Deduplication
+    cleaned_df.drop_duplicates(subset=['Brand_Cleaned', 'Model_Cleaned', 'CPU_Cleaned', 'RAM_GB', 'Storage_Capacity_GB', 'Price_Cleaned', 'Location_Cleaned'], inplace=True)
     
-    # Drop columns that are no longer needed for modeling
-    model_df = df[['Title', 'Brand_Cleaned', 'Model_Cleaned', 'CPU_Cleaned', 'Generation_Cleaned', 'Condition_Cleaned', 'RAM_GB', 'Storage_Capacity_GB', 'Storage_Type', 'Price_Cleaned']].copy()
-    
-    # Save the cleaned dataset
+    # Save to CSV
     os.makedirs(os.path.dirname(output_csv), exist_ok=True)
-    model_df.to_csv(output_csv, index=False)
-    print(f"Cleaned data saved to {output_csv}. Shape: {model_df.shape}")
+    cleaned_df.to_csv(output_csv, index=False)
     
-    # Display preview
-    print("\nSample of cleaned data:")
-    print(model_df.head())
+    print("\n" + "=" * 65)
+    print(f"PREPROCESSING SUCCESSFUL!")
+    print(f"Final Cleaned Dataset Shape: {cleaned_df.shape[0]:,} rows, {cleaned_df.shape[1]} columns")
+    print(f"Saved to: {output_csv}")
+    print("=" * 65)
+    
+    print("\nBrand Distribution in Cleaned Dataset:")
+    print(cleaned_df['Brand_Cleaned'].value_counts())
+    print("\nCPU Distribution in Cleaned Dataset:")
+    print(cleaned_df['CPU_Cleaned'].value_counts().head(8))
+    print("\nPrice Statistics (LKR):")
+    print(cleaned_df['Price_Cleaned'].describe().apply(lambda x: f"{x:,.2f}"))
+    return cleaned_df
 
 if __name__ == "__main__":
-    # Point to the large dataset (or fall back to the detailed one if large isn't ready)
-    if os.path.exists('data/raw/laptops_large_dataset.csv'):
-        input_file = 'data/raw/laptops_large_dataset.csv'
-    else:
-        print("Large dataset not found yet, using the initial 47 row dataset for testing...")
-        input_file = 'data/raw/laptops_detailed.csv'
-        
-    output_file = 'data/processed/laptops_cleaned.csv'
-    process_data(input_file, output_file)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_path = os.path.abspath(os.path.join(script_dir, "..", "..", "data", "raw", "ikman_used_laptops_all.csv"))
+    output_path = os.path.abspath(os.path.join(script_dir, "..", "..", "data", "processed", "laptops_cleaned.csv"))
+    
+    process_laptops_dataset(input_path, output_path)

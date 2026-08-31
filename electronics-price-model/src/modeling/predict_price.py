@@ -1,60 +1,107 @@
 import pandas as pd
+import numpy as np
 import joblib
 import os
 
-def predict_laptop_price(brand, condition, ram_gb, storage_gb, storage_type):
-    model_path = 'models/best_laptop_model.pkl'
+def predict_laptop_price(
+    brand="Dell", 
+    model="Latitude", 
+    cpu="Core i5", 
+    generation=11, 
+    ram_gb=16, 
+    storage_gb=256, 
+    storage_type="SSD", 
+    gpu="Integrated", 
+    is_touchscreen=0, 
+    condition="Used", 
+    location="Colombo"
+):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.abspath(os.path.join(script_dir, "..", "..", "models", "best_laptop_model.pkl"))
     
     if not os.path.exists(model_path):
-        print(f"Error: Model not found at {model_path}. Please run train_model.py first.")
+        print(f"[!] Error: Model not found at {model_path}. Please run train_model.py first.")
         return
         
-    # Load the saved model and the expected feature columns
-    model_data = joblib.load(model_path)
-    rf_model = model_data['model']
-    features = model_data['features']
+    bundle = joblib.load(model_path)
+    model_obj = bundle['model']
+    model_name = bundle.get('model_name', 'CatBoost')
+    model_type = bundle.get('model_type', 'native_cat')
+    features = bundle['features']
+    encoder = bundle.get('encoder')
     
-    # Create a DataFrame for the new laptop
-    input_data = {
-        'RAM_GB': [ram_gb],
-        'Storage_Capacity_GB': [storage_gb],
-        f'Brand_Cleaned_{brand.upper()}': [1],
-        f'Condition_Cleaned_{condition}': [1],
-        f'Storage_Type_{storage_type.upper()}': [1]
+    # Prepare input dictionary
+    input_dict = {
+        'Brand_Cleaned': [str(brand).capitalize()],
+        'Model_Cleaned': [str(model).title()],
+        'CPU_Cleaned': [str(cpu)],
+        'Storage_Type': [str(storage_type).upper()],
+        'GPU_Tier': [str(gpu)],
+        'Condition_Cleaned': ['Brand New' if 'NEW' in str(condition).upper() else 'Used'],
+        'Location_Cleaned': [str(location).capitalize()],
+        'Generation_Cleaned': [int(generation)],
+        'RAM_GB': [float(ram_gb)],
+        'Storage_Capacity_GB': [float(storage_gb)],
+        'Is_Touchscreen': [int(is_touchscreen)]
     }
     
-    df_input = pd.DataFrame(input_data)
+    df_input = pd.DataFrame(input_dict)[features]
     
-    # Add any missing columns (from the training phase) and set them to 0
-    for col in features:
-        if col not in df_input.columns:
-            df_input[col] = 0
+    # Pre-process if encoded
+    if model_type == 'encoded' and encoder is not None:
+        cat_cols = bundle['cat_cols']
+        df_input[cat_cols] = encoder.transform(df_input[cat_cols])
+    elif model_type == 'lgb_cat':
+        cat_cols = bundle['cat_cols']
+        for c in cat_cols:
+            df_input[c] = df_input[c].astype('category')
             
-    # Ensure the columns are in the exact same order as training
-    df_input = df_input[features]
+    # Predict in log scale and convert back to LKR
+    pred_log = model_obj.predict(df_input)[0]
+    predicted_lkr = float(np.expm1(pred_log))
     
-    # Predict the price
-    predicted_price = rf_model.predict(df_input)[0]
-    
-    print("\n" + "="*40)
-    print(f"LAPTOP SPECIFICATIONS:")
-    print(f"Brand: {brand.upper()}")
-    print(f"Condition: {condition}")
-    print(f"RAM: {ram_gb} GB")
-    print(f"Storage: {storage_gb} GB {storage_type.upper()}")
-    print("="*40)
-    print(f"--> PREDICTED FAIR PRICE: Rs {predicted_price:,.2f}")
-    print("="*40 + "\n")
+    print("\n" + "=" * 50)
+    print("LAPTOP SPECIFICATIONS ESTIMATOR")
+    print("=" * 50)
+    print(f"Brand         : {brand}")
+    print(f"Model / Series: {model}")
+    print(f"Processor     : {cpu} ({generation}th Gen)")
+    print(f"Memory (RAM)  : {ram_gb} GB")
+    print(f"Storage       : {storage_gb} GB {storage_type.upper()}")
+    print(f"Graphics (GPU): {gpu}")
+    print(f"Touchscreen   : {'Yes' if is_touchscreen else 'No'}")
+    print(f"Condition     : {condition}")
+    print(f"Market Region : {location}")
+    print("-" * 50)
+    print(f"Estimated Price: Rs {predicted_lkr:,.2f} LKR")
+    print(f"Model Engine   : {model_name} (Trained on 8,600+ listings)")
+    print("=" * 50 + "\n")
+    return predicted_lkr
 
 if __name__ == "__main__":
-    print("Welcome to the Ikman Laptop Price Predictor!")
-    print("Let's predict the price of a laptop.")
+    # Test 1: Mid-range Workstation
+    predict_laptop_price(
+        brand="Dell",
+        model="Latitude",
+        cpu="Core i5",
+        generation=11,
+        ram_gb=16,
+        storage_gb=256,
+        storage_type="SSD",
+        condition="Used",
+        location="Colombo"
+    )
     
-    # You can change these values to test different laptops!
-    test_brand = "HP"
-    test_condition = "Used"
-    test_ram = 8
-    test_storage = 256
-    test_storage_type = "SSD"
-    
-    predict_laptop_price(test_brand, test_condition, test_ram, test_storage, test_storage_type)
+    # Test 2: High-end Gaming Laptop
+    predict_laptop_price(
+        brand="Asus",
+        model="ROG",
+        cpu="Core i7",
+        generation=12,
+        ram_gb=16,
+        storage_gb=512,
+        storage_type="SSD",
+        gpu="RTX 30-Series",
+        condition="Used",
+        location="Colombo"
+    )
