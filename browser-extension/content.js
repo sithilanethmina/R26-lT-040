@@ -969,6 +969,15 @@
             return;
           }
 
+          if (response.data && (response.data.category === "unsupported" || response.data.success === false)) {
+            cachedPrediction = null;
+            currentExtraction.valid = false;
+            currentExtraction.category = "unsupported";
+            currentExtraction.error_message = response.data.error || "This item is in an unsupported category.";
+            renderEmbeddedCard(manualOverride);
+            return;
+          }
+
           if (response.data && response.data.confidence === "Unknown") {
             cachedPrediction = null;
             currentExtraction.valid = false;

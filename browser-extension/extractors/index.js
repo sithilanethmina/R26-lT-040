@@ -255,6 +255,13 @@ window.FairPriceLK_Extractors.index = (function () {
         /\b(playstation|ps4|ps5|xbox|nintendo switch|console)\b/i
     ];
 
+    // Explicit Desktop Computers and Accessories patterns that are currently NOT supported for automated valuation
+    const DESKTOP_AND_ACCESSORY_PATTERNS = [
+        /\b(desktop pc|gaming pc|desktop computer|desktop computers|full set pc|full pc|cpu unit|gaming rig|all-in-one pc|all in one pc|aio pc|custom pc|workstation pc|pc tower|gaming desktop)\b/i,
+        /\b(motherboard|mainboard|power\s*supply|psu|pc\s*casing|computer\s*casing|ups|cooling\s*fan|rgb\s*fan|cpu\s*cooler|sound\s*card)\b/i,
+        /\b(ඩෙස්ක්ටොප්|கணினி மேசை)\b/i
+    ];
+
     // Explicit standalone GPU identifiers
     const STANDALONE_GPU_PATTERNS = [
         /\b(graphics\s*card|graphic\s*card|vga\s*card|video\s*card|display\s*card|gpu\s*only|card\s*only)\b/i
@@ -286,7 +293,15 @@ window.FairPriceLK_Extractors.index = (function () {
         const text = `${pageContext.title} ${pageContext.raw_text}`.toLowerCase();
         const itemTypeVal = getStructuredItemTypeValue(pageContext.key_values);
 
-        // 0. Check for explicit Mobile Accessories / Smart Watches (NOT supported mobile phones)
+        // 0. Check for explicit Desktop Computers & Accessories (FairPriceLK currently supports Laptops, Tablets, Monitors)
+        const isSupportedLaptopOrDisplay = /\b(laptop|notebook|macbook|thinkpad|elitebook|probook|zenbook|vivobook|latitude|inspiron|vostro|precision|nitro|tuf|rog|legion|victus|omen|pavilion|monitor|display|fhd|ips\s*frameless|curved\s*monitor|tablet|ipad|galaxy\s*tab|mediapad|matepad)\b/i.test(title);
+        const isDesktopOrAccessoryTitle = DESKTOP_AND_ACCESSORY_PATTERNS.some(p => p.test(title));
+
+        if (isDesktopOrAccessoryTitle && !isSupportedLaptopOrDisplay) {
+            return "unsupported";
+        }
+
+        // 0b. Check for explicit Mobile Accessories / Smart Watches (NOT supported mobile phones)
         const isPhoneAccessoryBreadcrumb = (bText.includes("mobile accessories") || bText.includes("phone accessories") || bText.includes("wearables") || bText.includes("smart watch") || bText.includes("audio")) && !bText.includes("computer") && !bText.includes("graphic");
         const isNonPhoneTitle = NON_PHONE_PATTERNS.some(p => p.test(title));
 
@@ -301,12 +316,16 @@ window.FairPriceLK_Extractors.index = (function () {
 
         // 1. STRUCTURED ITEM TYPE / ATTRIBUTE CHECK (Highest Priority - 100% Deterministic)
         if (itemTypeVal) {
+            // Desktop computers or raw desktop accessories
+            if (/\b(desktop|desktops|desktop\s*computers?|casing|power\s*supply|ups|sound\s*card|mouse|keyboard|networking|software)\b/i.test(itemTypeVal) && !isSupportedLaptopOrDisplay) {
+                return "unsupported";
+            }
             // GPU / VGA Cards
             if (/\b(graphic|graphics|vga|video\s*card|display\s*card|gpu|ග්‍රැෆික්|கிராபிக்)\b/i.test(itemTypeVal)) {
                 return "gpu";
             }
-            // Laptops / Computers / Monitors / Tablets / Computer Accessories
-            if (/\b(laptop|laptops|notebook|notebooks|desktop|desktops|monitor|monitors|tablet|tablets|macbook|computer\s*accessories|computer|computers|hard\s*drive|ram|motherboard|processor|cpu|casing|power\s*supply|ups|sound\s*card|mouse|keyboard|networking|software|ලැප්ටොප්|මොනිටර්|පරිගණක|கணினி|மடிக்கணினி)\b/i.test(itemTypeVal)) {
+            // Laptops / Monitors / Tablets / Computer hardware
+            if (/\b(laptop|laptops|notebook|notebooks|monitor|monitors|tablet|tablets|macbook|computer|computers|ලැප්ටොප්|මොනිටර්|පරිගණක|கணினி|மடிக்கணினி)\b/i.test(itemTypeVal)) {
                 return "electronics";
             }
             // Mobile phones
@@ -323,7 +342,10 @@ window.FairPriceLK_Extractors.index = (function () {
         if (bText.includes("graphic card") || bText.includes("graphic cards") || bText.includes("video card") || bText.includes("vga card") || bText.includes("vga") || metaCat.includes("graphic card") || bText.includes("ග්‍රැෆික්") || bText.includes("கிராபிக்")) {
             return "gpu";
         }
-        if (bText.includes("laptops") || bText.includes("laptop computers") || bText.includes("desktop computers") || bText.includes("monitors") || (bText.includes("tablets") && !bText.includes("computers & tablets")) || (bText.includes("computer accessories") && !bText.includes("graphic") && !bText.includes("vga")) || metaCat.includes("laptop") || bText.includes("ලැප්ටොප්") || bText.includes("මොනිටර්") || bText.includes("පරිගණක") || bText.includes("மடிக்கணினி")) {
+        if (bText.includes("desktop computers") && !isSupportedLaptopOrDisplay) {
+            return "unsupported";
+        }
+        if (bText.includes("laptops") || bText.includes("laptop computers") || bText.includes("monitors") || (bText.includes("tablets") && !bText.includes("computers & tablets")) || metaCat.includes("laptop") || bText.includes("ලැප්ටොප්") || bText.includes("මොනිටර්") || bText.includes("மடிக்கணினி")) {
             return "electronics";
         }
         if (bText.includes("mobile phones") || metaCat.includes("phone") || bText.includes("දුරකථන") || bText.includes("கைபேසි")) {

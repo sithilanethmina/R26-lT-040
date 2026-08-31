@@ -15,7 +15,18 @@ window.FairPriceLK_Extractors.electronics = (function () {
         const titleLower = (title || "").toLowerCase();
         // Strip generic marketplace category headers like "computers & tablets" from text before checking subcategory
         const lower = (combinedText || "").toLowerCase().replace(/computers\s*(?:&|and)\s*tablets/gi, '');
+        const itemType = (keyValues && (keyValues.item_type || keyValues["item type"]) ? String(keyValues.item_type || keyValues["item type"]).toLowerCase() : "");
         
+        // 0. Check explicit desktop PC patterns (Not supported by mobile/laptop models)
+        const isDesktopPattern = /\b(desktop pc|gaming pc|desktop computer|desktop computers|full set pc|full pc|cpu unit|gaming rig|all-in-one pc|all in one pc|aio pc|custom pc|workstation pc|pc tower|gaming desktop)\b/i.test(titleLower) || /\b(desktop pc|gaming pc|full set pc|gaming rig|cpu unit|aio pc)\b/i.test(lower) || itemType === "desktop" || itemType === "desktop computers";
+        const isLaptopKeyword = titleLower.includes("laptop") || titleLower.includes("notebook") || titleLower.includes("macbook") || titleLower.includes("thinkpad") || titleLower.includes("elitebook") || titleLower.includes("probook") || titleLower.includes("zenbook") || titleLower.includes("vivobook") || titleLower.includes("latitude") || titleLower.includes("inspiron") || titleLower.includes("vostro") || titleLower.includes("precision") || titleLower.includes("tuf") || titleLower.includes("rog");
+        const isTabletKeyword = titleLower.includes("tablet") || titleLower.includes("ipad") || titleLower.includes("galaxy tab") || titleLower.includes("mediapad") || titleLower.includes("matepad");
+        const isMonitorKeyword = titleLower.includes("monitor") || titleLower.includes("monitors") || titleLower.includes("frameless display");
+
+        if (isDesktopPattern && !isLaptopKeyword && !isTabletKeyword && !isMonitorKeyword) {
+            return "unsupported_desktop";
+        }
+
         // 1. Check title first (highest confidence)
         if (titleLower.includes("monitor") || titleLower.includes("monitors")) {
             return "monitor";
@@ -26,7 +37,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (/\b(ipad|matepad|mediapad|galaxy tab|surface pro|surface go)\b/i.test(titleLower)) {
             return "tablet";
         }
-        if (titleLower.includes("laptop") || titleLower.includes("notebook") || titleLower.includes("macbook") || titleLower.includes("thinkpad") || titleLower.includes("elitebook") || titleLower.includes("probook") || titleLower.includes("zenbook") || titleLower.includes("vivobook") || titleLower.includes("latitude") || titleLower.includes("inspiron") || titleLower.includes("vostro") || titleLower.includes("precision") || titleLower.includes("tuf") || titleLower.includes("rog")) {
+        if (isLaptopKeyword) {
             return "laptop";
         }
         
@@ -49,6 +60,10 @@ window.FairPriceLK_Extractors.electronics = (function () {
             return "monitor";
         }
         
+        if (isDesktopPattern) {
+            return "unsupported_desktop";
+        }
+
         return "laptop";
     }
 
@@ -403,6 +418,22 @@ window.FairPriceLK_Extractors.electronics = (function () {
         const rawCond = (key_values.condition || "").toLowerCase();
         const isNew = rawCond.includes("brand new") || rawCond.includes("brand-new") || rawCond === "new" || scope.toLowerCase().includes("brand new") || scope.toLowerCase().includes("sealed");
         const cleanCondition = isNew ? "Brand New" : "Used";
+
+        if (subCat === "unsupported_desktop") {
+            return {
+                category: "unsupported",
+                valid: false,
+                missing_fields: [],
+                error_message: "Desktop Computers, PC Towers, and Custom Rigs are currently not supported for automated valuation. FairPriceLK evaluates Laptops, Tablets, and Monitors.",
+                data: {
+                    title: title,
+                    item_type: "Desktop Computer",
+                    listed_price: price || null,
+                    condition: cleanCondition,
+                    location: key_values.location || ""
+                }
+            };
+        }
 
         const parsedData = {
             category: subCat,

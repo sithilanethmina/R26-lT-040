@@ -661,8 +661,13 @@ def predict():
                 if llm_result.get('refresh_rate_hz') is not None: data['refresh_rate'] = llm_result['refresh_rate_hz']
                 if llm_result.get('resolution'): data['resolution'] = llm_result['resolution']
                 if llm_result.get('condition'): data['condition'] = llm_result['condition']
-                if llm_result.get('location'): data['location'] = llm_result['location']
-        
+        if category in ['desktop_pc', 'other', 'unsupported']:
+            return jsonify({
+                'success': False,
+                'category': 'unsupported',
+                'error': 'Desktop Computers, PC Towers, and Computer Accessories are currently not supported for automated valuation. FairPriceLK supports Laptops, Tablets, and Monitors.'
+            })
+
         if category not in models_db or not models_db[category]:
             return jsonify({'success': False, 'error': f'Models for {category} not loaded.'})
         

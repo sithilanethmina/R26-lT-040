@@ -30,14 +30,19 @@ def _load_env_fallback():
 _load_env_fallback()
 
 EXTRACTION_SYSTEM_PROMPT = """You are an expert electronics specification extraction assistant for second-hand marketplace listings (e.g., Ikman.lk, Facebook Marketplace, Riyasewana).
-Your job is to analyze listing Title, Price, Description, and page text for Laptops, Tablets, and Monitors, extracting ONLY explicitly stated or directly inferable facts into structured JSON.
+Your job is to analyze listing Title, Price, Description, and page text for Laptops, Tablets, Monitors, and Desktop PCs, extracting ONLY explicitly stated or directly inferable facts into structured JSON.
 
 EXTRACTION GUIDELINES:
-1. "category": Must be one of ["laptop", "tablet", "monitor"]. Infer from keywords (e.g. iPad, Tab -> tablet; Monitor, Hz, Display -> monitor; MacBook, ThinkPad, Core i5, RAM -> laptop).
+1. "category": Must be one of ["laptop", "tablet", "monitor", "desktop_pc", "other"].
+   - "laptop": Portable clamshell computer with built-in screen & keyboard (e.g. MacBook, ThinkPad, Latitude, ZenBook, Inspiron, Victus, TUF).
+   - "tablet": Touchscreen slate tablet (e.g. iPad, Galaxy Tab, MediaPad, MatePad, Surface Pro).
+   - "monitor": Standalone display monitor / screen (e.g. 24", 27", IPS, 144Hz, FHD, Gaming Monitor).
+   - "desktop_pc": Desktop computer, CPU tower, custom gaming rig, all-in-one desktop, workstation.
+   - "other": Computer parts, accessories, cables, software.
 2. "brand": Clean brand name (e.g., Apple, Dell, HP, Lenovo, Asus, Acer, Samsung, MSI, ViewSonic, LG, Xiaomi, Redmi, Honor, Huawei, Microsoft, Blackview, Other).
 3. "model": Clean series / model name WITHOUT cosmetic colors or warranty noise (e.g. "Latitude 5420", "Victus 15", "ThinkPad T480", "iPad Pro M1", "Galaxy Tab S9", "Nitro VG270", "ThinkVision P24q").
-4. "cpu": (For laptops/tablets) Processor family (e.g. "Core i3", "Core i5", "Core i7", "Core i9", "Ryzen 3", "Ryzen 5", "Ryzen 7", "Ryzen 9", "Apple M1", "Apple M2", "Apple M3", "Apple M4", "Celeron", "Pentium", "Other"). Return null if monitor.
-5. "generation": (For laptops) Intel/AMD generation as an integer (e.g., "11th Gen" -> 11, "i5 12500H" -> 12, "Ryzen 5000" -> 5). Return null if not applicable.
+4. "cpu": (For laptops/tablets/desktops) Processor family (e.g. "Core i3", "Core i5", "Core i7", "Core i9", "Ryzen 3", "Ryzen 5", "Ryzen 7", "Ryzen 9", "Apple M1", "Apple M2", "Apple M3", "Apple M4", "Celeron", "Pentium", "Other"). Return null if monitor.
+5. "generation": (For laptops/desktops) Intel/AMD generation as an integer (e.g., "11th Gen" -> 11, "i5 12500H" -> 12, "Ryzen 5000" -> 5). Return null if not applicable.
 6. "ram_gb": RAM in GB as a number (e.g. 4, 8, 16, 32, 64). Return null if not stated or if monitor.
 7. "storage_gb": Total storage in GB as a number (e.g. 64, 128, 256, 512, 1024, 2048). Convert 1TB -> 1024. Return null if monitor.
 8. "storage_type": "SSD", "HDD", or "NVMe". Return null if not applicable.
@@ -49,7 +54,7 @@ EXTRACTION GUIDELINES:
 14. "condition": "Used" (default) or "Brand New" (sealed / unopened).
 15. "is_touchscreen": true if touchscreen, x360, flip, 2-in-1; otherwise false.
 16. "is_curved": true if curved monitor/display; otherwise false.
-17. "is_gaming": true if gaming laptop/monitor (e.g. TUF, ROG, Nitro, Legion, Victus, Alienware, >=100Hz); otherwise false.
+17. "is_gaming": true if gaming laptop/monitor/pc (e.g. TUF, ROG, Nitro, Legion, Victus, Alienware, >=100Hz); otherwise false.
 18. "location": District/City (e.g. "Colombo", "Gampaha", "Kandy", "Kalutara", "Kurunegala", "Galle", "Other").
 
 Respond ONLY with valid JSON matching the schema.
@@ -58,7 +63,7 @@ Respond ONLY with valid JSON matching the schema.
 EXTRACTION_RESPONSE_SCHEMA = {
     "type": "OBJECT",
     "properties": {
-        "category": {"type": "STRING", "enum": ["laptop", "tablet", "monitor"]},
+        "category": {"type": "STRING", "enum": ["laptop", "tablet", "monitor", "desktop_pc", "other"]},
         "brand": {"type": "STRING", "nullable": True},
         "model": {"type": "STRING", "nullable": True},
         "cpu": {"type": "STRING", "nullable": True},
