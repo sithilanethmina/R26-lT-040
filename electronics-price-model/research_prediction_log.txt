@@ -1363,3 +1363,2860 @@ PREDICTED PRICE: Rs 105,695.85
          Random Forest: R2 Score = 0.8481
          Gradient Boosting: R2 Score = 0.8761
 ----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL LATITUDE 7290 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: HP HP ProBook 640 G4 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 82,192.08
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: LENOVO Lenovo ThinkPad L14 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL Dell Latitude 5440 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: Huawei Matepad | Specs: 6GB RAM, 32GB 
+PREDICTED PRICE: Rs 46,048.36
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: LENOVO 24 inch Wide Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,914.85
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP 24 Inch Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: LENOVO Lenovo ThinkPad T14 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: DELL LATITUDE 7290 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 91,250.52
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: LAPTOP (xgboost) ---
+Input: LENOVO Lenovo ThinkPad L14 | Specs: 8GB RAM, 256GB 
+PREDICTED PRICE: Rs 77,459.37
+[ACTIVE] XGBoost: R2 Score = 0.8745
+         Random Forest: R2 Score = 0.8481
+         Gradient Boosting: R2 Score = 0.8761
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL E2211HB 22” LED Monitor (Black) Japan | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: Huawei Matepad | Specs: 6GB RAM, 32GB 
+PREDICTED PRICE: Rs 46,048.36
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: Huawei Matepad | Specs: 6GB RAM, 32GB 
+PREDICTED PRICE: Rs 46,048.36
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Lenovo ThinkPad T490 Core i5 8th Gen 16GB 256GB SSD | Specs: 16GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 94,999.00 (Range: Rs 87,000 - Rs 132,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Apple MacBook Pro 2019 8GB 128 SSD | Specs: 8GB RAM, 128GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 174,000.00 (Range: Rs 171,850 - Rs 212,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Lenovo ThinkPad L14 | Specs: 8GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 96,100.00 (Range: Rs 90,800 - Rs 104,850)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP 15-da0xxx | Specs: 4GB RAM, 256GB SSD | Match Score: 85.0%
+PREDICTED PRICE: Rs 115,200.00 (Range: Rs 91,500 - Rs 121,900)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: APPLE MacBook Pro 2019 | Specs: 16GB RAM, 512GB HDD | Match Score: 85.0%
+PREDICTED PRICE: Rs 224,999.00 (Range: Rs 174,600 - Rs 242,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Lenovo ThinkPad L14 | Specs: 8GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 96,100.00 (Range: Rs 90,800 - Rs 104,850)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: APPLE MacBook Pro M3 Pro | Specs: 8GB RAM, 256GB HDD | Match Score: 90.0%
+PREDICTED PRICE: Rs 254,400.00 (Range: Rs 247,650 - Rs 267,350)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell vostro 3568 | Specs: 4GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 104,000.00 (Range: Rs 93,800 - Rs 151,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 104,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO g560 | Specs: 4GB RAM, 256GB HDD | Match Score: 75.0%
+PREDICTED PRICE: Rs 112,000.00 (Range: Rs 88,500 - Rs 200,499)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell vostro 3568 | Specs: 4GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 104,000.00 (Range: Rs 93,800 - Rs 151,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: APPLE MacBook Air M3 2024 | Specs: 16GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 263,200.00 (Range: Rs 256,400 - Rs 279,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO g560 | Specs: 4GB RAM, 256GB HDD | Match Score: 80.0%
+PREDICTED PRICE: Rs 96,000.00 (Range: Rs 90,500 - Rs 122,950)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell vostro 3568 | Specs: 4GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 141,300.00 (Range: Rs 97,050 - Rs 166,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 5440 | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 151,500.00 (Range: Rs 131,250 - Rs 175,450)
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: DELL Dell | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 64,283.76
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 5440 | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 151,500.00 (Range: Rs 131,250 - Rs 175,450)
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: DELL Dell | Specs: 4GB RAM, 256GB 
+PREDICTED PRICE: Rs 64,283.76
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Chromebook | Specs: 8GB RAM, 256GB HDD | Match Score: 70.0%
+PREDICTED PRICE: Rs 114,500.00 (Range: Rs 112,000 - Rs 135,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook 14 X1404VA | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 145,900.00 (Range: Rs 114,000 - Rs 183,400)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS RTX 3050 | Specs: 8GB RAM, 256GB SSD | Match Score: 60.0%
+PREDICTED PRICE: Rs 124,999.00 (Range: Rs 93,499 - Rs 142,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Elite book G9 i5 12th | Specs: 8GB RAM, 512GB HDD | Match Score: 85.0%
+PREDICTED PRICE: Rs 143,999.00 (Range: Rs 136,500 - Rs 174,595)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude 3470 | Specs: 8GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 118,800.00 (Range: Rs 96,500 - Rs 136,800)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 5320 | Specs: 16GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 109,500.00 (Range: Rs 100,000 - Rs 130,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 9420 | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 118,800.00 (Range: Rs 100,000 - Rs 136,950)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp Elitebook 840 G7 | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 109,000.00 (Range: Rs 97,500 - Rs 135,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook 14 X1404VA | Specs: 4GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 149,400.00 (Range: Rs 126,850 - Rs 196,650)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook 15 D1502 Ya | Specs: 4GB RAM, 512GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 124,000.00 (Range: Rs 104,000 - Rs 183,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad T480s | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 122,000.00 (Range: Rs 87,500 - Rs 152,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Yoga 300° | Specs: 8GB RAM, 256GB HDD | Match Score: 70.0%
+PREDICTED PRICE: Rs 138,700.00 (Range: Rs 95,000 - Rs 161,600)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad T480s | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 122,000.00 (Range: Rs 87,500 - Rs 152,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ZenBook 14 Ryzen 7 | Specs: 16GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 145,300.00 (Range: Rs 124,950 - Rs 168,600)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad T480s | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 122,000.00 (Range: Rs 87,500 - Rs 152,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 109,000.00 (Range: Rs 93,500 - Rs 127,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 109,000.00 (Range: Rs 93,500 - Rs 127,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell vostro 3568 | Specs: 4GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 141,300.00 (Range: Rs 97,050 - Rs 166,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: APPLE MacBook Air M3 2024 | Specs: 16GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 263,200.00 (Range: Rs 256,400 - Rs 279,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL HP Probook 450 G6 | Specs: 16GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 167,300.00 (Range: Rs 140,350 - Rs 209,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO IdeaPad 5 | Specs: 16GB RAM, 256GB HDD | Match Score: 92.0%
+PREDICTED PRICE: Rs 144,900.00 (Range: Rs 126,600 - Rs 179,400)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL latitude | Specs: 16GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 120,000.00 (Range: Rs 110,250 - Rs 182,300)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO X280 i5 8th 8GB 128GB | Specs: 8GB RAM, 128GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 90,000.00 (Range: Rs 75,000 - Rs 113,300)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL latitude | Specs: 16GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 120,000.00 (Range: Rs 110,250 - Rs 182,300)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL dell i5 | Specs: 8GB RAM, 256GB HDD | Match Score: 85.0%
+PREDICTED PRICE: Rs 159,100.00 (Range: Rs 133,500 - Rs 188,900)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL DELL LATITUDE 7430 | Specs: 32GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 189,600.00 (Range: Rs 148,700 - Rs 209,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 104,250 - Rs 160,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer laptop | Specs: 4GB RAM, 256GB HDD | Match Score: 80.0%
+PREDICTED PRICE: Rs 154,600.00 (Range: Rs 129,400 - Rs 179,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer laptop | Specs: 4GB RAM, 256GB HDD | Match Score: 80.0%
+PREDICTED PRICE: Rs 154,600.00 (Range: Rs 129,400 - Rs 179,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer laptop | Specs: 4GB RAM, 256GB HDD | Match Score: 80.0%
+PREDICTED PRICE: Rs 154,600.00 (Range: Rs 129,400 - Rs 179,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Acer Acer i3 10th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 55.0%
+PREDICTED PRICE: Rs 79,990.00 (Range: Rs 30,500 - Rs 399,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Acer Acer i3 10th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 85.0%
+PREDICTED PRICE: Rs 152,500.00 (Range: Rs 122,150 - Rs 172,600)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Acer Acer i3 10th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 110,960.00 (Range: Rs 103,900 - Rs 155,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer laptop | Specs: 4GB RAM, 256GB HDD | Match Score: 90.0%
+PREDICTED PRICE: Rs 116,480.00 (Range: Rs 107,450 - Rs 165,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 3480 | Specs: 8GB RAM, 128GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 79,079.00 (Range: Rs 58,725 - Rs 115,250)
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: LENOVO i5 | Specs: 16GB RAM, 512GB 
+PREDICTED PRICE: Rs 119,571.84
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer laptop | Specs: 4GB RAM, 256GB HDD | Match Score: 90.0%
+PREDICTED PRICE: Rs 116,480.00 (Range: Rs 107,450 - Rs 165,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 95,000.00 (Range: Rs 79,000 - Rs 133,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Chromebook | Specs: 4GB RAM, 256GB HDD | Match Score: 75.0%
+PREDICTED PRICE: Rs 77,250.00 (Range: Rs 77,125 - Rs 85,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Hp Elitebook 630 G10 | Specs: 16GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 201,160.00 (Range: Rs 182,000 - Rs 224,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Hybrid | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift Japan | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp Elitebook 630 G10 | Specs: 16GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 201,160.00 (Range: Rs 182,000 - Rs 224,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL DELL LATITUDE | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 113,840.00 (Range: Rs 103,250 - Rs 137,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL DELL LATITUDE | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 113,840.00 (Range: Rs 103,250 - Rs 137,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP PROBOOK 430 G7 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 109,500.00 (Range: Rs 96,950 - Rs 165,900)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP 640 G10 | Specs: 16GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 166,960.00 (Range: Rs 155,000 - Rs 174,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude Core i5 8th Gen | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 78,000.00 (Range: Rs 71,000 - Rs 87,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Lenovo ThinkPad T490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 135,680.00 (Range: Rs 123,800 - Rs 160,650)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Lenovo ThinkPad T490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 120,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 176,660.00 (Range: Rs 157,750 - Rs 204,700)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 12GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 184,660.00 (Range: Rs 157,750 - Rs 204,700)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer i3 th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer i3 th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer i3 th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer i3 th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer i3 th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer i3 th Gen Laptop | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 42,200.00 (Range: Rs 37,980 - Rs 46,420)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 3490 | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 82,950.00 (Range: Rs 73,000 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 7480 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 80,999.00 (Range: Rs 62,950 - Rs 112,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP PROBOOK 430 G7 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 109,500.00 (Range: Rs 96,950 - Rs 165,900)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell inspiration 15 3000 | Specs: 8GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 109,000.00 (Range: Rs 95,000 - Rs 116,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell inspiration 15 3000 | Specs: 12GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 127,960.00 (Range: Rs 113,500 - Rs 139,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 7390 2-in-1 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 78,000.00 (Range: Rs 71,000 - Rs 87,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP EliteBook 840 G8 | Specs: 16GB RAM, 256GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 173,500.00 (Range: Rs 155,350 - Rs 194,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 176,660.00 (Range: Rs 157,750 - Rs 204,700)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 95,000.00 (Range: Rs 79,000 - Rs 133,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Lenovo ThinkPad X1 Carbon | Specs: 32GB RAM, 512GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 194,400.00 (Range: Rs 151,750 - Rs 201,100)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP EliteBook 840 G8 | Specs: 16GB RAM, 256GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 173,500.00 (Range: Rs 155,350 - Rs 194,550)
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP P232 23 INCH FULL HD MONITOR JAPAN | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: ASUS 24" IPS MONITOR 120HZ (BRAND NEW)  - FHD|FRAMELESS | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 23,634.85
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E232 – 23" Full HD IPS Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 95,000.00 (Range: Rs 79,000 - Rs 133,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 95,000.00 (Range: Rs 79,000 - Rs 133,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: Suzuki Swift | Specs: 8GB RAM, 256GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 54,000.00 (Range: Rs 43,500 - Rs 64,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Dell Latitude 7490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 95,000.00 (Range: Rs 79,000 - Rs 133,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Lenovo ThinkPad T490 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 135,680.00 (Range: Rs 123,800 - Rs 160,650)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP ProBook 640 G8 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 106,000 - Rs 138,300)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP EliteBook 840 G8 | Specs: 16GB RAM, 256GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 173,500.00 (Range: Rs 155,350 - Rs 194,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO LENOVO THINKPAD T480s | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 92,500.00 (Range: Rs 84,000 - Rs 120,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 176,660.00 (Range: Rs 157,750 - Rs 204,700)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 85,500 - Rs 163,800)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS X1504VA | Specs: 8GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 172,999.00 (Range: Rs 150,800 - Rs 230,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X521EQ | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 162,480.00 (Range: Rs 153,500 - Rs 205,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS X1502Z | Specs: 16GB RAM, 512GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 179,300.00 (Range: Rs 175,700 - Rs 187,100)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504VAP | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 128,500.00 (Range: Rs 115,650 - Rs 141,350)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook Go | Specs: 8GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 179,200.00 (Range: Rs 156,650 - Rs 198,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Vivobook 15 | Specs: 4GB RAM, 256GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 129,330.00 (Range: Rs 127,875 - Rs 142,625)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook Go | Specs: 8GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 179,200.00 (Range: Rs 156,650 - Rs 198,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X521EQ | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 162,480.00 (Range: Rs 153,500 - Rs 205,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook Go | Specs: 8GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 179,200.00 (Range: Rs 156,650 - Rs 198,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP 640 G10 | Specs: 16GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 166,960.00 (Range: Rs 155,000 - Rs 174,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP 15s-fq1052tu | Specs: 8GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 131,800.00 (Range: Rs 101,500 - Rs 171,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP 640 G10 | Specs: 16GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 166,960.00 (Range: Rs 155,000 - Rs 174,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP 640 G10 | Specs: 16GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 184,839.00 (Range: Rs 168,400 - Rs 279,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP 640 G10 | Specs: 16GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 166,960.00 (Range: Rs 155,000 - Rs 174,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP hp 15-ab206tu | Specs: 8GB RAM, 256GB HDD | Match Score: 95.0%
+PREDICTED PRICE: Rs 85,500.00 (Range: Rs 68,500 - Rs 112,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP ELITEBOOK 640 G9 | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 151,900.00 (Range: Rs 126,000 - Rs 169,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp Probook | Specs: 4GB RAM, 256GB SSD | Match Score: 102.0%
+PREDICTED PRICE: Rs 111,960.00 (Range: Rs 113,900 - Rs 134,100)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP i7 8th Gen | Specs: 4GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 144,860.00 (Range: Rs 144,600 - Rs 194,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP HP ProBook 640 G8 | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 106,000 - Rs 138,300)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 85,500 - Rs 163,800)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook 14 X1404VA | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 124,999.00 (Range: Rs 111,250 - Rs 157,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook 15 X1504VAP | Specs: 8GB RAM, 512GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 137,170.00 (Range: Rs 127,875 - Rs 142,625)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X1504V | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,550 - Rs 198,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook 14 X1404VA | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 124,999.00 (Range: Rs 111,250 - Rs 157,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS VIVOBOOK X1504VAP | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 128,500.00 (Range: Rs 115,650 - Rs 141,350)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 85,500 - Rs 163,800)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS VivoBook X1502ZA | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 176,660.00 (Range: Rs 157,750 - Rs 204,700)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 128GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 150,890.00 (Range: Rs 149,400 - Rs 205,725)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X1504V | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,550 - Rs 198,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS VIVOBOOK X1504VAP | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS X1504VA | Specs: 8GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 172,999.00 (Range: Rs 150,800 - Rs 230,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook 14 X1404VA | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 124,999.00 (Range: Rs 111,250 - Rs 157,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS X1502Z | Specs: 16GB RAM, 512GB SSD | Match Score: 80.0%
+PREDICTED PRICE: Rs 178,297.01 (Range: Rs 175,700 - Rs 187,100)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504VAP | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 157,750 - Rs 207,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 239,125 - Rs 476,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 212,440 - Rs 449,690)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 212,440 - Rs 449,690)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 212,440 - Rs 449,690)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS ASUS Vivobook X1504V | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 212,440 - Rs 449,690)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 8GB RAM, 256GB  | Match Score: 85.0%
+PREDICTED PRICE: Rs 120,608.33 (Range: Rs 92,033 - Rs 149,184)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 101,785.69 (Range: Rs 62,636 - Rs 140,936)
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 101,785.69 (Range: Rs 62,636 - Rs 140,936)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus VivoBook X513EA | Specs: 8GB RAM, 512GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 136,300.00 (Range: Rs 120,925 - Rs 151,675)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Vivobook x1502za | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,825 - Rs 198,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus | Specs: 4GB RAM, 512GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 182,520.00 (Range: Rs 162,095 - Rs 202,945)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X1504V | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,825 - Rs 198,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus | Specs: 4GB RAM, 512GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 182,520.00 (Range: Rs 162,095 - Rs 202,945)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Vivobook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 144,000.00 (Range: Rs 135,475 - Rs 152,525)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS X512FA | Specs: 4GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 110,999.00 (Range: Rs 87,249 - Rs 134,749)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Vivobook | Specs: 8GB RAM, 128GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 114,740.00 (Range: Rs 75,590 - Rs 153,890)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook 15 OLED | Specs: 8GB RAM, 256GB HDD | Match Score: 110.0%
+PREDICTED PRICE: Rs 157,000.00 (Range: Rs 117,850 - Rs 196,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook 15 OLED | Specs: 8GB RAM, 256GB HDD | Match Score: 110.0%
+PREDICTED PRICE: Rs 157,000.00 (Range: Rs 117,850 - Rs 196,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus | Specs: 4GB RAM, 512GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 135,240.00 (Range: Rs 102,065 - Rs 168,415)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook A16 | Specs: 16GB RAM, 256GB SSD | Match Score: 99.0%
+PREDICTED PRICE: Rs 249,500.00 (Range: Rs 220,525 - Rs 278,475)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS asus vivobook i5-14th gen | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 105,500.00 (Range: Rs 81,750 - Rs 129,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus vivobook laptop | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 120,500.00 (Range: Rs 81,350 - Rs 159,650)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: ASUS 24" IPS MONITOR 120HZ (BRAND NEW)  - FHD|FRAMELESS | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 23,634.85
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP EliteDisplay E232 – 23" Full HD IPS Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X1504V | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,825 - Rs 198,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook X1504V | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,825 - Rs 198,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 100,487.24 (Range: Rs 61,337 - Rs 139,637)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,825 - Rs 198,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB HDD | Match Score: 110.0%
+PREDICTED PRICE: Rs 157,000.00 (Range: Rs 117,850 - Rs 196,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB HDD | Match Score: 110.0%
+PREDICTED PRICE: Rs 157,000.00 (Range: Rs 117,850 - Rs 196,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 116,500.00 (Range: Rs 71,175 - Rs 161,825)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 116,500.00 (Range: Rs 71,175 - Rs 161,825)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB HDD | Match Score: 110.0%
+PREDICTED PRICE: Rs 157,000.00 (Range: Rs 117,850 - Rs 196,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 116,500.00 (Range: Rs 71,175 - Rs 161,825)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 162,480.00 (Range: Rs 136,705 - Rs 188,255)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 162,480.00 (Range: Rs 136,705 - Rs 188,255)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 128GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 187,000.00 (Range: Rs 162,812 - Rs 211,188)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 116,500.00 (Range: Rs 71,175 - Rs 161,825)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 303,853.22 (Range: Rs 97,291 - Rs 510,416)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 99.0%
+PREDICTED PRICE: Rs 179,000.00 (Range: Rs 168,450 - Rs 189,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 172,999.00 (Range: Rs 117,024 - Rs 228,974)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 176,660.00 (Range: Rs 153,185 - Rs 200,135)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Pavilion | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 98,000.00 (Range: Rs 49,125 - Rs 146,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Pavilion | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 98,000.00 (Range: Rs 49,125 - Rs 146,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Pavilion | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 98,000.00 (Range: Rs 49,125 - Rs 146,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Pavilion | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 98,000.00 (Range: Rs 49,125 - Rs 146,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Pavilion | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 98,000.00 (Range: Rs 49,125 - Rs 146,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP G7 | Specs: 4GB RAM, 256GB HDD | Match Score: 90.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 96,250 - Rs 145,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 104,000.00 (Range: Rs 73,850 - Rs 134,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp i5 13th Gen | Specs: 4GB RAM, 512GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 192,900.00 (Range: Rs 122,400 - Rs 263,400)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP i5 10th Gen | Specs: 4GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 104,000.00 (Range: Rs 81,850 - Rs 126,150)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp i3 12th Gen | Specs: 4GB RAM, 256GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 126,100.00 (Range: Rs 109,675 - Rs 142,525)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP i3 11th Gen | Specs: 4GB RAM, 256GB HDD | Match Score: 90.0%
+PREDICTED PRICE: Rs 131,780.00 (Range: Rs 108,355 - Rs 155,205)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 107,000.00 (Range: Rs 87,575 - Rs 126,425)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 107,000.00 (Range: Rs 87,575 - Rs 126,425)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 170,800.00 (Range: Rs 151,200 - Rs 190,400)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 109,500.00 (Range: Rs 75,025 - Rs 143,975)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 107,000.00 (Range: Rs 87,575 - Rs 126,425)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 107,000.00 (Range: Rs 87,575 - Rs 126,425)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER Acer | Specs: 4GB RAM, 512GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 103,159.03 (Range: Rs 68,592 - Rs 137,727)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ACER acer | Specs: 8GB RAM, 256GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 75,700.00 (Range: Rs 66,200 - Rs 85,200)
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: Samsung Galaxy Tab A9 | Specs: 4GB RAM, 64GB 
+PREDICTED PRICE: Rs 54,477.30
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: Samsung Galaxy A10 Tab | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 76,585.02
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: TABLET (xgboost) ---
+Input: Samsung Galaxy A10 Tab | Specs: 6GB RAM, 128GB 
+PREDICTED PRICE: Rs 76,585.02
+[ACTIVE] XGBoost: R2 Score = 0.6663
+         Random Forest: R2 Score = 0.6545
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 128GB SSD | Match Score: 102.0%
+PREDICTED PRICE: Rs 117,560.00 (Range: Rs 64,110 - Rs 171,010)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 174,600.00 (Range: Rs 167,200 - Rs 182,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 170,800.00 (Range: Rs 151,200 - Rs 190,400)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 128GB SSD | Match Score: 102.0%
+PREDICTED PRICE: Rs 117,560.00 (Range: Rs 64,110 - Rs 171,010)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Apple Apple iPad Pro 11-inch | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 110,475.84 (Range: Rs 106,701 - Rs 114,251)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy A10 Tab | Specs: 6GB RAM, 128GB | Match Score: 60.0%
+PREDICTED PRICE: Rs 86,734.01 (Range: Rs 76,734 - Rs 96,734)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL iPad Pro | Specs: 8GB RAM, 256GB  | Match Score: 75.0%
+PREDICTED PRICE: Rs 108,311.88 (Range: Rs 93,187 - Rs 123,437)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 108,577.27 (Range: Rs 104,802 - Rs 112,352)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 120,183.83 (Range: Rs 116,184 - Rs 124,184)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 277,811.42 (Range: Rs 225,186 - Rs 330,436)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 277,811.42 (Range: Rs 225,186 - Rs 330,436)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,632.96 (Range: Rs 105,633 - Rs 113,633)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy A10 Tab | Specs: 6GB RAM, 128GB | Match Score: 60.0%
+PREDICTED PRICE: Rs 86,734.01 (Range: Rs 76,734 - Rs 96,734)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Samsung Galaxy Tab A9 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 41,964.38 (Range: Rs 36,214 - Rs 47,714)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung TAB A 2017 | Specs: 4GB RAM, 64GB | Match Score: 75.0%
+PREDICTED PRICE: Rs 24,869.33 (Range: Rs 23,119 - Rs 26,619)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,100.00 (Range: Rs 12,350 - Rs 23,850)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 34,178 - Rs 53,178)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab S7 FE - | Specs: 4GB RAM, 64GB | Match Score: 83.0%
+PREDICTED PRICE: Rs 97,955.71 (Range: Rs 63,831 - Rs 132,081)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Samsun Galaxy Tab 4 | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 25,512.75 (Range: Rs 5,000 - Rs 47,513)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung s6 Lite Tab | Specs: 4GB RAM, 64GB | Match Score: 83.0%
+PREDICTED PRICE: Rs 65,848.04 (Range: Rs 50,873 - Rs 80,823)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung tab A9 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.37 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A8 | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 15,367.00 (Range: Rs 5,867 - Rs 24,867)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 52,851.88 (Range: Rs 44,227 - Rs 61,477)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab S | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 134,475.19 (Range: Rs 114,728 - Rs 154,223)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 52,851.88 (Range: Rs 44,227 - Rs 61,477)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 4GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 37,485.59 (Range: Rs 30,111 - Rs 44,861)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 52,851.88 (Range: Rs 44,227 - Rs 61,477)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab S | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 134,475.19 (Range: Rs 114,728 - Rs 154,223)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab S | Specs: 4GB RAM, 128GB | Match Score: 78.0%
+PREDICTED PRICE: Rs 64,049.09 (Range: Rs 53,799 - Rs 74,299)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 52,851.88 (Range: Rs 44,227 - Rs 61,477)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 52,851.88 (Range: Rs 44,227 - Rs 61,477)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab S | Specs: 4GB RAM, 256GB | Match Score: 78.0%
+PREDICTED PRICE: Rs 73,598.89 (Range: Rs 63,349 - Rs 83,849)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Mini | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,266.86 (Range: Rs 101,242 - Rs 117,292)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 108,577.27 (Range: Rs 104,802 - Rs 112,352)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 277,811.42 (Range: Rs 225,186 - Rs 330,436)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 120,183.83 (Range: Rs 116,184 - Rs 124,184)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 128GB SSD | Match Score: 102.0%
+PREDICTED PRICE: Rs 117,560.00 (Range: Rs 64,110 - Rs 171,010)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 256GB HDD | Match Score: 95.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 110,400 - Rs 131,600)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Pavilion | Specs: 8GB RAM, 256GB HDD | Match Score: 100.0%
+PREDICTED PRICE: Rs 98,000.00 (Range: Rs 49,125 - Rs 146,875)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 512GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 305,288.07 (Range: Rs 252,663 - Rs 357,913)
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP A+ Grade  EliteDisplay E232 – 23" Full HD IPS Monitor | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL Philips 226E9Q 22 INCH FRAMELESS MONITOR JAPAN | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 18,980.89
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 128,200.00 (Range: Rs 87,738 - Rs 168,662)
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: MONITOR (xgboost) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: NoneGB RAM, NoneGB 
+PREDICTED PRICE: Rs 22,660.04
+[ACTIVE] XGBoost: R2 Score = 0.8690
+         Random Forest: R2 Score = 0.8558
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 276,999.00 (Range: Rs 210,374 - Rs 343,624)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 128GB SSD | Match Score: 102.0%
+PREDICTED PRICE: Rs 117,560.00 (Range: Rs 64,110 - Rs 171,010)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 109,500.00 (Range: Rs 75,025 - Rs 143,975)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 277,811.42 (Range: Rs 225,186 - Rs 330,436)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 182,800.00 (Range: Rs 166,825 - Rs 198,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 176,660.00 (Range: Rs 153,185 - Rs 200,135)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Mini | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,266.86 (Range: Rs 101,242 - Rs 117,292)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 277,811.42 (Range: Rs 225,186 - Rs 330,436)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 120,183.83 (Range: Rs 116,184 - Rs 124,184)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Philips 226E9Q 22 INCH FRAMELESS MONITOR JAPAN Model | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ACER V226HQL 21.5” LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 14,000.00 (Range: Rs 9,275 - Rs 18,725)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP EIZO FlexScan EV2116W 21.5” Monitor Japan Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL P2412Hb 24” Full HD LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP HP Z24n 24-inch Professional Frameless Monitor | Specs: 24 Inch, 60 Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,725.53 (Range: Rs 19,225 - Rs 26,226)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor 23" | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Z24n 24-inch professional frameless monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP A+ Grade  EliteDisplay E232 – 23" Full HD IPS Monitor | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Philips 226E9Q 22 INCH FRAMELESS MONITOR JAPAN Model | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ACER V226HQL 21.5” LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 14,000.00 (Range: Rs 9,275 - Rs 18,725)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ASUS VG259 24.5 INCH GAMING MONITOR JAPAN | Specs: 59 Inch Inch, 144Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,525 - Rs 16,475)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP EIZO FlexScan EV2116W 21.5” Monitor Japan Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: SAMSUNG Used  19' Square Monitor | Specs: 19 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,000.00 (Range: Rs 14,250 - Rs 25,750)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO ThinkVision E2323 23” LED Monitor Japan | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 15,250 - Rs 25,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP VICTUS | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 167,200.00 (Range: Rs 147,402 - Rs 186,998)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL LATITUDE | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 133,000.00 (Range: Rs 95,925 - Rs 170,075)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 167,999.00 (Range: Rs 123,299 - Rs 212,699)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 16GB RAM, 512GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 192,500.00 (Range: Rs 170,575 - Rs 214,425)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 32GB RAM, 512GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 209,900.00 (Range: Rs 180,850 - Rs 238,950)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 1024GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 188,180.00 (Range: Rs 160,730 - Rs 215,630)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 1024GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 188,180.00 (Range: Rs 160,730 - Rs 215,630)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 1024GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 196,440.00 (Range: Rs 172,252 - Rs 220,628)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 1024GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 163,280.00 (Range: Rs 108,755 - Rs 217,805)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VIVOBOOK | Specs: 4GB RAM, 1024GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 93,060.00 (Range: Rs 54,435 - Rs 131,685)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 4GB RAM, 1024GB SSD | Match Score: 70.0%
+PREDICTED PRICE: Rs 69,402.19 (Range: Rs 62,462 - Rs 76,342)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 4GB RAM, 1024GB SSD | Match Score: 100.0%
+PREDICTED PRICE: Rs 178,020.00 (Range: Rs 137,895 - Rs 218,145)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 4GB RAM, 1024GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 140,999.00 (Range: Rs 94,999 - Rs 186,999)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 1024GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 189,000.00 (Range: Rs 132,250 - Rs 245,750)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 128,000.00 (Range: Rs 99,500 - Rs 156,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 512GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 145,000.00 (Range: Rs 130,675 - Rs 159,325)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 512GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 145,000.00 (Range: Rs 130,675 - Rs 159,325)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 512GB HDD | Match Score: 105.0%
+PREDICTED PRICE: Rs 147,999.00 (Range: Rs 127,224 - Rs 168,774)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 512GB SSD | Match Score: 107.0%
+PREDICTED PRICE: Rs 145,000.00 (Range: Rs 130,675 - Rs 159,325)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL INSPIRON | Specs: 32GB RAM, 512GB HDD | Match Score: 105.0%
+PREDICTED PRICE: Rs 147,999.00 (Range: Rs 127,224 - Rs 168,774)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,632.96 (Range: Rs 105,633 - Rs 113,633)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,632.96 (Range: Rs 105,633 - Rs 113,633)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor 23" | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,632.96 (Range: Rs 105,633 - Rs 113,633)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,632.96 (Range: Rs 105,633 - Rs 113,633)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook i3 13th Gen | Specs: 8GB RAM, 256GB  | Match Score: 110.0%
+PREDICTED PRICE: Rs 94,323.59 (Range: Rs 55,174 - Rs 133,474)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 172,999.00 (Range: Rs 117,024 - Rs 228,974)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 124,999.00 (Range: Rs 101,874 - Rs 148,124)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 99.0%
+PREDICTED PRICE: Rs 179,000.00 (Range: Rs 168,450 - Rs 189,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 4GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 21,094.39 (Range: Rs 5,000 - Rs 37,519)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Mini | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,266.86 (Range: Rs 101,242 - Rs 117,292)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 286,561.21 (Range: Rs 233,936 - Rs 339,186)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 108,577.27 (Range: Rs 104,802 - Rs 112,352)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 109,632.96 (Range: Rs 105,633 - Rs 113,633)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Pro | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 117,251.78 (Range: Rs 113,477 - Rs 121,027)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: APPLE iPad Air | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 277,811.42 (Range: Rs 225,186 - Rs 330,436)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung TAB A 2017 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.00 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.00 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy A10 Tab | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 42,495.44 (Range: Rs 32,995 - Rs 51,995)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab S | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 134,475.19 (Range: Rs 114,728 - Rs 154,223)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Samsun Galaxy Tab 4 | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 28,912.75 (Range: Rs 16,413 - Rs 41,413)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9 | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Samsung | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 73,144.48 (Range: Rs 5,000 - Rs 186,669)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 179,200.00 (Range: Rs 158,275 - Rs 200,125)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Philips 226E9Q 22 INCH FRAMELESS MONITOR JAPAN | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor 23" | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Z24n 24-inch professional frameless monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP A+ Grade  EliteDisplay E232 – 23" Full HD IPS Monitor | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: SAMSUNG Used  19' Square Monitor | Specs: 19 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,000.00 (Range: Rs 14,250 - Rs 25,750)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor 23" | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 21,500.00 (Range: Rs 17,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 137,170.00 (Range: Rs 129,795 - Rs 144,545)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 15,500.00 (Range: Rs 12,000 - Rs 19,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ACER V226HQL 21.5” LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 14,000.00 (Range: Rs 9,275 - Rs 18,725)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 212,440 - Rs 449,690)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 136,300.00 (Range: Rs 120,925 - Rs 151,675)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 117,000.00 (Range: Rs 88,875 - Rs 145,125)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 331,064.68 (Range: Rs 212,440 - Rs 449,690)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 136,300.00 (Range: Rs 120,925 - Rs 151,675)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 112,160.00 (Range: Rs 93,185 - Rs 131,135)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 139,146.00 (Range: Rs 125,231 - Rs 153,061)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 120,500.00 (Range: Rs 81,350 - Rs 159,650)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 138,340.00 (Range: Rs 127,615 - Rs 149,065)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 202,320.00 (Range: Rs 183,270 - Rs 221,370)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB HDD | Match Score: 110.0%
+PREDICTED PRICE: Rs 157,000.00 (Range: Rs 117,850 - Rs 196,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung galaxy Tab A9 | Specs: 6GB RAM, 64GB | Match Score: 93.0%
+PREDICTED PRICE: Rs 31,775.00 (Range: Rs 22,275 - Rs 41,275)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 42,495.44 (Range: Rs 32,995 - Rs 51,995)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung TAB A 2017 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.00 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.00 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Samsun Galaxy Tab 4 | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 28,912.75 (Range: Rs 16,413 - Rs 41,413)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9 | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Samsung A 08Tab | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 28,912.75 (Range: Rs 16,413 - Rs 41,413)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A | Specs: 6GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 42,495.44 (Range: Rs 32,995 - Rs 51,995)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: APPLE USED MONITOR | Specs: 17 Inch Inch, 75Hz Hz, 2K | Match Score: 70.0%
+PREDICTED PRICE: Rs 34,372.18 (Range: Rs 33,372 - Rs 35,372)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: Dell Dell E2318H 23-inch LED Monitor | Specs: 23 Inch, 60 Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 17,625.13 (Range: Rs 13,275 - Rs 21,975)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ACER V226HQL 21.5” LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 14,999.00 (Range: Rs 9,524 - Rs 20,474)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor 23" | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Z24n 24-inch professional frameless monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP A+ Grade  EliteDisplay E232 – 23" Full HD IPS Monitor | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Philips 226E9Q 22 INCH FRAMELESS MONITOR JAPAN Model | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL E2318H 23” LED Monitor Japan | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ACER V226HQL 21.5” LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 14,999.00 (Range: Rs 9,524 - Rs 20,474)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ASUS VG259 24.5 INCH GAMING MONITOR JAPAN | Specs: 59 Inch Inch, 144Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 11,500.00 (Range: Rs 6,900 - Rs 16,100)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL P2412Hb 24” Full HD LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: SAMSUNG F24T350FHE 24" Monitor | Specs: 24 Inch Inch, 120Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,250 - Rs 24,750)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL 24” ips frameless Monitor | Specs: 24 Inch Inch, 75Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL 27-Inch Monitor | Specs: 27 Inch Inch, 100Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Philips 240B4Q 24 inch IPS Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP N220H 21.5 INCH MONITOR JAPAN Model | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: SAMSUNG 24 INCH IPS FRAMLESS – 75HZ USED MONITOR | Specs: 24 Inch Inch, 75Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,250 - Rs 24,750)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP 24 INCH  P240VA FULL HD USED MONITOR | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: APPLE 27" LED/IPS/HDMI/Frameless Monitor | Specs: 27 Inch Inch, 144Hz Hz, 2K | Match Score: 70.0%
+PREDICTED PRICE: Rs 34,372.18 (Range: Rs 32,497 - Rs 36,247)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor 23" | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP Z24n 24-inch professional frameless monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL UltraSharp U2417H IPS Full HD Frameless USED Monitor 24" | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Philips 226E9Q 22 INCH FRAMELESS MONITOR JAPAN | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 12,500.00 (Range: Rs 8,150 - Rs 16,850)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL P2412Hb 24” Full HD LED Monitor Japan | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 99.0%
+PREDICTED PRICE: Rs 179,000.00 (Range: Rs 168,450 - Rs 189,550)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 16GB RAM, 512GB SSD | Match Score: 82.0%
+PREDICTED PRICE: Rs 132,605.55 (Range: Rs 119,345 - Rs 145,866)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 8GB RAM, 256GB SSD | Match Score: 97.0%
+PREDICTED PRICE: Rs 179,200.00 (Range: Rs 158,275 - Rs 200,125)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 512GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 180,500.00 (Range: Rs 155,625 - Rs 205,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 128GB SSD | Match Score: 95.0%
+PREDICTED PRICE: Rs 150,890.00 (Range: Rs 122,728 - Rs 179,052)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS VivoBook | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 120,900.00 (Range: Rs 81,750 - Rs 160,050)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 170,800.00 (Range: Rs 151,200 - Rs 190,400)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 111,000.00 (Range: Rs 84,375 - Rs 137,625)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 128GB SSD | Match Score: 102.0%
+PREDICTED PRICE: Rs 117,560.00 (Range: Rs 64,110 - Rs 171,010)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 256GB HDD | Match Score: 95.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 110,400 - Rs 131,600)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp FD0203tu intel 13th | Specs: 8GB RAM, 512GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 155,216.10 (Range: Rs 139,694 - Rs 170,738)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 164,560.00 (Range: Rs 143,860 - Rs 185,260)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP G7 | Specs: 8GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 125,999.00 (Range: Rs 100,124 - Rs 151,874)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 256GB HDD | Match Score: 95.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 110,400 - Rs 131,600)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.00 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab S7 FE - | Specs: 4GB RAM, 64GB | Match Score: 83.0%
+PREDICTED PRICE: Rs 68,324.71 (Range: Rs 53,350 - Rs 83,300)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab 8 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 10,000.00 (Range: Rs 5,000 - Rs 18,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO 27 INCH  THINKVISION IPS FHD HDMI USED MONITOR | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: APPLE 27 INCH ATEC FULL HD LED USED MONITOR | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 70.0%
+PREDICTED PRICE: Rs 19,004.59 (Range: Rs 14,655 - Rs 23,355)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor P2219H IPS | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL U2417H 24 INCH ULTRASHARP MONITOR JAPAN | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ACER QG221Q 21.5 INCH GAMING MONITOR JAPAN (2023) | Specs: 23 Inch Inch, 75Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 14,999.00 (Range: Rs 9,524 - Rs 20,474)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO LED 24" Frameless Monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: LENOVO Thinkpad | Specs: 8GB RAM, 256GB SSD | Match Score: 105.0%
+PREDICTED PRICE: Rs 117,000.00 (Range: Rs 94,325 - Rs 139,675)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: SAMSUNG 24 INCH IPS FRAMLESS – 75HZ USED MONITOR | Specs: 24 Inch Inch, 75Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,250 - Rs 24,750)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO 24 inch Wide Monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO 23” Frameless IPS Full HD Rotatable HDMI Monitor Used Imported | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 78,000.00 (Range: Rs 69,750 - Rs 86,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 91,000.00 (Range: Rs 64,975 - Rs 117,025)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 80,999.00 (Range: Rs 56,349 - Rs 105,649)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 16GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 131,900.00 (Range: Rs 111,525 - Rs 152,275)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 132,000.00 (Range: Rs 104,225 - Rs 159,775)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 116,160.00 (Range: Rs 107,035 - Rs 125,285)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO 27 INCH  THINKVISION IPS FHD HDMI USED MONITOR | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: DELL Monitor P2219H IPS | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 22,000.00 (Range: Rs 18,750 - Rs 25,250)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO LED 24" Frameless Monitor | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: ASUS Asus Vivobook 15 X1502Z | Specs: 8GB RAM, 512GB  | Match Score: 110.0%
+PREDICTED PRICE: Rs 135,997.80 (Range: Rs 108,998 - Rs 162,998)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 127,000.00 (Range: Rs 114,125 - Rs 139,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 104,000.00 (Range: Rs 82,000 - Rs 126,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 86,000.00 (Range: Rs 63,000 - Rs 109,000)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 79,000.00 (Range: Rs 66,750 - Rs 91,250)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 86,000.00 (Range: Rs 63,000 - Rs 109,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 90,000.00 (Range: Rs 67,000 - Rs 113,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 147,660.00 (Range: Rs 129,035 - Rs 166,285)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 16GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 131,160.00 (Range: Rs 107,535 - Rs 154,785)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 127,000.00 (Range: Rs 114,125 - Rs 139,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 86,000.00 (Range: Rs 63,000 - Rs 109,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 90,000.00 (Range: Rs 67,000 - Rs 113,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 4GB RAM, 256GB SSD | Match Score: 110.0%
+PREDICTED PRICE: Rs 86,000.00 (Range: Rs 63,000 - Rs 109,000)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung TAB A 2017 | Specs: 4GB RAM, 64GB | Match Score: 100.0%
+PREDICTED PRICE: Rs 25,775.00 (Range: Rs 18,400 - Rs 33,150)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab A9+ | Specs: 8GB RAM, 128GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 43,678.48 (Range: Rs 35,053 - Rs 52,303)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: Samsung Galaxy Tab S7 FE - | Specs: 4GB RAM, 64GB | Match Score: 83.0%
+PREDICTED PRICE: Rs 68,324.71 (Range: Rs 53,350 - Rs 83,300)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG samsung A3 Tab | Specs: 2GB RAM, 256GB | Match Score: 78.0%
+PREDICTED PRICE: Rs 30,719.74 (Range: Rs 10,595 - Rs 50,845)
+----------------------------------------
+
+--- Prediction Request: TABLET (Database Lookup Match) ---
+Input: SAMSUNG Galaxy Tab A | Specs: 8GB RAM, 256GB | Match Score: 85.0%
+PREDICTED PRICE: Rs 52,851.88 (Range: Rs 44,227 - Rs 61,477)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: APPLE 27 INCH ATEC FULL HD LED USED MONITOR | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 70.0%
+PREDICTED PRICE: Rs 19,004.59 (Range: Rs 14,655 - Rs 23,355)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP 24 INCH IPS FRAMELESS MONITORS | Specs: 24 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: LENOVO 23" IPS MONITOR (1980 x 1080P) FHD|HDMI|FRAMELESS | Specs: 23 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 20,500.00 (Range: Rs 16,000 - Rs 25,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 80,999.00 (Range: Rs 56,349 - Rs 105,649)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 90,000.00 (Range: Rs 67,000 - Rs 113,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 102,000.00 (Range: Rs 69,625 - Rs 134,375)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 147,660.00 (Range: Rs 129,035 - Rs 166,285)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 127,000.00 (Range: Rs 114,125 - Rs 139,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 127,000.00 (Range: Rs 114,125 - Rs 139,875)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 80,999.00 (Range: Rs 56,349 - Rs 105,649)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 4GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 91,000.00 (Range: Rs 82,000 - Rs 100,000)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 147,660.00 (Range: Rs 129,035 - Rs 166,285)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: DELL Latitude | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 105,000.00 (Range: Rs 97,500 - Rs 112,500)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 16GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 175,100.00 (Range: Rs 148,975 - Rs 201,225)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP ProBook | Specs: 8GB RAM, 256GB SSD | Match Score: 90.0%
+PREDICTED PRICE: Rs 111,000.00 (Range: Rs 84,375 - Rs 137,625)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 512GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 276,999.00 (Range: Rs 210,374 - Rs 343,624)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Notebook | Specs: 8GB RAM, 256GB HDD | Match Score: 95.0%
+PREDICTED PRICE: Rs 121,000.00 (Range: Rs 107,175 - Rs 134,825)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP hp 15-ab206tu | Specs: 8GB RAM, 256GB HDD | Match Score: 95.0%
+PREDICTED PRICE: Rs 85,500.00 (Range: Rs 56,875 - Rs 114,125)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP Hp FD0203tu intel 13th | Specs: 8GB RAM, 512GB SSD | Match Score: 75.0%
+PREDICTED PRICE: Rs 155,216.10 (Range: Rs 139,694 - Rs 170,738)
+----------------------------------------
+
+--- Prediction Request: LAPTOP (Database Lookup Match) ---
+Input: HP EliteBook | Specs: 8GB RAM, 256GB SSD | Match Score: 115.0%
+PREDICTED PRICE: Rs 131,500.00 (Range: Rs 81,000 - Rs 182,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP EliteDisplay E202 USED HD+ IPS MONITOR 20" | Specs: 20 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: ASUS 27" IPS Frameless Monitor | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 11,500.00 (Range: Rs 6,900 - Rs 16,100)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: HP NEC 22-inch Monitor | Specs: 22 Inch Inch, 60Hz Hz, FHD | Match Score: 100.0%
+PREDICTED PRICE: Rs 18,500.00 (Range: Rs 15,000 - Rs 22,000)
+----------------------------------------
+
+--- Prediction Request: MONITOR (Database Lookup Match) ---
+Input: APPLE 27 INCH ATEC FULL HD LED USED MONITOR | Specs: 27 Inch Inch, 60Hz Hz, FHD | Match Score: 70.0%
+PREDICTED PRICE: Rs 19,004.59 (Range: Rs 14,655 - Rs 23,355)
+----------------------------------------

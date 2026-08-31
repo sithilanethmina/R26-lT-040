@@ -693,7 +693,7 @@ async def predict_proxy(category: str, request: Request):
     brand_val = body.get("brand", "")
     model_val = body.get("model", "")
     
-    if category == "mobile" and is_electronics_item(brand_val, model_val):
+    if is_electronics_item(brand_val, model_val) and category != "electronics" and category != "vehicle":
         target_service_url = SERVICES["electronics"]["url"]
         model_lower = model_val.lower()
         
@@ -719,7 +719,9 @@ async def predict_proxy(category: str, request: Request):
             "category": subcat,
             "brand": actual_brand,
             "model": model_val,
-            "algorithm": "xgboost"
+            "algorithm": "xgboost",
+            "price": body.get("price") or body.get("listed_price"),
+            "listed_price": body.get("listed_price") or body.get("price")
         }
         
         if subcat == "laptop":
@@ -776,21 +778,25 @@ async def predict_proxy(category: str, request: Request):
             
         elif subcat == "monitor":
             import re
-            size = 24.0
-            size_match = re.search(r'(\d+)\s*(?:inch|")', model_lower)
-            if size_match:
-                size = float(size_match.group(1))
+            size = body.get("size") or body.get("size_inch")
+            if not size:
+                size = 24.0
+                size_match = re.search(r'(\d+)\s*(?:inch|")', model_lower)
+                if size_match:
+                    size = float(size_match.group(1))
                 
-            refresh_rate = 144.0
-            hz_match = re.search(r'(\d+)\s*hz', model_lower)
-            if hz_match:
-                refresh_rate = float(hz_match.group(1))
+            refresh_rate = body.get("refreshRate") or body.get("refresh_rate") or body.get("refreshRateHz")
+            if not refresh_rate:
+                refresh_rate = 60.0
+                hz_match = re.search(r'(\d+)\s*hz', model_lower)
+                if hz_match:
+                    refresh_rate = float(hz_match.group(1))
                 
             elec_payload.update({
                 "size": size,
                 "refreshRate": refresh_rate,
-                "condition": "Used",
-                "resolution": "FHD"
+                "condition": body.get("condition", "Used"),
+                "resolution": body.get("resolution", "FHD")
             })
             
         elif subcat == "tablet":
@@ -889,5 +895,5 @@ async def predict_proxy_subpath(category: str, subpath: str, request: Request):
             raise HTTPException(status_code=500, detail=f"Proxy error: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run("gateway:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("gateway:app", host="0.0.0.0", port=8000, reload=False)
 
