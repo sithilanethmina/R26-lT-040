@@ -62,37 +62,32 @@ def main():
         if not url:
             continue
 
-        # Check if we already have a full description and if it needs fixing
         current_desc = item.get("Full_Description")
         
-        # 1. Fix Mojibake in existing description if present
+        # Correct Mojibake encoding artifacts if previously scraped under Latin-1
         if current_desc:
             fixed_desc = fix_mojibake(current_desc)
             if fixed_desc != current_desc:
                 item["Full_Description"] = fixed_desc
                 updated_count += 1
-                # If we fixed it, we might not need to re-fetch unless it's still weird
-                # But to be safe, let's keep going to the re-fetch logic if it was really bad
         
-        # 2. Re-fetch if missing or if it still looks like Mojibake
+        # Fetch from remote if description is absent or still contains unresolvable encoding artifacts
         needs_fetch = not item.get("Full_Description") or "à¶" in str(item.get("Full_Description")) or "à·" in str(item.get("Full_Description"))
         
         if needs_fetch:
-            # print(f"\n[Info] Fetching/Fixing description for: {url}") # Kept quiet for tqdm
             desc = extract_full_description(url)
             if desc:
                 item["Full_Description"] = desc
                 updated_count += 1
             
-            # Random delay to be polite to Ikman
+            # Randomized delay to prevent remote rate-limiting
             time.sleep(random.uniform(1.0, 2.5))
         
-        # Save every 50 updates to prevent data loss
+        # Periodic batch checkpointing to prevent data loss on interrupted runs
         if updated_count > 0 and updated_count % 50 == 0:
             with open(DATA_FILE, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
 
-    # Final save
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 

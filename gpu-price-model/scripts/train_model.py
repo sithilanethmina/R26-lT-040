@@ -210,21 +210,13 @@ def extract_year(value: any) -> float:
 
 
 def train_and_select_model():
-    """Execute the full training pipeline using the new JSON-based data."""
-    print("🚀 Starting GPU Price Prediction Model Training (JSON Pipeline)")
-    print("================================================================")
+    """Execute the training pipeline on consolidated JSON data."""
+    print("Starting GPU Price Prediction Model Training (JSON Pipeline)")
 
-    # ========================================================================
-    # STEP 1: LOAD DATA
-    # ========================================================================
     bundle, spec_lookup = load_consolidated_dataset()
     dataset = bundle.dataset
-    print(f"   ✓ Final dataset: {len(dataset)} enriched records")
+    print(f"Final dataset: {len(dataset)} enriched records")
 
-    # ========================================================================
-    # STEP 2: TRAIN/TEST SPLIT
-    # ========================================================================
-    print("\n📋 Splitting data for training and evaluation...")
     stratify_labels = build_stratify_labels(dataset)
     
     train_df, test_df = train_test_split(
@@ -233,18 +225,13 @@ def train_and_select_model():
         random_state=RANDOM_STATE,
         stratify=stratify_labels,
     )
-    print(f"   ✓ Training set: {len(train_df)} records")
-    print(f"   ✓ Test set: {len(test_df)} records")
+    print(f"Training set: {len(train_df)} records | Test set: {len(test_df)} records")
 
     x_train = train_df[FEATURE_COLUMNS]
     y_train = train_df[TARGET_COLUMN].to_numpy(dtype=float)
     x_test = test_df[FEATURE_COLUMNS]
     y_test = test_df[TARGET_COLUMN].to_numpy(dtype=float)
 
-    # ========================================================================
-    # STEP 3: TRAIN MODELS
-    # ========================================================================
-    print("\n🤖 Training candidate models...")
     evaluation = {}
     candidate_pipelines = {}
     best_name = None
@@ -261,7 +248,7 @@ def train_and_select_model():
     }
 
     for name, candidate in build_candidates().items():
-        print(f"   Training: {name}...")
+        print(f"Training candidate: {name}...")
         result = fit_and_evaluate_model(
             name=name,
             candidate=candidate,
@@ -281,32 +268,21 @@ def train_and_select_model():
         }
         candidate_pipelines[name] = result["selected_pipeline"]
 
-        # Selection logic: Use overall MAE for the entire combined dataset
         selection_mae = result["selected_metrics"]["mae_lkr"]
-        print(f"      - Overall MAE: LKR {selection_mae:,.0f}")
+        print(f"  - Overall MAE: LKR {selection_mae:,.0f}")
 
         if selection_mae < best_mae:
             best_mae = selection_mae
             best_name = name
             best_pipeline = result["selected_pipeline"]
 
-    print(f"\n[OK] Best model: {best_name} (MAE: LKR {best_mae:,.0f})")
+    print(f"\nBest model: {best_name} (MAE: LKR {best_mae:,.0f})")
 
-    # ========================================================================
-    # STEP 4: DIAGNOSTICS
-    # ========================================================================
-    print("\n[*] Generating diagnostics...")
     linear_coefficients_df, linear_diagnostics = build_linear_diagnostics(candidate_pipelines["linear_regression"], x_train)
     linear_coefficients_df.to_csv(ARTIFACTS_DIR / "linear_coefficients.csv", index=False)
     xgboost_importance_df = build_xgboost_feature_importance(candidate_pipelines["xgboost"])
     xgboost_importance_df.to_csv(ARTIFACTS_DIR / "xgboost_importance.csv", index=False)
 
-    # ========================================================================
-    # STEP 5: SAVE ARTIFACTS
-    # ========================================================================
-    print("\n💾 Saving model and metadata artifacts...")
-
-    # Save model artifact for the app
     model_artifact = {
         "best_model": best_name,
         "selected_model": best_name,
@@ -335,7 +311,6 @@ def train_and_select_model():
     
     joblib.dump(model_artifact, ARTIFACTS_DIR / "gpu_price_model.joblib")
     dataset.to_csv(ARTIFACTS_DIR / "gpu_training_dataset_enriched.csv", index=False)
-    print(f"   ✓ Model and dataset saved to: {ARTIFACTS_DIR}")
 
     summary = {
         "trained_at": datetime.now().isoformat(),
@@ -350,7 +325,7 @@ def train_and_select_model():
     with open(ARTIFACTS_DIR / "training_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=4, default=str)
     
-    print(f"\n✅ Training complete. Artifacts saved to: {ARTIFACTS_DIR}")
+    print(f"Training complete. Artifacts saved to: {ARTIFACTS_DIR}")
 
 
 if __name__ == "__main__":

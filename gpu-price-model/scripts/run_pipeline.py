@@ -38,7 +38,6 @@ def process_site(source, scrape_func, clean_func, max_pages=None, is_ikman=False
     print(f" Running scraper for {source.upper()}")
     print(f"{'='*40}")
     
-    # 1. Scrape
     if source == "ikman":
         raw_df = scrape_func(max_pages=max_pages) if max_pages else scrape_func()
     else:
@@ -52,7 +51,6 @@ def process_site(source, scrape_func, clean_func, max_pages=None, is_ikman=False
     raw_records = raw_df.to_dict(orient="records")
     raw_records = attach_scrape_metadata(raw_records, source=source, scraped_at_utc=scraped_at_utc)
     
-    # 2. Clean
     cleaned_df = clean_func(pd.DataFrame(raw_records))
     if is_ikman:
         cleaned_records = build_train_ready_records(cleaned_df)
@@ -61,13 +59,11 @@ def process_site(source, scrape_func, clean_func, max_pages=None, is_ikman=False
         
     cleaned_records = attach_scrape_metadata(cleaned_records, source=source, scraped_at_utc=scraped_at_utc)
     
-    # Add 'Source' key to easily track where items came from
     for r in raw_records:
         r["Source"] = source
     for r in cleaned_records:
         r["Source"] = source
         
-    # Save raw snapshot
     raw_snapshot = dated_snapshot_path(
         project_root=PROJECT_ROOT,
         dataset_kind="raw",
@@ -78,7 +74,6 @@ def process_site(source, scrape_func, clean_func, max_pages=None, is_ikman=False
     write_json_records(raw_snapshot, raw_records)
     print(f"[SUCCESS] Exported raw snapshot to {raw_snapshot.name}")
     
-    # Save cleaned snapshot
     clean_snapshot = dated_snapshot_path(
         project_root=PROJECT_ROOT,
         dataset_kind="cleaned",

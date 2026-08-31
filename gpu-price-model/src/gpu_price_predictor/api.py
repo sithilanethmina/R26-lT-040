@@ -21,20 +21,19 @@ from gpu_price_predictor.pipeline import (
 
 app = FastAPI(title="GPU Price Predictor API")
 
-# Allow CORS for browser extension
+# Allow CORS requests from browser extensions and local web frontends
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "gpu_price_predictor"}
 
-# Load globals
 artifact, artifact_ver = load_artifact()
 enriched = load_enriched()
 
@@ -96,7 +95,7 @@ def predict(request: PredictRequest):
     brand = request.brand if request.brand else "Any"
     
     try:
-        # Get raw log predictions directly from model outputs to avoid double-logging
+        # Retrieve direct log-scale predictions from model estimators to avoid log-transform rounding errors
         predictions_log = predict_all(
             artifact=artifact,
             model_name=request.model,
@@ -106,7 +105,6 @@ def predict(request: PredictRequest):
             return_log=True
         )
         
-        # Get LKR predictions for raw display mapping
         predictions = predict_all(
             artifact=artifact,
             model_name=request.model,
@@ -121,17 +119,15 @@ def predict(request: PredictRequest):
             
         best_name = artifact.get("best_model_name", "")
         
-        # Sort to get a fallback if best_name is not in predictions
         sorted_preds_log = sorted(predictions_log.items(), key=lambda kv: kv[1])
         base_log_price = predictions_log.get(best_name, sorted_preds_log[0][1])
 
         sorted_preds_lkr = sorted(predictions.items(), key=lambda kv: kv[1])
         base_best_price = predictions.get(best_name, sorted_preds_lkr[0][1])
 
-        # Sample count lookup from enriched dataset for data penalty adjustment
         sample_count = get_model_sample_count(request.model, enriched)
 
-        # 2. Apply empirical condition & warranty adjustment
+        # Hedonic adjustment for listing text factors (warranty duration, defect penalty, verified shop markup)
         condition_adj = apply_condition_adjustment(
             predicted_log_price=base_log_price,
             description=request.description,
@@ -141,7 +137,6 @@ def predict(request: PredictRequest):
         effective_log_price = condition_adj["adjusted_log_price"]
         final_adjusted_price = condition_adj["adjusted_price_lkr"]
 
-        # 3. Conformal fair market range on condition-adjusted baseline
         calibration_data = artifact.get("conformal_calibration", None)
         
         range_info = calculate_fair_market_range(
@@ -151,7 +146,6 @@ def predict(request: PredictRequest):
             confidence_level="90%"
         )
 
-        # 4. Continuous fairness verdict against condition-adjusted range
         verdict_info = get_fairness_verdict(
             listed_price=request.listed_price or 0.0,
             lower_bound=range_info["lower_price_lkr"],

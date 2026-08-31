@@ -77,10 +77,7 @@ def main():
 
     # Compute raw log residuals (actual - predicted) and absolute nonconformity scores
     residuals_log = y_log - oof_preds_log
-    abs_residuals_log = np.abs(residuals_log)
-
-    # 1. Global Conformal Quantiles
-    # For 90% coverage, quantile level = 0.90 * (1 + 1/N)
+    # Finite-sample correction factor: (1 + 1/N) ensures marginal coverage validity
     n_samples = len(y_log)
     q_level_90 = min(1.0, 0.90 * (1.0 + 1.0 / n_samples))
     q_level_85 = min(1.0, 0.85 * (1.0 + 1.0 / n_samples))
@@ -96,7 +93,7 @@ def main():
     log.info(f"Global 90% Conformal Log-Quantile (|residual|): {global_q90:.4f}")
     log.info(f"Global Signed Residual Quantiles (5%, 95%): ({signed_q_lower_90:.4f}, {signed_q_upper_90:.4f})")
 
-    # 2. Tier-Stratified Calibration
+    # Tier-stratified calibration (heteroscedasticity handling across Entry/Mid/High price points)
     tiers = [determine_price_tier(p) for p in y_lkr]
     tier_series = pd.Series(tiers, index=df.index)
 
@@ -128,7 +125,6 @@ def main():
                 "coverage_pct": round(float(cover_tier), 2)
             }
 
-    # Evaluate Overall Coverage Ratio
     oof_lower = np.expm1(oof_preds_log - global_q90)
     oof_upper = np.expm1(oof_preds_log + global_q90)
     overall_coverage = float(np.mean((y_lkr >= oof_lower) & (y_lkr <= oof_upper)) * 100)
@@ -151,12 +147,10 @@ def main():
         "tiers": tier_calibration
     }
 
-    # Update Joblib Artifact
     artifact["conformal_calibration"] = calibration_bundle
     joblib.dump(artifact, MODEL_PATH)
     log.info(f"Updated joblib artifact with conformal calibration parameters -> {MODEL_PATH}")
 
-    # Update summary JSON
     if SUMMARY_PATH.exists():
         with open(SUMMARY_PATH, "r", encoding="utf-8") as f:
             summary_data = json.load(f)

@@ -53,10 +53,8 @@ def extract_condition_tags(text: str | None, source: str = "ikman") -> Dict[str,
 
     s = text.lower()
 
-    # --------------------------------------------------------------------------
-    # 1. Warranty Detection (Duration & Existence)
-    # --------------------------------------------------------------------------
-    # Negation check: e.g. "no warranty", "without warranty", "warranty expired", "out of warranty", "වගකීමක් නැත"
+    # Warranty detection and duration parsing
+    # Negation filter handles phrases like "no warranty", "out of warranty", "වගකීමක් නැත"
     has_neg_warranty = bool(
         re.search(
             r"(?:no\s+warranty|without\s+warranty|warranty\s+(?:over|expired|ended|done|out|n[ae]th?[ai]|iwarai|nehe)|out\s+of\s+warranty|0\s*warranty|no\s+checking\s+warranty|වගකී[මම්]\s*(?:නැත|නොමැත|නෑ|නැහැ|ඉවරයි|අවසන්))",
@@ -65,7 +63,7 @@ def extract_condition_tags(text: str | None, source: str = "ikman") -> Dict[str,
     )
 
     if not has_neg_warranty:
-        # Years warranty - Number MUST be explicitly tied to warranty keyword
+        # Years duration extraction (e.g., '2 years company warranty')
         yr_match = re.search(
             r"(?:(\d+)\s*(?:years?|yrs?|වසර|අවුරුදු)\s*(?:of\s+)?(?:company\s+|store\s+|shop\s+|seller\s+|remaining\s+|left\s+)?(?:warranty|waranty|warrenty|වගකී|වොරන්ටි|ගැරන්ටි)|(?:warranty|waranty|warrenty|වගකී|වොරන්ටි|ගැරන්ටි)\s*(?:remaining\s+|left\s+|for\s+|of\s+)?(\d+)\s*(?:years?|yrs?|වසර|අවුරුදු))",
             s,
@@ -76,7 +74,7 @@ def extract_condition_tags(text: str | None, source: str = "ikman") -> Dict[str,
                 tags["has_warranty"] = True
                 tags["warranty_months"] = y_val * 12.0
 
-        # Months warranty - Number MUST be explicitly tied to warranty keyword
+        # Months duration extraction (e.g., '6 months seller warranty')
         if tags["warranty_months"] == 0.0:
             mo_match = re.search(
                 r"(?:(\d{1,2})\s*(?:months?|mnths?|mos?|මාස)\s*(?:of\s+)?(?:company\s+|store\s+|shop\s+|seller\s+|checking\s+|testing\s+|remaining\s+|left\s+)?(?:warranty|waranty|warrenty|වගකී|වොරන්ටි|ගැරන්ටි)|(?:warranty|waranty|warrenty|වගකී|වොරන්ටි|ගැරන්ටි)\s*(?:remaining\s+|left\s+|for\s+|of\s+)?(\d{1,2})\s*(?:months?|mnths?|mos?|මාස))",
@@ -88,7 +86,7 @@ def extract_condition_tags(text: str | None, source: str = "ikman") -> Dict[str,
                     tags["has_warranty"] = True
                     tags["warranty_months"] = m_val
 
-        # Specific calendar year expiry (e.g. Warranty 2026 June, till 2027)
+        # Calendar year expiry (e.g., 'warranty till 2027')
         if tags["warranty_months"] == 0.0:
             date_match = re.search(
                 r"(?:warranty|waranty|වගකී).*?\b(202[5-9])\b", s
@@ -100,90 +98,73 @@ def extract_condition_tags(text: str | None, source: str = "ikman") -> Dict[str,
                 tags["has_warranty"] = True
                 tags["warranty_months"] = min(36.0, rem_months)
 
-        # General warranty mentioned without specific duration
+        # Unspecified duration fallback (defaults to 1 month checking warranty)
         if tags["warranty_months"] == 0.0 and re.search(
             r"\b(?:company\s+warranty|shop\s+warranty|checking\s+warranty|seller\s+warranty|warranty\s+available|with\s+warranty|වගකීමක්\s*සහිත|වගකීම\s*ඇත)\b",
             s,
         ):
             tags["has_warranty"] = True
-            tags["warranty_months"] = 1.0  # Default 1 month for unspecified warranty
+            tags["warranty_months"] = 1.0
 
-    # --------------------------------------------------------------------------
-    # 2. Defective / Needs Repair
-    # --------------------------------------------------------------------------
+    # Defect and hardware repair tagging
     if re.search(
         r"(?:repair|broken|defective|not\s+working|faulty|damaged|crack|dead|fans?\s+not\s+spin|display\s+no|no\s+display|artifacts?|අඩුපාඩු|ලෙඩ|හදන්න|කැඩි)",
         s,
     ):
-        # Negation filter: e.g. "no repair", "no defects", "කිසිම ලෙඩක් නෑ"
+        # Exclude explicit non-defect claims ("no repairs", "no issues", "ලෙඩ නෑ")
         if not re.search(
             r"(?:no\s+repair|no\s+defects?|no\s+issues?|no\s+error|no\s+fault|ලෙඩ\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*ලෙඩක්\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*අඩුපාඩුවක්\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*ප්‍රශ්නයක්\s*(?:නැ|නෑ|නොමැත))",
             s,
         ):
             tags["needs_repair"] = True
 
-    # --------------------------------------------------------------------------
-    # 3. Urgent / Quick Sale
-    # --------------------------------------------------------------------------
+    # Urgent liquidity sales
     if re.search(
         r"(?:urgent\s+(?:sale|sell)|quick\s+sale|need\s+cash|money\s+urgent|emergency\s+sale|හදිසි|ඉක්මනින්)",
         s,
     ):
         tags["urgent_sale"] = True
 
-    # --------------------------------------------------------------------------
-    # 4. Tested & Stress Tested Working
-    # --------------------------------------------------------------------------
+    # Benchmark and operational testing verification (e.g., FurMark, stress test)
     if re.search(
         r"(?:tested|working|furmark|stress\s*test|100%\s*work|perfectly\s*work|no\s+errors?|temps?\s*(?:good|ok|normal)|පරීක්ෂා\s*කර|චෙක්\s*කර|හොඳටම\s*වැඩ)",
         s,
     ):
         tags["tested_working"] = True
 
-    # --------------------------------------------------------------------------
-    # 5. Good Physical & Operational Condition
-    # --------------------------------------------------------------------------
+    # Physical condition descriptors
     if re.search(
         r"(?:good\s+condition|best\s+condition|superb\s+condition|well\s+maintained|excellent\s+condition|mint\s+condition|සුපිරි|හොඳම?\s*තත්ව|හොඳට\s*තියෙනවා)",
         s,
     ):
         tags["good_condition"] = True
 
-    # --------------------------------------------------------------------------
-    # 6. Brand New / Sealed (Exclude comparative or past-purchase statements)
-    # --------------------------------------------------------------------------
+    # Brand new / factory sealed verification (excluding comparative "like brand new" phrasing)
     if re.search(
         r"(?:brand\s+new(?!\s*(?:condition|look|wage|vage|thathwaye|thathwe))|factory\s+sealed|company\s+sealed|unopened|සීල්\s*කරන\s*ලද)",
         s,
     ):
-        # Exclude "bought brand new", "like brand new", "brand new condition"
         if not re.search(
             r"(?:like\s+brand\s+new|as\s+brand\s+new|bought\s+(?:as\s+)?brand\s+new|purchased\s+brand\s+new|bought\s+new|brand\s+new\s+condition|brand\s+new\s+look|brand\s+new\s+wage|අලුත්\s*වගේ)",
             s,
         ):
             tags["brand_new"] = True
 
-    # --------------------------------------------------------------------------
-    # 7. Price Negotiable
-    # --------------------------------------------------------------------------
+    # Price negotiation indicators
     if re.search(
         r"(?:negotiable|can\s+negotiate|price\s+(?:is\s+)?negotiable|මිල\s*වෙනස්|අඩු\s*කරල\s*දෙන්න|සාකච්ඡා\s*කර)",
         s,
     ):
         tags["price_negotiable"] = True
 
-    # --------------------------------------------------------------------------
-    # 8. Commercial / Shop Listing
-    # --------------------------------------------------------------------------
+    # Commercial showroom / registered dealer keywords
     if re.search(
         r"(?:showroom|computer\s+house|u\s*tec\s*zone|nanotek|barclays|redline|chama\s*computers|ශාඛාව|පැමිණ|ලිපිනය)",
         s,
     ):
         tags["is_shop"] = True
 
-    # --------------------------------------------------------------------------
-    # 9. Delivery Available
-    # --------------------------------------------------------------------------
+    # Island-wide shipping / courier availability
     if re.search(
         r"(?:delivery|island\s*wide|courier|cod|ඩිලිවරි|ලංකාව\s*පුරා)",
         s,

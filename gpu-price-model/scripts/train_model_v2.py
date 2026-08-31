@@ -5,23 +5,16 @@ Reads:  data/final/gpu_enriched_dataset.csv
 Writes: artifacts/gpu_price_model_v2.joblib
         artifacts/training_summary_v2.json
 
-Models trained (all share log(price_lkr) target):
-  1. LightGBM          (tree   - no scaling)
-  2. XGBoost           (tree   - no scaling)
-  3. Random Forest     (tree   - no scaling)
+Models trained on log(price_lkr) target:
+  1. LightGBM          (tree   - unscaled)
+  2. XGBoost           (tree   - unscaled)
+  3. Random Forest     (tree   - unscaled)
   4. KNN               (scaled - StandardScaler)
   5. SVR (RBF)         (scaled - StandardScaler)
   6. Stacking Ensemble (LightGBM + RF + KNN base -> Ridge meta)
 
 Hyperparameter tuning: Optuna (50 trials, 5-fold CV, MAPE objective).
-Selection metric: lowest MAPE on locked 20% holdout set.
-
-FIXES vs original:
-  - StackingRegressor cloned estimators losing tuned params -> now uses
-    set_params / pipeline reconstruction to preserve Optuna-tuned values
-  - compute_mape log-scale detection threshold documented and tightened
-  - SVR row-cap constant named explicitly (SVR_OPTUNA_TRIALS)
-  - load_enriched_dataset stratifies split by log-price quintile
+Selection metric: Lowest MAPE on locked holdout set.
 """
 
 from __future__ import annotations
@@ -66,7 +59,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-# -- Paths ---------------------------------------------------------------------
+# Paths
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data" / "final"
 ARTIFACTS_DIR = ROOT / "artifacts"
@@ -78,40 +71,34 @@ SUMMARY_OUT = ARTIFACTS_DIR / "training_summary_v2.json"
 
 RANDOM_STATE = 42
 N_OPTUNA_TRIALS = 50
-# SVR is O(n ) - cap training rows for tuning speed; still full set for final fit
+# SVR computational complexity is O(n^2); cap tuning rows before full refit
 SVR_MAX_ROWS = 5_000
-SVR_OPTUNA_TRIALS = 30       # fewer trials than other models; named explicitly
+SVR_OPTUNA_TRIALS = 30
 CV_FOLDS = 5
 
-# Log-scale detection threshold: log(LKR 500,000)   13.1 - threshold of 20
-# is well above any realistic log-price value for Sri Lankan GPU listings.
+# Maximum theoretical log-price threshold for scale detection (log(500,000) ≈ 13.1)
 LOG_SCALE_THRESHOLD = 20
 
-# -- Feature Definitions -------------------------------------------------------
-# These features were extracted and enriched during the preprocessing phase.
-# We use both raw specs (vram, clock) and benchmark scores (G3Dmark) as predictors.
+# Feature definitions
 NUMERIC_FEATURES = [
     "vram_gb",
-    "G3Dmark",               # High correlation with performance
+    "G3Dmark",
     "tdp_watts",
     "gpu_age_years",
     "gpu_generation",
-    "ti_variant",            # Binary: 1 if 'Ti', else 0
+    "ti_variant",
 ]
 
 CATEGORICAL_FEATURES = [
-    "series_family",         # e.g., GeForce, Radeon
-    "brand",                 # e.g., ASUS, MSI
-    "architecture",          # e.g., Ampere, Turing
-    "tier_class",            # Performance tier: 10, 30, 50, 60, 70, 80, 90, Other
+    "series_family",
+    "brand",
+    "architecture",
+    "tier_class",
 ]
 
 ALL_FEATURES = NUMERIC_FEATURES + CATEGORICAL_FEATURES
 
-
-# The target is log-transformed price. Log-scaling stabilizes the variance
-# (homoscedasticity) and prevents high-end cards (e.g. RTX 4090) from 
-# skewing the model's loss function due to their massive raw LKR values.
+# Target price is log-transformed to stabilize variance and prevent high-tier skew
 TARGET = "log_price_lkr"
 
 
