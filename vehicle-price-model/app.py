@@ -150,8 +150,11 @@ def normalize_car_model(raw_model: str, brand: str = "") -> str:
     if "vios" in m: return "Vios"
     if "passo" in m: return "Passo"
     if "121" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 121"
-    if "141" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 141"
+    if "corolla 141" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 141"
     if "110" in m and ("corolla" in m or brand.lower() == "toyota"): return "110"
+    if "ae110" in m and ("corolla" in m or brand.lower() == "toyota"): return "AE110"
+    if "ce110" in m and ("corolla" in m or brand.lower() == "toyota"): return "CE110"
+
     
     if "fit gp1" in m: return "Fit GP1"
     if "fit gp5" in m: return "FIT GP5"
@@ -341,7 +344,7 @@ def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
     standard_only_models = [
         "Alto", "Alto K10", "Wagon R", "Wagon R FZ", "Wagon R FX", "Wagon R Stingray",
         "Celerio", "Swift", "Hustler", "Maruti", "Spacia",
-        "Aqua", "Prius", "Vitz", "Premio", "Axio", "Carina", "Allion", "Vios", "Passo", "Corolla 121", "Corolla 141", "110",
+        "Aqua", "Prius", "Vitz", "Premio", "Axio", "Carina", "Allion", "Vios", "Passo", "Corolla 121", "Corolla 141", "110","AE110","CE110"
         "Kelisa", "Bezza", "Kenari", "Viva Elite", "Axia",
         "Fit GP1", "FIT GP5", "Civic FD3", "Civic FD4", "Civic FD1", "Civic ES8", "Civic ES5", "Honda Grace", "Insight", "Civic",
         "Panda", "Panda Cross", "MX7", "Emgrand",
