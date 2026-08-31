@@ -400,11 +400,21 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (!model) missingFields.push("Model");
         if (!price || isNaN(price) || price <= 0) missingFields.push("Listing Price");
 
+        const rawCond = (key_values.condition || "").toLowerCase();
+        const isNew = rawCond.includes("brand new") || rawCond.includes("brand-new") || rawCond === "new" || scope.toLowerCase().includes("brand new") || scope.toLowerCase().includes("sealed");
+        const cleanCondition = isNew ? "Brand New" : "Used";
+
         const parsedData = {
             category: subCat,
+            subcategory: subCat,
             brand: brand || "",
             model: model || "",
-            listed_price: price || null
+            title: title || "",
+            description: description || "",
+            raw_text: raw_text || "",
+            listed_price: price || null,
+            condition: cleanCondition,
+            location: key_values.location || ""
         };
 
         if (subCat === "monitor") {

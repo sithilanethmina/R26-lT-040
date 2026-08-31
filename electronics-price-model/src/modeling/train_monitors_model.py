@@ -21,10 +21,13 @@ def train_and_benchmark_monitor_models(data_path, models_dir):
         return
         
     df = pd.read_csv(data_path)
-    print(f"[*] Loaded Cleaned Dataset: {len(df):,} rows, {df.shape[1]} columns")
+    # Strictly filter for second-hand / used electronics data
+    if 'Condition_Cleaned' in df.columns:
+        df = df[df['Condition_Cleaned'] == 'Used'].copy()
+    print(f"[*] Loaded Cleaned Used Dataset: {len(df):,} rows, {df.shape[1]} columns")
     
-    # 1. Define Features & Target
-    cat_cols = ['Brand_Cleaned', 'Resolution_Cleaned', 'Panel_Type', 'Condition_Cleaned', 'Location_Cleaned']
+    # 1. Define Features & Target (Strictly Used Items)
+    cat_cols = ['Brand_Cleaned', 'Resolution_Cleaned', 'Panel_Type', 'Location_Cleaned']
     num_cols = ['Size_Inches', 'Refresh_Rate_Hz', 'Is_Curved', 'Is_Gaming', 'Is_Frameless']
     feature_cols = cat_cols + num_cols
     

@@ -28,3 +28,11 @@ Thumbs.db
 
 # Project specific
 /gpu-explainer
+
+# Captured Screenshots
+screenshots/
+**/screenshots/
+*.jpg
+*.jpeg
+*.png
+!browser-extension/icons/*.png

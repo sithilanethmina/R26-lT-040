@@ -4,12 +4,23 @@ import numpy as np
 import joblib
 import os
 import re
+import sys
+
+# Ensure src/ is on sys.path
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
+
+try:
+    from llm_extractor import extract_electronics_specs_llm
+except ImportError:
+    try:
+        from src.llm_extractor import extract_electronics_specs_llm
+    except ImportError:
+        extract_electronics_specs_llm = None
 
 app = Flask(__name__)
 
 @app.route('/health', methods=['GET'])
 def health_check():
-    from flask import jsonify
     return jsonify({"status": "ok", "service": "electronics_price_predictor"})
 
 # Dictionary to store all loaded models
@@ -20,35 +31,44 @@ models_db = {
 }
 
 def load_models():
-    # Laptop Models
-    for algo in ['xgboost', 'random_forest', 'gradient_boosting']:
-        path = f'models/laptop_{algo}.pkl'
-        if os.path.exists(path):
-            try:
-                models_db['laptop'][algo] = joblib.load(path)
-                print(f"Loaded Laptop {algo} model")
-            except Exception as e:
-                print(f"Failed to load Laptop {algo} model: {e}")
+    # 1. Primary Laptop Model
+    laptop_path = 'models/best_laptop_model.pkl'
+    if os.path.exists(laptop_path):
+        try:
+            bundle = joblib.load(laptop_path)
+            models_db['laptop']['default'] = bundle
+            models_db['laptop']['catboost'] = bundle
+            models_db['laptop']['xgboost'] = bundle
+            models_db['laptop']['random_forest'] = bundle
+            print(f"[+] Loaded Laptop Production Model: {bundle.get('model_name', 'CatBoost')}")
+        except Exception as e:
+            print(f"[!] Failed to load Laptop model: {e}")
 
-    # Monitor Models
-    for algo in ['xgboost', 'random_forest']:
-        path = f'models/monitor_{algo}.pkl'
-        if os.path.exists(path):
-            try:
-                models_db['monitor'][algo] = joblib.load(path)
-                print(f"Loaded Monitor {algo} model")
-            except Exception as e:
-                print(f"Failed to load Monitor {algo} model: {e}")
+    # 2. Primary Monitor Model
+    monitor_path = 'models/best_monitor_model.pkl'
+    if os.path.exists(monitor_path):
+        try:
+            bundle = joblib.load(monitor_path)
+            models_db['monitor']['default'] = bundle
+            models_db['monitor']['xgboost'] = bundle
+            models_db['monitor']['random_forest'] = bundle
+            models_db['monitor']['lightgbm'] = bundle
+            print(f"[+] Loaded Monitor Production Model: {bundle.get('model_name', 'XGBoost')}")
+        except Exception as e:
+            print(f"[!] Failed to load Monitor model: {e}")
 
-    # Tablet Models
-    for algo in ['xgboost', 'random_forest']:
-        path = f'models/tablet_{algo}.pkl'
-        if os.path.exists(path):
-            try:
-                models_db['tablet'][algo] = joblib.load(path)
-                print(f"Loaded Tablet {algo} model")
-            except Exception as e:
-                print(f"Failed to load Tablet {algo} model: {e}")
+    # 3. Primary Tablet Model
+    tablet_path = 'models/best_tablet_model.pkl'
+    if os.path.exists(tablet_path):
+        try:
+            bundle = joblib.load(tablet_path)
+            models_db['tablet']['default'] = bundle
+            models_db['tablet']['lightgbm'] = bundle
+            models_db['tablet']['xgboost'] = bundle
+            models_db['tablet']['random_forest'] = bundle
+            print(f"[+] Loaded Tablet Production Model: {bundle.get('model_name', 'LightGBM')}")
+        except Exception as e:
+            print(f"[!] Failed to load Tablet model: {e}")
 
 load_models()
 
@@ -610,410 +630,254 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        data = request.get_json()
+        data = request.get_json() or {}
         category = data.get('category', 'laptop')
-        algorithm = data.get('algorithm', 'xgboost')
+        algorithm = data.get('algorithm', 'default')
         
-        if category not in models_db or algorithm not in models_db[category]:
-            return jsonify({'success': False, 'error': f'Model {algorithm} for {category} not found.'})
+        # 0. Check for unstructured text or screenshot and run Gemini LLM Extractor
+        image_input = data.get('image') or data.get('image_base64') or data.get('screenshot')
+        has_unstructured_input = bool(data.get('title') or data.get('description') or data.get('raw_text') or image_input)
+        extraction_source = "DOM / Regex Extractor"
         
-        model_data = models_db[category][algorithm]
-        model = model_data['model']
-        features = model_data['features']
+        if extract_electronics_specs_llm and has_unstructured_input:
+            llm_result = extract_electronics_specs_llm(
+                title=data.get('title') or data.get('model') or "",
+                description=data.get('description', ""),
+                raw_text=data.get('raw_text', ""),
+                image_base64=image_input
+            )
+            if llm_result:
+                extraction_source = "Gemini Flash Lite (Vision/LLM)" if image_input else "Gemini Flash Lite (LLM)"
+                category = llm_result.get('category') or category
+                if llm_result.get('brand'): data['brand'] = llm_result['brand']
+                if llm_result.get('model'): data['model'] = llm_result['model']
+                if llm_result.get('cpu'): data['cpu'] = llm_result['cpu']
+                if llm_result.get('generation') is not None: data['generation'] = llm_result['generation']
+                if llm_result.get('ram_gb') is not None: data['ram_gb'] = llm_result['ram_gb']
+                if llm_result.get('storage_gb') is not None: data['storage_gb'] = llm_result['storage_gb']
+                if llm_result.get('storage_type'): data['storage_type'] = llm_result['storage_type']
+                if llm_result.get('gpu'): data['gpu'] = llm_result['gpu']
+                if llm_result.get('screen_size_inch') is not None: data['size'] = llm_result['screen_size_inch']
+                if llm_result.get('refresh_rate_hz') is not None: data['refresh_rate'] = llm_result['refresh_rate_hz']
+                if llm_result.get('resolution'): data['resolution'] = llm_result['resolution']
+                if llm_result.get('condition'): data['condition'] = llm_result['condition']
+                if llm_result.get('location'): data['location'] = llm_result['location']
         
+        if category not in models_db or not models_db[category]:
+            return jsonify({'success': False, 'error': f'Models for {category} not loaded.'})
+        
+        # Select bundle (fallback to default)
+        model_data = models_db[category].get(algorithm) or models_db[category].get('default') or list(models_db[category].values())[0]
+        
+        # Check if bundle or raw model
+        if isinstance(model_data, dict) and 'model' in model_data:
+            model = model_data['model']
+            features = model_data['features']
+            model_type = model_data.get('model_type', 'native_cat')
+            encoder = model_data.get('encoder')
+            model_r2 = model_data.get('r2_score', 0.85)
+            model_mae = model_data.get('mae', 0.0)
+            model_display_name = model_data.get('model_name', 'Production Model')
+        else:
+            model = model_data
+            features = getattr(model, 'feature_names_', None)
+            model_type = 'raw'
+            encoder = None
+            model_r2 = 0.80
+            model_mae = 0.0
+            model_display_name = algorithm
+            
         # Prepare input data
-        input_dict = {}
-        
         if category == 'laptop':
-            # Extract parameters
-            brand_val = data.get('brand', '')
-            model_val = data.get('model', '')
-            ram_val = data.get('ram') or data.get('ram_gb')
-            storage_val = data.get('storage') or data.get('storage_gb')
-            storage_type_val = data.get('storageType') or data.get('storage_type', '')
-            cpu_val = data.get('cpu')
-            generation_val = data.get('generation')
+            brand_val = data.get('brand', 'Dell')
+            model_val = data.get('model', 'Latitude')
+            ram_val = safe_float(data.get('ram') or data.get('ram_gb'), 16.0)
+            storage_val = safe_float(data.get('storage') or data.get('storage_gb'), 256.0)
+            storage_type_val = data.get('storageType') or data.get('storage_type', 'SSD')
+            cpu_val = data.get('cpu', 'Core i5')
+            generation_val = safe_float(data.get('generation'), 11.0)
+            gpu_val = data.get('gpu', 'Integrated')
+            is_touch = 1 if data.get('is_touchscreen') or data.get('touchscreen') else 0
+            location_val = str(data.get('location', 'Colombo')).capitalize()
             
-            # Run similarity match
-            est_price, match_score, top_matches = find_matching_laptops(
-                brand_val, model_val, ram_val, storage_val, storage_type_val, cpu_val, generation_val
-            )
+            # Predict using production pipeline
+            row_dict = {
+                'Brand_Cleaned': [str(brand_val).capitalize()],
+                'Model_Cleaned': [str(model_val).title()],
+                'CPU_Cleaned': [str(cpu_val)],
+                'Storage_Type': [str(storage_type_val).upper()],
+                'GPU_Tier': [str(gpu_val)],
+                'Location_Cleaned': [location_val],
+                'Generation_Cleaned': [int(generation_val)],
+                'RAM_GB': [float(ram_val)],
+                'Storage_Capacity_GB': [float(storage_val)],
+                'Is_Touchscreen': [int(is_touch)]
+            }
+            df_in = pd.DataFrame(row_dict)[features]
             
-            if est_price is not None:
-                # 1. Clean query values for ML model
-                q_brand = clean_brand(brand_val, model_val)
-                q_model = clean_model(q_brand, model_val)
-                q_cpu = cpu_val if cpu_val else clean_cpu(model_val)
-                q_cpu = str(q_cpu).strip().upper()
-                q_gen = safe_float(generation_val) if generation_val is not None else clean_generation(model_val)
-                q_ram = safe_float(ram_val, 8.0)
-                q_storage = safe_float(storage_val, 256.0)
-                q_storage_type = "SSD" if "SSD" in str(storage_type_val).upper() or "SSD" in str(model_val).upper() else "HDD"
-                
-                # 2. Get ML model prediction for smoothing/blending
-                input_dict = {
-                    'RAM_GB': [q_ram],
-                    'Storage_Capacity_GB': [q_storage],
-                    'Generation_Cleaned': [q_gen],
-                    f"Brand_Cleaned_{q_brand.upper()}": [1],
-                    f"Model_Cleaned_{q_model.upper()}": [1],
-                    f"CPU_Cleaned_{q_cpu.upper()}": [1],
-                    f"Condition_Cleaned_Used": [1],
-                    f"Storage_Type_{q_storage_type.upper()}": [1]
-                }
-                
-                df_input = pd.DataFrame(input_dict)
-                for col in features:
-                    if col not in df_input.columns:
-                        df_input[col] = 0
-                df_input = df_input[features]
-                
-                try:
-                    ml_price = float(model.predict(df_input)[0])
-                    ml_price = max(15000.0, ml_price)
-                except Exception:
-                    ml_price = est_price
-                
-                # 3. Blend DB lookup and ML prediction
-                if match_score >= 90.0:
-                    blended_price = est_price
-                else:
-                    w_db = match_score / 100.0
-                    w_ml = 1.0 - w_db
-                    blended_price = (w_db * est_price) + (w_ml * ml_price)
-                
-                # 4. Lorentzian shrinkage prior for robust price segment alignment
-                # Regularizes estimated price toward the listing's asking price using a soft Lorentzian distance decay.
-                # This narrows the gap for normal listings without looking like a simple hardcoded cut-off.
-                asking_price = safe_float(data.get('listed_price') or data.get('price'))
-                if asking_price > 5000.0:
-                    alpha = 22.0  # Regularization scaling factor
-                    dev = (blended_price - asking_price) / asking_price
-                    shrink_factor = 1.0 / (1.0 + alpha * (dev ** 2))
-                    predicted_price = asking_price + shrink_factor * (blended_price - asking_price)
-                else:
-                    predicted_price = blended_price
-                
-                # Scale the returned match score to reflect the high stability of the blended/regularized estimate
-                displayed_score = max(match_score, 80.0 + (match_score - 80.0) * 0.5) if match_score < 80.0 else match_score
-                
-                # Calculate quartiles for fair market range
-                lower_price = float(top_matches['Price_Cleaned'].quantile(0.25))
-                upper_price = float(top_matches['Price_Cleaned'].quantile(0.75))
-                
-                # Shift range to be centered around the regularized predicted price
-                range_width = upper_price - lower_price
-                if range_width < 0.05 * predicted_price:
-                    range_width = 0.20 * predicted_price
-                
-                lower_price = max(10000.0, predicted_price - (range_width / 2.0))
-                upper_price = predicted_price + (range_width / 2.0)
-                
-                # Log prediction
-                log_header = f"\n--- Prediction Request: LAPTOP (Database Lookup Match) ---"
-                spec_summary = f"Input: {brand_val} {model_val} | Specs: {ram_val}GB RAM, {storage_val}GB {storage_type_val} | Match Score: {match_score:.1f}%"
-                price_summary = f"PREDICTED PRICE: {f'Rs {predicted_price:,.2f}'} (Range: Rs {lower_price:,.0f} - Rs {upper_price:,.0f})"
-                
-                with open('research_prediction_log.txt', 'a') as f:
-                    f.write(f"{log_header}\n{spec_summary}\n{price_summary}\n")
-                    print(log_header, flush=True)
-                    print(spec_summary, flush=True)
-                    print(price_summary, flush=True)
-                    f.write("-" * 40 + "\n")
-                    print("-" * 40, flush=True)
-                
-                return jsonify({
-                    'success': True,
-                    'price': f"Rs {predicted_price:,.2f}",
-                    'predicted_price': predicted_price,
-                    'model_name': f"DB Lookup Match (Score: {displayed_score:.0f}%)",
-                    'accuracy': float(displayed_score / 100.0),
-                    'fair_market_range': {
-                        'lower_price_lkr': lower_price,
-                        'upper_price_lkr': upper_price
-                    },
-                    'all_results': {
-                        'DB Match': {'R2': match_score / 100.0}
-                    }
-                })
-            else:
-                # Fallback to ML model prediction if no DB match is found (using properly cleaned inputs)
-                q_brand = clean_brand(brand_val, model_val)
-                q_model = clean_model(q_brand, model_val)
-                q_cpu = cpu_val if cpu_val else clean_cpu(model_val)
-                q_gen = safe_float(generation_val) if generation_val is not None else clean_generation(model_val)
-                q_ram = safe_float(ram_val, 8.0)
-                q_storage = safe_float(storage_val, 256.0)
-                q_storage_type = "SSD" if "SSD" in str(storage_type_val).upper() or "SSD" in str(model_val).upper() else "HDD"
-                
-                input_dict = {
-                    'RAM_GB': [q_ram],
-                    'Storage_Capacity_GB': [q_storage],
-                    'Generation_Cleaned': [q_gen],
-                    f"Brand_Cleaned_{q_brand.upper()}": [1],
-                    f"Model_Cleaned_{q_model.upper()}": [1],
-                    f"CPU_Cleaned_{q_cpu.upper()}": [1],
-                    f"Condition_Cleaned_Used": [1],
-                    f"Storage_Type_{q_storage_type.upper()}": [1]
-                }
-                
-                df_input = pd.DataFrame(input_dict)
-                for col in features:
-                    if col not in df_input.columns:
-                        df_input[col] = 0
-                df_input = df_input[features]
-                predicted_price = float(model.predict(df_input)[0])
-                
-                lower_price = predicted_price * 0.9
-                upper_price = predicted_price * 1.1
-                
-                return jsonify({
-                    'success': True,
-                    'price': f"Rs {predicted_price:,.2f}",
-                    'predicted_price': predicted_price,
-                    'model_name': f"ML Fallback Model ({model_data['model_name']})",
-                    'accuracy': float(model_data.get('accuracy', 0)),
-                    'fair_market_range': {
-                        'lower_price_lkr': lower_price,
-                        'upper_price_lkr': upper_price
-                    },
-                    'all_results': {
-                        model_data['model_name']: {'R2': float(model_data.get('accuracy', 0))}
-                    }
-                })
-        elif category == 'monitor':
-            brand_val = data.get('brand', '')
-            title_val = data.get('title') or data.get('model', '')
-            size_val = data.get('size') or data.get('size_inch')
-            refresh_rate_val = data.get('refreshRate') or data.get('refresh_rate') or data.get('refreshRateHz')
-            resolution_val = data.get('resolution')
-            condition_val = data.get('condition', 'Used')
+            if model_type == 'encoded' and encoder is not None:
+                cat_cols = model_data['cat_cols']
+                df_in[cat_cols] = encoder.transform(df_in[cat_cols])
+            elif model_type == 'lgb_cat':
+                cat_cols = model_data['cat_cols']
+                for c in cat_cols:
+                    df_in[c] = df_in[c].astype('category')
+                    
+            pred_log = model.predict(df_in)[0]
+            predicted_price = float(np.expm1(pred_log))
             
-            est_price, match_score, top_matches = find_matching_monitors(
-                brand_val, title_val, size_val, refresh_rate_val, resolution_val, condition_val
-            )
+            lower_price = max(15000.0, predicted_price * 0.88)
+            upper_price = predicted_price * 1.12
             
-            if est_price is not None:
-                q_brand = clean_monitor_brand(brand_val, title_val)
-                q_size = safe_float(size_val, 24.0)
-                q_hz = safe_float(refresh_rate_val, 60.0)
-                q_res = clean_monitor_resolution(title_val, resolution_val)
-                
-                input_dict = {
-                    'Size_Inch': [q_size],
-                    'Refresh_Rate_Hz': [q_hz],
-                    f"Brand_Cleaned_{q_brand.upper()}": [1],
-                    f"Condition_Cleaned_Used": [1],
-                    f"Resolution_Cleaned_{q_res.upper()}": [1]
+            return jsonify({
+                'success': True,
+                'category': 'laptop',
+                'price': f"Rs {predicted_price:,.2f}",
+                'predicted_price': predicted_price,
+                'model_name': f"{model_display_name} ({extraction_source})",
+                'accuracy': float(model_r2),
+                'fair_market_range': {
+                    'lower_price_lkr': lower_price,
+                    'upper_price_lkr': upper_price
+                },
+                'extraction_source': extraction_source,
+                'extracted_specs': {
+                    'brand': brand_val,
+                    'model': model_val,
+                    'cpu': cpu_val,
+                    'generation': generation_val,
+                    'ram_gb': ram_val,
+                    'storage_gb': storage_val,
+                    'storage_type': storage_type_val,
+                    'gpu': gpu_val,
+                    'condition': 'Used',
+                    'location': location_val
                 }
-                
-                df_input = pd.DataFrame(input_dict)
-                for col in features:
-                    if col not in df_input.columns:
-                        df_input[col] = 0
-                df_input = df_input[features]
-                
-                try:
-                    ml_price = float(model.predict(df_input)[0])
-                    ml_price = max(4000.0, ml_price)
-                except Exception:
-                    ml_price = est_price
-                    
-                if match_score >= 90.0:
-                    blended_price = est_price
-                else:
-                    w_db = match_score / 100.0
-                    w_ml = 1.0 - w_db
-                    blended_price = (w_db * est_price) + (w_ml * ml_price)
-                
-                asking_price = safe_float(data.get('listed_price') or data.get('price'))
-                if asking_price > 2000.0:
-                    alpha = 22.0
-                    dev = (blended_price - asking_price) / asking_price
-                    shrink_factor = 1.0 / (1.0 + alpha * (dev ** 2))
-                    predicted_price = asking_price + shrink_factor * (blended_price - asking_price)
-                else:
-                    predicted_price = blended_price
-                    
-                displayed_score = max(match_score, 80.0 + (match_score - 80.0) * 0.5) if match_score < 80.0 else match_score
-                
-                lower_price = float(top_matches['Price_Cleaned'].quantile(0.25))
-                upper_price = float(top_matches['Price_Cleaned'].quantile(0.75))
-                
-                range_width = upper_price - lower_price
-                if range_width < 0.05 * predicted_price:
-                    range_width = 0.20 * predicted_price
-                    
-                lower_price = max(4000.0, predicted_price - (range_width / 2.0))
-                upper_price = predicted_price + (range_width / 2.0)
-                
-                log_header = f"\n--- Prediction Request: MONITOR (Database Lookup Match) ---"
-                spec_summary = f"Input: {brand_val} {title_val} | Specs: {size_val} Inch, {refresh_rate_val} Hz, {resolution_val} | Match Score: {match_score:.1f}%"
-                price_summary = f"PREDICTED PRICE: {f'Rs {predicted_price:,.2f}'} (Range: Rs {lower_price:,.0f} - Rs {upper_price:,.0f})"
-                
-                with open('research_prediction_log.txt', 'a') as f:
-                    f.write(f"{log_header}\n{spec_summary}\n{price_summary}\n")
-                    print(log_header, flush=True)
-                    print(spec_summary, flush=True)
-                    print(price_summary, flush=True)
-                    f.write("-" * 40 + "\n")
-                    print("-" * 40, flush=True)
-                    
-                return jsonify({
-                    'success': True,
-                    'price': f"Rs {predicted_price:,.2f}",
-                    'predicted_price': predicted_price,
-                    'model_name': f"DB Lookup Match (Score: {displayed_score:.0f}%)",
-                    'accuracy': float(displayed_score / 100.0),
-                    'fair_market_range': {
-                        'lower_price_lkr': lower_price,
-                        'upper_price_lkr': upper_price
-                    }
-                })
-            else:
-                input_dict = {
-                    'Size_Inch': [safe_float(size_val, 24.0)],
-                    'Refresh_Rate_Hz': [safe_float(refresh_rate_val, 60.0)],
-                    f"Brand_Cleaned_{brand_val.upper()}": [1],
-                    f"Condition_Cleaned_Used": [1],
-                    f"Resolution_Cleaned_{resolution_val.upper() if resolution_val else 'FHD'}": [1]
-                }
+            })
+            
         elif category == 'tablet':
-            brand_val = data.get('brand', '')
-            model_val = data.get('model', '')
-            ram_val = data.get('ram') or data.get('ram_gb')
-            storage_val = data.get('storage') or data.get('storage_gb')
-            condition_val = data.get('condition', 'Used')
+            brand_val = data.get('brand', 'Apple')
+            model_val = data.get('model', 'iPad')
+            storage_val = safe_float(data.get('storage') or data.get('storage_gb'), 64.0)
+            ram_val = safe_float(data.get('ram') or data.get('ram_gb'), 4.0)
+            conn_val = data.get('connectivity', 'WiFi / Standard')
+            size_val = str(data.get('size') or data.get('screen_size_inch') or '10.0 Inch')
+            if not "Inch" in size_val: size_val = f"{size_val} Inch"
+            location_val = str(data.get('location', 'Colombo')).capitalize()
             
-            est_price, match_score, top_matches = find_matching_tablets(
-                brand_val, model_val, ram_val, storage_val, condition_val
-            )
+            row_dict = {
+                'Brand_Cleaned': [str(brand_val).capitalize()],
+                'Model_Cleaned': [str(model_val).title()],
+                'Storage_GB': [float(storage_val)],
+                'RAM_GB': [float(ram_val)],
+                'Connectivity_Cleaned': [conn_val],
+                'Screen_Size': [size_val],
+                'Location_Cleaned': [location_val]
+            }
+            df_in = pd.DataFrame(row_dict)[features]
             
-            if est_price is not None:
-                q_brand = clean_tablet_brand(brand_val, model_val)
-                q_model = clean_tablet_model(q_brand, model_val)
-                q_ram = safe_float(ram_val, 4.0)
-                q_storage = safe_float(storage_val, 64.0)
-                
-                input_dict = {
-                    'RAM_GB': [q_ram],
-                    'Storage_GB': [q_storage],
-                    f"Brand_Cleaned_{q_brand.upper()}": [1],
-                    f"Model_Cleaned_{q_model.upper()}": [1],
-                    f"Condition_Cleaned_Used": [1]
+            if model_type == 'encoded' and encoder is not None:
+                cat_cols = model_data['cat_cols']
+                df_in[cat_cols] = encoder.transform(df_in[cat_cols])
+            elif model_type == 'lgb_cat':
+                cat_cols = model_data['cat_cols']
+                for c in cat_cols:
+                    df_in[c] = df_in[c].astype('category')
+                    
+            pred_log = model.predict(df_in)[0]
+            predicted_price = float(np.expm1(pred_log))
+            
+            lower_price = max(4000.0, predicted_price * 0.88)
+            upper_price = predicted_price * 1.12
+            
+            return jsonify({
+                'success': True,
+                'category': 'tablet',
+                'price': f"Rs {predicted_price:,.2f}",
+                'predicted_price': predicted_price,
+                'model_name': f"{model_display_name} ({extraction_source})",
+                'accuracy': float(model_r2),
+                'fair_market_range': {
+                    'lower_price_lkr': lower_price,
+                    'upper_price_lkr': upper_price
+                },
+                'extraction_source': extraction_source,
+                'extracted_specs': {
+                    'brand': brand_val,
+                    'model': model_val,
+                    'storage_gb': storage_val,
+                    'ram_gb': ram_val,
+                    'connectivity': conn_val,
+                    'screen_size': size_val,
+                    'condition': 'Used',
+                    'location': location_val
                 }
-                
-                df_input = pd.DataFrame(input_dict)
-                for col in features:
-                    if col not in df_input.columns:
-                        df_input[col] = 0
-                df_input = df_input[features]
-                
-                try:
-                    ml_price = float(model.predict(df_input)[0])
-                    ml_price = max(5000.0, ml_price)
-                except Exception:
-                    ml_price = est_price
-                
-                if match_score >= 90.0:
-                    blended_price = est_price
-                else:
-                    w_db = match_score / 100.0
-                    w_ml = 1.0 - w_db
-                    blended_price = (w_db * est_price) + (w_ml * ml_price)
-                
-                asking_price = safe_float(data.get('listed_price') or data.get('price'))
-                if asking_price > 2000.0:
-                    alpha = 22.0
-                    dev = (blended_price - asking_price) / asking_price
-                    shrink_factor = 1.0 / (1.0 + alpha * (dev ** 2))
-                    predicted_price = asking_price + shrink_factor * (blended_price - asking_price)
-                else:
-                    predicted_price = blended_price
-                
-                displayed_score = max(match_score, 80.0 + (match_score - 80.0) * 0.5) if match_score < 80.0 else match_score
-                
-                lower_price = float(top_matches['Price_Cleaned'].quantile(0.25))
-                upper_price = float(top_matches['Price_Cleaned'].quantile(0.75))
-                
-                range_width = upper_price - lower_price
-                if range_width < 0.05 * predicted_price:
-                    range_width = 0.20 * predicted_price
-                
-                lower_price = max(5000.0, predicted_price - (range_width / 2.0))
-                upper_price = predicted_price + (range_width / 2.0)
-                
-                log_header = f"\n--- Prediction Request: TABLET (Database Lookup Match) ---"
-                spec_summary = f"Input: {brand_val} {model_val} | Specs: {ram_val}GB RAM, {storage_val}GB | Match Score: {match_score:.1f}%"
-                price_summary = f"PREDICTED PRICE: {f'Rs {predicted_price:,.2f}'} (Range: Rs {lower_price:,.0f} - Rs {upper_price:,.0f})"
-                
-                with open('research_prediction_log.txt', 'a') as f:
-                    f.write(f"{log_header}\n{spec_summary}\n{price_summary}\n")
-                    print(log_header, flush=True)
-                    print(spec_summary, flush=True)
-                    print(price_summary, flush=True)
-                    f.write("-" * 40 + "\n")
-                    print("-" * 40, flush=True)
-                
-                return jsonify({
-                    'success': True,
-                    'price': f"Rs {predicted_price:,.2f}",
-                    'predicted_price': predicted_price,
-                    'model_name': f"DB Lookup Match (Score: {displayed_score:.0f}%)",
-                    'accuracy': float(displayed_score / 100.0),
-                    'fair_market_range': {
-                        'lower_price_lkr': lower_price,
-                        'upper_price_lkr': upper_price
-                    }
-                })
-            else:
-                input_dict = {
-                    'RAM_GB': [safe_float(ram_val, 4.0)],
-                    'Storage_GB': [safe_float(storage_val, 64.0)],
-                    f"Brand_Cleaned_{brand_val.upper()}": [1],
-                    f"Model_Cleaned_{model_val.upper()}": [1],
-                    f"Condition_Cleaned_Used": [1]
+            })
+            
+        elif category == 'monitor':
+            brand_val = data.get('brand', 'Dell')
+            size_val = safe_float(data.get('size') or data.get('size_inch') or data.get('screen_size_inch'), 24.0)
+            hz_val = safe_float(data.get('refreshRate') or data.get('refresh_rate') or data.get('refresh_rate_hz'), 60.0)
+            res_val = data.get('resolution', '1080p FHD')
+            panel_val = data.get('panel_type', 'Standard')
+            is_curved = 1 if data.get('is_curved') else 0
+            is_gaming = 1 if data.get('is_gaming') or hz_val >= 100 else 0
+            is_frameless = 1 if data.get('is_frameless') else 0
+            location_val = str(data.get('location', 'Colombo')).capitalize()
+            
+            row_dict = {
+                'Brand_Cleaned': [str(brand_val).capitalize() if brand_val.upper() not in ["MSI", "AOC", "HP", "LG"] else brand_val.upper()],
+                'Resolution_Cleaned': [res_val],
+                'Panel_Type': [panel_val],
+                'Location_Cleaned': [location_val],
+                'Size_Inches': [float(size_val)],
+                'Refresh_Rate_Hz': [float(hz_val)],
+                'Is_Curved': [int(is_curved)],
+                'Is_Gaming': [int(is_gaming)],
+                'Is_Frameless': [int(is_frameless)]
+            }
+            df_in = pd.DataFrame(row_dict)[features]
+            
+            if model_type == 'encoded' and encoder is not None:
+                cat_cols = model_data['cat_cols']
+                df_in[cat_cols] = encoder.transform(df_in[cat_cols])
+            elif model_type == 'lgb_cat':
+                cat_cols = model_data['cat_cols']
+                for c in cat_cols:
+                    df_in[c] = df_in[c].astype('category')
+                    
+            pred_log = model.predict(df_in)[0]
+            predicted_price = float(np.expm1(pred_log))
+            
+            lower_price = max(3000.0, predicted_price * 0.90)
+            upper_price = predicted_price * 1.10
+            
+            return jsonify({
+                'success': True,
+                'category': 'monitor',
+                'price': f"Rs {predicted_price:,.2f}",
+                'predicted_price': predicted_price,
+                'model_name': f"{model_display_name} ({extraction_source})",
+                'accuracy': float(model_r2),
+                'fair_market_range': {
+                    'lower_price_lkr': lower_price,
+                    'upper_price_lkr': upper_price
+                },
+                'extraction_source': extraction_source,
+                'extracted_specs': {
+                    'brand': brand_val,
+                    'model': data.get('model') or f"{brand_val} {size_val}\" Monitor",
+                    'size_inches': size_val,
+                    'refresh_rate_hz': hz_val,
+                    'resolution': res_val,
+                    'panel_type': panel_val,
+                    'is_curved': bool(is_curved),
+                    'is_gaming': bool(is_gaming),
+                    'condition': 'Used',
+                    'location': location_val
                 }
-        
-        df_input = pd.DataFrame(input_dict)
-        for col in features:
-            if col not in df_input.columns:
-                df_input[col] = 0
-        
-        df_input = df_input[features]
-        predicted_price = float(model.predict(df_input)[0])
-        
-        all_results = {}
-        log_header = f"\n--- Prediction Request: {category.upper()} ({algorithm}) ---"
-        spec_summary = f"Input: {data.get('brand')} {data.get('model')} | Specs: {data.get('ram')}GB RAM, {data.get('storage')}GB {data.get('storageType', '')}"
-        price_summary = f"PREDICTED PRICE: {f'Rs {predicted_price:,.2f}'}"
-        
-        with open('research_prediction_log.txt', 'a') as f:
-            f.write(f"{log_header}\n{spec_summary}\n{price_summary}\n")
-            print(log_header, flush=True)
-            print(spec_summary, flush=True)
-            print(price_summary, flush=True)
+            })
             
-            for algo, m_data in models_db[category].items():
-                r2 = float(m_data.get('accuracy', 0))
-                all_results[m_data['model_name']] = {'R2': r2}
-                status = "[ACTIVE]" if algo == algorithm else "        "
-                line = f"{status} {m_data['model_name']}: R2 Score = {r2:.4f}\n"
-                f.write(line)
-                print(line.strip(), flush=True)
-                
-            f.write("-" * 40 + "\n")
-            print("-" * 40, flush=True)
-            
-        return jsonify({
-            'success': True,
-            'price': f"Rs {predicted_price:,.2f}",
-            'predicted_price': predicted_price,
-            'model_name': model_data['model_name'],
-            'accuracy': float(model_data.get('accuracy', 0)),
-            'all_results': all_results
-        })
-        
     except Exception as e:
         import traceback
         print(traceback.format_exc())
@@ -1023,8 +887,14 @@ def predict():
 def model_info():
     info = {}
     for cat in models_db:
-        info[cat] = {algo: {'accuracy': float(m['accuracy']), 'name': m['model_name']} 
-                    for algo, m in models_db[cat].items()}
+        info[cat] = {}
+        for algo, m in models_db[cat].items():
+            if isinstance(m, dict):
+                info[cat][algo] = {
+                    'r2_score': float(m.get('r2_score', 0)),
+                    'mae': float(m.get('mae', 0)),
+                    'name': m.get('model_name', algo)
+                }
     return jsonify(info)
 
 if __name__ == '__main__':

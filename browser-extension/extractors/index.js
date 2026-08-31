@@ -154,14 +154,28 @@ window.FairPriceLK_Extractors.index = (function () {
         if (metaData.brand) keyValues.brand = metaData.brand;
         if (metaData.condition) keyValues.condition = metaData.condition;
 
-        // Attribute items / classes
-        document.querySelectorAll('[class*="word-break"], [class*="item-property"], [class*="meta-item"], [class*="attribute"], [data-testid*="attribute"]').forEach(el => {
-            const text = (el.innerText || "").trim();
-            if (text.includes(":") && text.length < 120) {
-                const parts = text.split(":");
-                const k = parts[0].toLowerCase().trim();
-                const v = parts.slice(1).join(":").trim();
-                if (k && v && !keyValues[k]) keyValues[k] = v;
+        const parseLineForKeyValue = (rawLine) => {
+            if (!rawLine) return;
+            const line = rawLine.trim();
+            const colonIdx = line.indexOf(":");
+            if (colonIdx > 0 && colonIdx < line.length - 1 && line.length < 100) {
+                const k = line.substring(0, colonIdx).toLowerCase().trim();
+                const v = line.substring(colonIdx + 1).trim();
+                if (k && v && !keyValues[k]) {
+                    // Strip any trailing labels or newlines
+                    keyValues[k] = v.split(/\r?\n/)[0].trim();
+                }
+            }
+        };
+
+        // Scan attribute elements and split multi-line blocks line by line
+        document.querySelectorAll('[class*="word-break"], [class*="item-property"], [class*="meta-item"], [class*="attribute"], [data-testid*="attribute"], tr, dl, div, li, p').forEach(el => {
+            const fullText = (el.innerText || "").trim();
+            if (fullText.includes(":")) {
+                const lines = fullText.split(/\r?\n/);
+                for (const line of lines) {
+                    parseLineForKeyValue(line);
+                }
             }
         });
 

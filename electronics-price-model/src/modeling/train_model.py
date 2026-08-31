@@ -21,10 +21,13 @@ def train_and_benchmark_laptop_models(data_path, models_dir):
         return
         
     df = pd.read_csv(data_path)
-    print(f"[*] Loaded Cleaned Dataset: {len(df):,} rows, {df.shape[1]} columns")
+    # Strictly filter for second-hand / used electronics data
+    if 'Condition_Cleaned' in df.columns:
+        df = df[df['Condition_Cleaned'] == 'Used'].copy()
+    print(f"[*] Loaded Cleaned Used Dataset: {len(df):,} rows, {df.shape[1]} columns")
     
-    # 1. Define Features & Target
-    cat_cols = ['Brand_Cleaned', 'Model_Cleaned', 'CPU_Cleaned', 'Storage_Type', 'GPU_Tier', 'Condition_Cleaned', 'Location_Cleaned']
+    # 1. Define Features & Target (Strictly Used Items)
+    cat_cols = ['Brand_Cleaned', 'Model_Cleaned', 'CPU_Cleaned', 'Storage_Type', 'GPU_Tier', 'Location_Cleaned']
     num_cols = ['Generation_Cleaned', 'RAM_GB', 'Storage_Capacity_GB', 'Is_Touchscreen']
     feature_cols = cat_cols + num_cols
     

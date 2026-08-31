@@ -228,22 +228,46 @@
                             ${data.item_type ? `<span class="fplk-extracted-tag" style="background:#FEE2E2; color:#991B1B; border-color:#FECACA;">Type: <strong>${data.item_type}</strong></span>` : ""}
                             ${!isUnsupported && data.phone_type ? `<span class="fplk-extracted-tag">Type: <strong>${data.phone_type === "iphone" ? "iPhone" : "Android"}</strong></span>` : ""}
                             ${!isUnsupported && data.vehicle_type ? `<span class="fplk-extracted-tag">Category: <strong>${data.vehicle_type === "suvs" ? "SUV" : data.vehicle_type === "vans" ? "Van" : "Car"}</strong></span>` : ""}
-                            ${!isUnsupported && (data.brand || data.make) ? `<span class="fplk-extracted-tag">Make: <strong>${data.brand || data.make}</strong></span>` : ""}
-                            ${!isUnsupported && data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ""}
-                            ${!isUnsupported && cat === "electronics" && data.cpu ? `<span class="fplk-extracted-tag">CPU: <strong>${data.cpu.toUpperCase()}</strong></span>` : ""}
-                            ${!isUnsupported && cat === "electronics" && data.generation && data.generation > 0 ? `<span class="fplk-extracted-tag">Gen: <strong>${data.generation}th Gen</strong></span>` : ""}
-                            ${!isUnsupported && data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ""}
-                            ${!isUnsupported && data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ""}
+                            ${!isUnsupported && (data.brand || data.make) ? `<span class="fplk-extracted-tag">Brand: <strong>${data.brand || data.make}</strong></span>` : ""}
+                            ${!isUnsupported && data.model && data.model !== (data.title || "") ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ""}
+                            
+                            <!-- Electronics: Monitor Specific Tags -->
+                            ${!isUnsupported && (data.size_inches || data.size) ? `<span class="fplk-extracted-tag">Size: <strong>${data.size_inches || data.size}"</strong></span>` : ""}
+                            ${!isUnsupported && (data.refresh_rate_hz || data.refresh_rate) ? `<span class="fplk-extracted-tag">Refresh: <strong>${data.refresh_rate_hz || data.refresh_rate}${String(data.refresh_rate_hz || data.refresh_rate).includes('Hz') ? '' : 'Hz'}</strong></span>` : ""}
+                            ${!isUnsupported && data.resolution ? `<span class="fplk-extracted-tag">Resolution: <strong>${data.resolution}</strong></span>` : ""}
+                            ${!isUnsupported && data.panel_type && data.panel_type !== "Standard" ? `<span class="fplk-extracted-tag">Panel: <strong>${data.panel_type}</strong></span>` : ""}
+                            ${!isUnsupported && data.is_curved ? `<span class="fplk-extracted-tag">Design: <strong>Curved</strong></span>` : ""}
+                            ${!isUnsupported && data.is_gaming ? `<span class="fplk-extracted-tag">Type: <strong>Gaming Display</strong></span>` : ""}
+                            
+                            <!-- Electronics: Laptop Specific Tags -->
+                            ${!isUnsupported && data.cpu ? `<span class="fplk-extracted-tag">CPU: <strong>${data.cpu.toUpperCase()}</strong></span>` : ""}
+                            ${!isUnsupported && data.generation && data.generation > 0 ? `<span class="fplk-extracted-tag">Gen: <strong>${data.generation}th Gen</strong></span>` : ""}
+                            ${!isUnsupported && data.gpu && data.gpu !== "None" ? `<span class="fplk-extracted-tag">GPU: <strong>${data.gpu}</strong></span>` : ""}
+                            ${!isUnsupported && data.is_touchscreen ? `<span class="fplk-extracted-tag">Screen: <strong>Touchscreen</strong></span>` : ""}
+
+                            <!-- Electronics & Mobiles: Memory & Storage -->
                             ${!isUnsupported && data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ""}
+                            ${!isUnsupported && data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB${data.storage_type ? ' ' + data.storage_type : ''}</strong></span>` : ""}
+                            ${!isUnsupported && data.connectivity ? `<span class="fplk-extracted-tag">Network: <strong>${data.connectivity}</strong></span>` : ""}
+
+                            <!-- GPUs -->
+                            ${!isUnsupported && data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ""}
+                            ${!isUnsupported && data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ""}
+
+                            <!-- Mobiles -->
                             ${!isUnsupported && data.battery_health_percent ? `<span class="fplk-extracted-tag">Battery Health: <strong>${data.battery_health_percent}%</strong></span>` : ""}
                             ${!isUnsupported && data.warranty_days ? `<span class="fplk-extracted-tag">Warranty: <strong>${data.warranty_days} days</strong></span>` : ""}
+
+                            <!-- Vehicles -->
                             ${!isUnsupported && (data.model_year || data.year) ? `<span class="fplk-extracted-tag">Year: <strong>${data.model_year || data.year}</strong></span>` : ""}
-                            ${!isUnsupported && data.variant ? `<span class="fplk-extracted-tag">Variant: <strong>${data.variant}</strong></span>` : ""}
                             ${!isUnsupported && (data.engine_cc || data.engineCC) ? `<span class="fplk-extracted-tag">Engine CC: <strong>${data.engine_cc || data.engineCC}</strong></span>` : ""}
                             ${!isUnsupported && (data.mileage || data.mileage_km) ? `<span class="fplk-extracted-tag">Mileage: <strong>${Number(data.mileage || data.mileage_km).toLocaleString("en-LK")} km</strong></span>` : ""}
                             ${!isUnsupported && (data.gear || data.transmission) ? `<span class="fplk-extracted-tag">Gear: <strong>${data.gear || data.transmission}</strong></span>` : ""}
                             ${!isUnsupported && (data.fuelType || data.fuel_type) ? `<span class="fplk-extracted-tag">Fuel: <strong>${data.fuelType || data.fuel_type}</strong></span>` : ""}
+
+                            <!-- Global Condition & Location -->
                             ${data.condition ? `<span class="fplk-extracted-tag ${isBrandNew ? "price" : ""}">Condition: <strong>${data.condition}</strong></span>` : ""}
+                            ${data.location ? `<span class="fplk-extracted-tag">Location: <strong>${data.location}</strong></span>` : ""}
                         </div>
                     </div>
 
@@ -923,6 +947,7 @@
           category: cat,
           subpath: subpath,
           payload: payloadForFetch,
+          with_screenshot: true,
         },
         (response) => {
           if (chrome.runtime.lastError) {
@@ -961,12 +986,20 @@
           currentExtraction.valid = true;
 
           // Unconditionally synchronize authoritative specs from backend Single Source of Truth into currentExtraction.data
-          if (cachedPrediction && (cachedPrediction.enriched_specs || cachedPrediction.inputs)) {
-            const enriched = cachedPrediction.enriched_specs || cachedPrediction.inputs;
-            currentExtraction.data = {
-              ...(currentExtraction.data || {}),
-              ...enriched
-            };
+          if (cachedPrediction) {
+            const authoritative = cachedPrediction.extracted_specs 
+                                || cachedPrediction.enriched_specs 
+                                || cachedPrediction.inputs 
+                                || {};
+            if (Object.keys(authoritative).length > 0) {
+              currentExtraction.data = {
+                ...(currentExtraction.data || {}),
+                ...authoritative
+              };
+              if (cachedPrediction.category) {
+                currentExtraction.data.subcategory = cachedPrediction.category;
+              }
+            }
           }
 
           renderEmbeddedCard(manualOverride);
