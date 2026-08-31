@@ -304,13 +304,18 @@ window.FairPriceLK_Extractors.index = (function () {
 
         if (category === "unsupported") {
             const isNonPhone = NON_PHONE_PATTERNS.some(p => p.test(pageContext.title || ""));
-            const itemType = isNonPhone ? "Smart Watch / Accessory" : "Non-Phone / Unsupported Product";
+            const itemType = isNonPhone ? "Smart Watch / Phone Accessory" : "Unsupported Product Category";
+            const titleDisplay = pageContext.title ? `"${pageContext.title}"` : "This listing";
+            const errorMessage = isNonPhone
+                ? `${titleDisplay} appears to be a mobile accessory or wearable, not a supported smartphone. FairPriceLK currently supports Mobile Phones (Smartphones), Graphics Cards (GPUs), Vehicles, and Computer Hardware.`
+                : `${titleDisplay} is not in a supported category. FairPriceLK currently provides price valuation for Mobile Phones, Graphics Cards (GPUs), Vehicles, and Computer Hardware (Laptops/Monitors).`;
+
             return {
                 category: "unsupported",
                 valid: false,
                 is_unsupported_item: true,
                 is_brand_new: isBrandNew,
-                error_message: `This listing was detected as a ${itemType} ("${pageContext.title || 'Item'}"), not a mobile phone. FairPriceLK is specifically built for Mobile Phones (Smartphones), GPUs, Vehicles, and Computer Hardware.`,
+                error_message: errorMessage,
                 data: {
                     title: pageContext.title,
                     listed_price: pageContext.price,

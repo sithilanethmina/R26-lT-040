@@ -707,18 +707,19 @@ window.FairPriceLK_Extractors.mobile = (function () {
         // Check if item is an accessory or smartwatch (NOT a mobile phone)
         const isNonPhone = NON_PHONE_PATTERNS.some(p => p.test(scopeTitle) || p.test(title));
         if (isNonPhone) {
+            const titleDisplay = (scopeTitle || title) ? `"${scopeTitle || title}"` : "This listing";
             return {
                 category: "unsupported",
                 valid: false,
                 is_unsupported_item: true,
-                error_message: `This listing appears to be a Smart Watch / Accessory ("${scopeTitle || title}"), not a mobile phone. FairPriceLK mobile valuation is designed for Smartphones only.`,
+                error_message: `${titleDisplay} appears to be a mobile accessory or wearable, not a smartphone. FairPriceLK mobile valuation is designed for Smartphones only.`,
                 data: {
                     title: scopeTitle || title,
                     listed_price: scraped.price || price || null,
                     condition: scraped.condition || key_values.condition || null,
                     brand: null,
                     model: null,
-                    item_type: "Smart Watch / Accessory"
+                    item_type: "Smart Watch / Phone Accessory"
                 }
             };
         }
