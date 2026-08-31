@@ -162,20 +162,24 @@ Tata,Nano,75,1685400,2011,2017,High
 Tata,Indica,40,2583750,2004,2016,High
 Tata,Indigo,24,2342292,2006,2015,Medium
 Toyota,Vitz,711,7041278,1999,2020,High
-Toyota,Corolla,500,4549630,1990,2023,High
 Toyota,Axio,467,9741722,2007,2024,High
 Toyota,Aqua,435,7947529,2012,2023,High
 Toyota,Premio,380,12533855,1996,2020,High
 Toyota,Prius,294,9880612,2007,2017,High
 Toyota,Allion,275,8715491,2002,2018,High
 Toyota,Yaris,209,9074545,2006,2026,High
+Toyota,Corolla,199,3545879,1990,2023,High
 Toyota,Roomy,187,9744893,2016,2026,High
-Toyota,Passo,120,6146083,2004,2024,High
-Toyota,Vios,117,5469060,2003,2010,High
+Toyota,Vios,124,5459839,2003,2010,High
+Toyota,Passo,122,6181926,2004,2024,High
+Toyota,Corolla 121,120,5713917,2000,2007,High
 Toyota,Starlet,101,3868564,1992,2000,High
 Toyota,Carina,95,4449989,1990,2002,High
 Toyota,Belta,82,6474268,2007,2011,High
-Toyota,110,43,3737093,1996,2000,High
+Toyota,110,76,3765263,1996,2003,High
+Toyota,Corolla 141,68,6732132,2007,2012,High
+Toyota,AE110,65,3827692,1995,2000,High
+Toyota,CE110,28,3541786,1996,2000,Medium
 Toyota,IST,25,5566200,2002,2007,Medium
 Toyota,Avanza,24,6329167,2007,2012,Medium
 Toyota,Tercel,24,2850208,1996,1998,Medium
@@ -184,22 +188,17 @@ Toyota,Corona,22,2474773,1990,1996,Medium
 Toyota,Soluna,21,3324286,1999,2005,Medium
 Toyota,Wigo,20,6514250,2017,2019,Medium
 Toyota,Tank,16,8314688,2017,2019,Medium
-Toyota,Sprinter,15,3342333,1991,2000,Medium
 Toyota,ROOMY,14,10079643,2023,2025,Medium
 Toyota,Camry,12,5241250,1992,2008,Medium
 Toyota,Pixis,12,6937917,2016,2025,Medium
 Toyota,Elephant,10,3005000,1996,1997,Medium
 Toyota,YARIS,9,9694444,2023,2024,Low — insufficient market data
-Toyota,CE110,7,3497143,1996,1997,Low — insufficient market data
+Toyota,Sprinter,8,3096250,1991,2000,Low — insufficient market data
 Toyota,CE100,6,2371667,1992,1994,Low — insufficient market data
 Toyota,Caldina,6,3457500,1997,1997,Low — insufficient market data
 Toyota,Dx,5,1650000,1990,1990,Low — insufficient market data
 Toyota,Ist,5,5252000,2003,2003,Low — insufficient market data
 Toyota,Duet,4,3425000,1999,1999,Low — insufficient market data
-Toyota,AE110,3,4033333,1997,1997,Low — insufficient market data
-Toyota,Ce110,3,3088333,1996,1996,Low — insufficient market data
 Toyota,Mark,3,9866667,2007,2007,Low — insufficient market data
 Toyota,Platz,3,4016667,2001,2001,Low — insufficient market data
 Toyota,Sienta,3,12466667,2016,2016,Low — insufficient market data
-Toyota,VIOS,3,5391667,2003,2003,Low — insufficient market data
-Toyota,Verossa,3,5666667,2003,2003,Low — insufficient market data

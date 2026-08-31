@@ -115,7 +115,7 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 
 
 # ─── NORMALIZERS ──────────────────────────────────────────────────────────────
-def normalize_car_model(raw_model: str) -> str:
+def normalize_car_model(raw_model: str, brand: str = "") -> str:
     if not isinstance(raw_model, str): 
         return "Unknown"
     
@@ -147,6 +147,11 @@ def normalize_car_model(raw_model: str) -> str:
     if "axio" in m: return "Axio"
     if "carina" in m: return "Carina"
     if "allion" in m: return "Allion"
+    if "vios" in m: return "Vios"
+    if "passo" in m: return "Passo"
+    if "121" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 121"
+    if "141" in m and ("corolla" in m or brand.lower() == "toyota"): return "Corolla 141"
+    if "110" in m and ("corolla" in m or brand.lower() == "toyota"): return "110"
     
     if "fit gp1" in m: return "Fit GP1"
     if "fit gp5" in m: return "FIT GP5"
@@ -237,6 +242,11 @@ def normalize_suv_model(raw_model: str, engine_cc: float, year: int) -> str:
         return "Unknown"
     
     m = raw_model.strip().lower()
+
+    if re.search(r'\bq2\b', m): return "Q2"
+    if re.search(r'\bq3\b', m): return "Q3"
+    if re.search(r'\bq5\b', m): return "Q5"
+    if re.search(r'\bq7\b', m): return "Q7"
 
     if re.search(r'\bx1\b', m): return "X1"
     if re.search(r'\bx2\b', m): return "X2"
@@ -331,7 +341,7 @@ def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
     standard_only_models = [
         "Alto", "Alto K10", "Wagon R", "Wagon R FZ", "Wagon R FX", "Wagon R Stingray",
         "Celerio", "Swift", "Hustler", "Maruti", "Spacia",
-        "Aqua", "Prius", "Vitz", "Premio", "Axio", "Carina", "Allion",
+        "Aqua", "Prius", "Vitz", "Premio", "Axio", "Carina", "Allion", "Vios", "Passo", "Corolla 121", "Corolla 141", "110",
         "Kelisa", "Bezza", "Kenari", "Viva Elite", "Axia",
         "Fit GP1", "FIT GP5", "Civic FD3", "Civic FD4", "Civic FD1", "Civic ES8", "Civic ES5", "Honda Grace", "Insight", "Civic",
         "Panda", "Panda Cross", "MX7", "Emgrand",
@@ -341,7 +351,7 @@ def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
         "FB13", "FB14", "FB15", "N16", "N17", "Leaf", "Cefiro", "March K10", "March K11", "March K12", "Tiida",
         "Mira",
         "Indica", "Nano", "Indigo",
-        "A1", "A3", "A4", "A5", "A6",
+        "A1", "A3", "A4", "A5", "A6", "Q2", "Q3", "Q5", "Q7",
         "318i", "520D", "320D", "730Ld", "530e", "523i", "Mini Cooper", "I8",
         "C180", "E200", "A200", "E300", "SLK200", "E220", "S350", "E180", "E240", "C200", "CLA 200", "C250", "W210", "E350",
         "X1", "X2", "X3", "X5", "ZS",
@@ -508,7 +518,7 @@ def predict_car(req: PredictRequest):
     vehicle_age = max(REFERENCE_YEAR - req.model_year, 1)
     effective_mileage = req.mileage_km if req.mileage_km and req.mileage_km > 0 else float(vehicle_age * 12000)
     
-    clean_model_name = normalize_car_model(req.model)
+    clean_model_name = normalize_car_model(req.model, req.brand)
     clean_variant = normalize_variant(clean_model_name, req.variant)
     
     print("\n" + "="*50)
