@@ -243,7 +243,7 @@
                                 <span class="fplk-verdict-tag" style="background:#FEE2E2; color:#991B1B; font-weight:700;">⚠️ CATEGORY NOT SUPPORTED</span>
                             </div>
                             <div class="fplk-verdict-body" style="font-size: 12.5px; color: #7F1D1D; line-height: 1.5; margin-top: 4px;">
-                                ${ext.error_message || `This listing appears to be a <strong>Smart Watch / Accessory</strong> ("${data.title || "Listing"}"), not a mobile phone. FairPriceLK's valuation models are designed specifically for <strong>Mobile Phones (Smartphones)</strong>, <strong>Graphics Cards</strong>, <strong>Vehicles</strong>, and <strong>Laptops/Monitors</strong>.`}
+                                ${ext.error_message || `This listing ("${data.title || "Listing"}") is not in a supported category. FairPriceLK provides valuation for <strong>Mobile Phones</strong>, <strong>Graphics Cards (GPUs)</strong>, <strong>Vehicles</strong>, and <strong>Computer Hardware (Laptops/Monitors)</strong>.`}
                             </div>
                         </div>
                     `

@@ -527,7 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
               showError(
                 response.data.error_message ||
-                  "This listing was detected as a Smart Watch / Accessory. FairPriceLK only provides valuation for Mobile Phones (Smartphones), GPUs, Vehicles, and Computers.",
+                  "This listing is not in a supported category. FairPriceLK currently provides valuation for Mobile Phones (Smartphones), Graphics Cards (GPUs), Vehicles, and Computer Hardware (Laptops/Monitors).",
               );
               return;
             }
