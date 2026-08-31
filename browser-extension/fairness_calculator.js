@@ -66,6 +66,7 @@ window.FairPriceLK_Fairness = (function () {
         // - Peaks at 100 when price equals fair midpoint
         // - High (80 to 100) within the empirical conformal interval [lower, upper]
         // - Smoothly decays outside the interval
+        // 1. Standard Continuous Math (Used directly for non-vehicles, and as Base for vehicles)
         let score = 80;
         if (isWithinRange) {
             const distFromMid = Math.abs(listedPrice - fairMid);
@@ -79,6 +80,39 @@ window.FairPriceLK_Fairness = (function () {
             const excessDist = listedPrice - (upperPrice || fairMid * 1.1);
             const decay = Math.pow(excessDist / Math.max(halfWidth, 1), 1.3);
             score = Math.max(5, Math.min(79, Math.round(80 - (decay * 25))));
+        }
+
+        // 2. VEHICLE SPECIFIC LOGIC (NLP Modifier + 95 Cap)
+        let nlpModifier = 0;
+        let nlpExplanation = "";
+
+        if (category === "vehicle") {
+            let baseScore = Math.min(95, score); // Cap base at 95 for vehicles
+            
+            const isExtremeUnderprice = hasBounds ? (listedPrice < (lowerPrice - 1.5 * halfWidth)) : (diffPercent < -35);
+            const isExtremeOverprice = hasBounds ? (listedPrice > (upperPrice + 1.2 * halfWidth)) : (diffPercent > 25);
+
+            if (itemDetails && itemDetails.nlp_score !== undefined) {
+                const nlp = itemDetails.nlp_score;
+                if (nlp >= 65) {
+                    nlpModifier = 5;
+                    nlpExplanation = "Good description provided (+5 points).";
+                } else if (nlp < 45 && nlp > 0) {
+                    nlpModifier = -15;
+                    nlpExplanation = "High-risk keywords detected in description (-15 points).";
+                } else if (nlp > 0) {
+                    nlpExplanation = "Standard description detected.";
+                }
+
+                // GATING RULE: No positive bonus for suspicious pricing
+                if (isExtremeUnderprice || isExtremeOverprice) {
+                    nlpModifier = Math.min(0, nlpModifier);
+                    if (nlp >= 65) {
+                        nlpExplanation = "Good description detected, but bonus disabled due to high-risk price variance.";
+                    }
+                }
+            }
+            score = Math.max(5, Math.min(95, baseScore + nlpModifier)); // Final vehicle score
         }
 
         let tier = "FAIR_PRICE";
@@ -180,6 +214,15 @@ window.FairPriceLK_Fairness = (function () {
         // Breakdown & Calculation Factor Details
         let factors = [];
         let formulaText = "";
+
+        if (category === "vehicle" && itemDetails && itemDetails.nlp_score !== undefined && itemDetails.nlp_score > 0) {
+            factors.push({
+                name: "Description Analysis (NLP)",
+                impact: nlpModifier > 0 ? "Favorable" : (nlpModifier < 0 ? "Caution" : "Neutral"),
+                value: itemDetails.nlp_score + "/100",
+                desc: nlpExplanation + " Verdict: " + (itemDetails.nlp_verdict || "N/A")
+            });
+        }
 
         if (isExtremeUnderprice) {
             formulaText = `Unusually Low Price: Listed well below estimated market range [${formatLKR(lowerPrice)}]. Score: ${score}/100`;

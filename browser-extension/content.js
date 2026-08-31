@@ -344,6 +344,12 @@
         : "gpu";
     const itemDetails =
       currentExtraction && currentExtraction.data ? currentExtraction.data : {};
+
+    if (pred.nlp_score !== undefined) {
+      itemDetails.nlp_score = pred.nlp_score;
+      itemDetails.nlp_verdict = pred.nlp_verdict;
+    }
+
     if (window.FairPriceLK_Fairness) {
       fairness = window.FairPriceLK_Fairness.evaluate(
         listedPrice,
@@ -808,6 +814,7 @@
           mileage_km: originalData.mileage_km,
           fuel_type: originalData.fuel_type,
           transmission: originalData.transmission,
+          description: originalData.description || null,
         };
       }
     }
