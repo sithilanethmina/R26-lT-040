@@ -53,8 +53,8 @@ def check_dependencies():
 SERVICES = [
     {
         "name": "GPU Microservice",
-        "cwd": PROJECT_ROOT / "gpu-price-model",
-        "cmd": [VENV_PYTHON, "-m", "gpu_price_predictor.api"]
+        "cwd": PROJECT_ROOT / "gpu-price-model" / "src",
+        "cmd": [VENV_PYTHON, "-m", "uvicorn", "gpu_price_predictor.api:app", "--host", "0.0.0.0", "--port", "8001"]
     },
     {
         "name": "Mobile Microservice",
