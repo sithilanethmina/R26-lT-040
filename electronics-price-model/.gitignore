@@ -1,0 +1,13 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Local Environment
+.env
+.env.*
+
+# Saved Page Screenshots
+screenshots/
+*.jpg
+*.jpeg
+*.png

@@ -719,9 +719,15 @@ async def predict_proxy(category: str, request: Request):
             "category": subcat,
             "brand": actual_brand,
             "model": model_val,
-            "algorithm": "xgboost",
+            "title": body.get("title") or model_val,
+            "description": body.get("description", ""),
+            "raw_text": body.get("raw_text", ""),
+            "image_base64": body.get("image_base64") or body.get("image") or body.get("screenshot"),
+            "algorithm": "default",
             "price": body.get("price") or body.get("listed_price"),
-            "listed_price": body.get("listed_price") or body.get("price")
+            "listed_price": body.get("listed_price") or body.get("price"),
+            "location": body.get("location", "Colombo"),
+            "condition": body.get("condition", "Used")
         }
         
         if subcat == "laptop":
@@ -836,12 +842,7 @@ async def predict_proxy(category: str, request: Request):
                             }
                         })
                     else:
-                        return JSONResponse(status_code=200, content={
-                            "predicted_price": predicted_price,
-                            "price": elec_data.get("price", f"Rs {predicted_price:,.2f}"),
-                            "category": "electronics",
-                            "subcat": subcat
-                        })
+                        return JSONResponse(status_code=200, content=elec_data)
             except Exception as e:
                 print(f"Error redirecting to electronics service: {e}")
                 
