@@ -179,7 +179,7 @@ window.FairPriceLK_Extractors.index = (function () {
         if (/\b(toyota|suzuki|corolla|aqua|alto|honda|nissan|wagon r|prius|axio|premio|vezel|vitz|land cruiser|prado|dolphin|hiace)\b/i.test(title)) {
             return "vehicle";
         }
-        if (/\b(laptop|macbook|thinkpad|notebook|dell monitor|curved monitor|ipad)\b/i.test(title)) {
+        if (/\b(laptop|macbook|thinkpad|notebook|dell monitor|curved monitor|ipad|tab\b|tablet|pad\b|matepad|mediapad|vostro|latitude|inspiron|elitebook|probook|zenbook|vivobook|thinkbook|ideapad|gaming laptop)\b/i.test(title)) {
             return "electronics";
         }
 

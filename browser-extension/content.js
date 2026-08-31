@@ -196,6 +196,8 @@
                             ${!isUnsupported && data.vehicle_type ? `<span class="fplk-extracted-tag">Category: <strong>${data.vehicle_type === "suvs" ? "SUV" : data.vehicle_type === "vans" ? "Van" : "Car"}</strong></span>` : ""}
                             ${!isUnsupported && (data.brand || data.make) ? `<span class="fplk-extracted-tag">Make: <strong>${data.brand || data.make}</strong></span>` : ""}
                             ${!isUnsupported && data.model ? `<span class="fplk-extracted-tag">Model: <strong>${data.model}</strong></span>` : ""}
+                            ${!isUnsupported && cat === "electronics" && data.cpu ? `<span class="fplk-extracted-tag">CPU: <strong>${data.cpu.toUpperCase()}</strong></span>` : ""}
+                            ${!isUnsupported && cat === "electronics" && data.generation && data.generation > 0 ? `<span class="fplk-extracted-tag">Gen: <strong>${data.generation}th Gen</strong></span>` : ""}
                             ${!isUnsupported && data.vram_gb ? `<span class="fplk-extracted-tag">VRAM: <strong>${data.vram_gb} GB</strong></span>` : ""}
                             ${!isUnsupported && data.storage_gb ? `<span class="fplk-extracted-tag">Storage: <strong>${data.storage_gb} GB</strong></span>` : ""}
                             ${!isUnsupported && data.ram_gb ? `<span class="fplk-extracted-tag">RAM: <strong>${data.ram_gb} GB</strong></span>` : ""}
@@ -212,9 +214,8 @@
                     </div>
 
                     <!-- Unsupported Item Notice -->
-                    ${
-                      isUnsupported
-                        ? `
+                    ${isUnsupported
+        ? `
                         <div class="fplk-verdict-box warning" style="background:#FEF2F2; border:1px solid #FECACA; color:#991B1B;">
                             <div class="fplk-verdict-header">
                                 <span class="fplk-verdict-tag" style="background:#FEE2E2; color:#991B1B; font-weight:700;">⚠️ CATEGORY NOT SUPPORTED: MOBILE PHONES ONLY</span>
@@ -224,13 +225,12 @@
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
 
                     <!-- Brand New Notice -->
-                    ${
-                      !isUnsupported && isBrandNew && !manualEstimateRequested
-                        ? `
+                    ${!isUnsupported && isBrandNew && !manualEstimateRequested
+        ? `
                         <div class="fplk-verdict-box warning">
                             <div class="fplk-verdict-header">
                                 <span class="fplk-verdict-tag" style="background:#FDE68A; color:#92400E; font-weight:700;">⚠️ USED ITEMS VALUATION ONLY</span>
@@ -240,16 +240,15 @@
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
 
                     <!-- Evaluation or Missing info -->
-                    ${
-                      !isUnsupported &&
-                      !ext.valid &&
-                      !cachedPrediction &&
-                      !isBrandNew
-                        ? `
+                    ${!isUnsupported &&
+        !ext.valid &&
+        !cachedPrediction &&
+        !isBrandNew
+        ? `
                         <div class="fplk-verdict-box neutral">
                             <div class="fplk-verdict-header">
                                 <span class="fplk-verdict-tag">Listing Details Detected</span>
@@ -259,15 +258,14 @@
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
 
                     ${!isUnsupported && cachedPrediction && (!isBrandNew || manualEstimateRequested) ? renderPredictionResult(cachedPrediction, data.listed_price) : ""}
 
                     <!-- Manual Refine Form (Collapsible/Accordion) - Only for supported Used items -->
-                    ${
-                      !isUnsupported && !isBrandNew
-                        ? `
+                    ${!isUnsupported && !isBrandNew
+        ? `
                     <details class="fplk-form-section">
                         <summary class="fplk-form-title" style="cursor: pointer;">
                             <span>Refine Details / Manual Estimate</span>
@@ -288,8 +286,8 @@
                         </div>
                     </details>
                     `
-                        : ""
-                    }
+        : ""
+      }
                 </div>
             </div>
         `;
@@ -372,9 +370,8 @@
             </div>
 
             <!-- Score Calculation Breakdown (Collapsible Accordion) -->
-            ${
-              fairness && fairness.breakdown
-                ? `
+            ${fairness && fairness.breakdown
+        ? `
                 <details class="fplk-breakdown-details">
                     <summary class="fplk-breakdown-summary">
                         <span class="fplk-breakdown-summary-title">
@@ -391,11 +388,11 @@
 
                         <div class="fplk-factors-list">
                             ${(fairness.breakdown.factors || [])
-                              .map((f) => {
-                                const pillClass = (f.impact || "neutral")
-                                  .toLowerCase()
-                                  .replace(/\s+/g, "-");
-                                return `
+          .map((f) => {
+            const pillClass = (f.impact || "neutral")
+              .toLowerCase()
+              .replace(/\s+/g, "-");
+            return `
                                     <div class="fplk-factor-card">
                                         <div class="fplk-factor-header">
                                             <span class="fplk-factor-name">${f.name}</span>
@@ -404,14 +401,14 @@
                                         <div class="fplk-factor-desc">${f.desc}</div>
                                     </div>
                                 `;
-                              })
-                              .join("")}
+          })
+          .join("")}
                         </div>
                     </div>
                 </details>
             `
-                : ""
-            }
+        : ""
+      }
         `;
   }
 
@@ -443,11 +440,11 @@
                         <label class="fplk-label">VRAM (GB)</label>
                         <select class="fplk-select" id="fplk-select-gpu-vram">
                             ${[1, 2, 3, 4, 6, 8, 10, 11, 12, 16, 20, 24]
-                              .map(
-                                (v) =>
-                                  `<option value="${v}" ${Number(currentVram) === v ? "selected" : ""}>${v} GB</option>`,
-                              )
-                              .join("")}
+          .map(
+            (v) =>
+              `<option value="${v}" ${Number(currentVram) === v ? "selected" : ""}>${v} GB</option>`,
+          )
+          .join("")}
                         </select>
                     </div>
                     <div class="fplk-form-group">
@@ -555,6 +552,54 @@
                     <div class="fplk-form-group">
                         <label class="fplk-label">Variant <span style="color:#71717A;font-size:10px;">(optional)</span></label>
                         <input type="text" class="fplk-input" id="fplk-vehicle-variant" value="${currentVariant}" placeholder="e.g. G Grade">
+                    </div>
+                </div>
+            `;
+    } else if (category === "electronics" && data.category === "laptop") {
+      return `
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Brand</label>
+                        <input type="text" class="fplk-input" id="fplk-elec-brand" value="${data.brand || ""}" placeholder="e.g. Dell">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Model</label>
+                        <input type="text" class="fplk-input" id="fplk-elec-model" value="${data.model || ""}" placeholder="e.g. Latitude 5420">
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">CPU (Processor)</label>
+                        <select class="fplk-select" id="fplk-elec-cpu">
+                            <option value="Other" ${data.cpu && data.cpu.toUpperCase() === "OTHER" ? "selected" : ""}>Other</option>
+                            <option value="i3" ${data.cpu && data.cpu.toLowerCase() === "i3" ? "selected" : ""}>Intel Core i3</option>
+                            <option value="i5" ${data.cpu && data.cpu.toLowerCase() === "i5" ? "selected" : ""}>Intel Core i5</option>
+                            <option value="i7" ${data.cpu && data.cpu.toLowerCase() === "i7" ? "selected" : ""}>Intel Core i7</option>
+                            <option value="i9" ${data.cpu && data.cpu.toLowerCase() === "i9" ? "selected" : ""}>Intel Core i9</option>
+                            <option value="Ryzen 3" ${data.cpu && data.cpu.toLowerCase().includes("ryzen 3") ? "selected" : ""}>AMD Ryzen 3</option>
+                            <option value="Ryzen 5" ${data.cpu && data.cpu.toLowerCase().includes("ryzen 5") ? "selected" : ""}>AMD Ryzen 5</option>
+                            <option value="Ryzen 7" ${data.cpu && data.cpu.toLowerCase().includes("ryzen 7") ? "selected" : ""}>AMD Ryzen 7</option>
+                            <option value="Ryzen 9" ${data.cpu && data.cpu.toLowerCase().includes("ryzen 9") ? "selected" : ""}>AMD Ryzen 9</option>
+                            <option value="M1" ${data.cpu && data.cpu.toLowerCase() === "m1" ? "selected" : ""}>Apple M1</option>
+                            <option value="M2" ${data.cpu && data.cpu.toLowerCase() === "m2" ? "selected" : ""}>Apple M2</option>
+                            <option value="M3" ${data.cpu && data.cpu.toLowerCase() === "m3" ? "selected" : ""}>Apple M3</option>
+                            <option value="Celeron" ${data.cpu && data.cpu.toLowerCase() === "celeron" ? "selected" : ""}>Intel Celeron</option>
+                            <option value="Pentium" ${data.cpu && data.cpu.toLowerCase() === "pentium" ? "selected" : ""}>Intel Pentium</option>
+                        </select>
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Generation</label>
+                        <input type="number" class="fplk-input" id="fplk-elec-gen" value="${data.generation || 0}" min="0" max="15" placeholder="e.g. 8">
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">RAM (GB)</label>
+                        <input type="number" class="fplk-input" id="fplk-elec-ram" value="${data.ram || 8}">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Storage (GB)</label>
+                        <input type="number" class="fplk-input" id="fplk-elec-storage" value="${data.storage || 256}">
                     </div>
                 </div>
             `;
@@ -706,12 +751,31 @@
     } else if (cat === "electronics") {
       const bEl = document.getElementById("fplk-elec-brand");
       const mEl = document.getElementById("fplk-elec-model");
+      const rEl = document.getElementById("fplk-elec-ram");
+      const sEl = document.getElementById("fplk-elec-storage");
+      const cpEl = document.getElementById("fplk-elec-cpu");
+      const gnEl = document.getElementById("fplk-elec-gen");
 
       if (bEl) d.brand = bEl.value.trim();
       if (mEl) d.model = mEl.value.trim();
       d.category = "laptop";
-      d.ram = 8;
-      d.storage = 256;
+      if (cpEl) d.cpu = cpEl.value;
+      if (gnEl) d.generation = parseInt(gnEl.value, 10) || 0;
+
+      if (rEl) {
+        d.ram = parseFloat(rEl.value) || 8;
+        d.ram_gb = d.ram;
+      } else {
+        d.ram = d.ram || 8;
+        d.ram_gb = d.ram;
+      }
+      if (sEl) {
+        d.storage = parseFloat(sEl.value) || 256;
+        d.storage_gb = d.storage;
+      } else {
+        d.storage = d.storage || 256;
+        d.storage_gb = d.storage;
+      }
     }
 
     currentExtraction.data = d;
@@ -744,12 +808,12 @@
         ram_gb: originalData.ram_gb || 6,
         warranty_days:
           originalData.warranty_days !== undefined &&
-          originalData.warranty_days !== null
+            originalData.warranty_days !== null
             ? originalData.warranty_days
             : 0,
         battery_health_percent:
           originalData.battery_health_percent !== undefined &&
-          originalData.battery_health_percent !== null
+            originalData.battery_health_percent !== null
             ? originalData.battery_health_percent
             : null,
         dual_sim: originalData.dual_sim ? true : false,
@@ -864,7 +928,7 @@
             valid: extraction ? extraction.valid : false,
             is_unsupported_item: extraction
               ? extraction.is_unsupported_item ||
-                extraction.category === "unsupported"
+              extraction.category === "unsupported"
               : false,
             error_message: extraction ? extraction.error_message : null,
           },
