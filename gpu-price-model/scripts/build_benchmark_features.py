@@ -447,35 +447,20 @@ def derive_tier_class(model_name: str) -> str:
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     print("\nStep 4: Engineering derived features ...")
 
-    # --- Release year: prefer spec, fallback to bench ---
+    # Combine release year (prefer curated specs database, fallback to benchmark run date)
     df["release_year"] = df["release_year_spec"].combine_first(df["release_year_bench"])
-    df["gpu_age_years"] = CURRENT_YEAR - df["release_year"]
-    # Clamp age to sensible range
-    df["gpu_age_years"] = df["gpu_age_years"].clip(0, 40)
+    df["gpu_age_years"] = (CURRENT_YEAR - df["release_year"]).clip(0, 40)
 
-    # --- TDP: prefer spec (more accurate), fallback to benchmark CSV TDP ---
+    # Prefer detailed spec TDP with fallback to PassMark TDP
     df["tdp_watts"] = df["spec_tdp_watts"].combine_first(df["bench_tdp"])
-
-    # --- Performance score: prefer G3Dmark, fallback to fp32_gflops ---
     df["perf_score"] = df["G3Dmark"].combine_first(df["fp32_gflops"])
-
-    # --- Log G3Dmark ---
     df["log_G3Dmark"] = np.log1p(df["G3Dmark"].fillna(0))
 
-    # --- Tier class & Model number ---
     df["tier_class"] = df["extracted_model"].apply(derive_tier_class)
     df["model_number"] = df["extracted_model"].apply(derive_model_number)
-
-    # --- Series family ---
     df["series_family"] = df["extracted_model"].apply(derive_series_family)
-
-    # --- GPU generation ---
     df["gpu_generation"] = df["norm_model"].apply(derive_gpu_generation)
-
-    # --- Ti variant ---
     df["ti_variant"] = df["extracted_model"].apply(is_ti_variant)
-
-    # --- Log price (target) ---
     df["log_price_lkr"] = np.log1p(df["price_lkr"])
 
     print("  Features engineered.")
