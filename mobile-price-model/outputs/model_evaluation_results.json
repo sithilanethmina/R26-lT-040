@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T20:01:10",
+  "generated_at": "2026-09-01T04:16:27",
   "target": "listed_price",
   "features": [
     "brand",
@@ -21,47 +21,47 @@
     "catboost_iphone": {
       "model_name": "CatBoost",
       "phone_type": "iphone",
-      "total_records": 6037,
-      "train_records": 4829,
-      "test_records": 1208,
-      "mae": 8202.421104632247,
-      "rmse": 11993.644941497541,
-      "r2_score": 0.9708043222738548,
-      "mape_percent": 9.543443525286909,
-      "cv_mae": 8569.665988660929
+      "total_records": 22322,
+      "train_records": 17857,
+      "test_records": 4465,
+      "mae": 7754.233819165869,
+      "rmse": 10848.421705037195,
+      "r2_score": 0.9740564027389601,
+      "mape_percent": 8.716648685258699,
+      "cv_mae": 7918.777371501902
     },
     "xgboost_android": {
       "model_name": "XGBoost",
       "phone_type": "android",
-      "total_records": 6092,
-      "train_records": 4873,
-      "test_records": 1219,
-      "mae": 8426.458926694524,
-      "rmse": 14799.516927738212,
-      "r2_score": 0.872744113133124,
-      "mape_percent": 24.23481821943904,
-      "cv_mae": 8319.462782454802
+      "total_records": 12719,
+      "train_records": 10175,
+      "test_records": 2544,
+      "mae": 7125.543894641804,
+      "rmse": 13039.782610617327,
+      "r2_score": 0.9501959538925053,
+      "mape_percent": 18.165175457037847,
+      "cv_mae": 7304.568277027027
     }
   },
   "skipped_models": {},
   "recommendations": {
     "android": {
       "recommended_model": "XGBoost",
-      "recommended_model_mae": 8426.458926694524,
-      "recommended_model_r2_score": 0.872744113133124,
+      "recommended_model_mae": 7125.543894641804,
+      "recommended_model_r2_score": 0.9501959538925053,
       "lowest_mae_model": "XGBoost",
-      "lowest_mae": 8426.458926694524,
+      "lowest_mae": 7125.543894641804,
       "highest_r2_model": "XGBoost",
-      "highest_r2_score": 0.872744113133124
+      "highest_r2_score": 0.9501959538925053
     },
     "iphone": {
       "recommended_model": "CatBoost",
-      "recommended_model_mae": 8202.421104632247,
-      "recommended_model_r2_score": 0.9708043222738548,
+      "recommended_model_mae": 7754.233819165869,
+      "recommended_model_r2_score": 0.9740564027389601,
       "lowest_mae_model": "CatBoost",
-      "lowest_mae": 8202.421104632247,
+      "lowest_mae": 7754.233819165869,
       "highest_r2_model": "CatBoost",
-      "highest_r2_score": 0.9708043222738548
+      "highest_r2_score": 0.9740564027389601
     }
   },
   "fair_price_output_files": {
