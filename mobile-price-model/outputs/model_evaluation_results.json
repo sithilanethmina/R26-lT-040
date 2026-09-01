@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T04:16:27",
+  "generated_at": "2026-09-01T08:59:11",
   "target": "listed_price",
   "features": [
     "brand",
@@ -24,11 +24,11 @@
       "total_records": 22322,
       "train_records": 17857,
       "test_records": 4465,
-      "mae": 7754.233819165869,
-      "rmse": 10848.421705037195,
-      "r2_score": 0.9740564027389601,
-      "mape_percent": 8.716648685258699,
-      "cv_mae": 7918.777371501902
+      "mae": 7919.663832502332,
+      "rmse": 10984.620421695847,
+      "r2_score": 0.9734008851576943,
+      "mape_percent": 8.75815963017235,
+      "cv_mae": 8042.705270840643
     },
     "xgboost_android": {
       "model_name": "XGBoost",
@@ -56,12 +56,12 @@
     },
     "iphone": {
       "recommended_model": "CatBoost",
-      "recommended_model_mae": 7754.233819165869,
-      "recommended_model_r2_score": 0.9740564027389601,
+      "recommended_model_mae": 7919.663832502332,
+      "recommended_model_r2_score": 0.9734008851576943,
       "lowest_mae_model": "CatBoost",
-      "lowest_mae": 7754.233819165869,
+      "lowest_mae": 7919.663832502332,
       "highest_r2_model": "CatBoost",
-      "highest_r2_score": 0.9740564027389601
+      "highest_r2_score": 0.9734008851576943
     }
   },
   "fair_price_output_files": {

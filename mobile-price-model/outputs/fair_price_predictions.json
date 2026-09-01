@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T04:16:27",
+  "generated_at": "2026-09-01T08:59:11",
   "target": "listed_price",
   "grouping": [
     "phone_type",
@@ -28351,10 +28351,10 @@
       "observed_min_lkr": 39500.0,
       "observed_max_lkr": 66999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 61563.01,
-      "fair_price_range_low_lkr": 53808.77,
-      "fair_price_range_high_lkr": 69317.24
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 59670.1,
+      "fair_price_range_low_lkr": 51750.44,
+      "fair_price_range_high_lkr": 67589.76
     },
     {
       "phone_type": "iphone",
@@ -28370,10 +28370,10 @@
       "observed_min_lkr": 32000.0,
       "observed_max_lkr": 113456.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 61545.98,
-      "fair_price_range_low_lkr": 53791.74,
-      "fair_price_range_high_lkr": 69300.21
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 64951.99,
+      "fair_price_range_low_lkr": 57032.32,
+      "fair_price_range_high_lkr": 72871.65
     },
     {
       "phone_type": "iphone",
@@ -28389,10 +28389,10 @@
       "observed_min_lkr": 49000.0,
       "observed_max_lkr": 114900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 76433.95,
-      "fair_price_range_low_lkr": 68679.72,
-      "fair_price_range_high_lkr": 84188.19
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 74617.74,
+      "fair_price_range_low_lkr": 66698.07,
+      "fair_price_range_high_lkr": 82537.4
     },
     {
       "phone_type": "iphone",
@@ -28408,10 +28408,10 @@
       "observed_min_lkr": 47000.0,
       "observed_max_lkr": 82500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 71194.6,
-      "fair_price_range_low_lkr": 63440.36,
-      "fair_price_range_high_lkr": 78948.83
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 66614.11,
+      "fair_price_range_low_lkr": 58694.45,
+      "fair_price_range_high_lkr": 74533.78
     },
     {
       "phone_type": "iphone",
@@ -28427,10 +28427,10 @@
       "observed_min_lkr": 70000.0,
       "observed_max_lkr": 90999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 74776.0,
-      "fair_price_range_low_lkr": 67021.76,
-      "fair_price_range_high_lkr": 82530.23
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 69636.15,
+      "fair_price_range_low_lkr": 61716.49,
+      "fair_price_range_high_lkr": 77555.81
     },
     {
       "phone_type": "iphone",
@@ -28446,10 +28446,10 @@
       "observed_min_lkr": 45000.0,
       "observed_max_lkr": 95000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 79353.34,
-      "fair_price_range_low_lkr": 71599.11,
-      "fair_price_range_high_lkr": 87107.57
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 75423.29,
+      "fair_price_range_low_lkr": 67503.63,
+      "fair_price_range_high_lkr": 83342.96
     },
     {
       "phone_type": "iphone",
@@ -28465,10 +28465,10 @@
       "observed_min_lkr": 69500.0,
       "observed_max_lkr": 100000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 90353.78,
-      "fair_price_range_low_lkr": 82599.55,
-      "fair_price_range_high_lkr": 98108.02
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 88587.71,
+      "fair_price_range_low_lkr": 80668.05,
+      "fair_price_range_high_lkr": 96507.38
     },
     {
       "phone_type": "iphone",
@@ -28484,10 +28484,10 @@
       "observed_min_lkr": 63500.0,
       "observed_max_lkr": 94999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 74742.51,
-      "fair_price_range_low_lkr": 66988.27,
-      "fair_price_range_high_lkr": 82496.74
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 72055.8,
+      "fair_price_range_low_lkr": 64136.14,
+      "fair_price_range_high_lkr": 79975.46
     },
     {
       "phone_type": "iphone",
@@ -28503,10 +28503,10 @@
       "observed_min_lkr": 99900.0,
       "observed_max_lkr": 99900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 85219.56,
-      "fair_price_range_low_lkr": 77465.32,
-      "fair_price_range_high_lkr": 92973.79
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 80539.47,
+      "fair_price_range_low_lkr": 72619.81,
+      "fair_price_range_high_lkr": 88459.13
     },
     {
       "phone_type": "iphone",
@@ -28522,10 +28522,10 @@
       "observed_min_lkr": 55000.0,
       "observed_max_lkr": 117000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 88954.39,
-      "fair_price_range_low_lkr": 81200.15,
-      "fair_price_range_high_lkr": 96708.62
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 86165.92,
+      "fair_price_range_low_lkr": 78246.25,
+      "fair_price_range_high_lkr": 94085.58
     },
     {
       "phone_type": "iphone",
@@ -28541,10 +28541,10 @@
       "observed_min_lkr": 68500.0,
       "observed_max_lkr": 109999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 94945.47,
-      "fair_price_range_low_lkr": 87191.23,
-      "fair_price_range_high_lkr": 102699.7
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 95896.59,
+      "fair_price_range_low_lkr": 87976.93,
+      "fair_price_range_high_lkr": 103816.26
     },
     {
       "phone_type": "iphone",
@@ -28560,10 +28560,10 @@
       "observed_min_lkr": 51000.0,
       "observed_max_lkr": 84999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 74615.71,
-      "fair_price_range_low_lkr": 66861.48,
-      "fair_price_range_high_lkr": 82369.94
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 70521.22,
+      "fair_price_range_low_lkr": 62601.56,
+      "fair_price_range_high_lkr": 78440.88
     },
     {
       "phone_type": "iphone",
@@ -28579,10 +28579,10 @@
       "observed_min_lkr": 45000.0,
       "observed_max_lkr": 138000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 82311.55,
-      "fair_price_range_low_lkr": 74557.32,
-      "fair_price_range_high_lkr": 90065.78
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 78706.88,
+      "fair_price_range_low_lkr": 70787.21,
+      "fair_price_range_high_lkr": 86626.54
     },
     {
       "phone_type": "iphone",
@@ -28598,10 +28598,10 @@
       "observed_min_lkr": 46500.0,
       "observed_max_lkr": 102900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 91144.94,
-      "fair_price_range_low_lkr": 83390.71,
-      "fair_price_range_high_lkr": 98899.18
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 87162.79,
+      "fair_price_range_low_lkr": 79243.12,
+      "fair_price_range_high_lkr": 95082.45
     },
     {
       "phone_type": "iphone",
@@ -28617,10 +28617,10 @@
       "observed_min_lkr": 67000.0,
       "observed_max_lkr": 153000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 98732.95,
-      "fair_price_range_low_lkr": 90978.71,
-      "fair_price_range_high_lkr": 106487.18
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 95022.14,
+      "fair_price_range_low_lkr": 87102.48,
+      "fair_price_range_high_lkr": 102941.8
     },
     {
       "phone_type": "iphone",
@@ -28636,10 +28636,10 @@
       "observed_min_lkr": 67000.0,
       "observed_max_lkr": 120000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 105692.49,
-      "fair_price_range_low_lkr": 97938.26,
-      "fair_price_range_high_lkr": 113446.73
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 101441.79,
+      "fair_price_range_low_lkr": 93522.13,
+      "fair_price_range_high_lkr": 109361.46
     },
     {
       "phone_type": "iphone",
@@ -28655,10 +28655,10 @@
       "observed_min_lkr": 70000.0,
       "observed_max_lkr": 135000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 115502.47,
-      "fair_price_range_low_lkr": 107748.24,
-      "fair_price_range_high_lkr": 123256.7
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 112790.77,
+      "fair_price_range_low_lkr": 104871.1,
+      "fair_price_range_high_lkr": 120710.43
     },
     {
       "phone_type": "iphone",
@@ -28674,10 +28674,10 @@
       "observed_min_lkr": 76000.0,
       "observed_max_lkr": 159000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 116234.24,
-      "fair_price_range_low_lkr": 108480.01,
-      "fair_price_range_high_lkr": 123988.48
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 112237.89,
+      "fair_price_range_low_lkr": 104318.23,
+      "fair_price_range_high_lkr": 120157.56
     },
     {
       "phone_type": "iphone",
@@ -28693,10 +28693,10 @@
       "observed_min_lkr": 76500.0,
       "observed_max_lkr": 225000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 126858.07,
-      "fair_price_range_low_lkr": 119103.84,
-      "fair_price_range_high_lkr": 134612.31
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 121811.89,
+      "fair_price_range_low_lkr": 113892.22,
+      "fair_price_range_high_lkr": 129731.55
     },
     {
       "phone_type": "iphone",
@@ -28712,10 +28712,10 @@
       "observed_min_lkr": 85000.0,
       "observed_max_lkr": 157999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 137649.05,
-      "fair_price_range_low_lkr": 129894.81,
-      "fair_price_range_high_lkr": 145403.28
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 136390.45,
+      "fair_price_range_low_lkr": 128470.79,
+      "fair_price_range_high_lkr": 144310.12
     },
     {
       "phone_type": "iphone",
@@ -28731,10 +28731,10 @@
       "observed_min_lkr": 40000.0,
       "observed_max_lkr": 90000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 60311.3,
-      "fair_price_range_low_lkr": 52557.07,
-      "fair_price_range_high_lkr": 68065.54
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 57008.46,
+      "fair_price_range_low_lkr": 49088.8,
+      "fair_price_range_high_lkr": 64928.13
     },
     {
       "phone_type": "iphone",
@@ -28750,10 +28750,10 @@
       "observed_min_lkr": 35000.0,
       "observed_max_lkr": 95000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 64599.25,
-      "fair_price_range_low_lkr": 56845.01,
-      "fair_price_range_high_lkr": 72353.48
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 60875.76,
+      "fair_price_range_low_lkr": 52956.1,
+      "fair_price_range_high_lkr": 68795.42
     },
     {
       "phone_type": "iphone",
@@ -28769,10 +28769,10 @@
       "observed_min_lkr": 64500.0,
       "observed_max_lkr": 78000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 71760.04,
-      "fair_price_range_low_lkr": 64005.81,
-      "fair_price_range_high_lkr": 79514.27
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 69191.84,
+      "fair_price_range_low_lkr": 61272.18,
+      "fair_price_range_high_lkr": 77111.51
     },
     {
       "phone_type": "iphone",
@@ -28788,10 +28788,10 @@
       "observed_min_lkr": 67000.0,
       "observed_max_lkr": 158000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 104366.8,
-      "fair_price_range_low_lkr": 96612.57,
-      "fair_price_range_high_lkr": 112121.03
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 102268.06,
+      "fair_price_range_low_lkr": 94348.4,
+      "fair_price_range_high_lkr": 110187.73
     },
     {
       "phone_type": "iphone",
@@ -28807,10 +28807,10 @@
       "observed_min_lkr": 75000.0,
       "observed_max_lkr": 141999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 113882.86,
-      "fair_price_range_low_lkr": 106128.62,
-      "fair_price_range_high_lkr": 121637.09
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 109943.45,
+      "fair_price_range_low_lkr": 102023.79,
+      "fair_price_range_high_lkr": 117863.11
     },
     {
       "phone_type": "iphone",
@@ -28826,10 +28826,10 @@
       "observed_min_lkr": 110000.0,
       "observed_max_lkr": 139500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 127584.21,
-      "fair_price_range_low_lkr": 119829.97,
-      "fair_price_range_high_lkr": 135338.44
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 127921.31,
+      "fair_price_range_low_lkr": 120001.65,
+      "fair_price_range_high_lkr": 135840.98
     },
     {
       "phone_type": "iphone",
@@ -28845,10 +28845,10 @@
       "observed_min_lkr": 129000.0,
       "observed_max_lkr": 129000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 129348.36,
-      "fair_price_range_low_lkr": 121594.13,
-      "fair_price_range_high_lkr": 137102.6
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 123886.67,
+      "fair_price_range_low_lkr": 115967.0,
+      "fair_price_range_high_lkr": 131806.33
     },
     {
       "phone_type": "iphone",
@@ -28864,10 +28864,10 @@
       "observed_min_lkr": 95000.0,
       "observed_max_lkr": 179999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 128823.7,
-      "fair_price_range_low_lkr": 121069.47,
-      "fair_price_range_high_lkr": 136577.93
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 124801.85,
+      "fair_price_range_low_lkr": 116882.19,
+      "fair_price_range_high_lkr": 132721.51
     },
     {
       "phone_type": "iphone",
@@ -28883,10 +28883,10 @@
       "observed_min_lkr": 95000.0,
       "observed_max_lkr": 169000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 139467.7,
-      "fair_price_range_low_lkr": 131713.47,
-      "fair_price_range_high_lkr": 147221.93
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 135274.96,
+      "fair_price_range_low_lkr": 127355.3,
+      "fair_price_range_high_lkr": 143194.63
     },
     {
       "phone_type": "iphone",
@@ -28902,10 +28902,10 @@
       "observed_min_lkr": 120000.0,
       "observed_max_lkr": 155999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 152293.58,
-      "fair_price_range_low_lkr": 144539.34,
-      "fair_price_range_high_lkr": 160047.81
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 151872.34,
+      "fair_price_range_low_lkr": 143952.67,
+      "fair_price_range_high_lkr": 159792.0
     },
     {
       "phone_type": "iphone",
@@ -28921,10 +28921,10 @@
       "observed_min_lkr": 123990.0,
       "observed_max_lkr": 155500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 143844.39,
-      "fair_price_range_low_lkr": 136090.16,
-      "fair_price_range_high_lkr": 151598.63
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 141386.19,
+      "fair_price_range_low_lkr": 133466.53,
+      "fair_price_range_high_lkr": 149305.86
     },
     {
       "phone_type": "iphone",
@@ -28940,10 +28940,10 @@
       "observed_min_lkr": 110000.0,
       "observed_max_lkr": 200000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 147255.06,
-      "fair_price_range_low_lkr": 139500.83,
-      "fair_price_range_high_lkr": 155009.3
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 139016.97,
+      "fair_price_range_low_lkr": 131097.3,
+      "fair_price_range_high_lkr": 146936.63
     },
     {
       "phone_type": "iphone",
@@ -28959,10 +28959,10 @@
       "observed_min_lkr": 115000.0,
       "observed_max_lkr": 215000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 156981.21,
-      "fair_price_range_low_lkr": 149226.98,
-      "fair_price_range_high_lkr": 164735.44
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 147520.22,
+      "fair_price_range_low_lkr": 139600.56,
+      "fair_price_range_high_lkr": 155439.89
     },
     {
       "phone_type": "iphone",
@@ -28978,10 +28978,10 @@
       "observed_min_lkr": 110000.0,
       "observed_max_lkr": 193000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 174449.51,
-      "fair_price_range_low_lkr": 166695.27,
-      "fair_price_range_high_lkr": 182203.74
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 170450.58,
+      "fair_price_range_low_lkr": 162530.92,
+      "fair_price_range_high_lkr": 178370.24
     },
     {
       "phone_type": "iphone",
@@ -28997,10 +28997,10 @@
       "observed_min_lkr": 139500.0,
       "observed_max_lkr": 160000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 166033.02,
-      "fair_price_range_low_lkr": 158278.78,
-      "fair_price_range_high_lkr": 173787.25
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 155873.9,
+      "fair_price_range_low_lkr": 147954.24,
+      "fair_price_range_high_lkr": 163793.56
     },
     {
       "phone_type": "iphone",
@@ -29016,10 +29016,10 @@
       "observed_min_lkr": 62000.0,
       "observed_max_lkr": 96500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 82570.72,
-      "fair_price_range_low_lkr": 74816.49,
-      "fair_price_range_high_lkr": 90324.96
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 79147.0,
+      "fair_price_range_low_lkr": 71227.33,
+      "fair_price_range_high_lkr": 87066.66
     },
     {
       "phone_type": "iphone",
@@ -29035,10 +29035,10 @@
       "observed_min_lkr": 82000.0,
       "observed_max_lkr": 98000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 94000.28,
-      "fair_price_range_low_lkr": 86246.05,
-      "fair_price_range_high_lkr": 101754.51
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 89889.1,
+      "fair_price_range_low_lkr": 81969.44,
+      "fair_price_range_high_lkr": 97808.77
     },
     {
       "phone_type": "iphone",
@@ -29054,10 +29054,10 @@
       "observed_min_lkr": 91000.0,
       "observed_max_lkr": 199999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 122697.41,
-      "fair_price_range_low_lkr": 114943.18,
-      "fair_price_range_high_lkr": 130451.65
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 118322.91,
+      "fair_price_range_low_lkr": 110403.25,
+      "fair_price_range_high_lkr": 126242.58
     },
     {
       "phone_type": "iphone",
@@ -29073,10 +29073,10 @@
       "observed_min_lkr": 99000.0,
       "observed_max_lkr": 149500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 135796.77,
-      "fair_price_range_low_lkr": 128042.54,
-      "fair_price_range_high_lkr": 143551.01
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 130694.23,
+      "fair_price_range_low_lkr": 122774.57,
+      "fair_price_range_high_lkr": 138613.89
     },
     {
       "phone_type": "iphone",
@@ -29092,10 +29092,10 @@
       "observed_min_lkr": 135500.0,
       "observed_max_lkr": 144990.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 138567.15,
-      "fair_price_range_low_lkr": 130812.91,
-      "fair_price_range_high_lkr": 146321.38
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 137641.51,
+      "fair_price_range_low_lkr": 129721.85,
+      "fair_price_range_high_lkr": 145561.17
     },
     {
       "phone_type": "iphone",
@@ -29111,10 +29111,10 @@
       "observed_min_lkr": 112000.0,
       "observed_max_lkr": 158000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 134762.24,
-      "fair_price_range_low_lkr": 127008.0,
-      "fair_price_range_high_lkr": 142516.47
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 130415.35,
+      "fair_price_range_low_lkr": 122495.69,
+      "fair_price_range_high_lkr": 138335.01
     },
     {
       "phone_type": "iphone",
@@ -29130,10 +29130,10 @@
       "observed_min_lkr": 125000.0,
       "observed_max_lkr": 159999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 146580.8,
-      "fair_price_range_low_lkr": 138826.56,
-      "fair_price_range_high_lkr": 154335.03
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 141791.62,
+      "fair_price_range_low_lkr": 133871.96,
+      "fair_price_range_high_lkr": 149711.29
     },
     {
       "phone_type": "iphone",
@@ -29149,10 +29149,10 @@
       "observed_min_lkr": 129500.0,
       "observed_max_lkr": 250000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 171372.37,
-      "fair_price_range_low_lkr": 163618.14,
-      "fair_price_range_high_lkr": 179126.61
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 163781.08,
+      "fair_price_range_low_lkr": 155861.41,
+      "fair_price_range_high_lkr": 171700.74
     },
     {
       "phone_type": "iphone",
@@ -29168,10 +29168,10 @@
       "observed_min_lkr": 135000.0,
       "observed_max_lkr": 238000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 184346.4,
-      "fair_price_range_low_lkr": 176592.17,
-      "fair_price_range_high_lkr": 192100.63
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 175560.87,
+      "fair_price_range_low_lkr": 167641.2,
+      "fair_price_range_high_lkr": 183480.53
     },
     {
       "phone_type": "iphone",
@@ -29187,10 +29187,10 @@
       "observed_min_lkr": 159990.0,
       "observed_max_lkr": 207500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 187928.42,
-      "fair_price_range_low_lkr": 180174.18,
-      "fair_price_range_high_lkr": 195682.65
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 186050.4,
+      "fair_price_range_low_lkr": 178130.74,
+      "fair_price_range_high_lkr": 193970.07
     },
     {
       "phone_type": "iphone",
@@ -29206,10 +29206,10 @@
       "observed_min_lkr": 184900.0,
       "observed_max_lkr": 214999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 191168.74,
-      "fair_price_range_low_lkr": 183414.51,
-      "fair_price_range_high_lkr": 198922.98
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 186103.22,
+      "fair_price_range_low_lkr": 178183.55,
+      "fair_price_range_high_lkr": 194022.88
     },
     {
       "phone_type": "iphone",
@@ -29225,10 +29225,10 @@
       "observed_min_lkr": 140000.0,
       "observed_max_lkr": 245000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 187406.63,
-      "fair_price_range_low_lkr": 179652.4,
-      "fair_price_range_high_lkr": 195160.87
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 179833.26,
+      "fair_price_range_low_lkr": 171913.6,
+      "fair_price_range_high_lkr": 187752.93
     },
     {
       "phone_type": "iphone",
@@ -29244,10 +29244,10 @@
       "observed_min_lkr": 140000.0,
       "observed_max_lkr": 268000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 197255.4,
-      "fair_price_range_low_lkr": 189501.17,
-      "fair_price_range_high_lkr": 205009.64
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 191588.28,
+      "fair_price_range_low_lkr": 183668.62,
+      "fair_price_range_high_lkr": 199507.95
     },
     {
       "phone_type": "iphone",
@@ -29263,10 +29263,10 @@
       "observed_min_lkr": 185000.0,
       "observed_max_lkr": 274999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 211594.35,
-      "fair_price_range_low_lkr": 203840.11,
-      "fair_price_range_high_lkr": 219348.58
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 208432.89,
+      "fair_price_range_low_lkr": 200513.22,
+      "fair_price_range_high_lkr": 216352.55
     },
     {
       "phone_type": "iphone",
@@ -29282,10 +29282,10 @@
       "observed_min_lkr": 196000.0,
       "observed_max_lkr": 241999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 223513.12,
-      "fair_price_range_low_lkr": 215758.89,
-      "fair_price_range_high_lkr": 231267.35
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 222975.19,
+      "fair_price_range_low_lkr": 215055.53,
+      "fair_price_range_high_lkr": 230894.86
     },
     {
       "phone_type": "iphone",
@@ -29301,10 +29301,10 @@
       "observed_min_lkr": 128000.0,
       "observed_max_lkr": 265000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 172879.85,
-      "fair_price_range_low_lkr": 165125.61,
-      "fair_price_range_high_lkr": 180634.08
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 169044.25,
+      "fair_price_range_low_lkr": 161124.58,
+      "fair_price_range_high_lkr": 176963.91
     },
     {
       "phone_type": "iphone",
@@ -29320,10 +29320,10 @@
       "observed_min_lkr": 149900.0,
       "observed_max_lkr": 149900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 160948.74,
-      "fair_price_range_low_lkr": 153194.5,
-      "fair_price_range_high_lkr": 168702.97
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 155046.25,
+      "fair_price_range_low_lkr": 147126.58,
+      "fair_price_range_high_lkr": 162965.91
     },
     {
       "phone_type": "iphone",
@@ -29339,10 +29339,10 @@
       "observed_min_lkr": 143999.0,
       "observed_max_lkr": 218500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 173867.14,
-      "fair_price_range_low_lkr": 166112.9,
-      "fair_price_range_high_lkr": 181621.37
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 168851.59,
+      "fair_price_range_low_lkr": 160931.93,
+      "fair_price_range_high_lkr": 176771.25
     },
     {
       "phone_type": "iphone",
@@ -29358,10 +29358,10 @@
       "observed_min_lkr": 175000.0,
       "observed_max_lkr": 192900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 181213.44,
-      "fair_price_range_low_lkr": 173459.2,
-      "fair_price_range_high_lkr": 188967.67
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 179005.58,
+      "fair_price_range_low_lkr": 171085.92,
+      "fair_price_range_high_lkr": 186925.25
     },
     {
       "phone_type": "iphone",
@@ -29377,10 +29377,10 @@
       "observed_min_lkr": 130000.0,
       "observed_max_lkr": 200000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 169719.57,
-      "fair_price_range_low_lkr": 161965.34,
-      "fair_price_range_high_lkr": 177473.8
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 161272.49,
+      "fair_price_range_low_lkr": 153352.83,
+      "fair_price_range_high_lkr": 169192.15
     },
     {
       "phone_type": "iphone",
@@ -29396,10 +29396,10 @@
       "observed_min_lkr": 159000.0,
       "observed_max_lkr": 195000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 184385.69,
-      "fair_price_range_low_lkr": 176631.45,
-      "fair_price_range_high_lkr": 192139.92
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 174858.55,
+      "fair_price_range_low_lkr": 166938.89,
+      "fair_price_range_high_lkr": 182778.22
     },
     {
       "phone_type": "iphone",
@@ -29415,10 +29415,10 @@
       "observed_min_lkr": 189900.0,
       "observed_max_lkr": 189900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 189205.12,
-      "fair_price_range_low_lkr": 181450.88,
-      "fair_price_range_high_lkr": 196959.35
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 185810.73,
+      "fair_price_range_low_lkr": 177891.06,
+      "fair_price_range_high_lkr": 193730.39
     },
     {
       "phone_type": "iphone",
@@ -29434,10 +29434,10 @@
       "observed_min_lkr": 160000.0,
       "observed_max_lkr": 260000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 214659.66,
-      "fair_price_range_low_lkr": 206905.43,
-      "fair_price_range_high_lkr": 222413.9
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 209985.39,
+      "fair_price_range_low_lkr": 202065.73,
+      "fair_price_range_high_lkr": 217905.05
     },
     {
       "phone_type": "iphone",
@@ -29453,10 +29453,10 @@
       "observed_min_lkr": 165000.0,
       "observed_max_lkr": 238900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 223069.25,
-      "fair_price_range_low_lkr": 215315.02,
-      "fair_price_range_high_lkr": 230823.48
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 208886.98,
+      "fair_price_range_low_lkr": 200967.31,
+      "fair_price_range_high_lkr": 216806.64
     },
     {
       "phone_type": "iphone",
@@ -29472,10 +29472,10 @@
       "observed_min_lkr": 168900.0,
       "observed_max_lkr": 249500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 227425.13,
-      "fair_price_range_low_lkr": 219670.89,
-      "fair_price_range_high_lkr": 235179.36
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 218179.68,
+      "fair_price_range_low_lkr": 210260.02,
+      "fair_price_range_high_lkr": 226099.35
     },
     {
       "phone_type": "iphone",
@@ -29491,10 +29491,10 @@
       "observed_min_lkr": 235000.0,
       "observed_max_lkr": 235000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 245542.4,
-      "fair_price_range_low_lkr": 237788.16,
-      "fair_price_range_high_lkr": 253296.63
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 229159.05,
+      "fair_price_range_low_lkr": 221239.39,
+      "fair_price_range_high_lkr": 237078.72
     },
     {
       "phone_type": "iphone",
@@ -29510,10 +29510,10 @@
       "observed_min_lkr": 205000.0,
       "observed_max_lkr": 304990.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 251993.8,
-      "fair_price_range_low_lkr": 244239.57,
-      "fair_price_range_high_lkr": 259748.04
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 246336.58,
+      "fair_price_range_low_lkr": 238416.92,
+      "fair_price_range_high_lkr": 254256.25
     },
     {
       "phone_type": "iphone",
@@ -29529,10 +29529,10 @@
       "observed_min_lkr": 210000.0,
       "observed_max_lkr": 284999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 254059.52,
-      "fair_price_range_low_lkr": 246305.29,
-      "fair_price_range_high_lkr": 261813.75
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 244118.83,
+      "fair_price_range_low_lkr": 236199.16,
+      "fair_price_range_high_lkr": 252038.49
     },
     {
       "phone_type": "iphone",
@@ -29548,10 +29548,10 @@
       "observed_min_lkr": 270000.0,
       "observed_max_lkr": 300000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 278469.1,
-      "fair_price_range_low_lkr": 270714.87,
-      "fair_price_range_high_lkr": 286223.34
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 263233.67,
+      "fair_price_range_low_lkr": 255314.0,
+      "fair_price_range_high_lkr": 271153.33
     },
     {
       "phone_type": "iphone",
@@ -29567,10 +29567,10 @@
       "observed_min_lkr": 160000.0,
       "observed_max_lkr": 280000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 194068.8,
-      "fair_price_range_low_lkr": 186314.57,
-      "fair_price_range_high_lkr": 201823.04
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 192345.68,
+      "fair_price_range_low_lkr": 184426.01,
+      "fair_price_range_high_lkr": 200265.34
     },
     {
       "phone_type": "iphone",
@@ -29586,10 +29586,10 @@
       "observed_min_lkr": 185000.0,
       "observed_max_lkr": 230000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 211581.14,
-      "fair_price_range_low_lkr": 203826.91,
-      "fair_price_range_high_lkr": 219335.37
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 206011.29,
+      "fair_price_range_low_lkr": 198091.62,
+      "fair_price_range_high_lkr": 213930.95
     },
     {
       "phone_type": "iphone",
@@ -29605,10 +29605,10 @@
       "observed_min_lkr": 179000.0,
       "observed_max_lkr": 283000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 211379.67,
-      "fair_price_range_low_lkr": 203625.44,
-      "fair_price_range_high_lkr": 219133.9
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 204728.41,
+      "fair_price_range_low_lkr": 196808.75,
+      "fair_price_range_high_lkr": 212648.08
     },
     {
       "phone_type": "iphone",
@@ -29624,10 +29624,10 @@
       "observed_min_lkr": 193000.0,
       "observed_max_lkr": 254500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 226080.0,
-      "fair_price_range_low_lkr": 218325.77,
-      "fair_price_range_high_lkr": 233834.24
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 217976.56,
+      "fair_price_range_low_lkr": 210056.9,
+      "fair_price_range_high_lkr": 225896.23
     },
     {
       "phone_type": "iphone",
@@ -29643,10 +29643,10 @@
       "observed_min_lkr": 200000.0,
       "observed_max_lkr": 310000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 253763.01,
-      "fair_price_range_low_lkr": 246008.77,
-      "fair_price_range_high_lkr": 261517.24
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 247964.45,
+      "fair_price_range_low_lkr": 240044.79,
+      "fair_price_range_high_lkr": 255884.12
     },
     {
       "phone_type": "iphone",
@@ -29662,10 +29662,10 @@
       "observed_min_lkr": 280000.0,
       "observed_max_lkr": 280000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 268585.85,
-      "fair_price_range_low_lkr": 260831.61,
-      "fair_price_range_high_lkr": 276340.08
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 251586.66,
+      "fair_price_range_low_lkr": 243667.0,
+      "fair_price_range_high_lkr": 259506.33
     },
     {
       "phone_type": "iphone",
@@ -29681,10 +29681,10 @@
       "observed_min_lkr": 205000.0,
       "observed_max_lkr": 294990.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 269120.68,
-      "fair_price_range_low_lkr": 261366.45,
-      "fair_price_range_high_lkr": 276874.92
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 255206.22,
+      "fair_price_range_low_lkr": 247286.56,
+      "fair_price_range_high_lkr": 263125.88
     },
     {
       "phone_type": "iphone",
@@ -29700,10 +29700,10 @@
       "observed_min_lkr": 270000.0,
       "observed_max_lkr": 270000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 277358.5,
-      "fair_price_range_low_lkr": 269604.27,
-      "fair_price_range_high_lkr": 285112.74
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 258777.83,
+      "fair_price_range_low_lkr": 250858.17,
+      "fair_price_range_high_lkr": 266697.49
     },
     {
       "phone_type": "iphone",
@@ -29719,10 +29719,10 @@
       "observed_min_lkr": 209000.0,
       "observed_max_lkr": 319500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 272401.29,
-      "fair_price_range_low_lkr": 264647.05,
-      "fair_price_range_high_lkr": 280155.52
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 257715.21,
+      "fair_price_range_low_lkr": 249795.55,
+      "fair_price_range_high_lkr": 265634.87
     },
     {
       "phone_type": "iphone",
@@ -29738,10 +29738,10 @@
       "observed_min_lkr": 255000.0,
       "observed_max_lkr": 400000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 297353.42,
-      "fair_price_range_low_lkr": 289599.19,
-      "fair_price_range_high_lkr": 305107.65
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 281528.24,
+      "fair_price_range_low_lkr": 273608.58,
+      "fair_price_range_high_lkr": 289447.9
     },
     {
       "phone_type": "iphone",
@@ -29757,10 +29757,10 @@
       "observed_min_lkr": 295000.0,
       "observed_max_lkr": 349900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 314712.69,
-      "fair_price_range_low_lkr": 306958.46,
-      "fair_price_range_high_lkr": 322466.93
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 299312.8,
+      "fair_price_range_low_lkr": 291393.13,
+      "fair_price_range_high_lkr": 307232.46
     },
     {
       "phone_type": "iphone",
@@ -29776,10 +29776,10 @@
       "observed_min_lkr": 349900.0,
       "observed_max_lkr": 379000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 337825.52,
-      "fair_price_range_low_lkr": 330071.29,
-      "fair_price_range_high_lkr": 345579.75
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 325460.64,
+      "fair_price_range_low_lkr": 317540.97,
+      "fair_price_range_high_lkr": 333380.3
     },
     {
       "phone_type": "iphone",
@@ -29795,10 +29795,10 @@
       "observed_min_lkr": 122500.0,
       "observed_max_lkr": 230000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 150823.39,
-      "fair_price_range_low_lkr": 143069.16,
-      "fair_price_range_high_lkr": 158577.62
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 141585.93,
+      "fair_price_range_low_lkr": 133666.27,
+      "fair_price_range_high_lkr": 149505.59
     },
     {
       "phone_type": "iphone",
@@ -29814,10 +29814,10 @@
       "observed_min_lkr": 152000.0,
       "observed_max_lkr": 155000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 157462.01,
-      "fair_price_range_low_lkr": 149707.78,
-      "fair_price_range_high_lkr": 165216.25
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 149283.14,
+      "fair_price_range_low_lkr": 141363.48,
+      "fair_price_range_high_lkr": 157202.81
     },
     {
       "phone_type": "iphone",
@@ -29833,10 +29833,10 @@
       "observed_min_lkr": 185000.0,
       "observed_max_lkr": 230000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 205184.57,
-      "fair_price_range_low_lkr": 197430.34,
-      "fair_price_range_high_lkr": 212938.81
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 193564.1,
+      "fair_price_range_low_lkr": 185644.44,
+      "fair_price_range_high_lkr": 201483.77
     },
     {
       "phone_type": "iphone",
@@ -29852,10 +29852,10 @@
       "observed_min_lkr": 179000.0,
       "observed_max_lkr": 179000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 214399.66,
-      "fair_price_range_low_lkr": 206645.42,
-      "fair_price_range_high_lkr": 222153.89
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 200225.49,
+      "fair_price_range_low_lkr": 192305.83,
+      "fair_price_range_high_lkr": 208145.16
     },
     {
       "phone_type": "iphone",
@@ -29871,10 +29871,10 @@
       "observed_min_lkr": 28000.0,
       "observed_max_lkr": 28000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 20118.34,
-      "fair_price_range_low_lkr": 12364.11,
-      "fair_price_range_high_lkr": 27872.58
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 17292.92,
+      "fair_price_range_low_lkr": 9373.25,
+      "fair_price_range_high_lkr": 25212.58
     },
     {
       "phone_type": "iphone",
@@ -29890,10 +29890,10 @@
       "observed_min_lkr": 3000.0,
       "observed_max_lkr": 8000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 19053.47,
-      "fair_price_range_low_lkr": 11299.24,
-      "fair_price_range_high_lkr": 26807.7
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 15786.99,
+      "fair_price_range_low_lkr": 7867.33,
+      "fair_price_range_high_lkr": 23706.65
     },
     {
       "phone_type": "iphone",
@@ -29909,10 +29909,10 @@
       "observed_min_lkr": 15000.0,
       "observed_max_lkr": 15000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 19053.47,
-      "fair_price_range_low_lkr": 11299.24,
-      "fair_price_range_high_lkr": 26807.7
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 16725.62,
+      "fair_price_range_low_lkr": 8805.96,
+      "fair_price_range_high_lkr": 24645.29
     },
     {
       "phone_type": "iphone",
@@ -29928,10 +29928,10 @@
       "observed_min_lkr": 5800.0,
       "observed_max_lkr": 5800.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 16854.47,
-      "fair_price_range_low_lkr": 9100.23,
-      "fair_price_range_high_lkr": 24608.7
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 13405.76,
+      "fair_price_range_low_lkr": 5486.1,
+      "fair_price_range_high_lkr": 21325.42
     },
     {
       "phone_type": "iphone",
@@ -29947,10 +29947,10 @@
       "observed_min_lkr": 4900.0,
       "observed_max_lkr": 23999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 16854.47,
-      "fair_price_range_low_lkr": 9100.23,
-      "fair_price_range_high_lkr": 24608.7
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 13933.76,
+      "fair_price_range_low_lkr": 6014.1,
+      "fair_price_range_high_lkr": 21853.43
     },
     {
       "phone_type": "iphone",
@@ -29966,10 +29966,10 @@
       "observed_min_lkr": 8500.0,
       "observed_max_lkr": 17999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 17069.49,
-      "fair_price_range_low_lkr": 9315.26,
-      "fair_price_range_high_lkr": 24823.73
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 15819.52,
+      "fair_price_range_low_lkr": 7899.86,
+      "fair_price_range_high_lkr": 23739.18
     },
     {
       "phone_type": "iphone",
@@ -29985,10 +29985,10 @@
       "observed_min_lkr": 5500.0,
       "observed_max_lkr": 35000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 16961.57,
-      "fair_price_range_low_lkr": 9207.33,
-      "fair_price_range_high_lkr": 24715.8
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 14551.73,
+      "fair_price_range_low_lkr": 6632.06,
+      "fair_price_range_high_lkr": 22471.39
     },
     {
       "phone_type": "iphone",
@@ -30004,10 +30004,10 @@
       "observed_min_lkr": 19999.0,
       "observed_max_lkr": 19999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 19512.3,
-      "fair_price_range_low_lkr": 11758.07,
-      "fair_price_range_high_lkr": 27266.53
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 16607.01,
+      "fair_price_range_low_lkr": 8687.34,
+      "fair_price_range_high_lkr": 24526.67
     },
     {
       "phone_type": "iphone",
@@ -30023,10 +30023,10 @@
       "observed_min_lkr": 8000.0,
       "observed_max_lkr": 35000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 16961.57,
-      "fair_price_range_low_lkr": 9207.33,
-      "fair_price_range_high_lkr": 24715.8
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 15159.1,
+      "fair_price_range_low_lkr": 7239.44,
+      "fair_price_range_high_lkr": 23078.76
     },
     {
       "phone_type": "iphone",
@@ -30042,10 +30042,10 @@
       "observed_min_lkr": 21999.0,
       "observed_max_lkr": 21999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 19512.3,
-      "fair_price_range_low_lkr": 11758.07,
-      "fair_price_range_high_lkr": 27266.53
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 17214.38,
+      "fair_price_range_low_lkr": 9294.72,
+      "fair_price_range_high_lkr": 25134.04
     },
     {
       "phone_type": "iphone",
@@ -30061,10 +30061,10 @@
       "observed_min_lkr": 8500.0,
       "observed_max_lkr": 21999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 20859.63,
-      "fair_price_range_low_lkr": 13105.39,
-      "fair_price_range_high_lkr": 28613.86
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 18445.14,
+      "fair_price_range_low_lkr": 10525.47,
+      "fair_price_range_high_lkr": 26364.8
     },
     {
       "phone_type": "iphone",
@@ -30080,10 +30080,10 @@
       "observed_min_lkr": 8421.0,
       "observed_max_lkr": 33000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 19447.05,
-      "fair_price_range_low_lkr": 11692.81,
-      "fair_price_range_high_lkr": 27201.28
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 17160.72,
+      "fair_price_range_low_lkr": 9241.05,
+      "fair_price_range_high_lkr": 25080.38
     },
     {
       "phone_type": "iphone",
@@ -30099,10 +30099,10 @@
       "observed_min_lkr": 10000.0,
       "observed_max_lkr": 24999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 20438.22,
-      "fair_price_range_low_lkr": 12683.98,
-      "fair_price_range_high_lkr": 28192.45
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 18416.35,
+      "fair_price_range_low_lkr": 10496.69,
+      "fair_price_range_high_lkr": 26336.01
     },
     {
       "phone_type": "iphone",
@@ -30118,10 +30118,10 @@
       "observed_min_lkr": 16000.0,
       "observed_max_lkr": 23000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 23380.12,
-      "fair_price_range_low_lkr": 15625.89,
-      "fair_price_range_high_lkr": 31134.36
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 20737.23,
+      "fair_price_range_low_lkr": 12817.56,
+      "fair_price_range_high_lkr": 28656.89
     },
     {
       "phone_type": "iphone",
@@ -30137,10 +30137,10 @@
       "observed_min_lkr": 13000.0,
       "observed_max_lkr": 22000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 21974.11,
-      "fair_price_range_low_lkr": 14219.87,
-      "fair_price_range_high_lkr": 29728.34
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 20381.28,
+      "fair_price_range_low_lkr": 12461.62,
+      "fair_price_range_high_lkr": 28300.94
     },
     {
       "phone_type": "iphone",
@@ -30156,10 +30156,10 @@
       "observed_min_lkr": 10000.0,
       "observed_max_lkr": 36000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 25471.01,
-      "fair_price_range_low_lkr": 17716.78,
-      "fair_price_range_high_lkr": 33225.25
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 23438.08,
+      "fair_price_range_low_lkr": 15518.42,
+      "fair_price_range_high_lkr": 31357.75
     },
     {
       "phone_type": "iphone",
@@ -30175,10 +30175,10 @@
       "observed_min_lkr": 15000.0,
       "observed_max_lkr": 33500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 29693.5,
-      "fair_price_range_low_lkr": 21939.26,
-      "fair_price_range_high_lkr": 37447.73
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 26294.18,
+      "fair_price_range_low_lkr": 18374.52,
+      "fair_price_range_high_lkr": 34213.84
     },
     {
       "phone_type": "iphone",
@@ -30194,10 +30194,10 @@
       "observed_min_lkr": 12000.0,
       "observed_max_lkr": 48500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 23966.14,
-      "fair_price_range_low_lkr": 16211.9,
-      "fair_price_range_high_lkr": 31720.37
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 21550.97,
+      "fair_price_range_low_lkr": 13631.3,
+      "fair_price_range_high_lkr": 29470.63
     },
     {
       "phone_type": "iphone",
@@ -30213,10 +30213,10 @@
       "observed_min_lkr": 19000.0,
       "observed_max_lkr": 22500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 24481.63,
-      "fair_price_range_low_lkr": 16727.4,
-      "fair_price_range_high_lkr": 32235.87
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 22767.97,
+      "fair_price_range_low_lkr": 14848.31,
+      "fair_price_range_high_lkr": 30687.64
     },
     {
       "phone_type": "iphone",
@@ -30232,10 +30232,10 @@
       "observed_min_lkr": 13000.0,
       "observed_max_lkr": 30000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 28221.38,
-      "fair_price_range_low_lkr": 20467.15,
-      "fair_price_range_high_lkr": 35975.61
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 25189.87,
+      "fair_price_range_low_lkr": 17270.2,
+      "fair_price_range_high_lkr": 33109.53
     },
     {
       "phone_type": "iphone",
@@ -30251,10 +30251,10 @@
       "observed_min_lkr": 16500.0,
       "observed_max_lkr": 39900.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 32322.87,
-      "fair_price_range_low_lkr": 24568.63,
-      "fair_price_range_high_lkr": 40077.1
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 28624.69,
+      "fair_price_range_low_lkr": 20705.03,
+      "fair_price_range_high_lkr": 36544.36
     },
     {
       "phone_type": "iphone",
@@ -30270,10 +30270,10 @@
       "observed_min_lkr": 14000.0,
       "observed_max_lkr": 48500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 32134.62,
-      "fair_price_range_low_lkr": 24380.39,
-      "fair_price_range_high_lkr": 39888.86
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 29941.36,
+      "fair_price_range_low_lkr": 22021.7,
+      "fair_price_range_high_lkr": 37861.02
     },
     {
       "phone_type": "iphone",
@@ -30289,10 +30289,10 @@
       "observed_min_lkr": 18000.0,
       "observed_max_lkr": 46500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 40109.2,
-      "fair_price_range_low_lkr": 32354.97,
-      "fair_price_range_high_lkr": 47863.44
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 36660.47,
+      "fair_price_range_low_lkr": 28740.8,
+      "fair_price_range_high_lkr": 44580.13
     },
     {
       "phone_type": "iphone",
@@ -30308,10 +30308,10 @@
       "observed_min_lkr": 10000.0,
       "observed_max_lkr": 42000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 25633.35,
-      "fair_price_range_low_lkr": 17879.12,
-      "fair_price_range_high_lkr": 33387.59
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 23217.05,
+      "fair_price_range_low_lkr": 15297.39,
+      "fair_price_range_high_lkr": 31136.72
     },
     {
       "phone_type": "iphone",
@@ -30327,10 +30327,10 @@
       "observed_min_lkr": 30000.0,
       "observed_max_lkr": 30000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 26126.71,
-      "fair_price_range_low_lkr": 18372.48,
-      "fair_price_range_high_lkr": 33880.95
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 24562.54,
+      "fair_price_range_low_lkr": 16642.87,
+      "fair_price_range_high_lkr": 32482.2
     },
     {
       "phone_type": "iphone",
@@ -30346,10 +30346,10 @@
       "observed_min_lkr": 18000.0,
       "observed_max_lkr": 60000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 39907.3,
-      "fair_price_range_low_lkr": 32153.07,
-      "fair_price_range_high_lkr": 47661.53
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 37399.91,
+      "fair_price_range_low_lkr": 29480.24,
+      "fair_price_range_high_lkr": 45319.57
     },
     {
       "phone_type": "iphone",
@@ -30365,10 +30365,10 @@
       "observed_min_lkr": 23500.0,
       "observed_max_lkr": 23500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 39996.21,
-      "fair_price_range_low_lkr": 32241.98,
-      "fair_price_range_high_lkr": 47750.44
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 38182.85,
+      "fair_price_range_low_lkr": 30263.18,
+      "fair_price_range_high_lkr": 46102.51
     },
     {
       "phone_type": "iphone",
@@ -30384,10 +30384,10 @@
       "observed_min_lkr": 21000.0,
       "observed_max_lkr": 52000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 44266.96,
-      "fair_price_range_low_lkr": 36512.72,
-      "fair_price_range_high_lkr": 52021.19
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 41306.7,
+      "fair_price_range_low_lkr": 33387.03,
+      "fair_price_range_high_lkr": 49226.36
     },
     {
       "phone_type": "iphone",
@@ -30403,10 +30403,10 @@
       "observed_min_lkr": 42000.0,
       "observed_max_lkr": 55000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 50522.77,
-      "fair_price_range_low_lkr": 42768.54,
-      "fair_price_range_high_lkr": 58277.01
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 47541.23,
+      "fair_price_range_low_lkr": 39621.56,
+      "fair_price_range_high_lkr": 55460.89
     },
     {
       "phone_type": "iphone",
@@ -30422,10 +30422,10 @@
       "observed_min_lkr": 39999.0,
       "observed_max_lkr": 39999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 41495.54,
-      "fair_price_range_low_lkr": 33741.3,
-      "fair_price_range_high_lkr": 49249.77
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 38678.86,
+      "fair_price_range_low_lkr": 30759.2,
+      "fair_price_range_high_lkr": 46598.53
     },
     {
       "phone_type": "iphone",
@@ -30441,10 +30441,10 @@
       "observed_min_lkr": 39999.0,
       "observed_max_lkr": 48500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 44650.45,
-      "fair_price_range_low_lkr": 36896.21,
-      "fair_price_range_high_lkr": 52404.68
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 42295.64,
+      "fair_price_range_low_lkr": 34375.98,
+      "fair_price_range_high_lkr": 50215.3
     },
     {
       "phone_type": "iphone",
@@ -30460,10 +30460,10 @@
       "observed_min_lkr": 39999.0,
       "observed_max_lkr": 39999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 41440.05,
-      "fair_price_range_low_lkr": 33685.82,
-      "fair_price_range_high_lkr": 49194.29
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 37118.47,
+      "fair_price_range_low_lkr": 29198.81,
+      "fair_price_range_high_lkr": 45038.13
     },
     {
       "phone_type": "iphone",
@@ -30479,10 +30479,10 @@
       "observed_min_lkr": 39999.0,
       "observed_max_lkr": 39999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 44877.17,
-      "fair_price_range_low_lkr": 37122.94,
-      "fair_price_range_high_lkr": 52631.41
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 40952.98,
+      "fair_price_range_low_lkr": 33033.32,
+      "fair_price_range_high_lkr": 48872.64
     },
     {
       "phone_type": "iphone",
@@ -30498,10 +30498,10 @@
       "observed_min_lkr": 35000.0,
       "observed_max_lkr": 75000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 53416.12,
-      "fair_price_range_low_lkr": 45661.89,
-      "fair_price_range_high_lkr": 61170.35
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 49978.23,
+      "fair_price_range_low_lkr": 42058.56,
+      "fair_price_range_high_lkr": 57897.89
     },
     {
       "phone_type": "iphone",
@@ -30517,10 +30517,10 @@
       "observed_min_lkr": 38500.0,
       "observed_max_lkr": 60000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 53470.99,
-      "fair_price_range_low_lkr": 45716.76,
-      "fair_price_range_high_lkr": 61225.22
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 52318.24,
+      "fair_price_range_low_lkr": 44398.57,
+      "fair_price_range_high_lkr": 60237.9
     },
     {
       "phone_type": "iphone",
@@ -30536,10 +30536,10 @@
       "observed_min_lkr": 20000.0,
       "observed_max_lkr": 60000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 37709.87,
-      "fair_price_range_low_lkr": 29955.63,
-      "fair_price_range_high_lkr": 45464.1
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 35490.57,
+      "fair_price_range_low_lkr": 27570.9,
+      "fair_price_range_high_lkr": 43410.23
     },
     {
       "phone_type": "iphone",
@@ -30555,10 +30555,10 @@
       "observed_min_lkr": 22000.0,
       "observed_max_lkr": 55500.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 43650.73,
-      "fair_price_range_low_lkr": 35896.5,
-      "fair_price_range_high_lkr": 51404.96
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 42316.23,
+      "fair_price_range_low_lkr": 34396.56,
+      "fair_price_range_high_lkr": 50235.89
     },
     {
       "phone_type": "iphone",
@@ -30574,10 +30574,10 @@
       "observed_min_lkr": 29000.0,
       "observed_max_lkr": 50000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 41921.2,
-      "fair_price_range_low_lkr": 34166.97,
-      "fair_price_range_high_lkr": 49675.44
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 39352.29,
+      "fair_price_range_low_lkr": 31432.62,
+      "fair_price_range_high_lkr": 47271.95
     },
     {
       "phone_type": "iphone",
@@ -30593,10 +30593,10 @@
       "observed_min_lkr": 25000.0,
       "observed_max_lkr": 65000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 43768.68,
-      "fair_price_range_low_lkr": 36014.45,
-      "fair_price_range_high_lkr": 51522.92
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 41233.17,
+      "fair_price_range_low_lkr": 33313.51,
+      "fair_price_range_high_lkr": 49152.84
     },
     {
       "phone_type": "iphone",
@@ -30612,10 +30612,10 @@
       "observed_min_lkr": 37000.0,
       "observed_max_lkr": 64999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 50742.9,
-      "fair_price_range_low_lkr": 42988.67,
-      "fair_price_range_high_lkr": 58497.14
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 46860.34,
+      "fair_price_range_low_lkr": 38940.68,
+      "fair_price_range_high_lkr": 54780.0
     },
     {
       "phone_type": "iphone",
@@ -30631,10 +30631,10 @@
       "observed_min_lkr": 49999.0,
       "observed_max_lkr": 49999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 41692.39,
-      "fair_price_range_low_lkr": 33938.16,
-      "fair_price_range_high_lkr": 49446.63
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 38420.55,
+      "fair_price_range_low_lkr": 30500.88,
+      "fair_price_range_high_lkr": 46340.21
     },
     {
       "phone_type": "iphone",
@@ -30650,10 +30650,10 @@
       "observed_min_lkr": 30000.0,
       "observed_max_lkr": 54999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 48144.76,
-      "fair_price_range_low_lkr": 40390.53,
-      "fair_price_range_high_lkr": 55898.99
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 44714.24,
+      "fair_price_range_low_lkr": 36794.58,
+      "fair_price_range_high_lkr": 52633.91
     },
     {
       "phone_type": "iphone",
@@ -30669,10 +30669,10 @@
       "observed_min_lkr": 23500.0,
       "observed_max_lkr": 80000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 49913.25,
-      "fair_price_range_low_lkr": 42159.02,
-      "fair_price_range_high_lkr": 57667.49
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 46712.98,
+      "fair_price_range_low_lkr": 38793.32,
+      "fair_price_range_high_lkr": 54632.64
     },
     {
       "phone_type": "iphone",
@@ -30688,10 +30688,10 @@
       "observed_min_lkr": 29500.0,
       "observed_max_lkr": 69000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 56375.32,
-      "fair_price_range_low_lkr": 48621.09,
-      "fair_price_range_high_lkr": 64129.55
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 52479.91,
+      "fair_price_range_low_lkr": 44560.24,
+      "fair_price_range_high_lkr": 60399.57
     },
     {
       "phone_type": "iphone",
@@ -30707,10 +30707,10 @@
       "observed_min_lkr": 43000.0,
       "observed_max_lkr": 69999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 61437.0,
-      "fair_price_range_low_lkr": 53682.76,
-      "fair_price_range_high_lkr": 69191.23
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 58245.34,
+      "fair_price_range_low_lkr": 50325.67,
+      "fair_price_range_high_lkr": 66165.0
     },
     {
       "phone_type": "iphone",
@@ -30726,10 +30726,10 @@
       "observed_min_lkr": 40000.0,
       "observed_max_lkr": 64999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 52375.45,
-      "fair_price_range_low_lkr": 44621.21,
-      "fair_price_range_high_lkr": 60129.68
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 50533.44,
+      "fair_price_range_low_lkr": 42613.78,
+      "fair_price_range_high_lkr": 58453.1
     },
     {
       "phone_type": "iphone",
@@ -30745,10 +30745,10 @@
       "observed_min_lkr": 33000.0,
       "observed_max_lkr": 90000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 55328.69,
-      "fair_price_range_low_lkr": 47574.46,
-      "fair_price_range_high_lkr": 63082.93
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 52578.85,
+      "fair_price_range_low_lkr": 44659.18,
+      "fair_price_range_high_lkr": 60498.51
     },
     {
       "phone_type": "iphone",
@@ -30764,10 +30764,10 @@
       "observed_min_lkr": 35000.0,
       "observed_max_lkr": 73000.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 61737.9,
-      "fair_price_range_low_lkr": 53983.66,
-      "fair_price_range_high_lkr": 69492.13
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 59032.17,
+      "fair_price_range_low_lkr": 51112.51,
+      "fair_price_range_high_lkr": 66951.84
     },
     {
       "phone_type": "iphone",
@@ -30783,10 +30783,10 @@
       "observed_min_lkr": 49500.0,
       "observed_max_lkr": 77999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 67068.25,
-      "fair_price_range_low_lkr": 59314.02,
-      "fair_price_range_high_lkr": 74822.48
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 66163.58,
+      "fair_price_range_low_lkr": 58243.92,
+      "fair_price_range_high_lkr": 74083.25
     },
     {
       "phone_type": "iphone",
@@ -30802,10 +30802,10 @@
       "observed_min_lkr": 54999.0,
       "observed_max_lkr": 54999.0,
       "model_used": "CatBoost",
-      "model_mae_lkr": 7754.23,
-      "fair_price_lkr": 46684.32,
-      "fair_price_range_low_lkr": 38930.09,
-      "fair_price_range_high_lkr": 54438.55
+      "model_mae_lkr": 7919.66,
+      "fair_price_lkr": 43106.18,
+      "fair_price_range_low_lkr": 35186.52,
+      "fair_price_range_high_lkr": 51025.84
     }
   ]
 }

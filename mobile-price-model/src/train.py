@@ -125,8 +125,8 @@ def check_gpu_availability() -> Tuple[bool, str]:
 
 # ── Model definitions ────────────────────────────────────────────────────────
 
-def _get_model_configs() -> list[Dict[str, Any]]:
-    """Return model configurations with hyperparameter search spaces and GPU support."""
+def _get_model_configs(phone_type: Optional[str] = None) -> list[Dict[str, Any]]:
+    """Return model configurations with hyperparameter search spaces, GPU support, and domain constraints."""
     has_gpu, gpu_device = check_gpu_availability()
     if has_gpu:
         logger.info("GPU Acceleration: ENABLED (NVIDIA CUDA)")
@@ -190,16 +190,29 @@ def _get_model_configs() -> list[Dict[str, Any]]:
     except ImportError:
         logger.warning("XGBoost not installed. Skipping.")
 
-    # CatBoost (GPU accelerated when available)
+    # CatBoost (with Monotonic Constraints on iPhone battery_health_percent)
     try:
         from catboost import CatBoostRegressor
+        catboost_kwargs: Dict[str, Any] = {
+            "random_seed": RANDOM_STATE,
+            "verbose": 0,
+        }
+
+        if phone_type == "iphone" and "battery_health_percent" in NUMERIC_FEATURES:
+            # Transformed feature order: [CATEGORICAL_FEATURES (TargetEncoded), NUMERIC_FEATURES (Scaled)]
+            bh_idx = len(CATEGORICAL_FEATURES) + NUMERIC_FEATURES.index("battery_health_percent")
+            constraints = [0] * len(FEATURE_COLUMNS)
+            constraints[bh_idx] = 1
+            constraint_tuple_str = "(" + ",".join(str(c) for c in constraints) + ")"
+            catboost_kwargs["monotone_constraints"] = constraint_tuple_str
+            catboost_kwargs["task_type"] = "CPU"  # CatBoost monotone constraints supported on CPU
+            logger.info("CatBoost: Applied positive monotonic constraint (+1) on 'battery_health_percent' (index %d).", bh_idx)
+        else:
+            catboost_kwargs["task_type"] = "GPU" if has_gpu else "CPU"
+
         configs.append({
             "name": "CatBoost",
-            "estimator": CatBoostRegressor(
-                random_seed=RANDOM_STATE,
-                task_type="GPU" if has_gpu else "CPU",
-                verbose=0,
-            ),
+            "estimator": CatBoostRegressor(**catboost_kwargs),
             "param_grid": {
                 "model__iterations": [300, 500, 700],
                 "model__learning_rate": [0.03, 0.05, 0.08, 0.1],
@@ -286,9 +299,6 @@ def train_all_models(
     skipped: Dict[str, Dict[str, Any]] = {}
     trained: Dict[str, Pipeline] = {}
 
-    all_configs = _get_model_configs()
-    config_by_name = {c["name"].lower().replace(" ", "_"): c for c in all_configs}
-
     target_assignments = {
         "iphone": ["catboost", "xgboost", "random_forest", "lightgbm"] if not dedicated_only else ["catboost"],
         "android": ["xgboost", "lightgbm", "random_forest", "catboost"] if not dedicated_only else ["xgboost"],
@@ -299,6 +309,9 @@ def train_all_models(
             logger.warning("Skipping %s: only %s rows (need %s).",
                            phone_type, len(dataset), MIN_ROWS_REQUIRED)
             continue
+
+        all_configs = _get_model_configs(phone_type=phone_type)
+        config_by_name = {c["name"].lower().replace(" ", "_"): c for c in all_configs}
 
         X = dataset[FEATURE_COLUMNS].copy()
         y = dataset[TARGET_COLUMN].copy()
