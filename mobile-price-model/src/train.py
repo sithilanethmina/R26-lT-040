@@ -36,6 +36,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 from .config import (
+    BASE_DIR,
     CATEGORICAL_FEATURES,
     CLEANED_DATA_FILE,
     CV_FOLDS,
@@ -467,6 +468,11 @@ def save_metadata_and_lookup(cleaned_df: pd.DataFrame) -> None:
     with metadata_file.open("w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
         
+    ext_metadata = BASE_DIR.parent / "browser-extension" / "mobile_metadata.json"
+    if ext_metadata.parent.exists():
+        with ext_metadata.open("w", encoding="utf-8") as f:
+            json.dump(lookup, f, indent=2, ensure_ascii=False)
+
     logger.info("Saved lookup & metadata: %s, %s", lookup_file, metadata_file)
 
 
