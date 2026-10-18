@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  fairpricelk:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fairpricelk-gateway
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      - PORT=8000
+      - CONSOLIDATED_MODE=true
+      - SAVE_SCREENSHOTS=false
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    mem_limit: 750m
+    deploy:
+      resources:
+        limits:
+          memory: 750M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 30s

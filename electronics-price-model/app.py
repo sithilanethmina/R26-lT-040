@@ -6,8 +6,12 @@ import os
 import re
 import sys
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+
 # Ensure src/ is on sys.path
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
+sys.path.insert(0, str(BASE_DIR / 'src'))
 
 try:
     from llm_extractor import extract_electronics_specs_llm
@@ -18,6 +22,12 @@ except ImportError:
         extract_electronics_specs_llm = None
 
 app = Flask(__name__)
+
+try:
+    from flask_cors import CORS
+    CORS(app)
+except Exception:
+    pass
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -32,7 +42,7 @@ models_db = {
 
 def load_models():
     # 1. Primary Laptop Model
-    laptop_path = 'models/best_laptop_model.pkl'
+    laptop_path = os.path.join(BASE_DIR, 'models', 'best_laptop_model.pkl')
     if os.path.exists(laptop_path):
         try:
             bundle = joblib.load(laptop_path)
@@ -45,7 +55,7 @@ def load_models():
             print(f"[!] Failed to load Laptop model: {e}")
 
     # 2. Primary Monitor Model
-    monitor_path = 'models/best_monitor_model.pkl'
+    monitor_path = os.path.join(BASE_DIR, 'models', 'best_monitor_model.pkl')
     if os.path.exists(monitor_path):
         try:
             bundle = joblib.load(monitor_path)
@@ -58,7 +68,7 @@ def load_models():
             print(f"[!] Failed to load Monitor model: {e}")
 
     # 3. Primary Tablet Model
-    tablet_path = 'models/best_tablet_model.pkl'
+    tablet_path = os.path.join(BASE_DIR, 'models', 'best_tablet_model.pkl')
     if os.path.exists(tablet_path):
         try:
             bundle = joblib.load(tablet_path)
@@ -888,7 +898,8 @@ def predict():
         print(traceback.format_exc())
         return jsonify({'success': False, 'error': str(e)})
 
-@app.route('/model_info')
+@app.route('/metadata', methods=['GET'])
+@app.route('/model_info', methods=['GET'])
 def model_info():
     info = {}
     for cat in models_db:
@@ -903,4 +914,6 @@ def model_info():
     return jsonify(info)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=8004, use_reloader=False)
+    port = int(os.environ.get("PORT", 8004))
+    debug = os.environ.get("FLASK_DEBUG", "false").lower() in ("true", "1")
+    app.run(host='0.0.0.0', debug=debug, port=port, use_reloader=False)

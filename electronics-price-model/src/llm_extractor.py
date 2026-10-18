@@ -161,8 +161,9 @@ def extract_electronics_specs_llm(
     if title.strip(): print(f"   * Title:               {title.strip()}")
     if description.strip(): print(f"   * Description:         {description.strip()[:150]}")
 
-    # Save incoming screenshot with page title and timestamp
-    if has_image:
+    # Save incoming screenshot with page title and timestamp if explicitly enabled (disabled by default in production)
+    save_screenshots = os.environ.get("SAVE_SCREENSHOTS", "false").lower() in ("true", "1")
+    if has_image and save_screenshots:
         try:
             screenshots_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "screenshots"))
             os.makedirs(screenshots_dir, exist_ok=True)

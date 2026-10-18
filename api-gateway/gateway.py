@@ -19,10 +19,97 @@ if str(BASE_DIR) not in sys.path:
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+import importlib.util
+from starlette.middleware.wsgi import WSGIMiddleware
+
 try:
-    from config import SERVICES
+    from config import SERVICES, CONSOLIDATED_MODE
 except ImportError:
-    from api_gateway.config import SERVICES
+    from api_gateway.config import SERVICES, CONSOLIDATED_MODE
+
+INTERNAL_APPS = {}
+
+def init_consolidated_services():
+    """Initializes in-memory service applications when CONSOLIDATED_MODE is enabled."""
+    if not CONSOLIDATED_MODE:
+        return
+    
+    print("[Gateway] Initializing consolidated in-memory microservices...")
+    # 1. GPU
+    try:
+        gpu_src = PROJECT_ROOT / "gpu-price-model" / "src"
+        if str(gpu_src) not in sys.path:
+            sys.path.insert(0, str(gpu_src))
+        import gpu_price_predictor.api as gpu_mod
+        INTERNAL_APPS["gpu"] = gpu_mod.app
+        print("  [+] Consolidated GPU service ready")
+    except Exception as e:
+        print(f"  [!] Notice: GPU in-memory service not loaded: {e}")
+
+    # 2. Mobile
+    try:
+        mob_dir = PROJECT_ROOT / "mobile-price-model"
+        if str(mob_dir) not in sys.path:
+            sys.path.insert(0, str(mob_dir))
+        spec_mob = importlib.util.spec_from_file_location("mobile_service_api", str(mob_dir / "api.py"))
+        mob_mod = importlib.util.module_from_spec(spec_mob)
+        sys.modules["mobile_service_api"] = mob_mod
+        spec_mob.loader.exec_module(mob_mod)
+        if hasattr(mob_mod, "startup_event"):
+            mob_mod.startup_event()
+        INTERNAL_APPS["mobile"] = mob_mod.app
+        print("  [+] Consolidated Mobile service ready")
+    except Exception as e:
+        print(f"  [!] Notice: Mobile in-memory service not loaded: {e}")
+
+    # 3. Vehicle
+    try:
+        veh_dir = PROJECT_ROOT / "vehicle-price-model"
+        if str(veh_dir) not in sys.path:
+            sys.path.insert(0, str(veh_dir))
+        spec_veh = importlib.util.spec_from_file_location("vehicle_service_app", str(veh_dir / "app.py"))
+        veh_mod = importlib.util.module_from_spec(spec_veh)
+        sys.modules["vehicle_service_app"] = veh_mod
+        spec_veh.loader.exec_module(veh_mod)
+        INTERNAL_APPS["vehicle"] = veh_mod.app
+        print("  [+] Consolidated Vehicle service ready")
+    except Exception as e:
+        print(f"  [!] Notice: Vehicle in-memory service not loaded: {e}")
+
+    # 4. Electronics
+    try:
+        elec_dir = PROJECT_ROOT / "electronics-price-model"
+        if str(elec_dir) not in sys.path:
+            sys.path.insert(0, str(elec_dir))
+        if str(elec_dir / "src") not in sys.path:
+            sys.path.insert(0, str(elec_dir / "src"))
+        spec_elec = importlib.util.spec_from_file_location("electronics_service_app", str(elec_dir / "app.py"))
+        elec_mod = importlib.util.module_from_spec(spec_elec)
+        sys.modules["electronics_service_app"] = elec_mod
+        spec_elec.loader.exec_module(elec_mod)
+        INTERNAL_APPS["electronics"] = WSGIMiddleware(elec_mod.app)
+        print("  [+] Consolidated Electronics service ready")
+    except Exception as e:
+        print(f"  [!] Notice: Electronics in-memory service not loaded: {e}")
+
+init_consolidated_services()
+
+def get_downstream_client(category: str, timeout: float = 30.0) -> tuple[httpx.AsyncClient, str]:
+    """
+    Returns an (httpx.AsyncClient, base_url) tuple.
+    In consolidated mode with loaded in-memory app, routes via ASGITransport with empty base_url.
+    Otherwise, returns a standard client and the configured network URL.
+    """
+    if CONSOLIDATED_MODE and category in INTERNAL_APPS:
+        client = httpx.AsyncClient(
+            transport=httpx.ASGITransport(app=INTERNAL_APPS[category]),
+            base_url="http://internal",
+            timeout=timeout
+        )
+        return client, ""
+    
+    url = SERVICES.get(category, {}).get("url", f"http://localhost:8000")
+    return httpx.AsyncClient(timeout=timeout), url
 
 app = FastAPI(title="FairPriceLK API Gateway", version="1.0")
 
@@ -54,19 +141,23 @@ async def serve_dashboard():
     return JSONResponse(status_code=404, content={"detail": "Dashboard template not found."})
 
 @app.get("/api/health")
+@app.get("/health")
 async def health_check():
     """Check health of gateway and all downstream services."""
     statuses = {}
-    async with httpx.AsyncClient(timeout=2.0) as client:
-        for service_id, service_info in SERVICES.items():
+    for service_id, service_info in SERVICES.items():
+        client, base_url = get_downstream_client(service_id, timeout=2.0)
+        async with client:
             try:
-                response = await client.get(f"{service_info['url']}/health")
+                response = await client.get(f"{base_url}/health")
                 statuses[service_id] = "healthy" if response.status_code == 200 else "unhealthy"
-            except httpx.RequestError:
+            except Exception:
                 statuses[service_id] = "unreachable"
     
+    overall_status = "healthy" if (statuses and all(v == "healthy" for v in statuses.values())) else "gateway_running"
     return {
-        "status": "gateway_running",
+        "status": overall_status,
+        "mode": "consolidated_in_memory" if CONSOLIDATED_MODE else "distributed",
         "services": statuses
     }
 
@@ -92,13 +183,15 @@ async def developer_health():
         "version": "v1.0"
     })
 
-    async with httpx.AsyncClient(timeout=3.0) as client:
-        for service_id, service_info in SERVICES.items():
-            url = service_info["url"]
-            port = int(url.split(":")[-1])
-            start_time = time.time()
+    for service_id, service_info in SERVICES.items():
+        is_internal = CONSOLIDATED_MODE and service_id in INTERNAL_APPS
+        url = "in-memory (internal)" if is_internal else service_info["url"]
+        port = 8000 if is_internal else (int(service_info["url"].split(":")[-1]) if "localhost" in service_info["url"] else 8000)
+        start_time = time.time()
+        client, base_url = get_downstream_client(service_id, timeout=3.0)
+        async with client:
             try:
-                response = await client.get(f"{url}/health")
+                response = await client.get(f"{base_url}/health")
                 latency = round((time.time() - start_time) * 1000, 1)
                 status = "healthy" if response.status_code == 200 else "degraded"
             except Exception:
@@ -607,13 +700,15 @@ async def metadata_proxy(category: str):
     if category not in SERVICES:
         raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
     
-    service_url = SERVICES[category]["url"]
-    
-    async with httpx.AsyncClient(timeout=10.0) as client:
+    client, base_url = get_downstream_client(category, timeout=10.0)
+    async with client:
         try:
-            response = await client.get(f"{service_url}/metadata")
-            if response.status_code == 404 and category == "vehicle":
-                response = await client.get(f"{service_url}/metadata/cars")
+            response = await client.get(f"{base_url}/metadata")
+            if response.status_code == 404:
+                if category == "vehicle":
+                    response = await client.get(f"{base_url}/metadata/cars")
+                elif category == "electronics":
+                    response = await client.get(f"{base_url}/model_info")
             try:
                 content = response.json()
             except Exception:
@@ -630,11 +725,10 @@ async def metadata_proxy_subpath(category: str, subpath: str):
     if category not in SERVICES:
         raise HTTPException(status_code=404, detail=f"Service for category '{category}' not found.")
     
-    service_url = SERVICES[category]["url"]
-    
-    async with httpx.AsyncClient(timeout=10.0) as client:
+    client, base_url = get_downstream_client(category, timeout=10.0)
+    async with client:
         try:
-            response = await client.get(f"{service_url}/metadata/{subpath}")
+            response = await client.get(f"{base_url}/metadata/{subpath}")
             try:
                 content = response.json()
             except Exception:
@@ -813,10 +907,11 @@ async def predict_proxy(category: str, request: Request):
                 "storage": storage_gb
             })
             
-        async with httpx.AsyncClient(timeout=30.0) as client:
+        elec_client, elec_base_url = get_downstream_client("electronics", timeout=30.0)
+        async with elec_client:
             try:
-                elec_response = await client.post(
-                    f"{target_service_url}/predict",
+                elec_response = await elec_client.post(
+                    f"{elec_base_url}/predict",
                     json=elec_payload,
                     headers={"Content-Type": "application/json"}
                 )
@@ -849,11 +944,11 @@ async def predict_proxy(category: str, request: Request):
                 print(f"Error redirecting to electronics service: {e}")
                 
     # Proxy the request as normal
-    service_url = SERVICES[category]["url"]
-    async with httpx.AsyncClient(timeout=30.0) as client:
+    proxy_client, proxy_base_url = get_downstream_client(category, timeout=30.0)
+    async with proxy_client:
         try:
-            response = await client.post(
-                f"{service_url}/predict",
+            response = await proxy_client.post(
+                f"{proxy_base_url}/predict",
                 json=body,
                 headers={"Content-Type": "application/json"}
             )
@@ -880,10 +975,11 @@ async def predict_proxy_subpath(category: str, subpath: str, request: Request):
     except Exception:
         body = {}
         
-    async with httpx.AsyncClient(timeout=30.0) as client:
+    proxy_client, proxy_base_url = get_downstream_client(category, timeout=30.0)
+    async with proxy_client:
         try:
-            response = await client.post(
-                f"{service_url}/predict/{subpath}",
+            response = await proxy_client.post(
+                f"{proxy_base_url}/predict/{subpath}",
                 json=body,
                 headers={"Content-Type": "application/json"}
             )
@@ -898,5 +994,6 @@ async def predict_proxy_subpath(category: str, subpath: str, request: Request):
             raise HTTPException(status_code=500, detail=f"Proxy error: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run("gateway:app", host="0.0.0.0", port=8000, reload=False)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
