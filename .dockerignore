@@ -1,0 +1,48 @@
+# Environments & Virtual Envs
+.venv/
+venv/
+ENV/
+env/
+
+# Git & GitHub
+.git/
+.github/
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+**/*/__pycache__/
+
+# Logs & temp files
+*.log
+logs/
+log/
+catboost_info/
+scratch/
+
+# Client & Frontend Extensions (not part of Python backend container)
+browser-extension/
+
+# Screenshots & Visual Assets
+screenshots/
+**/screenshots/
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# Environment secrets (must NEVER be baked into Docker image)
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db

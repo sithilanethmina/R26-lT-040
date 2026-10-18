@@ -4,6 +4,7 @@ from typing import Optional
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 import sys
+import os
 from pathlib import Path
 
 # Add src to path to import app correctly
@@ -268,4 +269,5 @@ def import_np():
 
 
 if __name__ == "__main__":
-    uvicorn.run("gpu_price_predictor.api:app", host="0.0.0.0", port=8001, reload=True)
+    port = int(os.environ.get("PORT", 8001))
+    uvicorn.run("gpu_price_predictor.api:app", host="0.0.0.0", port=port, reload=False)

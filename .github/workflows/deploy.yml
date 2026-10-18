@@ -1,0 +1,143 @@
+name: CI/CD Pipeline & Auto-Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false
+
+jobs:
+  # ============================================================================
+  # Continuous Integration: Automated Smoke & Regression Testing
+  # ============================================================================
+  smoke-tests:
+    name: Run Automated Smoke Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: Install System Dependencies (OpenMP for LightGBM/XGBoost)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgomp1
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r requirements.txt
+
+      - name: Run Consolidated Gateway Smoke Tests
+        env:
+          CONSOLIDATED_MODE: "true"
+          PORT: 8000
+        run: |
+          python tests/test_smoke.py
+
+  # ============================================================================
+  # Continuous Deployment: Auto-deploy to Oracle Cloud Always Free VM
+  # ============================================================================
+  deploy:
+    name: Deploy to Oracle Cloud VM
+    needs: smoke-tests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate Deployment Secrets
+        id: check-secrets
+        run: |
+          if [ -z "${{ secrets.SSH_HOST }}" ] || [ -z "${{ secrets.SSH_USER }}" ] || [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
+            echo "::warning ::SSH deployment secrets (SSH_HOST, SSH_USER, SSH_PRIVATE_KEY) are not set. Auto-deploy skipped."
+            echo "secrets_configured=false" >> $GITHUB_OUTPUT
+          else
+            echo "Deployment secrets verified."
+            echo "secrets_configured=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: SSH & Deploy Container to Oracle VM
+        if: steps.check-secrets.outputs.secrets_configured == 'true'
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          timeout: 300s
+          command_timeout: 30m
+          script: |
+            set -euo pipefail
+            APP_DIR="$HOME/R26-lT-040"
+            echo "========================================================================"
+            echo " Starting Deployment on Oracle VM: $APP_DIR"
+            echo " Commit SHA: ${{ github.sha }}"
+            echo "========================================================================"
+
+            # 1. Clone repository if first deployment
+            if [ ! -d "$APP_DIR" ]; then
+              echo "[1/4] Cloning repository..."
+              git clone https://github.com/${{ github.repository }}.git "$APP_DIR"
+            fi
+
+            cd "$APP_DIR"
+
+            # 2. Pull latest code from main
+            echo "[2/4] Fetching latest changes from main branch..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Ensure .env file exists with consolidated mode
+            if [ ! -f .env ]; then
+              echo "Creating default .env configuration..."
+              cat << 'EOF' > .env
+            PORT=8000
+            CONSOLIDATED_MODE=true
+            SAVE_SCREENSHOTS=false
+            GEMINI_API_KEY=
+            EOF
+            fi
+
+            # 3. Build and launch container in consolidated single-process mode
+            echo "[3/4] Rebuilding Docker image and launching container..."
+            docker compose down --remove-orphans || true
+            docker compose up -d --build --remove-orphans
+
+            # 4. Healthcheck Verification
+            echo "[4/4] Verifying FairPriceLK health endpoint..."
+            HEALTHY=false
+            for i in $(seq 1 15); do
+              if curl -sf http://localhost:8000/api/health > /dev/null 2>&1; then
+                HEALTHY=true
+                break
+              fi
+              echo "Waiting for models and gateway to initialize... ($i/15)"
+              sleep 4
+            done
+
+            if [ "$HEALTHY" = true ]; then
+              echo "========================================================================"
+              echo " SUCCESS: FairPriceLK Gateway is healthy and running on port 8000!"
+              echo "========================================================================"
+              curl -s http://localhost:8000/api/health
+            else
+              echo "========================================================================"
+              echo " ERROR: Healthcheck timed out after 60 seconds."
+              echo " Dumping recent container logs for debugging:"
+              echo "========================================================================"
+              docker compose logs --tail=100
+              exit 1
+            fi
