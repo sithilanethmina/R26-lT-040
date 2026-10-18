@@ -132,6 +132,7 @@ STATIC_DIR.mkdir(exist_ok=True)
 # Mount static files for dashboard assets
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
+@app.get("/")
 @app.get("/dashboard")
 @app.get("/developer")
 async def serve_dashboard():

@@ -5,10 +5,10 @@ const rootScope = typeof globalThis !== 'undefined' ? globalThis : (typeof self 
 
 var CONFIG = rootScope.CONFIG || {
     // Live Deployed Backend API Gateway URL (Heroku)
-    // API_BASE_URL: 'https://fairpricelk-api-8cc091b2d27f.herokuapp.com',
+    API_BASE_URL: 'http://161.118.224.233:8000',
 
     // Local Development URL (uncomment for local development testing)
-    API_BASE_URL: 'http://127.0.0.1:8000',
+    // API_BASE_URL: 'http://127.0.0.1:8000',
 };
 rootScope.CONFIG = CONFIG;
 
