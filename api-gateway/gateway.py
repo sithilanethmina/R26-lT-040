@@ -612,6 +612,8 @@ async def metadata_proxy(category: str):
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
             response = await client.get(f"{service_url}/metadata")
+            if response.status_code == 404 and category == "vehicle":
+                response = await client.get(f"{service_url}/metadata/cars")
             try:
                 content = response.json()
             except Exception:
