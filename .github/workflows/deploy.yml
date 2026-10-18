@@ -112,9 +112,25 @@ jobs:
             fi
 
             # 3. Build and launch container in consolidated single-process mode
-            echo "[3/4] Rebuilding Docker image and launching container..."
-            docker compose down --remove-orphans || true
-            docker compose up -d --build --remove-orphans
+            echo "[3/4] Checking Docker daemon and preparing container launch..."
+            DOCKER_CMD="docker"
+            if ! docker info > /dev/null 2>&1; then
+              echo "  [*] Docker not responding for current user. Starting daemon / checking sudo..."
+              sudo systemctl start docker || sudo service docker start || true
+              sleep 2
+              if docker info > /dev/null 2>&1; then
+                DOCKER_CMD="docker"
+              elif sudo docker info > /dev/null 2>&1; then
+                DOCKER_CMD="sudo docker"
+              else
+                echo "ERROR: Unable to connect to Docker daemon."
+                exit 1
+              fi
+            fi
+            echo "  [+] Using Docker command: $DOCKER_CMD"
+
+            $DOCKER_CMD compose down --remove-orphans || true
+            $DOCKER_CMD compose up -d --build --remove-orphans
 
             # 4. Healthcheck Verification
             echo "[4/4] Verifying FairPriceLK health endpoint..."
@@ -138,6 +154,6 @@ jobs:
               echo " ERROR: Healthcheck timed out after 60 seconds."
               echo " Dumping recent container logs for debugging:"
               echo "========================================================================"
-              docker compose logs --tail=100
+              $DOCKER_CMD compose logs --tail=100
               exit 1
             fi
