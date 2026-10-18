@@ -43,14 +43,25 @@ if ! command -v docker >/dev/null 2>&1; then
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
     rm -f get-docker.sh
-    # Add current user to docker group
-    sudo usermod -aG docker "$USER"
-    sudo systemctl enable docker
-    sudo systemctl start docker
     echo "  [+] Docker installed successfully."
 else
     echo "[3/5] Docker is already installed."
-    sudo usermod -aG docker "$USER" || true
+fi
+
+# Unconditionally configure user permissions and ensure docker service + socket are running
+echo "  [*] Configuring Docker service and socket..."
+sudo usermod -aG docker "$USER" || true
+sudo systemctl daemon-reload || true
+sudo systemctl enable docker || true
+sudo systemctl restart docker || sudo systemctl start docker || sudo service docker start || true
+sudo systemctl enable docker.socket || true
+sudo systemctl start docker.socket || true
+
+# Verify docker socket is available
+if sudo docker info >/dev/null 2>&1; then
+    echo "  [+] Docker daemon is active and running."
+else
+    echo "  [!] Warning: Docker daemon is not responding yet."
 fi
 
 # 4. Open Port 8000 in OS Firewall
