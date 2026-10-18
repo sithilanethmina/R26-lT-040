@@ -940,6 +940,11 @@
       }
     }
 
+    if (typeof chrome === "undefined" || !chrome.runtime?.id) {
+      handlePredictionFailure("Extension updated. Please refresh the page.", manualOverride);
+      return;
+    }
+
     try {
       chrome.runtime.sendMessage(
         {
@@ -950,7 +955,7 @@
           with_screenshot: true,
         },
         (response) => {
-          if (chrome.runtime.lastError) {
+          if (chrome.runtime?.lastError) {
             console.error("Extension message error:", chrome.runtime.lastError);
             handlePredictionFailure(
               `Extension error: ${chrome.runtime.lastError.message}`,
@@ -1015,6 +1020,11 @@
         },
       );
     } catch (err) {
+      if (err.message && err.message.includes("Extension context invalidated")) {
+        console.warn("FairPriceLK: Extension reloaded. Refreshing the webpage is required.");
+        handlePredictionFailure("Extension reloaded. Please refresh the webpage.", manualOverride);
+        return;
+      }
       console.error("Message dispatch error:", err);
       handlePredictionFailure(`${err.name}: ${err.message}`, manualOverride);
     }
