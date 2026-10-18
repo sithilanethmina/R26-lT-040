@@ -64,20 +64,23 @@ else
     echo "  [!] Warning: Docker daemon is not responding yet."
 fi
 
-# 4. Open Port 8000 in OS Firewall
-echo "[4/5] Opening Port 8000 in OS Firewall..."
+# 4. Open Ports 80 and 8000 in OS Firewall
+echo "[4/5] Opening Ports 80 and 8000 in OS Firewall..."
 # Ubuntu UFW
 if command -v ufw >/dev/null 2>&1; then
     sudo ufw allow 22/tcp || true
+    sudo ufw allow 80/tcp || true
     sudo ufw allow 8000/tcp || true
     sudo ufw --force enable || true
 fi
 
 # Oracle Cloud iptables rules (OCI Ubuntu/Oracle Linux images have strict iptables by default)
 if sudo iptables -L INPUT -n --line-numbers 2>/dev/null | grep -q "REJECT"; then
-    echo "  [*] Inserting iptables ACCEPT rule for port 8000 before REJECT rule..."
+    echo "  [*] Inserting iptables ACCEPT rules for ports 80 and 8000 before REJECT rule..."
+    sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT || \
+    sudo iptables -I INPUT 1 -p tcp --dport 80 -j ACCEPT || true
     sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 8000 -j ACCEPT || \
-    sudo iptables -I INPUT 1 -p tcp --dport 8000 -j ACCEPT
+    sudo iptables -I INPUT 1 -p tcp --dport 8000 -j ACCEPT || true
     
     # Persist iptables
     if command -v netfilter-persistent >/dev/null 2>&1; then
@@ -89,11 +92,12 @@ fi
 
 # Oracle Linux firewalld
 if command -v firewall-cmd >/dev/null 2>&1 && systemctl is-active --quiet firewalld; then
+    sudo firewall-cmd --permanent --add-port=80/tcp || true
     sudo firewall-cmd --permanent --add-port=8000/tcp || true
     sudo firewall-cmd --reload || true
 fi
 
-echo "  [+] Port 8000 opened in OS firewall."
+echo "  [+] Ports 80 and 8000 opened in OS firewall."
 
 # 5. Prepare Repository Workspace
 APP_DIR="$HOME/R26-lT-040"
@@ -121,7 +125,7 @@ echo " Setup Complete!"
 echo " Next Steps:"
 echo " 1. Make sure OCI Security List allows Ingress TCP on port 8000."
 echo " 2. In GitHub, add Repository Secrets:"
-echo "    - SSH_HOST:        Your Oracle VM Public IP (e.g. 129.225.116.66)"
+echo "    - SSH_HOST:        Your Oracle VM Public IP"
 echo "    - SSH_USER:        ubuntu (for Ubuntu) or opc (for Oracle Linux)"
 echo "    - SSH_PRIVATE_KEY: The private SSH key matching ~/.ssh/authorized_keys"
 echo " 3. Push or merge changes to 'main' branch to trigger auto-deployment."
