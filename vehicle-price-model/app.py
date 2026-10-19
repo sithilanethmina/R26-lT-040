@@ -51,36 +51,72 @@ REFERENCE_YEAR = 2026
 
 # ─── Load Artifacts ───────────────────────────────────────────────────────────
 print("Loading Car model artifacts …")
-try:
-    car_model      = joblib.load(CAR_MODEL_DIR / "best_model.pkl")
-    car_encoder    = joblib.load(CAR_MODEL_DIR / "ordinal_encoder.pkl")
-    car_model_type = type(car_model).__name__
-except FileNotFoundError as exc:
-    raise RuntimeError(f"Car model artifact not found: {exc}") from exc
+car_model = None
+car_model_type = None
+for fname in ["best_model.pkl", "xgbregressor.pkl", "catboost.pkl", "random_forest.pkl"]:
+    cand = CAR_MODEL_DIR / fname
+    if cand.exists():
+        try:
+            car_model = joblib.load(cand)
+            car_model_type = type(car_model).__name__
+            break
+        except Exception:
+            continue
 
-CAR_IS_CATBOOST = "CatBoost" in car_model_type
+if car_model is None:
+    raise RuntimeError("Car model artifact not found or incompatible across environments.")
+
+try:
+    car_encoder = joblib.load(CAR_MODEL_DIR / "ordinal_encoder.pkl")
+except Exception as exc:
+    raise RuntimeError(f"Car ordinal encoder artifact not found: {exc}") from exc
+
+CAR_IS_CATBOOST = "CatBoost" in (car_model_type or "")
 
 print("Loading SUV model artifacts …")
-try:
-    suv_model      = joblib.load(SUV_MODEL_DIR / "best_suv_model.pkl")
-    suv_encoder    = joblib.load(SUV_MODEL_DIR / "suv_ordinal_encoder.pkl")
-    suv_model_type = type(suv_model).__name__
-except FileNotFoundError as exc:
-    raise RuntimeError(f"SUV model artifact not found: {exc}") from exc
+suv_model = None
+suv_model_type = None
+for fname in ["best_suv_model.pkl", "xgbregressor.pkl", "catboost.pkl", "random_forest.pkl"]:
+    cand = SUV_MODEL_DIR / fname
+    if cand.exists():
+        try:
+            suv_model = joblib.load(cand)
+            suv_model_type = type(suv_model).__name__
+            break
+        except Exception:
+            continue
 
-SUV_IS_CATBOOST = "CatBoost" in suv_model_type
+if suv_model is None:
+    raise RuntimeError("SUV model artifact not found or incompatible across environments.")
+
+try:
+    suv_encoder = joblib.load(SUV_MODEL_DIR / "suv_ordinal_encoder.pkl")
+except Exception as exc:
+    raise RuntimeError(f"SUV ordinal encoder artifact not found: {exc}") from exc
+
+SUV_IS_CATBOOST = "CatBoost" in (suv_model_type or "")
 
 print("Loading Van model artifacts …")
-try:
-    van_model      = joblib.load(VAN_MODEL_DIR / "best_van_model.pkl")
-    van_encoder    = joblib.load(VAN_MODEL_DIR / "van_ordinal_encoder.pkl")
-    van_model_type = type(van_model).__name__
-except FileNotFoundError as exc:
-    van_model      = None
-    van_encoder    = None
-    van_model_type = None
+van_model = None
+van_model_type = None
+van_encoder = None
+for fname in ["best_van_model.pkl", "xgbregressor.pkl", "catboost.pkl", "random_forest.pkl"]:
+    cand = VAN_MODEL_DIR / fname
+    if cand.exists():
+        try:
+            van_model = joblib.load(cand)
+            van_model_type = type(van_model).__name__
+            break
+        except Exception:
+            continue
 
-VAN_IS_CATBOOST = "CatBoost" in van_model_type if van_model_type else False
+if van_model is not None:
+    try:
+        van_encoder = joblib.load(VAN_MODEL_DIR / "van_ordinal_encoder.pkl")
+    except Exception:
+        van_encoder = None
+
+VAN_IS_CATBOOST = "CatBoost" in (van_model_type or "") if van_model_type else False
 
 # ─── Load Lookups & NLP Configs ───────────────────────────────────────────────
 with open(CAR_OUT_DIR / "nlp_config.json", encoding="utf-8") as f:
