@@ -1,6 +1,1191 @@
 {
   "models": [
     {
+      "model": "ARC 130 T MOBILE",
+      "normalized": "ARC 130 T MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC 130 V MOBILE",
+      "normalized": "ARC 130 V MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC 140 T MOBILE",
+      "normalized": "ARC 140 T MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC 140 V MOBILE",
+      "normalized": "ARC 140 V MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 310",
+      "normalized": "ARC A 310",
+      "manufacturer": "Intel",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 350",
+      "normalized": "ARC A 350",
+      "manufacturer": "Intel",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 350 M",
+      "normalized": "ARC A 350 M",
+      "manufacturer": "Intel",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 370 M",
+      "normalized": "ARC A 370 M",
+      "manufacturer": "Intel",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 380",
+      "normalized": "ARC A 380",
+      "manufacturer": "Intel",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 380 M",
+      "normalized": "ARC A 380 M",
+      "manufacturer": "Intel",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 530 M",
+      "normalized": "ARC A 530 M",
+      "manufacturer": "Intel",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 550 M",
+      "normalized": "ARC A 550 M",
+      "manufacturer": "Intel",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 570 M",
+      "normalized": "ARC A 570 M",
+      "manufacturer": "Intel",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 580",
+      "normalized": "ARC A 580",
+      "manufacturer": "Intel",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 730 M",
+      "normalized": "ARC A 730 M",
+      "manufacturer": "Intel",
+      "default_vram": 12.0,
+      "valid_vrams": [
+        12.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 750",
+      "normalized": "ARC A 750",
+      "manufacturer": "Intel",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 770",
+      "normalized": "ARC A 770",
+      "manufacturer": "Intel",
+      "default_vram": 16.0,
+      "valid_vrams": [
+        16.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC A 770 M",
+      "normalized": "ARC A 770 M",
+      "manufacturer": "Intel",
+      "default_vram": 16.0,
+      "valid_vrams": [
+        16.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC B 570",
+      "normalized": "ARC B 570",
+      "manufacturer": "Intel",
+      "default_vram": 10.0,
+      "valid_vrams": [
+        10.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC B 580",
+      "normalized": "ARC B 580",
+      "manufacturer": "Intel",
+      "default_vram": 12.0,
+      "valid_vrams": [
+        12.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 112 EU MOBILE",
+      "normalized": "ARC GRAPHICS 112 EU MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 128 EU MOBILE",
+      "normalized": "ARC GRAPHICS 128 EU MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 24EU",
+      "normalized": "ARC GRAPHICS 24EU",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 32EU",
+      "normalized": "ARC GRAPHICS 32EU",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 48EU MOBILE",
+      "normalized": "ARC GRAPHICS 48EU MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 64EU",
+      "normalized": "ARC GRAPHICS 64EU",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC GRAPHICS 64EU MOBILE",
+      "normalized": "ARC GRAPHICS 64EU MOBILE",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO A30M",
+      "normalized": "ARC PRO A30M",
+      "manufacturer": "Intel",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO A40",
+      "normalized": "ARC PRO A40",
+      "manufacturer": "Intel",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO A50",
+      "normalized": "ARC PRO A50",
+      "manufacturer": "Intel",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO A60",
+      "normalized": "ARC PRO A60",
+      "manufacturer": "Intel",
+      "default_vram": 12.0,
+      "valid_vrams": [
+        12.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO A60M",
+      "normalized": "ARC PRO A60M",
+      "manufacturer": "Intel",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO B50",
+      "normalized": "ARC PRO B50",
+      "manufacturer": "Intel",
+      "default_vram": 16.0,
+      "valid_vrams": [
+        16.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARC PRO B60",
+      "normalized": "ARC PRO B60",
+      "manufacturer": "Intel",
+      "default_vram": 24.0,
+      "valid_vrams": [
+        24.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARCTIC SOUND 1T",
+      "normalized": "ARCTIC SOUND 1T",
+      "manufacturer": "Intel",
+      "default_vram": 16.0,
+      "valid_vrams": [
+        16.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARCTIC SOUND 2T",
+      "normalized": "ARCTIC SOUND 2T",
+      "manufacturer": "Intel",
+      "default_vram": 32.0,
+      "valid_vrams": [
+        16.0,
+        32.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "ARCTIC SOUND M",
+      "normalized": "ARCTIC SOUND M",
+      "manufacturer": "Intel",
+      "default_vram": 16.0,
+      "valid_vrams": [
+        16.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
       "model": "GT 1010",
       "normalized": "GT 1010",
       "manufacturer": "NVIDIA",
@@ -167,6 +1352,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.25,
         1.0
       ],
       "brands": [
@@ -197,9 +1383,9 @@
       "model": "GT 120 M MAC EDITION",
       "normalized": "GT 120 M MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -229,9 +1415,9 @@
       "model": "GT 120 MAC EDITION",
       "normalized": "GT 120 MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -261,9 +1447,9 @@
       "model": "GT 120 OEM",
       "normalized": "GT 120 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -325,9 +1511,9 @@
       "model": "GT 130 MAC EDITION",
       "normalized": "GT 130 MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -357,9 +1543,9 @@
       "model": "GT 130 OEM",
       "normalized": "GT 130 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -423,6 +1609,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -485,9 +1672,9 @@
       "model": "GT 220 OEM",
       "normalized": "GT 220 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -517,9 +1704,11 @@
       "model": "GT 230",
       "normalized": "GT 230",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0,
+        1.5
       ],
       "brands": [
         "AMD",
@@ -615,6 +1804,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -647,6 +1837,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -677,9 +1868,9 @@
       "model": "GT 240 M LE",
       "normalized": "GT 240 M LE",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -807,6 +1998,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -837,9 +2029,9 @@
       "model": "GT 330 M MAC EDITION",
       "normalized": "GT 330 M MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -869,8 +2061,10 @@
       "model": "GT 330 OEM",
       "normalized": "GT 330 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 0.5,
       "valid_vrams": [
+        0.25,
+        0.5,
         1.0
       ],
       "brands": [
@@ -997,9 +2191,9 @@
       "model": "GT 415 OEM",
       "normalized": "GT 415 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -1125,9 +2319,11 @@
       "model": "GT 430",
       "normalized": "GT 430",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -1189,9 +2385,9 @@
       "model": "GT 430 PCI",
       "normalized": "GT 430 PCI",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -1223,7 +2419,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -1255,7 +2452,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        1.5
       ],
       "brands": [
         "AMD",
@@ -1351,7 +2549,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        3.0
       ],
       "brands": [
         "AMD",
@@ -1671,6 +2870,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.5,
       "valid_vrams": [
+        1.0,
         1.5
       ],
       "brands": [
@@ -1765,8 +2965,10 @@
       "model": "GT 555 M",
       "normalized": "GT 555 M",
       "manufacturer": "NVIDIA",
-      "default_vram": 3.0,
+      "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
+        2.0,
         3.0
       ],
       "brands": [
@@ -1797,8 +2999,9 @@
       "model": "GT 610",
       "normalized": "GT 610",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0,
         2.0
       ],
@@ -1830,8 +3033,9 @@
       "model": "GT 610 OEM",
       "normalized": "GT 610 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 1.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -1862,9 +3066,9 @@
       "model": "GT 610 PCI",
       "normalized": "GT 610 PCI",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -1894,9 +3098,9 @@
       "model": "GT 610 PCIE X1",
       "normalized": "GT 610 PCIE X1",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -1928,6 +3132,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -1990,9 +3195,9 @@
       "model": "GT 620 OEM",
       "normalized": "GT 620 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -2313,6 +3518,9 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        0.5,
+        1.0,
+        1.5,
         2.0
       ],
       "brands": [
@@ -2343,8 +3551,10 @@
       "model": "GT 640 M",
       "normalized": "GT 640 M",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
+        1.0,
         2.0
       ],
       "brands": [
@@ -2375,8 +3585,9 @@
       "model": "GT 640 M LE",
       "normalized": "GT 640 M LE",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 1.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -2407,9 +3618,9 @@
       "model": "GT 640 M MAC EDITION",
       "normalized": "GT 640 M MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -2441,6 +3652,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.5,
         2.0
       ],
       "brands": [
@@ -2601,6 +3813,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -2631,9 +3844,9 @@
       "model": "GT 650 M MAC EDITION",
       "normalized": "GT 650 M MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -2824,9 +4037,10 @@
       "model": "GT 720",
       "normalized": "GT 720",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -3114,9 +4328,10 @@
       "model": "GT 740",
       "normalized": "GT 740",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -3308,6 +4523,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -3372,6 +4588,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -3626,9 +4843,9 @@
       "model": "GTS 260 M",
       "normalized": "GTS 260 M",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -3724,7 +4941,9 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
-        1.0
+        0.5,
+        1.0,
+        1.5
       ],
       "brands": [
         "AMD",
@@ -3756,6 +4975,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.5,
       "valid_vrams": [
+        0.5,
         1.5
       ],
       "brands": [
@@ -3918,6 +5138,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 3.0,
       "valid_vrams": [
+        2.0,
         3.0
       ],
       "brands": [
@@ -3950,6 +5171,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -4012,9 +5234,10 @@
       "model": "GTX 1050 TI MOBILE",
       "normalized": "GTX 1050 TI MOBILE",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -4044,7 +5267,7 @@
       "model": "GTX 1060",
       "normalized": "GTX 1060",
       "manufacturer": "NVIDIA",
-      "default_vram": 6.0,
+      "default_vram": 5.0,
       "valid_vrams": [
         3.0,
         5.0,
@@ -4076,11 +5299,12 @@
     },
     {
       "model": "GTX 1060 3 GB GP 104",
-      "normalized": "GTX 1060 3 GB GP 104",
+      "normalized": "GTX 1060 GP 104",
       "manufacturer": "NVIDIA",
-      "default_vram": 3.0,
+      "default_vram": 6.0,
       "valid_vrams": [
-        3.0
+        3.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -4108,7 +5332,7 @@
     },
     {
       "model": "GTX 1060 6 GB 9GBPS",
-      "normalized": "GTX 1060 6 GB 9GBPS",
+      "normalized": "GTX 1060 9GBPS",
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
@@ -4140,10 +5364,12 @@
     },
     {
       "model": "GTX 1060 6 GB GDDR5X",
-      "normalized": "GTX 1060 6 GB GDDR5X",
+      "normalized": "GTX 1060",
       "manufacturer": "NVIDIA",
-      "default_vram": 6.0,
+      "default_vram": 5.0,
       "valid_vrams": [
+        3.0,
+        5.0,
         6.0
       ],
       "brands": [
@@ -4172,7 +5398,40 @@
     },
     {
       "model": "GTX 1060 6 GB GP 104",
-      "normalized": "GTX 1060 6 GB GP 104",
+      "normalized": "GTX 1060 GP 104",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        3.0,
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1060 6 GB REV. 2",
+      "normalized": "GTX 1060 REV. 2",
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
@@ -4203,11 +5462,44 @@
       ]
     },
     {
-      "model": "GTX 1060 6 GB REV. 2",
-      "normalized": "GTX 1060 6 GB REV. 2",
+      "model": "GTX 1060 9GBPS",
+      "normalized": "GTX 1060 9GBPS",
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "GTX 1060 GP 104",
+      "normalized": "GTX 1060 GP 104",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        3.0,
         6.0
       ],
       "brands": [
@@ -4299,6 +5591,38 @@
       ]
     },
     {
+      "model": "GTX 1060 REV. 2",
+      "normalized": "GTX 1060 REV. 2",
+      "manufacturer": "NVIDIA",
+      "default_vram": 6.0,
+      "valid_vrams": [
+        6.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
       "model": "GTX 1070",
       "normalized": "GTX 1070",
       "manufacturer": "NVIDIA",
@@ -4332,7 +5656,7 @@
     },
     {
       "model": "GTX 1070 GDDR5X",
-      "normalized": "GTX 1070 GDDR5X",
+      "normalized": "GTX 1070",
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
@@ -4464,7 +5788,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        11.0
       ],
       "brands": [
         "AMD",
@@ -4685,7 +6010,7 @@
     },
     {
       "model": "GTX 1650 GDDR6",
-      "normalized": "GTX 1650 GDDR6",
+      "normalized": "GTX 1650",
       "manufacturer": "NVIDIA",
       "default_vram": 4.0,
       "valid_vrams": [
@@ -5103,9 +6428,11 @@
       "model": "GTX 260",
       "normalized": "GTX 260",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.88,
+        1.0,
+        1.8
       ],
       "brands": [
         "AMD",
@@ -5135,9 +6462,9 @@
       "model": "GTX 260 CORE 216",
       "normalized": "GTX 260 CORE 216",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.88,
       "valid_vrams": [
-        4.0
+        0.88
       ],
       "brands": [
         "AMD",
@@ -5167,9 +6494,9 @@
       "model": "GTX 260 CORE 216 REV. 2",
       "normalized": "GTX 260 CORE 216 REV. 2",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.88,
       "valid_vrams": [
-        4.0
+        0.88
       ],
       "brands": [
         "AMD",
@@ -5231,9 +6558,9 @@
       "model": "GTX 260 OEM",
       "normalized": "GTX 260 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.75,
+      "default_vram": 1.8,
       "valid_vrams": [
-        1.75
+        1.8
       ],
       "brands": [
         "AMD",
@@ -5263,9 +6590,9 @@
       "model": "GTX 260 REV. 2",
       "normalized": "GTX 260 REV. 2",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.88,
       "valid_vrams": [
-        4.0
+        0.88
       ],
       "brands": [
         "AMD",
@@ -5295,9 +6622,9 @@
       "model": "GTX 275",
       "normalized": "GTX 275",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.88,
       "valid_vrams": [
-        4.0
+        0.88
       ],
       "brands": [
         "AMD",
@@ -5327,9 +6654,9 @@
       "model": "GTX 275 PHYSX EDITION",
       "normalized": "GTX 275 PHYSX EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.88,
       "valid_vrams": [
-        4.0
+        0.88
       ],
       "brands": [
         "AMD",
@@ -5423,9 +6750,11 @@
       "model": "GTX 285",
       "normalized": "GTX 285",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -5519,9 +6848,10 @@
       "model": "GTX 285 X2",
       "normalized": "GTX 285 X2",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -5551,9 +6881,10 @@
       "model": "GTX 295",
       "normalized": "GTX 295",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 1.8,
       "valid_vrams": [
-        4.0
+        0.88,
+        1.8
       ],
       "brands": [
         "AMD",
@@ -5583,9 +6914,10 @@
       "model": "GTX 295 SINGLE PCB",
       "normalized": "GTX 295 SINGLE PCB",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 1.8,
       "valid_vrams": [
-        4.0
+        0.88,
+        1.8
       ],
       "brands": [
         "AMD",
@@ -5615,9 +6947,13 @@
       "model": "GTX 460",
       "normalized": "GTX 460",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.0
+        0.75,
+        1.0,
+        1.2,
+        1.5,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -5713,6 +7049,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.75,
         1.0
       ],
       "brands": [
@@ -5743,9 +7080,9 @@
       "model": "GTX 460 SE V2",
       "normalized": "GTX 460 SE V2",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.75,
       "valid_vrams": [
-        4.0
+        0.75
       ],
       "brands": [
         "AMD",
@@ -5775,9 +7112,10 @@
       "model": "GTX 460 V2",
       "normalized": "GTX 460 V2",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.0
+        1.0,
+        1.2
       ],
       "brands": [
         "AMD",
@@ -5807,9 +7145,9 @@
       "model": "GTX 460 V2 ES",
       "normalized": "GTX 460 V2 ES",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.25
+        1.2
       ],
       "brands": [
         "AMD",
@@ -5839,9 +7177,10 @@
       "model": "GTX 460 X2",
       "normalized": "GTX 460 X2",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -5903,9 +7242,10 @@
       "model": "GTX 470",
       "normalized": "GTX 470",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.5,
       "valid_vrams": [
-        1.25
+        1.2,
+        1.5
       ],
       "brands": [
         "AMD",
@@ -5967,9 +7307,10 @@
       "model": "GTX 480",
       "normalized": "GTX 480",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.5,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.5
+        1.5,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -6095,7 +7436,7 @@
       "model": "GTX 550 TI",
       "normalized": "GTX 550 TI",
       "manufacturer": "NVIDIA",
-      "default_vram": 5.0,
+      "default_vram": 1.0,
       "valid_vrams": [
         1.0,
         2.0,
@@ -6163,7 +7504,11 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        1.2,
+        1.5,
+        2.0,
+        8.0
       ],
       "brands": [
         "AMD",
@@ -6225,9 +7570,9 @@
       "model": "GTX 560 OEM",
       "normalized": "GTX 560 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.25
+        1.2
       ],
       "brands": [
         "AMD",
@@ -6291,7 +7636,9 @@
       "manufacturer": "NVIDIA",
       "default_vram": 1.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        1.2,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -6321,9 +7668,9 @@
       "model": "GTX 560 TI 448",
       "normalized": "GTX 560 TI 448",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.25
+        1.2
       ],
       "brands": [
         "AMD",
@@ -6353,9 +7700,10 @@
       "model": "GTX 560 TI OEM",
       "normalized": "GTX 560 TI OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.25
+        1.0,
+        1.2
       ],
       "brands": [
         "AMD",
@@ -6385,9 +7733,10 @@
       "model": "GTX 560 TI X2",
       "normalized": "GTX 560 TI X2",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -6417,9 +7766,10 @@
       "model": "GTX 570",
       "normalized": "GTX 570",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.5,
       "valid_vrams": [
-        1.25
+        1.2,
+        1.5
       ],
       "brands": [
         "AMD",
@@ -6481,9 +7831,9 @@
       "model": "GTX 570 REV. 2",
       "normalized": "GTX 570 REV. 2",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.25,
+      "default_vram": 1.2,
       "valid_vrams": [
-        1.25
+        1.2
       ],
       "brands": [
         "AMD",
@@ -6513,9 +7863,10 @@
       "model": "GTX 580",
       "normalized": "GTX 580",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.5,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.5
+        1.5,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -6609,9 +7960,10 @@
       "model": "GTX 590",
       "normalized": "GTX 590",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.5,
+      "default_vram": 3.0,
       "valid_vrams": [
-        1.5
+        1.5,
+        3.0
       ],
       "brands": [
         "AMD",
@@ -6673,7 +8025,7 @@
       "model": "GTX 650",
       "normalized": "GTX 650",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 1.0,
       "valid_vrams": [
         1.0,
         2.0
@@ -6706,7 +8058,7 @@
       "model": "GTX 650 TI",
       "normalized": "GTX 650 TI",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 1.0,
       "valid_vrams": [
         1.0,
         2.0
@@ -6803,11 +8155,13 @@
       "model": "GTX 660",
       "normalized": "GTX 660",
       "manufacturer": "NVIDIA",
-      "default_vram": 5.0,
+      "default_vram": 2.0,
       "valid_vrams": [
         0.5,
+        1.0,
         1.5,
         2.0,
+        3.0,
         5.0
       ],
       "brands": [
@@ -6840,6 +8194,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        0.5,
         2.0
       ],
       "brands": [
@@ -6870,9 +8225,9 @@
       "model": "GTX 660 M MAC EDITION",
       "normalized": "GTX 660 M MAC EDITION",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -6902,9 +8257,10 @@
       "model": "GTX 660 OEM",
       "normalized": "GTX 660 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 1.5,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.5
+        1.5,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -7000,7 +8356,9 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
-        2.0
+        1.5,
+        2.0,
+        3.0
       ],
       "brands": [
         "AMD",
@@ -7128,6 +8486,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -7192,7 +8551,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -7318,9 +8678,10 @@
       "model": "GTX 690",
       "normalized": "GTX 690",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -7516,7 +8877,8 @@
       "valid_vrams": [
         1.0,
         1.5,
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -7612,6 +8974,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.5,
         2.0
       ],
       "brands": [
@@ -7738,9 +9101,10 @@
       "model": "GTX 760 X2",
       "normalized": "GTX 760 X2",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -7804,7 +9168,9 @@
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        3.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -7898,9 +9264,10 @@
       "model": "GTX 780",
       "normalized": "GTX 780",
       "manufacturer": "NVIDIA",
-      "default_vram": 3.0,
+      "default_vram": 4.0,
       "valid_vrams": [
         3.0,
+        4.0,
         6.0
       ],
       "brands": [
@@ -8350,6 +9717,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -8444,7 +9812,7 @@
       "model": "GTX 960",
       "normalized": "GTX 960",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 2.0,
       "valid_vrams": [
         2.0,
         3.0,
@@ -8542,9 +9910,10 @@
       "model": "GTX 960 OEM",
       "normalized": "GTX 960 OEM",
       "manufacturer": "NVIDIA",
-      "default_vram": 3.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        3.0
+        3.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -8574,9 +9943,10 @@
       "model": "GTX 965 M",
       "normalized": "GTX 965 M",
       "manufacturer": "NVIDIA",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -8608,6 +9978,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 4.0,
       "valid_vrams": [
+        3.0,
         4.0,
         6.0
       ],
@@ -8641,6 +10012,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
+        3.0,
         6.0
       ],
       "brands": [
@@ -8833,9 +10205,10 @@
       "model": "GTX TITAN",
       "normalized": "GTX TITAN",
       "manufacturer": "NVIDIA",
-      "default_vram": 6.0,
+      "default_vram": 12.0,
       "valid_vrams": [
-        6.0
+        6.0,
+        12.0
       ],
       "brands": [
         "AMD",
@@ -8929,9 +10302,10 @@
       "model": "GTX TITAN Z",
       "normalized": "GTX TITAN Z",
       "manufacturer": "NVIDIA",
-      "default_vram": 6.0,
+      "default_vram": 12.0,
       "valid_vrams": [
-        6.0
+        6.0,
+        12.0
       ],
       "brands": [
         "AMD",
@@ -8961,9 +10335,9 @@
       "model": "HD 2350 PRO",
       "normalized": "HD 2350 PRO",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -8993,9 +10367,10 @@
       "model": "HD 2400",
       "normalized": "HD 2400",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9025,9 +10400,10 @@
       "model": "HD 2400 PRO",
       "normalized": "HD 2400 PRO",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9057,9 +10433,9 @@
       "model": "HD 2400 PRO AGP",
       "normalized": "HD 2400 PRO AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9089,9 +10465,9 @@
       "model": "HD 2400 PRO PCI",
       "normalized": "HD 2400 PRO PCI",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9121,9 +10497,9 @@
       "model": "HD 2400 XT",
       "normalized": "HD 2400 XT",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9153,9 +10529,10 @@
       "model": "HD 2600 PRO",
       "normalized": "HD 2600 PRO",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9185,9 +10562,9 @@
       "model": "HD 2600 PRO AGP",
       "normalized": "HD 2600 PRO AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9217,9 +10594,11 @@
       "model": "HD 2600 XT",
       "normalized": "HD 2600 XT",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -9249,9 +10628,9 @@
       "model": "HD 2600 XT AGP",
       "normalized": "HD 2600 XT AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9281,9 +10660,9 @@
       "model": "HD 2600 XT MAC EDITION",
       "normalized": "HD 2600 XT MAC EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9313,9 +10692,10 @@
       "model": "HD 2600 XT X2",
       "normalized": "HD 2600 XT X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -9345,9 +10725,9 @@
       "model": "HD 2900 GT",
       "normalized": "HD 2900 GT",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9377,9 +10757,9 @@
       "model": "HD 2900 PRO",
       "normalized": "HD 2900 PRO",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9409,9 +10789,9 @@
       "model": "HD 2900 XT",
       "normalized": "HD 2900 XT",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9537,9 +10917,9 @@
       "model": "HD 3410",
       "normalized": "HD 3410",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9569,9 +10949,11 @@
       "model": "HD 3450",
       "normalized": "HD 3450",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -9601,9 +10983,9 @@
       "model": "HD 3450 AGP",
       "normalized": "HD 3450 AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9633,9 +11015,9 @@
       "model": "HD 3450 PCI",
       "normalized": "HD 3450 PCI",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9665,9 +11047,10 @@
       "model": "HD 3450 X2",
       "normalized": "HD 3450 X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -9697,9 +11080,9 @@
       "model": "HD 3470",
       "normalized": "HD 3470",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9729,9 +11112,9 @@
       "model": "HD 3550",
       "normalized": "HD 3550",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9761,9 +11144,9 @@
       "model": "HD 3570",
       "normalized": "HD 3570",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9793,9 +11176,9 @@
       "model": "HD 3610",
       "normalized": "HD 3610",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9825,9 +11208,10 @@
       "model": "HD 3650",
       "normalized": "HD 3650",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9857,9 +11241,9 @@
       "model": "HD 3650 AGP",
       "normalized": "HD 3650 AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9889,9 +11273,9 @@
       "model": "HD 3690",
       "normalized": "HD 3690",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -9921,9 +11305,9 @@
       "model": "HD 3730",
       "normalized": "HD 3730",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9953,9 +11337,9 @@
       "model": "HD 3750",
       "normalized": "HD 3750",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -9985,9 +11369,9 @@
       "model": "HD 3830",
       "normalized": "HD 3830",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -10017,9 +11401,10 @@
       "model": "HD 3850",
       "normalized": "HD 3850",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10049,9 +11434,9 @@
       "model": "HD 3850 AGP",
       "normalized": "HD 3850 AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10081,9 +11466,10 @@
       "model": "HD 3850 X2",
       "normalized": "HD 3850 X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10113,9 +11499,10 @@
       "model": "HD 3870",
       "normalized": "HD 3870",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10145,9 +11532,9 @@
       "model": "HD 3870 MAC EDITION",
       "normalized": "HD 3870 MAC EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10177,9 +11564,10 @@
       "model": "HD 3870 X2",
       "normalized": "HD 3870 X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10241,9 +11629,9 @@
       "model": "HD 4250",
       "normalized": "HD 4250",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10337,9 +11725,9 @@
       "model": "HD 4350",
       "normalized": "HD 4350",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10369,9 +11757,9 @@
       "model": "HD 4350 AGP",
       "normalized": "HD 4350 AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10401,9 +11789,9 @@
       "model": "HD 4350 PCI",
       "normalized": "HD 4350 PCI",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10433,9 +11821,9 @@
       "model": "HD 4350 PCIE X1",
       "normalized": "HD 4350 PCIE X1",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10465,9 +11853,9 @@
       "model": "HD 4450",
       "normalized": "HD 4450",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10497,9 +11885,9 @@
       "model": "HD 4520",
       "normalized": "HD 4520",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10529,9 +11917,9 @@
       "model": "HD 4550",
       "normalized": "HD 4550",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -10625,9 +12013,9 @@
       "model": "HD 4580",
       "normalized": "HD 4580",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10657,9 +12045,10 @@
       "model": "HD 4650",
       "normalized": "HD 4650",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10689,9 +12078,9 @@
       "model": "HD 4650 AGP",
       "normalized": "HD 4650 AGP",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10721,9 +12110,10 @@
       "model": "HD 4670",
       "normalized": "HD 4670",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10785,9 +12175,10 @@
       "model": "HD 4670 X2",
       "normalized": "HD 4670 X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10817,9 +12208,9 @@
       "model": "HD 4700",
       "normalized": "HD 4700",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -10913,9 +12304,10 @@
       "model": "HD 4730",
       "normalized": "HD 4730",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -10977,9 +12369,9 @@
       "model": "HD 4750",
       "normalized": "HD 4750",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11009,9 +12401,9 @@
       "model": "HD 4770",
       "normalized": "HD 4770",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11041,9 +12433,9 @@
       "model": "HD 4810",
       "normalized": "HD 4810",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11073,9 +12465,9 @@
       "model": "HD 4830",
       "normalized": "HD 4830",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11105,9 +12497,10 @@
       "model": "HD 4850",
       "normalized": "HD 4850",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -11137,9 +12530,10 @@
       "model": "HD 4850 X2",
       "normalized": "HD 4850 X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -11169,9 +12563,9 @@
       "model": "HD 4855",
       "normalized": "HD 4855",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11201,9 +12595,9 @@
       "model": "HD 4860",
       "normalized": "HD 4860",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11233,9 +12627,11 @@
       "model": "HD 4870",
       "normalized": "HD 4870",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -11265,9 +12661,9 @@
       "model": "HD 4870 MAC EDITION",
       "normalized": "HD 4870 MAC EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11297,9 +12693,10 @@
       "model": "HD 4870 X2",
       "normalized": "HD 4870 X2",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -11361,9 +12758,10 @@
       "model": "HD 5450",
       "normalized": "HD 5450",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -11393,9 +12791,9 @@
       "model": "HD 5450 PCI",
       "normalized": "HD 5450 PCI",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11425,9 +12823,9 @@
       "model": "HD 5450 PCIE X1",
       "normalized": "HD 5450 PCIE X1",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11457,9 +12855,9 @@
       "model": "HD 5470",
       "normalized": "HD 5470",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11553,9 +12951,9 @@
       "model": "HD 5550",
       "normalized": "HD 5550",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11683,6 +13081,7 @@
       "manufacturer": "AMD",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -11713,9 +13112,9 @@
       "model": "HD 5670 640SP EDITION",
       "normalized": "HD 5670 640SP EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -11841,9 +13240,10 @@
       "model": "HD 5770",
       "normalized": "HD 5770",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -11905,9 +13305,10 @@
       "model": "HD 5770 X2",
       "normalized": "HD 5770 X2",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -12001,9 +13402,10 @@
       "model": "HD 5870",
       "normalized": "HD 5870",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -12097,9 +13499,10 @@
       "model": "HD 5970",
       "normalized": "HD 5970",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -12129,9 +13532,9 @@
       "model": "HD 6230",
       "normalized": "HD 6230",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12161,9 +13564,9 @@
       "model": "HD 6250",
       "normalized": "HD 6250",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12385,9 +13788,10 @@
       "model": "HD 6350",
       "normalized": "HD 6350",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -12417,9 +13821,9 @@
       "model": "HD 6350 A",
       "normalized": "HD 6350 A",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12673,9 +14077,10 @@
       "model": "HD 6450",
       "normalized": "HD 6450",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 1.0,
       "valid_vrams": [
-        4.0
+        0.5,
+        1.0
       ],
       "brands": [
         "AMD",
@@ -12705,9 +14110,9 @@
       "model": "HD 6450 A",
       "normalized": "HD 6450 A",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12769,9 +14174,9 @@
       "model": "HD 6450 OEM",
       "normalized": "HD 6450 OEM",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12801,9 +14206,9 @@
       "model": "HD 6470 M",
       "normalized": "HD 6470 M",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12865,8 +14270,10 @@
       "model": "HD 6490",
       "normalized": "HD 6490",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 0.5,
       "valid_vrams": [
+        0.25,
+        0.5,
         1.0
       ],
       "brands": [
@@ -12897,9 +14304,10 @@
       "model": "HD 6490 M",
       "normalized": "HD 6490 M",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.25,
+        0.5
       ],
       "brands": [
         "AMD",
@@ -12929,9 +14337,9 @@
       "model": "HD 6490 M MAC EDITION",
       "normalized": "HD 6490 M MAC EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -13219,6 +14627,7 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -13475,6 +14884,7 @@
       "manufacturer": "AMD",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.25,
         1.0
       ],
       "brands": [
@@ -13505,9 +14915,9 @@
       "model": "HD 6630 M MAC EDITION",
       "normalized": "HD 6630 M MAC EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.25,
       "valid_vrams": [
-        4.0
+        0.25
       ],
       "brands": [
         "AMD",
@@ -13699,6 +15109,7 @@
       "manufacturer": "AMD",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -13731,6 +15142,7 @@
       "manufacturer": "AMD",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -13761,9 +15173,9 @@
       "model": "HD 6750 M MAC EDITION",
       "normalized": "HD 6750 M MAC EDITION",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -13793,9 +15205,10 @@
       "model": "HD 6770",
       "normalized": "HD 6770",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -13985,9 +15398,11 @@
       "model": "HD 6850",
       "normalized": "HD 6850",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -14081,9 +15496,10 @@
       "model": "HD 6850 X2",
       "normalized": "HD 6850 X2",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -14113,9 +15529,10 @@
       "model": "HD 6870",
       "normalized": "HD 6870",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -14209,9 +15626,10 @@
       "model": "HD 6870 X2",
       "normalized": "HD 6870 X2",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -14275,6 +15693,7 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -14339,7 +15758,9 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
-        2.0
+        1.0,
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -14369,9 +15790,11 @@
       "model": "HD 6970 M",
       "normalized": "HD 6970 M",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -14465,9 +15888,10 @@
       "model": "HD 6970 M X2",
       "normalized": "HD 6970 M X2",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -14499,7 +15923,9 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
-        2.0
+        1.0,
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -14531,6 +15957,7 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -14753,9 +16180,9 @@
       "model": "HD 7350 OEM",
       "normalized": "HD 7350 OEM",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -14785,9 +16212,9 @@
       "model": "HD 7350 OEM PCI",
       "normalized": "HD 7350 OEM PCI",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -14977,9 +16404,9 @@
       "model": "HD 7450 A",
       "normalized": "HD 7450 A",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -15041,9 +16468,9 @@
       "model": "HD 7450 OEM",
       "normalized": "HD 7450 OEM",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -15075,6 +16502,7 @@
       "manufacturer": "AMD",
       "default_vram": 1.0,
       "valid_vrams": [
+        0.5,
         1.0
       ],
       "brands": [
@@ -16065,9 +17493,9 @@
       "model": "HD 7670 OEM",
       "normalized": "HD 7670 OEM",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 0.5,
       "valid_vrams": [
-        4.0
+        0.5
       ],
       "brands": [
         "AMD",
@@ -16097,9 +17525,10 @@
       "model": "HD 7690 M",
       "normalized": "HD 7690 M",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -16163,6 +17592,7 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -16257,9 +17687,10 @@
       "model": "HD 7730",
       "normalized": "HD 7730",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -16643,6 +18074,7 @@
       "manufacturer": "AMD",
       "default_vram": 3.0,
       "valid_vrams": [
+        2.0,
         3.0
       ],
       "brands": [
@@ -16833,9 +18265,12 @@
       "model": "HD 7970",
       "normalized": "HD 7970",
       "manufacturer": "AMD",
-      "default_vram": 3.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        3.0
+        2.0,
+        3.0,
+        4.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -16897,9 +18332,10 @@
       "model": "HD 7970 M",
       "normalized": "HD 7970 M",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -16929,9 +18365,10 @@
       "model": "HD 7970 M X2",
       "normalized": "HD 7970 M X2",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -16961,9 +18398,10 @@
       "model": "HD 7970 X2",
       "normalized": "HD 7970 X2",
       "manufacturer": "AMD",
-      "default_vram": 3.0,
+      "default_vram": 6.0,
       "valid_vrams": [
-        3.0
+        3.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -16993,9 +18431,10 @@
       "model": "HD 7990",
       "normalized": "HD 7990",
       "manufacturer": "AMD",
-      "default_vram": 3.0,
+      "default_vram": 6.0,
       "valid_vrams": [
-        3.0
+        3.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -18083,6 +19522,7 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -19041,9 +20481,10 @@
       "model": "HD 8990 OEM",
       "normalized": "HD 8990 OEM",
       "manufacturer": "AMD",
-      "default_vram": 3.0,
+      "default_vram": 6.0,
       "valid_vrams": [
-        3.0
+        3.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -20542,12 +21983,172 @@
       ]
     },
     {
+      "model": "HD IGP",
+      "normalized": "HD IGP",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "R 7 250",
+      "normalized": "R 7 250",
+      "manufacturer": "NVIDIA",
+      "default_vram": 3.0,
+      "valid_vrams": [
+        3.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
       "model": "R 7 260",
       "normalized": "R 7 260",
       "manufacturer": "NVIDIA",
       "default_vram": 2.0,
       "valid_vrams": [
         2.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "R 7260",
+      "normalized": "R 7260",
+      "manufacturer": "NVIDIA",
+      "default_vram": 2.0,
+      "valid_vrams": [
+        2.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "R 9 280",
+      "normalized": "R 9 280",
+      "manufacturer": "NVIDIA",
+      "default_vram": 3.0,
+      "valid_vrams": [
+        3.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "R 9 290",
+      "normalized": "R 9 290",
+      "manufacturer": "NVIDIA",
+      "default_vram": 4.0,
+      "valid_vrams": [
+        4.0
       ],
       "brands": [
         "AMD",
@@ -20673,9 +22274,10 @@
       "model": "R7 250",
       "normalized": "R7 250",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -21507,6 +23109,7 @@
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
+        1.0,
         2.0
       ],
       "brands": [
@@ -21729,9 +23332,10 @@
       "model": "R7 M 340",
       "normalized": "R7 M 340",
       "manufacturer": "AMD",
-      "default_vram": 1.0,
+      "default_vram": 2.0,
       "valid_vrams": [
-        1.0
+        1.0,
+        2.0
       ],
       "brands": [
         "AMD",
@@ -21761,9 +23365,10 @@
       "model": "R7 M 350",
       "normalized": "R7 M 350",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -22465,9 +24070,10 @@
       "model": "R9 290X2",
       "normalized": "R9 290X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 8.0,
       "valid_vrams": [
-        4.0
+        4.0,
+        8.0
       ],
       "brands": [
         "AMD",
@@ -22497,9 +24103,10 @@
       "model": "R9 295X2",
       "normalized": "R9 295X2",
       "manufacturer": "AMD",
-      "default_vram": 4.0,
+      "default_vram": 8.0,
       "valid_vrams": [
-        4.0
+        4.0,
+        8.0
       ],
       "brands": [
         "AMD",
@@ -22657,9 +24264,10 @@
       "model": "R9 380",
       "normalized": "R9 380",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -22753,9 +24361,10 @@
       "model": "R9 390",
       "normalized": "R9 390",
       "manufacturer": "AMD",
-      "default_vram": 8.0,
+      "default_vram": 16.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -22785,9 +24394,10 @@
       "model": "R9 390 X2",
       "normalized": "R9 390 X2",
       "manufacturer": "AMD",
-      "default_vram": 8.0,
+      "default_vram": 16.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -23073,9 +24683,10 @@
       "model": "R9 M 280 X",
       "normalized": "R9 M 280 X",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        2.0
+        2.0,
+        4.0
       ],
       "brands": [
         "AMD",
@@ -23107,6 +24718,7 @@
       "manufacturer": "AMD",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -23395,6 +25007,7 @@
       "manufacturer": "AMD",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -23619,6 +25232,7 @@
       "manufacturer": "AMD",
       "default_vram": 8.0,
       "valid_vrams": [
+        4.0,
         8.0
       ],
       "brands": [
@@ -24549,7 +26163,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        11.0
       ],
       "brands": [
         "AMD",
@@ -24803,7 +26418,7 @@
       "model": "RTX 3050",
       "normalized": "RTX 3050",
       "manufacturer": "NVIDIA",
-      "default_vram": 8.0,
+      "default_vram": 6.0,
       "valid_vrams": [
         4.0,
         6.0,
@@ -24835,7 +26450,7 @@
     },
     {
       "model": "RTX 3050 8 GB GA 107",
-      "normalized": "RTX 3050 8 GB GA 107",
+      "normalized": "RTX 3050 GA 107",
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
@@ -24898,12 +26513,45 @@
       ]
     },
     {
+      "model": "RTX 3050 GA 107",
+      "normalized": "RTX 3050 GA 107",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
       "model": "RTX 3050 MAX Q",
       "normalized": "RTX 3050 MAX Q",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 6.0,
       "valid_vrams": [
-        4.0
+        4.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -24935,6 +26583,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
+        4.0,
         6.0
       ],
       "brands": [
@@ -24965,9 +26614,10 @@
       "model": "RTX 3050 MOBILE",
       "normalized": "RTX 3050 MOBILE",
       "manufacturer": "NVIDIA",
-      "default_vram": 4.0,
+      "default_vram": 6.0,
       "valid_vrams": [
-        4.0
+        4.0,
+        6.0
       ],
       "brands": [
         "AMD",
@@ -24999,6 +26649,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
+        4.0,
         6.0
       ],
       "brands": [
@@ -25125,7 +26776,7 @@
       "model": "RTX 3060",
       "normalized": "RTX 3060",
       "manufacturer": "NVIDIA",
-      "default_vram": 12.0,
+      "default_vram": 8.0,
       "valid_vrams": [
         6.0,
         8.0,
@@ -25157,10 +26808,11 @@
     },
     {
       "model": "RTX 3060 12 GB GA 104",
-      "normalized": "RTX 3060 12 GB GA 104",
+      "normalized": "RTX 3060 GA 104",
       "manufacturer": "NVIDIA",
       "default_vram": 12.0,
       "valid_vrams": [
+        8.0,
         12.0
       ],
       "brands": [
@@ -25221,11 +26873,45 @@
     },
     {
       "model": "RTX 3060 8 GB GA 104",
-      "normalized": "RTX 3060 8 GB GA 104",
+      "normalized": "RTX 3060 GA 104",
       "manufacturer": "NVIDIA",
-      "default_vram": 8.0,
+      "default_vram": 12.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        12.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3060 GA 104",
+      "normalized": "RTX 3060 GA 104",
+      "manufacturer": "NVIDIA",
+      "default_vram": 12.0,
+      "valid_vrams": [
+        8.0,
+        12.0
       ],
       "brands": [
         "AMD",
@@ -25381,7 +27067,7 @@
     },
     {
       "model": "RTX 3060 TI GDDR6X",
-      "normalized": "RTX 3060 TI GDDR6X",
+      "normalized": "RTX 3060 TI",
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
@@ -25541,7 +27227,39 @@
     },
     {
       "model": "RTX 3070 TI 8 GB GA 102",
-      "normalized": "RTX 3070 TI 8 GB GA 102",
+      "normalized": "RTX 3070 TI GA 102",
+      "manufacturer": "NVIDIA",
+      "default_vram": 8.0,
+      "valid_vrams": [
+        8.0
+      ],
+      "brands": [
+        "AMD",
+        "ASROCK",
+        "ASUS",
+        "COLORFUL",
+        "EMTEK",
+        "EVGA",
+        "GAINWARD",
+        "GALAX",
+        "GIGABYTE",
+        "INNO3D",
+        "INTEL",
+        "LEADTEK",
+        "MANLI",
+        "MSI",
+        "NVIDIA",
+        "PALIT",
+        "PNY",
+        "POWERCOLOR",
+        "SAPPHIRE",
+        "XFX",
+        "ZOTAC"
+      ]
+    },
+    {
+      "model": "RTX 3070 TI GA 102",
+      "normalized": "RTX 3070 TI GA 102",
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
@@ -25673,8 +27391,11 @@
       "manufacturer": "NVIDIA",
       "default_vram": 10.0,
       "valid_vrams": [
+        8.0,
         10.0,
-        12.0
+        12.0,
+        16.0,
+        20.0
       ],
       "brands": [
         "AMD",
@@ -25768,9 +27489,10 @@
       "model": "RTX 3080 TI",
       "normalized": "RTX 3080 TI",
       "manufacturer": "NVIDIA",
-      "default_vram": 12.0,
+      "default_vram": 16.0,
       "valid_vrams": [
         12.0,
+        16.0,
         20.0
       ],
       "brands": [
@@ -26187,7 +27909,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -26315,7 +28038,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -26379,7 +28103,9 @@
       "manufacturer": "NVIDIA",
       "default_vram": 12.0,
       "valid_vrams": [
-        12.0
+        8.0,
+        12.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -26439,11 +28165,13 @@
     },
     {
       "model": "RTX 4070 GDDR6",
-      "normalized": "RTX 4070 GDDR6",
+      "normalized": "RTX 4070",
       "manufacturer": "NVIDIA",
       "default_vram": 12.0,
       "valid_vrams": [
-        12.0
+        8.0,
+        12.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -26569,9 +28297,10 @@
       "model": "RTX 4070 TI",
       "normalized": "RTX 4070 TI",
       "manufacturer": "NVIDIA",
-      "default_vram": 12.0,
+      "default_vram": 16.0,
       "valid_vrams": [
-        12.0
+        12.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -26667,6 +28396,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 16.0,
       "valid_vrams": [
+        12.0,
         16.0
       ],
       "brands": [
@@ -26795,6 +28525,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 24.0,
       "valid_vrams": [
+        16.0,
         24.0
       ],
       "brands": [
@@ -27017,9 +28748,10 @@
       "model": "RTX 5000 EMBEDDED ADA GENERATION",
       "normalized": "RTX 5000 EMBEDDED ADA GENERATION",
       "manufacturer": "NVIDIA",
-      "default_vram": 16.0,
+      "default_vram": 32.0,
       "valid_vrams": [
-        16.0
+        16.0,
+        32.0
       ],
       "brands": [
         "AMD",
@@ -27049,9 +28781,10 @@
       "model": "RTX 5000 EMBEDDED ADA GENERATION X2",
       "normalized": "RTX 5000 EMBEDDED ADA GENERATION X2",
       "manufacturer": "NVIDIA",
-      "default_vram": 16.0,
+      "default_vram": 32.0,
       "valid_vrams": [
-        16.0
+        16.0,
+        32.0
       ],
       "brands": [
         "AMD",
@@ -27211,7 +28944,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -27273,9 +29007,11 @@
       "model": "RTX 5060 TI",
       "normalized": "RTX 5060 TI",
       "manufacturer": "NVIDIA",
-      "default_vram": 8.0,
+      "default_vram": 12.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        12.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -27307,7 +29043,10 @@
       "manufacturer": "NVIDIA",
       "default_vram": 12.0,
       "valid_vrams": [
-        12.0
+        8.0,
+        12.0,
+        16.0,
+        18.0
       ],
       "brands": [
         "AMD",
@@ -27403,6 +29142,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 16.0,
       "valid_vrams": [
+        12.0,
         16.0
       ],
       "brands": [
@@ -27499,7 +29239,8 @@
       "manufacturer": "NVIDIA",
       "default_vram": 16.0,
       "valid_vrams": [
-        16.0
+        16.0,
+        24.0
       ],
       "brands": [
         "AMD",
@@ -27595,6 +29336,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 32.0,
       "valid_vrams": [
+        24.0,
         32.0
       ],
       "brands": [
@@ -27627,6 +29369,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 32.0,
       "valid_vrams": [
+        24.0,
         32.0
       ],
       "brands": [
@@ -27785,8 +29528,10 @@
       "model": "RTX A 1000",
       "normalized": "RTX A 1000",
       "manufacturer": "NVIDIA",
-      "default_vram": 8.0,
+      "default_vram": 6.0,
       "valid_vrams": [
+        4.0,
+        6.0,
         8.0
       ],
       "brands": [
@@ -27851,6 +29596,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 6.0,
       "valid_vrams": [
+        4.0,
         6.0
       ],
       "brands": [
@@ -27881,8 +29627,11 @@
       "model": "RTX A 2000",
       "normalized": "RTX A 2000",
       "manufacturer": "NVIDIA",
-      "default_vram": 12.0,
+      "default_vram": 8.0,
       "valid_vrams": [
+        4.0,
+        6.0,
+        8.0,
         12.0
       ],
       "brands": [
@@ -27947,6 +29696,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
+        4.0,
         8.0
       ],
       "brands": [
@@ -27979,6 +29729,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 8.0,
       "valid_vrams": [
+        4.0,
         8.0
       ],
       "brands": [
@@ -28011,6 +29762,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 12.0,
       "valid_vrams": [
+        6.0,
         12.0
       ],
       "brands": [
@@ -28075,6 +29827,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 16.0,
       "valid_vrams": [
+        8.0,
         16.0
       ],
       "brands": [
@@ -28203,6 +29956,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 20.0,
       "valid_vrams": [
+        16.0,
         20.0
       ],
       "brands": [
@@ -28425,8 +30179,11 @@
       "model": "RTX A 5000",
       "normalized": "RTX A 5000",
       "manufacturer": "NVIDIA",
-      "default_vram": 24.0,
+      "default_vram": 16.0,
       "valid_vrams": [
+        8.0,
+        12.0,
+        16.0,
         24.0
       ],
       "brands": [
@@ -28587,6 +30344,7 @@
       "manufacturer": "NVIDIA",
       "default_vram": 24.0,
       "valid_vrams": [
+        16.0,
         24.0
       ],
       "brands": [
@@ -28871,10 +30629,11 @@
     },
     {
       "model": "RTX PRO 5000 72 GB BLACKWELL",
-      "normalized": "RTX PRO 5000 72 GB BLACKWELL",
+      "normalized": "RTX PRO 5000 BLACKWELL",
       "manufacturer": "NVIDIA",
       "default_vram": 72.0,
       "valid_vrams": [
+        48.0,
         72.0
       ],
       "brands": [
@@ -28905,9 +30664,10 @@
       "model": "RTX PRO 5000 BLACKWELL",
       "normalized": "RTX PRO 5000 BLACKWELL",
       "manufacturer": "NVIDIA",
-      "default_vram": 48.0,
+      "default_vram": 72.0,
       "valid_vrams": [
-        48.0
+        48.0,
+        72.0
       ],
       "brands": [
         "AMD",
@@ -29579,7 +31339,7 @@
       "model": "RX 550",
       "normalized": "RX 550",
       "manufacturer": "AMD",
-      "default_vram": 2.0,
+      "default_vram": 4.0,
       "valid_vrams": [
         2.0,
         4.0
@@ -29710,6 +31470,7 @@
       "manufacturer": "AMD",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -29738,7 +31499,7 @@
     },
     {
       "model": "RX 550 X 640SP",
-      "normalized": "RX 550 X 640SP",
+      "normalized": "RX 550 X 640 SP",
       "manufacturer": "AMD",
       "default_vram": 2.0,
       "valid_vrams": [
@@ -29868,10 +31629,9 @@
       "model": "RX 5500 XT",
       "normalized": "RX 5500 XT",
       "manufacturer": "AMD",
-      "default_vram": 8.0,
+      "default_vram": 4.0,
       "valid_vrams": [
-        4.0,
-        8.0
+        4.0
       ],
       "brands": [
         "AMD",
@@ -29903,6 +31663,7 @@
       "manufacturer": "AMD",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0,
         6.0
       ],
@@ -30064,6 +31825,7 @@
       "manufacturer": "AMD",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -30096,6 +31858,7 @@
       "manufacturer": "AMD",
       "default_vram": 4.0,
       "valid_vrams": [
+        2.0,
         4.0
       ],
       "brands": [
@@ -31283,7 +33046,9 @@
       "manufacturer": "AMD",
       "default_vram": 10.0,
       "valid_vrams": [
-        10.0
+        8.0,
+        10.0,
+        12.0
       ],
       "brands": [
         "AMD",
@@ -31411,6 +33176,7 @@
       "manufacturer": "AMD",
       "default_vram": 12.0,
       "valid_vrams": [
+        10.0,
         12.0
       ],
       "brands": [
@@ -31475,6 +33241,8 @@
       "manufacturer": "AMD",
       "default_vram": 16.0,
       "valid_vrams": [
+        8.0,
+        12.0,
         16.0
       ],
       "brands": [
@@ -31731,7 +33499,8 @@
       "manufacturer": "AMD",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -31921,8 +33690,10 @@
       "model": "RX 7700",
       "normalized": "RX 7700",
       "manufacturer": "AMD",
-      "default_vram": 16.0,
+      "default_vram": 12.0,
       "valid_vrams": [
+        8.0,
+        12.0,
         16.0
       ],
       "brands": [
@@ -32211,7 +33982,8 @@
       "manufacturer": "AMD",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -32243,7 +34015,8 @@
       "manufacturer": "AMD",
       "default_vram": 8.0,
       "valid_vrams": [
-        8.0
+        8.0,
+        16.0
       ],
       "brands": [
         "AMD",
@@ -32275,6 +34048,7 @@
       "manufacturer": "AMD",
       "default_vram": 16.0,
       "valid_vrams": [
+        12.0,
         16.0
       ],
       "brands": [
@@ -32307,6 +34081,7 @@
       "manufacturer": "AMD",
       "default_vram": 16.0,
       "valid_vrams": [
+        12.0,
         16.0
       ],
       "brands": [
@@ -32720,27 +34495,27 @@
   ],
   "brands": [
     "Any",
-    "ASUS",
-    "MSI",
-    "GIGABYTE",
-    "ZOTAC",
-    "GALAX",
-    "PALIT",
-    "SAPPHIRE",
-    "ASROCK",
-    "POWERCOLOR",
-    "COLORFUL",
-    "INNO3D",
-    "PNY",
-    "EVGA",
-    "EMTEK",
-    "GAINWARD",
-    "XFX",
-    "MANLI",
-    "LEADTEK",
-    "NVIDIA",
     "AMD",
-    "INTEL"
+    "ASROCK",
+    "ASUS",
+    "COLORFUL",
+    "EMTEK",
+    "EVGA",
+    "GAINWARD",
+    "GALAX",
+    "GIGABYTE",
+    "INNO3D",
+    "INTEL",
+    "LEADTEK",
+    "MANLI",
+    "MSI",
+    "NVIDIA",
+    "PALIT",
+    "PNY",
+    "POWERCOLOR",
+    "SAPPHIRE",
+    "XFX",
+    "ZOTAC"
   ],
   "manufacturers": [
     "Any",
