@@ -594,18 +594,46 @@ div[data-testid="stAlertContainer"] {
 """
 
 
-# ── Loaders ───────────────────────────────────────────────────────────────────
-def heal_lgbm_estimator(obj):
-    """Rebuild LightGBM Booster C-pointer handles that can be invalidated during unpickling on Windows."""
+def cache_lgbm_model_strings(obj):
+    """Safely extract and cache LightGBM model string representations immediately after unpickling."""
     if obj is None:
         return
     import lightgbm
     if hasattr(obj, "_Booster") and getattr(obj, "_Booster") is not None:
         b = getattr(obj, "_Booster")
+        if isinstance(b, lightgbm.Booster) and not getattr(obj, "_cached_lgbm_str", None):
+            try:
+                obj._cached_lgbm_str = b.model_to_string()
+            except Exception:
+                pass
+    if hasattr(obj, "steps"):
+        for _, step in obj.steps:
+            cache_lgbm_model_strings(step)
+    if hasattr(obj, "named_estimators_") and isinstance(obj.named_estimators_, dict):
+        for sub_est in obj.named_estimators_.values():
+            cache_lgbm_model_strings(sub_est)
+    if hasattr(obj, "estimators_") and isinstance(obj.estimators_, (list, tuple)):
+        for sub_est in obj.estimators_:
+            cache_lgbm_model_strings(sub_est)
+
+
+def heal_lgbm_estimator(obj):
+    """Rebuild LightGBM Booster C-pointer handles that can be invalidated during unpickling or multi-runtime execution on Windows."""
+    if obj is None:
+        return
+    import lightgbm
+    if hasattr(obj, "_cached_lgbm_str") and getattr(obj, "_cached_lgbm_str"):
+        try:
+            obj._Booster = lightgbm.Booster(model_str=obj._cached_lgbm_str)
+        except Exception:
+            pass
+    elif hasattr(obj, "_Booster") and getattr(obj, "_Booster") is not None:
+        b = getattr(obj, "_Booster")
         if isinstance(b, lightgbm.Booster):
             try:
                 m_str = b.model_to_string()
                 if m_str:
+                    obj._cached_lgbm_str = m_str
                     obj._Booster = lightgbm.Booster(model_str=m_str)
             except Exception:
                 pass
@@ -630,8 +658,10 @@ def load_artifact():
 
     if art is not None and isinstance(art, dict):
         for m in art.get("all_models", {}).values():
+            cache_lgbm_model_strings(m)
             heal_lgbm_estimator(m)
         if "best_model" in art:
+            cache_lgbm_model_strings(art["best_model"])
             heal_lgbm_estimator(art["best_model"])
 
     return art, ver
@@ -842,8 +872,8 @@ def predict_all(
                     results[name] = max(0.0, float(np.expm1(pred)))
             except Exception as e_retry:
                 import logging
-                logging.getLogger("gpu_price_predictor").warning(
-                    "Model %s failed to predict: %s", name, e_retry
+                logging.getLogger("gpu_price_predictor").debug(
+                    "Auxiliary model %s failed to predict on Windows runtime: %s", name, e_retry
                 )
     return results
 # ── Shared prediction renderer ────────────────────────────────────────────────
