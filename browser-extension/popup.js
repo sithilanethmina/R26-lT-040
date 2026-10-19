@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Gateway URL (Single source of truth from config.js)
   const GATEWAY_URL = CONFIG.API_BASE_URL;
 
+  // Track extracted data from page context for payload symmetry
+  let currentExtractedData = null;
+
   // Default GPU Metadata
   let GPU_METADATA = {
     models: [],
@@ -671,6 +674,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stock: "In Stock",
         listed_price:
           !isNaN(listedPrice) && listedPrice > 0 ? listedPrice : null,
+        description: currentExtractedData ? (currentExtractedData.description || currentExtractedData.raw_text || "") : null,
       };
     } else if (category === "mobile") {
       const brand = document.getElementById("mobileBrandInput").value.trim();
@@ -690,6 +694,9 @@ document.addEventListener("DOMContentLoaded", () => {
           parseFloat(document.getElementById("mobileRamInput").value) || 6,
         warranty_days:
           parseFloat(document.getElementById("mobileWarrantyInput").value) || 0,
+        title: currentExtractedData ? (currentExtractedData.title || "") : null,
+        description: currentExtractedData ? (currentExtractedData.description || "") : null,
+        raw_text: currentExtractedData ? (currentExtractedData.raw_text || "") : null,
       };
     } else if (category === "vehicle") {
       const variant = document
@@ -742,6 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function populateForm(data) {
     if (!data) return;
+    currentExtractedData = data;
     if (data.price) priceInput.value = data.price;
 
     if (data.category && forms[data.category]) {

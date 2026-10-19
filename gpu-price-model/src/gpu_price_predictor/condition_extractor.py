@@ -107,30 +107,43 @@ def extract_condition_tags(text: str | None, source: str = "ikman") -> Dict[str,
             tags["warranty_months"] = 1.0
 
     # Defect and hardware repair tagging
+    # Step 1: Strip explicit negative assertions to prevent false positive defect tagging
+    # e.g., "no display issues or artifacts", "never repaired", "without any defect", "no repairs", "zero artifacts"
+    neg_adj = r'(?:any|such|visible|hidden|hardware|physical|display|screen|graphics?|further|major|minor)'
+    single_neg = rf'(?:(?:{neg_adj}\s+)?(?:repairs?|repaired|defects?|issues?|errors?|faults?|damages?|damaged|artifacts?|problems?))'
+    compound_neg_pattern = rf'\b(?:no|not|never|without|zero|0|free\s*of)\s+{single_neg}(?:\s*(?:or|and|,)\s*(?:(?:no|zero)\s+)?{single_neg})*\b'
+
+    cleaned_for_defect = re.sub(compound_neg_pattern, ' ', s, flags=re.IGNORECASE)
+    cleaned_for_defect = re.sub(
+        r'(?:ලෙඩ\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*ලෙඩක්\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*අඩුපාඩුවක්\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*ප්‍රශ්නයක්\s*(?:නැ|නෑ|නොමැත)|අඩුපාඩු\s*(?:නැ|නෑ|නොමැත))',
+        ' ',
+        cleaned_for_defect,
+        flags=re.IGNORECASE
+    )
+
+    # Step 2: Check for genuine defect keywords on the sanitized text
     if re.search(
-        r"(?:repair|broken|defective|not\s+working|faulty|damaged|crack|dead|fans?\s+not\s+spin|display\s+no|no\s+display|artifacts?|අඩුපාඩු|ලෙඩ|හදන්න|කැඩි)",
-        s,
+        r'\b(?:needs?\s+repair|to\s+repair|repaired|broken|defective|not\s+working|faulty|damaged|crack|dead|fans?\s+not\s+(?:working|spinning|spin)|giving\s+no\s+display|no\s+display\b(?!\s+(?:issues?|problems?|errors?|faults?|artifacts?))|artifacts?|for\s+parts|parts\s+only|අඩුපාඩු|ලෙඩ|හදන්න|කැඩි)\b',
+        cleaned_for_defect,
+        flags=re.IGNORECASE
     ):
-        # Exclude explicit non-defect claims ("no repairs", "no issues", "ලෙඩ නෑ")
-        if not re.search(
-            r"(?:no\s+repair|no\s+defects?|no\s+issues?|no\s+error|no\s+fault|ලෙඩ\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*ලෙඩක්\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*අඩුපාඩුවක්\s*(?:නැ|නෑ|නොමැත)|කිසිම\s*ප්‍රශ්නයක්\s*(?:නැ|නෑ|නොමැත))",
-            s,
-        ):
-            tags["needs_repair"] = True
+        tags["needs_repair"] = True
 
     # Urgent liquidity sales
     if re.search(
         r"(?:urgent\s+(?:sale|sell)|quick\s+sale|need\s+cash|money\s+urgent|emergency\s+sale|හදිසි|ඉක්මනින්)",
         s,
     ):
-        tags["urgent_sale"] = True
+        if not re.search(r"(?:not\s+(?:an?\s+)?urgent|no\s+urgent)", s):
+            tags["urgent_sale"] = True
 
     # Benchmark and operational testing verification (e.g., FurMark, stress test)
     if re.search(
         r"(?:tested|working|furmark|stress\s*test|100%\s*work|perfectly\s*work|no\s+errors?|temps?\s*(?:good|ok|normal)|පරීක්ෂා\s*කර|චෙක්\s*කර|හොඳටම\s*වැඩ)",
         s,
     ):
-        tags["tested_working"] = True
+        if not re.search(r"\bnot\s+working\b", s):
+            tags["tested_working"] = True
 
     # Physical condition descriptors
     if re.search(

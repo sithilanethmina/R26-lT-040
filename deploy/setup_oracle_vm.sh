@@ -117,6 +117,7 @@ CONSOLIDATED_MODE=true
 SAVE_SCREENSHOTS=false
 # Optional: Set GEMINI_API_KEY if using unstructured ad text/screenshot extraction
 GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.5-flash-lite
 EOF
 fi
 

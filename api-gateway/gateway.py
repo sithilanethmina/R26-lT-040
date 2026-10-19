@@ -773,6 +773,21 @@ def is_electronics_item(brand: str, model: str) -> bool:
         
     return False
 
+def is_gpu_item(brand: str, model: str, title: str = "") -> bool:
+    import re
+    combined = f"{brand} {model} {title}".lower().strip()
+    
+    # Complete PC systems (laptops, full towers) should NOT be rerouted to standalone GPU
+    complete_pc_keywords = ["laptop", "notebook", "macbook", "desktop pc", "gaming pc", "aio", "all-in-one", "gaming rig", "full set"]
+    if any(k in combined for k in complete_pc_keywords):
+        return False
+        
+    gpu_patterns = [
+        r'\b(rtx\s*\d{3,4}|gtx\s*\d{3,4}|rx\s*\d{3,4}|gt\s*\d{3,4}|arc\s*a\d{3})\b',
+        r'\b(geforce|radeon|graphics\s*card|graphic\s*card|vga\s*card|video\s*card)\b'
+    ]
+    return any(re.search(p, combined, re.I) for p in gpu_patterns)
+
 @app.post("/api/{category}/predict")
 async def predict_proxy(category: str, request: Request):
     """Proxy prediction requests to the appropriate downstream service."""
@@ -784,12 +799,36 @@ async def predict_proxy(category: str, request: Request):
     except Exception:
         body = {}
         
+    brand_val = body.get("brand", "")
+    model_val = body.get("model", "")
+    title_val = body.get("title", "")
+
+    # Recover standalone GPU listings that were misclassified as mobile
+    if category == "mobile" and is_gpu_item(brand_val, model_val, title_val):
+        gpu_client, gpu_base_url = get_downstream_client("gpu", timeout=30.0)
+        async with gpu_client:
+            try:
+                gpu_payload = {
+                    "model": model_val,
+                    "brand": brand_val if brand_val and brand_val.lower() != "other brand" else "Any",
+                    "vram_gb": body.get("vram_gb") or body.get("vram"),
+                    "listed_price": body.get("listed_price") or body.get("price"),
+                    "description": body.get("description", "") or body.get("raw_text", "")
+                }
+                gpu_response = await gpu_client.post(
+                    f"{gpu_base_url}/predict",
+                    json=gpu_payload,
+                    headers={"Content-Type": "application/json"}
+                )
+                if gpu_response.status_code == 200:
+                    gpu_data = gpu_response.json()
+                    return JSONResponse(status_code=200, content=gpu_data)
+            except Exception as e:
+                print(f"Error redirecting to GPU service: {e}")
+
     # Only recover electronics listings that were misclassified as mobile.
     # Never reclassify an explicit GPU request: ASUS, MSI, Acer, etc. make both
     # laptops and graphics cards, so brand-based detection is not safe for GPUs.
-    brand_val = body.get("brand", "")
-    model_val = body.get("model", "")
-    
     if category == "mobile" and is_electronics_item(brand_val, model_val):
         target_service_url = SERVICES["electronics"]["url"]
         model_lower = model_val.lower()

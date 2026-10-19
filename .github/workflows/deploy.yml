@@ -108,7 +108,15 @@ jobs:
             CONSOLIDATED_MODE=true
             SAVE_SCREENSHOTS=false
             GEMINI_API_KEY=
+            GEMINI_MODEL=gemini-2.5-flash-lite
             EOF
+            fi
+
+            # If GEMINI_API_KEY secret is provided in GitHub repository secrets, sync it into .env
+            if [ -n "${{ secrets.GEMINI_API_KEY }}" ]; then
+              echo "  [+] Syncing GEMINI_API_KEY from GitHub Secrets..."
+              sed -i '/^GEMINI_API_KEY=/d' .env
+              echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
             fi
 
             # 3. Build and launch container in consolidated single-process mode

@@ -8442,10 +8442,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
     function extractVram(pageContext, matchedModel) {
         const { title = "", raw_text = "", key_values = {} } = (pageContext || {});
         let explicitVram = null;
+        const spec = matchedModel ? GPU_SPECS_DATASET[matchedModel] : null;
 
-        // Priority 1: Scraped explicit spec field (e.g. 'VRAM: 8GB', 'Memory: 4 GB')
+        // Priority 1: Scraped explicit spec field (e.g. 'VRAM: 8GB', 'Graphics Memory: 8 GB')
         if (key_values) {
-            for (const key of ['vram', 'memory', 'memory size', 'graphics memory', 'vram (gb)', 'vram_gb', 'memory_size']) {
+            for (const key of ['vram', 'graphics memory', 'video memory', 'vram (gb)', 'vram_gb']) {
                 if (key_values[key]) {
                     const m = String(key_values[key]).match(/\b(\d{1,2})\s*(?:GB|GIGABYTE|G)\b/i);
                     if (m) {
@@ -8457,12 +8458,26 @@ window.FairPriceLK_Extractors.gpu = (function () {
                     }
                 }
             }
+            // For generic 'memory' field, only accept if it matches official valid VRAM for this GPU
+            // or if no spec is known (prevents system RAM like 16GB/32GB leaking from whole PC ads)
+            if (explicitVram === null && (key_values['memory'] || key_values['memory size'] || key_values['memory_size'])) {
+                const rawMem = key_values['memory'] || key_values['memory size'] || key_values['memory_size'];
+                const m = String(rawMem).match(/\b(\d{1,2})\s*(?:GB|GIGABYTE|G)\b/i);
+                if (m) {
+                    const val = parseFloat(m[1]);
+                    if (val >= 1 && val <= 48) {
+                        if (!spec || spec.valid_vrams.includes(val)) {
+                            explicitVram = val;
+                        }
+                    }
+                }
+            }
         }
 
         // Priority 2: Match in title (strict 'GB' or 'G' before GDDR/VRAM, preventing '1 Year Warranty' or '1G' collisions)
         if (explicitVram === null && title) {
             const titleMatch = title.match(/\b(\d{1,2})\s*GB\b(?!\s*warranty)/i) ||
-                               title.match(/\b(\d{1,2})\s*G(?=\s*(?:GDDR\d[X]?|VRAM|DDR\d))/i);
+                               title.match(/\b(\d{1,2})\s*G(?=\s*(?:GDDR\d[X]?|VRAM))/i);
             if (titleMatch) {
                 const val = parseFloat(titleMatch[1]);
                 if (val >= 1 && val <= 48) {
@@ -8471,9 +8486,21 @@ window.FairPriceLK_Extractors.gpu = (function () {
             }
         }
 
-        // Priority 3: Description search with strict VRAM keywords binding only
+        // Priority 3: Check if description explicitly mentions a valid VRAM for this detected model
+        // E.g., for RTX 2080 (valid: 8GB), matches "Rtx 2080 gigabyte oc 8gb 🔥"
+        if (explicitVram === null && spec && spec.valid_vrams && spec.valid_vrams.length > 0 && raw_text) {
+            for (const validVal of spec.valid_vrams) {
+                const pattern = new RegExp(`\\b${validVal}\\s*(?:GB|G)\\b(?!\\s*(?:RAM|DDR|SYSTEM|WARRANTY))`, 'i');
+                if (pattern.test(raw_text)) {
+                    explicitVram = validVal;
+                    break;
+                }
+            }
+        }
+
+        // Priority 4: Description search with strict VRAM keywords binding only (EXCLUDING DDR4/DDR5 system RAM)
         if (explicitVram === null && raw_text) {
-            const descMatch = raw_text.match(/\b(\d{1,2})\s*GB\s*(?:GDDR\d[X]?|VRAM|DDR\d|VIDEO\s*MEMORY|GRAPHICS\s*MEMORY)\b/i) ||
+            const descMatch = raw_text.match(/\b(\d{1,2})\s*GB\s*(?:GDDR\d[X]?|VRAM|VIDEO\s*MEMORY|GRAPHICS\s*MEMORY)\b/i) ||
                               raw_text.match(/\b(?:VRAM|GRAPHICS\s*MEMORY|MEMORY\s*SIZE|VIDEO\s*MEMORY)\s*[:=]?\s*(\d{1,2})\s*GB\b/i);
             if (descMatch) {
                 const val = parseFloat(descMatch[1]);
@@ -8482,8 +8509,6 @@ window.FairPriceLK_Extractors.gpu = (function () {
                 }
             }
         }
-
-        const spec = matchedModel ? GPU_SPECS_DATASET[matchedModel] : null;
 
         // If explicit VRAM was found, validate against official specifications
         if (explicitVram !== null) {

@@ -168,8 +168,8 @@ window.FairPriceLK_Extractors.index = (function () {
             }
         };
 
-        // Scan attribute elements and split multi-line blocks line by line
-        document.querySelectorAll('[class*="word-break"], [class*="item-property"], [class*="meta-item"], [class*="attribute"], [data-testid*="attribute"], tr, dl, div, li, p').forEach(el => {
+        // Scan attribute elements strictly scoped to attribute containers/tables
+        document.querySelectorAll('[class*="word-break"], [class*="item-property"], [class*="meta-item"], [class*="attribute"], [data-testid*="attribute"], tr, dl').forEach(el => {
             const fullText = (el.innerText || "").trim();
             if (fullText.includes(":")) {
                 const lines = fullText.split(/\r?\n/);
@@ -179,9 +179,20 @@ window.FairPriceLK_Extractors.index = (function () {
             }
         });
 
+        // Dedicated Ad Description Extraction
+        let descText = metaData.description || "";
+        const descEl = document.querySelector('[data-testid="ad-description"], [class*="description"] p, [class*="description"], div[class*="ad-description"], section[class*="description"]');
+        if (descEl) {
+            const domDesc = (descEl.innerText || "").trim();
+            if (domDesc.length > descText.length) {
+                descText = domDesc;
+            }
+        }
+        result.description = descText;
+
         // Scan sequential divs/spans often used by marketplaces
         const allText = document.querySelectorAll('div, span, p, li, strong, b');
-        let fullCollectedText = result.raw_text;
+        let fullCollectedText = (descText ? descText + " " : "") + result.raw_text;
 
         for (let i = 0; i < allText.length; i++) {
             const el = allText[i];
@@ -222,11 +233,11 @@ window.FairPriceLK_Extractors.index = (function () {
             });
         }
 
-        // 4. Extract Breadcrumbs / Category Tags
+        // 4. Extract Breadcrumbs / Category Tags (Strictly scoped to breadcrumb elements to avoid footer links)
         const breadcrumbs = [];
-        document.querySelectorAll('nav[aria-label*="breadcrumb"] a, ol[class*="breadcrumb"] a, ul[class*="breadcrumb"] a, [class*="breadcrumb"] a, a[href*="/ads/sri-lanka/"]').forEach(a => {
+        document.querySelectorAll('nav[aria-label*="breadcrumb"] a, [data-testid*="breadcrumb"] a, ol[class*="breadcrumb"] a, ul[class*="breadcrumb"] a, [class*="breadcrumb"] a, [itemtype*="BreadcrumbList"] a, a[itemprop="item"]').forEach(a => {
             const text = (a.innerText || a.textContent || '').trim();
-            if (text && !breadcrumbs.includes(text)) breadcrumbs.push(text);
+            if (text && !breadcrumbs.includes(text) && text.length < 80) breadcrumbs.push(text);
         });
         result.breadcrumbs = breadcrumbs;
 
@@ -338,6 +349,15 @@ window.FairPriceLK_Extractors.index = (function () {
             }
         }
 
+        // 1b. EXPLICIT STANDALONE GPU DETECTION (Precedence over generic breadcrumbs like "Laptop & Accessories" / "Other")
+        const isCompleteSystemTitle = COMPLETE_SYSTEM_PATTERNS.some(p => p.test(title));
+        const isExplicitGpuTitle = STANDALONE_GPU_PATTERNS.some(p => p.test(title));
+        const hasGpuModelInTitle = /\b(rtx\s*\d{3,4}|gtx\s*\d{3,4}|rx\s*\d{3,4}|gt\s*\d{3,4}|geforce|radeon|arc\s*a\d{3})\b/i.test(title);
+
+        if ((hasGpuModelInTitle || isExplicitGpuTitle) && !isCompleteSystemTitle) {
+            return "gpu";
+        }
+
         // 2. BREADCRUMBS & META CATEGORY (High Priority)
         if (bText.includes("graphic card") || bText.includes("graphic cards") || bText.includes("video card") || bText.includes("vga card") || bText.includes("vga") || metaCat.includes("graphic card") || bText.includes("ග්‍රැෆික්") || bText.includes("கிராபிக்")) {
             return "gpu";
@@ -373,18 +393,8 @@ window.FairPriceLK_Extractors.index = (function () {
         }
 
         // 4. TITLE & KEYWORD HEURISTICS (Fallback when metadata/breadcrumbs missing)
-        const isCompleteSystemTitle = COMPLETE_SYSTEM_PATTERNS.some(p => p.test(title));
-        const isExplicitGpuTitle = STANDALONE_GPU_PATTERNS.some(p => p.test(title));
-        const hasGpuModelInTitle = /\b(rtx\s*\d{3,4}|gtx\s*\d{3,4}|rx\s*\d{3,4}|gt\s*\d{3,4}|geforce|radeon|arc\s*a\d{3})\b/i.test(title);
-
-        // If title explicitly represents a Laptop, Desktop PC, or Complete System (even if GPU is mentioned) -> ELECTRONICS
         if (isCompleteSystemTitle && !isExplicitGpuTitle) {
             return "electronics";
-        }
-
-        // If title has a GPU model or GPU keywords and NOT marked as a complete system -> GPU
-        if ((hasGpuModelInTitle || isExplicitGpuTitle) && !isCompleteSystemTitle) {
-            return "gpu";
         }
 
         if (/\b(iphone|samsung galaxy|redmi|poco|oneplus|pixel|android phone|mobile phone|huawei|vivo|oppo|realme|nokia|infinix|tecno)\b/i.test(title)) {
