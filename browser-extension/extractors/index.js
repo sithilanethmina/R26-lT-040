@@ -337,7 +337,6 @@ window.FairPriceLK_Extractors.index = (function () {
                 return "vehicle";
             }
         }
-
         // 2. BREADCRUMBS & META CATEGORY (High Priority)
         if (bText.includes("graphic card") || bText.includes("graphic cards") || bText.includes("video card") || bText.includes("vga card") || bText.includes("vga") || metaCat.includes("graphic card") || bText.includes("ග්‍රැෆික්") || bText.includes("கிராபிக்")) {
             return "gpu";
@@ -345,10 +344,11 @@ window.FairPriceLK_Extractors.index = (function () {
         if (bText.includes("desktop computers") && !isSupportedLaptopOrDisplay) {
             return "unsupported";
         }
-        if (bText.includes("laptops") || bText.includes("laptop computers") || bText.includes("monitors") || (bText.includes("tablets") && !bText.includes("computers & tablets")) || metaCat.includes("laptop") || bText.includes("ලැප්ටොප්") || bText.includes("මොනිටර්") || bText.includes("மடிக்கணினி")) {
+        if (bText.includes("laptops") || bText.includes("laptop computers") || bText.includes("monitors") || bText.includes("tablets") || metaCat.includes("laptop") || bText.includes("ලැප්ටොප්") || bText.includes("මොනිටර්") || bText.includes("மடிக்கණினி")) {
             return "electronics";
         }
         if (bText.includes("mobile phones") || metaCat.includes("phone") || bText.includes("දුරකථන") || bText.includes("கைபேසි")) {
+            if (isSupportedLaptopOrDisplay) return "electronics";
             return isNonPhoneTitle ? "unsupported" : "mobile";
         }
         if (bText.includes("cars") || bText.includes("vans") || bText.includes("motorbikes") || bText.includes("vehicles") || metaCat.includes("vehicle") || metaCat.includes("car")) {
@@ -366,6 +366,7 @@ window.FairPriceLK_Extractors.index = (function () {
             return "electronics";
         }
         if (url.includes("mobile-phones") || url.includes("mobile_phones")) {
+            if (isSupportedLaptopOrDisplay) return "electronics";
             return isNonPhoneTitle ? "unsupported" : "mobile";
         }
         if (url.includes("cars") || url.includes("vehicles") || url.includes("/van-") || url.includes("/suv-") || url.includes("/auto-")) {
@@ -388,6 +389,7 @@ window.FairPriceLK_Extractors.index = (function () {
         }
 
         if (/\b(iphone|samsung galaxy|redmi|poco|oneplus|pixel|android phone|mobile phone|huawei|vivo|oppo|realme|nokia|infinix|tecno)\b/i.test(title)) {
+            if (isSupportedLaptopOrDisplay) return "electronics";
             return isNonPhoneTitle ? "unsupported" : "mobile";
         }
         if (/\b(toyota|suzuki|corolla|aqua|alto|honda|nissan|wagon r|prius|axio|premio|vezel|vitz|land cruiser|prado|dolphin|hiace)\b/i.test(title)) {

@@ -20,7 +20,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         // 0. Check explicit desktop PC patterns (Not supported by mobile/laptop models)
         const isDesktopPattern = /\b(desktop pc|gaming pc|desktop computer|desktop computers|full set pc|full pc|cpu unit|gaming rig|all-in-one pc|all in one pc|aio pc|custom pc|workstation pc|pc tower|gaming desktop)\b/i.test(titleLower) || /\b(desktop pc|gaming pc|full set pc|gaming rig|cpu unit|aio pc)\b/i.test(lower) || itemType === "desktop" || itemType === "desktop computers";
         const isLaptopKeyword = titleLower.includes("laptop") || titleLower.includes("notebook") || titleLower.includes("macbook") || titleLower.includes("thinkpad") || titleLower.includes("elitebook") || titleLower.includes("probook") || titleLower.includes("zenbook") || titleLower.includes("vivobook") || titleLower.includes("latitude") || titleLower.includes("inspiron") || titleLower.includes("vostro") || titleLower.includes("precision") || titleLower.includes("tuf") || titleLower.includes("rog");
-        const isTabletKeyword = titleLower.includes("tablet") || titleLower.includes("ipad") || titleLower.includes("galaxy tab") || titleLower.includes("mediapad") || titleLower.includes("matepad");
+        const isTabletKeyword = /\b(tablet|tablets|ipad|galaxy\s*tab|tab|tabs|mediapad|matepad|mi\s*pad)\b/i.test(titleLower);
         const isMonitorKeyword = titleLower.includes("monitor") || titleLower.includes("monitors") || titleLower.includes("frameless display");
 
         if (isDesktopPattern && !isLaptopKeyword && !isTabletKeyword && !isMonitorKeyword) {
@@ -31,10 +31,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
         if (titleLower.includes("monitor") || titleLower.includes("monitors")) {
             return "monitor";
         }
-        if (titleLower.includes("tablet") || titleLower.includes("ipad") || titleLower.includes("matepad") || titleLower.includes("mediapad") || titleLower.includes("galaxy tab") || titleLower.includes("mi pad")) {
-            return "tablet";
-        }
-        if (/\b(ipad|matepad|mediapad|galaxy tab|surface pro|surface go)\b/i.test(titleLower)) {
+        if (/\b(tablet|tablets|ipad|galaxy\s*tab|tab|tabs|matepad|mediapad|mi\s*pad|surface\s*pro|surface\s*go)\b/i.test(titleLower)) {
             return "tablet";
         }
         if (isLaptopKeyword) {
@@ -264,16 +261,22 @@ window.FairPriceLK_Extractors.electronics = (function () {
 
     function extractGeneration(combinedText) {
         const upper = (combinedText || "").toUpperCase();
-        const match = upper.match(/(\d+)(?:ST|ND|RD|TH)?\s*(?:GEN|GENERATION)/i);
+        // Match explicit generation string: e.g. "11th Gen", "10th Generation"
+        const match = upper.match(/\b(\d{1,2})(?:ST|ND|RD|TH)?\s*(?:GEN|GENERATION)\b/i);
         if (match) {
-            return parseInt(match[1], 10);
+            const val = parseInt(match[1], 10);
+            if (val >= 1 && val <= 14) return val;
         }
-        const yearMatch = upper.match(/(20\d{2})/);
-        if (yearMatch) {
-            const year = parseInt(yearMatch[1], 10);
-            if (year >= 2020) return 12;
-            if (year >= 2018) return 8;
-            if (year >= 2015) return 5;
+        // Match processor part numbers like i5-1135G7 (11), i7-8550U (8), i5-12500H (12), i7-7700HQ (7)
+        const procMatch = upper.match(/\b(?:CORE\s*)?I[3579][ -](\d{1,2})\d{2,3}[A-Z0-9]*\b/i);
+        if (procMatch) {
+            const val = parseInt(procMatch[1], 10);
+            if (val >= 2 && val <= 14) return val;
+        }
+        // Match Ryzen series like Ryzen 5 5600H (5), Ryzen 7 4800H (4)
+        const ryzenMatch = upper.match(/\bRYZEN\s*[3579]\s*(\d)\d{3}\b/i);
+        if (ryzenMatch) {
+            return parseInt(ryzenMatch[1], 10);
         }
         return 0;
     }
@@ -289,7 +292,7 @@ window.FairPriceLK_Extractors.electronics = (function () {
             }
         }
         const upper = (combinedText || "").toUpperCase();
-        if (upper.includes("SSD") || upper.includes("NVME") || upper.includes("M.2")) {
+        if (upper.includes("SSD") || upper.includes("NVME") || upper.includes("M.2") || upper.includes("EMMC")) {
             return "SSD";
         }
         return "HDD";
@@ -305,13 +308,14 @@ window.FairPriceLK_Extractors.electronics = (function () {
 
         if (subCat === "laptop") {
             const laptopSeries = {
-                'DELL': ['LATITUDE', 'INSPIRON', 'VOSTRO', 'PRECISION', 'XPS', 'ALIENWARE', 'G15', 'G3', 'G5', 'G7'],
-                'HP': ['ELITEBOOK', 'PROBOOK', 'PAVILION', 'SPECTRE', 'ENVY', 'OMEN', 'VICTUS', 'ZBOOK', 'NOTEBOOK', 'ELITE'],
-                'LENOVO': ['THINKPAD', 'IDEAPAD', 'LEGION', 'YOGA', 'V15', 'THINKBOOK', 'T470', 'T480', 'T490', 'X1'],
-                'ASUS': ['VIVOBOOK', 'ZENBOOK', 'ROG', 'TUF', 'EXPERTBOOK'],
-                'ACER': ['ASPIRE', 'SWIFT', 'NITRO', 'PREDATOR', 'TRAVELMATE', 'SPIN'],
+                'DELL': ['CHROMEBOOK', 'CROMEBOOK', 'LATITUDE', 'INSPIRON', 'VOSTRO', 'PRECISION', 'XPS', 'ALIENWARE', 'G15', 'G3', 'G5', 'G7'],
+                'HP': ['CHROMEBOOK', 'CROMEBOOK', 'ELITEBOOK', 'PROBOOK', 'PAVILION', 'SPECTRE', 'ENVY', 'OMEN', 'VICTUS', 'ZBOOK', 'NOTEBOOK', 'ELITE'],
+                'LENOVO': ['CHROMEBOOK', 'CROMEBOOK', 'THINKPAD', 'IDEAPAD', 'LEGION', 'YOGA', 'V15', 'THINKBOOK', 'T470', 'T480', 'T490', 'X1'],
+                'ASUS': ['CHROMEBOOK', 'CROMEBOOK', 'VIVOBOOK', 'ZENBOOK', 'ROG', 'TUF', 'EXPERTBOOK'],
+                'ACER': ['CHROMEBOOK', 'CROMEBOOK', 'ASPIRE', 'SWIFT', 'NITRO', 'PREDATOR', 'TRAVELMATE', 'SPIN', 'EXTENSA'],
                 'APPLE': ['MACBOOK PRO', 'MACBOOK AIR', 'MACBOOK'],
-                'MSI': ['MODERN', 'STEALTH', 'KATANA', 'SWORD', 'CYBORG', 'GAMING']
+                'MSI': ['MODERN', 'STEALTH', 'KATANA', 'SWORD', 'CYBORG', 'GAMING'],
+                'SAMSUNG': ['CHROMEBOOK', 'CROMEBOOK', 'GALAXY BOOK']
             };
             const upperScope = scope.toUpperCase();
             let matchedSeries = "";
@@ -341,7 +345,8 @@ window.FairPriceLK_Extractors.electronics = (function () {
             if (matchedSeries) {
                 model = matchedSeries.charAt(0) + matchedSeries.slice(1).toLowerCase();
                 const lModel = model.toLowerCase();
-                if (lModel === "macbook pro") model = "MacBook Pro";
+                if (lModel.includes("chromebook") || lModel.includes("cromebook")) model = "Chromebook";
+                else if (lModel === "macbook pro") model = "MacBook Pro";
                 else if (lModel === "macbook air") model = "MacBook Air";
                 else if (lModel === "expertbook") model = "ExpertBook";
                 else if (lModel === "thinkbook") model = "ThinkBook";
@@ -350,6 +355,8 @@ window.FairPriceLK_Extractors.electronics = (function () {
                 else if (lModel === "ideapad") model = "IdeaPad";
                 else if (lModel === "vivobook") model = "VivoBook";
                 else if (lModel === "zenbook") model = "ZenBook";
+            } else if (upperScope.includes("CHROMEBOOK") || upperScope.includes("CROMEBOOK")) {
+                model = "Chromebook";
             }
         } else if (subCat === "tablet") {
             const tabletSeries = {
@@ -410,13 +417,106 @@ window.FairPriceLK_Extractors.electronics = (function () {
             }
         }
 
+        // Targeted Ikman Ad Extraction Helpers (Isolated strictly to Electronics)
+        function expandShowMoreSections() {
+            try {
+                const candidates = document.querySelectorAll('button, [role="button"], a, span');
+                candidates.forEach(el => {
+                    const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
+                    if (txt === 'show more' || txt.startsWith('show more') || txt === 'read more' || txt.startsWith('read more') || txt === 'තවත් පෙන්වන්න' || txt === 'மேலும் காட்டு') {
+                        try { el.click(); } catch (e) {}
+                    }
+                });
+                document.querySelectorAll('[class*="show-more"], [class*="showMore"], [data-testid*="show-more"]').forEach(el => {
+                    try { el.click(); } catch (e) {}
+                });
+            } catch (e) {}
+        }
+
+        function extractIkmanLocationSubtitle(h1) {
+            if (!h1) return "";
+            let next = h1.nextElementSibling;
+            while (next) {
+                const txt = (next.innerText || "").trim();
+                if (txt && (txt.includes("Posted on") || txt.includes("am,") || txt.includes("pm,"))) {
+                    return txt;
+                }
+                next = next.nextElementSibling;
+            }
+            if (h1.parentElement) {
+                const sub = h1.parentElement.querySelector('[class*="sub-title"], [class*="subtitle"], [data-testid*="subtitle"], p, span');
+                if (sub && sub !== h1) {
+                    const txt = (sub.innerText || "").trim();
+                    if (txt && (txt.includes("Posted on") || txt.includes(","))) return txt;
+                }
+            }
+            const allSubs = document.querySelectorAll('p, div, span');
+            for (const el of allSubs) {
+                const txt = (el.innerText || "").trim();
+                if (txt.startsWith("Posted on ") && txt.length < 150) {
+                    return txt;
+                }
+            }
+            return "";
+        }
+
+        function parseLocationFromSubtitle(subtitle) {
+            if (!subtitle) return "";
+            const timeMatch = subtitle.match(/(?:am|pm|\d{2}:\d{2}),\s*([^,\n]+(?:,\s*[^,\n]+)?)/i);
+            if (timeMatch && timeMatch[1]) {
+                return timeMatch[1].trim();
+            }
+            const commaIdx = subtitle.lastIndexOf(",");
+            if (commaIdx > 0 && commaIdx < subtitle.length - 1) {
+                return subtitle.substring(subtitle.indexOf(",") + 1).trim();
+            }
+            return "";
+        }
+
+        const isIkman = typeof window !== "undefined" && window.location && window.location.hostname.includes("ikman.lk");
+        let ikmanLocation = "";
+        let ikmanLocationSubtitle = "";
+        let ikmanDescription = description || "";
+        let targetedRawText = raw_text || "";
+
+        if (isIkman) {
+            expandShowMoreSections();
+            const h1El = document.querySelector('h1');
+            if (h1El) {
+                ikmanLocationSubtitle = extractIkmanLocationSubtitle(h1El);
+                ikmanLocation = parseLocationFromSubtitle(ikmanLocationSubtitle);
+            }
+            const descEl = document.querySelector('[class*="description--"], [class*="description"], div[data-testid="ad-description"], .ad-description');
+            if (descEl) {
+                const dt = (descEl.innerText || "").trim();
+                if (dt && dt.length > ikmanDescription.length) {
+                    ikmanDescription = dt;
+                }
+            }
+            targetedRawText = `Listing Title: ${title}\n` +
+                (ikmanLocationSubtitle ? `Location Subtitle: ${ikmanLocationSubtitle}\n` : '') +
+                (ikmanLocation ? `Detected Location: ${ikmanLocation}\n` : '') +
+                (price ? `Asking Price: Rs. ${price}\n` : '') +
+                `Ikman Defined Fields:\n` +
+                Object.entries(key_values).map(([k, v]) => `  • ${k}: ${v}`).join('\n') +
+                (ikmanDescription ? `\nSeller Description:\n${ikmanDescription}\n` : '');
+        }
+
         const missingFields = [];
         if (!brand || brand === "Generic") missingFields.push("Brand");
         if (!model) missingFields.push("Model");
         if (!price || isNaN(price) || price <= 0) missingFields.push("Listing Price");
 
         const rawCond = (key_values.condition || "").toLowerCase();
-        const isNew = rawCond.includes("brand new") || rawCond.includes("brand-new") || rawCond === "new" || scope.toLowerCase().includes("brand new") || scope.toLowerCase().includes("sealed");
+        let isNew = false;
+        // Priority 1: Ikman Defined Field Ground Truth (Used always wins over description claims)
+        if (rawCond.includes("used") || rawCond.includes("second") || rawCond.includes("2nd") || rawCond.includes("refurbish") || rawCond.includes("recondition")) {
+            isNew = false;
+        } else if (rawCond.includes("brand new") || rawCond.includes("brand-new") || rawCond === "new" || rawCond.includes("sealed")) {
+            isNew = true;
+        } else if (!rawCond && (title.toLowerCase().includes("brand new") || title.toLowerCase().includes("sealed pack")) && !title.toLowerCase().includes("used")) {
+            isNew = true;
+        }
         const cleanCondition = isNew ? "Brand New" : "Used";
 
         if (subCat === "unsupported_desktop") {
@@ -430,10 +530,25 @@ window.FairPriceLK_Extractors.electronics = (function () {
                     item_type: "Desktop Computer",
                     listed_price: price || null,
                     condition: cleanCondition,
-                    location: key_values.location || ""
+                    location: ikmanLocation || key_values.location || ""
                 }
             };
         }
+
+        const domTree = {
+            platform: isIkman ? "ikman" : "generic",
+            title: title || "",
+            location: ikmanLocation || key_values.location || "",
+            location_subtitle: ikmanLocationSubtitle || "",
+            price: price || null,
+            brand: brand || "",
+            model: model || "",
+            condition: cleanCondition,
+            breadcrumbs: pageContext.breadcrumbs || [],
+            specification_table: key_values,
+            description: ikmanDescription || description || "",
+            url: typeof window !== "undefined" && window.location ? window.location.href : ""
+        };
 
         const parsedData = {
             category: subCat,
@@ -441,11 +556,12 @@ window.FairPriceLK_Extractors.electronics = (function () {
             brand: brand || "",
             model: model || "",
             title: title || "",
-            description: description || "",
-            raw_text: raw_text || "",
+            description: ikmanDescription || description || "",
+            raw_text: targetedRawText || raw_text || "",
             listed_price: price || null,
             condition: cleanCondition,
-            location: key_values.location || ""
+            location: ikmanLocation || key_values.location || "",
+            dom_tree: domTree
         };
 
         if (subCat === "monitor") {
@@ -477,7 +593,8 @@ window.FairPriceLK_Extractors.electronics = (function () {
             valid: missingFields.length === 0,
             missing_fields: missingFields,
             error_message: missingFields.length > 0 ? `Missing required electronics details: [${missingFields.join(", ")}].` : null,
-            data: parsedData
+            data: parsedData,
+            dom_tree: domTree
         };
     }
 

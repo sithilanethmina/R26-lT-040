@@ -314,9 +314,11 @@
           ? '⚠️ MODEL NOT SUPPORTED'
           : ext.error_message && (ext.error_message.includes('not match') || ext.error_message.includes('Unrecognized') || ext.error_message.includes('conflicting'))
             ? '⚠️ SPECIFICATION ISSUE'
-            : ext.error_message
-              ? '⚠️ VALUATION UNAVAILABLE'
-              : 'Listing Details Detected'}
+            : ext.error_message && (ext.error_message.includes('Missing required') || ext.error_message.includes('missing required') || ext.error_message.includes('Unable to predict'))
+              ? '⚠️ MISSING REQUIRED SPECIFICATIONS'
+              : ext.error_message
+                ? '⚠️ VALUATION UNAVAILABLE'
+                : 'Listing Details Detected'}
                                 </span>
                             </div>
                             <div class="fplk-verdict-body" style="${ext.error_message ? 'font-size:12.5px; color:#7F1D1D; line-height:1.5; margin-top:4px;' : ''}">
@@ -655,7 +657,90 @@
                     </div>
                 </div>
             `;
-    } else if (category === "electronics" && data.category === "laptop") {
+    } else if (category === "electronics" && (data.category === "tablet" || data.subcategory === "tablet")) {
+      return `
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Brand</label>
+                        <input type="text" class="fplk-input" id="fplk-tablet-brand" value="${data.brand || ""}" placeholder="e.g. Apple, Samsung">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Model / Series</label>
+                        <input type="text" class="fplk-input" id="fplk-tablet-model" value="${data.model || ""}" placeholder="e.g. iPad 9th Gen, Galaxy Tab A9">
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Storage (GB)</label>
+                        <input type="number" class="fplk-input" id="fplk-tablet-storage" value="${data.storage_gb || data.storage || ""}" placeholder="e.g. 64">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">RAM (GB)</label>
+                        <input type="number" class="fplk-input" id="fplk-tablet-ram" value="${data.ram_gb || data.ram || ""}" placeholder="e.g. 4">
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Screen Size</label>
+                        <input type="text" class="fplk-input" id="fplk-tablet-size" value="${data.screen_size_inch || data.size || ""}" placeholder="e.g. 10.2 Inch">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Connectivity</label>
+                        <select class="fplk-select" id="fplk-tablet-conn">
+                            <option value="WiFi / Standard" ${(!data.connectivity || data.connectivity.includes("WiFi")) ? "selected" : ""}>WiFi / Standard</option>
+                            <option value="4G / LTE" ${data.connectivity && data.connectivity.includes("4G") ? "selected" : ""}>4G / Cellular</option>
+                            <option value="5G" ${data.connectivity && data.connectivity.includes("5G") ? "selected" : ""}>5G</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+    } else if (category === "electronics" && (data.category === "monitor" || data.subcategory === "monitor")) {
+      return `
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Brand</label>
+                        <input type="text" class="fplk-input" id="fplk-mon-brand" value="${data.brand || ""}" placeholder="e.g. Dell, AOC">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Screen Size (Inches)</label>
+                        <input type="number" step="0.1" class="fplk-input" id="fplk-mon-size" value="${data.size_inches || data.size || ""}" placeholder="e.g. 24.0">
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Refresh Rate (Hz)</label>
+                        <input type="number" class="fplk-input" id="fplk-mon-hz" value="${data.refresh_rate_hz || data.refreshRate || ""}" placeholder="e.g. 75">
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Resolution</label>
+                        <select class="fplk-select" id="fplk-mon-res">
+                            <option value="1080p FHD" ${(!data.resolution || data.resolution.includes("1080")) ? "selected" : ""}>1080p FHD</option>
+                            <option value="2K QHD" ${data.resolution && data.resolution.includes("2K") ? "selected" : ""}>2K QHD</option>
+                            <option value="4K UHD" ${data.resolution && data.resolution.includes("4K") ? "selected" : ""}>4K UHD</option>
+                            <option value="HD" ${data.resolution && data.resolution.includes("HD") && !data.resolution.includes("FHD") && !data.resolution.includes("QHD") ? "selected" : ""}>HD (720p)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fplk-form-grid">
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Panel Type</label>
+                        <select class="fplk-select" id="fplk-mon-panel">
+                            <option value="IPS" ${(!data.panel_type || data.panel_type === "IPS") ? "selected" : ""}>IPS</option>
+                            <option value="VA" ${data.panel_type === "VA" ? "selected" : ""}>VA</option>
+                            <option value="OLED" ${data.panel_type === "OLED" ? "selected" : ""}>OLED</option>
+                            <option value="Standard" ${data.panel_type === "Standard" ? "selected" : ""}>Standard</option>
+                        </select>
+                    </div>
+                    <div class="fplk-form-group">
+                        <label class="fplk-label">Curved Display</label>
+                        <select class="fplk-select" id="fplk-mon-curved">
+                            <option value="0" ${!data.is_curved ? "selected" : ""}>Flat</option>
+                            <option value="1" ${data.is_curved ? "selected" : ""}>Curved</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+    } else if (category === "electronics" && (data.category === "laptop" || !data.category || data.category === "other")) {
       return `
                 <div class="fplk-form-grid">
                     <div class="fplk-form-group">
@@ -827,32 +912,65 @@
       if (vEl) d.variant = vEl.value.trim() || "Standard";
       d.year = d.model_year;
     } else if (cat === "electronics") {
-      const bEl = document.getElementById("fplk-elec-brand");
-      const mEl = document.getElementById("fplk-elec-model");
-      const rEl = document.getElementById("fplk-elec-ram");
-      const sEl = document.getElementById("fplk-elec-storage");
-      const cpEl = document.getElementById("fplk-elec-cpu");
-      const gnEl = document.getElementById("fplk-elec-gen");
+      const elecSub = d.subcategory || d.category || "laptop";
+      if (elecSub === "tablet") {
+        const tbBrand = document.getElementById("fplk-tablet-brand");
+        const tbModel = document.getElementById("fplk-tablet-model");
+        const tbStorage = document.getElementById("fplk-tablet-storage");
+        const tbRam = document.getElementById("fplk-tablet-ram");
+        const tbSize = document.getElementById("fplk-tablet-size");
+        const tbConn = document.getElementById("fplk-tablet-conn");
 
-      if (bEl) d.brand = bEl.value.trim();
-      if (mEl) d.model = mEl.value.trim();
-      d.category = "laptop";
-      if (cpEl) d.cpu = cpEl.value;
-      if (gnEl) d.generation = parseInt(gnEl.value, 10) || 0;
+        if (tbBrand) d.brand = tbBrand.value.trim();
+        if (tbModel) d.model = tbModel.value.trim();
+        if (tbStorage && tbStorage.value) { d.storage = parseFloat(tbStorage.value); d.storage_gb = d.storage; }
+        if (tbRam && tbRam.value) { d.ram = parseFloat(tbRam.value); d.ram_gb = d.ram; }
+        if (tbSize && tbSize.value) { d.size = tbSize.value.trim(); d.screen_size_inch = d.size; }
+        if (tbConn) d.connectivity = tbConn.value;
+        d.category = "tablet";
+      } else if (elecSub === "monitor") {
+        const mnBrand = document.getElementById("fplk-mon-brand");
+        const mnSize = document.getElementById("fplk-mon-size");
+        const mnHz = document.getElementById("fplk-mon-hz");
+        const mnRes = document.getElementById("fplk-mon-res");
+        const mnPanel = document.getElementById("fplk-mon-panel");
+        const mnCurved = document.getElementById("fplk-mon-curved");
 
-      if (rEl) {
-        d.ram = parseFloat(rEl.value) || 8;
-        d.ram_gb = d.ram;
+        if (mnBrand) d.brand = mnBrand.value.trim();
+        if (mnSize && mnSize.value) { d.size = parseFloat(mnSize.value); d.size_inches = d.size; }
+        if (mnHz && mnHz.value) { d.refreshRate = parseFloat(mnHz.value); d.refresh_rate_hz = d.refreshRate; }
+        if (mnRes) d.resolution = mnRes.value;
+        if (mnPanel) d.panel_type = mnPanel.value;
+        if (mnCurved) d.is_curved = mnCurved.value === "1";
+        d.category = "monitor";
       } else {
-        d.ram = d.ram || 8;
-        d.ram_gb = d.ram;
-      }
-      if (sEl) {
-        d.storage = parseFloat(sEl.value) || 256;
-        d.storage_gb = d.storage;
-      } else {
-        d.storage = d.storage || 256;
-        d.storage_gb = d.storage;
+        const bEl = document.getElementById("fplk-elec-brand");
+        const mEl = document.getElementById("fplk-elec-model");
+        const rEl = document.getElementById("fplk-elec-ram");
+        const sEl = document.getElementById("fplk-elec-storage");
+        const cpEl = document.getElementById("fplk-elec-cpu");
+        const gnEl = document.getElementById("fplk-elec-gen");
+
+        if (bEl) d.brand = bEl.value.trim();
+        if (mEl) d.model = mEl.value.trim();
+        d.category = "laptop";
+        if (cpEl) d.cpu = cpEl.value;
+        if (gnEl) d.generation = parseInt(gnEl.value, 10) || 0;
+
+        if (rEl) {
+          d.ram = parseFloat(rEl.value) || 8;
+          d.ram_gb = d.ram;
+        } else {
+          d.ram = d.ram || 8;
+          d.ram_gb = d.ram;
+        }
+        if (sEl) {
+          d.storage = parseFloat(sEl.value) || 256;
+          d.storage_gb = d.storage;
+        } else {
+          d.storage = d.storage || 256;
+          d.storage_gb = d.storage;
+        }
       }
     }
 
@@ -977,8 +1095,13 @@
           if (response.data && (response.data.category === "unsupported" || response.data.success === false)) {
             cachedPrediction = null;
             currentExtraction.valid = false;
-            currentExtraction.category = "unsupported";
-            currentExtraction.error_message = response.data.error || "This item is in an unsupported category.";
+            if (response.data.category === "unsupported") {
+              currentExtraction.category = "unsupported";
+            }
+            if (response.data.category && response.data.category !== "unsupported" && currentExtraction.data) {
+              currentExtraction.data.subcategory = response.data.category;
+            }
+            currentExtraction.error_message = response.data.error || "Missing required specifications.";
             renderEmbeddedCard(manualOverride);
             return;
           }

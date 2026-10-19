@@ -918,6 +918,11 @@ async def predict_proxy(category: str, request: Request):
                 )
                 if elec_response.status_code == 200:
                     elec_data = elec_response.json()
+                    
+                    # If electronics service reported an error or missing fields, return the error directly
+                    if not elec_data.get("success", True) or elec_data.get("status") == "missing_required_fields":
+                        return JSONResponse(status_code=200, content=elec_data)
+                    
                     predicted_price = float(elec_data.get("predicted_price", 0.0))
                     
                     if not predicted_price and "price" in elec_data:
@@ -929,8 +934,13 @@ async def predict_proxy(category: str, request: Request):
                             
                     if category == "mobile":
                         return JSONResponse(status_code=200, content={
+                            "success": True,
+                            "category": subcat,
                             "predicted_price": predicted_price,
+                            "price": elec_data.get("price", f"Rs {predicted_price:,.2f}"),
                             "phone_type": f"Electronics ({subcat.capitalize()})",
+                            "extracted_specs": elec_data.get("extracted_specs", {}),
+                            "fair_market_range": elec_data.get("fair_market_range", {}),
                             "inputs": {
                                 "brand": actual_brand,
                                 "model": model_val,
