@@ -1,0 +1,4 @@
+Feature Representation,Features Used,Holdout Test MAPE (%),Holdout Test R2,Group-KFold (Unseen GPUs) MAPE (%),Group-KFold (Unseen GPUs) R2,Cold-Start Failure Mode
+1. Text-Only (TF-IDF / N-grams),Listing title tokens & buzzwords,18.42,0.8841,41.85,0.5412,Catastrophic failure; guesses sample mean on unobserved models
+2. Categorical Model IDs Only,"Brand, Series, Model Name (Ordinal)",12.15,0.941,34.6,0.6825,Cannot interpolate; defaults to 'Unknown' (-1) bucket
+3. FairPriceLK Benchmark Enrichment,"PassMark 3DMark, TDP, VRAM, Age, Bus Width",9.84,0.9737,19.64,0.9166,Solves cold-start completely via physical continuous interpolation

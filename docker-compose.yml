@@ -13,6 +13,7 @@ services:
       - CONSOLIDATED_MODE=true
       - SAVE_SCREENSHOTS=false
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-}
     mem_limit: 750m
     deploy:
       resources:
