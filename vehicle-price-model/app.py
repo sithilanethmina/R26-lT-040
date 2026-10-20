@@ -411,18 +411,25 @@ def normalize_variant(clean_model_name: str, raw_variant: str) -> str:
 
 # ─── HELPERS ──────────────────────────────────────────────────────────────────
 def _score_description(description: str, nlp_config: dict) -> dict:
-    if not description: 
-        return {"nlp_score": 0, "nlp_signals": [], "nlp_verdict": None}
+    if not description or not description.strip(): 
+        return {
+            "nlp_score": None,
+            "nlp_raw_score": 0,
+            "has_fatal_issue": False,
+            "nlp_signals": [],
+            "nlp_verdict": "Not Assessed"
+        }
     
     text = description.lower()
-    total_nlp_points = 0
+    pos_raw_points = 0
+    neg_raw_points = 0
     matched_labels = []
     has_fatal_issue = False
 
     # 1. Process Negative Signals (Identify fatal issues first)
     for signal in nlp_config.get("negative_signals", {}).values():
         if any(kw in text for kw in signal["keywords"]):
-            total_nlp_points += signal["points"]
+            neg_raw_points += signal["points"]
             matched_labels.append(f"⚠️ {signal['label']}")
             if signal["points"] <= -10:
                 has_fatal_issue = True
@@ -433,25 +440,33 @@ def _score_description(description: str, nlp_config: dict) -> dict:
             if has_fatal_issue:
                 matched_labels.append(f"(Ignored: {signal['label']})")
             else:
-                total_nlp_points += signal["points"]
+                pos_raw_points += signal["points"]
                 matched_labels.append(signal["label"])
 
-    scoring = nlp_config.get("scoring", {})
-    
-    # 3. Apply Fatal Override Logic
+    # 3. Apply Scoring Logic
     if has_fatal_issue:
+        nlp_raw_score = -50
         final_score = 20
-        verdict = "High Risk 🔴"
+        verdict = "High Risk (Critical Disclosures)"
     else:
-        final_score = min(scoring.get("final_max", 100), max(0, 50 + max(-30, min(30, total_nlp_points))))
-        if final_score >= scoring.get("fairly_priced_min", 65): 
-            verdict = "Fairly Priced ✅"
-        elif final_score >= scoring.get("review_min", 45): 
-            verdict = "Review Carefully ⚠️"
-        else: 
-            verdict = "Caution 🔴"
+        nlp_raw_score = max(-20, min(30, pos_raw_points + neg_raw_points))
+        pos_bonus = min(50, round(pos_raw_points * 2.0))
+        neg_penalty = max(-50, round(neg_raw_points * 2.5))
+        final_score = max(0, min(100, 50 + pos_bonus + neg_penalty))
+        if final_score >= 75:
+            verdict = "Detailed & Highly Favorable"
+        elif final_score >= 50:
+            verdict = "Standard / Modest Claims"
+        else:
+            verdict = "Disclosed Faults / Caution"
 
-    return {"nlp_score": final_score, "nlp_signals": matched_labels, "nlp_verdict": verdict}
+    return {
+        "nlp_score": final_score,
+        "nlp_raw_score": nlp_raw_score,
+        "has_fatal_issue": has_fatal_issue,
+        "nlp_signals": matched_labels,
+        "nlp_verdict": verdict
+    }
 
 
 def _extract_engine_cc(text: str) -> float:
@@ -537,9 +552,11 @@ class PredictResponse(BaseModel):
     used_mileage_km: float
     is_mileage_estimated: bool
     confidence: str
-    nlp_score: Optional[int]
-    nlp_signals: Optional[list[str]]
-    nlp_verdict: Optional[str]
+    nlp_score: Optional[int] = None
+    nlp_raw_score: Optional[int] = 0
+    has_fatal_issue: Optional[bool] = False
+    nlp_signals: Optional[list[str]] = []
+    nlp_verdict: Optional[str] = "Not Assessed"
 
 # ─── ENDPOINTS ────────────────────────────────────────────────────────────────
 
@@ -568,6 +585,7 @@ def predict_car(req: PredictRequest):
 
     # Intercept unknown models before ML Prediction
     if clean_model_name == "Unknown":
+        nlp = _score_description(req.description or "", CAR_NLP_CONFIG)
         return PredictResponse(
             predicted_price=0, 
             model_used=car_model_type, 
@@ -576,9 +594,7 @@ def predict_car(req: PredictRequest):
             used_mileage_km=effective_mileage,
             is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
             confidence="Unknown", 
-            nlp_score=0, 
-            nlp_signals=[], 
-            nlp_verdict=None
+            **nlp
         )
 
     row = {
@@ -629,6 +645,7 @@ def predict_suv(req: SUVPredictRequest):
 
     # Intercept unknown models before ML Prediction
     if clean_model_name == "Unknown":
+        nlp = _score_description(req.description or "", SUV_NLP_CONFIG)
         return PredictResponse(
             predicted_price=0, 
             model_used=suv_model_type, 
@@ -637,9 +654,7 @@ def predict_suv(req: SUVPredictRequest):
             used_mileage_km=effective_mileage,
             is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
             confidence="Unknown", 
-            nlp_score=0, 
-            nlp_signals=[], 
-            nlp_verdict=None
+            **nlp
         )
 
     row = {
@@ -701,6 +716,7 @@ def predict_van(req: VanPredictRequest):
 
     # Intercept unknown models before ML Prediction
     if clean_model_name == "Unknown":
+        nlp = _score_description(req.description or "", VAN_NLP_CONFIG)
         return PredictResponse(
             predicted_price=0, 
             model_used=van_model_type, 
@@ -709,9 +725,7 @@ def predict_van(req: VanPredictRequest):
             used_mileage_km=effective_mileage,
             is_mileage_estimated=(req.mileage_km is None or req.mileage_km <= 0),
             confidence="Unknown", 
-            nlp_score=0, 
-            nlp_signals=[], 
-            nlp_verdict=None
+            **nlp
         )
 
     row = {

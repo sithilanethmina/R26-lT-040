@@ -726,6 +726,7 @@ document.addEventListener("DOMContentLoaded", () => {
         transmission: document.getElementById("vehicleTransmissionSelect")
           .value,
         fuel_type: document.getElementById("vehicleFuelSelect").value,
+        description: currentExtractedData ? (currentExtractedData.description || "") : null,
       };
     } else if (category === "electronics") {
       const cat = document.getElementById("elecCategorySelect").value;
@@ -1021,6 +1022,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Evaluate Fairness
     let fairness = null;
+    let itemDetails = {};
+    if (category === "vehicle") {
+      itemDetails = {
+        nlp_score: data.nlp_score,
+        nlp_raw_score: data.nlp_raw_score,
+        has_fatal_issue: data.has_fatal_issue,
+        nlp_signals: data.nlp_signals,
+        nlp_verdict: data.nlp_verdict,
+      };
+    }
     if (window.FairPriceLK_Fairness) {
       fairness = window.FairPriceLK_Fairness.evaluate(
         listedPrice,
@@ -1028,6 +1039,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lowerPrice,
         upperPrice,
         category,
+        itemDetails,
       );
     }
 
@@ -1095,6 +1107,70 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       if (scoreBreakdownSection) scoreBreakdownSection.classList.add("hidden");
     }
+
+    // Manage Vehicle Description Assessment (NLP) in Popup
+    let vehicleNlpBox = document.getElementById("vehicleNlpPopupBox");
+    if (category === "vehicle") {
+      if (!vehicleNlpBox) {
+        vehicleNlpBox = document.createElement("div");
+        vehicleNlpBox.id = "vehicleNlpPopupBox";
+        const resFooter = document.querySelector(".result-footer");
+        if (resFooter && resFooter.parentNode) {
+          resFooter.parentNode.insertBefore(vehicleNlpBox, resFooter);
+        }
+      }
+      if (vehicleNlpBox) {
+        const hasFatal = Boolean(data.has_fatal_issue);
+        const score = (data.nlp_score !== null && data.nlp_score !== undefined) ? data.nlp_score : null;
+        const verdict = data.nlp_verdict || "Not Assessed";
+        const signals = Array.isArray(data.nlp_signals) ? data.nlp_signals : [];
+        const borderColor = hasFatal ? "#DC2626" : (score >= 75 ? "#16A34A" : (score >= 50 ? "#2563EB" : (score !== null ? "#D97706" : "#71717A")));
+
+        vehicleNlpBox.innerHTML = `
+          ${hasFatal ? `
+            <div style="background: #FEF2F2; border: 1px solid #FECACA; border-left: 4px solid #DC2626; padding: 10px 12px; border-radius: 6px; margin: 10px 0;">
+              <div style="display: flex; align-items: flex-start; gap: 8px;">
+                <span style="font-size: 16px;">⚠️</span>
+                <div>
+                  <strong style="color: #991B1B; font-size: 12px; font-weight: 700; display: block;">High Risk (Critical Disclosures)</strong>
+                  <p style="font-size: 11px; color: #7F1D1D; margin: 2px 0 0 0; line-height: 1.4;">
+                    Critical risk disclosed in description (e.g. duplicate registration book, engine failure, or major structural damage).
+                  </p>
+                </div>
+              </div>
+            </div>
+          ` : ""}
+          <div style="background: #FAFAFA; border: 1px solid #E4E4E7; border-left: 4px solid ${borderColor}; padding: 10px 12px; border-radius: 6px; margin: 10px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-size: 12px; font-weight: 700; color: #18181B;">Description Assessment: ${verdict}</span>
+              <span style="font-size: 11.5px; font-weight: 600; background: #FFFFFF; border: 1px solid #E4E4E7; padding: 2px 6px; border-radius: 4px;">
+                ${score !== null ? `Rating: <strong>${score}/100</strong>` : "<strong>Not Assessed</strong>"}
+              </span>
+            </div>
+            <div style="font-size: 11.5px; line-height: 1.4;">
+              ${signals.length > 0 ? `
+                <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px;">
+                  ${signals.map(s => {
+                    const isWarning = s.includes("⚠️");
+                    const isIgnored = s.includes("Ignored");
+                    const bg = isWarning ? "#FEE2E2" : (isIgnored ? "#F3F4F6" : "#DCFCE7");
+                    const tc = isWarning ? "#991B1B" : (isIgnored ? "#6B7280" : "#166534");
+                    return `<span style="display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10.5px; background: ${bg}; color: ${tc}; font-weight: 500;">${s}</span>`;
+                  }).join("")}
+                </div>
+              ` : `<p style="margin: 0 0 4px 0; color: #71717A;">${score === null ? "No seller description provided for this listing." : "No condition-related keywords detected in the advertisement."}</p>`}
+              <div style="font-size: 10px; color: #71717A; font-style: italic; border-top: 1px dashed #E4E4E7; padding-top: 4px; margin-top: 4px;">
+                Score reflects rule-based analysis of seller claims in the advertisement. It does not constitute physical inspection or guarantee of vehicle condition.
+              </div>
+            </div>
+          </div>
+        `;
+        vehicleNlpBox.classList.remove("hidden");
+      }
+    } else if (vehicleNlpBox) {
+      vehicleNlpBox.classList.add("hidden");
+      vehicleNlpBox.innerHTML = "";
+    }
   }
 
   function setLoading(btn, isLoading, text) {
@@ -1116,5 +1192,10 @@ document.addEventListener("DOMContentLoaded", () => {
     errorSection.classList.add("hidden");
     extractionStatus.classList.add("hidden");
     selectGpuManuallyBtn.classList.add("hidden");
+    const vNlpBox = document.getElementById("vehicleNlpPopupBox");
+    if (vNlpBox) {
+      vNlpBox.classList.add("hidden");
+      vNlpBox.innerHTML = "";
+    }
   }
 });

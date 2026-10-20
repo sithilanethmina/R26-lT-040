@@ -6,6 +6,7 @@
 
 window.FairPriceLK_Fairness = (function () {
 
+
     /**
      * Compute comprehensive fairness metrics and advice.
      * @param {number} listedPrice - Seller asking price in LKR
@@ -82,37 +83,10 @@ window.FairPriceLK_Fairness = (function () {
             score = Math.max(5, Math.min(79, Math.round(80 - (decay * 25))));
         }
 
-        // 2. VEHICLE SPECIFIC LOGIC (NLP Modifier + 95 Cap)
-        let nlpModifier = 0;
-        let nlpExplanation = "";
-
+        // 2. VEHICLE SPECIFIC LOGIC: Preserve original 95-point cap for vehicles
+        // Price Fairness is strictly continuous market-range based; NLP points do NOT modify this score.
         if (category === "vehicle") {
-            let baseScore = Math.min(95, score); // Cap base at 95 for vehicles
-            
-            const isExtremeUnderprice = hasBounds ? (listedPrice < (lowerPrice - 1.5 * halfWidth)) : (diffPercent < -35);
-            const isExtremeOverprice = hasBounds ? (listedPrice > (upperPrice + 1.2 * halfWidth)) : (diffPercent > 25);
-
-            if (itemDetails && itemDetails.nlp_score !== undefined) {
-                const nlp = itemDetails.nlp_score;
-                if (nlp >= 65) {
-                    nlpModifier = 5;
-                    nlpExplanation = "Good description provided (+5 points).";
-                } else if (nlp < 45 && nlp > 0) {
-                    nlpModifier = -15;
-                    nlpExplanation = "High-risk keywords detected in description (-15 points).";
-                } else if (nlp > 0) {
-                    nlpExplanation = "Standard description detected.";
-                }
-
-                // GATING RULE: No positive bonus for suspicious pricing
-                if (isExtremeUnderprice || isExtremeOverprice) {
-                    nlpModifier = Math.min(0, nlpModifier);
-                    if (nlp >= 65) {
-                        nlpExplanation = "Good description detected, but bonus disabled due to high-risk price variance.";
-                    }
-                }
-            }
-            score = Math.max(5, Math.min(95, baseScore + nlpModifier)); // Final vehicle score
+            score = Math.max(5, Math.min(95, score));
         }
 
         let tier = "FAIR_PRICE";
@@ -215,17 +189,8 @@ window.FairPriceLK_Fairness = (function () {
         let factors = [];
         let formulaText = "";
 
-        if (category === "vehicle" && itemDetails && itemDetails.nlp_score !== undefined && itemDetails.nlp_score > 0) {
-            factors.push({
-                name: "Description Analysis (NLP)",
-                impact: nlpModifier > 0 ? "Favorable" : (nlpModifier < 0 ? "Caution" : "Neutral"),
-                value: itemDetails.nlp_score + "/100",
-                desc: nlpExplanation + " Verdict: " + (itemDetails.nlp_verdict || "N/A")
-            });
-        }
-
         if (isExtremeUnderprice) {
-            formulaText = `Unusually Low Price: Listed well below estimated market range [${formatLKR(lowerPrice)}]. Score: ${score}/100`;
+            formulaText = `Unusually Low Price: Listed well below estimated market range [${formatLKR(lowerPrice)}]. Price Fairness Score: ${score}/100`;
             factors.push({
                 name: "Market Price Range",
                 impact: "Outside",
@@ -239,7 +204,7 @@ window.FairPriceLK_Fairness = (function () {
                 desc: "Prices this low usually indicate seller-noted defects, hardware issues, or down-payment terms."
             });
         } else if (isBelowBound) {
-            formulaText = `Great Deal: Priced below typical market price (${formatLKR(lowerPrice)}). Score: ${score}/100`;
+            formulaText = `Great Deal: Priced below typical market price (${formatLKR(lowerPrice)}). Price Fairness Score: ${score}/100`;
             factors.push({
                 name: "Market Comparison",
                 impact: "Positive",
@@ -253,7 +218,7 @@ window.FairPriceLK_Fairness = (function () {
                 desc: `Fair market range: ${formatLKR(lowerPrice)} – ${formatLKR(upperPrice)}.`
             });
         } else if (isWithinRange) {
-            formulaText = `Fair Market Price: Inside expected market range [${formatLKR(lowerPrice)} – ${formatLKR(upperPrice)}]. Score: ${score}/100`;
+            formulaText = `Fair Market Price: Inside expected market range [${formatLKR(lowerPrice)} – ${formatLKR(upperPrice)}]. Price Fairness Score: ${score}/100`;
             factors.push({
                 name: "Market Price Range",
                 impact: "Optimal",
@@ -267,7 +232,7 @@ window.FairPriceLK_Fairness = (function () {
                 desc: `Aligns with verified second-hand market listings (Midpoint: ${formatLKR(fairMid)}).`
             });
         } else if (isSlightlyAbove) {
-            formulaText = `Slightly Above Average: Listed above upper market range (${formatLKR(upperPrice)}). Score: ${score}/100`;
+            formulaText = `Slightly Above Average: Listed above upper market range (${formatLKR(upperPrice)}). Price Fairness Score: ${score}/100`;
             factors.push({
                 name: "Market Price Range",
                 impact: "Above Range",
@@ -275,7 +240,7 @@ window.FairPriceLK_Fairness = (function () {
                 desc: `Exceeds the upper market range of ${formatLKR(upperPrice)}. Verify whether warranty or mint condition justifies the price.`
             });
         } else {
-            formulaText = `High Price: Listed well above typical market value. Score: ${score}/100`;
+            formulaText = `High Price: Listed well above typical market value. Price Fairness Score: ${score}/100`;
             factors.push({
                 name: "Market Comparison",
                 impact: "High Price",
@@ -296,6 +261,17 @@ window.FairPriceLK_Fairness = (function () {
             factors: factors
         };
 
+        let nlpAssessment = null;
+        if (category === "vehicle" && itemDetails) {
+            nlpAssessment = {
+                score: itemDetails.nlp_score !== undefined ? itemDetails.nlp_score : null,
+                rawScore: typeof itemDetails.nlp_raw_score === "number" ? itemDetails.nlp_raw_score : 0,
+                verdict: itemDetails.nlp_verdict || "Not Assessed",
+                hasFatalIssue: Boolean(itemDetails.has_fatal_issue),
+                signals: Array.isArray(itemDetails.nlp_signals) ? itemDetails.nlp_signals : []
+            };
+        }
+
         return {
             status: "OK",
             score: score,
@@ -311,7 +287,8 @@ window.FairPriceLK_Fairness = (function () {
             negotiationTarget: null,
             isSuspicious: isSuspicious,
             fairMidpoint: Math.round(fairMid),
-            breakdown: breakdown
+            breakdown: breakdown,
+            nlpAssessment: nlpAssessment
         };
     }
 
