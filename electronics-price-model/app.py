@@ -6,6 +6,14 @@ import os
 import re
 import sys
 
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
+except Exception:
+    pass
+
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -41,44 +49,71 @@ models_db = {
 }
 
 def load_models():
-    # 1. Primary Laptop Model
-    laptop_path = os.path.join(BASE_DIR, 'models', 'best_laptop_model.pkl')
-    if os.path.exists(laptop_path):
-        try:
-            bundle = joblib.load(laptop_path)
-            models_db['laptop']['default'] = bundle
-            models_db['laptop']['catboost'] = bundle
-            models_db['laptop']['xgboost'] = bundle
-            models_db['laptop']['random_forest'] = bundle
-            print(f"[+] Loaded Laptop Production Model: {bundle.get('model_name', 'CatBoost')}")
-        except Exception as e:
-            print(f"[!] Failed to load Laptop model: {e}")
+    # 1. Laptop Models (with multi-file fallback)
+    laptop_candidates = [
+        'best_laptop_model.pkl',
+        'laptop_production_model.pkl',
+        'laptop_xgboost.pkl',
+        'laptop_lightgbm.pkl',
+        'laptop_catboost.pkl',
+        'laptop_random_forest.pkl'
+    ]
+    for fname in laptop_candidates:
+        l_path = os.path.join(BASE_DIR, 'models', fname)
+        if os.path.exists(l_path):
+            try:
+                bundle = joblib.load(l_path)
+                algo = str(bundle.get('model_name', 'XGBoost')).lower().replace(' ', '_')
+                models_db['laptop'][algo] = bundle
+                if 'default' not in models_db['laptop']:
+                    models_db['laptop']['default'] = bundle
+                    print(f"[+] Loaded Laptop Production Model: {bundle.get('model_name', 'XGBoost')} (from {fname})")
+            except Exception as e:
+                print(f"[!] Warning: Could not load laptop candidate {fname}: {e}")
 
-    # 2. Primary Monitor Model
-    monitor_path = os.path.join(BASE_DIR, 'models', 'best_monitor_model.pkl')
-    if os.path.exists(monitor_path):
-        try:
-            bundle = joblib.load(monitor_path)
-            models_db['monitor']['default'] = bundle
-            models_db['monitor']['xgboost'] = bundle
-            models_db['monitor']['random_forest'] = bundle
-            models_db['monitor']['lightgbm'] = bundle
-            print(f"[+] Loaded Monitor Production Model: {bundle.get('model_name', 'XGBoost')}")
-        except Exception as e:
-            print(f"[!] Failed to load Monitor model: {e}")
+    # 2. Monitor Models (with multi-file fallback)
+    monitor_candidates = [
+        'best_monitor_model.pkl',
+        'monitor_production_model.pkl',
+        'monitor_lightgbm.pkl',
+        'monitor_xgboost.pkl',
+        'monitor_catboost.pkl',
+        'monitor_random_forest.pkl'
+    ]
+    for fname in monitor_candidates:
+        m_path = os.path.join(BASE_DIR, 'models', fname)
+        if os.path.exists(m_path):
+            try:
+                bundle = joblib.load(m_path)
+                algo = str(bundle.get('model_name', 'LightGBM')).lower().replace(' ', '_')
+                models_db['monitor'][algo] = bundle
+                if 'default' not in models_db['monitor']:
+                    models_db['monitor']['default'] = bundle
+                    print(f"[+] Loaded Monitor Production Model: {bundle.get('model_name', 'LightGBM')} (from {fname})")
+            except Exception as e:
+                print(f"[!] Warning: Could not load monitor candidate {fname}: {e}")
 
-    # 3. Primary Tablet Model
-    tablet_path = os.path.join(BASE_DIR, 'models', 'best_tablet_model.pkl')
-    if os.path.exists(tablet_path):
-        try:
-            bundle = joblib.load(tablet_path)
-            models_db['tablet']['default'] = bundle
-            models_db['tablet']['lightgbm'] = bundle
-            models_db['tablet']['xgboost'] = bundle
-            models_db['tablet']['random_forest'] = bundle
-            print(f"[+] Loaded Tablet Production Model: {bundle.get('model_name', 'LightGBM')}")
-        except Exception as e:
-            print(f"[!] Failed to load Tablet model: {e}")
+    # 3. Tablet Models (with multi-file fallback)
+    tablet_candidates = [
+        'best_tablet_model.pkl',
+        'tablet_production_model.pkl',
+        'tablet_lightgbm.pkl',
+        'tablet_xgboost.pkl',
+        'tablet_catboost.pkl',
+        'tablet_random_forest.pkl'
+    ]
+    for fname in tablet_candidates:
+        t_path = os.path.join(BASE_DIR, 'models', fname)
+        if os.path.exists(t_path):
+            try:
+                bundle = joblib.load(t_path)
+                algo = str(bundle.get('model_name', 'LightGBM')).lower().replace(' ', '_')
+                models_db['tablet'][algo] = bundle
+                if 'default' not in models_db['tablet']:
+                    models_db['tablet']['default'] = bundle
+                    print(f"[+] Loaded Tablet Production Model: {bundle.get('model_name', 'LightGBM')} (from {fname})")
+            except Exception as e:
+                print(f"[!] Warning: Could not load tablet candidate {fname}: {e}")
 
 load_models()
 
@@ -633,32 +668,107 @@ def safe_float(value, default=0.0):
     except (ValueError, TypeError):
         return default
 
+
+#home page
 @app.route('/')
 def home():
     return render_template('index.html')
 
+def log_required_fields_table(category, fields_list, predicted_price=None, lower_price=None, upper_price=None, asking_price=None, model_display_name="Production ML Model", missing_fields=None):
+    col1_w = 22
+    col2_w = 26
+    col3_w = 26
+    total_w = col1_w + col2_w + col3_w + 10
+
+    header_title = f"📋 REQUIRED PREDICTION FIELDS: {category.upper()}"
+    print("\n" + "=" * total_w)
+    print(f" {header_title}")
+    print("=" * total_w)
+    print(f"┌─{'─'*col1_w}─┬─{'─'*col2_w}─┬─{'─'*col3_w}─┐")
+    print(f"│ {'Required Feature':<{col1_w}} │ {'Applied Value':<{col2_w}} │ {'Source / Status':<{col3_w}} │")
+    print(f"├─{'─'*col1_w}─┼─{'─'*col2_w}─┼─{'─'*col3_w}─┤")
+    for f in fields_list:
+        name = str(f.get("name", ""))[:col1_w]
+        val = str(f.get("value", ""))[:col2_w]
+        src = str(f.get("status", ""))[:col3_w]
+        print(f"│ {name:<{col1_w}} │ {val:<{col2_w}} │ {src:<{col3_w}} │")
+    print(f"└─{'─'*col1_w}─┴─{'─'*col2_w}─┴─{'─'*col3_w}─┘")
+
+    if predicted_price is not None:
+        print("-" * total_w)
+        print(f" 🔮 Model Engine:       {model_display_name}")
+        print(f" 💰 Fair Market Price:  Rs {predicted_price:,.2f} LKR")
+        if lower_price is not None and upper_price is not None:
+            print(f" 📊 Fair Price Range:   Rs {lower_price:,.2f} - Rs {upper_price:,.2f} LKR")
+        if asking_price:
+            try:
+                clean_p = float(re.sub(r'[^0-9.]', '', str(asking_price)))
+                if clean_p < lower_price:
+                    diff = lower_price - clean_p
+                    print(f" 🟢 Deal Verdict:       GREAT DEAL / UNDERPRICED (Save ~Rs {diff:,.0f} below lower fair bound)")
+                elif clean_p > upper_price:
+                    diff = clean_p - upper_price
+                    print(f" 🔴 Deal Verdict:       OVERPRICED (Asking Rs {diff:,.0f} above upper fair bound)")
+                else:
+                    print(f" 🟡 Deal Verdict:       FAIR MARKET PRICE (Within estimated market range)")
+            except Exception:
+                pass
+    else:
+        print("-" * total_w)
+        missing_str = ", ".join(missing_fields) if missing_fields else "Required specifications missing"
+        print(f" ❌ PREDICTION HALTED: Missing required field(s): {missing_str}")
+        print("    No synthetic baseline fallback used. All required fields must be present.")
+    print("=" * total_w + "\n", flush=True)
+
+#prediction page
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
         data = request.get_json() or {}
-        category = data.get('category', 'laptop')
+        raw_cat = str(data.get('category') or 'laptop').strip().lower()
+        if raw_cat in ['tablets', 'ipad', 'tabs', 'tab', 'pad']:
+            category = 'tablet'
+        elif raw_cat in ['monitors', 'screen', 'display']:
+            category = 'monitor'
+        elif raw_cat in ['laptops', 'notebook']:
+            category = 'laptop'
+        else:
+            category = raw_cat
         algorithm = data.get('algorithm', 'default')
         
-        # 0. Check for unstructured text or screenshot and run Gemini LLM Extractor
+        # 0. Check for unstructured text, dom_tree, or screenshot and run Gemini LLM Extractor
         image_input = data.get('image') or data.get('image_base64') or data.get('screenshot')
-        has_unstructured_input = bool(data.get('title') or data.get('description') or data.get('raw_text') or image_input)
+        dom_tree_input = data.get('dom_tree')
+        has_unstructured_input = bool(data.get('title') or data.get('description') or data.get('raw_text') or image_input or dom_tree_input)
         extraction_source = "DOM / Regex Extractor"
+        llm_result = None
         
         if extract_electronics_specs_llm and has_unstructured_input:
             llm_result = extract_electronics_specs_llm(
                 title=data.get('title') or data.get('model') or "",
                 description=data.get('description', ""),
                 raw_text=data.get('raw_text', ""),
-                image_base64=image_input
+                image_base64=image_input,
+                dom_tree=dom_tree_input
             )
             if llm_result:
-                extraction_source = "Gemini Flash Lite (Vision/LLM)" if image_input else "Gemini Flash Lite (LLM)"
-                category = llm_result.get('category') or category
+                has_img_flag = bool(image_input and len(str(image_input).strip()) > 50)
+                has_dom_flag = bool(dom_tree_input and isinstance(dom_tree_input, dict) and any(dom_tree_input.values()))
+                if has_img_flag and has_dom_flag:
+                    extraction_source = "Gemini Flash Lite (Dual Fusion: Vision + DOM)"
+                elif has_img_flag:
+                    extraction_source = "Gemini Flash Lite (Vision AI)"
+                else:
+                    extraction_source = "Gemini Flash Lite (DOM Tree)"
+                llm_cat = str(llm_result.get('category') or "").strip().lower()
+                if llm_cat in ['tablets', 'ipad', 'tabs', 'tab', 'pad']:
+                    category = 'tablet'
+                elif llm_cat in ['monitors', 'screen', 'display']:
+                    category = 'monitor'
+                elif llm_cat in ['laptops', 'notebook']:
+                    category = 'laptop'
+                elif llm_cat in ['laptop', 'tablet', 'monitor', 'desktop_pc', 'other']:
+                    category = llm_cat
                 if llm_result.get('brand'): data['brand'] = llm_result['brand']
                 if llm_result.get('model'): data['model'] = llm_result['model']
                 if llm_result.get('cpu'): data['cpu'] = llm_result['cpu']
@@ -670,8 +780,15 @@ def predict():
                 if llm_result.get('screen_size_inch') is not None: data['size'] = llm_result['screen_size_inch']
                 if llm_result.get('refresh_rate_hz') is not None: data['refresh_rate'] = llm_result['refresh_rate_hz']
                 if llm_result.get('resolution'): data['resolution'] = llm_result['resolution']
+                if llm_result.get('panel_type'): data['panel_type'] = llm_result['panel_type']
                 if llm_result.get('condition'): data['condition'] = llm_result['condition']
+                if llm_result.get('location'): data['location'] = llm_result['location']
+                if llm_result.get('is_touchscreen') is not None: data['is_touchscreen'] = llm_result['is_touchscreen']
+                if llm_result.get('is_curved') is not None: data['is_curved'] = llm_result['is_curved']
+                if llm_result.get('is_gaming') is not None: data['is_gaming'] = llm_result['is_gaming']
+
         if category in ['desktop_pc', 'other', 'unsupported']:
+            print(f"⛔ [UNSUPPORTED CATEGORY] '{category}' is not supported for automated valuation.")
             return jsonify({
                 'success': False,
                 'category': 'unsupported',
@@ -679,6 +796,7 @@ def predict():
             })
 
         if category not in models_db or not models_db[category]:
+            print(f"❌ [MODEL ERROR] No machine learning models loaded for category '{category}'. Available categories: {[k for k, v in models_db.items() if v]}")
             return jsonify({'success': False, 'error': f'Models for {category} not loaded.'})
         
         # Select bundle (fallback to default)
@@ -704,22 +822,197 @@ def predict():
             
         # Prepare input data
         if category == 'laptop':
-            brand_val = data.get('brand', 'Dell')
-            model_val = data.get('model', 'Latitude')
-            ram_val = safe_float(data.get('ram') or data.get('ram_gb'), 16.0)
-            storage_val = safe_float(data.get('storage') or data.get('storage_gb'), 256.0)
-            storage_type_val = data.get('storageType') or data.get('storage_type', 'SSD')
-            cpu_val = data.get('cpu', 'Core i5')
-            generation_val = safe_float(data.get('generation'), 11.0)
-            gpu_val = data.get('gpu', 'Integrated')
-            is_touch = 1 if data.get('is_touchscreen') or data.get('touchscreen') else 0
-            location_val = str(data.get('location', 'Colombo')).capitalize()
+            missing_fields = []
+
+            # Detect Chromebook
+            is_chromebook = (
+                "CHROMEBOOK" in str(data.get('model', '')).upper() or
+                "CROMEBOOK" in str(data.get('model', '')).upper() or
+                "CHROMEBOOK" in str(data.get('title', '')).upper() or
+                "CROMEBOOK" in str(data.get('title', '')).upper()
+            )
+
+            # 1. Brand (Strict - No Baseline Default)
+            raw_brand = data.get('brand')
+            if raw_brand and str(raw_brand).strip().lower() not in ['', 'generic', 'unknown', 'none']:
+                brand_val = str(raw_brand).strip()
+                brand_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('brand')) else "🌐 Scraped from Page"
+            else:
+                brand_val = None
+                brand_status = "❌ Missing (Required)"
+                missing_fields.append("Brand")
+
+            # 2. Model (Strict - No Baseline Default)
+            raw_model = data.get('model')
+            if is_chromebook:
+                model_val = 'Chromebook'
+                model_status = "ℹ️ Chromebook Model"
+            elif raw_model and str(raw_model).strip().lower() not in ['', 'standard model', 'unknown', 'laptop', 'none']:
+                model_val = str(raw_model).strip()
+                model_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('model')) else "🌐 Scraped from Page"
+            else:
+                model_val = None
+                model_status = "❌ Missing (Required)"
+                missing_fields.append("Model / Series")
+
+            # 3. CPU Processor (Strict - No Baseline Default)
+            raw_cpu = data.get('cpu')
+            if raw_cpu and str(raw_cpu).strip().lower() not in ['', 'unknown', 'none']:
+                cpu_val = str(raw_cpu).strip()
+                if cpu_val.lower() == 'other':
+                    cpu_val = 'Other / Dual Core'
+                cpu_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('cpu')) else "🌐 Scraped from Page"
+            elif is_chromebook:
+                cpu_val = 'Celeron'
+                cpu_status = "ℹ️ Chromebook Celeron"
+            else:
+                cpu_val = None
+                cpu_status = "❌ Missing (Required)"
+                missing_fields.append("CPU Processor")
+
+            # 4. CPU Generation (Strict - Required for Intel Core / Ryzen, N/A for Apple M & Budget/Chromebook)
+            raw_gen = data.get('generation')
+            is_non_core = False
+            if cpu_val:
+                cpu_upper = cpu_val.upper()
+                if any(m in cpu_upper for m in ["APPLE", "M1", "M2", "M3", "M4"]):
+                    is_non_core = True
+                    if "M4" in cpu_upper: generation_val = 15.0
+                    elif "M3" in cpu_upper: generation_val = 14.0
+                    elif "M2" in cpu_upper: generation_val = 13.0
+                    else: generation_val = 12.0
+                    gen_status = "✅ Apple Silicon Tier"
+                elif any(b in cpu_upper for b in ["CELERON", "PENTIUM", "DUAL CORE", "QUAD CORE"]) or is_chromebook:
+                    is_non_core = True
+                    generation_val = 0.0
+                    gen_status = "✅ N/A (Budget / Non-Core)"
             
+            if not is_non_core:
+                if raw_gen is not None and str(raw_gen).strip() not in ['', '0', 'None', 'null']:
+                    generation_val = safe_float(raw_gen, 0.0)
+                    if generation_val > 0:
+                        gen_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('generation') is not None) else "🌐 Scraped from Page"
+                    else:
+                        generation_val = None
+                        gen_status = "❌ Missing (Required)"
+                        missing_fields.append("CPU Generation")
+                else:
+                    generation_val = None
+                    gen_status = "❌ Missing (Required)"
+                    missing_fields.append("CPU Generation")
+
+            # 5. RAM (Strict - No Baseline Default)
+            raw_ram = data.get('ram') or data.get('ram_gb')
+            if raw_ram is not None and str(raw_ram).strip() not in ['', '0', 'None', 'null']:
+                ram_val = safe_float(raw_ram, 0.0)
+                if ram_val > 0:
+                    ram_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('ram_gb') is not None) else "🌐 Scraped from Page"
+                else:
+                    ram_val = None
+                    ram_status = "❌ Missing (Required)"
+                    missing_fields.append("RAM Memory")
+            else:
+                ram_val = None
+                ram_status = "❌ Missing (Required)"
+                missing_fields.append("RAM Memory")
+
+            # 6. Storage (Strict - No Baseline Default)
+            raw_storage = data.get('storage') or data.get('storage_gb')
+            if raw_storage is not None and str(raw_storage).strip() not in ['', '0', 'None', 'null']:
+                storage_val = safe_float(raw_storage, 0.0)
+                if storage_val > 0:
+                    storage_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('storage_gb') is not None) else "🌐 Scraped from Page"
+                else:
+                    storage_val = None
+                    storage_status = "❌ Missing (Required)"
+                    missing_fields.append("Storage Capacity")
+            else:
+                storage_val = None
+                storage_status = "❌ Missing (Required)"
+                missing_fields.append("Storage Capacity")
+
+            # 7. Storage Type (Strict - No Baseline Default)
+            raw_stype = data.get('storageType') or data.get('storage_type')
+            if raw_stype and str(raw_stype).strip().lower() not in ['', 'unknown', 'none', 'null']:
+                storage_type_val = str(raw_stype).strip().upper()
+                stype_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('storage_type')) else "🌐 Scraped from Page"
+            elif is_chromebook:
+                storage_type_val = 'SSD'
+                stype_status = "ℹ️ Chromebook eMMC/SSD"
+            else:
+                storage_type_val = None
+                stype_status = "❌ Missing (Required)"
+                missing_fields.append("Storage Type")
+
+            # 8. GPU Tier (Strict - No Baseline Default)
+            raw_gpu = data.get('gpu')
+            if raw_gpu and str(raw_gpu).strip().lower() not in ['', 'unknown', 'none', 'null']:
+                gpu_val = str(raw_gpu).strip()
+                gpu_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('gpu')) else "🌐 Scraped from Page"
+            elif is_chromebook:
+                gpu_val = 'Integrated'
+                gpu_status = "ℹ️ Integrated"
+            else:
+                gpu_val = None
+                gpu_status = "❌ Missing (Required)"
+                missing_fields.append("GPU Tier")
+
+            # 9. Touchscreen (ALLOWED FALLBACK: Defaults to Non-Touch)
+            raw_touch = data.get('is_touchscreen') if data.get('is_touchscreen') is not None else data.get('touchscreen')
+            if raw_touch is not None and str(raw_touch).strip().lower() not in ['', 'none', 'null']:
+                is_touch = 1 if raw_touch in [True, 1, '1', 'true', 'True'] else 0
+                touch_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('is_touchscreen') is not None) else "🌐 Scraped from Page"
+            else:
+                is_touch = 0
+                touch_status = "ℹ️ Default Non-touch"
+
+            # 10. Location (ALLOWED FALLBACK: Defaults to Colombo)
+            raw_loc = data.get('location')
+            if raw_loc and str(raw_loc).strip().lower() not in ['', 'other', 'unknown', 'none', 'null']:
+                location_val = str(raw_loc).strip().capitalize()
+                loc_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('location')) else "🌐 Scraped from Page"
+            else:
+                location_val = 'Colombo'
+                loc_status = "ℹ️ Default Hub (Colombo)"
+
+            laptop_fields = [
+                {"name": "Brand", "value": brand_val if brand_val else "[MISSING]", "status": brand_status},
+                {"name": "Model / Series", "value": model_val if model_val else "[MISSING]", "status": model_status},
+                {"name": "CPU Processor", "value": cpu_val if cpu_val else "[MISSING]", "status": cpu_status},
+                {"name": "CPU Generation", "value": (f"{int(generation_val)}th Gen" if generation_val > 0 else "0 (N/A)") if generation_val is not None else "[MISSING]", "status": gen_status},
+                {"name": "RAM Memory", "value": f"{ram_val:.0f} GB" if ram_val is not None else "[MISSING]", "status": ram_status},
+                {"name": "Storage Capacity", "value": f"{storage_val:.0f} GB" if storage_val is not None else "[MISSING]", "status": storage_status},
+                {"name": "Storage Type", "value": storage_type_val if storage_type_val else "[MISSING]", "status": stype_status},
+                {"name": "GPU Tier", "value": gpu_val if gpu_val else "[MISSING]", "status": gpu_status},
+                {"name": "Touchscreen", "value": "Yes" if is_touch else "No", "status": touch_status},
+                {"name": "Location", "value": location_val, "status": loc_status},
+            ]
+
+            if missing_fields:
+                log_required_fields_table('laptop', laptop_fields, predicted_price=None, missing_fields=missing_fields)
+                return jsonify({
+                    'success': False,
+                    'category': 'laptop',
+                    'error': f"Unable to predict laptop price. Missing required field(s): {', '.join(missing_fields)}. Please provide these specifications.",
+                    'missing_fields': missing_fields,
+                    'status': 'missing_required_fields'
+                })
+
+            # Model title normalization for encoder
+            clean_brand_title = str(brand_val).capitalize()
+            clean_model_title = str(model_val).title()
+            if is_chromebook or 'chromebook' in clean_model_title.lower() or 'cromebook' in clean_model_title.lower():
+                clean_model_title = 'Chromebook'
+            
+            clean_cpu_title = str(cpu_val)
+            if clean_cpu_title.lower() in ['other', 'dual core', 'other / dual core']:
+                clean_cpu_title = 'Other / Dual Core'
+
             # Predict using production pipeline
             row_dict = {
-                'Brand_Cleaned': [str(brand_val).capitalize()],
-                'Model_Cleaned': [str(model_val).title()],
-                'CPU_Cleaned': [str(cpu_val)],
+                'Brand_Cleaned': [clean_brand_title],
+                'Model_Cleaned': [clean_model_title],
+                'CPU_Cleaned': [clean_cpu_title],
                 'Storage_Type': [str(storage_type_val).upper()],
                 'GPU_Tier': [str(gpu_val)],
                 'Location_Cleaned': [location_val],
@@ -744,6 +1037,8 @@ def predict():
             lower_price = max(15000.0, predicted_price * 0.88)
             upper_price = predicted_price * 1.12
             
+            log_required_fields_table('laptop', laptop_fields, predicted_price, lower_price, upper_price, data.get('price') or data.get('listed_price'), model_display_name)
+
             return jsonify({
                 'success': True,
                 'category': 'laptop',
@@ -771,15 +1066,107 @@ def predict():
             })
             
         elif category == 'tablet':
-            brand_val = data.get('brand', 'Apple')
-            model_val = data.get('model', 'iPad')
-            storage_val = safe_float(data.get('storage') or data.get('storage_gb'), 64.0)
-            ram_val = safe_float(data.get('ram') or data.get('ram_gb'), 4.0)
-            conn_val = data.get('connectivity', 'WiFi / Standard')
-            size_val = str(data.get('size') or data.get('screen_size_inch') or '10.0 Inch')
-            if not "Inch" in size_val: size_val = f"{size_val} Inch"
-            location_val = str(data.get('location', 'Colombo')).capitalize()
-            
+            missing_fields = []
+
+            # 1. Brand (Strict - No Baseline Default)
+            raw_brand = data.get('brand')
+            if raw_brand and str(raw_brand).strip().lower() not in ['', 'generic', 'unknown', 'none']:
+                brand_val = str(raw_brand).strip()
+                brand_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('brand')) else "🌐 Scraped from Page"
+            else:
+                brand_val = None
+                brand_status = "❌ Missing (Required)"
+                missing_fields.append("Brand")
+
+            # 2. Model / Series (Strict - No Baseline Default)
+            raw_model = data.get('model')
+            if raw_model and str(raw_model).strip().lower() not in ['', 'unknown', 'tablet', 'none']:
+                model_val = str(raw_model).strip()
+                model_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('model')) else "🌐 Scraped from Page"
+            else:
+                model_val = None
+                model_status = "❌ Missing (Required)"
+                missing_fields.append("Model / Series")
+
+            # 3. Storage Capacity (Strict - No Baseline Default)
+            raw_storage = data.get('storage') or data.get('storage_gb')
+            if raw_storage is not None and str(raw_storage).strip() not in ['', '0', 'None', 'null']:
+                storage_val = safe_float(raw_storage, 0.0)
+                if storage_val > 0:
+                    storage_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('storage_gb') is not None) else "🌐 Scraped from Page"
+                else:
+                    storage_val = None
+                    storage_status = "❌ Missing (Required)"
+                    missing_fields.append("Storage Capacity")
+            else:
+                storage_val = None
+                storage_status = "❌ Missing (Required)"
+                missing_fields.append("Storage Capacity")
+
+            # 4. RAM Memory (Strict - No Baseline Default)
+            raw_ram = data.get('ram') or data.get('ram_gb')
+            if raw_ram is not None and str(raw_ram).strip() not in ['', '0', 'None', 'null']:
+                ram_val = safe_float(raw_ram, 0.0)
+                if ram_val > 0:
+                    ram_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('ram_gb') is not None) else "🌐 Scraped from Page"
+                else:
+                    ram_val = None
+                    ram_status = "❌ Missing (Required)"
+                    missing_fields.append("RAM Memory")
+            else:
+                ram_val = None
+                ram_status = "❌ Missing (Required)"
+                missing_fields.append("RAM Memory")
+
+            # 5. Screen Size (Strict - No Baseline Default)
+            raw_size = data.get('size') or data.get('size_inch') or data.get('size_inches') or data.get('screen_size_inch')
+            if raw_size and str(raw_size).strip() not in ['', '0', 'None', 'null']:
+                size_val = str(raw_size).strip()
+                if "Inch" not in size_val: size_val = f"{size_val} Inch"
+                size_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('screen_size_inch') is not None) else "🌐 Scraped from Page"
+            else:
+                size_val = None
+                size_status = "❌ Missing (Required)"
+                missing_fields.append("Screen Size")
+
+            # 6. Connectivity (ALLOWED FALLBACK: Defaults to WiFi / Standard)
+            raw_conn = data.get('connectivity')
+            if raw_conn and str(raw_conn).strip().lower() not in ['', 'unknown', 'none', 'null']:
+                conn_val = str(raw_conn).strip()
+                conn_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('connectivity')) else "🌐 Scraped from Page"
+            else:
+                conn_val = 'WiFi / Standard'
+                conn_status = "ℹ️ Default WiFi / Standard"
+
+            # 7. Location (ALLOWED FALLBACK: Defaults to Colombo)
+            raw_loc = data.get('location')
+            if raw_loc and str(raw_loc).strip().lower() not in ['', 'other', 'unknown', 'none', 'null']:
+                location_val = str(raw_loc).strip().capitalize()
+                loc_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('location')) else "🌐 Scraped from Page"
+            else:
+                location_val = 'Colombo'
+                loc_status = "ℹ️ Default Hub (Colombo)"
+
+            tablet_fields = [
+                {"name": "Brand", "value": brand_val if brand_val else "[MISSING]", "status": brand_status},
+                {"name": "Model / Series", "value": model_val if model_val else "[MISSING]", "status": model_status},
+                {"name": "Storage Capacity", "value": f"{storage_val:.0f} GB" if storage_val is not None else "[MISSING]", "status": storage_status},
+                {"name": "RAM Memory", "value": f"{ram_val:.0f} GB" if ram_val is not None else "[MISSING]", "status": ram_status},
+                {"name": "Screen Size", "value": size_val if size_val else "[MISSING]", "status": size_status},
+                {"name": "Connectivity", "value": conn_val, "status": conn_status},
+                {"name": "Location", "value": location_val, "status": loc_status},
+            ]
+
+            if missing_fields:
+                log_required_fields_table('tablet', tablet_fields, predicted_price=None, missing_fields=missing_fields)
+                return jsonify({
+                    'success': False,
+                    'category': 'tablet',
+                    'error': f"Unable to predict tablet price. Missing required field(s): {', '.join(missing_fields)}. Please provide these specifications.",
+                    'missing_fields': missing_fields,
+                    'status': 'missing_required_fields'
+                })
+
             row_dict = {
                 'Brand_Cleaned': [str(brand_val).capitalize()],
                 'Model_Cleaned': [str(model_val).title()],
@@ -805,6 +1192,8 @@ def predict():
             lower_price = max(4000.0, predicted_price * 0.88)
             upper_price = predicted_price * 1.12
             
+            log_required_fields_table('tablet', tablet_fields, predicted_price, lower_price, upper_price, data.get('price') or data.get('listed_price'), model_display_name)
+
             return jsonify({
                 'success': True,
                 'category': 'tablet',
@@ -830,16 +1219,131 @@ def predict():
             })
             
         elif category == 'monitor':
-            brand_val = data.get('brand', 'Dell')
-            size_val = safe_float(data.get('size') or data.get('size_inch') or data.get('screen_size_inch'), 24.0)
-            hz_val = safe_float(data.get('refreshRate') or data.get('refresh_rate') or data.get('refresh_rate_hz'), 60.0)
-            res_val = data.get('resolution', '1080p FHD')
-            panel_val = data.get('panel_type', 'Standard')
-            is_curved = 1 if data.get('is_curved') else 0
-            is_gaming = 1 if data.get('is_gaming') or hz_val >= 100 else 0
-            is_frameless = 1 if data.get('is_frameless') else 0
-            location_val = str(data.get('location', 'Colombo')).capitalize()
-            
+            missing_fields = []
+
+            # 1. Brand (Strict - No Baseline Default)
+            raw_brand = data.get('brand')
+            if raw_brand and str(raw_brand).strip().lower() not in ['', 'generic', 'unknown', 'none']:
+                brand_val = str(raw_brand).strip()
+                brand_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('brand')) else "🌐 Scraped from Page"
+            else:
+                brand_val = None
+                brand_status = "❌ Missing (Required)"
+                missing_fields.append("Brand")
+
+            # 2. Screen Size (Strict - No Baseline Default)
+            raw_size = data.get('size') or data.get('size_inch') or data.get('size_inches') or data.get('screen_size_inch')
+            if raw_size is not None and str(raw_size).strip() not in ['', '0', 'None', 'null']:
+                size_val = safe_float(raw_size, 0.0)
+                if size_val > 0:
+                    size_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('screen_size_inch') is not None) else "🌐 Scraped from Page"
+                else:
+                    size_val = None
+                    size_status = "❌ Missing (Required)"
+                    missing_fields.append("Screen Size")
+            else:
+                size_val = None
+                size_status = "❌ Missing (Required)"
+                missing_fields.append("Screen Size")
+
+            # 3. Refresh Rate (Strict - No Baseline Default)
+            raw_hz = data.get('refreshRate') or data.get('refresh_rate') or data.get('refresh_rate_hz')
+            if raw_hz is not None and str(raw_hz).strip() not in ['', '0', 'None', 'null']:
+                hz_val = safe_float(raw_hz, 0.0)
+                if hz_val > 0:
+                    hz_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('refresh_rate_hz') is not None) else "🌐 Scraped from Page"
+                else:
+                    hz_val = None
+                    hz_status = "❌ Missing (Required)"
+                    missing_fields.append("Refresh Rate")
+            else:
+                hz_val = None
+                hz_status = "❌ Missing (Required)"
+                missing_fields.append("Refresh Rate")
+
+            # 4. Resolution (Strict - No Baseline Default)
+            raw_res = data.get('resolution')
+            if raw_res and str(raw_res).strip().lower() not in ['', 'unknown', 'none', 'null']:
+                res_val = str(raw_res).strip()
+                res_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('resolution')) else "🌐 Scraped from Page"
+            else:
+                res_val = None
+                res_status = "❌ Missing (Required)"
+                missing_fields.append("Resolution")
+
+            # 5. Panel Type (Strict - No Baseline Default)
+            raw_panel = data.get('panel_type')
+            if raw_panel and str(raw_panel).strip().lower() not in ['', 'unknown', 'none', 'null']:
+                panel_val = str(raw_panel).strip()
+                panel_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('panel_type')) else "🌐 Scraped from Page"
+            else:
+                panel_val = None
+                panel_status = "❌ Missing (Required)"
+                missing_fields.append("Panel Type")
+
+            # 6. Curved Display (Strict - No Baseline Default)
+            raw_curved = data.get('is_curved')
+            if raw_curved is not None and str(raw_curved).strip().lower() not in ['', 'none', 'null']:
+                is_curved = 1 if raw_curved in [True, 1, '1', 'true', 'True'] else 0
+                curved_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('is_curved') is not None) else "🌐 Scraped from Page"
+            else:
+                is_curved = None
+                curved_status = "❌ Missing (Required)"
+                missing_fields.append("Curved Display")
+
+            # 7. Gaming Tier (Strict - No Baseline Default)
+            raw_gaming = data.get('is_gaming')
+            if raw_gaming is not None and str(raw_gaming).strip().lower() not in ['', 'none', 'null']:
+                is_gaming = 1 if raw_gaming in [True, 1, '1', 'true', 'True'] else 0
+                gaming_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('is_gaming') is not None) else "🌐 Scraped from Page"
+            elif hz_val is not None and hz_val > 0:
+                is_gaming = 1 if hz_val >= 100 else 0
+                gaming_status = f"ℹ️ Inferred from {hz_val:.0f}Hz"
+            else:
+                is_gaming = None
+                gaming_status = "❌ Missing (Required)"
+                missing_fields.append("Gaming Tier")
+
+            # 8. Frameless Bezel (ALLOWED FALLBACK: Defaults to Standard Bezel)
+            raw_frameless = data.get('is_frameless')
+            if raw_frameless is not None and str(raw_frameless).strip().lower() not in ['', 'none', 'null']:
+                is_frameless = 1 if raw_frameless in [True, 1, '1', 'true', 'True'] else 0
+                frameless_status = "🌐 Scraped from Page"
+            else:
+                is_frameless = 0
+                frameless_status = "ℹ️ Default Bezel"
+
+            # 9. Location (ALLOWED FALLBACK: Defaults to Colombo)
+            raw_loc = data.get('location')
+            if raw_loc and str(raw_loc).strip().lower() not in ['', 'other', 'unknown', 'none', 'null']:
+                location_val = str(raw_loc).strip().capitalize()
+                loc_status = "✅ Extracted by LLM" if (llm_result and llm_result.get('location')) else "🌐 Scraped from Page"
+            else:
+                location_val = 'Colombo'
+                loc_status = "ℹ️ Default Hub (Colombo)"
+
+            monitor_fields = [
+                {"name": "Brand", "value": brand_val if brand_val else "[MISSING]", "status": brand_status},
+                {"name": "Screen Size", "value": f"{size_val:.1f} Inches" if size_val is not None else "[MISSING]", "status": size_status},
+                {"name": "Refresh Rate", "value": f"{hz_val:.0f} Hz" if hz_val is not None else "[MISSING]", "status": hz_status},
+                {"name": "Resolution", "value": res_val if res_val else "[MISSING]", "status": res_status},
+                {"name": "Panel Type", "value": panel_val if panel_val else "[MISSING]", "status": panel_status},
+                {"name": "Curved Display", "value": ("Yes" if is_curved else "No") if is_curved is not None else "[MISSING]", "status": curved_status},
+                {"name": "Gaming Tier", "value": ("Yes" if is_gaming else "No") if is_gaming is not None else "[MISSING]", "status": gaming_status},
+                {"name": "Frameless Bezel", "value": "Yes" if is_frameless else "No", "status": frameless_status},
+                {"name": "Location", "value": location_val, "status": loc_status},
+            ]
+
+            if missing_fields:
+                log_required_fields_table('monitor', monitor_fields, predicted_price=None, missing_fields=missing_fields)
+                return jsonify({
+                    'success': False,
+                    'category': 'monitor',
+                    'error': f"Unable to predict monitor price. Missing required field(s): {', '.join(missing_fields)}. Please provide these specifications.",
+                    'missing_fields': missing_fields,
+                    'status': 'missing_required_fields'
+                })
+
             row_dict = {
                 'Brand_Cleaned': [str(brand_val).capitalize() if brand_val.upper() not in ["MSI", "AOC", "HP", "LG"] else brand_val.upper()],
                 'Resolution_Cleaned': [res_val],
@@ -867,6 +1371,8 @@ def predict():
             lower_price = max(3000.0, predicted_price * 0.90)
             upper_price = predicted_price * 1.10
             
+            log_required_fields_table('monitor', monitor_fields, predicted_price, lower_price, upper_price, data.get('price') or data.get('listed_price'), model_display_name)
+
             return jsonify({
                 'success': True,
                 'category': 'monitor',
