@@ -154,9 +154,12 @@ class TestFairPriceLKSmoke(unittest.TestCase):
             "category": "laptop",
             "brand": "Dell",
             "model": "Latitude 5420",
+            "cpu": "Intel Core i5",
+            "generation": 11,
             "ram": 16,
             "storage": 512,
-            "generation": 11
+            "storage_type": "SSD",
+            "gpu": "Integrated"
         }
         resp = client.post("/api/electronics/predict", json=laptop_payload)
         self.assertEqual(resp.status_code, 200, f"Electronics predict failed: {resp.text}")
