@@ -409,6 +409,18 @@
       itemDetails.nlp_verdict = pred.nlp_verdict;
     }
 
+    if (category === "vehicle") {
+      if (pred.nlp_raw_score !== undefined) {
+        itemDetails.nlp_raw_score = pred.nlp_raw_score;
+      }
+      if (pred.has_fatal_issue !== undefined) {
+        itemDetails.has_fatal_issue = pred.has_fatal_issue;
+      }
+      if (pred.nlp_signals !== undefined) {
+        itemDetails.nlp_signals = pred.nlp_signals;
+      }
+    }
+
     if (window.FairPriceLK_Fairness) {
       fairness = window.FairPriceLK_Fairness.evaluate(
         listedPrice,
@@ -443,6 +455,48 @@
             </div>
     ` : "";
 
+    const vehicleNlpSectionHtml = (category === "vehicle") ? `
+            ${pred.has_fatal_issue ? `
+            <div class="fplk-alert-box" style="background: #FEF2F2; border: 1px solid #FECACA; border-left: 4px solid #DC2626; padding: 12px 14px; border-radius: 6px; margin: 10px 0;">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <span style="font-size: 18px; line-height: 1.2;">⚠️</span>
+                    <div>
+                        <strong style="color: #991B1B; font-size: 13px; font-weight: 700; display: block; margin-bottom: 4px;">High Risk (Critical Disclosures)</strong>
+                        <p style="font-size: 12px; color: #7F1D1D; margin: 0; line-height: 1.5;">
+                            Critical risk disclosed in description (e.g. duplicate registration book, engine failure, or major structural damage). High risk transaction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            ` : ""}
+
+            <!-- Dedicated Description Assessment (NLP) Card -->
+            <div class="fplk-verdict-box" style="background: #FAFAFA; border: 1px solid #E4E4E7; border-left: 4px solid ${pred.has_fatal_issue ? '#DC2626' : (pred.nlp_score >= 75 ? '#16A34A' : (pred.nlp_score >= 50 ? '#2563EB' : (pred.nlp_score !== null && pred.nlp_score !== undefined ? '#D97706' : '#71717A')))}; margin: 10px 0; padding: 12px 14px; border-radius: 6px;">
+                <div class="fplk-verdict-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span class="fplk-verdict-tag" style="font-size: 12.5px; font-weight: 700; color: #18181B;">Description Assessment: ${pred.nlp_verdict || "Not Assessed"}</span>
+                    <span class="fplk-score-pill" style="font-size: 12px; font-weight: 600; background: #FFFFFF; border: 1px solid #E4E4E7; padding: 2px 8px; border-radius: 4px;">
+                        ${pred.nlp_score !== null && pred.nlp_score !== undefined ? `Rating: <strong>${pred.nlp_score}/100</strong>` : "<strong>Not Assessed</strong>"}
+                    </span>
+                </div>
+                <div class="fplk-verdict-body" style="font-size: 12px; line-height: 1.45;">
+                    ${Array.isArray(pred.nlp_signals) && pred.nlp_signals.length > 0 ? `
+                        <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;">
+                            ${pred.nlp_signals.map(s => {
+                                const isWarning = s.includes('⚠️');
+                                const isIgnored = s.includes('Ignored');
+                                const bg = isWarning ? '#FEE2E2' : (isIgnored ? '#F3F4F6' : '#DCFCE7');
+                                const tc = isWarning ? '#991B1B' : (isIgnored ? '#6B7280' : '#166534');
+                                return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; background: ${bg}; color: ${tc}; font-weight: 500;">${s}</span>`;
+                            }).join('')}
+                        </div>
+                    ` : `<p style="margin: 0 0 6px 0; color: #71717A;">${pred.nlp_score === null || pred.nlp_score === undefined ? "No seller description provided for this listing." : "No condition-related keywords detected in the advertisement."}</p>`}
+                    <div style="font-size: 10.5px; color: #71717A; font-style: italic; border-top: 1px dashed #E4E4E7; padding-top: 6px; margin-top: 4px;">
+                        Score reflects rule-based analysis of seller claims in the advertisement. It does not constitute physical inspection or guarantee of vehicle condition.
+                    </div>
+                </div>
+            </div>
+    ` : "";
+
     return `
             ${lowDataWarningHtml}
             <!-- Price Range & Score Grid -->
@@ -468,6 +522,8 @@
                     ${adviceText || "Estimated based on second-hand market distribution and hardware specifications."}
                 </div>
             </div>
+
+            ${vehicleNlpSectionHtml}
 
             <!-- Score Calculation Breakdown (Collapsible Accordion) -->
             ${fairness && fairness.breakdown
