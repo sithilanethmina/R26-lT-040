@@ -1,0 +1,3 @@
+Protocol,Outlier Boundary,Test Set Condition,SHA-256 Hash Collisions,Holdout Test MAPE (%),Holdout Test R2,Scientific Integrity
+1. Flawed Global Pre-Split Outlier Filtering,"Calculated on all 5,958 rows globally",Artificially sanitized (outliers removed from test set),Unknown / Unverified,7.42,0.985,VIOLATED (Data Leakage & Artificial Test Inflation)
+2. FairPriceLK Strict Post-Split Hygiene,"Calculated strictly on 4,758 training rows after split","100% Unvarnished (1,200 noisy test listings intact)",0 (Mathematically verified zero overlap),9.84,0.9737,"VERIFIED (Zero Leakage, Fully Reproducible)"

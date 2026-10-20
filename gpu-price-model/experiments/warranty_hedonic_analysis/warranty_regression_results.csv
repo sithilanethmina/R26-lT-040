@@ -1,0 +1,9 @@
+feature,coef_beta,std_err,t_stat,pct_multiplier
+warranty_months,0.0061,0.0017,3.69,+0.6%
+needs_repair,-0.3453,0.0689,-5.01,-29.2%
+urgent_sale,-0.0811,0.0973,-0.83,-7.8%
+tested_working,0.0114,0.0277,0.41,+1.2%
+good_condition,0.0156,0.0287,0.54,+1.6%
+brand_new,0.1733,0.0383,4.52,+18.9%
+price_negotiable,0.0768,0.0447,1.72,+8.0%
+is_shop,0.082,0.0233,3.52,+8.5%

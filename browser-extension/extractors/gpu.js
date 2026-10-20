@@ -141,6 +141,266 @@ window.FairPriceLK_Extractors.gpu = (function () {
 
     // Canonical GPU specifications mapping: model -> { default_vram, valid_vrams, manufacturer }
     const GPU_SPECS_DATASET = {
+  "ARC 130 T MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC 130 V MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC 140 T MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC 140 V MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC A 310": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 350": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 350 M": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 370 M": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 380": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 380 M": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 530 M": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 550 M": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 570 M": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 580": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 730 M": {
+    "default_vram": 12.0,
+    "valid_vrams": [
+      12.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 750": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 770": {
+    "default_vram": 16.0,
+    "valid_vrams": [
+      16.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC A 770 M": {
+    "default_vram": 16.0,
+    "valid_vrams": [
+      16.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC B 570": {
+    "default_vram": 10.0,
+    "valid_vrams": [
+      10.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC B 580": {
+    "default_vram": 12.0,
+    "valid_vrams": [
+      12.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC GRAPHICS 112 EU MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC GRAPHICS 128 EU MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC GRAPHICS 24EU": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC GRAPHICS 32EU": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC GRAPHICS 48EU MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC GRAPHICS 64EU": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC GRAPHICS 64EU MOBILE": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "ARC PRO A30M": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC PRO A40": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC PRO A50": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC PRO A60": {
+    "default_vram": 12.0,
+    "valid_vrams": [
+      12.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC PRO A60M": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC PRO B50": {
+    "default_vram": 16.0,
+    "valid_vrams": [
+      16.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARC PRO B60": {
+    "default_vram": 24.0,
+    "valid_vrams": [
+      24.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARCTIC SOUND 1T": {
+    "default_vram": 16.0,
+    "valid_vrams": [
+      16.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARCTIC SOUND 2T": {
+    "default_vram": 32.0,
+    "valid_vrams": [
+      16.0,
+      32.0
+    ],
+    "manufacturer": "Intel"
+  },
+  "ARCTIC SOUND M": {
+    "default_vram": 16.0,
+    "valid_vrams": [
+      16.0
+    ],
+    "manufacturer": "Intel"
+  },
   "GT 1010": {
     "default_vram": 2.0,
     "valid_vrams": [
@@ -180,28 +440,29 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 120 M": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.25,
       1.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 120 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 120 MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 120 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -213,16 +474,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 130 MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 130 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -236,6 +497,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 220": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
@@ -248,16 +510,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 220 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 230": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0,
+      1.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -278,6 +542,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 240": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
@@ -285,14 +550,15 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 240 M": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 240 M LE": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -320,20 +586,23 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 330 M": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 330 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 330 OEM": {
-    "default_vram": 1.0,
+    "default_vram": 0.5,
     "valid_vrams": [
+      0.25,
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
@@ -360,9 +629,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 415 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -388,9 +657,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 430": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -402,23 +673,25 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 430 PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 435 M": {
     "default_vram": 1.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 440": {
     "default_vram": 1.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      1.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -439,7 +712,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 445 M": {
     "default_vram": 1.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      3.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -509,6 +783,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 545": {
     "default_vram": 1.5,
     "valid_vrams": [
+      1.0,
       1.5
     ],
     "manufacturer": "NVIDIA"
@@ -528,44 +803,49 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 555 M": {
-    "default_vram": 3.0,
+    "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
+      2.0,
       3.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 610": {
-    "default_vram": 2.0,
+    "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 610 OEM": {
-    "default_vram": 2.0,
+    "default_vram": 1.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 610 PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 610 PCIE X1": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 620": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
@@ -578,9 +858,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 620 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -651,34 +931,41 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 640": {
     "default_vram": 2.0,
     "valid_vrams": [
+      0.5,
+      1.0,
+      1.5,
       2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 640 M": {
-    "default_vram": 2.0,
+    "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
+      1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 640 M LE": {
-    "default_vram": 2.0,
+    "default_vram": 1.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 640 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 640 OEM": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.5,
       2.0
     ],
     "manufacturer": "NVIDIA"
@@ -714,14 +1001,15 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 650 M": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GT 650 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -762,9 +1050,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 720": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -827,9 +1116,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GT 740": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -871,6 +1161,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 750 M": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
@@ -885,6 +1176,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 755 M": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
@@ -939,9 +1231,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTS 260 M": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -962,13 +1254,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTS 450": {
     "default_vram": 1.0,
     "valid_vrams": [
-      1.0
+      0.5,
+      1.0,
+      1.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GTS 450 OEM": {
     "default_vram": 1.5,
     "valid_vrams": [
+      0.5,
       1.5
     ],
     "manufacturer": "NVIDIA"
@@ -1006,6 +1301,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 1050 MOBILE": {
     "default_vram": 3.0,
     "valid_vrams": [
+      2.0,
       3.0
     ],
     "manufacturer": "NVIDIA"
@@ -1013,6 +1309,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 1050 TI": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "NVIDIA"
@@ -1025,14 +1322,15 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 1050 TI MOBILE": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 1060": {
-    "default_vram": 6.0,
+    "default_vram": 5.0,
     "valid_vrams": [
       3.0,
       5.0,
@@ -1041,9 +1339,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 1060 3 GB GP 104": {
-    "default_vram": 3.0,
+    "default_vram": 6.0,
     "valid_vrams": [
-      3.0
+      3.0,
+      6.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1055,8 +1354,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 1060 6 GB GDDR5X": {
-    "default_vram": 6.0,
+    "default_vram": 5.0,
     "valid_vrams": [
+      3.0,
+      5.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
@@ -1064,6 +1365,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 1060 6 GB GP 104": {
     "default_vram": 6.0,
     "valid_vrams": [
+      3.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
@@ -1071,6 +1373,21 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 1060 6 GB REV. 2": {
     "default_vram": 6.0,
     "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "GTX 1060 9GBPS": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "GTX 1060 GP 104": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      3.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
@@ -1083,6 +1400,13 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 1060 MOBILE": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      6.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "GTX 1060 REV. 2": {
     "default_vram": 6.0,
     "valid_vrams": [
       6.0
@@ -1127,7 +1451,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 1080": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      11.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1266,23 +1591,25 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 260": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.88,
+      1.0,
+      1.8
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 260 CORE 216": {
-    "default_vram": 4.0,
+    "default_vram": 0.88,
     "valid_vrams": [
-      4.0
+      0.88
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 260 CORE 216 REV. 2": {
-    "default_vram": 4.0,
+    "default_vram": 0.88,
     "valid_vrams": [
-      4.0
+      0.88
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1294,30 +1621,30 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 260 OEM": {
-    "default_vram": 1.75,
+    "default_vram": 1.8,
     "valid_vrams": [
-      1.75
+      1.8
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 260 REV. 2": {
-    "default_vram": 4.0,
+    "default_vram": 0.88,
     "valid_vrams": [
-      4.0
+      0.88
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 275": {
-    "default_vram": 4.0,
+    "default_vram": 0.88,
     "valid_vrams": [
-      4.0
+      0.88
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 275 PHYSX EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.88,
     "valid_vrams": [
-      4.0
+      0.88
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1336,9 +1663,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 285": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1357,30 +1686,37 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 285 X2": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 295": {
-    "default_vram": 4.0,
+    "default_vram": 1.8,
     "valid_vrams": [
-      4.0
+      0.88,
+      1.8
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 295 SINGLE PCB": {
-    "default_vram": 4.0,
+    "default_vram": 1.8,
     "valid_vrams": [
-      4.0
+      0.88,
+      1.8
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 460": {
-    "default_vram": 1.0,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.0
+      0.75,
+      1.0,
+      1.2,
+      1.5,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1401,35 +1737,38 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 460 SE": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.75,
       1.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 460 SE V2": {
-    "default_vram": 4.0,
+    "default_vram": 0.75,
     "valid_vrams": [
-      4.0
+      0.75
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 460 V2": {
-    "default_vram": 1.0,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.0
+      1.0,
+      1.2
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 460 V2 ES": {
-    "default_vram": 1.25,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.25
+      1.2
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 460 X2": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1441,9 +1780,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 470": {
-    "default_vram": 1.25,
+    "default_vram": 1.5,
     "valid_vrams": [
-      1.25
+      1.2,
+      1.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1455,9 +1795,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 480": {
-    "default_vram": 1.5,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.5
+      1.5,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1483,7 +1824,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 550 TI": {
-    "default_vram": 5.0,
+    "default_vram": 1.0,
     "valid_vrams": [
       1.0,
       2.0,
@@ -1501,7 +1842,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 560": {
     "default_vram": 1.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      1.2,
+      1.5,
+      2.0,
+      8.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1513,9 +1858,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 560 OEM": {
-    "default_vram": 1.25,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.25
+      1.2
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1529,35 +1874,40 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 560 TI": {
     "default_vram": 1.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      1.2,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 560 TI 448": {
-    "default_vram": 1.25,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.25
+      1.2
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 560 TI OEM": {
-    "default_vram": 1.25,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.25
+      1.0,
+      1.2
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 560 TI X2": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 570": {
-    "default_vram": 1.25,
+    "default_vram": 1.5,
     "valid_vrams": [
-      1.25
+      1.2,
+      1.5
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1569,16 +1919,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 570 REV. 2": {
-    "default_vram": 1.25,
+    "default_vram": 1.2,
     "valid_vrams": [
-      1.25
+      1.2
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 580": {
-    "default_vram": 1.5,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.5
+      1.5,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1597,9 +1948,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 590": {
-    "default_vram": 1.5,
+    "default_vram": 3.0,
     "valid_vrams": [
-      1.5
+      1.5,
+      3.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1611,7 +1963,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 650": {
-    "default_vram": 2.0,
+    "default_vram": 1.0,
     "valid_vrams": [
       1.0,
       2.0
@@ -1619,7 +1971,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 650 TI": {
-    "default_vram": 2.0,
+    "default_vram": 1.0,
     "valid_vrams": [
       1.0,
       2.0
@@ -1641,11 +1993,13 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 660": {
-    "default_vram": 5.0,
+    "default_vram": 2.0,
     "valid_vrams": [
       0.5,
+      1.0,
       1.5,
       2.0,
+      3.0,
       5.0
     ],
     "manufacturer": "NVIDIA"
@@ -1653,21 +2007,23 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 660 M": {
     "default_vram": 2.0,
     "valid_vrams": [
+      0.5,
       2.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 660 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 660 OEM": {
-    "default_vram": 1.5,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.5
+      1.5,
+      2.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1688,7 +2044,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 670": {
     "default_vram": 2.0,
     "valid_vrams": [
-      2.0
+      1.5,
+      2.0,
+      3.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1716,6 +2074,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 675 MX": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "NVIDIA"
@@ -1730,7 +2089,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 680": {
     "default_vram": 2.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1756,9 +2116,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 690": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1804,7 +2165,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "valid_vrams": [
       1.0,
       1.5,
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1825,6 +2187,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 760 OEM": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.5,
       2.0
     ],
     "manufacturer": "NVIDIA"
@@ -1851,9 +2214,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 760 X2": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1867,7 +2231,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 770": {
     "default_vram": 2.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      3.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -1886,9 +2252,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 780": {
-    "default_vram": 3.0,
+    "default_vram": 4.0,
     "valid_vrams": [
       3.0,
+      4.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
@@ -1988,6 +2355,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 950 M": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "NVIDIA"
@@ -2007,7 +2375,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 960": {
-    "default_vram": 4.0,
+    "default_vram": 2.0,
     "valid_vrams": [
       2.0,
       3.0,
@@ -2030,22 +2398,25 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX 960 OEM": {
-    "default_vram": 3.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      3.0
+      3.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 965 M": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
   "GTX 970": {
     "default_vram": 4.0,
     "valid_vrams": [
+      3.0,
       4.0,
       6.0
     ],
@@ -2054,6 +2425,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTX 970 M": {
     "default_vram": 6.0,
     "valid_vrams": [
+      3.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
@@ -2096,9 +2468,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX TITAN": {
-    "default_vram": 6.0,
+    "default_vram": 12.0,
     "valid_vrams": [
-      6.0
+      6.0,
+      12.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -2117,114 +2490,121 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "GTX TITAN Z": {
-    "default_vram": 6.0,
+    "default_vram": 12.0,
     "valid_vrams": [
-      6.0
+      6.0,
+      12.0
     ],
     "manufacturer": "NVIDIA"
   },
   "HD 2350 PRO": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 2400": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 2400 PRO": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 2400 PRO AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 2400 PRO PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 2400 XT": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 2600 PRO": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 2600 PRO AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 2600 XT": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 2600 XT AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 2600 XT MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 2600 XT X2": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 2900 GT": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 2900 PRO": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 2900 XT": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2250,149 +2630,157 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 3410": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 3450": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 3450 AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3450 PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3450 X2": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 3470": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 3550": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3570": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3610": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3650": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3650 AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3690": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 3730": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3750": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3830": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
   "HD 3850": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 3850 AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3850 X2": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 3870": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 3870 MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 3870 X2": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
@@ -2404,9 +2792,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 4250": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2425,51 +2813,51 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 4350": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4350 AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4350 PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4350 PCIE X1": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4450": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4520": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4550": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
@@ -2488,30 +2876,32 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 4580": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4650": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4650 AGP": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4670": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
@@ -2523,16 +2913,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 4670 X2": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 4700": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2551,9 +2942,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 4730": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
@@ -2565,79 +2957,84 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 4750": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4770": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4810": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4830": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4850": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 4850 X2": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 4855": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4860": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4870": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
   "HD 4870 MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 4870 X2": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -2649,30 +3046,31 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 5450": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 5450 PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 5450 PCIE X1": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 5470": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2691,9 +3089,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 5550": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2721,14 +3119,15 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 5670": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 5670 640SP EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2754,9 +3153,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 5770": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -2768,9 +3168,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 5770 X2": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -2789,9 +3190,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 5870": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -2810,23 +3212,24 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 5970": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6230": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 6250": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2873,16 +3276,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6350": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6350 A": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2936,16 +3340,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6450": {
-    "default_vram": 4.0,
+    "default_vram": 1.0,
     "valid_vrams": [
-      4.0
+      0.5,
+      1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6450 A": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2957,16 +3362,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6450 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 6470 M": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -2978,23 +3383,26 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6490": {
-    "default_vram": 1.0,
+    "default_vram": 0.5,
     "valid_vrams": [
+      0.25,
+      0.5,
       1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6490 M": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.25,
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 6490 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
@@ -3057,6 +3465,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 6570": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "AMD"
@@ -3113,14 +3522,15 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 6630 M": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.25,
       1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6630 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.25,
     "valid_vrams": [
-      4.0
+      0.25
     ],
     "manufacturer": "AMD"
   },
@@ -3162,6 +3572,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 6750": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "AMD"
@@ -3169,21 +3580,23 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 6750 M": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6750 M MAC EDITION": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 6770": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -3223,9 +3636,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6850": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
@@ -3244,16 +3659,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6850 X2": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6870": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -3272,9 +3689,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6870 X2": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -3288,6 +3706,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 6950": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "AMD"
@@ -3302,14 +3721,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 6970": {
     "default_vram": 2.0,
     "valid_vrams": [
-      2.0
+      1.0,
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6970 M": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
@@ -3328,22 +3751,26 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 6970 M X2": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6990": {
     "default_vram": 2.0,
     "valid_vrams": [
-      2.0
+      1.0,
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "HD 6990 M": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "AMD"
@@ -3391,16 +3818,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7350 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 7350 OEM PCI": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -3440,9 +3867,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7450 A": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
@@ -3454,15 +3881,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7450 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 7470 A": {
     "default_vram": 1.0,
     "valid_vrams": [
+      0.5,
       1.0
     ],
     "manufacturer": "AMD"
@@ -3678,16 +4106,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7670 OEM": {
-    "default_vram": 4.0,
+    "default_vram": 0.5,
     "valid_vrams": [
-      4.0
+      0.5
     ],
     "manufacturer": "AMD"
   },
   "HD 7690 M": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -3701,6 +4130,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 7690 M XT": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "AMD"
@@ -3720,9 +4150,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7730": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -3806,6 +4237,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 7950": {
     "default_vram": 3.0,
     "valid_vrams": [
+      2.0,
       3.0
     ],
     "manufacturer": "AMD"
@@ -3846,9 +4278,12 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7970": {
-    "default_vram": 3.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      3.0
+      2.0,
+      3.0,
+      4.0,
+      6.0
     ],
     "manufacturer": "AMD"
   },
@@ -3860,30 +4295,34 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 7970 M": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "HD 7970 M X2": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "HD 7970 X2": {
-    "default_vram": 3.0,
+    "default_vram": 6.0,
     "valid_vrams": [
-      3.0
+      3.0,
+      6.0
     ],
     "manufacturer": "AMD"
   },
   "HD 7990": {
-    "default_vram": 3.0,
+    "default_vram": 6.0,
     "valid_vrams": [
-      3.0
+      3.0,
+      6.0
     ],
     "manufacturer": "AMD"
   },
@@ -4121,6 +4560,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 8570 OEM": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "AMD"
@@ -4329,9 +4769,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "HD 8990 OEM": {
-    "default_vram": 3.0,
+    "default_vram": 6.0,
     "valid_vrams": [
-      3.0
+      3.0,
+      6.0
     ],
     "manufacturer": "AMD"
   },
@@ -4657,10 +5098,45 @@ window.FairPriceLK_Extractors.gpu = (function () {
     ],
     "manufacturer": "AMD"
   },
+  "HD IGP": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "R 7 250": {
+    "default_vram": 3.0,
+    "valid_vrams": [
+      3.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
   "R 7 260": {
     "default_vram": 2.0,
     "valid_vrams": [
       2.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "R 7260": {
+    "default_vram": 2.0,
+    "valid_vrams": [
+      2.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "R 9 280": {
+    "default_vram": 3.0,
+    "valid_vrams": [
+      3.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "R 9 290": {
+    "default_vram": 4.0,
+    "valid_vrams": [
+      4.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -4686,9 +5162,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "R7 250": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
@@ -4870,6 +5347,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "R7 M 260": {
     "default_vram": 2.0,
     "valid_vrams": [
+      1.0,
       2.0
     ],
     "manufacturer": "AMD"
@@ -4917,16 +5395,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "R7 M 340": {
-    "default_vram": 1.0,
+    "default_vram": 2.0,
     "valid_vrams": [
-      1.0
+      1.0,
+      2.0
     ],
     "manufacturer": "AMD"
   },
   "R7 M 350": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
@@ -5078,16 +5558,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "R9 290X2": {
-    "default_vram": 4.0,
+    "default_vram": 8.0,
     "valid_vrams": [
-      4.0
+      4.0,
+      8.0
     ],
     "manufacturer": "AMD"
   },
   "R9 295X2": {
-    "default_vram": 4.0,
+    "default_vram": 8.0,
     "valid_vrams": [
-      4.0
+      4.0,
+      8.0
     ],
     "manufacturer": "AMD"
   },
@@ -5120,9 +5602,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "R9 380": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
@@ -5141,16 +5624,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "R9 390": {
-    "default_vram": 8.0,
+    "default_vram": 16.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "AMD"
   },
   "R9 390 X2": {
-    "default_vram": 8.0,
+    "default_vram": 16.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "AMD"
   },
@@ -5211,15 +5696,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "R9 M 280 X": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      2.0
+      2.0,
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "R9 M 290 X": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "AMD"
@@ -5283,6 +5770,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "R9 M 380": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "AMD"
@@ -5332,6 +5820,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "R9 M 395 X": {
     "default_vram": 8.0,
     "valid_vrams": [
+      4.0,
       8.0
     ],
     "manufacturer": "AMD"
@@ -5537,7 +6026,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 2080": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      11.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5591,7 +6081,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 3050": {
-    "default_vram": 8.0,
+    "default_vram": 6.0,
     "valid_vrams": [
       4.0,
       6.0,
@@ -5613,30 +6103,41 @@ window.FairPriceLK_Extractors.gpu = (function () {
     ],
     "manufacturer": "NVIDIA"
   },
-  "RTX 3050 MAX Q": {
-    "default_vram": 4.0,
+  "RTX 3050 GA 107": {
+    "default_vram": 8.0,
     "valid_vrams": [
-      4.0
+      8.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "RTX 3050 MAX Q": {
+    "default_vram": 6.0,
+    "valid_vrams": [
+      4.0,
+      6.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX 3050 MAX Q REFRESH": {
     "default_vram": 6.0,
     "valid_vrams": [
+      4.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX 3050 MOBILE": {
-    "default_vram": 4.0,
+    "default_vram": 6.0,
     "valid_vrams": [
-      4.0
+      4.0,
+      6.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX 3050 MOBILE REFRESH": {
     "default_vram": 6.0,
     "valid_vrams": [
+      4.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
@@ -5663,7 +6164,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 3060": {
-    "default_vram": 12.0,
+    "default_vram": 8.0,
     "valid_vrams": [
       6.0,
       8.0,
@@ -5674,6 +6175,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 3060 12 GB GA 104": {
     "default_vram": 12.0,
     "valid_vrams": [
+      8.0,
       12.0
     ],
     "manufacturer": "NVIDIA"
@@ -5686,9 +6188,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 3060 8 GB GA 104": {
-    "default_vram": 8.0,
+    "default_vram": 12.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      12.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
+  "RTX 3060 GA 104": {
+    "default_vram": 12.0,
+    "valid_vrams": [
+      8.0,
+      12.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5762,6 +6273,13 @@ window.FairPriceLK_Extractors.gpu = (function () {
     ],
     "manufacturer": "NVIDIA"
   },
+  "RTX 3070 TI GA 102": {
+    "default_vram": 8.0,
+    "valid_vrams": [
+      8.0
+    ],
+    "manufacturer": "NVIDIA"
+  },
   "RTX 3070 TI MAX Q": {
     "default_vram": 8.0,
     "valid_vrams": [
@@ -5786,8 +6304,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 3080": {
     "default_vram": 10.0,
     "valid_vrams": [
+      8.0,
       10.0,
-      12.0
+      12.0,
+      16.0,
+      20.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5806,9 +6327,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 3080 TI": {
-    "default_vram": 12.0,
+    "default_vram": 16.0,
     "valid_vrams": [
       12.0,
+      16.0,
       20.0
     ],
     "manufacturer": "NVIDIA"
@@ -5900,7 +6422,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 4060": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5928,7 +6451,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 4060 TI": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5942,7 +6466,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 4070": {
     "default_vram": 12.0,
     "valid_vrams": [
-      12.0
+      8.0,
+      12.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5956,7 +6482,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 4070 GDDR6": {
     "default_vram": 12.0,
     "valid_vrams": [
-      12.0
+      8.0,
+      12.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -5982,9 +6510,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 4070 TI": {
-    "default_vram": 12.0,
+    "default_vram": 16.0,
     "valid_vrams": [
-      12.0
+      12.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -6005,6 +6534,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 4080": {
     "default_vram": 16.0,
     "valid_vrams": [
+      12.0,
       16.0
     ],
     "manufacturer": "NVIDIA"
@@ -6033,6 +6563,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 4090": {
     "default_vram": 24.0,
     "valid_vrams": [
+      16.0,
       24.0
     ],
     "manufacturer": "NVIDIA"
@@ -6080,16 +6611,18 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 5000 EMBEDDED ADA GENERATION": {
-    "default_vram": 16.0,
+    "default_vram": 32.0,
     "valid_vrams": [
-      16.0
+      16.0,
+      32.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX 5000 EMBEDDED ADA GENERATION X2": {
-    "default_vram": 16.0,
+    "default_vram": 32.0,
     "valid_vrams": [
-      16.0
+      16.0,
+      32.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -6124,7 +6657,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 5060": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -6136,16 +6670,21 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX 5060 TI": {
-    "default_vram": 8.0,
+    "default_vram": 12.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      12.0,
+      16.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX 5070": {
     "default_vram": 12.0,
     "valid_vrams": [
-      12.0
+      8.0,
+      12.0,
+      16.0,
+      18.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -6166,6 +6705,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 5070 TI": {
     "default_vram": 16.0,
     "valid_vrams": [
+      12.0,
       16.0
     ],
     "manufacturer": "NVIDIA"
@@ -6187,7 +6727,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 5080": {
     "default_vram": 16.0,
     "valid_vrams": [
-      16.0
+      16.0,
+      24.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -6208,6 +6749,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 5090": {
     "default_vram": 32.0,
     "valid_vrams": [
+      24.0,
       32.0
     ],
     "manufacturer": "NVIDIA"
@@ -6215,6 +6757,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 5090 D": {
     "default_vram": 32.0,
     "valid_vrams": [
+      24.0,
       32.0
     ],
     "manufacturer": "NVIDIA"
@@ -6248,8 +6791,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX A 1000": {
-    "default_vram": 8.0,
+    "default_vram": 6.0,
     "valid_vrams": [
+      4.0,
+      6.0,
       8.0
     ],
     "manufacturer": "NVIDIA"
@@ -6264,13 +6809,17 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 1000 MOBILE": {
     "default_vram": 6.0,
     "valid_vrams": [
+      4.0,
       6.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX A 2000": {
-    "default_vram": 12.0,
+    "default_vram": 8.0,
     "valid_vrams": [
+      4.0,
+      6.0,
+      8.0,
       12.0
     ],
     "manufacturer": "NVIDIA"
@@ -6285,6 +6834,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 2000 MAX Q": {
     "default_vram": 8.0,
     "valid_vrams": [
+      4.0,
       8.0
     ],
     "manufacturer": "NVIDIA"
@@ -6292,6 +6842,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 2000 MOBILE": {
     "default_vram": 8.0,
     "valid_vrams": [
+      4.0,
       8.0
     ],
     "manufacturer": "NVIDIA"
@@ -6299,6 +6850,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 3000 MOBILE": {
     "default_vram": 12.0,
     "valid_vrams": [
+      6.0,
       12.0
     ],
     "manufacturer": "NVIDIA"
@@ -6313,6 +6865,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 4000": {
     "default_vram": 16.0,
     "valid_vrams": [
+      8.0,
       16.0
     ],
     "manufacturer": "NVIDIA"
@@ -6341,6 +6894,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 4500": {
     "default_vram": 20.0,
     "valid_vrams": [
+      16.0,
       20.0
     ],
     "manufacturer": "NVIDIA"
@@ -6388,8 +6942,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "NVIDIA"
   },
   "RTX A 5000": {
-    "default_vram": 24.0,
+    "default_vram": 16.0,
     "valid_vrams": [
+      8.0,
+      12.0,
+      16.0,
       24.0
     ],
     "manufacturer": "NVIDIA"
@@ -6425,6 +6982,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 5500": {
     "default_vram": 24.0,
     "valid_vrams": [
+      16.0,
       24.0
     ],
     "manufacturer": "NVIDIA"
@@ -6488,14 +7046,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX PRO 5000 72 GB BLACKWELL": {
     "default_vram": 72.0,
     "valid_vrams": [
+      48.0,
       72.0
     ],
     "manufacturer": "NVIDIA"
   },
   "RTX PRO 5000 BLACKWELL": {
-    "default_vram": 48.0,
+    "default_vram": 72.0,
     "valid_vrams": [
-      48.0
+      48.0,
+      72.0
     ],
     "manufacturer": "NVIDIA"
   },
@@ -6642,7 +7202,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "RX 550": {
-    "default_vram": 2.0,
+    "default_vram": 4.0,
     "valid_vrams": [
       2.0,
       4.0
@@ -6673,6 +7233,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 550 X": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "AMD"
@@ -6706,16 +7267,16 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "RX 5500 XT": {
-    "default_vram": 8.0,
+    "default_vram": 4.0,
     "valid_vrams": [
-      4.0,
-      8.0
+      4.0
     ],
     "manufacturer": "AMD"
   },
   "RX 560": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0,
       6.0
     ],
@@ -6752,6 +7313,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 560 X": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "AMD"
@@ -6759,6 +7321,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 560 X MOBILE": {
     "default_vram": 4.0,
     "valid_vrams": [
+      2.0,
       4.0
     ],
     "manufacturer": "AMD"
@@ -7021,7 +7584,9 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 6700": {
     "default_vram": 10.0,
     "valid_vrams": [
-      10.0
+      8.0,
+      10.0,
+      12.0
     ],
     "manufacturer": "AMD"
   },
@@ -7049,6 +7614,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 6750 GRE": {
     "default_vram": 12.0,
     "valid_vrams": [
+      10.0,
       12.0
     ],
     "manufacturer": "AMD"
@@ -7063,6 +7629,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 6800": {
     "default_vram": 16.0,
     "valid_vrams": [
+      8.0,
+      12.0,
       16.0
     ],
     "manufacturer": "AMD"
@@ -7119,7 +7687,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 7600": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "AMD"
   },
@@ -7159,8 +7728,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
     "manufacturer": "AMD"
   },
   "RX 7700": {
-    "default_vram": 16.0,
+    "default_vram": 12.0,
     "valid_vrams": [
+      8.0,
+      12.0,
       16.0
     ],
     "manufacturer": "AMD"
@@ -7224,20 +7795,23 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 9060": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "AMD"
   },
   "RX 9060 XT": {
     "default_vram": 8.0,
     "valid_vrams": [
-      8.0
+      8.0,
+      16.0
     ],
     "manufacturer": "AMD"
   },
   "RX 9070": {
     "default_vram": 16.0,
     "valid_vrams": [
+      12.0,
       16.0
     ],
     "manufacturer": "AMD"
@@ -7245,6 +7819,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 9070 GRE": {
     "default_vram": 16.0,
     "valid_vrams": [
+      12.0,
       16.0
     ],
     "manufacturer": "AMD"
@@ -7356,9 +7931,13 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX PRO 6000 BLACKWELL MAX Q",
   "RTX 4000 SFF ADA GENERATION",
   "RX 5700 XT 50TH ANNIVERSARY",
+  "ARC GRAPHICS 112 EU MOBILE",
+  "ARC GRAPHICS 128 EU MOBILE",
   "RTX PRO 4000 BLACKWELL SFF",
   "RX VEGA 64 LIMITED EDITION",
   "RX VEGA 64 LIQUID COOLING",
+  "ARC GRAPHICS 48EU MOBILE",
+  "ARC GRAPHICS 64EU MOBILE",
   "HD GRAPHICS P 630 MOBILE",
   "RTX 4070 TI SUPER AD 102",
   "RTX PRO 6000 D BLACKWELL",
@@ -7497,11 +8076,15 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 3050 TI MOBILE",
   "RTX 3060 TI GA 103",
   "RTX 3060 TI GDDR6X",
+  "RTX 3070 TI GA 102",
   "RTX 3070 TI MOBILE",
   "RTX 3080 TI MOBILE",
   "RTX 4060 TI AD 104",
   "RTX 5070 TI MOBILE",
   "RTX A 500 EMBEDDED",
+  "ARC GRAPHICS 24EU",
+  "ARC GRAPHICS 32EU",
+  "ARC GRAPHICS 64EU",
   "GTX 1050 TI MAX Q",
   "GTX 1650 TI MAX Q",
   "GTX 1660 TI MAX Q",
@@ -7528,6 +8111,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX VEGA 10 MOBILE",
   "RX VEGA 11 MOBILE",
   "RX VEGA 56 MOBILE",
+  "ARC 130 T MOBILE",
+  "ARC 130 V MOBILE",
+  "ARC 140 T MOBILE",
+  "ARC 140 V MOBILE",
   "GTX 260 CORE 216",
   "GTX 650 TI BOOST",
   "HD GRAPHICS 10EU",
@@ -7544,8 +8131,12 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX A 500 MOBILE",
   "RTX A 5000 MAX Q",
   "RTX A 5500 MAX Q",
+  "ARCTIC SOUND 1T",
+  "ARCTIC SOUND 2T",
   "GTX 1050 MOBILE",
+  "GTX 1060 GP 104",
   "GTX 1060 MOBILE",
+  "GTX 1060 REV. 2",
   "GTX 1070 GDDR5X",
   "GTX 1070 MOBILE",
   "GTX 1080 11GBPS",
@@ -7571,8 +8162,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RTX 2060 TU 104",
   "RTX 2070 MOBILE",
   "RTX 2080 MOBILE",
+  "RTX 3050 GA 107",
   "RTX 3050 MOBILE",
   "RTX 3060 3840SP",
+  "RTX 3060 GA 104",
   "RTX 3060 MOBILE",
   "RTX 3070 MOBILE",
   "RTX 3080 MOBILE",
@@ -7592,6 +8185,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 550 X MOBILE",
   "RX 560 X MOBILE",
   "RX 580 X MOBILE",
+  "ARCTIC SOUND M",
   "GT 1030 GK 107",
   "GT 520 PCIE X1",
   "GT 610 PCIE X1",
@@ -7599,6 +8193,7 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GTS 450 REV. 2",
   "GTS 450 REV. 3",
   "GTX 1050 MAX Q",
+  "GTX 1060 9GBPS",
   "GTX 1060 MAX Q",
   "GTX 1070 MAX Q",
   "GTX 1080 MAX Q",
@@ -7701,6 +8296,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 580 2048SP",
   "RX 580 MOBILE",
   "RX 640 MOBILE",
+  "ARC PRO A30M",
+  "ARC PRO A60M",
   "GT 1010 DDR4",
   "GT 1030 DDR4",
   "HD 6970 M X2",
@@ -7719,6 +8316,19 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX 7600 M XT",
   "RX VEGA M GH",
   "RX VEGA M GL",
+  "ARC A 350 M",
+  "ARC A 370 M",
+  "ARC A 380 M",
+  "ARC A 530 M",
+  "ARC A 550 M",
+  "ARC A 570 M",
+  "ARC A 730 M",
+  "ARC A 770 M",
+  "ARC PRO A40",
+  "ARC PRO A50",
+  "ARC PRO A60",
+  "ARC PRO B50",
+  "ARC PRO B60",
   "GT 240 M LE",
   "GT 640 M LE",
   "GTS 150 OEM",
@@ -7943,6 +8553,14 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "RX VEGA 11",
   "RX VEGA 56",
   "RX VEGA 64",
+  "ARC A 310",
+  "ARC A 350",
+  "ARC A 380",
+  "ARC A 580",
+  "ARC A 750",
+  "ARC A 770",
+  "ARC B 570",
+  "ARC B 580",
   "GT 520 MX",
   "GTS 150 M",
   "GTS 160 M",
@@ -8296,7 +8914,10 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "HD 7950",
   "HD 7970",
   "HD 7990",
+  "R 7 250",
   "R 7 260",
+  "R 9 280",
+  "R 9 290",
   "R 9 380",
   "R7 250E",
   "R7 250X",
@@ -8335,6 +8956,8 @@ window.FairPriceLK_Extractors.gpu = (function () {
   "GT 720",
   "GT 730",
   "GT 740",
+  "HD IGP",
+  "R 7260",
   "R7 240",
   "R7 250",
   "R7 260",
@@ -8442,10 +9065,11 @@ window.FairPriceLK_Extractors.gpu = (function () {
     function extractVram(pageContext, matchedModel) {
         const { title = "", raw_text = "", key_values = {} } = (pageContext || {});
         let explicitVram = null;
+        const spec = matchedModel ? GPU_SPECS_DATASET[matchedModel] : null;
 
-        // Priority 1: Scraped explicit spec field (e.g. 'VRAM: 8GB', 'Memory: 4 GB')
+        // Priority 1: Scraped explicit spec field (e.g. 'VRAM: 8GB', 'Graphics Memory: 8 GB')
         if (key_values) {
-            for (const key of ['vram', 'memory', 'memory size', 'graphics memory', 'vram (gb)', 'vram_gb', 'memory_size']) {
+            for (const key of ['vram', 'graphics memory', 'video memory', 'vram (gb)', 'vram_gb']) {
                 if (key_values[key]) {
                     const m = String(key_values[key]).match(/\b(\d{1,2})\s*(?:GB|GIGABYTE|G)\b/i);
                     if (m) {
@@ -8457,12 +9081,26 @@ window.FairPriceLK_Extractors.gpu = (function () {
                     }
                 }
             }
+            // For generic 'memory' field, only accept if it matches official valid VRAM for this GPU
+            // or if no spec is known (prevents system RAM like 16GB/32GB leaking from whole PC ads)
+            if (explicitVram === null && (key_values['memory'] || key_values['memory size'] || key_values['memory_size'])) {
+                const rawMem = key_values['memory'] || key_values['memory size'] || key_values['memory_size'];
+                const m = String(rawMem).match(/\b(\d{1,2})\s*(?:GB|GIGABYTE|G)\b/i);
+                if (m) {
+                    const val = parseFloat(m[1]);
+                    if (val >= 1 && val <= 48) {
+                        if (!spec || spec.valid_vrams.includes(val)) {
+                            explicitVram = val;
+                        }
+                    }
+                }
+            }
         }
 
         // Priority 2: Match in title (strict 'GB' or 'G' before GDDR/VRAM, preventing '1 Year Warranty' or '1G' collisions)
         if (explicitVram === null && title) {
             const titleMatch = title.match(/\b(\d{1,2})\s*GB\b(?!\s*warranty)/i) ||
-                               title.match(/\b(\d{1,2})\s*G(?=\s*(?:GDDR\d[X]?|VRAM|DDR\d))/i);
+                               title.match(/\b(\d{1,2})\s*G(?=\s*(?:GDDR\d[X]?|VRAM))/i);
             if (titleMatch) {
                 const val = parseFloat(titleMatch[1]);
                 if (val >= 1 && val <= 48) {
@@ -8471,9 +9109,21 @@ window.FairPriceLK_Extractors.gpu = (function () {
             }
         }
 
-        // Priority 3: Description search with strict VRAM keywords binding only
+        // Priority 3: Check if description explicitly mentions a valid VRAM for this detected model
+        // E.g., for RTX 2080 (valid: 8GB), matches "Rtx 2080 gigabyte oc 8gb 🔥"
+        if (explicitVram === null && spec && spec.valid_vrams && spec.valid_vrams.length > 0 && raw_text) {
+            for (const validVal of spec.valid_vrams) {
+                const pattern = new RegExp(`\\b${validVal}\\s*(?:GB|G)\\b(?!\\s*(?:RAM|DDR|SYSTEM|WARRANTY))`, 'i');
+                if (pattern.test(raw_text)) {
+                    explicitVram = validVal;
+                    break;
+                }
+            }
+        }
+
+        // Priority 4: Description search with strict VRAM keywords binding only (EXCLUDING DDR4/DDR5 system RAM)
         if (explicitVram === null && raw_text) {
-            const descMatch = raw_text.match(/\b(\d{1,2})\s*GB\s*(?:GDDR\d[X]?|VRAM|DDR\d|VIDEO\s*MEMORY|GRAPHICS\s*MEMORY)\b/i) ||
+            const descMatch = raw_text.match(/\b(\d{1,2})\s*GB\s*(?:GDDR\d[X]?|VRAM|VIDEO\s*MEMORY|GRAPHICS\s*MEMORY)\b/i) ||
                               raw_text.match(/\b(?:VRAM|GRAPHICS\s*MEMORY|MEMORY\s*SIZE|VIDEO\s*MEMORY)\s*[:=]?\s*(\d{1,2})\s*GB\b/i);
             if (descMatch) {
                 const val = parseFloat(descMatch[1]);
@@ -8482,8 +9132,6 @@ window.FairPriceLK_Extractors.gpu = (function () {
                 }
             }
         }
-
-        const spec = matchedModel ? GPU_SPECS_DATASET[matchedModel] : null;
 
         // If explicit VRAM was found, validate against official specifications
         if (explicitVram !== null) {

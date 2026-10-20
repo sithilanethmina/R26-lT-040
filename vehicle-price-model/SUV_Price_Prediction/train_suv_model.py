@@ -1,3 +1,10 @@
+# SUV training exclusively on Registered (Used) vehicles.
+# Never modify source condition labels; exclude other conditions before training.
+# Transmission: normalize valid labels, then impute invalid labels with valid mode.
+# This retraining overwrites the usual models/suv and outputs/suv artifacts.
+# Uses original output locations; training overwrites existing SUV model artifacts.
+# Keep a backup of the previous models and encoder before training.
+
 """
 Multi-Brand SUV Price Prediction — Training Script
 ===================================================
@@ -21,27 +28,25 @@ Key differences from Car model (train_combined_model.py):
   3. Price ceiling is 200M LKR (vs 100M for cars)
      Range Rover, Land Cruiser V8, Audi Q8 go above 100M
 
-  4. 2025/2026 records KEPT — median prices match 2023/2024
-     These are unregistered/new stock, not data errors
+  4. 2025/2026 records may be kept if condition is Registered (Used)
+     Brand-new / unregistered listings are excluded before training
 
-  5. Monotone constraints updated:
-     engine_cc: +1 (bigger engine = more expensive)
+  5. Monotone constraints: model_year +1, mileage -1, vehicle_age -1,
+     engine_cc 0 (no assumed direction)
 
-  6. Minimum combo = 5 (vs 3 for cars)
+  6. Minimum combo = 2 (as configured below)
      SUV market more diverse → need more data per combo
 
 Models trained (4):
   - CatBoost         (handles categoricals natively)
-  - XGBRegressor     (production model — monotone constraints)
-  - Gradient Boosting
+  - XGBRegressor     (monotone constraints)
+  - Monotonic HistGradientBoosting (monotone constraints)
   - Random Forest
 
-Production model: XGBRegressor
-  Reason: Monotone constraints guarantee:
-    newer year     → always higher price
-    more mileage   → always lower price
-    older age      → always lower price
-    bigger engine  → always higher price
+Production model: lower holdout MAE of the two monotonic candidates.
+Constraints are non-decreasing for model_year, non-increasing for
+mileage_km and vehicle_age, and unconstrained for engine_cc.
+CatBoost and Random Forest are comparison baselines.
 """
 
 import os
@@ -53,7 +58,7 @@ import numpy as np
 from pathlib import Path
 
 from sklearn.model_selection import train_test_split, KFold
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor, HistGradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.preprocessing import OrdinalEncoder
 from xgboost import XGBRegressor
@@ -71,8 +76,7 @@ OUTPUT_DIR = BASE_DIR / "outputs" / "suv"
 RANDOM_STATE = 42
 
 # ─── Brand Config ─────────────────────────────────────────────────────────────
-# Brands with 80+ records → included in training
-# Below 80 → too few for reliable per-brand evaluation
+# Explicit brand allow-list from the original project (not a strict 80-record cutoff).
 TRAINABLE_BRANDS = [
     "Toyota", "Honda", "Mitsubishi", "Nissan", "Kia",
     "Micro", "DFSK", "Suzuki", "Land-Rover", "Audi",
@@ -87,7 +91,7 @@ TRAINABLE_BRANDS = [
 PRICE_MIN         = 1_000_000    # 1M minimum — no cheap hatchbacks
 PRICE_MAX         = 200_000_000  # 200M — covers Range Rover, Land Cruiser V8
 YEAR_MIN          = 1990
-YEAR_MAX          = 2026         # 2025/2026 kept — unregistered stock is valid
+YEAR_MAX          = 2026         # Recent registered-used SUVs may also be from 2025/2026
 MILEAGE_MAX       = 500_000
 ENGINE_CC_MIN     = 650          # smallest SUV engine (Suzuki Jimny)
 ENGINE_CC_MAX     = 6_000        # largest (Land Cruiser V8)
@@ -102,8 +106,9 @@ TARGET               = "price"
 
 # Monotone constraints — order must match ALL_FEATURES exactly:
 # brand=0, model=0, variant=0, fuel_type=0, transmission=0,
-# model_year=+1, mileage_km=-1, vehicle_age=-1, engine_cc=+1
+# model_year=+1, mileage_km=-1, vehicle_age=-1, engine_cc=0
 MONOTONE_CONSTRAINTS = (0, 0, 0, 0, 0, 1, -1, -1, 0)
+assert len(MONOTONE_CONSTRAINTS) == len(ALL_FEATURES)
 
 
 # ══════════════════════════════════════════════════════════════
@@ -470,6 +475,21 @@ def load_and_clean_data() -> pd.DataFrame:
     combined = pd.concat(dfs, ignore_index=True)
     print(f"\n  Total raw records: {len(combined):,}")
 
+    # ── Scope filter: ONLY second-hand SUVs ──
+    # Keep original source labels intact; do not relabel new vehicles as used.
+    # Filter BEFORE calculating missing-value statistics and group counts.
+    if "condition" not in combined.columns:
+        raise ValueError("SUV dataset must include the 'condition' column")
+    before_condition = len(combined)
+    combined["condition"] = combined["condition"].astype("string").str.strip()
+    combined = combined.loc[
+        combined["condition"].str.casefold().eq("registered (used)").fillna(False)
+    ].copy()
+    print(f"  Excluded non-used SUVs   : {before_condition - len(combined):,} records")
+    print(f"  Registered used retained: {len(combined):,} records")
+    if combined.empty:
+        raise ValueError("No Registered (Used) SUV records remain after condition filtering")
+
     # ── Step 1: Numeric conversion ──
     for col in ["price", "model_year", "mileage_km", "engine_cc"]:
         combined[col] = pd.to_numeric(combined[col], errors="coerce")
@@ -489,7 +509,7 @@ def load_and_clean_data() -> pd.DataFrame:
     combined = combined[~suspicious_low_price].copy()
 
     # ── Step 3: Year filter (1990 – 2026) ──
-    # 2025/2026 KEPT — unregistered/new stock, median prices match 2023/2024
+    # 2025/2026 may be retained only when condition is Registered (Used).
     before = len(combined)
     combined = combined[
         (combined["model_year"] >= YEAR_MIN) &
@@ -504,17 +524,25 @@ def load_and_clean_data() -> pd.DataFrame:
         combined["mileage_km"].isna() |
         (combined["mileage_km"] <= MILEAGE_MAX)
     ].copy()
-    # Zero mileage → NaN (unregistered — will be imputed)
+    # Zero mileage is treated as missing in the existing used-only pipeline.
     combined.loc[combined["mileage_km"] == 0, "mileage_km"] = np.nan
     print(f"  Mileage outliers removed : {before - len(combined):,} records")
 
-    # ── Step 5: Fix bad transmission ──
-    # "1977" is a data entry error — replace with "Automatic"
-    combined["transmission"] = combined["transmission"].astype(str).str.strip()
-    combined.loc[
-        ~combined["transmission"].isin(["Automatic", "Manual"]),
-        "transmission"
-    ] = "Automatic"
+    # ── Step 5: Validate and normalize transmission ──
+    # Examples: " automatic " -> "Automatic", "MANUAL" -> "Manual".
+    # Values such as "1977", "Unknown", or missing are NOT evidence of Automatic.
+    combined["transmission"] = (
+        combined["transmission"].astype("string").str.strip().str.casefold()
+        .map({"automatic": "Automatic", "manual": "Manual"})
+    )
+    invalid_transmission = combined["transmission"].isna().sum()
+    valid_mode = combined["transmission"].mode(dropna=True)
+    if valid_mode.empty:
+        raise ValueError("No valid Automatic/Manual transmission values in used SUV data")
+    transmission_fallback = valid_mode.iloc[0]
+    combined["transmission"] = combined["transmission"].fillna(transmission_fallback)
+    print(f"  Invalid transmission fixed: {invalid_transmission:,} "
+          f"(fallback: {transmission_fallback}, valid-value mode)")
 
     # ── Step 6: Engine CC cleaning ──
     # SUV engine_cc is real data — clean it properly
@@ -586,6 +614,9 @@ def load_and_clean_data() -> pd.DataFrame:
     )
     combined["variant"] = combined.apply(map_suv_generations, axis=1)
 
+    # All records are already Registered (Used); condition is a constant
+    # and deliberately excluded from ALL_FEATURES.
+
     # ── Step 11: Feature engineering ──
     combined["vehicle_age"] = (2026 - combined["model_year"]).clip(lower=1)
 
@@ -654,7 +685,7 @@ def print_data_summary(df: pd.DataFrame):
 
 def train_all_models(df: pd.DataFrame):
     print(f"\n{'='*70}")
-    print("TRAINING — 4 MODEL PIPELINE")
+    print("TRAINING — 4 MODEL PIPELINE (2 MONOTONIC CANDIDATES)")
     print(f"{'='*70}")
     print(f"  Features: {ALL_FEATURES}")
     print(f"  Target  : log1p(price)")
@@ -663,38 +694,29 @@ def train_all_models(df: pd.DataFrame):
     X = df[ALL_FEATURES].copy()
     y = np.log1p(df[TARGET])
 
-    # OrdinalEncoder for XGBoost / Gradient Boosting / Random Forest
-    encoder   = OrdinalEncoder(
-        handle_unknown="use_encoded_value",
-        unknown_value=-1
-    )
-    X_encoded = X.copy()
-    X_encoded[CATEGORICAL_FEATURES] = encoder.fit_transform(
-        X[CATEGORICAL_FEATURES].astype(str)
-    )
-
-    # CatBoost uses original string categoricals
-    cat_indices = [ALL_FEATURES.index(c) for c in CATEGORICAL_FEATURES]
-
-    # Stratified split by brand
+    # Split BEFORE fitting the encoder to prevent category leakage.
     try:
-        (X_cat_tr, X_cat_te,
-         X_enc_tr, X_enc_te,
-         y_tr, y_te) = train_test_split(
-            X, X_encoded, y,
-            test_size=0.2,
-            random_state=RANDOM_STATE,
+        X_cat_tr, X_cat_te, y_tr, y_te = train_test_split(
+            X, y, test_size=0.2, random_state=RANDOM_STATE,
             stratify=df["brand"]
         )
     except ValueError:
         print("  Stratified split failed → normal split")
-        (X_cat_tr, X_cat_te,
-         X_enc_tr, X_enc_te,
-         y_tr, y_te) = train_test_split(
-            X, X_encoded, y,
-            test_size=0.2,
-            random_state=RANDOM_STATE
+        X_cat_tr, X_cat_te, y_tr, y_te = train_test_split(
+            X, y, test_size=0.2, random_state=RANDOM_STATE
         )
+
+    encoder = OrdinalEncoder(
+        handle_unknown="use_encoded_value", unknown_value=-1
+    )
+    X_enc_tr, X_enc_te = X_cat_tr.copy(), X_cat_te.copy()
+    X_enc_tr[CATEGORICAL_FEATURES] = encoder.fit_transform(
+        X_cat_tr[CATEGORICAL_FEATURES].astype(str)
+    )
+    X_enc_te[CATEGORICAL_FEATURES] = encoder.transform(
+        X_cat_te[CATEGORICAL_FEATURES].astype(str)
+    )
+    cat_indices = [ALL_FEATURES.index(c) for c in CATEGORICAL_FEATURES]
 
     print(f"  Train: {len(X_cat_tr):,}   Test: {len(X_cat_te):,}")
     print()
@@ -714,9 +736,8 @@ def train_all_models(df: pd.DataFrame):
         # model_year: +1 (newer = pricier)
         # mileage_km: -1 (more km = cheaper)
         # vehicle_age: -1 (older = cheaper)
-        # engine_cc: +1 (bigger engine = pricier) ← SUV specific
-        # Random Forest may score lower MAE but lacks monotone constraints
-        # 20K-50K LKR MAE difference is acceptable for logical consistency
+        # engine_cc: 0 (unconstrained, matching the original tuple)
+        # Only monotonic-capable models are eligible for production selection.
         "XGBRegressor": XGBRegressor(
             n_estimators=400,
             learning_rate=0.04,
@@ -730,12 +751,16 @@ def train_all_models(df: pd.DataFrame):
             verbosity=0,
             monotone_constraints=MONOTONE_CONSTRAINTS,
         ),
-        "Gradient Boosting": GradientBoostingRegressor(
-            n_estimators=400,
+        # sklearn's classic GradientBoostingRegressor does NOT support
+        # monotonic constraints. HistGradientBoostingRegressor does.
+        # Categorical columns are ordinal-encoded like the XGBoost inputs.
+        "Monotonic HistGradientBoosting": HistGradientBoostingRegressor(
+            max_iter=400,
             learning_rate=0.04,
-            max_depth=6,
-            subsample=0.8,
+            max_leaf_nodes=31,
             min_samples_leaf=5,
+            l2_regularization=0.0,
+            monotonic_cst=MONOTONE_CONSTRAINTS,
             random_state=RANDOM_STATE,
         ),
         "Random Forest": RandomForestRegressor(
@@ -770,17 +795,21 @@ def train_all_models(df: pd.DataFrame):
 
     results_df = pd.DataFrame(results).sort_values("MAE")
 
-    # Honest reporting
-    best_by_mae   = results_df.iloc[0]["Model"]
-    production    = "XGBRegressor"
-    xgb_row       = results_df[results_df["Model"] == production].iloc[0]
+    # Both candidate models enforce the SAME monotone constraint vector.
+    # Select the candidate with the lower holdout MAE. Baselines are reported
+    # but cannot become production models without matching constraints.
+    best_by_mae = results_df.iloc[0]["Model"]
+    monotonic_candidates = ["XGBRegressor", "Monotonic HistGradientBoosting"]
+    eligible_results = results_df[results_df["Model"].isin(monotonic_candidates)]
+    production = eligible_results.iloc[0]["Model"]
+    prod_row = eligible_results.iloc[0]
 
     print(f"\n  Best by MAE         : {best_by_mae} "
           f"(MAE={results_df.iloc[0]['MAE']/1e6:.3f}M)")
     print(f"  Production model    : {production} "
-          f"(MAE={xgb_row['MAE']/1e6:.3f}M, R²={xgb_row['R2_Score']:.4f})")
-    print(f"  Reason              : Monotone constraints ensure logical "
-          f"SUV pricing (year↑ price↑, mileage↑ price↓, engine_cc↑ price↑)")
+          f"(MAE={prod_row['MAE']/1e6:.3f}M, R²={prod_row['R2_Score']:.4f})")
+    print("  Reason              : Lowest test MAE among models with "
+          "matching monotone constraints")
 
     # Build prediction display
     prod_model      = trained[production]
@@ -805,6 +834,15 @@ def train_all_models(df: pd.DataFrame):
             model_count_map.get((r["brand"], r["model"]), 0)
         ), axis=1
     )
+
+    # This experiment is used-only; all test rows are Registered (Used).
+    used_metrics = compute_metrics(
+        display_df["Actual_Price_LKR"], display_df["Predicted_Price_LKR"]
+    )
+    print("\n  Registered (Used) — held-out test results:")
+    print(f"    N={len(display_df):,}  MAE={used_metrics['MAE']/1e6:.3f}M  "
+          f"RMSE={used_metrics['RMSE']/1e6:.3f}M  "
+          f"R²={used_metrics['R2_Score']:.4f}")
 
     return (results_df, trained, encoder, prod_model, production,
             display_df, X_cat_te, X_enc_te, y_te,
@@ -876,36 +914,50 @@ def print_sample_predictions(display_df):
 #  CROSS VALIDATION
 # ══════════════════════════════════════════════════════════════
 
-def run_cross_validation(df):
+def run_cross_validation(df, production):
     print(f"\n{'─'*70}")
-    print("5-FOLD CROSS VALIDATION  (XGBRegressor — Production Model)")
+    print(f"5-FOLD CROSS VALIDATION  ({production} — Production Model)")
 
     X = df[ALL_FEATURES].copy()
     y = np.log1p(df[TARGET])
 
-    encoder   = OrdinalEncoder(
-        handle_unknown="use_encoded_value", unknown_value=-1
-    )
-    X_encoded = X.copy()
-    X_encoded[CATEGORICAL_FEATURES] = encoder.fit_transform(
-        X[CATEGORICAL_FEATURES].astype(str)
-    )
-
     kf      = KFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
     cv_rows = []
 
-    for fold, (tr_idx, te_idx) in enumerate(kf.split(X_encoded), 1):
-        X_tr, X_te = X_encoded.iloc[tr_idx], X_encoded.iloc[te_idx]
+    for fold, (tr_idx, te_idx) in enumerate(kf.split(X), 1):
+        X_raw_tr, X_raw_te = X.iloc[tr_idx].copy(), X.iloc[te_idx].copy()
         y_tr, y_te = y.iloc[tr_idx], y.iloc[te_idx]
-
-        m = XGBRegressor(
-            n_estimators=400, learning_rate=0.04, max_depth=7,
-            subsample=0.8, colsample_bytree=0.8,
-            min_child_weight=3, gamma=0.1,
-            objective="reg:squarederror",
-            random_state=RANDOM_STATE, verbosity=0,
-            monotone_constraints=MONOTONE_CONSTRAINTS,
+        # Fit a NEW encoder within each fold, never on the validation fold.
+        fold_encoder = OrdinalEncoder(
+            handle_unknown="use_encoded_value", unknown_value=-1
         )
+        X_tr, X_te = X_raw_tr.copy(), X_raw_te.copy()
+        X_tr[CATEGORICAL_FEATURES] = fold_encoder.fit_transform(
+            X_raw_tr[CATEGORICAL_FEATURES].astype(str)
+        )
+        X_te[CATEGORICAL_FEATURES] = fold_encoder.transform(
+            X_raw_te[CATEGORICAL_FEATURES].astype(str)
+        )
+
+        # Recreate the selected monotonic estimator within each fold.
+        if production == "XGBRegressor":
+            m = XGBRegressor(
+                n_estimators=400, learning_rate=0.04, max_depth=7,
+                subsample=0.8, colsample_bytree=0.8,
+                min_child_weight=3, gamma=0.1,
+                objective="reg:squarederror",
+                random_state=RANDOM_STATE, verbosity=0,
+                monotone_constraints=MONOTONE_CONSTRAINTS,
+            )
+        elif production == "Monotonic HistGradientBoosting":
+            m = HistGradientBoostingRegressor(
+                max_iter=400, learning_rate=0.04, max_leaf_nodes=31,
+                min_samples_leaf=5, l2_regularization=0.0,
+                monotonic_cst=MONOTONE_CONSTRAINTS,
+                random_state=RANDOM_STATE,
+            )
+        else:
+            raise ValueError(f"Unexpected production model: {production}")
         m.fit(X_tr, y_tr)
         metrics = compute_metrics(
             np.expm1(y_te), np.expm1(m.predict(X_te))
@@ -1041,7 +1093,7 @@ def save_artifacts(results_df, trained, encoder, prod_model,
 
     print(f"\n  models/suv/best_suv_model.pkl")
     print(f"  models/suv/suv_ordinal_encoder.pkl")
-    print(f"  models/suv/[catboost/xgbregressor/gradient_boosting/random_forest].pkl")
+    print("  models/suv/[catboost/xgbregressor/monotonic_histgradientboosting/random_forest].pkl")
     print(f"  outputs/suv/suv_model_comparison.csv")
     print(f"  outputs/suv/suv_test_predictions.csv")
     print(f"  outputs/suv/suv_cross_validation_results.csv")
@@ -1068,7 +1120,7 @@ def main():
     print_per_brand_table(display_df, production)
     print_sample_predictions(display_df)
 
-    cv_df = run_cross_validation(df)
+    cv_df = run_cross_validation(df, production)
 
     demonstrate_nlp(df, prod_model, encoder)
 
@@ -1078,14 +1130,14 @@ def main():
     save_artifacts(results_df, trained, encoder, prod_model,
                    display_df, cv_df, df)
 
-    xgb_row = results_df[results_df["Model"] == "XGBRegressor"].iloc[0]
+    prod_row = results_df[results_df["Model"] == production].iloc[0]
     print(f"\n{'='*70}")
     print("SUV TRAINING COMPLETE")
     print(f"{'='*70}")
-    print(f"  Models trained  : 4 (CatBoost, XGBoost, Gradient Boosting, "
-          f"Random Forest)")
-    print(f"  Production model: XGBRegressor  "
-          f"MAE={xgb_row['MAE']/1e6:.3f}M  R²={xgb_row['R2_Score']:.4f}")
+    print("  Models trained  : 4 (CatBoost, XGBoost, "
+          "Monotonic HistGradientBoosting, Random Forest)")
+    print(f"  Production model: {production}  "
+          f"MAE={prod_row['MAE']/1e6:.3f}M  R²={prod_row['R2_Score']:.4f}")
     print(f"  CV Mean R²      : {cv_df['R2_Score'].mean():.4f}")
     print(f"  Total records   : {len(df):,} across "
           f"{df['brand'].nunique()} SUV brands")

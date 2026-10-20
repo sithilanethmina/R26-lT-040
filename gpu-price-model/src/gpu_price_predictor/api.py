@@ -11,6 +11,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+import lightgbm
 from gpu_price_predictor.app import load_artifact, load_enriched, predict_all
 from gpu_price_predictor.pipeline import (
     apply_condition_adjustment,
@@ -37,9 +38,18 @@ def health_check():
 
 artifact, artifact_ver = load_artifact()
 enriched = load_enriched()
+METADATA_JSON_PATH = PROJECT_ROOT.parent / "browser-extension" / "gpu_metadata.json"
 
 @app.get("/metadata")
 def get_metadata():
+    if METADATA_JSON_PATH.exists():
+        try:
+            import json
+            with open(METADATA_JSON_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+
     if enriched is None:
         raise HTTPException(status_code=500, detail="Enriched dataset not loaded.")
     

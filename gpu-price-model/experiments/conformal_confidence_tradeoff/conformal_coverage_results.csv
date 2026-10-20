@@ -1,0 +1,7 @@
+target_confidence,target_nominal_pct,empirical_coverage_pct,log_quantile_q,mean_relative_interval_width_pct,valid_statistically
+70%,70.0,65.25,0.1071,21.65,False
+75%,75.0,69.92,0.1187,24.0,False
+80%,80.0,75.92,0.1323,26.77,False
+85%,85.0,81.33,0.1508,30.53,False
+90%,90.0,87.75,0.1751,35.51,False
+95%,95.0,93.42,0.2214,45.03,False

@@ -7,6 +7,7 @@ import warnings
 from pathlib import Path
 
 import joblib
+import lightgbm
 import numpy as np
 import pandas as pd
 
@@ -593,14 +594,77 @@ div[data-testid="stAlertContainer"] {
 """
 
 
-# ── Loaders ───────────────────────────────────────────────────────────────────
+def cache_lgbm_model_strings(obj):
+    """Safely extract and cache LightGBM model string representations immediately after unpickling."""
+    if obj is None:
+        return
+    import lightgbm
+    if hasattr(obj, "_Booster") and getattr(obj, "_Booster") is not None:
+        b = getattr(obj, "_Booster")
+        if isinstance(b, lightgbm.Booster) and not getattr(obj, "_cached_lgbm_str", None):
+            try:
+                obj._cached_lgbm_str = b.model_to_string()
+            except Exception:
+                pass
+    if hasattr(obj, "steps"):
+        for _, step in obj.steps:
+            cache_lgbm_model_strings(step)
+    if hasattr(obj, "named_estimators_") and isinstance(obj.named_estimators_, dict):
+        for sub_est in obj.named_estimators_.values():
+            cache_lgbm_model_strings(sub_est)
+    if hasattr(obj, "estimators_") and isinstance(obj.estimators_, (list, tuple)):
+        for sub_est in obj.estimators_:
+            cache_lgbm_model_strings(sub_est)
+
+
+def heal_lgbm_estimator(obj):
+    """Rebuild LightGBM Booster C-pointer handles that can be invalidated during unpickling or multi-runtime execution on Windows."""
+    if obj is None:
+        return
+    import lightgbm
+    if hasattr(obj, "_cached_lgbm_str") and getattr(obj, "_cached_lgbm_str"):
+        try:
+            obj._Booster = lightgbm.Booster(model_str=obj._cached_lgbm_str)
+        except Exception:
+            pass
+    elif hasattr(obj, "_Booster") and getattr(obj, "_Booster") is not None:
+        b = getattr(obj, "_Booster")
+        if isinstance(b, lightgbm.Booster):
+            try:
+                m_str = b.model_to_string()
+                if m_str:
+                    obj._cached_lgbm_str = m_str
+                    obj._Booster = lightgbm.Booster(model_str=m_str)
+            except Exception:
+                pass
+    if hasattr(obj, "steps"):
+        for _, step in obj.steps:
+            heal_lgbm_estimator(step)
+    if hasattr(obj, "named_estimators_") and isinstance(obj.named_estimators_, dict):
+        for sub_est in obj.named_estimators_.values():
+            heal_lgbm_estimator(sub_est)
+    if hasattr(obj, "estimators_") and isinstance(obj.estimators_, (list, tuple)):
+        for sub_est in obj.estimators_:
+            heal_lgbm_estimator(sub_est)
+
+
 @cache_resource
 def load_artifact():
+    art, ver = None, None
     if MODEL_V2_PATH.exists():
-        return joblib.load(MODEL_V2_PATH), "v2"
-    if MODEL_V1_PATH.exists():
-        return joblib.load(MODEL_V1_PATH), "v1"
-    return None, None
+        art, ver = joblib.load(MODEL_V2_PATH), "v2"
+    elif MODEL_V1_PATH.exists():
+        art, ver = joblib.load(MODEL_V1_PATH), "v1"
+
+    if art is not None and isinstance(art, dict):
+        for m in art.get("all_models", {}).values():
+            cache_lgbm_model_strings(m)
+            heal_lgbm_estimator(m)
+        if "best_model" in art:
+            cache_lgbm_model_strings(art["best_model"])
+            heal_lgbm_estimator(art["best_model"])
+
+    return art, ver
 
 
 @cache_data
@@ -798,7 +862,19 @@ def predict_all(
             else:
                 results[name] = max(0.0, float(np.expm1(pred)))
         except Exception:
-            pass
+            # Inline heal on error and retry
+            try:
+                heal_lgbm_estimator(pipeline)
+                pred = float(pipeline.predict(df_inf)[0])
+                if return_log:
+                    results[name] = float(pred)
+                else:
+                    results[name] = max(0.0, float(np.expm1(pred)))
+            except Exception as e_retry:
+                import logging
+                logging.getLogger("gpu_price_predictor").debug(
+                    "Auxiliary model %s failed to predict on Windows runtime: %s", name, e_retry
+                )
     return results
 # ── Shared prediction renderer ────────────────────────────────────────────────
 
